@@ -1,0 +1,410 @@
+  
+  
+  [1XIndex[101X
+  
+  < >  3.2-1
+  < >  4.1-1
+  [2X\*[102X (for codes)  4.2-2
+  [2X\*[102X (for message and code)  4.2-3
+  [2X\+[102X (for codewords)  3.3-1
+  [2X\+[102X (for codeword and code)  3.3-3
+  [2X\+[102X (for codes)  4.2-1
+  [2X\-[102X (for codewords)  3.3-2
+  [2X\=[102X (for codewords)  3.2-1
+  [2X\=[102X (for codes)  4.1-1
+  [22XA(n,d)[122X  7.1-7
+  acceptable coordinate  7.4-2
+  acceptable coordinate  7.4-3
+  [2XAClosestVectorComb..MatFFEVecFFECoords[102X  8.1-2
+  [2XAClosestVectorCombinationsMatFFEVecFFE[102X  8.1-1
+  [2XActionMoebiusTransformationOnDivisorP1 [102X  5.7-18
+  [2XActionMoebiusTransformationOnFunction [102X  5.7-17
+  [2XAddedElementsCode[102X  6.1-8
+  affine code  4.3-13
+  [2XAffineCurve[102X  5.7-1
+  [2XAffinePointsOnCurve[102X  5.7-2
+  [2XAlternantCode[102X  5.2-6
+  [2XAmalgamatedDirectSumCode[102X  6.2-7
+  [2XAreMOLS[102X  7.3-13
+  [2XAsSSortedList[102X  4.5-5
+  [2XAugmentedCode[102X  6.1-6
+  [2XAutomorphismGroup[102X  4.4-3
+  [2XBCHCode[102X  5.5-4
+  [2XBestKnownLinearCode[102X  5.2-14
+  [2XBinaryGolayCode[102X  5.4-1
+  [2XBitFlipDecoder[102X  4.10-5
+  [2XBlockwiseDirectSumCode[102X  6.2-8
+  Bose distance  5.5-4
+  bound, Gilbert-Varshamov lower  7.1-9
+  bound, sphere packing lower  7.1-10
+  bounds, Elias  7.1-4
+  bounds, Griesmer  7.1-5
+  bounds, Hamming  7.1-1
+  bounds, Johnson  7.1-2
+  bounds, Plotkin  7.1-3
+  bounds, Singleton  7.1
+  bounds, sphere packing bound  7.1-1
+  [2XBoundsCoveringRadius[102X  7.2-1
+  [2XBoundsMinimumDistance[102X  7.1-13
+  [2XBZCode[102X  6.2-11
+  [2XBZCodeNC[102X  6.2-12
+  check polynomial  4.
+  check polynomial  5.5
+  [2XCheckMat[102X  4.7-2
+  [2XCheckMatCode[102X  5.2-3
+  [2XCheckMatCodeMutable[102X  5.2-2
+  [2XCheckPol[102X  4.7-4
+  [2XCheckPolCode[102X  5.5-2
+  [2XCirculantMatrix[102X  7.5-17
+  code  4.
+  code, [22X(n,M,d)[122X  4.
+  code, [22X[n, k, d]r[122X  4.
+  code, AG  5.7
+  code, alternant  5.2-5
+  code, Bose-Chaudhuri-Hockenghem  5.5-3
+  code, conference  5.1-2
+  code, Cordaro-Wagner  5.2-9
+  code, cyclic  4.
+  code, Davydov  5.3-2
+  code, doubly-even  4.3-10
+  code, element test  4.3-1
+  code, elements of  4.
+  code, evaluation  5.6
+  code, even  4.3-12
+  code, Fire  5.5-9
+  code, Gabidulin  5.3
+  code, Golay (binary)  5.4
+  code, Golay (ternary)  5.4-2
+  code, Goppa (classical)  5.2-6
+  code, greedy  5.1-6
+  code, Hadamard  5.1-1
+  code, Hamming  5.2-3
+  code, linear  4.
+  code, maximum distance separable  4.3-7
+  code, Nordstrom-Robinson  5.1-5
+  code, perfect  4.3-6
+  code, Reed-Muller  5.2-4
+  code, Reed-Solomon  5.5-4
+  code, self-dual  4.3-8
+  code, self-orthogonal  4.3-9
+  code, singly-even  4.3-11
+  code, Srivastava  5.2-7
+  code, subcode  4.3-2
+  code, Tombak  5.3-3
+  code, toric  5.6-4
+  code, unrestricted  4.
+  [2XCodeDensity[102X  7.5-4
+  [2XCodeDistanceEnumerator[102X  7.5-2
+  [2XCodeIsomorphism[102X  4.4-2
+  [2XCodeMacWilliamsTransform[102X  7.5-3
+  [2XCodeNorm[102X  7.4-2
+  codes, addition  4.2-1
+  codes, decoding  4.2-4
+  codes, direct sum  4.2-1
+  codes, encoding  4.2-3
+  codes, product  4.2-2
+  [2XCodeWeightEnumerator[102X  7.5-1
+  [2XCodeword[102X  3.1-1
+  [2XCodewordNr[102X  3.1-2
+  codewords, addition  3.3-1
+  codewords, cosets  3.3-3
+  codewords, subtraction  3.3-2
+  [2XCoefficientMultivariatePolynomial[102X  7.6-4
+  [2XCoefficientToPolynomial[102X  7.6-8
+  conference matrix  5.1-3
+  [2XConferenceCode[102X  5.1-3
+  [2XConstantWeightSubcode[102X  6.1-18
+  [2XConstructionBCode[102X  6.1-13
+  [2XConstructionXCode[102X  6.2-9
+  [2XConstructionXXCode[102X  6.2-10
+  [2XConversionFieldCode[102X  6.1-15
+  [2XConwayPolynomial[102X  8.2-1
+  [2XCoordinateNorm[102X  7.4-1
+  [2XCordaroWagnerCode[102X  5.2-10
+  coset  3.3-3
+  [2XCosetCode[102X  6.1-17
+  covering code  4.8-7
+  [2XCoveringRadius[102X  4.8-8
+  cyclic  5.5-17
+  [2XCyclicCodes[102X  5.5-14
+  [2XCyclicMDSCode[102X  5.5-17
+  [2XCyclotomicCosets[102X  7.5-12
+  [2XDavydovCode[102X  5.3-3
+  [2XDecode[102X  4.10-1
+  [2XDecodeword[102X  4.10-2
+  [2XDecreaseMinimumDistanceUpperBound[102X  4.8-6
+  defining polynomial  8.2
+  degree  5.7-7
+  [2XDegreeMultivariatePolynomial[102X  7.6-2
+  [2XDegreesMonomialTerm[102X  7.6-9
+  [2XDegreesMultivariatePolynomial[102X  7.6-3
+  density of a code  7.5-3
+  [2XDimension[102X  4.5-4
+  [2XDirectProductCode[102X  6.2-3
+  [2XDirectSumCode[102X  6.2-1
+  [2XDisplay[102X  4.6-3
+  [2XDisplayBoundsInfo[102X  4.6-4
+  distance  4.9-3
+  [2XDistanceCodeword[102X  3.6-2
+  [2XDistancesDistribution[102X  4.9-4
+  [2XDistancesDistributionMatFFEVecFFE[102X  8.1-3
+  [2XDistancesDistributionVecFFEsVecFFE[102X  8.1-4
+  [2XDistanceVecFFE[102X  8.1-6
+  divisor  5.7-4
+  [2XDivisorAddition [102X  5.7-6
+  [2XDivisorAutomorphismGroupP1 [102X  5.7-20
+  [2XDivisorDegree [102X  5.7-7
+  [2XDivisorGCD [102X  5.7-11
+  [2XDivisorIsZero [102X  5.7-9
+  [2XDivisorLCM [102X  5.7-12
+  [2XDivisorNegate [102X  5.7-8
+  [2XDivisorOfRationalFunctionP1 [102X  5.7-14
+  [2XDivisorOnAffineCurve[102X  5.7-5
+  [2XDivisorsEqual [102X  5.7-10
+  [2XDivisorsMultivariatePolynomial[102X  7.6-10
+  doubly-even  4.3-9
+  [2XDualCode[102X  6.1-14
+  [2XElementsCode[102X  5.1-1
+  encoder map  4.2-3
+  [2XEnlargedGabidulinCode[102X  5.3-2
+  [2XEnlargedTombakCode[102X  5.3-5
+  equivalent codes  4.4
+  [2XEvaluationBivariateCode[102X  5.7-23
+  [2XEvaluationBivariateCodeNC[102X  5.7-24
+  [2XEvaluationCode[102X  5.6-1
+  even  4.3-11
+  [2XEvenWeightSubcode[102X  6.1-3
+  [2XExhaustiveSearchCoveringRadius[102X  7.2-3
+  [2XExpurgatedCode[102X  6.1-5
+  [2XExtendedBinaryGolayCode[102X  5.4-2
+  [2XExtendedCode[102X  6.1-1
+  [2XExtendedDirectSumCode[102X  6.2-6
+  [2XExtendedReedSolomonCode[102X  5.5-6
+  [2XExtendedTernaryGolayCode[102X  5.4-4
+  external distance  7.2-13
+  [2XFerreroDesignCode[102X  5.2-11
+  [2XFireCode[102X  5.5-10
+  [2XFourNegacirculantSelfDualCode[102X  5.5-18
+  [2XFourNegacirculantSelfDualCodeNC[102X  5.5-19
+  [2XGabidulinCode[102X  5.3-1
+  Gary code  7.3-1
+  [2XGeneralizedCodeNorm[102X  7.4-4
+  [2XGeneralizedReedMullerCode[102X  5.6-3
+  [2XGeneralizedReedSolomonCode[102X  5.6-2
+  [2XGeneralizedReedSolomonDecoderGao[102X  4.10-3
+  [2XGeneralizedReedSolomonListDecoder[102X  4.10-4
+  [2XGeneralizedSrivastavaCode[102X  5.2-8
+  [2XGeneralLowerBoundCoveringRadius[102X  7.2-4
+  [2XGeneralUpperBoundCoveringRadius[102X  7.2-5
+  generator polynomial  4.
+  generator polynomial  5.5
+  [2XGeneratorMat[102X  4.7-1
+  [2XGeneratorMatCode[102X  5.2-1
+  [2XGeneratorPol[102X  4.7-3
+  [2XGeneratorPolCode[102X  5.5-1
+  [2XGenusCurve[102X  5.7-3
+  [22XGF(p)[122X  8.2
+  [22XGF(q)[122X  8.2
+  [2XGoppaCode[102X  5.2-7
+  [2XGoppaCodeClassical[102X  5.7-22
+  [2XGOrbitPoint [102X  5.7-4
+  [2XGrayMat[102X  7.3-2
+  greatest common divisor  5.7-11
+  [2XGreedyCode[102X  5.1-7
+  Griesmer code  7.1-6
+  [2XGuavaVersion[102X  7.6-6
+  Hadamard matrix  5.1-2
+  Hadamard matrix  7.3-3
+  [2XHadamardCode[102X  5.1-2
+  [2XHadamardMat[102X  7.3-4
+  Hamming metric  8.1-5
+  [2XHammingCode[102X  5.2-4
+  [2XHorizontalConversionFieldMat[102X  7.3-10
+  hull  6.2-4
+  [2Xin[102X  4.3-1
+  [2XIncreaseCoveringRadiusLowerBound[102X  7.2-2
+  information bits  4.2-4
+  [2XInformationWord[102X  4.2-4
+  [2XInnerDistribution[102X  4.9-3
+  [2XIntersectionCode[102X  6.2-4
+  [2XIrreduciblePolynomialsNr[102X  7.5-9
+  [2XIsActionMoebiusTransformationOnDivisorDefinedP1 [102X  5.7-19
+  [2XIsAffineCode[102X  4.3-14
+  [2XIsAlmostAffineCode[102X  4.3-15
+  IsCheapConwayPolynomial  8.2-1
+  [2XIsCode[102X  4.3-3
+  [2XIsCodeword[102X  3.1-3
+  [2XIsCoordinateAcceptable[102X  7.4-3
+  [2XIsCyclicCode[102X  4.3-5
+  [2XIsDoublyEvenCode[102X  4.3-10
+  [2XIsEquivalent[102X  4.4-1
+  [2XIsEvenCode[102X  4.3-12
+  [2XIsFinite[102X  4.5-1
+  [2XIsGriesmerCode[102X  7.1-7
+  [2XIsInStandardForm[102X  7.3-7
+  [2XIsLatinSquare[102X  7.3-12
+  [2XIsLinearCode[102X  4.3-4
+  [2XIsMDSCode[102X  4.3-7
+  [2XIsNormalCode[102X  7.4-5
+  [2XIsPerfectCode[102X  4.3-6
+  IsPrimitivePolynomial  8.2-2
+  [2XIsSelfComplementaryCode[102X  4.3-13
+  [2XIsSelfDualCode[102X  4.3-8
+  [2XIsSelfOrthogonalCode[102X  4.3-9
+  [2XIsSinglyEvenCode[102X  4.3-11
+  [2XIsSubset[102X  4.3-2
+  [2XKrawtchouk[102X  7.5-6
+  [2XKrawtchoukMat[102X  7.3-1
+  Latin square  7.3-10
+  LDPC  5.8
+  least common multiple  5.7-12
+  [2XLeftActingDomain[102X  4.5-3
+  length  4.
+  [2XLengthenedCode[102X  6.1-10
+  [2XLexiCode[102X  5.1-8
+  linear code  3.
+  [2XLowerBoundCoveringRadiusCountingExcess[102X  7.2-9
+  [2XLowerBoundCoveringRadiusEmbedded1[102X  7.2-10
+  [2XLowerBoundCoveringRadiusEmbedded2[102X  7.2-11
+  [2XLowerBoundCoveringRadiusInduction[102X  7.2-12
+  [2XLowerBoundCoveringRadiusSphereCovering[102X  7.2-6
+  [2XLowerBoundCoveringRadiusVanWee1[102X  7.2-7
+  [2XLowerBoundCoveringRadiusVanWee2[102X  7.2-8
+  [2XLowerBoundGilbertVarshamov[102X  7.1-10
+  [2XLowerBoundMinimumDistance[102X  7.1-9
+  [2XLowerBoundSpherePacking[102X  7.1-11
+  MacWilliams transform  7.5-2
+  [2XMatrixRepresentationOfElement[102X  7.5-10
+  [2XMatrixRepresentationOnRiemannRochSpaceP1 [102X  5.7-21
+  [2XMatrixTransformationOnMultivariatePolynomial [102X  7.6-1
+  maximum distance separable  7.1-1
+  MDS  4.3-7
+  MDS  5.5-17
+  minimum distance  4.
+  [2XMinimumDistance[102X  4.8-3
+  [2XMinimumDistanceLeon[102X  4.8-4
+  [2XMinimumDistanceRandom[102X  4.8-7
+  [2XMinimumWeight[102X  4.8-5
+  [2XMinimumWeightWords[102X  4.9-1
+  [2XMoebiusTransformation [102X  5.7-16
+  [2XMOLS[102X  7.3-11
+  [2XMOLSCode[102X  5.1-4
+  [2XMostCommonInList[102X  7.5-15
+  [2XMultiplicityInList[102X  7.5-14
+  mutually orthogonal Latin squares  7.3-10
+  [2XNearestNeighborDecodewords[102X  4.10-7
+  [2XNearestNeighborGRSDecodewords[102X  4.10-6
+  [2XNordstromRobinsonCode[102X  5.1-6
+  norm of a code  7.4-1
+  normal code  7.4-4
+  not =  3.2-1
+  not =  4.1-1
+  [2XNrCyclicCodes[102X  5.5-15
+  [2XNullCode[102X  5.5-12
+  [2XNullWord[102X  3.6-1
+  [2XOnePointAGCode[102X  5.7-25
+  [2XOptimalityCode[102X  5.2-13
+  order of polynomial  5.5-10
+  [2XOuterDistribution[102X  4.9-5
+  Parity check  6.1
+  parity check matrix  4.
+  perfect  7.1-1
+  perfect code  7.5-4
+  permutation equivalent codes  4.4
+  PermutationAutomorphismGroup  4.4-3
+  [2XPermutationAutomorphismGroup[102X  4.4-4
+  [2XPermutationDecode[102X  4.10-11
+  [2XPermutationDecodeNC[102X  4.10-12
+  [2XPermutedCode[102X  6.1-4
+  [2XPermutedCols[102X  7.3-8
+  [2XPiecewiseConstantCode[102X  6.1-20
+  point  5.7-1
+  [2XPolyCodeword[102X  3.4-2
+  primitive element  8.2
+  [2XPrimitivePolynomialsNr[102X  7.5-8
+  [2XPrimitiveUnityRoot[102X  7.5-7
+  [2XPrint[102X  4.6-1
+  [2XPuncturedCode[102X  6.1-2
+  [2XPutStandardForm[102X  7.3-6
+  [2XQCLDPCCodeFromGroup[102X  5.8-1
+  [2XQQRCode[102X  5.5-9
+  [2XQQRCodeNC[102X  5.5-8
+  [2XQRCode[102X  5.5-7
+  [2XQuasiCyclicCode[102X  5.5-16
+  [2XRandomCode[102X  5.1-5
+  [2XRandomLinearCode[102X  5.2-12
+  [2XRandomPrimitivePolynomial[102X  8.2-2
+  reciprocal polynomial  7.5-10
+  [2XReciprocalPolynomial[102X  7.5-11
+  [2XRedundancy[102X  4.8-2
+  [2XReedMullerCode[102X  5.2-5
+  [2XReedSolomonCode[102X  5.5-5
+  [2XRemovedElementsCode[102X  6.1-7
+  [2XRepetitionCode[102X  5.5-13
+  [2XResidueCode[102X  6.1-12
+  [2XRiemannRochSpaceBasisFunctionP1 [102X  5.7-13
+  [2XRiemannRochSpaceBasisP1 [102X  5.7-15
+  [2XRootsCode[102X  5.5-3
+  [2XRootsOfCode[102X  4.7-5
+  [2XRotateList[102X  7.5-16
+  self complementary code  4.3-12
+  self-dual  5.5-18
+  self-dual  6.1-14
+  self-orthogonal  4.3-8
+  [2XSetCoveringRadius[102X  4.8-9
+  [2XShortenedCode[102X  6.1-9
+  singly-even  4.3-10
+  size  4.
+  [2XSize[102X  4.5-2
+  [2XSolveLinearSystem[102X  7.6-5
+  [2XSphereContent[102X  7.5-5
+  [2XSrivastavaCode[102X  5.2-9
+  standard form  7.3-5
+  [2XStandardArray[102X  4.10-10
+  [2XStandardFormCode[102X  6.1-19
+  strength  7.2-15
+  [2XString[102X  4.6-2
+  [2XSubCode[102X  6.1-11
+  [2XSupport[102X  3.6-3
+  support  5.7-4
+  [2XSylvesterMat[102X  7.3-3
+  [2XSyndrome[102X  4.10-8
+  syndrome table  4.10-9
+  [2XSyndromeTable[102X  4.10-9
+  [22Xt(n,k)[122X  4.8-7
+  [2XTernaryGolayCode[102X  5.4-3
+  [2XTombakCode[102X  5.3-4
+  [2XToricCode[102X  5.6-5
+  [2XToricPoints[102X  5.6-4
+  [2XTraceCode[102X  6.1-16
+  [2XTreatAsPoly[102X  3.5-2
+  [2XTreatAsVector[102X  3.5-1
+  [2XUnionCode[102X  6.2-5
+  [2XUpperBound[102X  7.1-8
+  [2XUpperBoundCoveringRadiusCyclicCode[102X  7.2-17
+  [2XUpperBoundCoveringRadiusDelsarte[102X  7.2-14
+  [2XUpperBoundCoveringRadiusGriesmerLike[102X  7.2-16
+  [2XUpperBoundCoveringRadiusRedundancy[102X  7.2-13
+  [2XUpperBoundCoveringRadiusStrength[102X  7.2-15
+  [2XUpperBoundElias[102X  7.1-5
+  [2XUpperBoundGriesmer[102X  7.1-6
+  [2XUpperBoundHamming[102X  7.1-2
+  [2XUpperBoundJohnson[102X  7.1-3
+  [2XUpperBoundMinimumDistance[102X  7.1-12
+  [2XUpperBoundPlotkin[102X  7.1-4
+  [2XUpperBoundSingleton[102X  7.1-1
+  [2XUUVCode[102X  6.2-2
+  [2XVandermondeMat[102X  7.3-5
+  [2XVectorCodeword[102X  3.4-1
+  [2XVerticalConversionFieldMat[102X  7.3-9
+  weight enumerator polynomial  7.5
+  [2XWeightCodeword[102X  3.6-4
+  [2XWeightDistribution[102X  4.9-2
+  [2XWeightHistogram[102X  7.5-13
+  [2XWeightVecFFE[102X  8.1-5
+  [2XWholeSpaceCode[102X  5.5-11
+  [2XWordLength[102X  4.8-1
+  [2XZechLog[102X  7.6-7
+  
+  
+  -------------------------------------------------------

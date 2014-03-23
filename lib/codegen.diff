@@ -1,0 +1,23 @@
+125,128c125,128
+<     SetGeneratorsOfLeftModule( V, AsList( One(F)*gens ) );
+<     SetIsLinearCode(V, true); 
+<     SetWordLength(V, Length(gens[1]));  
+<     return V;
+---
+>     SetGeneratorsOfLeftModule( V, AsList( gens ) );
+> 	SetIsLinearCode(V, true); 
+> 	SetWordLength(V, WordLength(gens[1]));  
+> 	return V;
+467c467
+< 	G := G*One(F);
+---
+> 	G:=G*One(F);
+1432,1433c1432
+< 	#C := LinearCodeByGenerators(F, Codeword(GM, F)); 
+< 	C := LinearCodeByGenerators(F, One(F)*GM); 
+---
+> 	C := LinearCodeByGenerators(F, Codeword(GM, F)); 
+1450c1449
+<     #G := PolyCodeword( Codeword(G, F) );
+---
+>     G := PolyCodeword( Codeword(G, F) );

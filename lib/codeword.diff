@@ -1,0 +1,8 @@
+770,774c770
+< 	if IsFFE(l[1]) then
+<           return VectorCodeword(Codeword(l));
+< 	else
+< 	  return List(l, i->VectorCodeword(Codeword(i)));
+< 	fi;
+---
+> 	return List(l, i->VectorCodeword(Codeword(i)));

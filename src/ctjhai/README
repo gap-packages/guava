@@ -1,0 +1,60 @@
+******************************************************************
+
+  1. The author is not liable for any damage on your side caused
+     as a result of using this program. Use it at your own risk.
+
+  2. This code is provided as is. Bugs may be reported to the
+     author (ctjhai@plymouth.ac.uk), but bear in mind that the
+     author has no duty to remedy for the deficiencies of the
+     program.
+
+  3. Contributions towards this program are greatly appreciated,
+     especially in making this code faster (optimisation). When
+     you have changed the program, or implemented the program for
+     other OS or environment, it would be grateful if you could
+     specify the part you have changed.  
+
+******************************************************************
+
+This directory contains the source code for computing the minimum
+Hamming weight of linear codes over GF(2) and GF(3). The executable
+minimum-weight is called within GUAVA by the MinimumWeight function.
+
+This code is known to run in the following platforms:
+   o X11 under Mac OS X (PowerPC) - 32 bit machine
+   o Windows XP running Cygwin - 32 bit machine
+   o Linux 2.6 - 32 bit machine
+   o Linux 2.6 - 64 bit machine
+
+You can also use this executable without having to launch GUAVA.
+This code expects a generator matrix as an input and the format of
+the matrix may be easily explained with this example.
+
+6 12 3
+1 0 2 1 2 2 0 0 0 0 0 1
+0 1 0 2 1 2 2 0 0 0 0 1
+0 0 1 0 2 1 2 2 0 0 0 1
+0 0 0 1 0 2 1 2 2 0 0 1
+0 0 0 0 1 0 2 1 2 2 0 1
+0 0 0 0 0 1 0 2 1 2 2 1
+
+The above example is the generator matrix of a code of length 12
+and dimension 6 over GF(3). To compute the minimum Hamming weight
+of the code above, you can use the following command:
+
+    minimum-weight GeneratorMatrix.File
+
+where GeneratorMatrix.File contains the generator matrix described
+above. For further information on the other parameters, run
+
+    minimum-weight --help
+
+To produce the executable, refer to the Makefile in GUAVA's main
+directory.
+
+
+CJ, Tjhai
+email: ctjhai@plymouth.ac.uk
+Homepage: www.plymouth.ac.uk/staff/ctjhai
+
+18 March 2008

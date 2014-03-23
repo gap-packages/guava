@@ -1,0 +1,77 @@
+CC      = gcc
+GAPARCH=@GAPARCH@
+CFLAGS  = -O2
+SRCDIR  = ./src/leon
+CJSRCDIR= ./src/ctjhai
+BINDIR = bin/$(GAPARCH)
+#GAP_PATH=../..
+#PKG_PATH=.
+#SRCDISTFILE=guava
+
+targets: default
+
+default: bindir minimum-weight leonconv desauto install
+
+# this target creates a bin-directory
+bindir:
+	if test ! -d $(BINDIR);  then mkdir -p $(BINDIR);  fi
+
+minimum-weight: $(CJSRCDIR)/minimum-weight.o $(CJSRCDIR)/minimum-weight-gf2.o $(CJSRCDIR)/minimum-weight-gf3.o $(CJSRCDIR)/popcount.o
+	$(CC) -o $(CJSRCDIR)/minimum-weight \
+$(CJSRCDIR)/minimum-weight.o $(CJSRCDIR)/minimum-weight-gf2.o \
+$(CJSRCDIR)/minimum-weight-gf3.o $(CJSRCDIR)/popcount.o -lm
+
+leonconv: 
+	cd ./src; $(MAKE) CC="$(CC)" CFLAGS="$(CFLAGS)"; 
+
+desauto: 
+	cd $(SRCDIR); ./configure; $(MAKE) CC="$(CC)" CFLAGS="$(CFLAGS)"; 
+
+minimum-weight.o: $(CJSRCDIR)/minimum-weight.c $(CJSRCDIR)/minimum-weight-gf2.h $(CJSRCDIR)/minimum-weight-gf3.h $(CJSRCDIR)/popcount.h $(CJSRCDIR)/config.h $(CJSRCDIR)/types.h
+	$(CC) -c -O3 -Wall -I $(CJSRCDIR) $(CJSRCDIR)/minimum-weight.c
+
+minimum-weight-gf2.o: $(CJSRCDIR)/minimum-weight-gf2.c $(CJSRCDIR)/minimum-weight-gf2.h $(CJSRCDIR)/popcount.h $(CJSRCDIR)/config.h $(CJSRCDIR)/types.h
+	$(CC) -c -O3 -Wall -I $(CJSRCDIR) $(CJSRCDIR)/minimum-weight-gf2.c
+
+minimum-weight-gf3.o: $(CJSRCDIR)/minimum-weight-gf3.c $(CJSRCDIR)/minimum-weight-gf3.h $(CJSRCDIR)/popcount.h $(CJSRCDIR)/config.h $(CJSRCDIR)/types.h
+	$(CC) -c -O3 -Wall -I $(CJSRCDIR) $(CJSRCDIR)/minimum-weight-gf3.c
+
+popcount.o: $(CJSRCDIR)/popcount.c $(CJSRCDIR)/popcount.h $(CJSRCDIR)/config.h $(CJSRCDIR)/types.h
+	$(CC) -c -O3 -Wall -I $(CJSRCDIR) $(CJSRCDIR)/popcount.c
+
+
+install:
+	( cp ./src/leonconv $(BINDIR) )
+	( cp $(SRCDIR)/desauto $(BINDIR) )
+	( cp $(CJSRCDIR)/minimum-weight $(BINDIR) )
+	( cp $(SRCDIR)/wtdist $(BINDIR) )
+
+clean:
+	( cd $(BINDIR); rm -f *.o )
+	( cd src && make clean )
+	( cd $(CJSRCDIR) && rm -f minimum-weight *.o)
+	( cd $(SRCDIR) && make clean )
+
+distclean: clean
+	( rm -rf bin )
+	( mkdir bin )
+	( rm -f Makefile Makefile-*)
+	( cd src && make distclean )
+	( cd src/leon && make distclean )
+	( cd doc && rm -f *.aux *.log *.dvi *.ps)
+
+# for GAP distribution
+src_dist:
+	@(cmp ${PKG_PATH}/guava/doc/guava.tex \
+         ${GAP_PATH}/doc/guava.tex \
+         || echo \
+         "*** WARNING: current 'guava.tex' and 'doc/guava.tex' differ ***")
+	@zoo ah ${SRCDISTFILE}.zoo \
+                ${PKG_PATH}/guava/Makefile \
+                ${PKG_PATH}/guava/doc/guava.tex \
+                ${PKG_PATH}/guava/init.g \
+                `find ${PKG_PATH}/guava/lib -name "*.g" -print` \
+                `find ${PKG_PATH}/guava/tbl -name "*.g" -print` \
+                `find ${PKG_PATH}/guava/src -print`
+	@zoo PE ${SRCDISTFILE}.zoo
+

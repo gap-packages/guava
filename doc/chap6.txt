@@ -1,0 +1,1040 @@
+  
+  [1X6 [33X[0;0YManipulating Codes[133X[101X
+  
+  [33X[0;0YIn  this  chapter  we  describe  several  functions [5XGUAVA[105X uses to manipulate
+  codes.  Some  of  the best codes are obtained by starting with for example a
+  BCH code, and manipulating it.[133X
+  
+  [33X[0;0YIn  some cases, it is faster to perform calculations with a manipulated code
+  than  to use the original code. For example, if the dimension of the code is
+  larger  than  half  the  word  length, it is generally faster to compute the
+  weight distribution by first calculating the weight distribution of the dual
+  code  than  by  directly calculating the weight distribution of the original
+  code. The size of the dual code is smaller in these cases.[133X
+  
+  [33X[0;0YBecause  [5XGUAVA[105X  keeps  all  information  in a code record, in some cases the
+  information can be preserved after manipulations. Therefore, computations do
+  not always have to start from scratch.[133X
+  
+  [33X[0;0YIn  Section  [14X6.1[114X,  we  describe  functions  that  take  a  code with certain
+  parameters,  modify  it  in  some  way  and  return  a  different  code (see
+  [2XExtendedCode[102X  ([14X6.1-1[114X),  [2XPuncturedCode[102X  ([14X6.1-2[114X),  [2XEvenWeightSubcode[102X  ([14X6.1-3[114X),
+  [2XPermutedCode[102X   ([14X6.1-4[114X),   [2XExpurgatedCode[102X   ([14X6.1-5[114X),  [2XAugmentedCode[102X  ([14X6.1-6[114X),
+  [2XRemovedElementsCode[102X   ([14X6.1-7[114X),   [2XAddedElementsCode[102X   ([14X6.1-8[114X),  [2XShortenedCode[102X
+  ([14X6.1-9[114X),  [2XLengthenedCode[102X  ([14X6.1-10[114X),  [2XResidueCode[102X ([14X6.1-12[114X), [2XConstructionBCode[102X
+  ([14X6.1-13[114X),      [2XDualCode[102X      ([14X6.1-14[114X),     [2XConversionFieldCode[102X     ([14X6.1-15[114X),
+  [2XConstantWeightSubcode[102X  ([14X6.1-18[114X),  [2XStandardFormCode[102X  ([14X6.1-19[114X)  and  [2XCosetCode[102X
+  ([14X6.1-17[114X)).  In  Section  [14X6.2[114X, we describe functions that generate a new code
+  out   of   two   codes   (see   [2XDirectSumCode[102X   ([14X6.2-1[114X),   [2XUUVCode[102X  ([14X6.2-2[114X),
+  [2XDirectProductCode[102X ([14X6.2-3[114X), [2XIntersectionCode[102X ([14X6.2-4[114X) and [2XUnionCode[102X ([14X6.2-5[114X)).[133X
+  
+  
+  [1X6.1 [33X[0;0YFunctions that Generate a New Code from a Given Code[133X[101X
+  
+  [1X6.1-1 ExtendedCode[101X
+  
+  [29X[2XExtendedCode[102X( [3XC[103X[, [3Xi[103X] ) [32X function
+  
+  [33X[0;0Y[10XExtendedCode[110X  extends  the code [3XC[103X [3Xi[103X times and returns the result. [3Xi[103X is equal
+  to  [22X1[122X  by  default. Extending is done by adding a parity check bit after the
+  last coordinate. The coordinates of all codewords now add up to zero. In the
+  binary case, each codeword has even weight.[133X
+  
+  [33X[0;0YThe  word  length  increases by [3Xi[103X. The size of the code remains the same. In
+  the  binary  case,  the  minimum distance increases by one if it was odd. In
+  other cases, that is not always true.[133X
+  
+  [33X[0;0YA cyclic code in general is no longer cyclic after extending.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XC1 := HammingCode( 3, GF(2) );[127X[104X
+    [4X[28Xa linear [7,4,3]1 Hamming (3,2) code over GF(2)[128X[104X
+    [4X[25Xgap>[125X [27XC2 := ExtendedCode( C1 );[127X[104X
+    [4X[28Xa linear [8,4,4]2 extended code[128X[104X
+    [4X[25Xgap>[125X [27XIsEquivalent( C2, ReedMullerCode( 1, 3 ) );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XList( AsSSortedList( C2 ), WeightCodeword );[127X[104X
+    [4X[28X[ 0, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 8 ][128X[104X
+    [4X[25Xgap>[125X [27XC3 := EvenWeightSubcode( C1 );[127X[104X
+    [4X[28Xa linear [7,3,4]2..3 even weight subcode [128X[104X
+  [4X[32X[104X
+  
+  [33X[0;0YTo  undo  extending,  call  [10XPuncturedCode[110X  (see  [2XPuncturedCode[102X ([14X6.1-2[114X)). The
+  function  [10XEvenWeightSubcode[110X  (see  [2XEvenWeightSubcode[102X ([14X6.1-3[114X)) also returns a
+  related code with only even weights, but without changing its word length.[133X
+  
+  [1X6.1-2 PuncturedCode[101X
+  
+  [29X[2XPuncturedCode[102X( [3XC[103X ) [32X function
+  
+  [33X[0;0Y[10XPuncturedCode[110X  punctures  [3XC[103X  in  the  last  column,  and returns the result.
+  Puncturing is done simply by cutting off the last column from each codeword.
+  This means the word length decreases by one. The minimum distance in general
+  also decrease by one.[133X
+  
+  [33X[0;0YThis  command  can  also be called with the syntax [10XPuncturedCode( C, L )[110X. In
+  this  case,  [10XPuncturedCode[110X punctures [3XC[103X in the columns specified by [3XL[103X, a list
+  of integers. All columns specified by [3XL[103X are omitted from each codeword. If [22Xl[122X
+  is  the  length  of  [3XL[103X  (so  the number of removed columns), the word length
+  decreases by [22Xl[122X. The minimum distance can also decrease by [22Xl[122X or less.[133X
+  
+  [33X[0;0YPuncturing  a  cyclic  code  in general results in a non-cyclic code. If the
+  code  is  punctured  in  all  the  columns where a word of minimal weight is
+  unequal to zero, the dimension of the resulting code decreases.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XC1 := BCHCode( 15, 5, GF(2) );[127X[104X
+    [4X[28Xa cyclic [15,7,5]3..5 BCH code, delta=5, b=1 over GF(2)[128X[104X
+    [4X[25Xgap>[125X [27XC2 := PuncturedCode( C1 );[127X[104X
+    [4X[28Xa linear [14,7,4]3..5 punctured code[128X[104X
+    [4X[25Xgap>[125X [27XExtendedCode( C2 ) = C1;[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27XPuncturedCode( C1, [1,2,3,4,5,6,7] );[127X[104X
+    [4X[28Xa linear [8,7,1]1 punctured code[128X[104X
+    [4X[25Xgap>[125X [27XPuncturedCode( WholeSpaceCode( 4, GF(5) ) );[127X[104X
+    [4X[28Xa linear [3,3,1]0 punctured code  # The dimension decreased from 4 to 3 [128X[104X
+  [4X[32X[104X
+  
+  [33X[0;0Y[10XExtendedCode[110X  extends the code again (see [2XExtendedCode[102X ([14X6.1-1[114X)), although in
+  general this does not result in the old code.[133X
+  
+  [1X6.1-3 EvenWeightSubcode[101X
+  
+  [29X[2XEvenWeightSubcode[102X( [3XC[103X ) [32X function
+  
+  [33X[0;0Y[10XEvenWeightSubcode[110X  returns  the  even weight subcode of [3XC[103X, consisting of all
+  codewords of [3XC[103X with even weight. If [3XC[103X is a linear code and contains words of
+  odd  weight,  the  resulting  code  has a dimension of one less. The minimum
+  distance  always  increases  with one if it was odd. If [3XC[103X is a binary cyclic
+  code,  and  [22Xg(x)[122X is its generator polynomial, the even weight subcode either
+  has  generator  polynomial [22Xg(x)[122X (if [22Xg(x)[122X is divisible by [22Xx-1[122X) or [22Xg(x)⋅ (x-1)[122X
+  (if  no factor [22Xx-1[122X was present in [22Xg(x)[122X). So the even weight subcode is again
+  cyclic.[133X
+  
+  [33X[0;0YOf  course,  if  all codewords of [3XC[103X are already of even weight, the returned
+  code is equal to [3XC[103X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XC1 := EvenWeightSubcode( BCHCode( 8, 4, GF(3) ) );[127X[104X
+    [4X[28Xan (8,33,4..8)3..8 even weight subcode[128X[104X
+    [4X[25Xgap>[125X [27XList( AsSSortedList( C1 ), WeightCodeword );[127X[104X
+    [4X[28X[ 0, 4, 4, 4, 4, 4, 4, 6, 4, 4, 4, 4, 6, 4, 4, 6, 4, 4, 8, 6, 4, 6, 8, 4, 4, [128X[104X
+    [4X[28X  4, 6, 4, 6, 8, 4, 6, 8 ][128X[104X
+    [4X[25Xgap>[125X [27XEvenWeightSubcode( ReedMullerCode( 1, 3 ) );[127X[104X
+    [4X[28Xa linear [8,4,4]2 Reed-Muller (1,3) code over GF(2) [128X[104X
+  [4X[32X[104X
+  
+  [33X[0;0Y[10XExtendedCode[110X  also  returns a related code of only even weights, but without
+  reducing its dimension (see [2XExtendedCode[102X ([14X6.1-1[114X)).[133X
+  
+  [1X6.1-4 PermutedCode[101X
+  
+  [29X[2XPermutedCode[102X( [3XC[103X, [3XL[103X ) [32X function
+  
+  [33X[0;0Y[10XPermutedCode[110X  returns  [3XC[103X after column permutations. [3XL[103X (in GAP disjoint cycle
+  notation)  is  the  permutation  to be executed on the columns of [3XC[103X. If [3XC[103X is
+  cyclic,  the result in general is no longer cyclic. If a permutation results
+  in the same code as [3XC[103X, this permutation belongs to the automorphism group of
+  [3XC[103X  (see  [2XAutomorphismGroup[102X  ([14X4.4-3[114X)).  In  any  case,  the  returned code is
+  equivalent to [3XC[103X (see [2XIsEquivalent[102X ([14X4.4-1[114X)).[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XC1 := PuncturedCode( ReedMullerCode( 1, 4 ) );[127X[104X
+    [4X[28Xa linear [15,5,7]5 punctured code[128X[104X
+    [4X[25Xgap>[125X [27XC2 := BCHCode( 15, 7, GF(2) );[127X[104X
+    [4X[28Xa cyclic [15,5,7]5 BCH code, delta=7, b=1 over GF(2)[128X[104X
+    [4X[25Xgap>[125X [27XC2 = C1;[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27Xp := CodeIsomorphism( C1, C2 );[127X[104X
+    [4X[28X( 2, 4,14, 9,13, 7,11,10, 6, 8,12, 5)[128X[104X
+    [4X[25Xgap>[125X [27XC3 := PermutedCode( C1, p );[127X[104X
+    [4X[28Xa linear [15,5,7]5 permuted code[128X[104X
+    [4X[25Xgap>[125X [27XC2 = C3;[127X[104X
+    [4X[28Xtrue [128X[104X
+  [4X[32X[104X
+  
+  [1X6.1-5 ExpurgatedCode[101X
+  
+  [29X[2XExpurgatedCode[102X( [3XC[103X, [3XL[103X ) [32X function
+  
+  [33X[0;0Y[10XExpurgatedCode[110X  expurgates the code [3XC[103X> by throwing away codewords in list [3XL[103X.
+  [3XC[103X  must  be a linear code. [3XL[103X must be a list of codeword input. The generator
+  matrix  of  the new code no longer is a basis for the codewords specified by
+  [3XL[103X.  Since the returned code is still linear, it is very likely that, besides
+  the words of [3XL[103X, more codewords of [3XC[103X are no longer in the new code.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XC1 := HammingCode( 4 );; WeightDistribution( C1 );[127X[104X
+    [4X[28X[ 1, 0, 0, 35, 105, 168, 280, 435, 435, 280, 168, 105, 35, 0, 0, 1 ][128X[104X
+    [4X[25Xgap>[125X [27XL := Filtered( AsSSortedList(C1), i -> WeightCodeword(i) = 3 );;[127X[104X
+    [4X[25Xgap>[125X [27XC2 := ExpurgatedCode( C1, L );[127X[104X
+    [4X[28Xa linear [15,4,3..4]5..11 code, expurgated with 7 word(s)[128X[104X
+    [4X[25Xgap>[125X [27XWeightDistribution( C2 );[127X[104X
+    [4X[28X[ 1, 0, 0, 0, 14, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0 ] [128X[104X
+  [4X[32X[104X
+  
+  [33X[0;0YThis  function  does not work on non-linear codes. For removing words from a
+  non-linear  code, use [10XRemovedElementsCode[110X (see [2XRemovedElementsCode[102X ([14X6.1-7[114X)).
+  For  expurgating  a code of all words of odd weight, use `EvenWeightSubcode'
+  (see [2XEvenWeightSubcode[102X ([14X6.1-3[114X)).[133X
+  
+  [1X6.1-6 AugmentedCode[101X
+  
+  [29X[2XAugmentedCode[102X( [3XC[103X, [3XL[103X ) [32X function
+  
+  [33X[0;0Y[10XAugmentedCode[110X returns [3XC[103X after augmenting. [3XC[103X must be a linear code, [3XL[103X must be
+  a  list  of codeword inputs. The generator matrix of the new code is a basis
+  for  the  codewords specified by [3XL[103X as well as the words that were already in
+  code  [3XC[103X.  Note  that the new code in general will consist of more words than
+  only  the codewords of [3XC[103X and the words [3XL[103X. The returned code is also a linear
+  code.[133X
+  
+  [33X[0;0YThis  command  can  also  be  called  with the syntax [10XAugmentedCode(C)[110X. When
+  called without a list of codewords, [10XAugmentedCode[110X returns [3XC[103X after adding the
+  all-ones  vector  to  the  generator matrix. [3XC[103X must be a linear code. If the
+  all-ones  vector  was already in the code, nothing happens and a copy of the
+  argument  is  returned.  If  [3XC[103X  is  a binary code which does not contain the
+  all-ones vector, the complement of all codewords is added.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XC31 := ReedMullerCode( 1, 3 );[127X[104X
+    [4X[28Xa linear [8,4,4]2 Reed-Muller (1,3) code over GF(2)[128X[104X
+    [4X[25Xgap>[125X [27XC32 := AugmentedCode(C31,["00000011","00000101","00010001"]);[127X[104X
+    [4X[28Xa linear [8,7,1..2]1 code, augmented with 3 word(s)[128X[104X
+    [4X[25Xgap>[125X [27XC32 = ReedMullerCode( 2, 3 );[127X[104X
+    [4X[28Xtrue [128X[104X
+    [4X[25Xgap>[125X [27XC1 := CordaroWagnerCode(6);[127X[104X
+    [4X[28Xa linear [6,2,4]2..3 Cordaro-Wagner code over GF(2)[128X[104X
+    [4X[25Xgap>[125X [27XCodeword( [0,0,1,1,1,1] ) in C1;[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XC2 := AugmentedCode( C1 );[127X[104X
+    [4X[28Xa linear [6,3,1..2]2..3 code, augmented with 1 word(s)[128X[104X
+    [4X[25Xgap>[125X [27XCodeword( [1,1,0,0,0,0] ) in C2;[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
+  [33X[0;0YThe  function  [10XAddedElementsCode[110X  adds  elements to the codewords instead of
+  adding them to the basis (see [2XAddedElementsCode[102X ([14X6.1-8[114X)).[133X
+  
+  [1X6.1-7 RemovedElementsCode[101X
+  
+  [29X[2XRemovedElementsCode[102X( [3XC[103X, [3XL[103X ) [32X function
+  
+  [33X[0;0Y[10XRemovedElementsCode[110X returns code [3XC[103X after removing a list of codewords [3XL[103X from
+  its  elements.  [3XL[103X  must  be  a  list  of  codeword  input.  The result is an
+  unrestricted code.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XC1 := HammingCode( 4 );; WeightDistribution( C1 );[127X[104X
+    [4X[28X[ 1, 0, 0, 35, 105, 168, 280, 435, 435, 280, 168, 105, 35, 0, 0, 1 ][128X[104X
+    [4X[25Xgap>[125X [27XL := Filtered( AsSSortedList(C1), i -> WeightCodeword(i) = 3 );;[127X[104X
+    [4X[25Xgap>[125X [27XC2 := RemovedElementsCode( C1, L );[127X[104X
+    [4X[28Xa (15,2013,3..15)2..15 code with 35 word(s) removed[128X[104X
+    [4X[25Xgap>[125X [27XWeightDistribution( C2 );[127X[104X
+    [4X[28X[ 1, 0, 0, 0, 105, 168, 280, 435, 435, 280, 168, 105, 35, 0, 0, 1 ][128X[104X
+    [4X[25Xgap>[125X [27XMinimumDistance( C2 );[127X[104X
+    [4X[28X3        # C2 is not linear, so the minimum weight does not have to[128X[104X
+    [4X[28X         # be equal to the minimum distance [128X[104X
+  [4X[32X[104X
+  
+  [33X[0;0YAdding  elements  to  a  code is done by the function [10XAddedElementsCode[110X (see
+  [2XAddedElementsCode[102X  ([14X6.1-8[114X)).  To  remove codewords from the base of a linear
+  code, use [10XExpurgatedCode[110X (see [2XExpurgatedCode[102X ([14X6.1-5[114X)).[133X
+  
+  [1X6.1-8 AddedElementsCode[101X
+  
+  [29X[2XAddedElementsCode[102X( [3XC[103X, [3XL[103X ) [32X function
+  
+  [33X[0;0Y[10XAddedElementsCode[110X  returns  code [3XC[103X after adding a list of codewords [3XL[103X to its
+  elements.  [3XL[103X must be a list of codeword input. The result is an unrestricted
+  code.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XC1 := NullCode( 6, GF(2) );[127X[104X
+    [4X[28Xa cyclic [6,0,6]6 nullcode over GF(2)[128X[104X
+    [4X[25Xgap>[125X [27XC2 := AddedElementsCode( C1, [ "111111" ] );[127X[104X
+    [4X[28Xa (6,2,1..6)3 code with 1 word(s) added[128X[104X
+    [4X[25Xgap>[125X [27XIsCyclicCode( C2 );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XC3 := AddedElementsCode( C2, [ "101010", "010101" ] );[127X[104X
+    [4X[28Xa (6,4,1..6)2 code with 2 word(s) added[128X[104X
+    [4X[25Xgap>[125X [27XIsCyclicCode( C3 );[127X[104X
+    [4X[28Xtrue [128X[104X
+  [4X[32X[104X
+  
+  [33X[0;0YTo   remove   elements   from   a   code,   use   [10XRemovedElementsCode[110X   (see
+  [2XRemovedElementsCode[102X  ([14X6.1-7[114X)). To add elements to the base of a linear code,
+  use [10XAugmentedCode[110X (see [2XAugmentedCode[102X ([14X6.1-6[114X)).[133X
+  
+  [1X6.1-9 ShortenedCode[101X
+  
+  [29X[2XShortenedCode[102X( [3XC[103X[, [3XL[103X] ) [32X function
+  
+  [33X[0;0Y[10XShortenedCode(  C  )[110X returns the code [3XC[103X shortened by taking a cross section.
+  If  [3XC[103X  is  a  linear code, this is done by removing all codewords that start
+  with  a  non-zero entry, after which the first column is cut off. If [3XC[103X was a
+  [22X[n,k,d][122X  code,  the  shortened  code  generally is a [22X[n-1,k-1,d][122X code. It is
+  possible  that  the dimension remains the same; it is also possible that the
+  minimum distance increases.[133X
+  
+  [33X[0;0YIf  [3XC[103X  is  a  non-linear code, [10XShortenedCode[110X first checks which finite field
+  element  occurs  most  often  in  the  first  column  of  the codewords. The
+  codewords  not  starting  with this element are removed from the code, after
+  which the first column is cut off. The resulting shortened code has at least
+  the same minimum distance as [3XC[103X.[133X
+  
+  [33X[0;0YThis  command  can  also be called using the syntax [10XShortenedCode(C,L)[110X. When
+  called  in this format, [10XShortenedCode[110X repeats the shortening process on each
+  of the columns specified by [3XL[103X. [3XL[103X therefore is a list of integers. The column
+  numbers in [3XL[103X are the numbers as they are before the shortening process. If [3XL[103X
+  has  [22Xl[122X  entries,  the returned code has a word length of [22Xl[122X positions shorter
+  than [3XC[103X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XC1 := HammingCode( 4 );[127X[104X
+    [4X[28Xa linear [15,11,3]1 Hamming (4,2) code over GF(2)[128X[104X
+    [4X[25Xgap>[125X [27XC2 := ShortenedCode( C1 );[127X[104X
+    [4X[28Xa linear [14,10,3]2 shortened code[128X[104X
+    [4X[25Xgap>[125X [27XC3 := ElementsCode( ["1000", "1101", "0011" ], GF(2) );[127X[104X
+    [4X[28Xa (4,3,1..4)2 user defined unrestricted code over GF(2)[128X[104X
+    [4X[25Xgap>[125X [27XMinimumDistance( C3 );[127X[104X
+    [4X[28X2[128X[104X
+    [4X[25Xgap>[125X [27XC4 := ShortenedCode( C3 );[127X[104X
+    [4X[28Xa (3,2,2..3)1..2 shortened code[128X[104X
+    [4X[25Xgap>[125X [27XAsSSortedList( C4 );[127X[104X
+    [4X[28X[ [ 0 0 0 ], [ 1 0 1 ] ][128X[104X
+    [4X[25Xgap>[125X [27XC5 := HammingCode( 5, GF(2) );[127X[104X
+    [4X[28Xa linear [31,26,3]1 Hamming (5,2) code over GF(2)[128X[104X
+    [4X[25Xgap>[125X [27XC6 := ShortenedCode( C5, [ 1, 2, 3 ] );[127X[104X
+    [4X[28Xa linear [28,23,3]2 shortened code[128X[104X
+    [4X[25Xgap>[125X [27XOptimalityLinearCode( C6 );[127X[104X
+    [4X[28X0[128X[104X
+  [4X[32X[104X
+  
+  [33X[0;0YThe  function  [10XLengthenedCode[110X  lengthens  the  code  again  (only for linear
+  codes),  see  [2XLengthenedCode[102X  ([14X6.1-10[114X).  In general, this is not exactly the
+  inverse function.[133X
+  
+  [1X6.1-10 LengthenedCode[101X
+  
+  [29X[2XLengthenedCode[102X( [3XC[103X[, [3Xi[103X] ) [32X function
+  
+  [33X[0;0Y[10XLengthenedCode(  C )[110X returns the code [3XC[103X lengthened. [3XC[103X must be a linear code.
+  First,   the   all-ones  vector  is  added  to  the  generator  matrix  (see
+  [2XAugmentedCode[102X  ([14X6.1-6[114X)).  If  the  all-ones  vector  was already a codeword,
+  nothing  happens  to  the  code.  Then,  the  code  is extended [3Xi[103X times (see
+  [2XExtendedCode[102X  ([14X6.1-1[114X)).  [3Xi[103X is equal to [22X1[122X by default. If [3XC[103X was an [22X[n,k][122X code,
+  the new code generally is a [22X[n+i,k+1][122X code.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XC1 := CordaroWagnerCode( 5 );[127X[104X
+    [4X[28Xa linear [5,2,3]2 Cordaro-Wagner code over GF(2)[128X[104X
+    [4X[25Xgap>[125X [27XC2 := LengthenedCode( C1 );[127X[104X
+    [4X[28Xa linear [6,3,2]2..3 code, lengthened with 1 column(s) [128X[104X
+  [4X[32X[104X
+  
+  [33X[0;0Y[10XShortenedCode[110X'  shortens  the  code,  see [2XShortenedCode[102X ([14X6.1-9[114X). In general,
+  this is not exactly the inverse function.[133X
+  
+  [1X6.1-11 SubCode[101X
+  
+  [29X[2XSubCode[102X( [3XC[103X[, [3Xs[103X] ) [32X function
+  
+  [33X[0;0YThis  function [10XSubCode[110X returns a subcode of [3XC[103X by taking the first [22Xk - s[122X rows
+  of  the generator matrix of [3XC[103X, where [22Xk[122X is the dimension of [3XC[103X. The interger [3Xs[103X
+  may be omitted and in this case it is assumed as 1.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XC := BCHCode(31,11);[127X[104X
+    [4X[28Xa cyclic [31,11,11]7..11 BCH code, delta=11, b=1 over GF(2)[128X[104X
+    [4X[25Xgap>[125X [27XS1:= SubCode(C);[127X[104X
+    [4X[28Xa linear [31,10,11]7..13 subcode[128X[104X
+    [4X[25Xgap>[125X [27XWeightDistribution(S1);[127X[104X
+    [4X[28X[ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 120, 190, 0, 0, 272, 255, 0, 0, 120, 66,[128X[104X
+    [4X[28X  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ][128X[104X
+    [4X[25Xgap>[125X [27XS2:= SubCode(C, 8);[127X[104X
+    [4X[28Xa linear [31,3,11]14..20 subcode[128X[104X
+    [4X[25Xgap>[125X [27XHistory(S2);[127X[104X
+    [4X[28X[ "a linear [31,3,11]14..20 subcode of",[128X[104X
+    [4X[28X  "a cyclic [31,11,11]7..11 BCH code, delta=11, b=1 over GF(2)" ][128X[104X
+    [4X[25Xgap>[125X [27XWeightDistribution(S2);[127X[104X
+    [4X[28X[ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 1, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,[128X[104X
+    [4X[28X  0, 0, 0, 0, 0, 0, 0 ][128X[104X
+  [4X[32X[104X
+  
+  [1X6.1-12 ResidueCode[101X
+  
+  [29X[2XResidueCode[102X( [3XC[103X[, [3Xc[103X] ) [32X function
+  
+  [33X[0;0YThe  function  [10XResidueCode[110X  takes  a  codeword  [3Xc[103X  of  [3XC[103X (if [3Xc[103X is omitted, a
+  codeword of minimal weight is used). It removes this word and all its linear
+  combinations  from  the  code and then punctures the code in the coordinates
+  where  [3Xc[103X  is  unequal  to  zero.  The  resulting  code  is an [22X[n-w, k-1, d-⌊
+  w*(q-1)/q  ⌋ ][122X code. [3XC[103X must be a linear code and [3Xc[103X must be non-zero. If [3Xc[103X is
+  not in [3X[103X then no change is made to [3XC[103X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XC1 := BCHCode( 15, 7 );[127X[104X
+    [4X[28Xa cyclic [15,5,7]5 BCH code, delta=7, b=1 over GF(2)[128X[104X
+    [4X[25Xgap>[125X [27XC2 := ResidueCode( C1 );[127X[104X
+    [4X[28Xa linear [8,4,4]2 residue code[128X[104X
+    [4X[25Xgap>[125X [27Xc := Codeword( [ 0,0,0,1,0,0,1,1,0,1,0,1,1,1,1 ], C1);;[127X[104X
+    [4X[25Xgap>[125X [27XC3 := ResidueCode( C1, c );[127X[104X
+    [4X[28Xa linear [7,4,3]1 residue code [128X[104X
+  [4X[32X[104X
+  
+  [1X6.1-13 ConstructionBCode[101X
+  
+  [29X[2XConstructionBCode[102X( [3XC[103X ) [32X function
+  
+  [33X[0;0YThe  function  [10XConstructionBCode[110X takes a binary linear code [3XC[103X and calculates
+  the  minimum  distance  of  the  dual  of [3XC[103X (see [2XDualCode[102X ([14X6.1-14[114X)). It then
+  removes  the columns of the parity check matrix of [3XC[103X where a codeword of the
+  dual  code  of minimal weight has coordinates unequal to zero. The resulting
+  matrix is a parity check matrix for an [22X[n-dd, k-dd+1, ≥ d][122X code, where [22Xdd[122X is
+  the minimum distance of the dual of [3XC[103X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XC1 := ReedMullerCode( 2, 5 );[127X[104X
+    [4X[28Xa linear [32,16,8]6 Reed-Muller (2,5) code over GF(2)[128X[104X
+    [4X[25Xgap>[125X [27XC2 := ConstructionBCode( C1 );[127X[104X
+    [4X[28Xa linear [24,9,8]5..10 Construction B (8 coordinates)[128X[104X
+    [4X[25Xgap>[125X [27XBoundsMinimumDistance( 24, 9, GF(2) );[127X[104X
+    [4X[28Xrec( n := 24, k := 9, q := 2, references := rec(  ), [128X[104X
+    [4X[28X  construction := [ [ Operation "UUVCode" ], [128X[104X
+    [4X[28X      [ [ [ Operation "UUVCode" ], [ [ [ Operation "DualCode" ], [128X[104X
+    [4X[28X                      [ [ [ Operation "RepetitionCode" ], [ 6, 2 ] ] ] ], [128X[104X
+    [4X[28X                  [ [ Operation "CordaroWagnerCode" ], [ 6 ] ] ] ], [128X[104X
+    [4X[28X          [ [ Operation "CordaroWagnerCode" ], [ 12 ] ] ] ], lowerBound := 8, [128X[104X
+    [4X[28X  lowerBoundExplanation := [ "Lb(24,9)=8, u u+v construction of C1 and C2:", [128X[104X
+    [4X[28X      "Lb(12,7)=4, u u+v construction of C1 and C2:", [128X[104X
+    [4X[28X      "Lb(6,5)=2, dual of the repetition code", [128X[104X
+    [4X[28X      "Lb(6,2)=4, Cordaro-Wagner code", "Lb(12,2)=8, Cordaro-Wagner code" ], [128X[104X
+    [4X[28X  upperBound := 8, [128X[104X
+    [4X[28X  upperBoundExplanation := [ "Ub(24,9)=8, otherwise construction B would [128X[104X
+    [4X[28X                             contradict:", "Ub(18,4)=8, Griesmer bound" ] )[128X[104X
+    [4X[28X# so C2 is optimal[128X[104X
+  [4X[32X[104X
+  
+  [1X6.1-14 DualCode[101X
+  
+  [29X[2XDualCode[102X( [3XC[103X ) [32X function
+  
+  [33X[0;0Y[10XDualCode[110X returns the dual code of [3XC[103X. The dual code consists of all codewords
+  that  are  orthogonal  to  the  codewords  of  [3XC[103X. If [3XC[103X is a linear code with
+  generator  matrix  [22XG[122X,  the  dual code has parity check matrix [22XG[122X (or if [3XC[103X has
+  parity  check  matrix [22XH[122X, the dual code has generator matrix [22XH[122X). So if [3XC[103X is a
+  linear  [22X[n, k][122X code, the dual code of [3XC[103X is a linear [22X[n, n-k][122X code. If [3XC[103X is a
+  cyclic code with generator polynomial [22Xg(x)[122X, the dual code has the reciprocal
+  polynomial of [22Xg(x)[122X as check polynomial.[133X
+  
+  [33X[0;0YThe dual code is always a linear code, even if [3XC[103X is non-linear.[133X
+  
+  [33X[0;0YIf a code [3XC[103X is equal to its dual code, it is called [13Xself-dual[113X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XR := ReedMullerCode( 1, 3 );[127X[104X
+    [4X[28Xa linear [8,4,4]2 Reed-Muller (1,3) code over GF(2)[128X[104X
+    [4X[25Xgap>[125X [27XRD := DualCode( R );[127X[104X
+    [4X[28Xa linear [8,4,4]2 Reed-Muller (1,3) code over GF(2)[128X[104X
+    [4X[25Xgap>[125X [27XR = RD;[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XN := WholeSpaceCode( 7, GF(4) );[127X[104X
+    [4X[28Xa cyclic [7,7,1]0 whole space code over GF(4)[128X[104X
+    [4X[25Xgap>[125X [27XDualCode( N ) = NullCode( 7, GF(4) );[127X[104X
+    [4X[28Xtrue [128X[104X
+  [4X[32X[104X
+  
+  [1X6.1-15 ConversionFieldCode[101X
+  
+  [29X[2XConversionFieldCode[102X( [3XC[103X ) [32X function
+  
+  [33X[0;0Y[10XConversionFieldCode[110X  returns  the  code obtained from [3XC[103X after converting its
+  field. If the field of [3XC[103X is [22XGF(q^m)[122X, the returned code has field [22XGF(q)[122X. Each
+  symbol  of  every  codeword is replaced by a concatenation of [22Xm[122X symbols from
+  [22XGF(q)[122X.  If  [3XC[103X  is an [22X(n, M, d_1)[122X code, the returned code is a [22X(n⋅ m, M, d_2)[122X
+  code, where [22Xd_2 > d_1[122X.[133X
+  
+  [33X[0;0YSee also [2XHorizontalConversionFieldMat[102X ([14X7.3-10[114X).[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XR := RepetitionCode( 4, GF(4) );[127X[104X
+    [4X[28Xa cyclic [4,1,4]3 repetition code over GF(4)[128X[104X
+    [4X[25Xgap>[125X [27XR2 := ConversionFieldCode( R );[127X[104X
+    [4X[28Xa linear [8,2,4]3..4 code, converted to basefield GF(2)[128X[104X
+    [4X[25Xgap>[125X [27XSize( R ) = Size( R2 );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XGeneratorMat( R );[127X[104X
+    [4X[28X[ [ Z(2)^0, Z(2)^0, Z(2)^0, Z(2)^0 ] ][128X[104X
+    [4X[25Xgap>[125X [27XGeneratorMat( R2 );[127X[104X
+    [4X[28X[ [ Z(2)^0, 0*Z(2), Z(2)^0, 0*Z(2), Z(2)^0, 0*Z(2), Z(2)^0, 0*Z(2) ],[128X[104X
+    [4X[28X  [ 0*Z(2), Z(2)^0, 0*Z(2), Z(2)^0, 0*Z(2), Z(2)^0, 0*Z(2), Z(2)^0 ] ] [128X[104X
+  [4X[32X[104X
+  
+  [1X6.1-16 TraceCode[101X
+  
+  [29X[2XTraceCode[102X( [3XC[103X ) [32X function
+  
+  [33X[0;0YInput:  [3XC[103X is a linear code defined over an extension [22XE[122X of [3XF[103X ([3XF[103X is the ``base
+  field'')[133X
+  
+  [33X[0;0YOutput: The linear code generated by [22XTr_E/F(c)[122X, for all [22Xc ∈ C[122X.[133X
+  
+  [33X[0;0Y[10XTraceCode[110X  returns the image of the code [3XC[103X under the trace map. If the field
+  of [3XC[103X is [22XGF(q^m)[122X, the returned code has field [22XGF(q)[122X.[133X
+  
+  [33X[0;0YVery  slow.  It  does  not  seem to be easy to related the parameters of the
+  trace code to the original except in the ``Galois closed'' case.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XC:=RandomLinearCode(10,4,GF(4)); MinimumDistance(C);[127X[104X
+    [4X[28Xa  [10,4,?] randomly generated code over GF(4)[128X[104X
+    [4X[28X5[128X[104X
+    [4X[25Xgap>[125X [27XtrC:=TraceCode(C,GF(2)); MinimumDistance(trC);[127X[104X
+    [4X[28Xa linear [10,7,1]1..3 user defined unrestricted code over GF(2)[128X[104X
+    [4X[28X1[128X[104X
+    [4X[28X[128X[104X
+  [4X[32X[104X
+  
+  [1X6.1-17 CosetCode[101X
+  
+  [29X[2XCosetCode[102X( [3XC[103X, [3Xw[103X ) [32X function
+  
+  [33X[0;0Y[10XCosetCode[110X returns the coset of a code [3XC[103X with respect to word [3Xw[103X. [3Xw[103X must be of
+  the  codeword  type.  Then,  [3Xw[103X  is added to each codeword of [3XC[103X, yielding the
+  elements  of  the new code. If [3XC[103X is linear and [3Xw[103X is an element of [3XC[103X, the new
+  code is equal to [3XC[103X, otherwise the new code is an unrestricted code.[133X
+  
+  [33X[0;0YGenerating  a  coset  is also possible by simply adding the word [3Xw[103X to [3XC[103X. See
+  [14X4.2[114X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XH := HammingCode(3, GF(2));[127X[104X
+    [4X[28Xa linear [7,4,3]1 Hamming (3,2) code over GF(2)[128X[104X
+    [4X[25Xgap>[125X [27Xc := Codeword("1011011");; c in H;[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27XC := CosetCode(H, c);[127X[104X
+    [4X[28Xa (7,16,3)1 coset code[128X[104X
+    [4X[25Xgap>[125X [27XList(AsSSortedList(C), el-> Syndrome(H, el));[127X[104X
+    [4X[28X[ [ 1 1 1 ], [ 1 1 1 ], [ 1 1 1 ], [ 1 1 1 ], [ 1 1 1 ], [ 1 1 1 ],[128X[104X
+    [4X[28X  [ 1 1 1 ], [ 1 1 1 ], [ 1 1 1 ], [ 1 1 1 ], [ 1 1 1 ], [ 1 1 1 ],[128X[104X
+    [4X[28X  [ 1 1 1 ], [ 1 1 1 ], [ 1 1 1 ], [ 1 1 1 ] ][128X[104X
+    [4X[28X# All elements of the coset have the same syndrome in H [128X[104X
+  [4X[32X[104X
+  
+  [1X6.1-18 ConstantWeightSubcode[101X
+  
+  [29X[2XConstantWeightSubcode[102X( [3XC[103X, [3Xw[103X ) [32X function
+  
+  [33X[0;0Y[10XConstantWeightSubcode[110X  returns  the  subcode of [3XC[103X that only has codewords of
+  weight  [3Xw[103X.  The  resulting  code  is  a non-linear code, because it does not
+  contain the all-zero vector.[133X
+  
+  [33X[0;0YThis  command also can be called with the syntax [10XConstantWeightSubcode(C)[110X In
+  this  format,  [10XConstantWeightSubcode[110X  returns the subcode of [3XC[103X consisting of
+  all minimum weight codewords of [3XC[103X.[133X
+  
+  [33X[0;0Y[10XConstantWeightSubcode[110X  first  checks  if Leon's binary [10Xwtdist[110X exists on your
+  computer  (in  the  default  directory).  If  it  does, then this program is
+  called.  Otherwise,  the  constant  weight  subcode  is computed using a GAP
+  program  which  checks  each  codeword  in  [3XC[103X to see if it is of the desired
+  weight.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XN := NordstromRobinsonCode();; WeightDistribution(N);[127X[104X
+    [4X[28X[ 1, 0, 0, 0, 0, 0, 112, 0, 30, 0, 112, 0, 0, 0, 0, 0, 1 ][128X[104X
+    [4X[25Xgap>[125X [27XC := ConstantWeightSubcode(N, 8);[127X[104X
+    [4X[28Xa (16,30,6..16)5..8 code with codewords of weight 8[128X[104X
+    [4X[25Xgap>[125X [27XWeightDistribution(C);[127X[104X
+    [4X[28X[ 0, 0, 0, 0, 0, 0, 0, 0, 30, 0, 0, 0, 0, 0, 0, 0, 0 ] [128X[104X
+    [4X[25Xgap>[125X [27Xeg := ExtendedTernaryGolayCode();; WeightDistribution(eg);[127X[104X
+    [4X[28X[ 1, 0, 0, 0, 0, 0, 264, 0, 0, 440, 0, 0, 24 ][128X[104X
+    [4X[25Xgap>[125X [27XC := ConstantWeightSubcode(eg);[127X[104X
+    [4X[28Xa (12,264,6..12)3..6 code with codewords of weight 6[128X[104X
+    [4X[25Xgap>[125X [27XWeightDistribution(C);[127X[104X
+    [4X[28X[ 0, 0, 0, 0, 0, 0, 264, 0, 0, 0, 0, 0, 0 ] [128X[104X
+  [4X[32X[104X
+  
+  [1X6.1-19 StandardFormCode[101X
+  
+  [29X[2XStandardFormCode[102X( [3XC[103X ) [32X function
+  
+  [33X[0;0Y[10XStandardFormCode[110X  returns  [3XC[103X  after  putting  it in standard form. If [3XC[103X is a
+  non-linear code, this means the elements are organized using lexicographical
+  order. This means they form a legal GAP `Set'.[133X
+  
+  [33X[0;0YIf  [3XC[103X is a linear code, the generator matrix and parity check matrix are put
+  in  standard  form.  The generator matrix then has an identity matrix in its
+  left part, the parity check matrix has an identity matrix in its right part.
+  Although  [5XGUAVA[105X  always puts both matrices in a standard form using [10XBaseMat[110X,
+  this   never   alters   the   code.  [10XStandardFormCode[110X  even  applies  column
+  permutations  if  unavoidable,  and  thereby  changes  the  code. The column
+  permutations  are  recorded in the construction history of the new code (see
+  [2XDisplay[102X ([14X4.6-3[114X)). [3XC[103X and the new code are of course equivalent.[133X
+  
+  [33X[0;0YIf [3XC[103X is a cyclic code, its generator matrix cannot be put in the usual upper
+  triangular  form,  because  then it would be inconsistent with the generator
+  polynomial.  The  reason  is that generating the elements from the generator
+  matrix  would  result in a different order than generating the elements from
+  the  generator  polynomial.  This  is  an  unwanted  effect,  and  therefore
+  [10XStandardFormCode[110X just returns a copy of [3XC[103X for cyclic codes.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XG := GeneratorMatCode( Z(2) * [ [0,1,1,0], [0,1,0,1], [0,0,1,1] ], [127X[104X
+    [4X[28X          "random form code", GF(2) );[128X[104X
+    [4X[28Xa linear [4,2,1..2]1..2 random form code over GF(2)[128X[104X
+    [4X[25Xgap>[125X [27XCodeword( GeneratorMat( G ) );[127X[104X
+    [4X[28X[ [ 0 1 0 1 ], [ 0 0 1 1 ] ][128X[104X
+    [4X[25Xgap>[125X [27XCodeword( GeneratorMat( StandardFormCode( G ) ) );[127X[104X
+    [4X[28X[ [ 1 0 0 1 ], [ 0 1 0 1 ] ] [128X[104X
+  [4X[32X[104X
+  
+  [1X6.1-20 PiecewiseConstantCode[101X
+  
+  [29X[2XPiecewiseConstantCode[102X( [3Xpart[103X, [3Xwts[103X[, [3XF[103X] ) [32X function
+  
+  [33X[0;0Y[10XPiecewiseConstantCode[110X  returns  a  code  with length [22Xn = ∑ n_i[122X, where [3Xpart[103X=[22X[
+  n_1,  dots,  n_k  ][122X.  [3Xwts[103X  is a list of [3Xconstraints[103X [22Xw=(w_1,...,w_k)[122X, each of
+  length [22Xk[122X, where [22X0 ≤ w_i ≤ n_i[122X. The default field is [22XGF(2)[122X.[133X
+  
+  [33X[0;0YA  constraint  is  a  list  of  integers,  and a word [22Xc = ( c_1, dots, c_k )[122X
+  (according  to  [3Xpart[103X,  i.e.,  each [22Xc_i[122X is a subword of length [22Xn_i[122X) is in the
+  resulting  code if and only if, for some constraint [22Xw ∈[122X [3Xwts[103X, [22X|c_i| = w_i[122X for
+  all [22X1 ≤ i ≤ k[122X, where [22X| ...|[122X denotes the Hamming weight.[133X
+  
+  [33X[0;0YAn example might make things clearer:[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XPiecewiseConstantCode( [ 2, 3 ],[127X[104X
+    [4X[28X     [ [ 0, 0 ], [ 0, 3 ], [ 1, 0 ], [ 2, 2 ] ],GF(2) );[128X[104X
+    [4X[28Xthe C code programs are compiled, so using Leon's binary....[128X[104X
+    [4X[28Xthe C code programs are compiled, so using Leon's binary....[128X[104X
+    [4X[28Xthe C code programs are compiled, so using Leon's binary....[128X[104X
+    [4X[28Xthe C code programs are compiled, so using Leon's binary....[128X[104X
+    [4X[28Xa (5,7,1..5)1..5 piecewise constant code over GF(2)[128X[104X
+    [4X[25Xgap>[125X [27XAsSSortedList(last);[127X[104X
+    [4X[28X[ [ 0 0 0 0 0 ], [ 0 0 1 1 1 ], [ 0 1 0 0 0 ], [ 1 0 0 0 0 ], [128X[104X
+    [4X[28X  [ 1 1 0 1 1 ], [ 1 1 1 0 1 ], [ 1 1 1 1 0 ] ][128X[104X
+    [4X[28Xgap>[128X[104X
+    [4X[28X[128X[104X
+  [4X[32X[104X
+  
+  [33X[0;0YThe  first  constraint is satisfied by codeword 1, the second by codeword 2,
+  the third by codewords 3 and 4, and the fourth by codewords 5, 6 and 7.[133X
+  
+  
+  [1X6.2 [33X[0;0YFunctions that Generate a New Code from Two or More Given Codes[133X[101X
+  
+  [1X6.2-1 DirectSumCode[101X
+  
+  [29X[2XDirectSumCode[102X( [3XC1[103X, [3XC2[103X ) [32X function
+  
+  [33X[0;0Y[10XDirectSumCode[110X returns the direct sum of codes [3XC1[103X and [3XC2[103X. The direct sum code
+  consists  of  every  codeword  of  [3XC1[103X  concatenated by every codeword of [3XC2[103X.
+  Therefore,   if   [3XCi[103X   was   a   [22X(n_i,M_i,d_i)[122X   code,   the   result  is  a
+  [22X(n_1+n_2,M_1*M_2,min(d_1,d_2))[122X code.[133X
+  
+  [33X[0;0YIf both [3XC1[103X and [3XC2[103X are linear codes, the result is also a linear code. If one
+  of  them  is  non-linear,  the  direct  sum is non-linear too. In general, a
+  direct sum code is not cyclic.[133X
+  
+  [33X[0;0YPerforming  a  direct  sum can also be done by adding two codes (see Section
+  [14X4.2[114X).  Another  often used method is the `u, u+v'-construction, described in
+  [2XUUVCode[102X ([14X6.2-2[114X).[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XC1 := ElementsCode( [ [1,0], [4,5] ], GF(7) );;[127X[104X
+    [4X[25Xgap>[125X [27XC2 := ElementsCode( [ [0,0,0], [3,3,3] ], GF(7) );;[127X[104X
+    [4X[25Xgap>[125X [27XD := DirectSumCode(C1, C2);;[127X[104X
+    [4X[25Xgap>[125X [27XAsSSortedList(D);[127X[104X
+    [4X[28X[ [ 1 0 0 0 0 ], [ 1 0 3 3 3 ], [ 4 5 0 0 0 ], [ 4 5 3 3 3 ] ][128X[104X
+    [4X[25Xgap>[125X [27XD = C1 + C2;   # addition = direct sum[127X[104X
+    [4X[28Xtrue [128X[104X
+  [4X[32X[104X
+  
+  [1X6.2-2 UUVCode[101X
+  
+  [29X[2XUUVCode[102X( [3XC1[103X, [3XC2[103X ) [32X function
+  
+  [33X[0;0Y[10XUUVCode[110X returns the so-called [22X(u|u+v)[122X construction applied to [3XC1[103X and [3XC2[103X. The
+  resulting code consists of every codeword [22Xu[122X of [3XC1[103X concatenated by the sum of
+  [22Xu[122X  and  every  codeword  [22Xv[122X  of [3XC2[103X. If [3XC1[103X and [3XC2[103X have different word lengths,
+  sufficient zeros are added to the shorter code to make this sum possible. If
+  [3XCi[103X  is  a  [22X(n_i,M_i,d_i)[122X  code,  the  result  is  an  [22X(n_1+max(n_1,n_2),M_1⋅
+  M_2,min(2⋅ d_1,d_2))[122X code.[133X
+  
+  [33X[0;0YIf both [3XC1[103X and [3XC2[103X are linear codes, the result is also a linear code. If one
+  of  them is non-linear, the UUV sum is non-linear too. In general, a UUV sum
+  code is not cyclic.[133X
+  
+  [33X[0;0YThe  function  [10XDirectSumCode[110X returns another sum of codes (see [2XDirectSumCode[102X
+  ([14X6.2-1[114X)).[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XC1 := EvenWeightSubcode(WholeSpaceCode(4, GF(2)));[127X[104X
+    [4X[28Xa cyclic [4,3,2]1 even weight subcode[128X[104X
+    [4X[25Xgap>[125X [27XC2 := RepetitionCode(4, GF(2));[127X[104X
+    [4X[28Xa cyclic [4,1,4]2 repetition code over GF(2)[128X[104X
+    [4X[25Xgap>[125X [27XR := UUVCode(C1, C2);[127X[104X
+    [4X[28Xa linear [8,4,4]2 U U+V construction code[128X[104X
+    [4X[25Xgap>[125X [27XR = ReedMullerCode(1,3);[127X[104X
+    [4X[28Xtrue [128X[104X
+  [4X[32X[104X
+  
+  [1X6.2-3 DirectProductCode[101X
+  
+  [29X[2XDirectProductCode[102X( [3XC1[103X, [3XC2[103X ) [32X function
+  
+  [33X[0;0Y[10XDirectProductCode[110X  returns  the direct product of codes [3XC1[103X and [3XC2[103X. Both must
+  be  linear codes. Suppose [3XCi[103X has generator matrix [22XG_i[122X. The direct product of
+  [3XC1[103X  and  [3XC2[103X  then  has the Kronecker product of [22XG_1[122X and [22XG_2[122X as the generator
+  matrix (see the GAP command [10XKroneckerProduct[110X).[133X
+  
+  [33X[0;0YIf  [3XCi[103X  is  a  [22X[n_i,  k_i,  d_i][122X  code,  the direct product then is an [22X[n_1⋅
+  n_2,k_1⋅ k_2,d_1⋅ d_2][122X code.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XL1 := LexiCode(10, 4, GF(2));[127X[104X
+    [4X[28Xa linear [10,5,4]2..4 lexicode over GF(2)[128X[104X
+    [4X[25Xgap>[125X [27XL2 := LexiCode(8, 3, GF(2));[127X[104X
+    [4X[28Xa linear [8,4,3]2..3 lexicode over GF(2)[128X[104X
+    [4X[25Xgap>[125X [27XD := DirectProductCode(L1, L2);[127X[104X
+    [4X[28Xa linear [80,20,12]20..45 direct product code [128X[104X
+  [4X[32X[104X
+  
+  [1X6.2-4 IntersectionCode[101X
+  
+  [29X[2XIntersectionCode[102X( [3XC1[103X, [3XC2[103X ) [32X function
+  
+  [33X[0;0Y[10XIntersectionCode[110X  returns  the  intersection  of  codes [3XC1[103X and [3XC2[103X. This code
+  consists  of  all  codewords  that  are both in [3XC1[103X and [3XC2[103X. If both codes are
+  linear,  the  result  is also linear. If both are cyclic, the result is also
+  cyclic.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XC := CyclicCodes(7, GF(2));[127X[104X
+    [4X[28X[ a cyclic [7,7,1]0 enumerated code over GF(2),[128X[104X
+    [4X[28X  a cyclic [7,6,1..2]1 enumerated code over GF(2),[128X[104X
+    [4X[28X  a cyclic [7,3,1..4]2..3 enumerated code over GF(2),[128X[104X
+    [4X[28X  a cyclic [7,0,7]7 enumerated code over GF(2),[128X[104X
+    [4X[28X  a cyclic [7,3,1..4]2..3 enumerated code over GF(2),[128X[104X
+    [4X[28X  a cyclic [7,4,1..3]1 enumerated code over GF(2),[128X[104X
+    [4X[28X  a cyclic [7,1,7]3 enumerated code over GF(2),[128X[104X
+    [4X[28X  a cyclic [7,4,1..3]1 enumerated code over GF(2) ][128X[104X
+    [4X[25Xgap>[125X [27XIntersectionCode(C[6], C[8]) = C[7];[127X[104X
+    [4X[28Xtrue [128X[104X
+  [4X[32X[104X
+  
+  [33X[0;0YThe  [13Xhull[113X  of  a  linear  code is the intersection of the code with its dual
+  code. In other words, the hull of [22XC[122X is [10XIntersectionCode(C, DualCode(C))[110X.[133X
+  
+  [1X6.2-5 UnionCode[101X
+  
+  [29X[2XUnionCode[102X( [3XC1[103X, [3XC2[103X ) [32X function
+  
+  [33X[0;0Y[10XUnionCode[110X  returns  the  union of codes [3XC1[103X and [3XC2[103X. This code consists of the
+  union  of  all codewords of [3XC1[103X and [3XC2[103X and all linear combinations. Therefore
+  this  function  works  only for linear codes. The function [10XAddedElementsCode[110X
+  can  be  used  for  non-linear  codes,  or  if the resulting code should not
+  include   linear   combinations.  See  [2XAddedElementsCode[102X  ([14X6.1-8[114X).  If  both
+  arguments are cyclic, the result is also cyclic.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XG := GeneratorMatCode([[1,0,1],[0,1,1]]*Z(2)^0, GF(2));[127X[104X
+    [4X[28Xa linear [3,2,1..2]1 code defined by generator matrix over GF(2)[128X[104X
+    [4X[25Xgap>[125X [27XH := GeneratorMatCode([[1,1,1]]*Z(2)^0, GF(2));[127X[104X
+    [4X[28Xa linear [3,1,3]1 code defined by generator matrix over GF(2)[128X[104X
+    [4X[25Xgap>[125X [27XU := UnionCode(G, H);[127X[104X
+    [4X[28Xa linear [3,3,1]0 union code[128X[104X
+    [4X[25Xgap>[125X [27Xc := Codeword("010");; c in G;[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27Xc in H;[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27Xc in U;[127X[104X
+    [4X[28Xtrue [128X[104X
+  [4X[32X[104X
+  
+  [1X6.2-6 ExtendedDirectSumCode[101X
+  
+  [29X[2XExtendedDirectSumCode[102X( [3XL[103X, [3XB[103X, [3Xm[103X ) [32X function
+  
+  [33X[0;0YThe extended direct sum construction is described in section V of Graham and
+  Sloane  [GS85].  The  resulting  code consists of [3Xm[103X copies of [3XL[103X, extended by
+  repeating the codewords of [3XB[103X [3Xm[103X times.[133X
+  
+  [33X[0;0YSuppose  [3XL[103X  is  an  [22X[n_L,  k_L]r_L[122X  code,  and  [3XB[103X  is  an [22X[n_L, k_B]r_B[122X code
+  (non-linear  codes are also permitted). The length of [3XB[103X must be equal to the
+  length  of [3XL[103X. The length of the new code is [22Xn = m n_L[122X, the dimension (in the
+  case of linear codes) is [22Xk ≤ m k_L + k_B[122X, and the covering radius is [22Xr ≤ ⌊ m
+  Ψ( L, B ) ⌋[122X, with[133X
+  
+  
+        [33X[1;6Y[24X[33X[0;0Y\Psi( L, B ) = \max_{u \in F_2^{n_L}} \frac{1}{2^{k_B}} \sum_{v \in B}
+        {\rm d}( L, v + u ).[133X [124X[133X
+  
+  
+  [33X[0;0YHowever,  this  computation will not be executed, because it may be too time
+  consuming for large codes.[133X
+  
+  [33X[0;0YIf  [22XL  ⊆  B[122X, and [22XL[122X and [22XB[122X are linear codes, the last copy of [3XL[103X is omitted. In
+  this case the dimension is [22Xk = m k_L + (k_B - k_L)[122X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xc := HammingCode( 3, GF(2) );[127X[104X
+    [4X[28Xa linear [7,4,3]1 Hamming (3,2) code over GF(2)[128X[104X
+    [4X[25Xgap>[125X [27Xd := WholeSpaceCode( 7, GF(2) );[127X[104X
+    [4X[28Xa cyclic [7,7,1]0 whole space code over GF(2)[128X[104X
+    [4X[25Xgap>[125X [27Xe := ExtendedDirectSumCode( c, d, 3 );[127X[104X
+    [4X[28Xa linear [21,15,1..3]2 3-fold extended direct sum code[128X[104X
+  [4X[32X[104X
+  
+  [1X6.2-7 AmalgamatedDirectSumCode[101X
+  
+  [29X[2XAmalgamatedDirectSumCode[102X( [3Xc1[103X, [3Xc2[103X[, [3Xcheck[103X] ) [32X function
+  
+  [33X[0;0Y[10XAmalgamatedDirectSumCode[110X  returns the amalgamated direct sum of the codes [3Xc1[103X
+  and  [3Xc2[103X.  The  amalgamated  direct sum code consists of all codewords of the
+  form [22X(u | 0 | v)[122X if [22X(u | 0) ∈ c_1[122X and [22X(0 | v) ∈ c_2[122X and all codewords of the
+  form  [22X(u  |  1 | v)[122X if [22X(u | 1) ∈ c_1[122X and [22X(1 | v) ∈ c_2[122X. The result is a code
+  with length [22Xn = n_1 + n_2 - 1[122X and size [22XM ≤ M_1 ⋅ M_2 / 2[122X.[133X
+  
+  [33X[0;0YIf  both codes are linear, they will first be standardized, with information
+  symbols  in  the  last  and  first coordinates of the first and second code,
+  respectively.[133X
+  
+  [33X[0;0YIf  [3Xc1[103X  is a normal code (see [2XIsNormalCode[102X ([14X7.4-5[114X)) with the last coordinate
+  acceptable  (see  [2XIsCoordinateAcceptable[102X  ([14X7.4-3[114X)),  and [3Xc2[103X is a normal code
+  with  the  first  coordinate acceptable, then the covering radius of the new
+  code  is [22Xr ≤ r_1 + r_2[122X. However, checking whether a code is normal or not is
+  a  lot of work, and almost all codes seem to be normal. Therefore, an option
+  [3Xcheck[103X  can be supplied. If [3Xcheck[103X is true, then the codes will be checked for
+  normality. If [3Xcheck[103X is false or omitted, then the codes will not be checked.
+  In  this  case it is assumed that they are normal. Acceptability of the last
+  and  first  coordinate of the first and second code, respectively, is in the
+  last case also assumed to be done by the user.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xc := HammingCode( 3, GF(2) );[127X[104X
+    [4X[28Xa linear [7,4,3]1 Hamming (3,2) code over GF(2)[128X[104X
+    [4X[25Xgap>[125X [27Xd := ReedMullerCode( 1, 4 );[127X[104X
+    [4X[28Xa linear [16,5,8]6 Reed-Muller (1,4) code over GF(2)[128X[104X
+    [4X[25Xgap>[125X [27Xe := DirectSumCode( c, d );[127X[104X
+    [4X[28Xa linear [23,9,3]7 direct sum code[128X[104X
+    [4X[25Xgap>[125X [27Xf := AmalgamatedDirectSumCode( c, d );;[127X[104X
+    [4X[25Xgap>[125X [27XMinimumDistance( f );;[127X[104X
+    [4X[25Xgap>[125X [27XCoveringRadius( f );; [127X[104X
+    [4X[25Xgap>[125X [27Xf;[127X[104X
+    [4X[28Xa linear [22,8,3]7 amalgamated direct sum code[128X[104X
+  [4X[32X[104X
+  
+  [1X6.2-8 BlockwiseDirectSumCode[101X
+  
+  [29X[2XBlockwiseDirectSumCode[102X( [3XC1[103X, [3XL1[103X, [3XC2[103X, [3XL2[103X ) [32X function
+  
+  [33X[0;0Y[10XBlockwiseDirectSumCode[110X returns a subcode of the direct sum of [3XC1[103X and [3XC2[103X. The
+  fields  of  [3XC1[103X and [3XC2[103X must be same. The lists [3XL1[103X and [3XL2[103X are two equally long
+  with  elements from the ambient vector spaces of [3XC1[103X and [3XC2[103X, respectively, [13Xor[113X
+  [3XL1[103X  and  [3XL2[103X  are  two  equally long lists containing codes. The union of the
+  codes in [3XL1[103X and [3XL2[103X must be [3XC1[103X and [3XC2[103X, respectively.[133X
+  
+  [33X[0;0YIn the first case, the blockwise direct sum code is defined as[133X
+  
+  
+        [33X[1;6Y[24X[33X[0;0Ybds = \bigcup_{1 \leq i \leq \ell} ( C_1 + (L_1)_i ) \oplus ( C_2 +
+        (L_2)_i ),[133X [124X[133X
+  
+  
+  [33X[0;0Ywhere [22Xℓ[122X is the length of [3XL1[103X and [3XL2[103X, and [22X⊕[122X is the direct sum.[133X
+  
+  [33X[0;0YIn the second case, it is defined as[133X
+  
+  
+        [33X[1;6Y[24X[33X[0;0Ybds = \bigcup_{1 \leq i \leq \ell} ( (L_1)_i \oplus (L_2)_i ).[133X [124X[133X
+  
+  
+  [33X[0;0YThe length of the new code is [22Xn = n_1 + n_2[122X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XC1 := HammingCode( 3, GF(2) );;[127X[104X
+    [4X[25Xgap>[125X [27XC2 := EvenWeightSubcode( WholeSpaceCode( 6, GF(2) ) );;[127X[104X
+    [4X[25Xgap>[125X [27XBlockwiseDirectSumCode( C1, [[ 0,0,0,0,0,0,0 ],[ 1,0,1,0,1,0,0 ]],[127X[104X
+    [4X[25X>[125X [27XC2, [[ 0,0,0,0,0,0 ],[ 1,0,1,0,1,0 ]] );[127X[104X
+    [4X[28Xa (13,1024,1..13)1..2 blockwise direct sum code[128X[104X
+  [4X[32X[104X
+  
+  [1X6.2-9 ConstructionXCode[101X
+  
+  [29X[2XConstructionXCode[102X( [3XC[103X, [3XA[103X ) [32X function
+  
+  [33X[0;0YConsider  a  list of [22Xj[122X linear codes of the same length [22XN[122X over the same field
+  [22XF[122X,  [22XC = { C_1, C_2, ..., C_j }[122X, where the parameter of the [22Xi[122Xth code is [22XC_i =
+  [N,  K_i,  D_i][122X  and  [22XC_j  ⊂ C_j-1 ⊂ ... ⊂ C_2 ⊂ C_1[122X. Consider a list of [22Xj-1[122X
+  auxiliary  linear  codes  of  the same field [22XF[122X, [22XA = { A_1, A_2, ..., A_j-1 }[122X
+  where  the  parameter of the [22Xi[122Xth code [22XA_i[122X is [22X[n_i, k_i=(K_i-K_i+1), d_i][122X, an
+  [22X[n,  K_1,  d][122X  linear  code  over  field  [22XF[122X can be constructed where [22Xn = N +
+  ∑_i=1^j-1  n_i[122X, and [22Xd = min{ D_j, D_j-1 + d_j-1, D_j-2 + d_j-2 + d_j-1, ...,
+  D_1 + ∑_i=1^j-1 d_i}[122X.[133X
+  
+  [33X[0;0YFor more information on Construction X, refer to [SRC72].[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XC1 := BCHCode(127, 43);[127X[104X
+    [4X[28Xa cyclic [127,29,43]31..59 BCH code, delta=43, b=1 over GF(2)[128X[104X
+    [4X[25Xgap>[125X [27XC2 := BCHCode(127, 47);[127X[104X
+    [4X[28Xa cyclic [127,22,47..51]36..63 BCH code, delta=47, b=1 over GF(2)[128X[104X
+    [4X[25Xgap>[125X [27XC3 := BCHCode(127, 55);[127X[104X
+    [4X[28Xa cyclic [127,15,55]41..62 BCH code, delta=55, b=1 over GF(2)[128X[104X
+    [4X[25Xgap>[125X [27XG1 := ShallowCopy( GeneratorMat(C2) );;[127X[104X
+    [4X[25Xgap>[125X [27XAppend(G1, [ GeneratorMat(C1)[23] ]);;[127X[104X
+    [4X[25Xgap>[125X [27XC1 := GeneratorMatCode(G1, GF(2));[127X[104X
+    [4X[28Xa linear [127,23,1..43]35..63 code defined by generator matrix over GF(2)[128X[104X
+    [4X[25Xgap>[125X [27XMinimumDistance(C1);[127X[104X
+    [4X[28X43[128X[104X
+    [4X[25Xgap>[125X [27XC := [ C1, C2, C3 ];[127X[104X
+    [4X[28X[ a linear [127,23,43]35..63 code defined by generator matrix over GF(2), [128X[104X
+    [4X[28X  a cyclic [127,22,47..51]36..63 BCH code, delta=47, b=1 over GF(2), [128X[104X
+    [4X[28X  a cyclic [127,15,55]41..62 BCH code, delta=55, b=1 over GF(2) ][128X[104X
+    [4X[25Xgap>[125X [27XIsSubset(C[1], C[2]);[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIsSubset(C[2], C[3]);[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XA := [ RepetitionCode(4, GF(2)), EvenWeightSubcode( QRCode(17, GF(2)) ) ];[127X[104X
+    [4X[28X[ a cyclic [4,1,4]2 repetition code over GF(2), a cyclic [17,8,6]3..6 even weight subcode ][128X[104X
+    [4X[25Xgap>[125X [27XCX := ConstructionXCode(C, A);[127X[104X
+    [4X[28Xa linear [148,23,53]43..74 Construction X code[128X[104X
+    [4X[25Xgap>[125X [27XHistory(CX);[127X[104X
+    [4X[28X[ "a linear [148,23,53]43..74 Construction X code of", [128X[104X
+    [4X[28X  "Base codes: [ a cyclic [127,15,55]41..62 BCH code, delta=55, b=1 over GF(2)\[128X[104X
+    [4X[28X, a cyclic [127,22,47..51]36..63 BCH code, delta=47, b=1 over GF(2), a linear \[128X[104X
+    [4X[28X[127,23,43]35..63 code defined by generator matrix over GF(2) ]", [128X[104X
+    [4X[28X  "Auxiliary codes: [ a cyclic [4,1,4]2 repetition code over GF(2), a cyclic [\[128X[104X
+    [4X[28X17,8,6]3..6 even weight subcode ]" ][128X[104X
+  [4X[32X[104X
+  
+  [1X6.2-10 ConstructionXXCode[101X
+  
+  [29X[2XConstructionXXCode[102X( [3XC1[103X, [3XC2[103X, [3XC3[103X, [3XA1[103X, [3XA2[103X ) [32X function
+  
+  [33X[0;0YConsider  a  set of linear codes over field [22XF[122X of the same length, [22Xn[122X, [22XC_1=[n,
+  k_1,  d_1][122X, [22XC_2=[n, k_2, d_2][122X and [22XC_3=[n, k_3, d_3][122X such that [22XC_2 ⊂ C_1[122X, [22XC_3
+  ⊂ C_1[122X and [22XC_4 = C_2 ∩ C_3[122X. Given two auxiliary codes [22XA_1=[n_1, k_1-k_2, e_1][122X
+  and  [22XA_2=[n_2,  k_1-k_3,  e_2][122X  over  the  same  field  [22XF[122X,  there  exists an
+  [22X[n+n_1+n_2,  k_1, d][122X linear code [22XC_XX[122X over field [22XF[122X, where [22Xd = min{d_4, d_3 +
+  e_1, d_2 + e_2, d_1 + e_1 + e_2}[122X.[133X
+  
+  [33X[0;0YThe  codewords  of [22XC_XX[122X can be partitioned into three sections [22X( v | a | b )[122X
+  where [22Xv[122X has length [22Xn[122X, [22Xa[122X has length [22Xn_1[122X and [22Xb[122X has length [22Xn_2[122X. A codeword from
+  Construction XX takes the following form:[133X
+  
+  [30X    [33X[0;6Y[22X( v | 0 | 0 )[122X if [22Xv ∈ C_4[122X[133X
+  
+  [30X    [33X[0;6Y[22X( v | a_1 | 0 )[122X if [22Xv ∈ C_3 backslash C_4[122X[133X
+  
+  [30X    [33X[0;6Y[22X( v | 0 | a_2 )[122X if [22Xv ∈ C_2 backslash C_4[122X[133X
+  
+  [30X    [33X[0;6Y[22X( v | a_1 | a_2 )[122X otherwise[133X
+  
+  [33X[0;0YFor more information on Construction XX, refer to [All84].[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xa := PrimitiveRoot(GF(32));[127X[104X
+    [4X[28XZ(2^5)[128X[104X
+    [4X[25Xgap>[125X [27Xf0 := MinimalPolynomial( GF(2), a^0 );[127X[104X
+    [4X[28Xx_1+Z(2)^0[128X[104X
+    [4X[25Xgap>[125X [27Xf1 := MinimalPolynomial( GF(2), a^1 );[127X[104X
+    [4X[28Xx_1^5+x_1^2+Z(2)^0[128X[104X
+    [4X[25Xgap>[125X [27Xf5 := MinimalPolynomial( GF(2), a^5 );[127X[104X
+    [4X[28Xx_1^5+x_1^4+x_1^2+x_1+Z(2)^0[128X[104X
+    [4X[25Xgap>[125X [27XC2 := CheckPolCode( f0 * f1, 31, GF(2) );; MinimumDistance(C2);; Display(C2);[127X[104X
+    [4X[28Xa cyclic [31,6,15]10..13 code defined by check polynomial over GF(2)[128X[104X
+    [4X[25Xgap>[125X [27XC3 := CheckPolCode( f0 * f5, 31, GF(2) );; MinimumDistance(C3);; Display(C3);[127X[104X
+    [4X[28Xa cyclic [31,6,15]10..13 code defined by check polynomial over GF(2)[128X[104X
+    [4X[25Xgap>[125X [27XC1 := UnionCode(C2, C3);; MinimumDistance(C1);; Display(C1);[127X[104X
+    [4X[28Xa linear [31,11,11]7..11 union code of[128X[104X
+    [4X[28XU: a cyclic [31,6,15]10..13 code defined by check polynomial over GF(2)[128X[104X
+    [4X[28XV: a cyclic [31,6,15]10..13 code defined by check polynomial over GF(2)[128X[104X
+    [4X[25Xgap>[125X [27XA1 := BestKnownLinearCode( 10, 5, GF(2) );[127X[104X
+    [4X[28Xa linear [10,5,4]2..4 shortened code[128X[104X
+    [4X[25Xgap>[125X [27XA2 := DualCode( RepetitionCode(6, GF(2)) );[127X[104X
+    [4X[28Xa cyclic [6,5,2]1 dual code[128X[104X
+    [4X[25Xgap>[125X [27XCXX:= ConstructionXXCode(C1, C2, C3, A1, A2 );[127X[104X
+    [4X[28Xa linear [47,11,15..17]13..23 Construction XX code[128X[104X
+    [4X[25Xgap>[125X [27XMinimumDistance(CXX);[127X[104X
+    [4X[28X17[128X[104X
+    [4X[25Xgap>[125X [27XHistory(CXX);        [127X[104X
+    [4X[28X[ "a linear [47,11,17]13..23 Construction XX code of", [128X[104X
+    [4X[28X  "C1: a cyclic [31,11,11]7..11 union code", [128X[104X
+    [4X[28X  "C2: a cyclic [31,6,15]10..13 code defined by check polynomial over GF(2)", [128X[104X
+    [4X[28X  "C3: a cyclic [31,6,15]10..13 code defined by check polynomial over GF(2)", [128X[104X
+    [4X[28X  "A1: a linear [10,5,4]2..4 shortened code", [128X[104X
+    [4X[28X  "A2: a cyclic [6,5,2]1 dual code" ][128X[104X
+  [4X[32X[104X
+  
+  [1X6.2-11 BZCode[101X
+  
+  [29X[2XBZCode[102X( [3XO[103X, [3XI[103X ) [32X function
+  
+  [33X[0;0YGiven  a  set  of  outer  codes  of the same length [22XO_i = [N, K_i, D_i][122X over
+  GF([22Xq^e_i[122X), where [22Xi=1,2,...,t[122X and a set of inner codes of the same length [22XI_i
+  =  [n,  k_i,  d_i][122X  over  GF([22Xq[122X),  [10XBZCode[110X  returns a Blokh-Zyablov multilevel
+  concatenated   code   with   parameter   [22X[   n  ×  N,  ∑_i=1^t  e_i  ×  K_i,
+  min_i=1,...,t{d_i × D_i} ][122X over GF([22Xq[122X).[133X
+  
+  [33X[0;0YNote  that  the  set of inner codes must satisfy chain condition, i.e. [22XI_1 =
+  [n,  k_1,  d_1]  ⊂ I_2=[n, k_2, d_2] ⊂ ... ⊂ I_t=[n, k_t, d_t][122X where [22X0=k_0 <
+  k_1  <  k_2  <  ... < k_t[122X. The dimension of the inner codes must satisfy the
+  condition  [22Xe_i  = k_i - k_i-1[122X, where GF([22Xq^e_i[122X) is the field of the [22Xi[122Xth outer
+  code.[133X
+  
+  [33X[0;0YFor more information on Blokh-Zyablov multilevel concatenated code, refer to
+  [Bro98].[133X
+  
+  [1X6.2-12 BZCodeNC[101X
+  
+  [29X[2XBZCodeNC[102X( [3XO[103X, [3XI[103X ) [32X function
+  
+  [33X[0;0YThis  function  is  the  same as [10XBZCode[110X, except this version is faster as it
+  does  not  estimate the covering radius of the code. Users are encouraged to
+  use this version unless you are working on very small codes.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27X#[127X[104X
+    [4X[25Xgap>[125X [27X# Binary code[127X[104X
+    [4X[25Xgap>[125X [27X#[127X[104X
+    [4X[25Xgap>[125X [27XO := [ CyclicMDSCode(2,3,7), BestKnownLinearCode(9,5,GF(2)), CyclicMDSCode(2,3,4) ];[127X[104X
+    [4X[28X[ a cyclic [9,7,3]1 MDS code over GF(8), a linear [9,5,3]2..3 shortened code, [128X[104X
+    [4X[28X  a cyclic [9,4,6]4..5 MDS code over GF(8) ][128X[104X
+    [4X[25Xgap>[125X [27XA := ExtendedCode( HammingCode(3,GF(2)) );;[127X[104X
+    [4X[25Xgap>[125X [27XI := [ SubCode(A), A, DualCode( RepetitionCode(8, GF(2)) ) ];[127X[104X
+    [4X[28X[ a linear [8,3,4]3..4 subcode, a linear [8,4,4]2 extended code, a cyclic [8,7,2]1 dual code ][128X[104X
+    [4X[25Xgap>[125X [27XC := BZCodeNC(O, I);[127X[104X
+    [4X[28Xa linear [72,38,12]0..72 Blokh Zyablov concatenated code[128X[104X
+    [4X[25Xgap>[125X [27X#[127X[104X
+    [4X[25Xgap>[125X [27X# Non binary code[127X[104X
+    [4X[25Xgap>[125X [27X#[127X[104X
+    [4X[25Xgap>[125X [27XO2 := ExtendedCode(GoppaCode(ConwayPolynomial(5,2), Elements(GF(5))));;[127X[104X
+    [4X[25Xgap>[125X [27XO3 := ExtendedCode(GoppaCode(ConwayPolynomial(5,3), Elements(GF(5))));;[127X[104X
+    [4X[25Xgap>[125X [27XO1 := DualCode( O3 );;[127X[104X
+    [4X[25Xgap>[125X [27XMinimumDistance(O1);; MinimumDistance(O2);; MinimumDistance(O3);;[127X[104X
+    [4X[25Xgap>[125X [27XCy := CyclicCodes(5, GF(5));;[127X[104X
+    [4X[25Xgap>[125X [27Xfor i in [4, 5] do; MinimumDistance(Cy[i]);; od;[127X[104X
+    [4X[25Xgap>[125X [27XO  := [ O1, O2, O3 ];[127X[104X
+    [4X[28X[ a linear [6,4,3]1 dual code, a linear [6,3,4]2..3 extended code,[128X[104X
+    [4X[28X  a linear [6,2,5]3..4 extended code ][128X[104X
+    [4X[25Xgap>[125X [27XI  := [ Cy[5], Cy[4], Cy[3] ];[127X[104X
+    [4X[28X[ a cyclic [5,1,5]3..4 enumerated code over GF(5),[128X[104X
+    [4X[28X  a cyclic [5,2,4]2..3 enumerated code over GF(5),[128X[104X
+    [4X[28X  a cyclic [5,3,1..3]2 enumerated code over GF(5) ][128X[104X
+    [4X[25Xgap>[125X [27XC  := BZCodeNC( O, I );[127X[104X
+    [4X[28Xa linear [30,9,5..15]0..30 Blokh Zyablov concatenated code[128X[104X
+    [4X[25Xgap>[125X [27XMinimumDistance(C);[127X[104X
+    [4X[28X15[128X[104X
+    [4X[25Xgap>[125X [27XHistory(C);[127X[104X
+    [4X[28X[ "a linear [30,9,15]0..30 Blokh Zyablov concatenated code of",[128X[104X
+    [4X[28X  "Inner codes: [ a cyclic [5,1,5]3..4 enumerated code over GF(5), a cyclic [5\[128X[104X
+    [4X[28X,2,4]2..3 enumerated code over GF(5), a cyclic [5,3,1..3]2 enumerated code ove\[128X[104X
+    [4X[28Xr GF(5) ]",[128X[104X
+    [4X[28X  "Outer codes: [ a linear [6,4,3]1 dual code, a linear [6,3,4]2..3 extended c\[128X[104X
+    [4X[28Xode, a linear [6,2,5]3..4 extended code ]" ][128X[104X
+  [4X[32X[104X
+  

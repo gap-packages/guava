@@ -1,0 +1,45 @@
+This is BibTeX, Version 0.99c (TeX Live 2009/Debian)
+The top-level auxiliary file: guava.aux
+The style file: alpha.bst
+Database file #1: guava_bib.xml.bib
+You've used 24 entries,
+            2543 wiz_defined-function locations,
+            720 strings with 7449 characters,
+and the built_in function-call counts, 8832 in all, are:
+= -- 897
+> -- 350
+< -- 17
++ -- 114
+- -- 109
+* -- 600
+:= -- 1460
+add.period$ -- 73
+call.type$ -- 24
+change.case$ -- 132
+chr.to.int$ -- 24
+cite$ -- 24
+duplicate$ -- 373
+empty$ -- 663
+format.name$ -- 146
+if$ -- 1790
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 26
+newline$ -- 124
+num.names$ -- 74
+pop$ -- 127
+preamble$ -- 1
+purify$ -- 161
+quote$ -- 0
+skip$ -- 300
+stack$ -- 0
+substring$ -- 545
+swap$ -- 48
+text.length$ -- 17
+text.prefix$ -- 14
+top$ -- 0
+type$ -- 172
+warning$ -- 0
+while$ -- 88
+width$ -- 28
+write$ -- 310

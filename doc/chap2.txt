@@ -1,0 +1,160 @@
+  
+  [1X2 [33X[0;0YA First Tutorial in [5XGUAVA[105X[101X[1X[133X[101X
+  
+  [33X[0;0YAn  error-correcting  code  is  essentially  just a subset of the set of all
+  possible messages of a given length over some finite "alphabet."[133X
+  
+  [33X[0;0YIn  algebraic  coding  theory,  the  "alphabet" is usually some finite field
+  (very  often GF(2)) and frequently the error-correcting code is chosen to be
+  a  vector  subspace  of the space of all row vectors of some fixed length [22Xn[122X.
+  Such  codes  are  known  as [13XLinear Codes[113X, but, however a code is defined the
+  point  is  to  have  a collection of "codewords" that are said to be "in the
+  code"  and  any  other word (row vectors that are [13Xnot[113X "in the code") will be
+  assumed to be a codeword that has been mangled by the addition of noise.[133X
+  
+  [33X[0;0YWhen  a  message  is  received  that is not a codeword, we ask ourselves the
+  question "Which codeword is closest to this message I've received?" In other
+  words  we  make  the  presumption  that  the  received message is actually a
+  codeword  that has been changed in a relatively small number of positions --
+  and [13Xwe put them back the way they were supposed to be![113X[133X
+  
+  [33X[0;0YThat  process  is  called  "decoding."  Developing codes that have efficient
+  decoding  algorithms  is  one  of  the  central problems of algebraic coding
+  theory.[133X
+  
+  
+  [1X2.1 [33X[0;0YWorking with codewords[133X[101X
+  
+  [33X[0;0YSo let's play around a bit.[133X
+  
+  [33X[0;0YStart [5XGAP[105X in a terminal window, then issue the command[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XLoadPackage("guava");[127X[104X
+  [4X[32X[104X
+  
+  [33X[0;0Y[5XGUAVA[105X  can construct codewords in a variety of ways. One of the most typical
+  cases  is  for  a  codeword to consist of binary digits. In that case we say
+  that "the code is over GF(2)" and codewords can be constructed as follows:[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xc1:=Codeword("101010101");[127X[104X
+    [4X[28X[ 1 0 1 0 1 0 1 0 1 ][128X[104X
+    [4X[25Xgap>[125X [27Xv:=Z(2)*[1,1,1,1,1,1,1,1,1];[127X[104X
+    [4X[28X[ Z(2)^0, Z(2)^0, Z(2)^0, Z(2)^0, Z(2)^0, Z(2)^0, Z(2)^0, Z(2)^0, Z(2)^0 ][128X[104X
+    [4X[25Xgap>[125X [27Xc2:=Codeword(v);[127X[104X
+    [4X[28X[ 1 1 1 1 1 1 1 1 1 ][128X[104X
+    [4X[25Xgap>[125X [27Xc3:=c1+c2;[127X[104X
+    [4X[28X[ 0 1 0 1 0 1 0 1 0 ][128X[104X
+    [4X[25Xgap>[125X [27XWeight(c1);[127X[104X
+    [4X[28X5[128X[104X
+    [4X[25Xgap>[125X [27XWeight(c2);[127X[104X
+    [4X[28X9[128X[104X
+    [4X[25Xgap>[125X [27XWeight(c3);[127X[104X
+    [4X[28X4[128X[104X
+  [4X[32X[104X
+  
+  [33X[0;0YThe  previous  excerpt  from  a  [5XGAP[105X  session  shows  that  codewords can be
+  constructed  from  quoted  strings  or  from  vectors whose entries lie in a
+  finite  field.  We  also  see  that codewords can be added together and that
+  there  is  a function called [11XWeight[111X which (if it isn't obvious) tells us how
+  many entries in a codeword are non-zero.[133X
+  
+  [33X[0;0YThe  [13XHamming  distance[113X  is used extensively in coding theory. It tells us in
+  how  many  positions  two codewords differ. In [5XGUAVA[105X the Hamming distance is
+  implemented by a function called [11XDistanceCodeword[111X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XDistanceCodeword(c1, c2);[127X[104X
+    [4X[28X4[128X[104X
+  [4X[32X[104X
+  
+  [33X[0;0YNote  that  the  Hamming distance between [10Xc1[110X and [10Xc2[110X happens to give the same
+  value  as the weight of their sum. This is no coincidence and has to do with
+  the curious fact that in GF(2) adding and subtracting are the same thing.[133X
+  
+  [33X[0;0YA  codeword can also be constructed using a polynomial. Indeed, the internal
+  representation of a codeword requires either a polynomial or a vector. There
+  are  [5XGUAVA[105X functions that allow one to switch back and forth between the two
+  representations.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xx:=Indeterminate(GF(2));[127X[104X
+    [4X[28Xx_1[128X[104X
+    [4X[25Xgap>[125X [27Xc4:=Codeword(x^7+x^2+x+1);[127X[104X
+    [4X[28Xx^7 + x^2 + x + 1[128X[104X
+    [4X[25Xgap>[125X [27XVectorCodeword(c4);[127X[104X
+    [4X[28X<an immutable GF2 vector of length 8>[128X[104X
+    [4X[25Xgap>[125X [27XDisplay(last);[127X[104X
+    [4X[28X[ Z(2)^0, Z(2)^0, Z(2)^0, 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), Z(2)^0 ][128X[104X
+    [4X[25Xgap>[125X [27Xc5:=Codeword([1,0,0,0,0,0,1]);[127X[104X
+    [4X[28X[ 1 0 0 0 0 0 1 ][128X[104X
+    [4X[25Xgap>[125X [27XPolyCodeword(c5);[127X[104X
+    [4X[28Xx_1^6+Z(2)^0[128X[104X
+  [4X[32X[104X
+  
+  
+  [1X2.2 [33X[0;0YCalculations with codes[133X[101X
+  
+  [33X[0;0YA  code is fundamentally just a collection of codewords. Sometimes a code is
+  merely  a  [13Xset[113X  of  codewords.  Other  times a code will be the vector space
+  generated by some small set of codewords.[133X
+  
+  [33X[0;0YFirst let's build a code that is merely a set:[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xl:=["111000", "011100", "001110", "000111", "100011", "110001", "000000",$[127X[104X
+    [4X[28X[ "111000", "011100", "001110", "000111", "100011", "110001", "000000", [128X[104X
+    [4X[28X  "111111" ][128X[104X
+    [4X[25Xgap>[125X [27Xm:=Codeword(l,6,GF(2));    [127X[104X
+    [4X[28X[ [ 1 1 1 0 0 0 ], [ 0 1 1 1 0 0 ], [ 0 0 1 1 1 0 ], [ 0 0 0 1 1 1 ], [128X[104X
+    [4X[28X  [ 1 0 0 0 1 1 ], [ 1 1 0 0 0 1 ], [ 0 0 0 0 0 0 ], [ 1 1 1 1 1 1 ] ][128X[104X
+    [4X[25Xgap>[125X [27XC1:=ElementsCode(m, GF(2));[127X[104X
+    [4X[28Xa (6,8,1..6)2..3 user defined unrestricted code over GF(2)[128X[104X
+    [4X[25Xgap>[125X [27XIsLinearCode(C1);[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27XWeightDistribution(C1);[127X[104X
+    [4X[28X[ 1, 0, 0, 6, 0, 0, 1 ][128X[104X
+  [4X[32X[104X
+  
+  [33X[0;0YIn  this  example  we first wrote out a list of strings, then converted them
+  into codewords over GF(2). The call to [11XElementsCode[111X constructs a code from a
+  list  of elements. It is possible that the set of codewords we used actually
+  is  a  vector  space, but the call to [11XIsLinearCode[111X says no. Finally the last
+  function  tells  us  that there are 6 codewords of weight 3, and one each of
+  weights 0 and 6 in this code.[133X
+  
+  [33X[0;0YA very useful feature of [5XGUAVA[105X is the ability to construct random codes:[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XC:= RandomLinearCode(12,5,GF(2));[127X[104X
+    [4X[28Xa  [12,5,?] randomly generated code over GF(2)[128X[104X
+  [4X[32X[104X
+  
+  [33X[0;0YAn  error-correcting  code's  properties  are  fairly well captured by three
+  numbers which traditionally are referred to using the letters [22Xn[122X, [22Xk[122X and [22Xd[122X. We
+  ask  for  a  random code by specifying [22Xn[122X (the wordlength), and [22Xk[122X (the code's
+  dimension) as well as the field which serves as the alphabet for the code.[133X
+  
+  [33X[0;0YOne  of  the  most salient features of a code (a feature that determines how
+  good  it will be at correcting errors) is its minimum weight, [22Xd[122X. This is the
+  smallest  weight  of  any  nonzero word in the code. If we wish to correct [22Xm[122X
+  errors we will need to have a minimum weight of at least [22X2m+1[122X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XMinimumWeight(C);[127X[104X
+    [4X[28X3[128X[104X
+  [4X[32X[104X
+  
+  [33X[0;0YThis particular code would be capable of correcting single bit errors.[133X
+  
+  [33X[0;0YFinally,  one  might be interested in the entire distribution of the weights
+  of  the  words  in a code. The weight distribution is a vector that tells us
+  how  many  words there are in a code with each possible weight between [22X0[122X and
+  [22Xn[122X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XWeightDistribution(C);[127X[104X
+    [4X[28X[ 1, 0, 0, 2, 3, 6, 7, 6, 4, 2, 1, 0, 0 ][128X[104X
+  [4X[32X[104X
+  

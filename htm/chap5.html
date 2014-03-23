@@ -1,0 +1,2399 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<title>GAP (guava) - Chapter 5: Generating Codes</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<meta name="generator" content="GAPDoc2HTML" />
+<link rel="stylesheet" type="text/css" href="manual.css" />
+<script src="manual.js" type="text/javascript"></script>
+<script type="text/javascript">overwriteStyle();</script>
+</head>
+<body class="chap5"  onload="jscontent()">
+
+
+<div class="chlinktop"><span class="chlink1">Goto Chapter: </span><a href="chap0.html">Top</a>  <a href="chap1.html">1</a>  <a href="chap2.html">2</a>  <a href="chap3.html">3</a>  <a href="chap4.html">4</a>  <a href="chap5.html">5</a>  <a href="chap6.html">6</a>  <a href="chap7.html">7</a>  <a href="chap8.html">8</a>  <a href="chap9.html">9</a>  <a href="chapBib.html">Bib</a>  <a href="chapInd.html">Ind</a>  </div>
+
+<div class="chlinkprevnexttop">&nbsp;<a href="chap0.html">[Top of Book]</a>&nbsp;  <a href="chap0.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap4.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap6.html">[Next Chapter]</a>&nbsp;  </div>
+
+<p><a id="X87EB64ED831CCE99" name="X87EB64ED831CCE99"></a></p>
+<div class="ChapSects"><a href="chap5.html#X87EB64ED831CCE99">5 <span class="Heading">Generating Codes</span></a>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap5.html#X86A92CB184CBD3C7">5.1 <span class="Heading">
+Generating Unrestricted Codes
+</span></a>
+</span>
+<div class="ContSSBlock">
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X81AACBDD86E89D7D">5.1-1 ElementsCode</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X86755AAC83A0AF4B">5.1-2 HadamardCode</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X8122BA417F705997">5.1-3 ConferenceCode</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X81B7EE4279398F67">5.1-4 MOLSCode</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X7D87DD6380B2CE69">5.1-5 RandomCode</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X816353397F25B62E">5.1-6 NordstromRobinsonCode</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X7880D34485C60BAF">5.1-7 GreedyCode</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X7C1B374583AFB923">5.1-8 LexiCode</a></span>
+</div></div>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap5.html#X7A11F29F7BBF45BB">5.2 <span class="Heading">
+Generating Linear Codes
+</span></a>
+</span>
+<div class="ContSSBlock">
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X83F400A681CFC0D6">5.2-1 GeneratorMatCode</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X7CDDDFE47A10A008">5.2-2 CheckMatCodeMutable</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X848D3F7B805DEB66">5.2-3 CheckMatCode</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X7DECB0A57C798583">5.2-4 HammingCode</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X801C88D578DA6ACA">5.2-5 ReedMullerCode</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X851592C7811D3D2A">5.2-6 AlternantCode</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X7EE808BB7D1E487A">5.2-7 GoppaCode</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X7F9C0A727EE075B7">5.2-8 GeneralizedSrivastavaCode</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X7A38EB3178961F3E">5.2-9 SrivastavaCode</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X87F7CB8B7A8BE624">5.2-10 CordaroWagnerCode</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X865534267C8E902A">5.2-11 FerreroDesignCode</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X7BCA10CE8660357F">5.2-12 RandomLinearCode</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X839CFE4C7A567D4D">5.2-13 OptimalityCode</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X871508567CB34D96">5.2-14 BestKnownLinearCode</a></span>
+</div></div>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap5.html#X858721967BE44000">5.3 <span class="Heading">
+Gabidulin Codes
+</span></a>
+</span>
+<div class="ContSSBlock">
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X79BE5D497CB2E59E">5.3-1 GabidulinCode</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X873950F67D4A9184">5.3-2 EnlargedGabidulinCode</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X7F5BE77B7F343182">5.3-3 DavydovCode</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X845B4DBE83288D2D">5.3-4 TombakCode</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X7D6583347C0D4292">5.3-5 EnlargedTombakCode</a></span>
+</div></div>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap5.html#X81F6E4A785F368B0">5.4 <span class="Heading">
+Golay Codes
+</span></a>
+</span>
+<div class="ContSSBlock">
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X80ED89C079CD0D09">5.4-1 BinaryGolayCode</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X84520C7983538806">5.4-2 ExtendedBinaryGolayCode</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X7E0CCCD7866ADB94">5.4-3 TernaryGolayCode</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X81088A66816BCAE4">5.4-4 ExtendedTernaryGolayCode</a></span>
+</div></div>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap5.html#X8366CC3685F0BC85">5.5 <span class="Heading">
+Generating Cyclic Codes
+</span></a>
+</span>
+<div class="ContSSBlock">
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X853D34A5796CEB73">5.5-1 GeneratorPolCode</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X82440B78845F7F6E">5.5-2 CheckPolCode</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X818F0E6583E01D4B">5.5-3 RootsCode</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X7C6BB07C87853C00">5.5-4 BCHCode</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X838F3CB3872CEF95">5.5-5 ReedSolomonCode</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X8730B90A862A3B3E">5.5-6 ExtendedReedSolomonCode</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X825F42F68179D2AB">5.5-7 QRCode</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X8764ABCF854C695E">5.5-8 QQRCodeNC</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X7F4C3AD2795A8D7A">5.5-9 QQRCode</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X7F3B8CC8831DA0E4">5.5-10 FireCode</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X7BC245E37EB7B23F">5.5-11 WholeSpaceCode</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X7B4EF2017B2C61AD">5.5-12 NullCode</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X83C5F8FE7827EAA7">5.5-13 RepetitionCode</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X82FA9F65854D98A6">5.5-14 CyclicCodes</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X8263CE4A790D294A">5.5-15 NrCyclicCodes</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X79826B16785E8BD3">5.5-16 QuasiCyclicCode</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X7BFEDA52835A601D">5.5-17 CyclicMDSCode</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X7F40AF3B81C252DC">5.5-18 FourNegacirculantSelfDualCode</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X87137A257E761291">5.5-19 FourNegacirculantSelfDualCodeNC</a></span>
+</div></div>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap5.html#X850A28C579137220">5.6 <span class="Heading">
+Evaluation Codes
+</span></a>
+</span>
+<div class="ContSSBlock">
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X78E078567D19D433">5.6-1 EvaluationCode</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X810AB3DB844FFCE9">5.6-2 GeneralizedReedSolomonCode</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X85B8699680B9D786">5.6-3 GeneralizedReedMullerCode</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X7EE68B58872D7E82">5.6-4 ToricPoints</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X7B24BE418010F596">5.6-5 ToricCode</a></span>
+</div></div>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap5.html#X7AE2B2CD7C647990">5.7 <span class="Heading">
+Algebraic geometric codes
+</span></a>
+</span>
+<div class="ContSSBlock">
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X802DD9FB79A9ACA7">5.7-1 AffineCurve</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X857EFE567C05C981">5.7-2 AffinePointsOnCurve</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X857E36ED814A40B8">5.7-3 GenusCurve</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X8572A3037DA66F88">5.7-4 GOrbitPoint </a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X79742B7183051D99">5.7-5 DivisorOnAffineCurve</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X8626E2B57D01F2DC">5.7-6 DivisorAddition </a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X865FE28D828C1EAD">5.7-7 DivisorDegree </a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X789DC358819A8F54">5.7-8 DivisorNegate </a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X8688C0E187B5C7DB">5.7-9 DivisorIsZero </a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X816A07997D9A7075">5.7-10 DivisorsEqual </a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X857B89847A649A26">5.7-11 DivisorGCD </a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X82231CF08073695F">5.7-12 DivisorLCM </a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X79C878697F99A10F">5.7-13 RiemannRochSpaceBasisFunctionP1 </a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X856DDA207EDDF256">5.7-14 DivisorOfRationalFunctionP1 </a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X878970A17E580224">5.7-15 RiemannRochSpaceBasisP1 </a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X807C52E67A440DEB">5.7-16 MoebiusTransformation </a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X85A0419580ED0391">5.7-17 ActionMoebiusTransformationOnFunction </a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X7E48F9C67E7FB7B5">5.7-18 ActionMoebiusTransformationOnDivisorP1 </a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X79FD980E7B24DB9C">5.7-19 IsActionMoebiusTransformationOnDivisorDefinedP1 </a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X823386037F450B0E">5.7-20 DivisorAutomorphismGroupP1 </a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X80EDF3D682E7EF3F">5.7-21 MatrixRepresentationOnRiemannRochSpaceP1 </a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X8777388C7885E335">5.7-22 GoppaCodeClassical</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X8422A310854C09B0">5.7-23 EvaluationBivariateCode</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X7B6C2BED8319C811">5.7-24 EvaluationBivariateCodeNC</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X842E227E8785168E">5.7-25 OnePointAGCode</a></span>
+</div></div>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap5.html#X84F3673D7BBF5956">5.8 <span class="Heading">
+Low-Density Parity-Check Codes
+</span></a>
+</span>
+<div class="ContSSBlock">
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X8020A9357AD0BA92">5.8-1 QCLDPCCodeFromGroup</a></span>
+</div></div>
+</div>
+
+<h3>5 <span class="Heading">Generating Codes</span></h3>
+
+<p>In this chapter we describe functions for generating codes.</p>
+
+<p>Section <a href="chap5.html#X86A92CB184CBD3C7"><span class="RefLink">5.1</span></a> describes functions for generating unrestricted codes.</p>
+
+<p>Section <a href="chap5.html#X7A11F29F7BBF45BB"><span class="RefLink">5.2</span></a> describes functions for generating linear codes.</p>
+
+<p>Section <a href="chap5.html#X858721967BE44000"><span class="RefLink">5.3</span></a> describes functions for constructing certain covering codes, such as the Gabidulin codes.</p>
+
+<p>Section <a href="chap5.html#X81F6E4A785F368B0"><span class="RefLink">5.4</span></a> describes functions for constructing the Golay codes.</p>
+
+<p>Section <a href="chap5.html#X8366CC3685F0BC85"><span class="RefLink">5.5</span></a> describes functions for generating cyclic codes.</p>
+
+<p>Section <a href="chap5.html#X850A28C579137220"><span class="RefLink">5.6</span></a> describes functions for generating codes as the image of an evaluation map applied to a space of functions. For example, generalized Reed-Solomon codes and toric codes are described there.</p>
+
+<p>Section <a href="chap5.html#X7AE2B2CD7C647990"><span class="RefLink">5.7</span></a> describes functions for generating algebraic geometry codes.</p>
+
+<p>Section <a href="chap5.html#X84F3673D7BBF5956"><span class="RefLink">5.8</span></a> describes functions for constructing low-density parity-check (LDPC) codes.</p>
+
+<p><a id="X86A92CB184CBD3C7" name="X86A92CB184CBD3C7"></a></p>
+
+<h4>5.1 <span class="Heading">
+Generating Unrestricted Codes
+</span></h4>
+
+<p>In this section we start with functions that creating code from user defined matrices or special matrices (see <code class="func">ElementsCode</code> (<a href="chap5.html#X81AACBDD86E89D7D"><span class="RefLink">5.1-1</span></a>), <code class="func">HadamardCode</code> (<a href="chap5.html#X86755AAC83A0AF4B"><span class="RefLink">5.1-2</span></a>), <code class="func">ConferenceCode</code> (<a href="chap5.html#X8122BA417F705997"><span class="RefLink">5.1-3</span></a>) and <code class="func">MOLSCode</code> (<a href="chap5.html#X81B7EE4279398F67"><span class="RefLink">5.1-4</span></a>)). These codes are unrestricted codes; they may later be discovered to be linear or cyclic.</p>
+
+<p>The next functions generate random codes (see <code class="func">RandomCode</code> (<a href="chap5.html#X7D87DD6380B2CE69"><span class="RefLink">5.1-5</span></a>)) and the Nordstrom-Robinson code (see <code class="func">NordstromRobinsonCode</code> (<a href="chap5.html#X816353397F25B62E"><span class="RefLink">5.1-6</span></a>)), respectively.</p>
+
+<p>Finally, we describe two functions for generating Greedy codes. These are codes that contructed by gathering codewords from a space (see <code class="func">GreedyCode</code> (<a href="chap5.html#X7880D34485C60BAF"><span class="RefLink">5.1-7</span></a>) and <code class="func">LexiCode</code> (<a href="chap5.html#X7C1B374583AFB923"><span class="RefLink">5.1-8</span></a>)).</p>
+
+<p><a id="X81AACBDD86E89D7D" name="X81AACBDD86E89D7D"></a></p>
+
+<h5>5.1-1 ElementsCode</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ElementsCode</code>( <var class="Arg">L</var>[, <var class="Arg">name</var>], <var class="Arg">F</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<p><code class="code">ElementsCode</code> creates an unrestricted code of the list of elements <var class="Arg">L</var>, in the field <var class="Arg">F</var>. <var class="Arg">L</var> must be a list of vectors, strings, polynomials or codewords. <var class="Arg">name</var> can contain a short description of the code.</p>
+
+<p>If <var class="Arg">L</var> contains a codeword more than once, it is removed from the list and a GAP set is returned.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := Z(3)^0 * [ [1, 0, 1, 1], [2, 2, 0, 0], [0, 1, 2, 2] ];;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C := ElementsCode( M, "example code", GF(3) );</span>
+a (4,3,1..4)2 example code over GF(3)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">MinimumDistance( C );</span>
+4
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">AsSSortedList( C );</span>
+[ [ 0 1 2 2 ], [ 1 0 1 1 ], [ 2 2 0 0 ] ]
+</pre></div>
+
+<p><a id="X86755AAC83A0AF4B" name="X86755AAC83A0AF4B"></a></p>
+
+<h5>5.1-2 HadamardCode</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; HadamardCode</code>( <var class="Arg">H</var>[, <var class="Arg">t</var>] )</td><td class="tdright">( function )</td></tr></table></div>
+<p>The four forms this command can take are <code class="code">HadamardCode(H,t)</code>, <code class="code">HadamardCode(H)</code>, <code class="code">HadamardCode(n,t)</code>, and <code class="code">HadamardCode(n)</code>.</p>
+
+<p>In the case when the arguments <var class="Arg">H</var> and <var class="Arg">t</var> are both given, <code class="code">HadamardCode</code> returns a Hadamard code of the <span class="SimpleMath">t^th</span> kind from the Hadamard matrix <var class="Arg">H</var> In case only <var class="Arg">H</var> is given, <span class="SimpleMath">t = 3</span> is used.</p>
+
+<p>By definition, a Hadamard matrix is a square matrix <var class="Arg">H</var> with <span class="SimpleMath">H⋅ H^T = -n⋅ I_n</span>, where <span class="SimpleMath">n</span> is the size of <var class="Arg">H</var>. The entries of <var class="Arg">H</var> are either 1 or -1.</p>
+
+<p>The matrix <var class="Arg">H</var> is first transformed into a binary matrix <span class="SimpleMath">A_n</span> by replacing the <span class="SimpleMath">1</span>'s by <span class="SimpleMath">0</span>'s and the <span class="SimpleMath">-1</span>'s by <span class="SimpleMath">1</span>s).</p>
+
+<p>The Hadamard matrix of the <em>first kind</em> (<span class="SimpleMath">t=1</span>) is created by using the rows of <span class="SimpleMath">A_n</span> as elements, after deleting the first column. This is a <span class="SimpleMath">(n-1, n, n/2)</span> code. We use this code for creating the Hadamard code of the <em>second kind</em> (<span class="SimpleMath">t=2</span>), by adding all the complements of the already existing codewords. This results in a <span class="SimpleMath">(n-1, 2n, n/2 -1)</span> code. The <em>third kind</em> (<span class="SimpleMath">t=3</span>) is created by using the rows of <span class="SimpleMath">A_n</span> (without cutting a column) and their complements as elements. This way, we have an <span class="SimpleMath">(n, 2n, n/2)</span>-code. The returned code is generally an unrestricted code, but for <span class="SimpleMath">n = 2^r</span>, the code is linear.</p>
+
+<p>The command <code class="code">HadamardCode(n,t)</code> returns a Hadamard code with parameter <var class="Arg">n</var> of the <span class="SimpleMath">t^th</span> kind. For the command <code class="code">HadamardCode(n)</code>, <span class="SimpleMath">t=3</span> is used.</p>
+
+<p>When called in these forms, <code class="code">HadamardCode</code> first creates a Hadamard matrix (see <code class="func">HadamardMat</code> (<a href="chap7.html#X8014A1F181ECD8AA"><span class="RefLink">7.3-4</span></a>)), of size <var class="Arg">n</var> and then follows the same procedure as described above. Therefore the same restrictions with respect to <var class="Arg">n</var> as for Hadamard matrices hold.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">H4 := [[1,1,1,1],[1,-1,1,-1],[1,1,-1,-1],[1,-1,-1,1]];;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">HadamardCode( H4, 1 );</span>
+a (3,4,2)1 Hadamard code of order 4 over GF(2)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">HadamardCode( H4, 2 );</span>
+a (3,8,1)0 Hadamard code of order 4 over GF(2)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">HadamardCode( H4 );</span>
+a (4,8,2)1 Hadamard code of order 4 over GF(2) 
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">H4 := [[1,1,1,1],[1,-1,1,-1],[1,1,-1,-1],[1,-1,-1,1]];;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C := HadamardCode( 4 );</span>
+a (4,8,2)1 Hadamard code of order 4 over GF(2)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C = HadamardCode( H4 );</span>
+true 
+</pre></div>
+
+<p><a id="X8122BA417F705997" name="X8122BA417F705997"></a></p>
+
+<h5>5.1-3 ConferenceCode</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ConferenceCode</code>( <var class="Arg">H</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<p><code class="code">ConferenceCode</code> returns a code of length <span class="SimpleMath">n-1</span> constructed from a symmetric 'conference matrix' <var class="Arg">H</var>. A <em>conference matrix</em> <var class="Arg">H</var> is a symmetric matrix of order <span class="SimpleMath">n</span>, which satisfies <span class="SimpleMath">H⋅ H^T = ((n-1)⋅ I</span>, with <span class="SimpleMath">n ≡ 2 mod 4</span>. The rows of <span class="SimpleMath">frac12(H+I+J)</span>, <span class="SimpleMath">frac12(-H+I+J)</span>, plus the zero and all-ones vectors form the elements of a binary non-linear <span class="SimpleMath">(n-1, 2n, (n-2)/2)</span> code.</p>
+
+<p><strong class="pkg">GUAVA</strong> constructs a symmetric conference matrix of order <span class="SimpleMath">n+1</span> (<span class="SimpleMath">n≡ 1 mod 4</span>) and uses the rows of that matrix, plus the zero and all-ones vectors, to construct a binary non-linear <span class="SimpleMath">(n, 2(n+1), (n-1)/2)</span>-code.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">H6 := [[0,1,1,1,1,1],[1,0,1,-1,-1,1],[1,1,0,1,-1,-1],</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">[1,-1,1,0,1,-1],[1,-1,-1,1,0,1],[1,1,-1,-1,1,0]];;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C1 := ConferenceCode( H6 );</span>
+a (5,12,2)1..4 conference code over GF(2)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsLinearCode( C1 );</span>
+false 
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C2 := ConferenceCode( 5 );</span>
+a (5,12,2)1..4 conference code over GF(2)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">AsSSortedList( C2 );</span>
+[ [ 0 0 0 0 0 ], [ 0 0 1 1 1 ], [ 0 1 0 1 1 ], [ 0 1 1 0 1 ], [ 0 1 1 1 0 ], 
+  [ 1 0 0 1 1 ], [ 1 0 1 0 1 ], [ 1 0 1 1 0 ], [ 1 1 0 0 1 ], [ 1 1 0 1 0 ], 
+  [ 1 1 1 0 0 ], [ 1 1 1 1 1 ] ]
+</pre></div>
+
+<p><a id="X81B7EE4279398F67" name="X81B7EE4279398F67"></a></p>
+
+<h5>5.1-4 MOLSCode</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; MOLSCode</code>( [<var class="Arg">n</var>, ]<var class="Arg">q</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<p><code class="code">MOLSCode</code> returns an <span class="SimpleMath">(n, q^2, n-1)</span> code over <span class="SimpleMath">GF(q)</span>. The code is created from <span class="SimpleMath">n-2</span> 'Mutually Orthogonal Latin Squares' (MOLS) of size <span class="SimpleMath">q × q</span>. The default for <var class="Arg">n</var> is <span class="SimpleMath">4</span>. <strong class="pkg">GUAVA</strong> can construct a MOLS code for <span class="SimpleMath">n-2 ≤ q</span>. Here <var class="Arg">q</var> must be a prime power, <span class="SimpleMath">q &gt; 2</span>. If there are no <span class="SimpleMath">n-2</span> MOLS, an error is signalled.</p>
+
+<p>Since each of the <span class="SimpleMath">n-2</span> MOLS is a <span class="SimpleMath">q× q</span> matrix, we can create a code of size <span class="SimpleMath">q^2</span> by listing in each code element the entries that are in the same position in each of the MOLS. We precede each of these lists with the two coordinates that specify this position, making the word length become <span class="SimpleMath">n</span>.</p>
+
+<p>The MOLS codes are MDS codes (see <code class="func">IsMDSCode</code> (<a href="chap4.html#X789380D28018EC3F"><span class="RefLink">4.3-7</span></a>)).</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C1 := MOLSCode( 6, 5 );</span>
+a (6,25,5)3..4 code generated by 4 MOLS of order 5 over GF(5)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">mols := List( [1 .. WordLength(C1) - 2 ], function( nr )</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">      local ls, el;</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">      ls := NullMat( Size(LeftActingDomain(C1)), Size(LeftActingDomain(C1)) );</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">      for el in VectorCodeword( AsSSortedList( C1 ) ) do</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">         ls[IntFFE(el[1])+1][IntFFE(el[2])+1] := el[nr + 2];</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">      od;</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">      return ls;</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">   end );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">AreMOLS( mols );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C2 := MOLSCode( 11 );</span>
+a (4,121,3)2 code generated by 2 MOLS of order 11 over GF(11) 
+</pre></div>
+
+<p><a id="X7D87DD6380B2CE69" name="X7D87DD6380B2CE69"></a></p>
+
+<h5>5.1-5 RandomCode</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; RandomCode</code>( <var class="Arg">n</var>, <var class="Arg">M</var>, <var class="Arg">F</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<p><code class="code">RandomCode</code> returns a random unrestricted code of size <var class="Arg">M</var> with word length <var class="Arg">n</var> over <var class="Arg">F</var>. <var class="Arg">M</var> must be less than or equal to the number of elements in the space <span class="SimpleMath">GF(q)^n</span>.</p>
+
+<p>The function <code class="code">RandomLinearCode</code> returns a random linear code (see <code class="func">RandomLinearCode</code> (<a href="chap5.html#X7BCA10CE8660357F"><span class="RefLink">5.2-12</span></a>)).</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C1 := RandomCode( 6, 10, GF(8) );</span>
+a (6,10,1..6)4..6 random unrestricted code over GF(8)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">MinimumDistance(C1);</span>
+3
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C2 := RandomCode( 6, 10, GF(8) );</span>
+a (6,10,1..6)4..6 random unrestricted code over GF(8)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C1 = C2;</span>
+false 
+</pre></div>
+
+<p><a id="X816353397F25B62E" name="X816353397F25B62E"></a></p>
+
+<h5>5.1-6 NordstromRobinsonCode</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; NordstromRobinsonCode</code>(  )</td><td class="tdright">( function )</td></tr></table></div>
+<p><code class="code">NordstromRobinsonCode</code> returns a Nordstrom-Robinson code, the best code with word length <span class="SimpleMath">n=16</span> and minimum distance <span class="SimpleMath">d=6</span> over <span class="SimpleMath">GF(2)</span>. This is a non-linear <span class="SimpleMath">(16, 256, 6)</span> code.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C := NordstromRobinsonCode();</span>
+a (16,256,6)4 Nordstrom-Robinson code over GF(2)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">OptimalityCode( C );</span>
+0 
+</pre></div>
+
+<p><a id="X7880D34485C60BAF" name="X7880D34485C60BAF"></a></p>
+
+<h5>5.1-7 GreedyCode</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; GreedyCode</code>( <var class="Arg">L</var>, <var class="Arg">d</var>, <var class="Arg">F</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<p><code class="code">GreedyCode</code> returns a Greedy code with design distance <var class="Arg">d</var> over the finite field <var class="Arg">F</var>. The code is constructed using the greedy algorithm on the list of vectors <var class="Arg">L</var>. (The greedy algorithm checks each vector in <var class="Arg">L</var> and adds it to the code if its distance to the current code is greater than or equal to <var class="Arg">d</var>. It is obvious that the resulting code has a minimum distance of at least <var class="Arg">d</var>.</p>
+
+<p>Greedy codes are often linear codes.</p>
+
+<p>The function <code class="code">LexiCode</code> creates a greedy code from a basis instead of an enumerated list (see <code class="func">LexiCode</code> (<a href="chap5.html#X7C1B374583AFB923"><span class="RefLink">5.1-8</span></a>)).</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C1 := GreedyCode( Tuples( AsSSortedList( GF(2) ), 5 ), 3, GF(2) );</span>
+a (5,4,3..5)2 Greedy code, user defined basis over GF(2)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C2 := GreedyCode( Permuted( Tuples( AsSSortedList( GF(2) ), 5 ),</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">                        (1,4) ), 3, GF(2) );</span>
+a (5,4,3..5)2 Greedy code, user defined basis over GF(2)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C1 = C2;</span>
+false 
+</pre></div>
+
+<p><a id="X7C1B374583AFB923" name="X7C1B374583AFB923"></a></p>
+
+<h5>5.1-8 LexiCode</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; LexiCode</code>( <var class="Arg">n</var>, <var class="Arg">d</var>, <var class="Arg">F</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<p>In this format, <code class="code">Lexicode</code> returns a lexicode with word length <var class="Arg">n</var>, design distance <var class="Arg">d</var> over <var class="Arg">F</var>. The code is constructed using the greedy algorithm on the lexicographically ordered list of all vectors of length <var class="Arg">n</var> over <var class="Arg">F</var>. Every time a vector is found that has a distance to the current code of at least <var class="Arg">d</var>, it is added to the code. This results, obviously, in a code with minimum distance greater than or equal to <var class="Arg">d</var>.</p>
+
+<p>Another syntax which one can use is <code class="code">LexiCode( B, d, F )</code>. When called in this format, <code class="code">LexiCode</code> uses the basis <var class="Arg">B</var> instead of the standard basis. <var class="Arg">B</var> is a matrix of vectors over <var class="Arg">F</var>. The code is constructed using the greedy algorithm on the list of vectors spanned by <var class="Arg">B</var>, ordered lexicographically with respect to <var class="Arg">B</var>.</p>
+
+<p>Note that binary lexicodes are always linear.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C := LexiCode( 4, 3, GF(5) );</span>
+a (4,17,3..4)2..4 lexicode over GF(5) 
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">B := [ [Z(2)^0, 0*Z(2), 0*Z(2)], [Z(2)^0, Z(2)^0, 0*Z(2)] ];;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C := LexiCode( B, 2, GF(2) );</span>
+a linear [3,1,2]1..2 lexicode over GF(2) 
+</pre></div>
+
+<p>The function <code class="code">GreedyCode</code> creates a greedy code that is not restricted to a lexicographical order (see <code class="func">GreedyCode</code> (<a href="chap5.html#X7880D34485C60BAF"><span class="RefLink">5.1-7</span></a>)).</p>
+
+<p><a id="X7A11F29F7BBF45BB" name="X7A11F29F7BBF45BB"></a></p>
+
+<h4>5.2 <span class="Heading">
+Generating Linear Codes
+</span></h4>
+
+<p>In this section we describe functions for constructing linear codes. A linear code always has a generator or check matrix.</p>
+
+<p>The first two functions generate linear codes from the generator matrix (<code class="func">GeneratorMatCode</code> (<a href="chap5.html#X83F400A681CFC0D6"><span class="RefLink">5.2-1</span></a>)) or check matrix (<code class="func">CheckMatCode</code> (<a href="chap5.html#X848D3F7B805DEB66"><span class="RefLink">5.2-3</span></a>)). All linear codes can be constructed with these functions.</p>
+
+<p>The next functions we describe generate some well-known codes, like Hamming codes (<code class="func">HammingCode</code> (<a href="chap5.html#X7DECB0A57C798583"><span class="RefLink">5.2-4</span></a>)), Reed-Muller codes (<code class="func">ReedMullerCode</code> (<a href="chap5.html#X801C88D578DA6ACA"><span class="RefLink">5.2-5</span></a>)) and the extended Golay codes (<code class="func">ExtendedBinaryGolayCode</code> (<a href="chap5.html#X84520C7983538806"><span class="RefLink">5.4-2</span></a>) and <code class="func">ExtendedTernaryGolayCode</code> (<a href="chap5.html#X81088A66816BCAE4"><span class="RefLink">5.4-4</span></a>)).</p>
+
+<p>A large and powerful family of codes are alternant codes. They are obtained by a small modification of the parity check matrix of a BCH code (see <code class="func">AlternantCode</code> (<a href="chap5.html#X851592C7811D3D2A"><span class="RefLink">5.2-6</span></a>), <code class="func">GoppaCode</code> (<a href="chap5.html#X7EE808BB7D1E487A"><span class="RefLink">5.2-7</span></a>), <code class="func">GeneralizedSrivastavaCode</code> (<a href="chap5.html#X7F9C0A727EE075B7"><span class="RefLink">5.2-8</span></a>) and <code class="func">SrivastavaCode</code> (<a href="chap5.html#X7A38EB3178961F3E"><span class="RefLink">5.2-9</span></a>)).</p>
+
+<p>Finally, we describe a function for generating random linear codes (see <code class="func">RandomLinearCode</code> (<a href="chap5.html#X7BCA10CE8660357F"><span class="RefLink">5.2-12</span></a>)).</p>
+
+<p><a id="X83F400A681CFC0D6" name="X83F400A681CFC0D6"></a></p>
+
+<h5>5.2-1 GeneratorMatCode</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; GeneratorMatCode</code>( <var class="Arg">G</var>[, <var class="Arg">name</var>], <var class="Arg">F</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<p><code class="code">GeneratorMatCode</code> returns a linear code with generator matrix <var class="Arg">G</var>. <var class="Arg">G</var> must be a matrix over finite field <var class="Arg">F</var>. <var class="Arg">name</var> can contain a short description of the code. The generator matrix is the basis of the elements of the code. The resulting code has word length <span class="SimpleMath">n</span>, dimension <span class="SimpleMath">k</span> if <var class="Arg">G</var> is a <span class="SimpleMath">k × n</span>-matrix. If <span class="SimpleMath">GF(q)</span> is the field of the code, the size of the code will be <span class="SimpleMath">q^k</span>.</p>
+
+<p>If the generator matrix does not have full row rank, the linearly dependent rows are removed. This is done by the GAP function <code class="code">BaseMat</code> and results in an equal code. The generator matrix can be retrieved with the function <code class="code">GeneratorMat</code> (see <code class="func">GeneratorMat</code> (<a href="chap4.html#X817224657C9829C4"><span class="RefLink">4.7-1</span></a>)).</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G := Z(3)^0 * [[1,0,1,2,0],[0,1,2,1,1],[0,0,1,2,1]];;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C1 := GeneratorMatCode( G, GF(3) );</span>
+a linear [5,3,1..2]1..2 code defined by generator matrix over GF(3)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C2 := GeneratorMatCode( IdentityMat( 5, GF(2) ), GF(2) );</span>
+a linear [5,5,1]0 code defined by generator matrix over GF(2)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">GeneratorMatCode( List( AsSSortedList( NordstromRobinsonCode() ),</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">x -&gt; VectorCodeword( x ) ), GF( 2 ) );</span>
+a linear [16,11,1..4]2 code defined by generator matrix over GF(2)
+# This is the smallest linear code that contains the N-R code 
+</pre></div>
+
+<p><a id="X7CDDDFE47A10A008" name="X7CDDDFE47A10A008"></a></p>
+
+<h5>5.2-2 CheckMatCodeMutable</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; CheckMatCodeMutable</code>( <var class="Arg">H</var>[, <var class="Arg">name</var>], <var class="Arg">F</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<p><code class="code">CheckMatCodeMutable</code> is the same as <code class="code">CheckMatCode</code> except that the check matrix and generator matrix are mutable.</p>
+
+<p><a id="X848D3F7B805DEB66" name="X848D3F7B805DEB66"></a></p>
+
+<h5>5.2-3 CheckMatCode</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; CheckMatCode</code>( <var class="Arg">H</var>[, <var class="Arg">name</var>], <var class="Arg">F</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<p><code class="code">CheckMatCode</code> returns a linear code with check matrix <var class="Arg">H</var>. <var class="Arg">H</var> must be a matrix over Galois field <var class="Arg">F</var>. <var class="Arg">[name.</var> can contain a short description of the code. The parity check matrix is the transposed of the nullmatrix of the generator matrix of the code. Therefore, <span class="SimpleMath">c⋅ H^T = 0</span> where <span class="SimpleMath">c</span> is an element of the code. If <var class="Arg">H</var> is a <span class="SimpleMath">r× n</span>-matrix, the code has word length <span class="SimpleMath">n</span>, redundancy <span class="SimpleMath">r</span> and dimension <span class="SimpleMath">n-r</span>.</p>
+
+<p>If the check matrix does not have full row rank, the linearly dependent rows are removed. This is done by the GAP function <code class="code">BaseMat</code>. and results in an equal code. The check matrix can be retrieved with the function <code class="code">CheckMat</code> (see <code class="func">CheckMat</code> (<a href="chap4.html#X85D4B26E7FB38D57"><span class="RefLink">4.7-2</span></a>)).</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G := Z(3)^0 * [[1,0,1,2,0],[0,1,2,1,1],[0,0,1,2,1]];;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C1 := CheckMatCode( G, GF(3) );</span>
+a linear [5,2,1..2]2..3 code defined by check matrix over GF(3)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CheckMat(C1);</span>
+[ [ Z(3)^0, 0*Z(3), Z(3)^0, Z(3), 0*Z(3) ],
+  [ 0*Z(3), Z(3)^0, Z(3), Z(3)^0, Z(3)^0 ],
+  [ 0*Z(3), 0*Z(3), Z(3)^0, Z(3), Z(3)^0 ] ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C2 := CheckMatCode( IdentityMat( 5, GF(2) ), GF(2) );</span>
+a cyclic [5,0,5]5 code defined by check matrix over GF(2)
+</pre></div>
+
+<p><a id="X7DECB0A57C798583" name="X7DECB0A57C798583"></a></p>
+
+<h5>5.2-4 HammingCode</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; HammingCode</code>( <var class="Arg">r</var>, <var class="Arg">F</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<p><code class="code">HammingCode</code> returns a Hamming code with redundancy <var class="Arg">r</var> over <var class="Arg">F</var>. A Hamming code is a single-error-correcting code. The parity check matrix of a Hamming code has all nonzero vectors of length <var class="Arg">r</var> in its columns, except for a multiplication factor. The decoding algorithm of the Hamming code (see <code class="func">Decode</code> (<a href="chap4.html#X7A42FF7D87FC34AC"><span class="RefLink">4.10-1</span></a>)) makes use of this property.</p>
+
+<p>If <span class="SimpleMath">q</span> is the size of its field <var class="Arg">F</var>, the returned Hamming code is a linear <span class="SimpleMath">[(q^r-1)/(q-1), (q^r-1)/(q-1) - r, 3]</span> code.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C1 := HammingCode( 4, GF(2) );</span>
+a linear [15,11,3]1 Hamming (4,2) code over GF(2)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C2 := HammingCode( 3, GF(9) );</span>
+a linear [91,88,3]1 Hamming (3,9) code over GF(9) 
+</pre></div>
+
+<p><a id="X801C88D578DA6ACA" name="X801C88D578DA6ACA"></a></p>
+
+<h5>5.2-5 ReedMullerCode</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ReedMullerCode</code>( <var class="Arg">r</var>, <var class="Arg">k</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<p><code class="code">ReedMullerCode</code> returns a binary 'Reed-Muller code' <var class="Arg">R(r, k)</var> with dimension <var class="Arg">k</var> and order <var class="Arg">r</var>. This is a code with length <span class="SimpleMath">2^k</span> and minimum distance <span class="SimpleMath">2^k-r</span> (see for example, section 1.10 in <a href="chapBib.html#biBHP03">[HP03]</a>). By definition, the <span class="SimpleMath">r^th</span> order binary Reed-Muller code of length <span class="SimpleMath">n=2^m</span>, for <span class="SimpleMath">0 ≤ r ≤ m</span>, is the set of all vectors <span class="SimpleMath">f</span>, where <span class="SimpleMath">f</span> is a Boolean function which is a polynomial of degree at most <span class="SimpleMath">r</span>.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ReedMullerCode( 1, 3 );</span>
+a linear [8,4,4]2 Reed-Muller (1,3) code over GF(2) 
+</pre></div>
+
+<p>See <code class="func">GeneralizedReedMullerCode</code> (<a href="chap5.html#X85B8699680B9D786"><span class="RefLink">5.6-3</span></a>) for a more general construction.</p>
+
+<p><a id="X851592C7811D3D2A" name="X851592C7811D3D2A"></a></p>
+
+<h5>5.2-6 AlternantCode</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AlternantCode</code>( <var class="Arg">r</var>, <var class="Arg">Y</var>[, <var class="Arg">alpha</var>], <var class="Arg">F</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<p><code class="code">AlternantCode</code> returns an 'alternant code', with parameters <var class="Arg">r</var>, <var class="Arg">Y</var> and <var class="Arg">alpha</var> (optional). <var class="Arg">F</var> denotes the (finite) base field. Here, <var class="Arg">r</var> is the design redundancy of the code. <var class="Arg">Y</var> and <var class="Arg">alpha</var> are both vectors of length <var class="Arg">n</var> from which the parity check matrix is constructed. The check matrix has the form <span class="SimpleMath">H=([a_i^j y_i])</span>, where <span class="SimpleMath">0 ≤ j≤ r-1</span>, <span class="SimpleMath">1 ≤ i≤ n</span>, and where <span class="SimpleMath">[...]</span> is as in <code class="func">VerticalConversionFieldMat</code> (<a href="chap7.html#X7B68119F85E9EC6D"><span class="RefLink">7.3-9</span></a>)). If no <var class="Arg">alpha</var> is specified, the vector <span class="SimpleMath">[1, a, a^2, .., a^n-1]</span> is used, where <span class="SimpleMath">a</span> is a primitive element of a Galois field <var class="Arg">F</var>.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Y := [ 1, 1, 1, 1, 1, 1, 1];; a := PrimitiveUnityRoot( 2, 7 );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">alpha := List( [0..6], i -&gt; a^i );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C := AlternantCode( 2, Y, alpha, GF(8) );</span>
+a linear [7,3,3..4]3..4 alternant code over GF(8) 
+</pre></div>
+
+<p><a id="X7EE808BB7D1E487A" name="X7EE808BB7D1E487A"></a></p>
+
+<h5>5.2-7 GoppaCode</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; GoppaCode</code>( <var class="Arg">G</var>, <var class="Arg">L</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<p><code class="code">GoppaCode</code> returns a Goppa code <var class="Arg">C</var> from Goppa polynomial <var class="Arg">g</var>, having coefficients in a Galois Field <span class="SimpleMath">GF(q)</span>. <var class="Arg">L</var> must be a list of elements in <span class="SimpleMath">GF(q)</span>, that are not roots of <var class="Arg">g</var>. The word length of the code is equal to the length of <var class="Arg">L</var>. The parity check matrix has the form <span class="SimpleMath">H=([a_i^j / G(a_i)])_0 ≤ j ≤ deg(g)-1, a_i ∈ L</span>, where <span class="SimpleMath">a_i∈ L</span> and <span class="SimpleMath">[...]</span> is as in <code class="func">VerticalConversionFieldMat</code> (<a href="chap7.html#X7B68119F85E9EC6D"><span class="RefLink">7.3-9</span></a>), so <span class="SimpleMath">H</span> has entries in <span class="SimpleMath">GF(q)</span>, <span class="SimpleMath">q=p^m</span>. It is known that <span class="SimpleMath">d(C)≥ deg(g)+1</span>, with a better bound in the binary case provided <span class="SimpleMath">g</span> has no multiple roots. See Huffman and Pless <a href="chapBib.html#biBHP03">[HP03]</a> section 13.2.2, and MacWilliams and Sloane <a href="chapBib.html#biBMS83">[MS83]</a> section 12.3, for more details.</p>
+
+<p>One can also call <code class="code">GoppaCode</code> using the syntax <code class="code">GoppaCode(g,n)</code>. When called with parameter <var class="Arg">n</var>, <strong class="pkg">GUAVA</strong> constructs a list <span class="SimpleMath">L</span> of length <var class="Arg">n</var>, such that no element of <var class="Arg">L</var> is a root of <var class="Arg">g</var>.</p>
+
+<p>This is a special case of an alternant code.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">x:=Indeterminate(GF(8),"x");</span>
+x
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">L:=Elements(GF(8));</span>
+[ 0*Z(2), Z(2)^0, Z(2^3), Z(2^3)^2, Z(2^3)^3, Z(2^3)^4, Z(2^3)^5, Z(2^3)^6 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g:=x^2+x+1;</span>
+x^2+x+Z(2)^0
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C:=GoppaCode(g,L);</span>
+a linear [8,2,5]3 Goppa code over GF(2)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">xx := Indeterminate( GF(2), "xx" );; </span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">gg := xx^2 + xx + 1;; L := AsSSortedList( GF(8) );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C1 := GoppaCode( gg, L );</span>
+a linear [8,2,5]3 Goppa code over GF(2) 
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">y := Indeterminate( GF(2), "y" );; </span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">h := y^2 + y + 1;;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C2 := GoppaCode( h, 8 );</span>
+a linear [8,2,5]3 Goppa code over GF(2) 
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C1=C2;</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C=C1;</span>
+true
+</pre></div>
+
+<p><a id="X7F9C0A727EE075B7" name="X7F9C0A727EE075B7"></a></p>
+
+<h5>5.2-8 GeneralizedSrivastavaCode</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; GeneralizedSrivastavaCode</code>( <var class="Arg">a</var>, <var class="Arg">w</var>, <var class="Arg">z</var>[, <var class="Arg">t</var>], <var class="Arg">F</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<p><code class="code">GeneralizedSrivastavaCode</code> returns a generalized Srivastava code with parameters <var class="Arg">a</var>, <var class="Arg">w</var>, <var class="Arg">z</var>, <var class="Arg">t</var>. <span class="SimpleMath">a ={ a_1, ..., a_n}</span> and <span class="SimpleMath">w ={ w_1, ..., w_s}</span> are lists of <span class="SimpleMath">n+s</span> distinct elements of <span class="SimpleMath">F=GF(q^m)</span>, <span class="SimpleMath">z</span> is a list of length <span class="SimpleMath">n</span> of nonzero elements of <span class="SimpleMath">GF(q^m)</span>. The parameter <var class="Arg">t</var> determines the designed distance: <span class="SimpleMath">d ≥ st + 1</span>. The check matrix of this code is the form</p>
+
+<p class="pcenter">
+H=([\frac{z_i}{(a_i - w_j)^k}]),
+</p>
+
+<p><span class="SimpleMath">1≤ k≤ t</span>, where <span class="SimpleMath">[...]</span> is as in <code class="func">VerticalConversionFieldMat</code> (<a href="chap7.html#X7B68119F85E9EC6D"><span class="RefLink">7.3-9</span></a>). We use this definition of <span class="SimpleMath">H</span> to define the code. The default for <var class="Arg">t</var> is 1. The original Srivastava codes (see <code class="func">SrivastavaCode</code> (<a href="chap5.html#X7A38EB3178961F3E"><span class="RefLink">5.2-9</span></a>)) are a special case <span class="SimpleMath">t=1</span>, <span class="SimpleMath">z_i=a_i^μ</span>, for some <span class="SimpleMath">μ</span>.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">a := Filtered( AsSSortedList( GF(2^6) ), e -&gt; e in GF(2^3) );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">w := [ Z(2^6) ];; z := List( [1..8], e -&gt; 1 );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C := GeneralizedSrivastavaCode( a, w, z, 1, GF(64) );</span>
+a linear [8,2,2..5]3..4 generalized Srivastava code over GF(2) 
+</pre></div>
+
+<p><a id="X7A38EB3178961F3E" name="X7A38EB3178961F3E"></a></p>
+
+<h5>5.2-9 SrivastavaCode</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SrivastavaCode</code>( <var class="Arg">a</var>, <var class="Arg">w</var>[, <var class="Arg">mu</var>], <var class="Arg">F</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<p><span class="SimpleMath">SrivastavaCode</span> returns a Srivastava code with parameters <var class="Arg">a</var>, <var class="Arg">w</var> (and optionally <var class="Arg">mu</var>). <span class="SimpleMath">a ={ a_1, ..., a_n}</span> and <span class="SimpleMath">w ={ w_1, ..., w_s}</span> are lists of <span class="SimpleMath">n+s</span> distinct elements of <span class="SimpleMath">F=GF(q^m)</span>. The default for <var class="Arg">mu</var> is 1. The Srivastava code is a generalized Srivastava code, in which <span class="SimpleMath">z_i = a_i^mu</span> for some <var class="Arg">mu</var> and <span class="SimpleMath">t=1</span>.</p>
+
+<p>J. N. Srivastava introduced this code in 1967, though his work was not published. See Helgert <a href="chapBib.html#biBHe72">[Hel72]</a> for more details on the properties of this code. Related reference: G. Roelofsen, <strong class="button">On Goppa and Generalized Srivastava Codes</strong> PhD thesis, Dept. Math. and Comp. Sci., Eindhoven Univ. of Technology, the Netherlands, 1982.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">a := AsSSortedList( GF(11) ){[2..8]};;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">w := AsSSortedList( GF(11) ){[9..10]};;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C := SrivastavaCode( a, w, 2, GF(11) );</span>
+a linear [7,5,3]2 Srivastava code over GF(11)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsMDSCode( C );</span>
+true    # Always true if F is a prime field 
+</pre></div>
+
+<p><a id="X87F7CB8B7A8BE624" name="X87F7CB8B7A8BE624"></a></p>
+
+<h5>5.2-10 CordaroWagnerCode</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; CordaroWagnerCode</code>( <var class="Arg">n</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<p><code class="code">CordaroWagnerCode</code> returns a binary Cordaro-Wagner code. This is a code of length <var class="Arg">n</var> and dimension <span class="SimpleMath">2</span> having the best possible minimum distance <span class="SimpleMath">d</span>. This code is just a little bit less trivial than <code class="code">RepetitionCode</code> (see <code class="func">RepetitionCode</code> (<a href="chap5.html#X83C5F8FE7827EAA7"><span class="RefLink">5.5-13</span></a>)).</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C := CordaroWagnerCode( 11 );</span>
+a linear [11,2,7]5 Cordaro-Wagner code over GF(2)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">AsSSortedList(C);                 </span>
+[ [ 0 0 0 0 0 0 0 0 0 0 0 ], [ 0 0 0 0 1 1 1 1 1 1 1 ], 
+  [ 1 1 1 1 0 0 0 1 1 1 1 ], [ 1 1 1 1 1 1 1 0 0 0 0 ] ]
+</pre></div>
+
+<p><a id="X865534267C8E902A" name="X865534267C8E902A"></a></p>
+
+<h5>5.2-11 FerreroDesignCode</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FerreroDesignCode</code>( <var class="Arg">P</var>, <var class="Arg">m</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<p><em>Requires the GAP package SONATA</em></p>
+
+<p>A group <span class="SimpleMath">K</span> together with a group of automorphism <span class="SimpleMath">H</span> of <span class="SimpleMath">K</span> such that the semidirect product <span class="SimpleMath">KH</span> is a Frobenius group with complement <span class="SimpleMath">H</span> is called a Ferrero pair <span class="SimpleMath">(K, H)</span> in SONATA. Take a Frobenius <span class="SimpleMath">(G,+)</span> group with kernel <span class="SimpleMath">K</span> and complement <span class="SimpleMath">H</span>. Consider the design <span class="SimpleMath">D</span> with point set <span class="SimpleMath">K</span> and block set <span class="SimpleMath">{ a^H + b | a, b ∈ K, a not= 0 }</span>. Here <span class="SimpleMath">a^H</span> denotes the orbit of a under conjugation by elements of <span class="SimpleMath">H</span>. Every planar near-ring design of type "*" can be obtained in this way from groups. These designs (from a Frobenius kernel of order <span class="SimpleMath">v</span> and a Frobenius complement of order <span class="SimpleMath">k</span>) have <span class="SimpleMath">v(v-1)/k</span> distinct blocks and they are all of size <span class="SimpleMath">k</span>. Moreover each of the <span class="SimpleMath">v</span> points occurs in exactly <span class="SimpleMath">v-1</span> distinct blocks. Hence the rows and the columns of the incidence matrix <span class="SimpleMath">M</span> of the design are always of constant weight.</p>
+
+<p><code class="code">FerreroDesignCode</code> constructs binary linear code arising from the incdence matrix of a design associated to a "Ferrero pair" arising from a fixed-point-free (fpf) automorphism groups and Frobenius group.</p>
+
+<p>INPUT: <span class="SimpleMath">P</span> is a list of prime powers describing an abelian group <span class="SimpleMath">G</span>. <span class="SimpleMath">m &gt; 0</span> is an integer such that <span class="SimpleMath">G</span> admits a cyclic fpf automorphism group of size <span class="SimpleMath">m</span>. This means that for all <span class="SimpleMath">q = p^k ∈ P</span>, OrderMod(<span class="SimpleMath">p</span>, <span class="SimpleMath">m</span>) must divide <span class="SimpleMath">q</span> (see the SONATA documentation for <code class="code">FpfAutomorphismGroupsCyclic</code>).</p>
+
+<p>OUTPUT: The binary linear code whose generator matrix is the incidence matrix of a design associated to a "Ferrero pair" arising from the fixed-point-free (fpf) automorphism group of <span class="SimpleMath">G</span>. The pair <span class="SimpleMath">(H,K)</span> is called a Ferraro pair and the semidirect product <span class="SimpleMath">KH</span> is a Frobenius group with complement <span class="SimpleMath">H</span>.</p>
+
+<p>AUTHORS: Peter Mayr and David Joyner</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G:=AbelianGroup([5,5] );</span>
+ [ pc group of size 25 with 2 generators ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">FpfAutomorphismGroupsMaxSize( G );</span>
+[ 24, 2 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">L:=FpfAutomorphismGroupsCyclic( [5,5], 3 );</span>
+[ [ [ f1, f2 ] -&gt; [ f1*f2^2, f1*f2^3 ] ],
+  [ pc group of size 25 with 2 generators ] ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">D := DesignFromFerreroPair( L[2], Group(L[1][1]), "*" );</span>
+ [ a 2 - ( 25, 3, 2 ) nearring generated design ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M:=IncidenceMat( D );; Length(M); Length(TransposedMat(M));</span>
+25
+200
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C1:=GeneratorMatCode(M*Z(2),GF(2));</span>
+a linear [200,25,1..24]62..100 code defined by generator matrix over GF(2)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">MinimumDistance(C1);</span>
+24
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C2:=FerreroDesignCode( [5,5],3);</span>
+a linear [200,25,1..24]62..100 code defined by generator matrix over GF(2)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C1=C2;</span>
+true
+
+</pre></div>
+
+<p><a id="X7BCA10CE8660357F" name="X7BCA10CE8660357F"></a></p>
+
+<h5>5.2-12 RandomLinearCode</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; RandomLinearCode</code>( <var class="Arg">n</var>, <var class="Arg">k</var>, <var class="Arg">F</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<p><code class="code">RandomLinearCode</code> returns a random linear code with word length <var class="Arg">n</var>, dimension <var class="Arg">k</var> over field <var class="Arg">F</var>. The method used is to first construct a <span class="SimpleMath">k× n</span> matrix of the block form <span class="SimpleMath">(I,A)</span>, where <span class="SimpleMath">I</span> is a <span class="SimpleMath">k× k</span> identity matrix and <span class="SimpleMath">A</span> is a <span class="SimpleMath">k× (n-k)</span> matrix constructed using <code class="code">Random(F)</code> repeatedly. Then the columns are permuted using a randomly selected element of <code class="code">SymmetricGroup(n)</code>.</p>
+
+<p>To create a random unrestricted code, use <code class="code">RandomCode</code> (see <code class="func">RandomCode</code> (<a href="chap5.html#X7D87DD6380B2CE69"><span class="RefLink">5.1-5</span></a>)).</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C := RandomLinearCode( 15, 4, GF(3) );</span>
+a  [15,4,?] randomly generated code over GF(3)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display(C);</span>
+a linear [15,4,1..6]6..10 random linear code over GF(3)
+</pre></div>
+
+<p>The method <strong class="pkg">GUAVA</strong> chooses to output the result of a <code class="code">RandomLinearCode</code> command is different than other codes. For example, the bounds on the minimum distance is not displayed. Howeer, you can use the <code class="code">Display</code> command to print this information. This new display method was added in version 1.9 to speed up the command (if <span class="SimpleMath">n</span> is about 80 and <span class="SimpleMath">k</span> about 40, for example, the time it took to look up and/or calculate the bounds on the minimum distance was too long).</p>
+
+<p><a id="X839CFE4C7A567D4D" name="X839CFE4C7A567D4D"></a></p>
+
+<h5>5.2-13 OptimalityCode</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; OptimalityCode</code>( <var class="Arg">C</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<p><code class="code">OptimalityCode</code> returns the difference between the smallest known upper bound and the actual size of the code. Note that the value of the function <code class="code">UpperBound</code> is not always equal to the actual upper bound <span class="SimpleMath">A(n,d)</span> thus the result may not be equal to <span class="SimpleMath">0</span> even if the code is optimal!</p>
+
+<p><code class="code">OptimalityLinearCode</code> is similar but applies only to linear codes.</p>
+
+<p><a id="X871508567CB34D96" name="X871508567CB34D96"></a></p>
+
+<h5>5.2-14 BestKnownLinearCode</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; BestKnownLinearCode</code>( <var class="Arg">n</var>, <var class="Arg">k</var>, <var class="Arg">F</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<p><code class="code">BestKnownLinearCode</code> returns the best known (as of 11 May 2006) linear code of length <var class="Arg">n</var>, dimension <var class="Arg">k</var> over field <var class="Arg">F</var>. The function uses the tables described in section <code class="func">BoundsMinimumDistance</code> (<a href="chap7.html#X7B3858B27A9E509A"><span class="RefLink">7.1-13</span></a>) to construct this code.</p>
+
+<p>This command can also be called using the syntax <code class="code">BestKnownLinearCode( rec )</code>, where <var class="Arg">rec</var> must be a record containing the fields `lowerBound', `upperBound' and `construction'. It uses the information in this field to construct a code. This form is meant to be used together with the function <code class="code">BoundsMinimumDistance</code> (see <code class="func">BoundsMinimumDistance</code> (<a href="chap7.html#X7B3858B27A9E509A"><span class="RefLink">7.1-13</span></a>)), if the bounds are already calculated.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C1 := BestKnownLinearCode( 23, 12, GF(2) );</span>
+a linear [23,12,7]3 punctured code
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C1 = BinaryGolayCode();</span>
+false     # it's constructed differently
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C1 := BestKnownLinearCode( 23, 12, GF(2) );</span>
+a linear [23,12,7]3 punctured code
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G1 := MutableCopyMat(GeneratorMat(C1));;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PutStandardForm(G1);</span>
+()
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display(G1);</span>
+ 1 . . . . . . . . . . . 1 . 1 . 1 1 1 . . . 1
+ . 1 . . . . . . . . . . 1 1 1 1 1 . . 1 . . .
+ . . 1 . . . . . . . . . 1 1 . 1 . . 1 . 1 . 1
+ . . . 1 . . . . . . . . 1 1 . . . 1 1 1 . 1 .
+ . . . . 1 . . . . . . . 1 1 . . 1 1 . 1 1 . 1
+ . . . . . 1 . . . . . . . 1 1 . . 1 1 . 1 1 1
+ . . . . . . 1 . . . . . . . 1 1 . . 1 1 . 1 1
+ . . . . . . . 1 . . . . 1 . 1 1 . 1 1 1 1 . .
+ . . . . . . . . 1 . . . . 1 . 1 1 . 1 1 1 1 .
+ . . . . . . . . . 1 . . . . 1 . 1 1 . 1 1 1 .
+ . . . . . . . . . . 1 . 1 . 1 1 1 . . . 1 1 1
+ . . . . . . . . . . . 1 . 1 . 1 1 1 . . . 1 1
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C2 := BinaryGolayCode();</span>
+a cyclic [23,12,7]3 binary Golay code over GF(2)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G2 := MutableCopyMat(GeneratorMat(C2));;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PutStandardForm(G2);</span>
+()
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display(G2);</span>
+ 1 . . . . . . . . . . . 1 . 1 . 1 1 1 . . . 1
+ . 1 . . . . . . . . . . 1 1 1 1 1 . . 1 . . 1
+ . . 1 . . . . . . . . . 1 1 . 1 . . 1 . 1 . 1
+ . . . 1 . . . . . . . . 1 1 . . . 1 1 1 . 1 1
+ . . . . 1 . . . . . . . 1 1 . . 1 1 . 1 1 . .
+ . . . . . 1 . . . . . . . 1 1 . . 1 1 . 1 1 .
+ . . . . . . 1 . . . . . . . 1 1 . . 1 1 . 1 1
+ . . . . . . . 1 . . . . 1 . 1 1 . 1 1 1 1 . .
+ . . . . . . . . 1 . . . . 1 . 1 1 . 1 1 1 1 .
+ . . . . . . . . . 1 . . . . 1 . 1 1 . 1 1 1 1
+ . . . . . . . . . . 1 . 1 . 1 1 1 . . . 1 1 .
+ . . . . . . . . . . . 1 . 1 . 1 1 1 . . . 1 1
+## Despite their generator matrices are different, they are equivalent codes, see below.
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsEquivalent(C1,C2);</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CodeIsomorphism(C1,C2);</span>
+(4,14,6,12,5)(7,17,18,11,19)(8,22,13,21,16)(10,23,15,20)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( BestKnownLinearCode( 81, 77, GF(4) ) );</span>
+a linear [81,77,3]2..3 shortened code of
+a linear [85,81,3]1 Hamming (4,4) code over GF(4)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C:=BestKnownLinearCode(174,72);</span>
+a linear [174,72,31..36]26..87 code defined by generator matrix over GF(2)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">bounds := BoundsMinimumDistance( 81, 77, GF(4) );</span>
+rec( n := 81, k := 77, q := 4, 
+  references := rec( Ham := [ "%T this reference is unknown, for more info", 
+          "%T contact A.E. Brouwer (aeb@cwi.nl)" ], 
+      cap := [ "%T this reference is unknown, for more info", 
+          "%T contact A.E. Brouwer (aeb@cwi.nl)" ] ), 
+  construction := [ (Operation "ShortenedCode"), 
+      [ [ (Operation "HammingCode"), [ 4, 4 ] ], [ 1, 2, 3, 4 ] ] ], 
+  lowerBound := 3, 
+  lowerBoundExplanation := [ "Lb(81,77)=3, by shortening of:", 
+      "Lb(85,81)=3, reference: Ham" ], upperBound := 3, 
+  upperBoundExplanation := [ "Ub(81,77)=3, by considering shortening to:", 
+      "Ub(18,14)=3, reference: cap" ] )
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C := BestKnownLinearCode( bounds );</span>
+a linear [81,77,3]2..3 shortened code
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C = BestKnownLinearCode(81, 77, GF(4) );</span>
+true
+</pre></div>
+
+<p><a id="X858721967BE44000" name="X858721967BE44000"></a></p>
+
+<h4>5.3 <span class="Heading">
+Gabidulin Codes
+</span></h4>
+
+<p>These five binary, linear codes are derived from an article by Gabidulin, Davydov and Tombak <a href="chapBib.html#biBGDT91">[GDT91]</a>. All these codes are defined by check matrices. Exact definitions can be found in the article. The Gabidulin code, the enlarged Gabidulin code, the Davydov code, the Tombak code, and the enlarged Tombak code, correspond with theorem 1, 2, 3, 4, and 5, respectively in the article.</p>
+
+<p>Like the Hamming codes, these codes have fixed minimum distance and covering radius, but can be arbitrarily long.</p>
+
+<p><a id="X79BE5D497CB2E59E" name="X79BE5D497CB2E59E"></a></p>
+
+<h5>5.3-1 GabidulinCode</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; GabidulinCode</code>( <var class="Arg">m</var>, <var class="Arg">w1</var>, <var class="Arg">w2</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<p><code class="code">GabidulinCode</code> yields a code of length <span class="SimpleMath">5</span> . <span class="SimpleMath">2^m-2-1</span>, redundancy <span class="SimpleMath">2m-1</span>, minimum distance <span class="SimpleMath">3</span> and covering radius <span class="SimpleMath">2</span>. <var class="Arg">w1</var> and <var class="Arg">w2</var> should be elements of <span class="SimpleMath">GF(2^m-2)</span>.</p>
+
+<p><a id="X873950F67D4A9184" name="X873950F67D4A9184"></a></p>
+
+<h5>5.3-2 EnlargedGabidulinCode</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; EnlargedGabidulinCode</code>( <var class="Arg">m</var>, <var class="Arg">w1</var>, <var class="Arg">w2</var>, <var class="Arg">e</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<p><code class="code">EnlargedGabidulinCode</code> yields a code of length <span class="SimpleMath">7</span>. <span class="SimpleMath">2^m-2-2</span>, redundancy <span class="SimpleMath">2m</span>, minimum distance <span class="SimpleMath">3</span> and covering radius <span class="SimpleMath">2</span>. <var class="Arg">w1</var> and <var class="Arg">w2</var> are elements of <span class="SimpleMath">GF(2^m-2)</span>. <var class="Arg">e</var> is an element of <span class="SimpleMath">GF(2^m)</span>.</p>
+
+<p><a id="X7F5BE77B7F343182" name="X7F5BE77B7F343182"></a></p>
+
+<h5>5.3-3 DavydovCode</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DavydovCode</code>( <var class="Arg">r</var>, <var class="Arg">v</var>, <var class="Arg">ei</var>, <var class="Arg">ej</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<p><code class="code">DavydovCode</code> yields a code of length <span class="SimpleMath">2^v + 2^r-v - 3</span>, redundancy <var class="Arg">r</var>, minimum distance <span class="SimpleMath">4</span> and covering radius <span class="SimpleMath">2</span>. <var class="Arg">v</var> is an integer between <span class="SimpleMath">2</span> and <span class="SimpleMath">r-2</span>. <var class="Arg">ei</var> and <var class="Arg">ej</var> are elements of <span class="SimpleMath">GF(2^v)</span> and <span class="SimpleMath">GF(2^r-v)</span>, respectively.</p>
+
+<p><a id="X845B4DBE83288D2D" name="X845B4DBE83288D2D"></a></p>
+
+<h5>5.3-4 TombakCode</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; TombakCode</code>( <var class="Arg">m</var>, <var class="Arg">e</var>, <var class="Arg">beta</var>, <var class="Arg">gamma</var>, <var class="Arg">w1</var>, <var class="Arg">w2</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<p><code class="code">TombakCode</code> yields a code of length <span class="SimpleMath">15 ⋅ 2^m-3 - 3</span>, redundancy <span class="SimpleMath">2m</span>, minimum distance <span class="SimpleMath">4</span> and covering radius <span class="SimpleMath">2</span>. <var class="Arg">e</var> is an element of <span class="SimpleMath">GF(2^m)</span>. <var class="Arg">beta</var> and <var class="Arg">gamma</var> are elements of <span class="SimpleMath">GF(2^m-1)</span>. <var class="Arg">w1</var> and <var class="Arg">w2</var> are elements of <span class="SimpleMath">GF(2^m-3)</span>.</p>
+
+<p><a id="X7D6583347C0D4292" name="X7D6583347C0D4292"></a></p>
+
+<h5>5.3-5 EnlargedTombakCode</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; EnlargedTombakCode</code>( <var class="Arg">m</var>, <var class="Arg">e</var>, <var class="Arg">beta</var>, <var class="Arg">gamma</var>, <var class="Arg">w1</var>, <var class="Arg">w2</var>, <var class="Arg">u</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<p><code class="code">EnlargedTombakCode</code> yields a code of length <span class="SimpleMath">23 ⋅ 2^m-4 - 3</span>, redundancy <span class="SimpleMath">2m-1</span>, minimum distance <span class="SimpleMath">4</span> and covering radius <span class="SimpleMath">2</span>. The parameters <var class="Arg">m</var>, <var class="Arg">e</var>, <var class="Arg">beta</var>, <var class="Arg">gamma</var>, <var class="Arg">w1</var> and <var class="Arg">w2</var> are defined as in <code class="code">TombakCode</code>. <var class="Arg">u</var> is an element of <span class="SimpleMath">GF(2^m-1)</span>.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">GabidulinCode( 4, Z(4)^0, Z(4)^1 );</span>
+a linear [19,12,3]2 Gabidulin code (m=4) over GF(2)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">EnlargedGabidulinCode( 4, Z(4)^0, Z(4)^1, Z(16)^11 );</span>
+a linear [26,18,3]2 enlarged Gabidulin code (m=4) over GF(2)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">DavydovCode( 6, 3, Z(8)^1, Z(8)^5 );</span>
+a linear [13,7,4]2 Davydov code (r=6, v=3) over GF(2)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">TombakCode( 5, Z(32)^6, Z(16)^14, Z(16)^10, Z(4)^0, Z(4)^1 );</span>
+a linear [57,47,4]2 Tombak code (m=5) over GF(2)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">EnlargedTombakCode( 6, Z(32)^6, Z(16)^14, Z(16)^10,</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">Z(4)^0, Z(4)^0, Z(32)^23 );</span>
+a linear [89,78,4]2 enlarged Tombak code (m=6) over GF(2)
+</pre></div>
+
+<p><a id="X81F6E4A785F368B0" name="X81F6E4A785F368B0"></a></p>
+
+<h4>5.4 <span class="Heading">
+Golay Codes
+</span></h4>
+
+<p>" The Golay code is probably the most important of all codes for both practical and theoretical reasons. " (<a href="chapBib.html#biBMS83">[MS83]</a>, pg. 64). Though born in Switzerland, M. J. E. Golay (1902-1989) worked for the US Army Labs for most of his career. For more information on his life, see his obit in the June 1990 IEEE Information Society Newsletter.</p>
+
+<p><a id="X80ED89C079CD0D09" name="X80ED89C079CD0D09"></a></p>
+
+<h5>5.4-1 BinaryGolayCode</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; BinaryGolayCode</code>(  )</td><td class="tdright">( function )</td></tr></table></div>
+<p><code class="code">BinaryGolayCode</code> returns a binary Golay code. This is a perfect <span class="SimpleMath">[23,12,7]</span> code. It is also cyclic, and has generator polynomial <span class="SimpleMath">g(x)=1+x^2+x^4+x^5+x^6+x^10+x^11</span>. Extending it results in an extended Golay code (see <code class="func">ExtendedBinaryGolayCode</code> (<a href="chap5.html#X84520C7983538806"><span class="RefLink">5.4-2</span></a>)). There's also the ternary Golay code (see <code class="func">TernaryGolayCode</code> (<a href="chap5.html#X7E0CCCD7866ADB94"><span class="RefLink">5.4-3</span></a>)).</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C:=BinaryGolayCode();</span>
+a cyclic [23,12,7]3 binary Golay code over GF(2)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ExtendedBinaryGolayCode() = ExtendedCode(BinaryGolayCode());</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsPerfectCode(C);</span>
+true 
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsCyclicCode(C);</span>
+true
+</pre></div>
+
+<p><a id="X84520C7983538806" name="X84520C7983538806"></a></p>
+
+<h5>5.4-2 ExtendedBinaryGolayCode</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ExtendedBinaryGolayCode</code>(  )</td><td class="tdright">( function )</td></tr></table></div>
+<p><code class="code">ExtendedBinaryGolayCode</code> returns an extended binary Golay code. This is a <span class="SimpleMath">[24,12,8]</span> code. Puncturing in the last position results in a perfect binary Golay code (see <code class="func">BinaryGolayCode</code> (<a href="chap5.html#X80ED89C079CD0D09"><span class="RefLink">5.4-1</span></a>)). The code is self-dual.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C := ExtendedBinaryGolayCode();</span>
+a linear [24,12,8]4 extended binary Golay code over GF(2)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsSelfDualCode(C);</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">P := PuncturedCode(C);</span>
+a linear [23,12,7]3 punctured code
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">P = BinaryGolayCode();</span>
+true 
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsCyclicCode(C);</span>
+false
+
+</pre></div>
+
+<p><a id="X7E0CCCD7866ADB94" name="X7E0CCCD7866ADB94"></a></p>
+
+<h5>5.4-3 TernaryGolayCode</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; TernaryGolayCode</code>(  )</td><td class="tdright">( function )</td></tr></table></div>
+<p><code class="code">TernaryGolayCode</code> returns a ternary Golay code. This is a perfect <span class="SimpleMath">[11,6,5]</span> code. It is also cyclic, and has generator polynomial <span class="SimpleMath">g(x)=2+x^2+2x^3+x^4+x^5</span>. Extending it results in an extended Golay code (see <code class="func">ExtendedTernaryGolayCode</code> (<a href="chap5.html#X81088A66816BCAE4"><span class="RefLink">5.4-4</span></a>)). There's also the binary Golay code (see <code class="func">BinaryGolayCode</code> (<a href="chap5.html#X80ED89C079CD0D09"><span class="RefLink">5.4-1</span></a>)).</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C:=TernaryGolayCode();</span>
+a cyclic [11,6,5]2 ternary Golay code over GF(3)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ExtendedTernaryGolayCode() = ExtendedCode(TernaryGolayCode());</span>
+true 
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsCyclicCode(C);</span>
+true
+</pre></div>
+
+<p><a id="X81088A66816BCAE4" name="X81088A66816BCAE4"></a></p>
+
+<h5>5.4-4 ExtendedTernaryGolayCode</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ExtendedTernaryGolayCode</code>(  )</td><td class="tdright">( function )</td></tr></table></div>
+<p><code class="code">ExtendedTernaryGolayCode</code> returns an extended ternary Golay code. This is a <span class="SimpleMath">[12,6,6]</span> code. Puncturing this code results in a perfect ternary Golay code (see <code class="func">TernaryGolayCode</code> (<a href="chap5.html#X7E0CCCD7866ADB94"><span class="RefLink">5.4-3</span></a>)). The code is self-dual.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C := ExtendedTernaryGolayCode();</span>
+a linear [12,6,6]3 extended ternary Golay code over GF(3)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsSelfDualCode(C);</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">P := PuncturedCode(C);</span>
+a linear [11,6,5]2 punctured code
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">P = TernaryGolayCode();</span>
+true 
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsCyclicCode(C);</span>
+false
+</pre></div>
+
+<p><a id="X8366CC3685F0BC85" name="X8366CC3685F0BC85"></a></p>
+
+<h4>5.5 <span class="Heading">
+Generating Cyclic Codes
+</span></h4>
+
+<p>The elements of a cyclic code <span class="SimpleMath">C</span> are all multiples of a ('generator') polynomial <span class="SimpleMath">g(x)</span>, where calculations are carried out modulo <span class="SimpleMath">x^n-1</span>. Therefore, as polynomials in <span class="SimpleMath">x</span>, the elements always have degree less than <span class="SimpleMath">n</span>. A cyclic code is an ideal in the ring <span class="SimpleMath">F[x]/(x^n-1)</span> of polynomials modulo <span class="SimpleMath">x^n - 1</span>. The unique monic polynomial of least degree that generates <span class="SimpleMath">C</span> is called the <em>generator polynomial</em> of <span class="SimpleMath">C</span>. It is a divisor of the polynomial <span class="SimpleMath">x^n-1</span>.</p>
+
+<p>The <em>check polynomial</em> is the polynomial <span class="SimpleMath">h(x)</span> with <span class="SimpleMath">g(x)h(x)=x^n-1</span>. Therefore it is also a divisor of <span class="SimpleMath">x^n-1</span>. The check polynomial has the property that</p>
+
+<p class="pcenter">
+c(x)h(x) \equiv  0 \pmod{x^n-1},
+</p>
+
+<p>for every codeword <span class="SimpleMath">c(x)∈ C</span>.</p>
+
+<p>The first two functions described below generate cyclic codes from a given generator or check polynomial. All cyclic codes can be constructed using these functions.</p>
+
+<p>Two of the Golay codes already described are cyclic (see <code class="func">BinaryGolayCode</code> (<a href="chap5.html#X80ED89C079CD0D09"><span class="RefLink">5.4-1</span></a>) and <code class="func">TernaryGolayCode</code> (<a href="chap5.html#X7E0CCCD7866ADB94"><span class="RefLink">5.4-3</span></a>)). For example, the <strong class="pkg">GUAVA</strong> record for a binary Golay code contains the generator polynomial:</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C := BinaryGolayCode();</span>
+a cyclic [23,12,7]3 binary Golay code over GF(2)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">NamesOfComponents(C);</span>
+[ "LeftActingDomain", "GeneratorsOfLeftOperatorAdditiveGroup", "WordLength",
+  "GeneratorMat", "GeneratorPol", "Dimension", "Redundancy", "Size", "name",
+  "lowerBoundMinimumDistance", "upperBoundMinimumDistance", "WeightDistribution",
+  "boundsCoveringRadius", "MinimumWeightOfGenerators", 
+  "UpperBoundOptimalMinimumDistance" ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C!.GeneratorPol;</span>
+x_1^11+x_1^10+x_1^6+x_1^5+x_1^4+x_1^2+Z(2)^0
+</pre></div>
+
+<p>Then functions that generate cyclic codes from a prescribed set of roots of the generator polynomial are described, including the BCH codes (see <code class="func">RootsCode</code> (<a href="chap5.html#X818F0E6583E01D4B"><span class="RefLink">5.5-3</span></a>), <code class="func">BCHCode</code> (<a href="chap5.html#X7C6BB07C87853C00"><span class="RefLink">5.5-4</span></a>), <code class="func">ReedSolomonCode</code> (<a href="chap5.html#X838F3CB3872CEF95"><span class="RefLink">5.5-5</span></a>) and <code class="func">QRCode</code> (<a href="chap5.html#X825F42F68179D2AB"><span class="RefLink">5.5-7</span></a>)).</p>
+
+<p>Finally we describe the trivial codes (see <code class="func">WholeSpaceCode</code> (<a href="chap5.html#X7BC245E37EB7B23F"><span class="RefLink">5.5-11</span></a>), <code class="func">NullCode</code> (<a href="chap5.html#X7B4EF2017B2C61AD"><span class="RefLink">5.5-12</span></a>), <code class="func">RepetitionCode</code> (<a href="chap5.html#X83C5F8FE7827EAA7"><span class="RefLink">5.5-13</span></a>)), and the command <code class="code">CyclicCodes</code> which lists all cyclic codes (<code class="func">CyclicCodes</code> (<a href="chap5.html#X82FA9F65854D98A6"><span class="RefLink">5.5-14</span></a>)).</p>
+
+<p><a id="X853D34A5796CEB73" name="X853D34A5796CEB73"></a></p>
+
+<h5>5.5-1 GeneratorPolCode</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; GeneratorPolCode</code>( <var class="Arg">g</var>, <var class="Arg">n</var>[, <var class="Arg">name</var>], <var class="Arg">F</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<p><code class="code">GeneratorPolCode</code> creates a cyclic code with a generator polynomial <var class="Arg">g</var>, word length <var class="Arg">n</var>, over <var class="Arg">F</var>. <var class="Arg">name</var> can contain a short description of the code.</p>
+
+<p>If <var class="Arg">g</var> is not a divisor of <span class="SimpleMath">x^n-1</span>, it cannot be a generator polynomial. In that case, a code is created with generator polynomial <span class="SimpleMath">gcd( g, x^n-1 )</span>, i.e. the greatest common divisor of <var class="Arg">g</var> and <span class="SimpleMath">x^n-1</span>. This is a valid generator polynomial that generates the ideal <span class="SimpleMath">(g)</span>. See <code class="func">Generating Cyclic Codes</code> (<a href="chap5.html#X8366CC3685F0BC85"><span class="RefLink">5.5</span></a>).</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">x:= Indeterminate( GF(2) );; P:= x^2+1;</span>
+Z(2)^0+x^2
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C1 := GeneratorPolCode(P, 7, GF(2));</span>
+a cyclic [7,6,1..2]1 code defined by generator polynomial over GF(2)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">GeneratorPol( C1 );</span>
+Z(2)^0+x
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C2 := GeneratorPolCode( x+1, 7, GF(2)); </span>
+a cyclic [7,6,1..2]1 code defined by generator polynomial over GF(2)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">GeneratorPol( C2 );</span>
+Z(2)^0+x
+</pre></div>
+
+<p><a id="X82440B78845F7F6E" name="X82440B78845F7F6E"></a></p>
+
+<h5>5.5-2 CheckPolCode</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; CheckPolCode</code>( <var class="Arg">h</var>, <var class="Arg">n</var>[, <var class="Arg">name</var>], <var class="Arg">F</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<p><code class="code">CheckPolCode</code> creates a cyclic code with a check polynomial <var class="Arg">h</var>, word length <var class="Arg">n</var>, over <var class="Arg">F</var>. <var class="Arg">name</var> can contain a short description of the code (as a string).</p>
+
+<p>If <var class="Arg">h</var> is not a divisor of <span class="SimpleMath">x^n-1</span>, it cannot be a check polynomial. In that case, a code is created with check polynomial <span class="SimpleMath">gcd( h, x^n-1 )</span>, i.e. the greatest common divisor of <var class="Arg">h</var> and <span class="SimpleMath">x^n-1</span>. This is a valid check polynomial that yields the same elements as the ideal <span class="SimpleMath">(h)</span>. See <a href="chap5.html#X8366CC3685F0BC85"><span class="RefLink">5.5</span></a>.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput"> x:= Indeterminate( GF(3) );; P:= x^2+2;</span>
+-Z(3)^0+x_1^2
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">H := CheckPolCode(P, 7, GF(3));</span>
+a cyclic [7,1,7]4 code defined by check polynomial over GF(3)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CheckPol(H);</span>
+-Z(3)^0+x_1
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Gcd(P, X(GF(3))^7-1);</span>
+-Z(3)^0+x_1
+</pre></div>
+
+<p><a id="X818F0E6583E01D4B" name="X818F0E6583E01D4B"></a></p>
+
+<h5>5.5-3 RootsCode</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; RootsCode</code>( <var class="Arg">n</var>, <var class="Arg">list</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<p>This is the generalization of the BCH, Reed-Solomon and quadratic residue codes (see <code class="func">BCHCode</code> (<a href="chap5.html#X7C6BB07C87853C00"><span class="RefLink">5.5-4</span></a>), <code class="func">ReedSolomonCode</code> (<a href="chap5.html#X838F3CB3872CEF95"><span class="RefLink">5.5-5</span></a>) and <code class="func">QRCode</code> (<a href="chap5.html#X825F42F68179D2AB"><span class="RefLink">5.5-7</span></a>)). The user can give a length of the code <var class="Arg">n</var> and a prescribed set of zeros. The argument <var class="Arg">list</var> must be a valid list of <span class="SimpleMath">n^th</span> roots of unity in a splitting field <span class="SimpleMath">GF(q^m)</span>. The resulting code will be over the field <span class="SimpleMath">GF(q)</span>. The function will return the largest possible cyclic code for which the list <var class="Arg">list</var> is a subset of the roots of the code. From this list, <strong class="pkg">GUAVA</strong> calculates the entire set of roots.</p>
+
+<p>This command can also be called with the syntax <code class="code">RootsCode( n, list, q )</code>. In this second form, the second argument is a list of integers, ranging from <span class="SimpleMath">0</span> to <span class="SimpleMath">n-1</span>. The resulting code will be over a field <span class="SimpleMath">GF(q)</span>. <strong class="pkg">GUAVA</strong> calculates a primitive <span class="SimpleMath">n^th</span> root of unity, <span class="SimpleMath">α</span>, in the extension field of <span class="SimpleMath">GF(q)</span>. It uses the set of the powers of <span class="SimpleMath">α</span> in the list as a prescribed set of zeros.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">a := PrimitiveUnityRoot( 3, 14 );</span>
+Z(3^6)^52
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C1 := RootsCode( 14, [ a^0, a, a^3 ] );</span>
+a cyclic [14,7,3..6]3..7 code defined by roots over GF(3)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">MinimumDistance( C1 );</span>
+4
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">b := PrimitiveUnityRoot( 2, 15 );</span>
+Z(2^4)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C2 := RootsCode( 15, [ b, b^2, b^3, b^4 ] );</span>
+a cyclic [15,7,5]3..5 code defined by roots over GF(2)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C2 = BCHCode( 15, 5, GF(2) );</span>
+true 
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C3 := RootsCode( 4, [ 1, 2 ], 5 );</span>
+a cyclic [4,2,2..3]2 code defined by roots over GF(5)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">RootsOfCode( C3 );</span>
+[ Z(5), Z(5)^2 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C3 = ReedSolomonCode( 4, 3 );</span>
+true
+</pre></div>
+
+<p><a id="X7C6BB07C87853C00" name="X7C6BB07C87853C00"></a></p>
+
+<h5>5.5-4 BCHCode</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; BCHCode</code>( <var class="Arg">n</var>[, <var class="Arg">b</var>], <var class="Arg">delta</var>, <var class="Arg">F</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<p>The function <code class="code">BCHCode</code> returns a 'Bose-Chaudhuri-Hockenghem code' (or <em>BCH code</em> for short). This is the largest possible cyclic code of length <var class="Arg">n</var> over field <var class="Arg">F</var>, whose generator polynomial has zeros</p>
+
+<p class="pcenter">
+a^{b},a^{b+1}, ..., a^{b+delta-2}, 
+</p>
+
+<p>where <span class="SimpleMath">a</span> is a primitive <span class="SimpleMath">n^th</span> root of unity in the splitting field <span class="SimpleMath">GF(q^m)</span>, <var class="Arg">b</var> is an integer <span class="SimpleMath">0≤ b≤ n-delta+1</span> and <span class="SimpleMath">m</span> is the multiplicative order of <span class="SimpleMath">q</span> modulo <var class="Arg">n</var>. (The integers <span class="SimpleMath">{b,...,b+delta-2}</span> typically lie in the range <span class="SimpleMath">{1,...,n-1}</span>.) Default value for <var class="Arg">b</var> is <span class="SimpleMath">1</span>, though the algorithm allows <span class="SimpleMath">b=0</span>. The length <var class="Arg">n</var> of the code and the size <span class="SimpleMath">q</span> of the field must be relatively prime. The generator polynomial is equal to the least common multiple of the minimal polynomials of</p>
+
+<p class="pcenter">
+a^{b}, a^{b+1}, ..., a^{b+delta-2}.
+</p>
+
+<p>The set of zeroes of the generator polynomial is equal to the union of the sets</p>
+
+<p class="pcenter">
+\{a^x\ |\ x \in C_k\},
+</p>
+
+<p>where <span class="SimpleMath">C_k</span> is the <span class="SimpleMath">k^th</span> cyclotomic coset of <span class="SimpleMath">q</span> modulo <span class="SimpleMath">n</span> and <span class="SimpleMath">b≤ k≤ b+delta-2</span> (see <code class="func">CyclotomicCosets</code> (<a href="chap7.html#X7AEA9F807E6FFEFF"><span class="RefLink">7.5-12</span></a>)).</p>
+
+<p>Special cases are <span class="SimpleMath">b=1</span> (resulting codes are called 'narrow-sense' BCH codes), and <span class="SimpleMath">n=q^m-1</span> (known as 'primitive' BCH codes). <strong class="pkg">GUAVA</strong> calculates the largest value of <span class="SimpleMath">d</span> for which the BCH code with designed distance <span class="SimpleMath">d</span> coincides with the BCH code with designed distance <var class="Arg">delta</var>. This distance <span class="SimpleMath">d</span> is called the <em>Bose distance</em> of the code. The true minimum distance of the code is greater than or equal to the Bose distance.</p>
+
+<p>Printed are the designed distance (to be precise, the Bose distance) <span class="SimpleMath">d</span>, and the starting power <span class="SimpleMath">b</span>.</p>
+
+<p>The Sugiyama decoding algorithm has been implemented for this code (see <code class="func">Decode</code> (<a href="chap4.html#X7A42FF7D87FC34AC"><span class="RefLink">4.10-1</span></a>)).</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C1 := BCHCode( 15, 3, 5, GF(2) );</span>
+a cyclic [15,5,7]5 BCH code, delta=7, b=1 over GF(2)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">DesignedDistance( C1 );</span>
+7
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C2 := BCHCode( 23, 2, GF(2) );</span>
+a cyclic [23,12,5..7]3 BCH code, delta=5, b=1 over GF(2)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">DesignedDistance( C2 );       </span>
+5
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">MinimumDistance(C2);</span>
+7 
+</pre></div>
+
+<p>See <code class="func">RootsCode</code> (<a href="chap5.html#X818F0E6583E01D4B"><span class="RefLink">5.5-3</span></a>) for a more general construction.</p>
+
+<p><a id="X838F3CB3872CEF95" name="X838F3CB3872CEF95"></a></p>
+
+<h5>5.5-5 ReedSolomonCode</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ReedSolomonCode</code>( <var class="Arg">n</var>, <var class="Arg">d</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<p><code class="code">ReedSolomonCode</code> returns a 'Reed-Solomon code' of length <var class="Arg">n</var>, designed distance <var class="Arg">d</var>. This code is a primitive narrow-sense BCH code over the field <span class="SimpleMath">GF(q)</span>, where <span class="SimpleMath">q=n+1</span>. The dimension of an RS code is <span class="SimpleMath">n-d+1</span>. According to the Singleton bound (see <code class="func">UpperBoundSingleton</code> (<a href="chap7.html#X8673277C7F6C04C3"><span class="RefLink">7.1-1</span></a>)) the dimension cannot be greater than this, so the true minimum distance of an RS code is equal to <var class="Arg">d</var> and the code is maximum distance separable (see <code class="func">IsMDSCode</code> (<a href="chap4.html#X789380D28018EC3F"><span class="RefLink">4.3-7</span></a>)).</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C1 := ReedSolomonCode( 3, 2 );</span>
+a cyclic [3,2,2]1 Reed-Solomon code over GF(4)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsCyclicCode(C1);</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C2 := ReedSolomonCode( 4, 3 );</span>
+a cyclic [4,2,3]2 Reed-Solomon code over GF(5)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">RootsOfCode( C2 );</span>
+[ Z(5), Z(5)^2 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsMDSCode(C2);</span>
+true 
+</pre></div>
+
+<p>See <code class="func">GeneralizedReedSolomonCode</code> (<a href="chap5.html#X810AB3DB844FFCE9"><span class="RefLink">5.6-2</span></a>) for a more general construction.</p>
+
+<p><a id="X8730B90A862A3B3E" name="X8730B90A862A3B3E"></a></p>
+
+<h5>5.5-6 ExtendedReedSolomonCode</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ExtendedReedSolomonCode</code>( <var class="Arg">n</var>, <var class="Arg">d</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<p><code class="code">ExtendedReedSolomonCode</code> creates a Reed-Solomon code of length <span class="SimpleMath">n-1</span> with designed distance <span class="SimpleMath">d-1</span> and then returns the code which is extended by adding an overall parity-check symbol. The motivation for creating this function is calling <code class="func">ExtendedCode</code> (<a href="chap6.html#X794679BE7F9EB5C1"><span class="RefLink">6.1-1</span></a>) function over a Reed-Solomon code will take considerably long time.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C := ExtendedReedSolomonCode(17, 13);</span>
+a linear [17,5,13]9..12 extended Reed Solomon code over GF(17)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsMDSCode(C);</span>
+true
+</pre></div>
+
+<p><a id="X825F42F68179D2AB" name="X825F42F68179D2AB"></a></p>
+
+<h5>5.5-7 QRCode</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; QRCode</code>( <var class="Arg">n</var>, <var class="Arg">F</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<p><code class="code">QRCode</code> returns a quadratic residue code. If <var class="Arg">F</var> is a field <span class="SimpleMath">GF(q)</span>, then <span class="SimpleMath">q</span> must be a quadratic residue modulo <var class="Arg">n</var>. That is, an <span class="SimpleMath">x</span> exists with <span class="SimpleMath">x^2 ≡ q mod n</span>. Both <var class="Arg">n</var> and <span class="SimpleMath">q</span> must be primes. Its generator polynomial is the product of the polynomials <span class="SimpleMath">x-a^i</span>. <span class="SimpleMath">a</span> is a primitive <span class="SimpleMath">n^th</span> root of unity, and <span class="SimpleMath">i</span> is an integer in the set of quadratic residues modulo <var class="Arg">n</var>.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C1 := QRCode( 7, GF(2) );</span>
+a cyclic [7,4,3]1 quadratic residue code over GF(2)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsEquivalent( C1, HammingCode( 3, GF(2) ) );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsCyclicCode(C1);</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsCyclicCode(HammingCode( 3, GF(2) ));</span>
+false
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C2 := QRCode( 11, GF(3) );</span>
+a cyclic [11,6,4..5]2 quadratic residue code over GF(3)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C2 = TernaryGolayCode();</span>
+true 
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Q1 := QRCode( 7, GF(2));</span>
+a cyclic [7,4,3]1 quadratic residue code over GF(2)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">P1:=AutomorphismGroup(Q1); IdGroup(P1);</span>
+Group([ (1,2)(5,7), (2,3)(4,7), (2,4)(5,6), (3,5)(6,7), (3,7)(5,6) ])
+[ 168, 42 ]
+</pre></div>
+
+<p><a id="X8764ABCF854C695E" name="X8764ABCF854C695E"></a></p>
+
+<h5>5.5-8 QQRCodeNC</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; QQRCodeNC</code>( <var class="Arg">p</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<p><code class="code">QQRCodeNC</code> is the same as <code class="code">QQRCode</code>, except that it uses <code class="code">GeneratorMatCodeNC</code> instead of <code class="code">GeneratorMatCode</code>.</p>
+
+<p><a id="X7F4C3AD2795A8D7A" name="X7F4C3AD2795A8D7A"></a></p>
+
+<h5>5.5-9 QQRCode</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; QQRCode</code>( <var class="Arg">p</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<p><code class="code">QQRCode</code> returns a quasi-quadratic residue code, as defined by Proposition 2.2 in Bazzi-Mittel <a href="chapBib.html#biBBM03">[BMd)]</a>. The parameter <var class="Arg">p</var> must be a prime. Its generator matrix has the block form <span class="SimpleMath">G=(Q,N)</span>. Here <span class="SimpleMath">Q</span> is a <span class="SimpleMath">p×</span> circulant matrix whose top row is <span class="SimpleMath">(0,x_1,...,x_p-1)</span>, where <span class="SimpleMath">x_i=1</span> if and only if <span class="SimpleMath">i</span> is a quadratic residue mod <span class="SimpleMath">p</span>, and <span class="SimpleMath">N</span> is a <span class="SimpleMath">p×</span> circulant matrix whose top row is <span class="SimpleMath">(0,y_1,...,y_p-1)</span>, where <span class="SimpleMath">x_i+y_i=1</span> for all <span class="SimpleMath">i</span>. (In fact, this matrix can be recovered as the component <code class="code">DoublyCirculant</code> of the code.)</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C1 := QQRCode( 7);</span>
+a linear [14,7,1..4]3..5 code defined by generator matrix over GF(2)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G1:=GeneratorMat(C1);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display(G1);</span>
+ . 1 1 . 1 . . . . . 1 . 1 1
+ 1 . 1 1 1 . . . . 1 1 1 . 1
+ . . . 1 1 . 1 . 1 1 . . . 1
+ . . 1 . 1 1 1 1 . 1 . . 1 1
+ . . . . . . . 1 . . 1 1 1 .
+ . . . . . . . . . 1 1 1 . 1
+ . . . . . . . . 1 . . 1 1 1
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display(C1!.DoublyCirculant);</span>
+ . 1 1 . 1 . . . . . 1 . 1 1
+ 1 1 . 1 . . . . . 1 . 1 1 .
+ 1 . 1 . . . 1 . 1 . 1 1 . .
+ . 1 . . . 1 1 1 . 1 1 . . .
+ 1 . . . 1 1 . . 1 1 . . . 1
+ . . . 1 1 . 1 1 1 . . . 1 .
+ . . 1 1 . 1 . 1 . . . 1 . 1
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">MinimumDistance(C1);</span>
+4
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C2 := QQRCode( 29); MinimumDistance(C2);</span>
+a linear [58,28,1..14]8..29 code defined by generator matrix over GF(2)
+12
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Aut2:=AutomorphismGroup(C2); IdGroup(Aut2);</span>
+[ permutation group of size 812 with 4 generators ]
+[ 812, 7 ]
+</pre></div>
+
+<p><a id="X7F3B8CC8831DA0E4" name="X7F3B8CC8831DA0E4"></a></p>
+
+<h5>5.5-10 FireCode</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FireCode</code>( <var class="Arg">g</var>, <var class="Arg">b</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<p><code class="code">FireCode</code> constructs a (binary) Fire code. <var class="Arg">g</var> is a primitive polynomial of degree <span class="SimpleMath">m</span>, and a factor of <span class="SimpleMath">x^r-1</span>. <var class="Arg">b</var> an integer <span class="SimpleMath">0 ≤ b ≤ m</span> not divisible by <span class="SimpleMath">r</span>, that determines the burst length of a single error burst that can be corrected. The argument <var class="Arg">g</var> can be a polynomial with base ring <span class="SimpleMath">GF(2)</span>, or a list of coefficients in <span class="SimpleMath">GF(2)</span>. The generator polynomial of the code is defined as the product of <var class="Arg">g</var> and <span class="SimpleMath">x^2b-1+1</span>.</p>
+
+<p>Here is the general definition of 'Fire code', named after P. Fire, who introduced these codes in 1959 in order to correct burst errors. First, a definition. If <span class="SimpleMath">F=GF(q)</span> and <span class="SimpleMath">f∈ F[x]</span> then we say <span class="SimpleMath">f</span> has <em>order</em> <span class="SimpleMath">e</span> if <span class="SimpleMath">f(x)|(x^e-1)</span>. A <em>Fire code</em> is a cyclic code over <span class="SimpleMath">F</span> with generator polynomial <span class="SimpleMath">g(x)= (x^2t-1-1)p(x)</span>, where <span class="SimpleMath">p(x)</span> does not divide <span class="SimpleMath">x^2t-1-1</span> and satisfies <span class="SimpleMath">deg(p(x))≥ t</span>. The length of such a code is the order of <span class="SimpleMath">g(x)</span>. Non-binary Fire codes have not been implemented.</p>
+
+<p>.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">x:= Indeterminate( GF(2) );; G:= x^3+x^2+1;</span>
+Z(2)^0+x^2+x^3
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Factors( G );</span>
+[ Z(2)^0+x^2+x^3 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C := FireCode( G, 3 );</span>
+a cyclic [35,27,1..4]2..6 3 burst error correcting fire code over GF(2)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">MinimumDistance( C );</span>
+4     # Still it can correct bursts of length 3 
+</pre></div>
+
+<p><a id="X7BC245E37EB7B23F" name="X7BC245E37EB7B23F"></a></p>
+
+<h5>5.5-11 WholeSpaceCode</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; WholeSpaceCode</code>( <var class="Arg">n</var>, <var class="Arg">F</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<p><code class="code">WholeSpaceCode</code> returns the cyclic whole space code of length <var class="Arg">n</var> over <var class="Arg">F</var>. This code consists of all polynomials of degree less than <var class="Arg">n</var> and coefficients in <var class="Arg">F</var>.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C := WholeSpaceCode( 5, GF(3) );</span>
+a cyclic [5,5,1]0 whole space code over GF(3)
+</pre></div>
+
+<p><a id="X7B4EF2017B2C61AD" name="X7B4EF2017B2C61AD"></a></p>
+
+<h5>5.5-12 NullCode</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; NullCode</code>( <var class="Arg">n</var>, <var class="Arg">F</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<p><code class="code">NullCode</code> returns the zero-dimensional nullcode with length <var class="Arg">n</var> over <var class="Arg">F</var>. This code has only one word: the all zero word. It is cyclic though!</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C := NullCode( 5, GF(3) );</span>
+a cyclic [5,0,5]5 nullcode over GF(3)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">AsSSortedList( C );</span>
+[ [ 0 0 0 0 0 ] ]
+</pre></div>
+
+<p><a id="X83C5F8FE7827EAA7" name="X83C5F8FE7827EAA7"></a></p>
+
+<h5>5.5-13 RepetitionCode</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; RepetitionCode</code>( <var class="Arg">n</var>, <var class="Arg">F</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<p><code class="code">RepetitionCode</code> returns the cyclic repetition code of length <var class="Arg">n</var> over <var class="Arg">F</var>. The code has as many elements as <var class="Arg">F</var>, because each codeword consists of a repetition of one of these elements.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C := RepetitionCode( 3, GF(5) );</span>
+a cyclic [3,1,3]2 repetition code over GF(5)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">AsSSortedList( C );</span>
+[ [ 0 0 0 ], [ 1 1 1 ], [ 2 2 2 ], [ 4 4 4 ], [ 3 3 3 ] ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsPerfectCode( C );</span>
+false
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsMDSCode( C );</span>
+true 
+</pre></div>
+
+<p><a id="X82FA9F65854D98A6" name="X82FA9F65854D98A6"></a></p>
+
+<h5>5.5-14 CyclicCodes</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; CyclicCodes</code>( <var class="Arg">n</var>, <var class="Arg">F</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<p><code class="code">CyclicCodes</code> returns a list of all cyclic codes of length <var class="Arg">n</var> over <var class="Arg">F</var>. It constructs all possible generator polynomials from the factors of <span class="SimpleMath">x^n-1</span>. Each combination of these factors yields a generator polynomial after multiplication.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CyclicCodes(3,GF(3));</span>
+[ a cyclic [3,3,1]0 enumerated code over GF(3), 
+a cyclic [3,2,1..2]1 enumerated code over GF(3), 
+a cyclic [3,1,3]2 enumerated code over GF(3), 
+a cyclic [3,0,3]3 enumerated code over GF(3) ]
+</pre></div>
+
+<p><a id="X8263CE4A790D294A" name="X8263CE4A790D294A"></a></p>
+
+<h5>5.5-15 NrCyclicCodes</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; NrCyclicCodes</code>( <var class="Arg">n</var>, <var class="Arg">F</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<p>The function <code class="code">NrCyclicCodes</code> calculates the number of cyclic codes of length <var class="Arg">n</var> over field <var class="Arg">F</var>.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">NrCyclicCodes( 23, GF(2) );</span>
+8
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">codelist := CyclicCodes( 23, GF(2) );</span>
+[ a cyclic [23,23,1]0 enumerated code over GF(2), 
+  a cyclic [23,22,1..2]1 enumerated code over GF(2), 
+  a cyclic [23,11,1..8]4..7 enumerated code over GF(2), 
+  a cyclic [23,0,23]23 enumerated code over GF(2), 
+  a cyclic [23,11,1..8]4..7 enumerated code over GF(2), 
+  a cyclic [23,12,1..7]3 enumerated code over GF(2), 
+  a cyclic [23,1,23]11 enumerated code over GF(2), 
+  a cyclic [23,12,1..7]3 enumerated code over GF(2) ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">BinaryGolayCode() in codelist;</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">RepetitionCode( 23, GF(2) ) in codelist;</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CordaroWagnerCode( 23 ) in codelist;</span>
+false    # This code is not cyclic 
+</pre></div>
+
+<p><a id="X79826B16785E8BD3" name="X79826B16785E8BD3"></a></p>
+
+<h5>5.5-16 QuasiCyclicCode</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; QuasiCyclicCode</code>( <var class="Arg">G</var>, <var class="Arg">s</var>, <var class="Arg">F</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<p><code class="code">QuasiCyclicCode( G, k, F )</code> generates a rate <span class="SimpleMath">1/m</span> quasi-cyclic code over field <var class="Arg">F</var>. The input <var class="Arg">G</var> is a list of univariate polynomials and <span class="SimpleMath">m</span> is the cardinality of this list. Note that <span class="SimpleMath">m</span> must be at least <span class="SimpleMath">2</span>. The input <var class="Arg">s</var> is the size of each circulant and it may not necessarily be the same as the code dimension <span class="SimpleMath">k</span>, i.e. <span class="SimpleMath">k le s</span>.</p>
+
+<p>There also exists another version, <code class="code">QuasiCyclicCode( G, s )</code> which produces quasi-cyclic codes over <span class="SimpleMath">F_2</span> only. Here the parameter <var class="Arg">s</var> holds the same definition and the input <var class="Arg">G</var> is a list of integers, where each integer is an octal representation of a binary univariate polynomial.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">#</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput"># This example show the case for k = s</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">#</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">L1 := PolyCodeword( Codeword("10000000000", GF(4)) );</span>
+Z(2)^0
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">L2 := PolyCodeword( Codeword("12223201000", GF(4)) );</span>
+x^7+Z(2^2)*x^5+Z(2^2)^2*x^4+Z(2^2)*x^3+Z(2^2)*x^2+Z(2^2)*x+Z(2)^0
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">L3 := PolyCodeword( Codeword("31111220110", GF(4)) );</span>
+x^9+x^8+Z(2^2)*x^6+Z(2^2)*x^5+x^4+x^3+x^2+x+Z(2^2)^2
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">L4 := PolyCodeword( Codeword("13320333010", GF(4)) );</span>
+x^9+Z(2^2)^2*x^7+Z(2^2)^2*x^6+Z(2^2)^2*x^5+Z(2^2)*x^3+Z(2^2)^2*x^2+Z(2^2)^2*x+\
+Z(2)^0
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">L5 := PolyCodeword( Codeword("20102211100", GF(4)) );</span>
+x^8+x^7+x^6+Z(2^2)*x^5+Z(2^2)*x^4+x^2+Z(2^2)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C := QuasiCyclicCode( [L1, L2, L3, L4, L5], 11, GF(4) );</span>
+a linear [55,11,1..32]24..41 quasi-cyclic code over GF(4)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">MinimumDistance(C);</span>
+29
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display(C);</span>
+a linear [55,11,29]24..41 quasi-cyclic code over GF(4)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">#</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput"># This example show the case for k &lt; s</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">#</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">L1 := PolyCodeword( Codeword("02212201220120211002000",GF(3)) );</span>
+-x^19+x^16+x^15-x^14-x^12+x^11-x^9-x^8+x^7-x^5-x^4+x^3-x^2-x
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">L2 := PolyCodeword( Codeword("00221100200120220001110",GF(3)) );</span>
+x^21+x^20+x^19-x^15-x^14-x^12+x^11-x^8+x^5+x^4-x^3-x^2
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">L3 := PolyCodeword( Codeword("22021011202221111020021",GF(3)) );</span>
+x^22-x^21-x^18+x^16+x^15+x^14+x^13-x^12-x^11-x^10-x^8+x^7+x^6+x^4-x^3-x-Z(3)^0
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C := QuasiCyclicCode( [L1, L2, L3], 23, GF(3) );</span>
+a linear [69,12,1..37]27..46 quasi-cyclic code over GF(3)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">MinimumDistance(C);</span>
+34
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display(C);</span>
+a linear [69,12,34]27..46 quasi-cyclic code over GF(3)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">#</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput"># This example show the binary case using octal representation</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">#</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">L1 := 001;;   # 0 000 001</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">L2 := 013;;   # 0 001 011</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">L3 := 015;;   # 0 001 101</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">L4 := 077;;   # 0 111 111</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C := QuasiCyclicCode( [L1, L2, L3, L4], 7 );</span>
+a linear [28,7,1..12]8..14 quasi-cyclic code over GF(2)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">MinimumDistance(C);</span>
+12
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display(C);</span>
+a linear [28,7,12]8..14 quasi-cyclic code over GF(2)
+</pre></div>
+
+<p><a id="X7BFEDA52835A601D" name="X7BFEDA52835A601D"></a></p>
+
+<h5>5.5-17 CyclicMDSCode</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; CyclicMDSCode</code>( <var class="Arg">q</var>, <var class="Arg">m</var>, <var class="Arg">k</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<p>Given the input parameters <var class="Arg">q</var>, <var class="Arg">m</var> and <var class="Arg">k</var>, this function returns a <span class="SimpleMath">[q^m + 1, k, q^m - k + 2]</span> cyclic MDS code over GF(<span class="SimpleMath">q^m</span>). If <span class="SimpleMath">q^m</span> is even, any value of <span class="SimpleMath">k</span> can be used, otherwise only odd value of <span class="SimpleMath">k</span> is accepted.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C:=CyclicMDSCode(2,6,24);</span>
+a cyclic [65,24,42]31..41 MDS code over GF(64)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsMDSCode(C);</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C:=CyclicMDSCode(5,3,77);</span>
+a cyclic [126,77,50]35..49 MDS code over GF(125)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsMDSCode(C);</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C:=CyclicMDSCode(3,3,25);</span>
+a cyclic [28,25,4]2..3 MDS code over GF(27)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">GeneratorPol(C);</span>
+x^3+Z(3^3)^7*x^2+Z(3^3)^20*x-Z(3)^0
+gap&gt;
+</pre></div>
+
+<p><a id="X7F40AF3B81C252DC" name="X7F40AF3B81C252DC"></a></p>
+
+<h5>5.5-18 FourNegacirculantSelfDualCode</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FourNegacirculantSelfDualCode</code>( <var class="Arg">ax</var>, <var class="Arg">bx</var>, <var class="Arg">k</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<p>A four-negacirculant self-dual code has a generator matrix <span class="SimpleMath">G</span> of the the following form</p>
+
+
+<pre class="normal">
+
+    -                    -
+    |        |  A  |  B  |
+G = |  I_2k  |-----+-----|
+    |        | -B^T| A^T |
+    -                    -
+		
+</pre>
+
+<p>where <span class="SimpleMath">AA^T + BB^T = -I_k</span> and <span class="SimpleMath">A</span>, <span class="SimpleMath">B</span> and their transposed are all <span class="SimpleMath">k × k</span> negacirculant matrices. The generator matrix <span class="SimpleMath">G</span> returns a <span class="SimpleMath">[2k, k, d]_q</span> self-dual code over GF(<span class="SimpleMath">q</span>). For discussion on four-negacirculant self-dual codes, refer to <a href="chapBib.html#biBHHKK07">[HHKK07]</a>.</p>
+
+<p>The input parameters <var class="Arg">ax</var> and <var class="Arg">bx</var> are the defining polynomials over GF(<span class="SimpleMath">q</span>) of negacirculant matrices <span class="SimpleMath">A</span> and <span class="SimpleMath">B</span> respectively. The last parameter <var class="Arg">k</var> is the dimension of the code.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ax:=PolyCodeword(Codeword("1200200", GF(3)));</span>
+-x_1^4-x_1+Z(3)^0
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">bx:=PolyCodeword(Codeword("2020221", GF(3)));</span>
+x_1^6-x_1^5-x_1^4-x_1^2-Z(3)^0
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C:=FourNegacirculantSelfDualCode(ax, bx, 14);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">MinimumDistance(C);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CoveringRadius(C);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsSelfDualCode(C);</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display(C);</span>
+a linear [28,14,9]7 four-negacirculant self-dual code over GF(3)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( GeneratorMat(C) );</span>
+ 1 . . . . . . . . . . . . . 1 2 . . 2 . . 2 . 2 . 2 2 1
+ . 1 . . . . . . . . . . . . . 1 2 . . 2 . 2 2 . 2 . 2 2
+ . . 1 . . . . . . . . . . . . . 1 2 . . 2 1 2 2 . 2 . 2
+ . . . 1 . . . . . . . . . . 1 . . 1 2 . . 1 1 2 2 . 2 .
+ . . . . 1 . . . . . . . . . . 1 . . 1 2 . . 1 1 2 2 . 2
+ . . . . . 1 . . . . . . . . . . 1 . . 1 2 1 . 1 1 2 2 .
+ . . . . . . 1 . . . . . . . 1 . . 1 . . 1 . 1 . 1 1 2 2
+ . . . . . . . 1 . . . . . . 1 1 2 2 . 2 . 1 . . 1 . . 1
+ . . . . . . . . 1 . . . . . . 1 1 2 2 . 2 2 1 . . 1 . .
+ . . . . . . . . . 1 . . . . 1 . 1 1 2 2 . . 2 1 . . 1 .
+ . . . . . . . . . . 1 . . . . 1 . 1 1 2 2 . . 2 1 . . 1
+ . . . . . . . . . . . 1 . . 1 . 1 . 1 1 2 2 . . 2 1 . .
+ . . . . . . . . . . . . 1 . 1 1 . 1 . 1 1 . 2 . . 2 1 .
+ . . . . . . . . . . . . . 1 2 1 1 . 1 . 1 . . 2 . . 2 1
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ax:=PolyCodeword(Codeword("013131000", GF(7)));</span>
+x_1^5+Z(7)*x_1^4+x_1^3+Z(7)*x_1^2+x_1
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">bx:=PolyCodeword(Codeword("425435030", GF(7)));</span>
+Z(7)*x_1^7+Z(7)^5*x_1^5+Z(7)*x_1^4+Z(7)^4*x_1^3+Z(7)^5*x_1^2+Z(7)^2*x_1+Z(7)^4
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C:=FourNegacirculantSelfDualCodeNC(ax, bx, 18);</span>
+a linear [36,18,1..13]0..36 four-negacirculant self-dual code over GF(7)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsSelfDualCode(C);</span>
+true
+</pre></div>
+
+<p><a id="X87137A257E761291" name="X87137A257E761291"></a></p>
+
+<h5>5.5-19 FourNegacirculantSelfDualCodeNC</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FourNegacirculantSelfDualCodeNC</code>( <var class="Arg">ax</var>, <var class="Arg">bx</var>, <var class="Arg">k</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<p>This function is the same as <code class="code">FourNegacirculantSelfDualCode</code>, except this version is faster as it does not estimate the minimum distance and covering radius of the code.</p>
+
+<p><a id="X850A28C579137220" name="X850A28C579137220"></a></p>
+
+<h4>5.6 <span class="Heading">
+Evaluation Codes
+</span></h4>
+
+<p><a id="X78E078567D19D433" name="X78E078567D19D433"></a></p>
+
+<h5>5.6-1 EvaluationCode</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; EvaluationCode</code>( <var class="Arg">P</var>, <var class="Arg">L</var>, <var class="Arg">R</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<p>Input: <var class="Arg">F</var> is a finite field, <var class="Arg">L</var> is a list of rational functions in <span class="SimpleMath">R=F[x_1,...,x_r]</span>, <var class="Arg">P</var> is a list of <span class="SimpleMath">n</span> points in <span class="SimpleMath">F^r</span> at which all of the functions in <var class="Arg">L</var> are defined. <br /> Output: The 'evaluation code' <span class="SimpleMath">C</span>, which is the image of the evalation map</p>
+
+<p class="pcenter">
+Eval_P:span(L)\rightarrow F^n,
+</p>
+
+<p>given by <span class="SimpleMath">flongmapsto (f(p_1),...,f(p_n))</span>, where <span class="SimpleMath">P={p_1,...,p_n}</span> and <span class="SimpleMath">f ∈ L</span>. The generator matrix of <span class="SimpleMath">C</span> is <span class="SimpleMath">G=(f_i(p_j))_f_i∈ L,p_j∈ P</span>.</p>
+
+<p>This command returns a "record" object <code class="code">C</code> with several extra components (type <code class="code">NamesOfComponents(C)</code> to see them all): <code class="code">C!.EvaluationMat</code> (not the same as the generator matrix in general), <code class="code">C!.points</code> (namely <var class="Arg">P</var>), <code class="code">C!.basis</code> (namely <var class="Arg">L</var>), and <code class="code">C!.ring</code> (namely <var class="Arg">R</var>).</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">F:=GF(11);</span>
+GF(11)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">R := PolynomialRing(F,2);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">indets := IndeterminatesOfPolynomialRing(R);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">x:=indets[1];; y:=indets[2];;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">L:=[x^2*y,x*y,x^5,x^4,x^3,x^2,x,x^0];;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Pts:=[ [ Z(11)^9, Z(11) ], [ Z(11)^8, Z(11) ], [ Z(11)^7, 0*Z(11) ],</span>
+   [ Z(11)^6, 0*Z(11) ], [ Z(11)^5, 0*Z(11) ], [ Z(11)^4, 0*Z(11) ],
+   [ Z(11)^3, Z(11) ], [ Z(11)^2, 0*Z(11) ], [ Z(11), 0*Z(11) ], 
+   [ Z(11)^0, 0*Z(11) ], [ 0*Z(11), Z(11) ] ];;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C:=EvaluationCode(Pts,L,R);</span>
+a linear [11,8,1..3]2..3  evaluation code over GF(11)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">MinimumDistance(C);</span>
+3
+
+</pre></div>
+
+<p><a id="X810AB3DB844FFCE9" name="X810AB3DB844FFCE9"></a></p>
+
+<h5>5.6-2 GeneralizedReedSolomonCode</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; GeneralizedReedSolomonCode</code>( <var class="Arg">P</var>, <var class="Arg">k</var>, <var class="Arg">R</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<p>Input: R=F[x], where <var class="Arg">F</var> is a finite field, <var class="Arg">k</var> is a positive integer, <var class="Arg">P</var> is a list of <span class="SimpleMath">n</span> points in <span class="SimpleMath">F</span>. <br /> Output: The <span class="SimpleMath">C</span> which is the image of the evaluation map</p>
+
+<p class="pcenter">
+Eval_P:F[x]_k\rightarrow F^n,
+</p>
+
+<p>given by <span class="SimpleMath">flongmapsto (f(p_1),...,f(p_n))</span>, where <span class="SimpleMath">P={p_1,...,p_n}⊂ F</span> and <span class="SimpleMath">f</span> ranges over the space <span class="SimpleMath">F[x]_k</span> of all polynomials of degree less than <span class="SimpleMath">k</span>.</p>
+
+<p>This command returns a "record" object <code class="code">C</code> with several extra components (type <code class="code">NamesOfComponents(C)</code> to see them all): <code class="code">C!.points</code> (namely <var class="Arg">P</var>), <code class="code">C!.degree</code> (namely <var class="Arg">k</var>), and <code class="code">C!.ring</code> (namely <var class="Arg">R</var>).</p>
+
+<p>This code can be decoded using <code class="code">Decodeword</code>, which applies the special decoder method (the interpolation method), or using <code class="code">GeneralizedReedSolomonDecoderGao</code> which applies an algorithm of S. Gao (see <code class="func">GeneralizedReedSolomonDecoderGao</code> (<a href="chap4.html#X7D48DE2A84474C6A"><span class="RefLink">4.10-3</span></a>)). This code has a special decoder record which implements the interpolation algorithm described in section 5.2 of Justesen and Hoholdt <a href="chapBib.html#biBJH04">[JH04]</a>. See <code class="func">Decode</code> (<a href="chap4.html#X7A42FF7D87FC34AC"><span class="RefLink">4.10-1</span></a>) and <code class="func">Decodeword</code> (<a href="chap4.html#X7D870C9387C47D9F"><span class="RefLink">4.10-2</span></a>) for more details.</p>
+
+<p>The weighted version has implemented with the option <code class="code">GeneralizedReedSolomonCode(P,k,R,wts)</code>, where <span class="SimpleMath">wts = [v_1, ..., v_n]</span> is a sequence of <span class="SimpleMath">n</span> non-zero elements from the base field <span class="SimpleMath">F</span> of <var class="Arg">R</var>. See also the generalized Reed--Solomon code <span class="SimpleMath">GRS_k(P, V)</span> described in <a href="chapBib.html#biBMS83">[MS83]</a>, p.303.</p>
+
+<p>The list-decoding algorithm of Sudan-Guraswami (described in section 12.1 of <a href="chapBib.html#biBJH04">[JH04]</a>) has been implemented for generalized Reed-Solomon codes. See <code class="func">GeneralizedReedSolomonListDecoder</code> (<a href="chap4.html#X7CFF98D483502053"><span class="RefLink">4.10-4</span></a>).</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">R:=PolynomialRing(GF(11),["t"]);</span>
+GF(11)[t]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">P:=List([1,3,4,5,7],i-&gt;Z(11)^i);</span>
+[ Z(11), Z(11)^3, Z(11)^4, Z(11)^5, Z(11)^7 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C:=GeneralizedReedSolomonCode(P,3,R);</span>
+a linear [5,3,1..3]2  generalized Reed-Solomon code over GF(11)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">MinimumDistance(C);</span>
+3
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">V:=[Z(11)^0,Z(11)^0,Z(11)^0,Z(11)^0,Z(11)];</span>
+[ Z(11)^0, Z(11)^0, Z(11)^0, Z(11)^0, Z(11) ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C:=GeneralizedReedSolomonCode(P,3,R,V);</span>
+a linear [5,3,1..3]2  weighted generalized Reed-Solomon code over GF(11)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">MinimumDistance(C);</span>
+3
+</pre></div>
+
+<p>See <code class="func">EvaluationCode</code> (<a href="chap5.html#X78E078567D19D433"><span class="RefLink">5.6-1</span></a>) for a more general construction.</p>
+
+<p><a id="X85B8699680B9D786" name="X85B8699680B9D786"></a></p>
+
+<h5>5.6-3 GeneralizedReedMullerCode</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; GeneralizedReedMullerCode</code>( <var class="Arg">Pts</var>, <var class="Arg">r</var>, <var class="Arg">F</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<p><code class="code">GeneralizedReedMullerCode</code> returns a 'Reed-Muller code' <span class="SimpleMath">C</span> with length <span class="SimpleMath">|Pts|</span> and order <span class="SimpleMath">r</span>. One considers (a) a basis of monomials for the vector space over <span class="SimpleMath">F=GF(q)</span> of all polynomials in <span class="SimpleMath">F[x_1,...,x_d]</span> of degree at most <span class="SimpleMath">r</span>, and (b) a set <span class="SimpleMath">Pts</span> of points in <span class="SimpleMath">F^d</span>. The generator matrix of the associated <em>Reed-Muller code</em> <span class="SimpleMath">C</span> is <span class="SimpleMath">G=(f(p))_f∈ B,p ∈ Pts</span>. This code <span class="SimpleMath">C</span> is constructed using the command <code class="code">GeneralizedReedMullerCode(Pts,r,F)</code>. When <span class="SimpleMath">Pts</span> is the set of all <span class="SimpleMath">q^d</span> points in <span class="SimpleMath">F^d</span> then the command <code class="code">GeneralizedReedMuller(d,r,F)</code> yields the code. When <span class="SimpleMath">Pts</span> is the set of all <span class="SimpleMath">(q-1)^d</span> points with no coordinate equal to <span class="SimpleMath">0</span> then this is can be constructed using the <code class="code">ToricCode</code> command (as a special case).</p>
+
+<p>This command returns a "record" object <code class="code">C</code> with several extra components (type <code class="code">NamesOfComponents(C)</code> to see them all): <code class="code">C!.points</code> (namely <var class="Arg">Pts</var>) and <code class="code">C!.degree</code> (namely <var class="Arg">r</var>).</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Pts:=ToricPoints(2,GF(5));</span>
+[ [ Z(5)^0, Z(5)^0 ], [ Z(5)^0, Z(5) ], [ Z(5)^0, Z(5)^2 ], [ Z(5)^0, Z(5)^3 ],
+  [ Z(5), Z(5)^0 ], [ Z(5), Z(5) ], [ Z(5), Z(5)^2 ], [ Z(5), Z(5)^3 ],
+  [ Z(5)^2, Z(5)^0 ], [ Z(5)^2, Z(5) ], [ Z(5)^2, Z(5)^2 ], [ Z(5)^2, Z(5)^3 ],
+  [ Z(5)^3, Z(5)^0 ], [ Z(5)^3, Z(5) ], [ Z(5)^3, Z(5)^2 ], [ Z(5)^3, Z(5)^3 ] ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C:=GeneralizedReedMullerCode(Pts,2,GF(5));</span>
+a linear [16,6,1..11]6..10  generalized Reed-Muller code over GF(5)
+</pre></div>
+
+<p>See <code class="func">EvaluationCode</code> (<a href="chap5.html#X78E078567D19D433"><span class="RefLink">5.6-1</span></a>) for a more general construction.</p>
+
+<p><a id="X7EE68B58872D7E82" name="X7EE68B58872D7E82"></a></p>
+
+<h5>5.6-4 ToricPoints</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ToricPoints</code>( <var class="Arg">n</var>, <var class="Arg">F</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<p><code class="code">ToricPoints(n,F)</code> returns the points in <span class="SimpleMath">(F^×)^n</span>.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ToricPoints(2,GF(5));</span>
+[ [ Z(5)^0, Z(5)^0 ], [ Z(5)^0, Z(5) ], [ Z(5)^0, Z(5)^2 ], 
+  [ Z(5)^0, Z(5)^3 ], [ Z(5), Z(5)^0 ], [ Z(5), Z(5) ], [ Z(5), Z(5)^2 ], 
+  [ Z(5), Z(5)^3 ], [ Z(5)^2, Z(5)^0 ], [ Z(5)^2, Z(5) ], [ Z(5)^2, Z(5)^2 ], 
+  [ Z(5)^2, Z(5)^3 ], [ Z(5)^3, Z(5)^0 ], [ Z(5)^3, Z(5) ], 
+  [ Z(5)^3, Z(5)^2 ], [ Z(5)^3, Z(5)^3 ] ]
+</pre></div>
+
+<p><a id="X7B24BE418010F596" name="X7B24BE418010F596"></a></p>
+
+<h5>5.6-5 ToricCode</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ToricCode</code>( <var class="Arg">L</var>, <var class="Arg">F</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<p>This function returns the toric codes as in D. Joyner <a href="chapBib.html#biBJo04">[Joy04]</a> (see also J. P. Hansen <a href="chapBib.html#biBHan99">[Han99]</a>). This is a truncated (generalized) Reed-Muller code. Here <var class="Arg">L</var> is a list of integral vectors and <var class="Arg">F</var> is the finite field. The size of <var class="Arg">F</var> must be different from <span class="SimpleMath">2</span>.</p>
+
+<p>This command returns a record object <code class="code">C</code> with an extra component (type <code class="code">NamesOfComponents(C)</code> to see them all): <code class="code">C!.exponents</code> (namely <var class="Arg">L</var>).</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C:=ToricCode([[1,0],[3,4]],GF(3));</span>
+a linear [4,1,4]2 toric code over GF(3)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display(GeneratorMat(C));</span>
+ 1 1 2 2
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Elements(C);</span>
+[ [ 0 0 0 0 ], [ 1 1 2 2 ], [ 2 2 1 1 ] ]
+</pre></div>
+
+<p>See <code class="func">EvaluationCode</code> (<a href="chap5.html#X78E078567D19D433"><span class="RefLink">5.6-1</span></a>) for a more general construction.</p>
+
+<p><a id="X7AE2B2CD7C647990" name="X7AE2B2CD7C647990"></a></p>
+
+<h4>5.7 <span class="Heading">
+Algebraic geometric codes
+</span></h4>
+
+<p>Certain <strong class="pkg">GUAVA</strong> functions related to algebraic geometric codes are described in this section.</p>
+
+<p><a id="X802DD9FB79A9ACA7" name="X802DD9FB79A9ACA7"></a></p>
+
+<h5>5.7-1 AffineCurve</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AffineCurve</code>( <var class="Arg">poly</var>, <var class="Arg">ring</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<p>This function simply defines the data structure of an affine plane curve. In <strong class="pkg">GUAVA</strong>, an affine curve is a record <var class="Arg">crv</var> having two components: a polynomial <var class="Arg">poly</var>, accessed in <strong class="pkg">GUAVA</strong> by <var class="Arg">crv.polynomial</var>, and a polynomial ring over a field <span class="SimpleMath">F</span> in two variables <var class="Arg">ring</var>, accessed in <strong class="pkg">GUAVA</strong> by <var class="Arg">crv.ring</var>, containing <var class="Arg">poly</var>. You use this function to define a curve in <strong class="pkg">GUAVA</strong>.</p>
+
+<p>For example, for the ring, one could take <span class="SimpleMath">Q}[x,y]</span>, and for the polynomial one could take <span class="SimpleMath">f(x,y)=x^2+y^2-1</span>. For the affine line, simply taking <span class="SimpleMath">Q}[x,y]</span> for the ring and <span class="SimpleMath">f(x,y)=y</span> for the polynomial.</p>
+
+<p>(Not sure if <span class="SimpleMath">F</span> neeeds to be a field in fact ...)</p>
+
+<p>To compute its degree, simply use the <code class="func">DegreeMultivariatePolynomial</code> (<a href="chap7.html#X80433A4B792880EF"><span class="RefLink">7.6-2</span></a>) command.</p>
+
+
+<div class="example"><pre>
+gap&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">F:=GF(11);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">R2:=PolynomialRing(F,2);</span>
+PolynomialRing(..., [ x_1, x_2 ])
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">vars:=IndeterminatesOfPolynomialRing(R2);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">x:=vars[1];; y:=vars[2];;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">poly:=y;; crvP1:=AffineCurve(poly,R2);</span>
+rec( ring := PolynomialRing(..., [ x_1, x_2 ]), polynomial := x_2 )
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">degree_crv:=DegreeMultivariatePolynomial(poly,R2);</span>
+1
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">poly:=y^2-x*(x^2-1);; ell_crv:=AffineCurve(poly,R2);</span>
+rec( ring := PolynomialRing(..., [ x_1, x_2 ]), polynomial := -x_1^3+x_2^2+x_1 )
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">degree_crv:=DegreeMultivariatePolynomial(poly,R2);</span>
+3
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">poly:=x^2+y^2-1;; circle:=AffineCurve(poly,R2);</span>
+rec( ring := PolynomialRing(..., [ x_1, x_2 ]), polynomial := x_1^2+x_2^2-Z(11)^0 )
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">degree_crv:=DegreeMultivariatePolynomial(poly,R2);</span>
+2
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">q:=3;;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">F:=GF(q^2);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">R:=PolynomialRing(F,2);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">vars:=IndeterminatesOfPolynomialRing(R);</span>
+[ x_1, x_2 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">x:=vars[1];</span>
+x_1
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">y:=vars[2];</span>
+x_2
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">crv:=AffineCurve(y^q+y-x^(q+1),R);</span>
+rec( ring := PolynomialRing(..., [ x_1, x_2 ]), polynomial := -x_1^4+x_2^3+x_2 )
+gap&gt;
+</pre></div>
+
+<p>In GAP, a <em>point</em> on a curve defined by <span class="SimpleMath">f(x,y)=0</span> is simply a list <var class="Arg">[a,b]</var> of elements of <span class="SimpleMath">F</span> satisfying this polynomial equation.</p>
+
+<p><a id="X857EFE567C05C981" name="X857EFE567C05C981"></a></p>
+
+<h5>5.7-2 AffinePointsOnCurve</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AffinePointsOnCurve</code>( <var class="Arg">f</var>, <var class="Arg">R</var>, <var class="Arg">E</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<p><code class="code">AffinePointsOnCurve(f,R,E)</code> returns the points <span class="SimpleMath">(x,y) ∈ E^2</span> satisying <span class="SimpleMath">f(x,y)=0</span>, where <var class="Arg">f</var> is an element of <span class="SimpleMath">R=F[x,y]</span>.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">F:=GF(11);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">R := PolynomialRing(F,["x","y"]);</span>
+PolynomialRing(..., [ x, y ])
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">indets := IndeterminatesOfPolynomialRing(R);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">x:=indets[1];; y:=indets[2];;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">P:=AffinePointsOnCurve(y^2-x^11+x,R,F);</span>
+[ [ Z(11)^9, 0*Z(11) ], [ Z(11)^8, 0*Z(11) ], [ Z(11)^7, 0*Z(11) ], 
+  [ Z(11)^6, 0*Z(11) ], [ Z(11)^5, 0*Z(11) ], [ Z(11)^4, 0*Z(11) ], 
+  [ Z(11)^3, 0*Z(11) ], [ Z(11)^2, 0*Z(11) ], [ Z(11), 0*Z(11) ], 
+  [ Z(11)^0, 0*Z(11) ], [ 0*Z(11), 0*Z(11) ] ]
+</pre></div>
+
+<p><a id="X857E36ED814A40B8" name="X857E36ED814A40B8"></a></p>
+
+<h5>5.7-3 GenusCurve</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; GenusCurve</code>( <var class="Arg">crv</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<p>If <var class="Arg">crv</var> represents <span class="SimpleMath">f(x,y)=0</span>, where <span class="SimpleMath">f</span> is a polynomial of degree <span class="SimpleMath">d</span>, then this function simply returns <span class="SimpleMath">(d-1)(d-2)/2</span>. At the present, the function does not check if the curve is singular (in which case the result may be false).</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">q:=4;;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">F:=GF(q^2);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">a:=X(F);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">R1:=PolynomialRing(F,[a]);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">var1:=IndeterminatesOfPolynomialRing(R1);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">b:=X(F);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">R2:=PolynomialRing(F,[a,b]);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">var2:=IndeterminatesOfPolynomialRing(R2);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">crv:=AffineCurve(b^q+b-a^(q+1),R2);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">crv:=AffineCurve(b^q+b-a^(q+1),R2);</span>
+rec( ring := PolynomialRing(..., [ x_1, x_1 ]), polynomial := x_1^5+x_1^4+x_1 )
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">GenusCurve(crv);</span>
+36
+
+</pre></div>
+
+<p><a id="X8572A3037DA66F88" name="X8572A3037DA66F88"></a></p>
+
+<h5>5.7-4 GOrbitPoint </h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; GOrbitPoint </code>( <var class="Arg">G</var>, <var class="Arg">P</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<p><var class="Arg">P</var> must be a point in projective space <span class="SimpleMath">P^n(F)</span>, <var class="Arg">G</var> must be a finite subgroup of <span class="SimpleMath">GL(n+1,F)</span>, This function returns all (representatives of projective) points in the orbit <span class="SimpleMath">G⋅ P</span>.</p>
+
+<p>The example below computes the orbit of the automorphism group on the Klein quartic over the field <span class="SimpleMath">GF(43)</span> on the ``point at infinity''.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">R:= PolynomialRing( GF(43), 3 );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">vars:= IndeterminatesOfPolynomialRing(R);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">x:= vars[1];; y:= vars[2];; z:= vars[3];;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">zz:=Z(43)^6;</span>
+Z(43)^6
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">zzz:=Z(43);</span>
+Z(43)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">rho1:=zz^0*[[zz^4,0,0],[0,zz^2,0],[0,0,zz]];</span>
+[ [ Z(43)^24, 0*Z(43), 0*Z(43) ], 
+[ 0*Z(43), Z(43)^12, 0*Z(43) ], 
+[ 0*Z(43), 0*Z(43), Z(43)^6 ] ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">rho2:=zz^0*[[0,1,0],[0,0,1],[1,0,0]];</span>
+[ [ 0*Z(43), Z(43)^0, 0*Z(43) ], 
+[ 0*Z(43), 0*Z(43), Z(43)^0 ], 
+[ Z(43)^0, 0*Z(43), 0*Z(43) ] ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">rho3:=(-1)*[[(zz-zz^6 )/zzz^7,( zz^2-zz^5 )/ zzz^7, ( zz^4-zz^3 )/ zzz^7],</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">            [( zz^2-zz^5 )/ zzz^7, ( zz^4-zz^3 )/ zzz^7, ( zz-zz^6 )/ zzz^7],</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">            [( zz^4-zz^3 )/ zzz^7, ( zz-zz^6 )/ zzz^7, ( zz^2-zz^5 )/ zzz^7]];</span>
+[ [ Z(43)^9, Z(43)^28, Z(43)^12 ], 
+[ Z(43)^28, Z(43)^12, Z(43)^9 ], 
+[ Z(43)^12, Z(43)^9, Z(43)^28 ] ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G:=Group([rho1,rho2,rho3]);; #PSL(2,7)</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Size(G);</span>
+168
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">P:=[1,0,0]*zzz^0;</span>
+[ Z(43)^0, 0*Z(43), 0*Z(43) ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">O:=GOrbitPoint(G,P);</span>
+[ [ Z(43)^0, 0*Z(43), 0*Z(43) ], [ 0*Z(43), Z(43)^0, 0*Z(43) ], 
+[ 0*Z(43), 0*Z(43), Z(43)^0 ], [ Z(43)^0, Z(43)^39, Z(43)^16 ], 
+[ Z(43)^0, Z(43)^33, Z(43)^28 ], [ Z(43)^0, Z(43)^27, Z(43)^40 ],
+[ Z(43)^0, Z(43)^21, Z(43)^10 ], [ Z(43)^0, Z(43)^15, Z(43)^22 ], 
+[ Z(43)^0, Z(43)^9, Z(43)^34 ], [ Z(43)^0, Z(43)^3, Z(43)^4 ], 
+[ Z(43)^3, Z(43)^22, Z(43)^6 ], [ Z(43)^3, Z(43)^16, Z(43)^18 ],
+[ Z(43)^3, Z(43)^10, Z(43)^30 ], [ Z(43)^3, Z(43)^4, Z(43)^0 ], 
+[ Z(43)^3, Z(43)^40, Z(43)^12 ], [ Z(43)^3, Z(43)^34, Z(43)^24 ], 
+[ Z(43)^3, Z(43)^28, Z(43)^36 ], [ Z(43)^4, Z(43)^30, Z(43)^27 ],
+[ Z(43)^4, Z(43)^24, Z(43)^39 ], [ Z(43)^4, Z(43)^18, Z(43)^9 ], 
+[ Z(43)^4, Z(43)^12, Z(43)^21 ], [ Z(43)^4, Z(43)^6, Z(43)^33 ], 
+[ Z(43)^4, Z(43)^0, Z(43)^3 ], [ Z(43)^4, Z(43)^36, Z(43)^15 ] ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Length(O);</span>
+24
+
+</pre></div>
+
+<p>Informally, a <em>divisor</em> on a curve is a formal integer linear combination of points on the curve, <span class="SimpleMath">D=m_1P_1+...+m_kP_k</span>, where the <span class="SimpleMath">m_i</span> are integers (the ``multiplicity'' of <span class="SimpleMath">P_i</span> in <span class="SimpleMath">D</span>) and <span class="SimpleMath">P_i</span> are (<span class="SimpleMath">F</span>-rational) points on the affine plane curve. In other words, a divisor is an element of the free abelian group generated by the <span class="SimpleMath">F</span>-rational affine points on the curve. The <em>support</em> of a divisor <span class="SimpleMath">D</span> is simply the set of points which occurs in the sum defining <span class="SimpleMath">D</span> with non-zero ``multiplicity''. The data structure for a divisor on an affine plane curve is a record having the following components:</p>
+
+
+<ul>
+<li><p>the coefficients (the integer weights of the points in the support),</p>
+
+</li>
+<li><p>the support,</p>
+
+</li>
+<li><p>the curve, itself a record which has components: polynomial and polynomial ring.</p>
+
+</li>
+</ul>
+<p><a id="X79742B7183051D99" name="X79742B7183051D99"></a></p>
+
+<h5>5.7-5 DivisorOnAffineCurve</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DivisorOnAffineCurve</code>( <var class="Arg">cdiv</var>, <var class="Arg">sdiv</var>, <var class="Arg">crv</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<p>This is the command you use to define a divisor in <strong class="pkg">GUAVA</strong>. Of course, <var class="Arg">crv</var> is the curve on which the divisor lives, <var class="Arg">cdiv</var> is the list of coefficients (or ``multiplicities''), <var class="Arg">sdiv</var> is the list of points on <var class="Arg">crv</var> in the support.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">q:=5;</span>
+5
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">F:=GF(q);</span>
+GF(5)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">R:=PolynomialRing(F,2);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">vars:=IndeterminatesOfPolynomialRing(R);</span>
+[ x_1, x_2 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">x:=vars[1];</span>
+x_1
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">y:=vars[2];</span>
+x_2
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">crv:=AffineCurve(y^3-x^3-x-1,R);</span>
+rec( ring := PolynomialRing(..., [ x_1, x_2 ]), 
+     polynomial := -x_1^3+x_2^3-x_1-Z(5)^0 )
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Pts:=AffinePointsOnCurve(crv,R,F);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">supp:=[Pts[1],Pts[2]];</span>
+[ [ 0*Z(5), Z(5)^0 ], [ Z(5)^0, Z(5) ] ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">D:=DivisorOnAffineCurve([1,-1],supp,crv);</span>
+rec( coeffs := [ 1, -1 ], 
+     support := [ [ 0*Z(5), Z(5)^0 ], [ Z(5)^0, Z(5) ] ],
+     curve := rec( ring := PolynomialRing(..., [ x_1, x_2 ]), 
+                   polynomial := -x_1^3+x_2^3-x_1-Z(5)^0 ) )
+
+</pre></div>
+
+<p><a id="X8626E2B57D01F2DC" name="X8626E2B57D01F2DC"></a></p>
+
+<h5>5.7-6 DivisorAddition </h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DivisorAddition </code>( <var class="Arg">D1</var>, <var class="Arg">D2</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<p>If <span class="SimpleMath">D_1=m_1P_1+...+m_kP_k</span> and <span class="SimpleMath">D_2=n_1P_1+...+n_kP_k</span> are divisors then <span class="SimpleMath">D_1+D_2=(m_1+n_1)P_1+...+(m_k+n_k)P_k</span>.</p>
+
+<p><a id="X865FE28D828C1EAD" name="X865FE28D828C1EAD"></a></p>
+
+<h5>5.7-7 DivisorDegree </h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DivisorDegree </code>( <var class="Arg">D</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<p>If <span class="SimpleMath">D=m_1P_1+...+m_kP_k</span> is a divisor then the <em>degree</em> is <span class="SimpleMath">m_1+...+m_k</span>.</p>
+
+<p><a id="X789DC358819A8F54" name="X789DC358819A8F54"></a></p>
+
+<h5>5.7-8 DivisorNegate </h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DivisorNegate </code>( <var class="Arg">D</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<p>Self-explanatory.</p>
+
+<p><a id="X8688C0E187B5C7DB" name="X8688C0E187B5C7DB"></a></p>
+
+<h5>5.7-9 DivisorIsZero </h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DivisorIsZero </code>( <var class="Arg">D</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<p>Self-explanatory.</p>
+
+<p><a id="X816A07997D9A7075" name="X816A07997D9A7075"></a></p>
+
+<h5>5.7-10 DivisorsEqual </h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DivisorsEqual </code>( <var class="Arg">D1</var>, <var class="Arg">D2</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<p>Self-explanatory.</p>
+
+<p><a id="X857B89847A649A26" name="X857B89847A649A26"></a></p>
+
+<h5>5.7-11 DivisorGCD </h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DivisorGCD </code>( <var class="Arg">D1</var>, <var class="Arg">D2</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<p>If <span class="SimpleMath">m=p_1^e_1...p_k^e_k</span> and <span class="SimpleMath">n=p_1^f_1...p_k^f_k</span> are two integers then their greatest common divisor is <span class="SimpleMath">GCD(m,n)=p_1^min(e_1,f_1)...p_k^min(e_k,f_k)</span>. A similar definition works for two divisors on a curve. If <span class="SimpleMath">D_1=e_1P_1+...+e_kP_k</span> and <span class="SimpleMath">D_2n=f_1P_1+...+f_kP_k</span> are two divisors on a curve then their <em>greatest common divisor</em> is <span class="SimpleMath">GCD(m,n)=min(e_1,f_1)P_1+...+min(e_k,f_k)P_k</span>. This function computes this quantity.</p>
+
+<p><a id="X82231CF08073695F" name="X82231CF08073695F"></a></p>
+
+<h5>5.7-12 DivisorLCM </h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DivisorLCM </code>( <var class="Arg">D1</var>, <var class="Arg">D2</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<p>If <span class="SimpleMath">m=p_1^e_1...p_k^e_k</span> and <span class="SimpleMath">n=p_1^f_1...p_k^f_k</span> are two integers then their least common multiple is <span class="SimpleMath">LCM(m,n)=p_1^max(e_1,f_1)...p_k^max(e_k,f_k)</span>. A similar definition works for two divisors on a curve. If <span class="SimpleMath">D_1=e_1P_1+...+e_kP_k</span> and <span class="SimpleMath">D_2=f_1P_1+...+f_kP_k</span> are two divisors on a curve then their <em>least common multiple</em> is <span class="SimpleMath">LCM(m,n)=max(e_1,f_1)P_1+...+max(e_k,f_k)P_k</span>. This function computes this quantity.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">F:=GF(11);</span>
+GF(11)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">R1:=PolynomialRing(F,["a"]);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">var1:=IndeterminatesOfPolynomialRing(R1);; a:=var1[1];;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">b:=X(F,"b",var1);</span>
+b
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">var2:=Concatenation(var1,[b]);</span>
+[ a, b ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">R2:=PolynomialRing(F,var2);</span>
+PolynomialRing(..., [ a, b ])
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">crvP1:=AffineCurve(b,R2);</span>
+rec( ring := PolynomialRing(..., [ a, b ]), polynomial := b )
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">div1:=DivisorOnAffineCurve([1,2,3,4],[Z(11)^2,Z(11)^3,Z(11)^7,Z(11)],crvP1);</span>
+rec( coeffs := [ 1, 2, 3, 4 ], 
+     support := [ Z(11)^2, Z(11)^3, Z(11)^7, Z(11) ], 
+     curve := rec( ring := PolynomialRing(..., [ a, b ]), polynomial := b ) )
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">DivisorDegree(div1);</span>
+10
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">div2:=DivisorOnAffineCurve([1,2,3,4],[Z(11),Z(11)^2,Z(11)^3,Z(11)^4],crvP1);</span>
+rec( coeffs := [ 1, 2, 3, 4 ], 
+     support := [ Z(11), Z(11)^2, Z(11)^3, Z(11)^4 ], 
+     curve := rec( ring := PolynomialRing(..., [ a, b ]), polynomial := b ) )
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">DivisorDegree(div2);</span>
+10
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">div3:=DivisorAddition(div1,div2);</span>
+rec( coeffs := [ 5, 3, 5, 4, 3 ], 
+     support := [ Z(11), Z(11)^2, Z(11)^3, Z(11)^4, Z(11)^7 ], 
+     curve := rec( ring := PolynomialRing(..., [ a, b ]), polynomial := b ) )
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">DivisorDegree(div3);</span>
+20
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">DivisorIsEffective(div1);</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">DivisorIsEffective(div2);</span>
+true
+gap&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ndiv1:=DivisorNegate(div1);</span>
+rec( coeffs := [ -1, -2, -3, -4 ], 
+     support := [ Z(11)^2, Z(11)^3, Z(11)^7, Z(11) ], 
+     curve := rec( ring := PolynomialRing(..., [ a, b ]), polynomial := b ) )
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">zdiv:=DivisorAddition(div1,ndiv1);</span>
+rec( coeffs := [ 0, 0, 0, 0 ], 
+     support := [ Z(11), Z(11)^2, Z(11)^3, Z(11)^7 ], 
+     curve := rec( ring := PolynomialRing(..., [ a, b ]), polynomial := b ) )
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">DivisorIsZero(zdiv);</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">div_gcd:=DivisorGCD(div1,div2);</span>
+rec( coeffs := [ 1, 1, 2, 0, 0 ], 
+     support := [ Z(11), Z(11)^2, Z(11)^3, Z(11)^4, Z(11)^7 ], 
+     curve := rec( ring := PolynomialRing(..., [ a, b ]), polynomial := b ) )
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">div_lcm:=DivisorLCM(div1,div2);</span>
+rec( coeffs := [ 4, 2, 3, 4, 3 ], 
+     support := [ Z(11), Z(11)^2, Z(11)^3, Z(11)^4, Z(11)^7 ], 
+     curve := rec( ring := PolynomialRing(..., [ a, b ]), polynomial := b ) )
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">DivisorDegree(div_gcd);</span>
+4
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">DivisorDegree(div_lcm);</span>
+16
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">DivisorEqual(div3,DivisorAddition(div_gcd,div_lcm));</span>
+true
+
+</pre></div>
+
+<p>Let <span class="SimpleMath">G</span> denote a finite subgroup of <span class="SimpleMath">PGL(2,F)</span> and let <span class="SimpleMath">D</span> denote a divisor on the projective line <span class="SimpleMath">P^1(F)</span>. If <span class="SimpleMath">G</span> leaves <span class="SimpleMath">D</span> unchanged (it may permute the points in the support of <span class="SimpleMath">D</span> but must preserve their sum in <span class="SimpleMath">D</span>) then the Riemann-Roch space <span class="SimpleMath">L(D)</span> is a <span class="SimpleMath">G</span>-module. The commands in this section help explore the <span class="SimpleMath">G</span>-module structure of <span class="SimpleMath">L(D)</span> in the case then the ground field <span class="SimpleMath">F</span> is finite.</p>
+
+<p><a id="X79C878697F99A10F" name="X79C878697F99A10F"></a></p>
+
+<h5>5.7-13 RiemannRochSpaceBasisFunctionP1 </h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; RiemannRochSpaceBasisFunctionP1 </code>( <var class="Arg">P</var>, <var class="Arg">k</var>, <var class="Arg">R2</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<p>Input: <var class="Arg">R2</var> is a polynomial ring in two variables, say <span class="SimpleMath">F[x,y]</span>; <var class="Arg">P</var> is an element of the base field, say <span class="SimpleMath">F</span>; <var class="Arg">k</var> is an integer. Output: <span class="SimpleMath">1/(x-P)^k</span></p>
+
+<p><a id="X856DDA207EDDF256" name="X856DDA207EDDF256"></a></p>
+
+<h5>5.7-14 DivisorOfRationalFunctionP1 </h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DivisorOfRationalFunctionP1 </code>( <var class="Arg">f</var>, <var class="Arg">R</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<p>Here <span class="SimpleMath">R = F[x,y]</span> is a polynomial ring in the variables <span class="SimpleMath">x,y</span> and <span class="SimpleMath">f</span> is a rational function of <span class="SimpleMath">x</span>. Simply returns the principal divisor on <span class="SimpleMath">P}^1</span> associated to <span class="SimpleMath">f</span>.</p>
+
+
+<div class="example"><pre>
+
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">F:=GF(11);</span>
+GF(11)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">R1:=PolynomialRing(F,["a"]);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">var1:=IndeterminatesOfPolynomialRing(R1);; a:=var1[1];;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">b:=X(F,"b",var1);</span>
+b
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">var2:=Concatenation(var1,[b]);</span>
+[ a, b ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">R2:=PolynomialRing(F,var2);</span>
+PolynomialRing(..., [ a, b ])
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">pt:=Z(11);</span>
+Z(11)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">f:=RiemannRochSpaceBasisFunctionP1(pt,2,R2);</span>
+(Z(11)^0)/(a^2+Z(11)^7*a+Z(11)^2)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Df:=DivisorOfRationalFunctionP1(f,R2);</span>
+rec( coeffs := [ -2 ], support := [ Z(11) ], 
+     curve := rec( ring := PolynomialRing(..., [ a, b ]), polynomial := a )
+   )
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Df.support;</span>
+[ Z(11) ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">F:=GF(11);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">R:=PolynomialRing(F,2);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">vars:=IndeterminatesOfPolynomialRing(R);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">a:=vars[1];;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">b:=vars[2];;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">f:=(a^4+Z(11)^6*a^3-a^2+Z(11)^7*a+Z(11)^0)/(a^4+Z(11)*a^2+Z(11)^7*a+Z(11));;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">divf:=DivisorOfRationalFunctionP1(f,R);</span>
+rec( coeffs := [ 3, 1 ], support := [ Z(11), Z(11)^7 ],
+  curve := rec( ring := PolynomialRing(..., [ a, b ]), polynomial := a ) )
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">denf:=DenominatorOfRationalFunction(f); RootsOfUPol(denf);</span>
+a^4+Z(11)*a^2+Z(11)^7*a+Z(11)
+[  ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">numf:=NumeratorOfRationalFunction(f); RootsOfUPol(numf);</span>
+a^4+Z(11)^6*a^3-a^2+Z(11)^7*a+Z(11)^0
+[ Z(11)^7, Z(11), Z(11), Z(11) ]
+
+</pre></div>
+
+<p><a id="X878970A17E580224" name="X878970A17E580224"></a></p>
+
+<h5>5.7-15 RiemannRochSpaceBasisP1 </h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; RiemannRochSpaceBasisP1 </code>( <var class="Arg">D</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<p>This returns the basis of the Riemann-Roch space <span class="SimpleMath">L(D)</span> associated to the divisor <var class="Arg">D</var> on the projective line <span class="SimpleMath">P}^1</span>.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">F:=GF(11);</span>
+GF(11)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">R1:=PolynomialRing(F,["a"]);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">var1:=IndeterminatesOfPolynomialRing(R1);; a:=var1[1];;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">b:=X(F,"b",var1);</span>
+b
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">var2:=Concatenation(var1,[b]);</span>
+[ a, b ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">R2:=PolynomialRing(F,var2);</span>
+PolynomialRing(..., [ a, b ])
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">crvP1:=AffineCurve(b,R2);</span>
+rec( ring := PolynomialRing(..., [ a, b ]), polynomial := b )
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">D:=DivisorOnAffineCurve([1,2,3,4],[Z(11)^2,Z(11)^3,Z(11)^7,Z(11)],crvP1);</span>
+rec( coeffs := [ 1, 2, 3, 4 ], 
+     support := [ Z(11)^2, Z(11)^3, Z(11)^7, Z(11) ], 
+     curve := rec( ring := PolynomialRing(..., [ a, b ]), polynomial := b ) )
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">B:=RiemannRochSpaceBasisP1(D);</span>
+[ Z(11)^0, (Z(11)^0)/(a+Z(11)^7), (Z(11)^0)/(a+Z(11)^8), 
+(Z(11)^0)/(a^2+Z(11)^9*a+Z(11)^6), (Z(11)^0)/(a+Z(11)^2), 
+(Z(11)^0)/(a^2+Z(11)^3*a+Z(11)^4), (Z(11)^0)/(a^3+a^2+Z(11)^2*a+Z(11)^6),
+  (Z(11)^0)/(a+Z(11)^6), (Z(11)^0)/(a^2+Z(11)^7*a+Z(11)^2), 
+(Z(11)^0)/(a^3+Z(11)^4*a^2+a+Z(11)^8), 
+(Z(11)^0)/(a^4+Z(11)^8*a^3+Z(11)*a^2+a+Z(11)^4) ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">DivisorOfRationalFunctionP1(B[1],R2).support;</span>
+[  ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">DivisorOfRationalFunctionP1(B[2],R2).support;</span>
+[ Z(11)^2 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">DivisorOfRationalFunctionP1(B[3],R2).support;</span>
+[ Z(11)^3 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">DivisorOfRationalFunctionP1(B[4],R2).support;</span>
+[ Z(11)^3 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">DivisorOfRationalFunctionP1(B[5],R2).support;</span>
+[ Z(11)^7 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">DivisorOfRationalFunctionP1(B[6],R2).support;</span>
+[ Z(11)^7 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">DivisorOfRationalFunctionP1(B[7],R2).support;</span>
+[ Z(11)^7 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">DivisorOfRationalFunctionP1(B[8],R2).support;</span>
+[ Z(11) ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">DivisorOfRationalFunctionP1(B[9],R2).support;</span>
+[ Z(11) ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">DivisorOfRationalFunctionP1(B[10],R2).support;</span>
+[ Z(11) ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">DivisorOfRationalFunctionP1(B[11],R2).support;</span>
+[ Z(11) ]
+
+</pre></div>
+
+<p><a id="X807C52E67A440DEB" name="X807C52E67A440DEB"></a></p>
+
+<h5>5.7-16 MoebiusTransformation </h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; MoebiusTransformation </code>( <var class="Arg">A</var>, <var class="Arg">R</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<p>The arguments are a <span class="SimpleMath">2× 2</span> matrix <span class="SimpleMath">A</span> with entries in a field <span class="SimpleMath">F</span> and a polynomial ring <var class="Arg">R</var>of one variable, say <span class="SimpleMath">F[x]</span>. This function returns the linear fractional transformatio associated to <var class="Arg">A</var>. These transformations can be composed with each other using GAP's <code class="code">Value</code> command.</p>
+
+<p><a id="X85A0419580ED0391" name="X85A0419580ED0391"></a></p>
+
+<h5>5.7-17 ActionMoebiusTransformationOnFunction </h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ActionMoebiusTransformationOnFunction </code>( <var class="Arg">A</var>, <var class="Arg">f</var>, <var class="Arg">R2</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<p>The arguments are a <span class="SimpleMath">2× 2</span> matrix <span class="SimpleMath">A</span> with entries in a field <span class="SimpleMath">F</span>, a rational function <var class="Arg">f</var> of one variable, say in <span class="SimpleMath">F(x)</span>, and a polynomial ring <var class="Arg">R2</var>, say <span class="SimpleMath">F[x,y]</span>. This function simply returns the composition of the function <var class="Arg">f</var> with the Möbius transformation of <var class="Arg">A</var>.</p>
+
+<p><a id="X7E48F9C67E7FB7B5" name="X7E48F9C67E7FB7B5"></a></p>
+
+<h5>5.7-18 ActionMoebiusTransformationOnDivisorP1 </h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ActionMoebiusTransformationOnDivisorP1 </code>( <var class="Arg">A</var>, <var class="Arg">D</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<p>A Möbius transformation may be regarded as an automorphism of the projective line <span class="SimpleMath">P^1</span>. This function simply returns the image of the divisor <var class="Arg">D</var> under the Möbius transformation defined by <var class="Arg">A</var>, provided that <code class="code">IsActionMoebiusTransformationOnDivisorDefinedP1(A,D)</code> returns true.</p>
+
+<p><a id="X79FD980E7B24DB9C" name="X79FD980E7B24DB9C"></a></p>
+
+<h5>5.7-19 IsActionMoebiusTransformationOnDivisorDefinedP1 </h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsActionMoebiusTransformationOnDivisorDefinedP1 </code>( <var class="Arg">A</var>, <var class="Arg">D</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<p>Returns true of none of the points in the support of the divisor <var class="Arg">D</var> is the pole of the Möbius transformation.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">F:=GF(11);</span>
+GF(11)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">R1:=PolynomialRing(F,["a"]);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">var1:=IndeterminatesOfPolynomialRing(R1);; a:=var1[1];;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">b:=X(F,"b",var1);</span>
+b
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">var2:=Concatenation(var1,[b]);</span>
+[ a, b ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">R2:=PolynomialRing(F,var2);</span>
+PolynomialRing(..., [ a, b ])
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">crvP1:=AffineCurve(b,R2);</span>
+rec( ring := PolynomialRing(..., [ a, b ]), polynomial := b )
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">D:=DivisorOnAffineCurve([1,2,3,4],[Z(11)^2,Z(11)^3,Z(11)^7,Z(11)],crvP1);</span>
+rec( coeffs := [ 1, 2, 3, 4 ], 
+     support := [ Z(11)^2, Z(11)^3, Z(11)^7, Z(11) ], 
+     curve := rec( ring := PolynomialRing(..., [ a, b ]), polynomial := b ) )
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">A:=Z(11)^0*[[1,2],[1,4]];</span>
+[ [ Z(11)^0, Z(11) ], [ Z(11)^0, Z(11)^2 ] ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ActionMoebiusTransformationOnDivisorDefinedP1(A,D);</span>
+false
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">A:=Z(11)^0*[[1,2],[3,4]];</span>
+[ [ Z(11)^0, Z(11) ], [ Z(11)^8, Z(11)^2 ] ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ActionMoebiusTransformationOnDivisorDefinedP1(A,D);</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ActionMoebiusTransformationOnDivisorP1(A,D);</span>
+rec( coeffs := [ 1, 2, 3, 4 ], 
+     support := [ Z(11)^5, Z(11)^6, Z(11)^8, Z(11)^7 ], 
+     curve := rec( ring := PolynomialRing(..., [ a, b ]), polynomial := b ) )
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">f:=MoebiusTransformation(A,R1);</span>
+(a+Z(11))/(Z(11)^8*a+Z(11)^2)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ActionMoebiusTransformationOnFunction(A,f,R1);</span>
+-Z(11)^0+Z(11)^3*a^-1
+
+</pre></div>
+
+<p><a id="X823386037F450B0E" name="X823386037F450B0E"></a></p>
+
+<h5>5.7-20 DivisorAutomorphismGroupP1 </h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DivisorAutomorphismGroupP1 </code>( <var class="Arg">D</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<p>Input: A divisor <var class="Arg">D</var> on <span class="SimpleMath">P^1(F)</span>, where <span class="SimpleMath">F</span> is a finite field. Output: A subgroup <span class="SimpleMath">Aut(D)⊂ Aut(P^1)</span> preserving <var class="Arg">D</var>.</p>
+
+<p>Very slow.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">F:=GF(11);</span>
+GF(11)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">R1:=PolynomialRing(F,["a"]);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">var1:=IndeterminatesOfPolynomialRing(R1);; a:=var1[1];;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">b:=X(F,"b",var1);</span>
+b
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">var2:=Concatenation(var1,[b]);</span>
+[ a, b ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">R2:=PolynomialRing(F,var2);</span>
+PolynomialRing(..., [ a, b ])
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">crvP1:=AffineCurve(b,R2);</span>
+rec( ring := PolynomialRing(..., [ a, b ]), polynomial := b )
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">D:=DivisorOnAffineCurve([1,2,3,4],[Z(11)^2,Z(11)^3,Z(11)^7,Z(11)],crvP1);</span>
+rec( coeffs := [ 1, 2, 3, 4 ], 
+     support := [ Z(11)^2, Z(11)^3, Z(11)^7, Z(11) ], 
+     curve := rec( ring := PolynomialRing(..., [ a, b ]), polynomial := b ) )
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">agp:=DivisorAutomorphismGroupP1(D);; time;</span>
+7305
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IdGroup(agp);</span>
+[ 10, 2 ]
+
+</pre></div>
+
+<p><a id="X80EDF3D682E7EF3F" name="X80EDF3D682E7EF3F"></a></p>
+
+<h5>5.7-21 MatrixRepresentationOnRiemannRochSpaceP1 </h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; MatrixRepresentationOnRiemannRochSpaceP1 </code>( <var class="Arg">g</var>, <var class="Arg">D</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<p>Input: An element <var class="Arg">g</var> in <span class="SimpleMath">G</span>, a subgroup of <span class="SimpleMath">Aut(D)⊂ Aut(P^1)</span>, and a divisor <var class="Arg">D</var> on <span class="SimpleMath">P^1(F)</span>, where <span class="SimpleMath">F</span> is a finite field. Output: a <span class="SimpleMath">d× d</span> matrix, where <span class="SimpleMath">d = dim L(D)</span>, representing the action of <var class="Arg">g</var> on <span class="SimpleMath">L(D)</span>.</p>
+
+<p>Note: <var class="Arg">g</var> sends <span class="SimpleMath">L(D)</span> to <span class="SimpleMath">r⋅ L(D)</span>, where <span class="SimpleMath">r</span> is a polynomial of degree <span class="SimpleMath">1</span> depending on <var class="Arg">g</var> and <var class="Arg">D</var>.</p>
+
+<p>Also very slow.</p>
+
+<p>The GAP command <code class="code">BrauerCharacterValue</code> can be used to ``lift'' the eigenvalues of this matrix to the complex numbers.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">F:=GF(11);</span>
+GF(11)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">R1:=PolynomialRing(F,["a"]);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">var1:=IndeterminatesOfPolynomialRing(R1);; a:=var1[1];;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">b:=X(F,"b",var1);</span>
+b
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">var2:=Concatenation(var1,[b]);</span>
+[ a, b ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">R2:=PolynomialRing(F,var2);</span>
+PolynomialRing(..., [ a, b ])
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">crvP1:=AffineCurve(b,R2);</span>
+rec( ring := PolynomialRing(..., [ a, b ]), polynomial := b )
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">D:=DivisorOnAffineCurve([1,1,1,4],[Z(11)^2,Z(11)^3,Z(11)^7,Z(11)],crvP1);</span>
+rec( coeffs := [ 1, 1, 1, 4 ],  
+     support := [ Z(11)^2, Z(11)^3, Z(11)^7, Z(11) ], 
+     curve := rec( ring := PolynomialRing(..., [ a, b ]), polynomial := b ) )
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">agp:=DivisorAutomorphismGroupP1(D);; time;</span>
+7198
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IdGroup(agp);</span>
+[ 20, 5 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g:=Random(agp);</span>
+[ [ Z(11)^4, Z(11)^9 ], [ Z(11)^0, Z(11)^9 ] ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">rho:=MatrixRepresentationOnRiemannRochSpaceP1(g,D);</span>
+[ [ Z(11)^0, 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11) ], 
+[ Z(11)^0, 0*Z(11), 0*Z(11), Z(11), 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11) ],
+  [ Z(11)^7, 0*Z(11), Z(11)^5, 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11) ], 
+[ Z(11)^4, Z(11)^9, 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11) ],
+  [ Z(11)^2, 0*Z(11), 0*Z(11), 0*Z(11), Z(11)^5, 0*Z(11), 0*Z(11), 0*Z(11) ], 
+[ Z(11)^4, 0*Z(11), 0*Z(11), 0*Z(11), Z(11)^8, Z(11)^0, 0*Z(11), 0*Z(11) ],
+  [ Z(11)^6, 0*Z(11), 0*Z(11), 0*Z(11), Z(11)^7, Z(11)^0, Z(11)^5, 0*Z(11) ], 
+[ Z(11)^8, 0*Z(11), 0*Z(11), 0*Z(11), Z(11)^3, Z(11)^3, Z(11)^9, Z(11)^0 ] ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display(rho);</span>
+  1  .  .  .  .  .  .  .
+  1  .  .  2  .  .  .  .
+  7  . 10  .  .  .  .  .
+  5  6  .  .  .  .  .  .
+  4  .  .  . 10  .  .  .
+  5  .  .  .  3  1  .  .
+  9  .  .  .  7  1 10  .
+  3  .  .  .  8  8  6  1
+
+</pre></div>
+
+<p><a id="X8777388C7885E335" name="X8777388C7885E335"></a></p>
+
+<h5>5.7-22 GoppaCodeClassical</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; GoppaCodeClassical</code>( <var class="Arg">div</var>, <var class="Arg">pts</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<p>Input: A divisor <var class="Arg">div</var> on the projective line <span class="SimpleMath">P}^1(F)</span> over a finite field <span class="SimpleMath">F</span> and a list <var class="Arg">pts</var> of points <span class="SimpleMath">{P_1,...,P_n}⊂ F</span> disjoint from the support of <var class="Arg">div</var>. <br /> Output: The classical (evaluation) Goppa code associated to this data. This is the code</p>
+
+<p class="pcenter">
+C=\{(f(P_1),...,f(P_n))\ |\ f\in L(D)_F\}.
+</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">F:=GF(11);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">R2:=PolynomialRing(F,2);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">vars:=IndeterminatesOfPolynomialRing(R2);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">a:=vars[1];;b:=vars[2];;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">cdiv:=[ 1, 2, -1, -2 ];</span>
+[ 1, 2, -1, -2 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">sdiv:=[ Z(11)^2, Z(11)^3, Z(11)^6, Z(11)^9 ];</span>
+[ Z(11)^2, Z(11)^3, Z(11)^6, Z(11)^9 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">crv:=rec(polynomial:=b,ring:=R2);</span>
+rec( polynomial := x_2, ring := PolynomialRing(..., [ x_1, x_2 ]) )
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">div:=DivisorOnAffineCurve(cdiv,sdiv,crv);</span>
+rec( coeffs := [ 1, 2, -1, -2 ], support := [ Z(11)^2, Z(11)^3, Z(11)^6, Z(11)^9 ],
+  curve := rec( polynomial := x_2, ring := PolynomialRing(..., [ x_1, x_2 ]) ) )
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">pts:=Difference(Elements(GF(11)),div.support);</span>
+[ 0*Z(11), Z(11)^0, Z(11), Z(11)^4, Z(11)^5, Z(11)^7, Z(11)^8 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C:=GoppaCodeClassical(div,pts);</span>
+a linear [7,2,1..6]4..5 code defined by generator matrix over GF(11)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">MinimumDistance(C);</span>
+6
+</pre></div>
+
+<p><a id="X8422A310854C09B0" name="X8422A310854C09B0"></a></p>
+
+<h5>5.7-23 EvaluationBivariateCode</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; EvaluationBivariateCode</code>( <var class="Arg">pts</var>, <var class="Arg">L</var>, <var class="Arg">crv</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<p>Input: <code class="code">pts</code> is a set of affine points on <code class="code">crv</code>, <code class="code">L</code> is a list of rational functions on <code class="code">crv</code>. <br /> Output: The evaluation code associated to the points in <code class="code">pts</code> and functions in <code class="code">L</code>, but specifically for affine plane curves and this function checks if points are "bad" (if so removes them from the list <code class="code">pts</code> automatically). A point is ``bad'' if either it does not lie on the set of non-singular <span class="SimpleMath">F</span>-rational points (places of degree 1) on the curve.</p>
+
+<p>Very similar to <code class="code">EvaluationCode</code> (see <code class="func">EvaluationCode</code> (<a href="chap5.html#X78E078567D19D433"><span class="RefLink">5.6-1</span></a>) for a more general construction).</p>
+
+<p><a id="X7B6C2BED8319C811" name="X7B6C2BED8319C811"></a></p>
+
+<h5>5.7-24 EvaluationBivariateCodeNC</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; EvaluationBivariateCodeNC</code>( <var class="Arg">pts</var>, <var class="Arg">L</var>, <var class="Arg">crv</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<p>As in <code class="code">EvaluationBivariateCode</code> but does not check if the points are ``bad''.</p>
+
+<p>Input: <code class="code">pts</code> is a set of affine points on <code class="code">crv</code>, <code class="code">L</code> is a list of rational functions on <code class="code">crv</code>. <br /> Output: The evaluation code associated to the points in <code class="code">pts</code> and functions in <code class="code">L</code>.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">q:=4;;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">F:=GF(q^2);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">R:=PolynomialRing(F,2);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">vars:=IndeterminatesOfPolynomialRing(R);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">x:=vars[1];;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">y:=vars[2];;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">crv:=AffineCurve(y^q+y-x^(q+1),R);</span>
+rec( ring := PolynomialRing(..., [ x_1, x_2 ]), polynomial := x_1^5+x_2^4+x_2 )
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">L:=[ x^0, x, x^2*y^-1 ];</span>
+[ Z(2)^0, x_1, x_1^2/x_2 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Pts:=AffinePointsOnCurve(crv.polynomial,crv.ring,F);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C1:=EvaluationBivariateCode(Pts,L,crv); time;</span>
+
+
+ Automatically removed the following 'bad' points (either a pole or not 
+ on the curve):
+[ [ 0*Z(2), 0*Z(2) ] ]
+
+a linear [63,3,1..60]51..59  evaluation code over GF(16)
+52
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">P:=Difference(Pts,[[ 0*Z(2^4)^0, 0*Z(2)^0 ]]);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C2:=EvaluationBivariateCodeNC(P,L,crv); time;</span>
+a linear [63,3,1..60]51..59  evaluation code over GF(16)
+48
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C3:=EvaluationCode(P,L,R); time;</span>
+a linear [63,3,1..56]51..59  evaluation code over GF(16)
+58
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">MinimumDistance(C1);</span>
+56
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">MinimumDistance(C2);</span>
+56
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">MinimumDistance(C3);</span>
+56
+gap&gt;
+</pre></div>
+
+<p><a id="X842E227E8785168E" name="X842E227E8785168E"></a></p>
+
+<h5>5.7-25 OnePointAGCode</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; OnePointAGCode</code>( <var class="Arg">f</var>, <var class="Arg">P</var>, <var class="Arg">m</var>, <var class="Arg">R</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<p>Input: <var class="Arg">f</var> is a polynomial in R=F[x,y], where <var class="Arg">F</var> is a finite field, <var class="Arg">m</var> is a positive integer (the multiplicity of the `point at infinity' <span class="SimpleMath">∞</span> on the curve <span class="SimpleMath">f(x,y)=0</span>), <var class="Arg">P</var> is a list of <span class="SimpleMath">n</span> points on the curve over <span class="SimpleMath">F</span>. <br /> Output: The <span class="SimpleMath">C</span> which is the image of the evaluation map</p>
+
+<p class="pcenter">
+Eval_P:L(m \cdot \infty)\rightarrow F^n,
+</p>
+
+<p>given by <span class="SimpleMath">flongmapsto (f(p_1),...,f(p_n))</span>, where <span class="SimpleMath">p_i ∈ P</span>. Here <span class="SimpleMath">L(m ⋅ ∞)</span> denotes the Riemann-Roch space of the divisor <span class="SimpleMath">m ⋅ ∞</span> on the curve. This has a basis consisting of monomials <span class="SimpleMath">x^iy^j</span>, where <span class="SimpleMath">(i,j)</span> range over a polygon depending on <span class="SimpleMath">m</span> and <span class="SimpleMath">f(x,y)</span>. For more details on the Riemann-Roch space of the divisor <span class="SimpleMath">m ⋅ ∞</span> see Proposition III.10.5 in Stichtenoth <a href="chapBib.html#biBSt93">[Sti93]</a>.</p>
+
+<p>This command returns a "record" object <code class="code">C</code> with several extra components (type <code class="code">NamesOfComponents(C)</code> to see them all): <code class="code">C!.points</code> (namely <var class="Arg">P</var>), <code class="code">C!.multiplicity</code> (namely <var class="Arg">m</var>), <code class="code">C!.curve</code> (namely <var class="Arg">f</var>) and <code class="code">C!.ring</code> (namely <var class="Arg">R</var>).</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">F:=GF(11);</span>
+GF(11)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">R := PolynomialRing(F,["x","y"]);</span>
+PolynomialRing(..., [ x, y ])
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">indets := IndeterminatesOfPolynomialRing(R);</span>
+[ x, y ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">x:=indets[1]; y:=indets[2];</span>
+x
+y
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">P:=AffinePointsOnCurve(y^2-x^11+x,R,F);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C:=OnePointAGCode(y^2-x^11+x,P,15,R);</span>
+a linear [11,8,1..0]2..3  one-point AG code over GF(11)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">MinimumDistance(C);</span>
+4
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Pts:=List([1,2,4,6,7,8,9,10,11],i-&gt;P[i]);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C:=OnePointAGCode(y^2-x^11+x,PT,10,R);</span>
+a linear [9,6,1..4]2..3 one-point AG code over GF(11)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">MinimumDistance(C);</span>
+4
+</pre></div>
+
+<p>See <code class="func">EvaluationCode</code> (<a href="chap5.html#X78E078567D19D433"><span class="RefLink">5.6-1</span></a>) for a more general construction.</p>
+
+<p><a id="X84F3673D7BBF5956" name="X84F3673D7BBF5956"></a></p>
+
+<h4>5.8 <span class="Heading">
+Low-Density Parity-Check Codes
+</span></h4>
+
+<p>Low-density parity-check (LDPC) codes form a class of linear block codes whose parity-check matrix--as the name implies, is sparse. LDPC codes were introduced by Robert Gallager in 1962 <a href="chapBib.html#biBGallager.1962">[Gal62]</a> as his PhD work. Due to the decoding complexity for the technology back then, these codes were forgotten. Not until the late 1990s, these codes were rediscovered and research results have shown that LDPC codes can achieve near Shannon's capacity performance provided that their block length is long enough and soft-decision iterative decoder is employed. Note that the bit-flipping decoder (see <code class="code">BitFlipDecoder</code>) is a hard-decision decoder and hence capacity achieving performance cannot be achieved despite having a large block length.</p>
+
+<p>Based on the structure of their parity-check matrix, LDPC codes may be categorised into two classes:</p>
+
+
+<ul>
+<li><p>Regular LDPC codes</p>
+
+<p>This class of codes has a fixed number of non zeros per column and per row in their parity-check matrix. These codes are usually denoted as <span class="SimpleMath">(n,j,k)</span> codes where <span class="SimpleMath">n</span> is the block length, <span class="SimpleMath">j</span> is the number of non zeros per column in their parity-check matrix and <span class="SimpleMath">k</span> is the number of non zeros per row in their parity-check matrix.</p>
+
+</li>
+<li><p>Irregular LDPC codes</p>
+
+<p>The irregular codes, on the other hand, do not have a fixed number of non zeros per column and row in their parity-check matrix. This class of codes are commonly represented by two polynomials which denote the distribution of the number of non zeros in the columns and rows respectively of their parity-check matrix.</p>
+
+</li>
+</ul>
+<p><a id="X8020A9357AD0BA92" name="X8020A9357AD0BA92"></a></p>
+
+<h5>5.8-1 QCLDPCCodeFromGroup</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; QCLDPCCodeFromGroup</code>( <var class="Arg">m</var>, <var class="Arg">j</var>, <var class="Arg">k</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<p><code class="code">QCLDCCodeFromGroup</code> produces an <span class="SimpleMath">(n,j,k)</span> regular quasi-cyclic LDPC code over GF(2) of block length <span class="SimpleMath">n = mk</span>. The term quasi-cyclic in the context of LDPC codes typically refers to LDPC codes whose parity-check matrix <span class="SimpleMath">H</span> has the following form</p>
+
+
+<pre class="normal">
+
+    -                                              -
+    |  I_P(0,0)  |  I_P(0,1)  | ... |  I_P(0,k-1)  |
+    |  I_P(1,0)  |  I_P(1,1)  | ... |  I_P(1,k-1)  |
+H = |      .     |     .      |  .  |       .      |,
+    |      .     |     .      |  .  |       .      |
+    | I_P(j-1,0) | I_P(j-1,1) | ... | I_P(j-1,k-1) |
+    -                                              -
+		
+</pre>
+
+<p>where <span class="SimpleMath">I_P(s,t)</span> is an identity matrix of size <span class="SimpleMath">m × m</span> which has been shifted so that the <span class="SimpleMath">1</span> on the first row starts at position <span class="SimpleMath">P(s,t)</span>.</p>
+
+<p>Let <span class="SimpleMath">F</span> be a multiplicative group of integers modulo <span class="SimpleMath">m</span>. If <span class="SimpleMath">m</span> is a prime, <span class="SimpleMath">F={0,1,...,m-1}</span>, otherwise <span class="SimpleMath">F</span> contains a set of integers which are relatively prime to <span class="SimpleMath">m</span>. In both cases, the order of <span class="SimpleMath">F</span> is equal to <span class="SimpleMath">ϕ(m)</span>. Let <span class="SimpleMath">a</span> and <span class="SimpleMath">b</span> be non zeros of <span class="SimpleMath">F</span> such that the orders of <span class="SimpleMath">a</span> and <span class="SimpleMath">b</span> are <span class="SimpleMath">k</span> and <span class="SimpleMath">j</span> respectively. Note that the integers <span class="SimpleMath">a</span> and <span class="SimpleMath">b</span> can always be found provided that <span class="SimpleMath">k</span> and <span class="SimpleMath">j</span> respectively divide <span class="SimpleMath">ϕ(m)</span>. Having obtain integers <span class="SimpleMath">a</span> and <span class="SimpleMath">b</span>, construct the following <span class="SimpleMath">j × k</span> matrix <span class="SimpleMath">P</span> so that the element at row <span class="SimpleMath">s</span> and column <span class="SimpleMath">t</span> is given by <span class="SimpleMath">P(s,t) = a^tb^s</span>, i.e.</p>
+
+
+<pre class="normal">
+
+    -                                             -
+    |    1    |     a    | . . . |      a^{k-1}   |
+    |    b    |    ab    | . . . |     a^{k-1}b   |
+P = |    .    |    .     |   .   |        .       |.
+    |    .    |    .     |   .   |        .       |
+    | b^{j-1} | ab^{j-1} | . . . | a^{k-1}b^{j-1} |
+    -                                             -
+		
+</pre>
+
+<p>The parity-check matrix <span class="SimpleMath">H</span> of the LDPC code can be obtained by replacing each element of matrix <span class="SimpleMath">P</span>, i.e. <span class="SimpleMath">P(s,t)</span>, with an identity matrix <span class="SimpleMath">I_P(s,t)</span> of size <span class="SimpleMath">m × m</span>.</p>
+
+<p>The code rate <span class="SimpleMath">R</span> of the constructed code is given by</p>
+
+<p class="pcenter">
+		R \geq 1 - \frac{j}{k}
+	</p>
+
+<p>where the sign <span class="SimpleMath">≥</span> is due to the possible existence of some non linearly independent rows in <span class="SimpleMath">H</span>. For more details, refer to the paper by Tanner et al <a href="chapBib.html#biBTSSFC04">[TSSFJ04]</a>.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C := QCLDPCCodeFromGroup(7,2,3);</span>
+a linear [21,8,1..6]5..10 low-density parity-check code over GF(2)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">MinimumWeight(C);</span>
+[21,8] linear code over GF(2) - minimum weight evaluation
+Known lower-bound: 1
+There are 3 generator matrices, ranks : 8 8 5 
+The weight of the minimum weight codeword satisfies 0 mod 2 congruence
+Enumerating codewords with information weight 1 (w=1)
+    Found new minimum weight 6
+Number of matrices required for codeword enumeration 2
+Completed w= 1, 24 codewords enumerated, lower-bound 4, upper-bound 6
+Termination expected with information weight 2 at matrix 1
+-----------------------------------------------------------------------------
+Enumerating codewords with information weight 2 (w=2) using 1 matrices
+Completed w= 2, 28 codewords enumerated, lower-bound 6, upper-bound 6
+-----------------------------------------------------------------------------
+Minimum weight: 6
+6
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput"># The quasi-cyclic structure is obvious from the check matrix</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( CheckMat(C) );</span>
+ 1 . . . . . . . 1 . . . . . . . . 1 . . .
+ . 1 . . . . . . . 1 . . . . . . . . 1 . .
+ . . 1 . . . . . . . 1 . . . . . . . . 1 .
+ . . . 1 . . . . . . . 1 . . . . . . . . 1
+ . . . . 1 . . . . . . . 1 . 1 . . . . . .
+ . . . . . 1 . . . . . . . 1 . 1 . . . . .
+ . . . . . . 1 1 . . . . . . . . 1 . . . .
+ . . . . . 1 . . . . . 1 . . . . 1 . . . .
+ . . . . . . 1 . . . . . 1 . . . . 1 . . .
+ 1 . . . . . . . . . . . . 1 . . . . 1 . .
+ . 1 . . . . . 1 . . . . . . . . . . . 1 .
+ . . 1 . . . . . 1 . . . . . . . . . . . 1
+ . . . 1 . . . . . 1 . . . . 1 . . . . . .
+ . . . . 1 . . . . . 1 . . . . 1 . . . . .
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput"># This is the famous [155,64,20] quasi-cyclic LDPC codes</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C := QCLDPCCodeFromGroup(31,3,5);</span>
+a linear [155,64,1..24]24..77 low-density parity-check code over GF(2)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput"># An example using non prime m, it may take a while to construct this code</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C := QCLDPCCodeFromGroup(356,4,8);</span>
+a linear [2848,1436,1..120]312..1412 low-density parity-check code over GF(2)
+</pre></div>
+
+
+<div class="chlinkprevnextbot">&nbsp;<a href="chap0.html">[Top of Book]</a>&nbsp;  <a href="chap0.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap4.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap6.html">[Next Chapter]</a>&nbsp;  </div>
+
+
+<div class="chlinkbot"><span class="chlink1">Goto Chapter: </span><a href="chap0.html">Top</a>  <a href="chap1.html">1</a>  <a href="chap2.html">2</a>  <a href="chap3.html">3</a>  <a href="chap4.html">4</a>  <a href="chap5.html">5</a>  <a href="chap6.html">6</a>  <a href="chap7.html">7</a>  <a href="chap8.html">8</a>  <a href="chap9.html">9</a>  <a href="chapBib.html">Bib</a>  <a href="chapInd.html">Ind</a>  </div>
+
+<hr />
+<p class="foot">generated by <a href="http://www.math.rwth-aachen.de/~Frank.Luebeck/GAPDoc">GAPDoc2HTML</a></p>
+</body>
+</html>
