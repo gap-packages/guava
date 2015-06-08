@@ -103,11 +103,11 @@ that special symbol. */
 #define SCANF_Int_FORMAT  "%u"
 
 #ifndef MAX_NAME_LENGTH
-#define MAX_NAME_LENGTH      64
+#define MAX_NAME_LENGTH      256
 #endif
 
 #ifndef MAX_FILE_NAME_LENGTH
-#define MAX_FILE_NAME_LENGTH 60
+#define MAX_FILE_NAME_LENGTH 256 
 #endif
 
 #ifndef DEFAULT_MAX_BASE_SIZE
