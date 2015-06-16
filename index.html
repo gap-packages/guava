@@ -1,0 +1,624 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+
+
+<meta name="description" content="Home page for GUAVA, guava,
+coding theory with GAP,
+GAP package for error-correcting codes">
+
+
+<meta name="keywords" content="GUAVA, GAP, coding theory with GAP">
+
+<title>
+GAP package GUAVA
+</title>
+
+
+ 
+<style type="text/css">
+       BODY { background: url("guava_light.jpg") }
+ </style>
+
+</head>
+
+<body>
+
+
+<center>
+<h1 text="#004000">GAP package GUAVA</h1>
+</center>
+
+
+<p class="maininfo">
+
+<!-- author(s), possibly with link to homepage  -->
+
+<strong>Authors: </strong> 
+Jasper Cramwinckel, Erik Roijackers, Reinald Baart,
+Eric Minkes, Lea Ruscio, Robert Miller, 
+Tom Boothby, <a href="http://www.southernct.edu/~fields/">Joe Fields</a> 
+(maintainer),
+Cen Tjhai,  
+<a href="http://www.opensourcemath.org/">David Joyner</a>
+
+<br>
+
+
+
+<!-- needed software/versions, probably at least GAP, maybe with appropriate links -->
+
+<strong>Needs: </strong> <a href="http://www.gap-system.org/">GAP</a> in
+  version at least 4.5.2, and 
+suggests also installing the GAP package
+ <a href="http://www.gap-system.org/Packages/sonata.html">SONATA</a>.
+
+<br>
+
+
+
+<!-- operating system needed for this package -->
+
+<strong>Operating    systems:    </strong>    
+Any, on which  
+<font face="Gill Sans,Helvetica,Arial">GAP</font> 4 
+is running. (Some functions involving the
+automorphism group of a code require a linux/unix system 
+or (windows) cygwin installation.)
+
+<br>
+
+
+
+<!-- current version, maybe further version info, 
+       links to old versions ... -->
+
+<strong>Current version: </strong> 3.12
+
+<br>
+  
+
+
+<!-- author/maintainer contact information, probably email 
+       address(es) with link(s)  -->
+ 
+
+<strong>Contact: </strong> 
+ <a href="mailto:fieldsj1@southernct.edu">fieldsj1@southernct.edu</a> 
+  
+<br>
+
+
+
+<!-- download location, maybe link to somewhere below -->
+
+<strong>Download: </strong> See <a href="#ARCHS">below</a> for archives in
+  several formats.
+ 
+
+
+
+<p>
+
+
+<h2>Online Documentation</h2>
+
+  <!-- links to the documentation, maybe in several formats -->
+  
+
+<p>
+  Here is the documentation of the <span class="pkg">GUAVA</span> package in 
+  several output formats. 
+  If you have installed the package as described above you can also access 
+  all of these documents from the 
+<font face="Gill Sans,Helvetica,Arial">GAP</font> online help.
+   
+
+<p>
+<ul>
+  
+<li> 
+<a href="htm/chap0.html">HTML-version</a> 
+</li>
+  
+<li> 
+<a href="manual.pdf"><code>pdf</code></a> 
+</li>
+
+
+</ul>
+
+<p>
+
+Browse the code: <a href="https://github.com/osj1961/guava">on GitHub</a>.
+
+
+
+<p>
+
+<h2>Other GUAVA web pages</h2>
+
+
+<ul>
+
+
+<li>
+<a href="http://www.opensourcemath.org/coding-theory/coveringcodes.html">
+covering codes calculations</a> (under construction)
+</li>
+
+
+<li>
+<b>Visual GUAVA:</b>
+Thanks to Sergio de los Santos (s.delossantos@amena.com),
+there is a graphical interface to GUAVA which 
+you can download from <a href="http://visualguava.tk/">http://visualguava.tk</a>.
+Sergio reports that his program, written in visual basic, is still under construction.
+  It is a windows only program and written in Spanish. 
+(I have not tried this 
+out, being a Linux person, but am interested in feedback from 
+others on this.) </li>
+</ul>
+
+
+
+<!-- enclose paragraphs below in <p> and </p> tags -->
+  
+
+
+<p><h2>Description</h2>
+  
+  
+
+<p>
+GUAVA is a package that implements coding theory 
+algorithms in <font face="Gill Sans,Helvetica,Arial">GAP</font>. 
+
+Codes can  be created and manipulated  and
+ information about codes can be calculated.
+</p>
+
+<p>
+GUAVA consists of various files written in the <b>GAP</b> language, and an
+ external program (which requires a linux/unix system) 
+from J.S. Leon for dealing with automorphism groups of 
+codes and isomorphism testing functions (for the manual 
+to his program, click <a href="leon_guava_manual.pdf">here</a> for the pdf). 
+Several algorithms that need the speed are integrated in the 
+<font face="Gill Sans,Helvetica,Arial">GAP</font> kernel. 
+Please send your bug reports 
+to <a href="mailto:support@gap-system.org">support</a>. 
+</p>
+
+<p>
+
+An important data type in <font face="Gill Sans,Helvetica,Arial">GAP</font> 
+is a ''record'', and the basic object in GUAVA
+ is the ''code record''. A code record contains several components that give
+ information about the code. Some of these components, like 
+<strong>name</strong>, 
+<strong>basefield</strong> and <strong>size</strong>, are mandatory. 
+Other components, like <strong>minimumDistance</strong>, 
+<strong>weightDistribution</strong>, <strong>coveringRadius</strong> 
+and <strong>IsSelfDualCode</strong>, are created in the course of a 
+session and contain 
+knowledge about the code. The use of these code records has proven to be 
+very versatile.
+
+</p>
+
+<p>
+The functions within GUAVA can be divided into four categories:
+</p>
+
+<p>
+
+<ul>
+
+<li>  Construction of codes. GUAVA can construct non-linear, linear and 
+cyclic codes over an arbitrary finite field. 
+Examples are <strong>HadamardCode</strong>, <strong>ReedMullerCode</strong>, 
+<strong>BestKnownLinearCode</strong>, <strong>QRCode</strong> and 
+<strong>GoppaCode</strong>.</li>
+<li>  Manipulation of codes. These functions allow the user to transform 
+one code into another or to construct a new code from two codes. Examples 
+are <strong>PuncturedCode</strong>, <strong>DualCode</strong>, 
+<strong>DirectProductCode</strong> and <strong>UUVCode</strong>.</li>
+<li>  Computation of information about codes. This information is stored in 
+the code record. Examples are <strong>MinimumDistance</strong>, 
+<strong>OuterDistribution</strong>, <strong>IsSelfDualCode</strong> and 
+<strong>AutomorphismGroup</strong>.
+
+</li>
+<li>  Generation of bounds on linear codes. The table by Brouwer and 
+Verhoeff (as it existed in the mid 1990's)
+is incorporated into GUAVA. For example,
+<strong>BoundsMinimumDistance</strong>.
+
+
+</li>
+</ul>
+
+
+
+<p><center>
+<b>History</b>
+</center>
+<p>
+GUAVA was originally written in the 1990's
+<font face="Gill Sans,Helvetica,Arial">GAP</font> 3  
+by  Jasper  Cramwinckel,  Erik
+Roijackers, and Reinald Baart as a final project during their study of 
+Mathematics at the Delft University of Technology, Department of  Pure
+ Mathematics, under the direction of 
+Professor Juriaan Simonis. This work was continued in
+Aachen, at Lehrstuhl D fuer Mathematik. It appears version 1.1 was 
+written around 1994 and 1.3 was around 1997. I don't 
+know the date of the creation for 1.2.
+</p> 
+
+
+<p>
+In version 1.3 (still 
+<font face="Gill Sans,Helvetica,Arial">GAP</font> 3), 
+new functions were added by Eric Minkes, 
+also from Delft University of Technology.
+</p>
+
+
+<p>
+Version 1.4 (the first GAP 4 version) of GUAVA  was  created 
+around 1998 by Lea Ruscio who maintained it through to version 1.5.
+</p>
+
+
+<p>
+Versions of GUAVA from 1.6 to 3.9 were maintained by 
+David Joyner.
+
+</p>
+
+
+<p>Version 1.8 contained new commands for toric codes.</p>
+
+<p>Version 2.0 was a significant upgrade, adding a number of new 
+functions and a completely re-written manual. Starting with version
+ 2.0, the GUAVA package was released under the GPL.</p>
+
+<p>Version 2.3 is a significant 
+upgrade of version 2.0, adding a number of new functions.</p>
+
+<p>Starting with Versions 2.5/2.6, GUAVA was forked: the "odd versions"
+(e.g., 2.5, 2.7) include the code of J. S. Leon mentioned above (which was 
+not licensed under the GPL at the time). 
+The "even versions" (e.g., 2.6, 2.8) are entirely 
+GPL'd, but are otherwise basically the same as the previous 
+``odd version'' (i.e., "2.8 = 2.7 - non-GPL'd code"). 
+</p>
+
+<p>
+Starting with Versions 2.7/2.8, Cen Tjhai, a PhD student in the
+School of Computing, Communications &amp; Electronics at the University of 
+Plymouth, was added as an author. He completely updated the tables, 
+which have not been updated since 1998, and added some new functions. 
+In April of 2007, Jeffrey Leon GPL'd his C code included in GUAVA. 
+At that point, Robert Miller and Tom Boothby began to revise his code and 
+fix bugs. As of Version 3.0, Robert Miller and Tom Boothby are authors 
+and there is no longer an odd/even non-GPL/GPL fork of GUAVA.
+</p>
+
+
+<p>
+As of 3.10, <a href="mailto:fieldsj1@southernct.edu">Joe Fields</a> is the lead maintainer.
+ 
+
+See the latest 
+<a href="CHANGES.guava">
+CHANGES</a> file for further details.
+
+
+<p>
+
+<center>
+<h2>Installation</h2>
+</center>
+<p>
+To install GUAVA, as a <font face="Gill Sans,Helvetica,Arial">GAP</font> 4 
+package, unpack the 
+archive file in a directory in the `pkg' hierarchy of your version of
+<font face="Gill Sans,Helvetica,Arial">GAP</font> 4. 
+(This might be the `pkg' directory of the 
+<font face="Gill Sans,Helvetica,Arial">GAP</font> 4 home 
+directory; it is however also possible to keep an additional `pkg' 
+directory in your private directories, see section 
+<a href="http://www.gap-system.org/Manuals/doc/htm/ref/CHAP074.htm">
+"Installing GAP Packages"</a> of the <font face="Gill Sans,Helvetica,Arial">GAP</font> 4 
+reference manual for details on how to do this.)
+</p>
+
+<p>
+After unpacking GUAVA the <font face="Gill Sans,Helvetica,Arial">GAP</font>-only 
+part of GUAVA is installed.  The parts 
+of GUAVA depending on J. Leon's backtrack programs package (for computing
+automorphism groups) are only available in a UNIX environment, where you 
+should proceed as follows:
+
+</p>
+
+<p>
+<ul>
+
+<li>
+<i>32-bit linux (or windows cygwin) installation instructions</i>:
+
+<p>
+Go to the newly created `guava' directory and call `./configure <tt>GAPPATH</tt>'
+where <tt>GAPPATH</tt> is the path to the <b>GAP</b> home directory. So for example, if 
+you install the package in the main `pkg' directory call
+</p>
+<pre>./configure ../..</pre>
+<br>
+
+
+</p>
+
+<p>This will fetch the architecture type for which <b>GAP</b> has been compiled 
+last and create a `Makefile'. Now call 
+<pre>make<br></pre> 
+to compile the binary and to install it in the appropriate place.
+</li>
+<li>
+<i>64-bit linux instructions</i>:
+
+If the OS is 64-bit SUSE or Redhat linux, type
+<pre>./configure ../.. --enable-libsuffix=64 <br>
+make<br>
+</pre>
+to compile Leon's program as a 64 bit native binary. If you have 
+Debian-based 64-bit linux then this still works but the simpler 
+command <tt>./configure ../..</tt> will configure the 
+compilation of the application by default as 64-bit.</li>
+
+
+<li>
+<i>Mac OS X instructions</i>:
+The 32-bit linux instructions should work here as well.
+
+
+<!--
+Charles Wright discovered and Alexander Hulpke fixed a compilation 
+error for compiling the binaries associated to GUAVA on a Mac running OS X. 
+The C code (connecting GUAVA to the C-code written by J. Leon) 
+included with GUAVA does not compile correctly on a Mac running OX. 
+In this case,  on line 2 of
+<tt>guava/src/leonconv.c</tt>, replace
+<pre>#include &lt;malloc.h&gt;
+</pre>
+by
+<pre>#include &lt;stdlib.h&gt;
+</pre>
+Compilation should now work if you follow the steps for a linux computer
+above. 
+-->
+</li>
+
+</ul>
+
+
+
+<p>This completes the installation of GUAVA for a single architecture.  If 
+you use this installation of GUAVA on different hardware platforms you
+ will have to compile the binary for each platform separately. This is
+ done by calling `configure' and `make' for the package anew
+ immediately after compiling <font face="Gill Sans,Helvetica,Arial">GAP</font> 
+itself for the respective architecture.  If your version of 
+<font face="Gill Sans,Helvetica,Arial">GAP</font> is already compiled (and has last 
+been compiled on the same architecture) you do not need to compile 
+<font face="Gill Sans,Helvetica,Arial">GAP</font> again; it is 
+sufficient to call the `configure' script in the <font face="Gill Sans,Helvetica,Arial">GAP</font> 
+home directory.
+
+
+
+</p>
+
+<p>
+Hints for GUAVA installation <i>outside the <font face="Gill Sans,Helvetica,Arial">GAP</font> 
+main directory</i>: When you don't have access to
+the directory of your main <font face="Gill Sans,Helvetica,Arial">GAP</font> 
+installation you can also install the package 
+by unpacking inside a directory <tt>MYGAPDIR/pkg</tt>. (Don't forget to call "gap"
+with the <tt>-l ";MYGAPDIR"</tt> option.) The only drawback with this installation 
+is that in the HTML version of the package documentation the links to the
+ main <font face="Gill Sans,Helvetica,Arial">GAP</font> manuals don't work. 
+</p>
+
+
+<p><center>
+<h3>
+GUAVA and SAGE
+</h3>
+</center>
+
+
+You can also install GUAVA using SAGE (which includes GAP). 
+Download <a href="http://www.sagemath.org/download.html">SAGE</a> 
+and <a href="http://www.sagemath.org/doc/html/inst/index.html">install</a> it. 
+This should be it. Guava should be loaded in SAGE. 
+You can use GAP and GUAVA within the "GAP console" by
+ (a) starting SAGE and typing <tt>gap_console()</tt> at the <tt>sage: </tt> 
+command prompt, (b) typing <tt>sage -gap</tt> at the command line 
+and then loading GUAVA using GAP's <tt>LoadPackage</tt> command.
+
+
+</p>
+
+<p><h2>
+Loading GUAVA
+</h2>
+
+
+<p>
+After starting up <font face="Gill Sans,Helvetica,Arial">GAP</font>, 
+the GUAVA package needs to be loaded. Load
+ GUAVA by typing at the 
+<font face="Gill Sans,Helvetica,Arial">GAP</font> prompt:
+</p>
+<pre>gap&gt; LoadPackage( "guava");</pre>
+<br> 
+
+
+</p> 
+
+<p>
+In fact, you can automate this by adding 
+
+<pre>LoadPackage("guava");<br></pre> 
+to your .gaprc file. However, if you wish to start GAP via a workspace
+with GUAVA preloaded then you should type both
+<tt>LoadPackage("sonata");</tt> and <tt>LoadPackage("guava");</tt> before
+saving your workspace, since one command in GUAVA (versions 3.8 and higher) 
+requires 
+<a href="http://www.gap-system.org/Packages/sonata.html">SONATA</a>.
+
+  
+
+
+</p>
+
+<p><h2><a name="ARCHS">Package Archives for Download</a></h2>
+
+
+<p>
+<a name="ARCHS">  The <span class="pkg">GUAVA</span> package is 
+available in the following formats:
+  </a></p>
+
+
+
+<ul>
+
+<li> GUAVA version 3.12
+ <a href="guava3.12.tar.gz"> 
+<code>guava3.12.tar.gz</code></a>,
+<a href="guava3.12.tar.bz2"> 
+<code>guava3.12.tar.bz2</code></a>,
+</li>
+
+
+<li> GUAVA version 3.11 
+<a href="guava3.11.tar.gz"> 
+<code>guava3.11.tar.gz</code></a>,
+<a href="guava3.11.tar.bz2"> 
+<code>guava3.11.tar.bz2</code></a>,
+</li>
+
+
+<li> GUAVA version 3.10 
+<a href="guava3.10.tar.gz"> 
+<code>guava3.10.tar.gz</code></a>,
+<a href="guava3.10.tar.bz2"> 
+<code>guava3.10.tar.bz2</code></a>,
+</li>
+
+
+<li> GUAVA version 3.9 
+<a href="./tarball-archive/guava3.9.tar.gz"> 
+<code>guava3.9.tar.gz</code></a>,
+<a href="./tarball-archive/guava3.9.tar.bz2"> 
+<code>guava3.9.tar.bz2</code></a>,
+</li>
+
+
+<li> GUAVA version 3.8
+ <a href="./tarball-archive/guava3.8.tar.gz"> 
+<code>guava3.8.tar.gz</code></a>,
+<a href="./tarball-archive/guava3.8.tar.bz2"> 
+<code>guava3.8.tar.bz2</code></a>,
+</li>
+
+
+<li> GUAVA version 3.7 
+<a href="./tarball-archive/guava3.7.tar.gz"> 
+<code>guava3.7.tar.gz</code></a>,
+<a href="./tarball-archive/guava3.7.tar.bz2"> 
+<code>guava3.7.tar.bz2</code></a>,
+</li>
+
+
+<li> GUAVA version 3.6 
+<a href="./tarball-archive/guava3.6.tar.gz"> 
+<code>guava3.6.tar.gz</code></a>,
+<a href="./tarball-archive/guava3.6.tar.bz2"> 
+<code>guava3.6.tar.bz2</code></a>,
+</li>
+
+
+<li> GUAVA version 3.5 
+<a href="./tarball-archive/guava3.5.tar.gz"> 
+<code>guava3.5.tar.gz</code></a>,
+<a href="./tarball-archive/guava3.5.tar.bz2"> 
+<code>guava3.5.tar.bz2</code></a>,
+</li>
+
+
+<!-- Seem to be missing these old archives...
+
+
+<li> GUAVA version 3.4
+ <a href="./tarball-archive/guava3.4.tar.gz"> 
+<code>guava3.4.tar.gz</code></a>,
+<a href="./tarball-archive/guava3.4.tar.bz2"> 
+<code>guava3.4.tar.bz2</code></a>,
+</li>
+
+
+<li> GUAVA version 3.3
+<a href="guava3.3.tar.gz"> 
+<code>guava3.3.tar.gz</code></a>,
+<a href="guava3.3.tar.bz2"> 
+<code>guava3.3.tar.bz2</code></a>,
+</li>
+
+
+<li> GUAVA version 3.2
+<a href="guava3.2.tar.gz"> 
+<code>guava3.2.tar.gz</code></a>,
+<a href="guava3.2.tar.bz2"> 
+<code>guava3.2.tar.bz2</code></a>,
+</li>
+
+
+<li> GUAVA version 3.1
+<a href="guava3.1.tar.gz"> 
+<code>guava3.1.tar.gz</code></a>,
+</li>
+
+<li> GUAVA version 3.0
+<a href="guava3.0.tar.gz"> 
+<code>guava3.0.tar.gz</code></a>,
+</li>
+
+-->
+
+</ul>
+These tarballs are all about 2-3M in size.  
+
+
+Latest <a href="README.guava">README</a> file.  
+Latest <a href="CHANGES.guava">CHANGES</a> file.
+  Latest <a href="PackageInfo.g">PackageInfo.g</a> file.
+
+
+  <hr size="4">
+  
+
+<p class="foot">
+  <a href="mailto:fieldsj1@southernct.edu">Joe Fields</a> / Last modified:
+2015-6-16
+ </p>
+  
+
+</body>
+</html>
