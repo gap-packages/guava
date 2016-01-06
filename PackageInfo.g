@@ -11,14 +11,14 @@ SetPackageInfo( rec(
 
   PackageName := "GUAVA",
   Subtitle := "a GAP package for computing with error-correcting codes",
-  Version := "3.12",
-  Date    := "21/05/2012",
+  Version := "3.13",
+  Date    := "31/01/2016",
   ArchiveURL 
-          := "http://www.southernct.edu/~fields/Guava/guava3.12",
+          := "http://osj1961.github.io/guava",
   ArchiveFormats 
           := ".tar.gz",
   BannerString:=Concatenation(["\n   ____                          |\n",
-    "  /            \\           /   --+--  Version 3.12", "\n",
+    "  /            \\           /   --+--  Version 3.13", "\n",
     " /      |    | |\\\\        //|    |\n",
     "|    _  |    | | \\\\      // |     GUAVA Group\n",
     "|     \\ |    | |--\\\\    //--|     \n",
@@ -72,7 +72,7 @@ SetPackageInfo( rec(
       IsAuthor      := true,
       IsMaintainer  := true,
       Email         := "fieldsj1@southernct.edu",
-      WWWHome       := "http://www.southernct.edu/~fields/",
+      WWWHome       := "http://giam.southernct.edu/",
       PostalAddress := Concatenation( [
                          "Joe Fields\n",
                          "Mathematics Department\n",
@@ -176,7 +176,7 @@ SetPackageInfo( rec(
   AbstractHTML := 
     "<span class=\"pkgname\">GUAVA</span> is a <span class=\"pkgname\">GAP</span> package for computing with codes. <span class=\"pkgname\">GUAVA</span> can construct unrestricted (non-linear), linear and cyclic codes; transform one code into another (for example by puncturing); construct a new code from two other codes (using direct sums for example); perform decoding/error-correction; and can calculate important data of codes (such as the minumim distance or covering radius) quickly. Limited ability to compute algebraic geometric codes.",
 
-  PackageWWWHome := "http://www.southernct.edu/~fields/Guava/",
+  PackageWWWHome := "http://osj1961.github.io/guava",
                   
 ##  On the GAP Website there is an online version of all manuals in the
 ##  GAP distribution. To handle the documentation of a package it is
