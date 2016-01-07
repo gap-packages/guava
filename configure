@@ -15,29 +15,38 @@ while [ x"$1" != "x" ]; do
   shift
 done
 
-if [ x"$GAPPATH" = "x" ]; then 
+if [ x"$GAPPATH" = "x" ]; then
     GAPPATH=../..
-    echo "Using ../.. as default GAPPATH" 
+    echo "Using ../.. as default GAPPATH"
 fi
 
 if [ x"$CONFIGNAME" = "x" ]; then
   CONFIGNAME="default64"
   if [ ! -e $GAPPATH/sysinfo.gap-$CONFIGNAME ]; then
     CONFIGNAME="default32"
-  fi 
+		if [ ! -e $GAPPATH/sysinfo.gap-$CONFIGNAME ]; then
+			CONFIGNAME="UNKNOWN"
+		fi
+  fi
 fi
 
-if [ ! -e $GAPPATH/sysinfo.gap-$CONFIGNAME ]; then
+if [ x"$CONFIGNAME" != "xUNKNOWN" ]; then
+	CONFIGSUFFIX="-$CONFIGNAME"
+else
+	CONFIGSUFFIX=""
+fi
+
+if [ ! -e $GAPPATH/sysinfo.gap$CONFIGSUFFIX ]; then
     echo
-    echo "No file "$GAPPATH"/sysinfo.gap-"$CONFIGNAME" found."
-    echo  
+    echo "No file $GAPPATH/sysinfo.gap$CONFIGSUFFIX found."
+    echo
     echo "Usage: ./configure [GAPPATH] [CONFIGNAME=confnam]"
     echo "       where GAPPATH is a path to your GAP installation"
     echo "       and confnam is the name of the GAP configuration to use."
     echo "       (The default for GAPPATH is \"../..\" and default confignam"
     echo "       is \"default64\" if it exists, otherwise \"default32\".)"
     echo
-    echo Either your GAPPATH is incorrect or the GAP it is pointing to
+    echo "Either your GAPPATH is incorrect or the GAP it is pointing to"
     echo "is not properly compiled (do \"./configure ; make\" there first)."
     echo
     echo Aborting... No Makefile is generated.
@@ -45,14 +54,17 @@ if [ ! -e $GAPPATH/sysinfo.gap-$CONFIGNAME ]; then
     exit 1
 fi
 
-echo "Using config in "$GAPPATH"/sysinfo.gap-"$CONFIGNAME
+echo "Using config in $GAPPATH/sysinfo.gap$CONFIGSUFFIX"
 
-rm -f Makefile Makefile-$CONFIGNAME
-. $GAPPATH/sysinfo.gap-$CONFIGNAME
-GAParchprot="$GAParch"
-echo GAPPATH=$GAPPATH >Makefile-$CONFIGNAME 
-echo CONFIGNAME=$CONFIGNAME >>Makefile-$CONFIGNAME
-cat Makefile.in | sed -e "s/@GAPARCH@/$GAParchprot/g" | sed -e "s/@CONFIGNAME@/$CONFIGNAME/g"  >>Makefile-$CONFIGNAME
-ln -s Makefile-$CONFIGNAME Makefile
-echo "Created ./Makefile-"$CONFIGNAME" with link from ./Makefile"
+rm -f Makefile Makefile$CONFIGSUFFIX
+. $GAPPATH/sysinfo.gap$CONFIGSUFFIX
+sed \
+    -e 's|@GAPPATH@|'$GAPPATH'|g' \
+    -e 's/@GAPARCH@/'$GAParch'/g' \
+  Makefile.in > Makefile$CONFIGSUFFIX
+
+if [ x"$CONFIGNAME" != "xUNKNOWN" ]; then
+    ln -s Makefile$CONFIGSUFFIX Makefile
+    echo "Created ./Makefile$CONFIGSUFFIX with link from ./Makefile"
+fi
 

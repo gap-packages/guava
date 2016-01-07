@@ -65,7 +65,7 @@ Unsigned randInteger(
    stabilizer in the group of a designated number of base points. */
 
 Word *randGroupWord(
-   PermGroup *G,
+   const PermGroup *const G,
    Unsigned atLevel)
 {
    Word *w = newTrivialWord();
@@ -93,7 +93,7 @@ Word *randGroupWord(
    in. */
 
 Permutation *randGroupPerm(
-   PermGroup *G,
+   const PermGroup *const G,
    Unsigned atLevel)
 {
    Permutation *randPerm = newIdentityPerm( G->degree);

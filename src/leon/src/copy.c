@@ -24,7 +24,7 @@ CHECK( copy)
    word field is not supported. */
 
 Permutation *copyOfPermutation(
-   Permutation *oldPerm)         /* The permutation to be copied. */
+   const Permutation *const oldPerm)   /* The permutation to be copied. */
 {
    Unsigned pt;
    Permutation *newPerm = allocPermutation();
@@ -64,7 +64,7 @@ Permutation *copyOfPermutation(
    of the generators of the old group is modified. */
 
 PermGroup *copyOfPermGroup(
-   PermGroup *oldGroup)          /* The group being copied. */
+   const PermGroup *const oldGroup)    /* The group being copied. */
 {
    Unsigned i, level, pt;
    Permutation *oldGen, *newGen, *previousGen, *temp;

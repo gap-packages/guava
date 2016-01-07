@@ -52,7 +52,7 @@ extern Unsigned traceNewRelator(
 extern Unsigned processCoincidence(
    const PermGroup *const G,
    DeductionQueue *deductionQueue,
-   const Permutation *const genHeader,
+   Permutation *const genHeader,
    const Unsigned coset1,
    const Unsigned coset2)
 ;
@@ -62,7 +62,7 @@ extern Unsigned xFindConsequences(
    DeductionQueue *deductionQueue,
    const Unsigned level,
    const Deduction *const deduc,
-   const Permutation *const genHeader)
+   Permutation *const genHeader)
 ;
 
 extern Unsigned xTraceNewRelator(
@@ -70,7 +70,7 @@ extern Unsigned xTraceNewRelator(
    const Unsigned level,
    DeductionQueue *deductionQueue,
    const Relator *const newRel,
-   const Permutation *const genHeader)
+   Permutation *const genHeader)
 ;
 
 extern void makeDefinition(

@@ -1,5 +1,6 @@
-CC      = gcc
+GAPPATH=@GAPPATH@
 GAPARCH=@GAPARCH@
+CC      = gcc
 CFLAGS  = -O2
 SRCDIR  = ./src/leon
 CJSRCDIR= ./src/ctjhai
@@ -17,15 +18,15 @@ bindir:
 	if test ! -d $(BINDIR);  then mkdir -p $(BINDIR);  fi
 
 minimum-weight: $(CJSRCDIR)/minimum-weight.o $(CJSRCDIR)/minimum-weight-gf2.o $(CJSRCDIR)/minimum-weight-gf3.o $(CJSRCDIR)/popcount.o
-	$(CC) -o $(CJSRCDIR)/minimum-weight \
+	$(CC) $(LDFLAGS) -o $(CJSRCDIR)/minimum-weight \
 $(CJSRCDIR)/minimum-weight.o $(CJSRCDIR)/minimum-weight-gf2.o \
 $(CJSRCDIR)/minimum-weight-gf3.o $(CJSRCDIR)/popcount.o -lm
 
 leonconv: 
-	cd ./src; $(MAKE) CC="$(CC)" CFLAGS="$(CFLAGS)"; 
+	cd ./src; $(MAKE) CC="$(CC)" CPPFLAGS="$(CPPFLAGS)" CFLAGS="$(CFLAGS)" LDFLAGS="$(LDFLAGS)";
 
 desauto: 
-	cd $(SRCDIR); ./configure; $(MAKE) CC="$(CC)" CFLAGS="$(CFLAGS)"; 
+	cd $(SRCDIR); autoreconf --install --force || true ; ./configure; $(MAKE) CC="$(CC)" CPPFLAGS="$(CPPFLAGS)" CFLAGS="$(CFLAGS)" LDFLAGS="$(LDFLAGS)";
 
 minimum-weight.o: $(CJSRCDIR)/minimum-weight.c $(CJSRCDIR)/minimum-weight-gf2.h $(CJSRCDIR)/minimum-weight-gf3.h $(CJSRCDIR)/popcount.h $(CJSRCDIR)/config.h $(CJSRCDIR)/types.h
 	$(CC) -c -O3 -Wall -I $(CJSRCDIR) $(CJSRCDIR)/minimum-weight.c
@@ -47,18 +48,18 @@ install:
 	( cp $(SRCDIR)/wtdist $(BINDIR) )
 
 clean:
-	( cd $(BINDIR); rm -f *.o )
-	( cd src && make clean )
-	( cd $(CJSRCDIR) && rm -f minimum-weight *.o)
-	( cd $(SRCDIR) && make clean )
+	-( cd $(BINDIR); rm -f *.o )
+	-( cd src && make clean )
+	-( cd $(CJSRCDIR) && rm -f minimum-weight *.o)
+	-( cd $(SRCDIR) && make clean )
 
 distclean: clean
 	( rm -rf bin )
 	( mkdir bin )
 	( rm -f Makefile Makefile-*)
-	( cd src && make distclean )
-	( cd src/leon && make distclean )
-	( cd doc && rm -f *.aux *.log *.dvi *.ps)
+	-( cd src && make distclean )
+	-( cd src/leon && make distclean )
+	-( cd doc && rm -f *.aux *.log *.dvi *.ps)
 
 # for GAP distribution
 src_dist:

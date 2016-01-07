@@ -281,7 +281,7 @@ static RefinementPriorityPair isSetStabReducible(
          else
             ptsNotInLambda = TRUE;
          if ( ptsInLambda && ptsNotInLambda ) {
-            reducingRefn.refn.family = family;
+            reducingRefn.refn.family = (RefinementFamily *)(family);
             reducingRefn.refn.refnParm[0].intParm = cellNo;
             reducingRefn.priority = 1;
             return reducingRefn;

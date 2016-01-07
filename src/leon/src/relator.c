@@ -30,7 +30,7 @@ BOOLEAN verifyCosetList(
    Unsigned degree);
 BOOLEAN onFreeList(
    Unsigned coset);
-static callCount = 0;   /*DEBUG*/
+/* static callCount = 0; */  /*DEBUG*/
 
 
 /*-------------------------- relatorLevel ---------------------------------*/
@@ -166,7 +166,7 @@ Unsigned addOccurencesForRelator(
       for ( i = 1 ; i <= symLength ; ++i ) {
          ++addCount;
          p = allocOccurenceOfGen();
-         p->r = r;
+         p->r = (Relator *)(r);
          p->relLength = r->length;
          p->level = r->level;
          p->fRelStart = r->fRel + i;
@@ -187,7 +187,7 @@ Unsigned addOccurencesForRelator(
          if ( i < r->length && priority >= shiftPriority[j] ) {
             ++addCount;
             p = allocOccurenceOfGen();
-            p->r = r;
+            p->r = (Relator *)(r);
             p->relLength = r->length;
             p->level = r->level;
             p->fRelStart = r->fRel + i;
@@ -337,7 +337,7 @@ Unsigned traceNewRelator(
 Unsigned processCoincidence(
    const PermGroup *const G,
    DeductionQueue *deductionQueue,
-   const Permutation *const genHeader,
+   Permutation *const genHeader,
    const Unsigned coset1,
    const Unsigned coset2)
 {
@@ -480,7 +480,7 @@ Unsigned xFindConsequences(
    DeductionQueue *deductionQueue,
    const Unsigned level,
    const Deduction *const deduc,
-   const Permutation *const genHeader)
+   Permutation *const genHeader)
 {
    OccurenceOfGen *occurence;
    Unsigned count, fCos, bCos, newEntryCount = 0, degree = G->degree;
@@ -557,7 +557,7 @@ Unsigned xTraceNewRelator(
    const Unsigned level,
    DeductionQueue *deductionQueue,
    const Relator *const newRel,
-   const Permutation *const genHeader)
+   Permutation *const genHeader)
 {
    Unsigned i, pt, startingPos, count, fCos, bCos, newEntryCount = 0;
    Unsigned **fPtr, **bPtr;

@@ -11,12 +11,12 @@ extern Unsigned randInteger(
 ;
 
 extern Word *randGroupWord(
-   PermGroup *G,
+   const PermGroup *const G,
    Unsigned atLevel)
 ;
 
 extern Permutation *randGroupPerm(
-   PermGroup *G,
+   const PermGroup *const G,
    Unsigned atLevel)
 ;
 

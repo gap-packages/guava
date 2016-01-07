@@ -39,28 +39,28 @@ static BOOLEAN informCols;
 
 
 static BOOLEAN matrix01AutoProperty(
-   Permutation *s )
+   const Permutation *const s )
 {
    return isMatrix01Isomorphism( DD, DD, s, FALSE);
 }
 
 
 static BOOLEAN matrix01IsoProperty(
-   Permutation *s )
+   const Permutation *const s )
 {
    return isMatrix01Isomorphism( DD_L, DD_R, s, FALSE);
 }
 
 
 static BOOLEAN codeAutoProperty(
-   Permutation *s )
+   const Permutation *const s )
 {
    return isCodeIsomorphism( CC, CC, s);
 }
 
 
 static BOOLEAN codeIsoProperty(
-   Permutation *s )
+   const Permutation *const s )
 {
    return isCodeIsomorphism( CC_L, CC_R, s);
 }
@@ -379,7 +379,7 @@ static RefinementPriorityPair isSetStabReducible(
          else
             ptsNotInLambda = TRUE;
          if ( ptsInLambda && ptsNotInLambda ) {
-            reducingRefn.refn.family = family;
+            reducingRefn.refn.family = (RefinementFamily *)(family);
             reducingRefn.refn.refnParm[0].intParm = cellNo;
             reducingRefn.priority = 1;
             return reducingRefn;
@@ -598,7 +598,7 @@ static RefinementPriorityPair isRowVsColReducible(
    /* If we can split the same cell as before using a different intersection
       count, do so immediately (priority 1). */
    if ( listSize > 0 ) {
-      reducingRefn.refn.family = family;
+      reducingRefn.refn.family = (RefinementFamily *)(family);
       reducingRefn.refn.refnParm[0].intParm = opposingCell;
       reducingRefn.refn.refnParm[1].intParm = 0;
       reducingRefn.refn.refnParm[2].intParm = list[listSize--];
@@ -644,7 +644,7 @@ static RefinementPriorityPair isRowVsColReducible(
       reducingRefn.refn.refnParm[1].intParm = processingCell;
       reducingRefn.refn.refnParm[2].intParm = UpsilonStack->degree + 1;
       rowVsColRefine( family->familyParm, reducingRefn.refn.refnParm, 
-                      UpsilonStack);
+                      (PartitionStack *const)(UpsilonStack));
                                                   
       /* If no splitting occured of opposing cell via processing cell is 
           possible, nonZeroCount will be 1.  If this occurs, skip to the next 
@@ -672,7 +672,7 @@ static RefinementPriorityPair isRowVsColReducible(
             list[++listSize] = nonZeroPosition[k];
 
       /* Finally return the first entry on the list. */
-      reducingRefn.refn.family = family;
+      reducingRefn.refn.family = (RefinementFamily *)(family);
       reducingRefn.refn.refnParm[0].intParm = opposingCell;
       reducingRefn.refn.refnParm[1].intParm = processingCell;
       reducingRefn.refn.refnParm[2].intParm = list[listSize--];

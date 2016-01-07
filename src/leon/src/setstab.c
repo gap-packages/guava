@@ -183,7 +183,7 @@ int main( int argc, char *argv[])
    PointSet *Lambda, *Xi;
    Partition *PLambda, *PXi;
    BOOLEAN imageFlag = FALSE, imageFormatFlag = FALSE;
-   char ordUnord[] = "Ordered";
+   char ordUnord[10] = "Ordered\0\0";
    char tempArg[8];
    enum { SET_STAB, SET_IMAGE, PARTN_STAB, PARTN_IMAGE,
           UPARTN_STAB, UPARTN_IMAGE} computationType = SET_STAB;

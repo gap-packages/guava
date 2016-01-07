@@ -20,7 +20,7 @@
       <design2>:   The second of the two designs to be checked for isomorphism.
       <isoPerm>:   Set to a permutation mapping <design1> to <design2>, if one
                    exists.  Not created otherwise.  Depending on the options,
-                   this will be set to a permutation on points only or on points                         
+                   this will be set to a permutation on points only or on points
                    The name of the file in which the set stabilizer G_Lambda
                    and blocks.
 
@@ -499,7 +499,8 @@ int main( int argc, char *argv[])
                     "Designs have different numbers of points.")
          if ( matrix_L->numberOfCols != matrix_R->numberOfCols ) {
             if ( options.inform )  {
-               printf( "\n\n%s and %s are not isomorphic.  ");
+               printf( "\n\n%s and %s are not isomorphic.  ",
+                       matrix_L->name, matrix_R->name);
                printf( "They have %u and %u blocks, respectively.\n\n",
                        matrix_L->numberOfCols, matrix_R->numberOfCols);
             }
@@ -552,7 +553,8 @@ int main( int argc, char *argv[])
                            0);
          if ( C_L->dimension != C_R->dimension ) {
             if ( options.inform )  {
-               printf( "\n\n%s and %s are not isomorphic.  ");
+               printf( "\n\n%s and %s are not isomorphic.  ",
+                       C_L->name, C_R->name);
                printf( "They have dimension %u and %u, respectively.\n\n",
                        C_L->dimension, C_R->dimension);
             }
@@ -560,7 +562,8 @@ int main( int argc, char *argv[])
          }
          if ( matrix_L->numberOfCols != matrix_R->numberOfCols ) {
             if ( options.inform )  {
-               printf( "\n\n%s and %s are not isomorphic.  ");
+               printf( "\n\n%s and %s are not isomorphic.  ",
+                       matrix_L->name, matrix_R->name);
                printf( "The invariant vector sets have different sizes.\n");
             }
             return 1;

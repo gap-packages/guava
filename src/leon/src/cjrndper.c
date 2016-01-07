@@ -566,7 +566,7 @@ static void setToRandomMonomialPerm(
 {
    Unsigned i, j, k, delta, lambda, temp, m, mu;
    const Unsigned fSize = field->size - 1;
-   const degree = perm->degree;
+   const Unsigned degree = perm->degree;
 
    for ( i = 1 ; i <= degree ; i += fSize ) {
       j = randInteger( i, (i <= subDegree) ? subDegree : degree);

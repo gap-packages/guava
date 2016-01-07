@@ -26,7 +26,7 @@ extern GroupOptions options;
 /* Forward declarations of functions. */
 static RefinementMapping centRefine;
 static ReducChkFn isCentReducible;
-static void initializeCentRefine( Permutation *e);
+static void initializeCentRefine( const Permutation *const e);
 static Partition *cycleLengthPartn(
    const Permutation *const e,
    UnsignedS *const cycleLen,
@@ -158,7 +158,7 @@ PermGroup *centralizer(
 
    /* Centralizer refinement. */
    CCC_e.refine = centRefine;
-   CCC_e.familyParm[0].ptrParm = e;
+   CCC_e.familyParm[0].ptrParm = (Permutation *)(e);
    refnFamList[refnCount] = &CCC_e;
    reducChkList[refnCount] = isCentReducible;
    specialRefinement[refnCount] = NULL;
@@ -288,8 +288,8 @@ Permutation *conjugatingElement(
 
    /* Centralizer refinement. */
    CCC_ef.refine = centRefine;
-   CCC_ef.familyParm_L[0].ptrParm = e;
-   CCC_ef.familyParm_R[0].ptrParm = f;
+   CCC_ef.familyParm_L[0].ptrParm = (Permutation *)(e);
+   CCC_ef.familyParm_R[0].ptrParm = (Permutation *)(f);
    refnFamList[refnCount] = &CCC_ef;
    reducChkList[refnCount] = isCentReducible;
    specialRefinement[refnCount] = NULL;
@@ -411,7 +411,7 @@ PermGroup *groupCentralizer(
    eCyclePartn = NULL;
    if ( centPartnCount > 0 ) {
       ex[centPartnCount+1] = NULL;
-      eCyclePartn = multipleCycleLengthPartn( ex);
+      eCyclePartn = multipleCycleLengthPartn((const Permutation *const *)(ex));
    }
    else
       eCyclePartn = NULL;
@@ -457,7 +457,7 @@ typedef struct RefnListEntry {
 
 static struct {
    Unsigned elementCount;
-   Permutation *element[17];
+   const Permutation * element[17];
    RefnListEntry **hashTable[17];
    RefnListEntry *refnList[17];
    RefnListEntry *freeListHeader[17];
@@ -473,7 +473,7 @@ static UnsignedS *pt = NULL, *freq = NULL;
 
 /*-------------------------- initializeCentRefine -------------------------*/
 
-static void initializeCentRefine( Permutation *e)
+static void initializeCentRefine( const Permutation *const e)
 {
    int i;
 
@@ -841,7 +841,7 @@ static RefinementPriorityPair isCentReducible(
    if ( minPriority == ULONG_MAX )
       reducingRefn.priority = IRREDUCIBLE;
    else {
-      reducingRefn.refn.family = family;
+      reducingRefn.refn.family = (RefinementFamily *)(family);
       reducingRefn.refn.refnParm[0].intParm = minPosition->i;
       reducingRefn.refn.refnParm[1].intParm = minPosition->j;
       reducingRefn.priority = thisPriority;

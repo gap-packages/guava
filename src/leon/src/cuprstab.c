@@ -705,7 +705,7 @@ RefinementPriorityPair isOrbReducible(
    if ( minPriority == ULONG_MAX )
       reducingRefn.priority = IRREDUCIBLE;
    else {
-      reducingRefn.refn.family = family;
+      reducingRefn.refn.family = (RefinementFamily *)(family);
       reducingRefn.refn.refnParm[0].intParm = minPosition->i;
       reducingRefn.refn.refnParm[1].intParm = minPosition->j;
       reducingRefn.priority = thisPriority;

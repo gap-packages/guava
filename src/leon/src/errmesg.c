@@ -14,7 +14,7 @@ CHECK( errmes)
 /*-------------------------- isValidName ----------------------------------*/
 
 BOOLEAN isValidName(
-   char *name)               /* The name to be checked for validity. */
+   const char *name)         /* The name to be checked for validity. */
 {
    Unsigned i;
 
@@ -32,10 +32,10 @@ BOOLEAN isValidName(
 /*-------------------------- errorMessage ---------------------------------*/
 
 void errorMessage(
-   char *file,               /* The file in which the error occured. */
+   const char *file,         /* The file in which the error occured. */
    int  line,                /* The line before which the error occured. */
-   char *function,           /* The function in which the error occured. */
-   char *message)            /* The message to be printed.  It will be
+   const char *function,     /* The function in which the error occured. */
+   const char *message)      /* The message to be printed.  It will be
                                 prefixed by "Error: ". */
 {
    printf( "\n\n Error: %s\n"
@@ -48,12 +48,12 @@ void errorMessage(
 /*-------------------------- errorMessage1i -------------------------------*/
 
 void errorMessage1i(
-   char *file,               /* The file in which the error occured. */
+   const char *file,         /* The file in which the error occured. */
    int  line,                /* The line before which the error occured. */
-   char *function,           /* The function in which the error occured. */
-   char *message1,           /* The first part of the error message. */
+   const char *function,     /* The function in which the error occured. */
+   const char *message1,     /* The first part of the error message. */
    Unsigned intParm,         /* The integer variable part of the message. */
-   char *message2)           /* The second part of the error message. */
+   const char *message2)     /* The second part of the error message. */
 {
    printf( "\n\n Error: %s%u%s\n"
            " Program was executing function %s (line %d in file %s).",
@@ -65,12 +65,12 @@ void errorMessage1i(
 /*-------------------------- errorMessage1s -------------------------------*/
 
 void errorMessage1s(
-   char *file,               /* The file in which the error occured. */
+   const char *file,         /* The file in which the error occured. */
    int  line,                /* The line before which the error occured. */
-   char *function,           /* The function in which the error occured. */
-   char *message1,           /* The first part of the error message. */
-   char *strParm,            /* The integer variable part of the message. */
-   char *message2)           /* The second part of the error message. */
+   const char *function,     /* The function in which the error occured. */
+   const char *message1,     /* The first part of the error message. */
+   const char *strParm,      /* The integer variable part of the message. */
+   const char *message2)     /* The second part of the error message. */
 {
    printf( "\n\n Error: %s%s%s\n"
            " Program was executing function %s (line %d in file %s).",

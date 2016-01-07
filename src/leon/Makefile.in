@@ -1,9 +1,9 @@
 COMPILE = gcc
-CFLAGS  = -O2
+CFLAGS  += -O2
 SRCDIR  = ./src
-COMPOPT = -c -O2
+COMPOPT = $(CPPFLAGS) $(CFLAGS) -c
 INCLUDES =
-LINKOPT = -v
+LINKOPT = $(LDFLAGS) -v
 LINKNAME = -o
 OBJ = o
 OBJS = setstab cent inter desauto generate commut cjrndper orblist fndelt compgrp orbdes randobj wtdist

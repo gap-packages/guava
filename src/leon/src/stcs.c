@@ -717,7 +717,7 @@ WordImagePair computeSchreierGen(
    for ( i = 1 , j = sGen.word.length ; i < j ; ++i , --j )
       EXCHANGE( sGen.word.position[i], sGen.word.position[j] , temp);
 
-   sGen.word.position[++sGen.word.length] = gen;
+   sGen.word.position[++sGen.word.length] = (Permutation *)(gen);
 
    for ( pt = gen->image[point] & NHB ; pt != basePt ;
                                   pt = schreierVec[pt]->invImage[pt] & NHB )
@@ -771,7 +771,7 @@ WordImagePair xComputeSchreierGen(
    for ( i = 1 , j = sGen.word.length ; i < j ; ++i , --j )
       EXCHANGE( sGen.word.position[i], sGen.word.position[j] , temp);
 
-   sGen.word.position[++sGen.word.length] = gen;
+   sGen.word.position[++sGen.word.length] = (Permutation *)(gen);
 
    for ( pt = equivCoset[gen->image[point] & NHB] ; pt != basePt ;
                   pt = equivCoset[schreierVec[pt]->invImage[pt] & NHB] )

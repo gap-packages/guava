@@ -29,7 +29,7 @@ static Token sTokenBuffer;        /* The token read from string but not
                                      returned. */
 static BOOLEAN endOfStringReached; /* True if end of string has been reached. */
 
-static recognizeKeywordFlag = TRUE; /* If false, a colon is treated as an
+static BOOLEAN recognizeKeywordFlag = TRUE; /* If false, a colon is treated as an
                                        ordinary character.  Keywords are not
                                        recognized. */
 

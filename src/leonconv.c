@@ -1,7 +1,5 @@
-#include <stdio.h> 
-#if !defined(__APPLE__)
-#include <malloc.h>
-#endif
+#include <stdlib.h>
+#include <stdio.h>
  
 FILE *in, *out; 
  
@@ -10,7 +8,7 @@ void ConstWeightToGuave(char *inputfile, char *outputfile);
 void EquivalentToGuave(char *inputfile, char *outputfile); 
 void WeightToGuave(char *inputfile, char *outputfile); 
  
-main(int argc, char *argv[]) 
+int main(int argc, char *argv[])
 { 
 char *sw, *inputfile, *outputfile; 
  
@@ -75,7 +73,7 @@ int res;
 			res = fscanf(in, "%c", &bit); 
 		} 
 	fprintf(out, ");\n"); 
-	close(in); 
+	fclose(in);
 	in = fopen(inputfile, "r"); 
 	res = ReadUntil(in, '\n', 3); 
 	res = ReadUntil(in, ':', 1); 
@@ -86,7 +84,7 @@ int res;
 		res = fscanf(in, "%c", &bit); 
 	} 
 	fprintf(out, ");\n"); 
-	close(in); close(out); 
+	fclose(in); fclose(out);
 } 
  
 void ConstWeightToGuave(char *inputfile, char *outputfile) { 
@@ -110,7 +108,7 @@ int i, j, M, n, res, el;
 		else fprintf(out, "]");
 	} 
 	fprintf(out, "];\n"); 
-	close(in); close(out); 
+	fclose(in); fclose(out);
 } 
  
 void EquivalentToGuave(char *inputfile, char *outputfile) { 
@@ -155,8 +153,8 @@ void EquivalentToGuave(char *inputfile, char *outputfile) {
 		}
 	} 
 	fprintf(out, "\n"); 
-	if (!noteq) close(in);
-	close(out); 
+	if (!noteq) fclose(in);
+	fclose(out);
 } 
  
 void WeightToGuave(char *inputfile, char *outputfile) { 

@@ -710,7 +710,7 @@ unsigned short ***buildAddBasisElement(
    FieldElement *x, *y;
    Unsigned *primeBasisVector;
    const Unsigned fieldExponent = (C->fieldSize == 2) ? 1 : C->field->exponent;
-   const primeDimension = C->dimension * fieldExponent;
+   const Unsigned primeDimension = C->dimension * fieldExponent;
 
    primeBasisVector = (Unsigned *) malloc( (C->length+1) * sizeof(Unsigned));
    if ( !primeBasisVector )

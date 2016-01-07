@@ -277,7 +277,7 @@ RefinementPriorityPair isPartnStabReducible(
                                            cellSize[cellNo] ; ++position )
          if ( Lambda->cellNumber[pointList[position]] !=
               Lambda->cellNumber[pointList[position-1]] ) {
-            reducingRefn.refn.family = family;
+            reducingRefn.refn.family = (RefinementFamily *)(family);
             reducingRefn.refn.refnParm[0].intParm = cellNo;
             reducingRefn.refn.refnParm[1].intParm =
                                      Lambda->cellNumber[pointList[position]];

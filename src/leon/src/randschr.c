@@ -150,7 +150,7 @@ void initializeBase(
 
 static void randomizeGen(
    const Unsigned genListLength,        /* The length of the list genList. */
-   const Permutation *const genList[],  /* The list of (generating) perms. */
+   const Permutation *const *genList,  /* The list of (generating) perms. */
    const Unsigned count1,               /* The minimum word length, as above. */
    const Unsigned count2,               /* The maximum word length, as above. */
    Permutation *const randGen)          /* The old and new quasi-random elt. */
@@ -159,7 +159,7 @@ static void randomizeGen(
        wordLength = count1 +
                     ( (count2 > count1) ? randInteger( 0, count2-count1) : 0);
    for ( i = 1 ; i <= wordLength ; ++i )
-      rightMultiply( randGen, genList[ randInteger(1,genListLength) ]);
+      rightMultiply( randGen, *(genList + randInteger(1,genListLength)) );
 }
 
 
@@ -375,7 +375,7 @@ BOOLEAN randomSchreier(
                   (trueGroupOrder.noOfFactors == UNKNOWN ||
                    !factEqual( G->order, &trueGroupOrder)) ) {
 
-      randomizeGen( noOfOriginalGens, originalGen,
+      randomizeGen( noOfOriginalGens, (const Permutation *const *)(originalGen),
                     rOptions.minWordLengthIncrement,
                     rOptions.maxWordLengthIncrement, randGen);
       if ( factorGroupElt( G, randGen, h, &finalLevel) )
