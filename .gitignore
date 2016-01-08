@@ -2,3 +2,6 @@ Makefile
 doc/*.html
 doc/*.txt
 doc/*.pdf
+*.sav
+src/leon/*.o
+src/ctjhai/*.o
