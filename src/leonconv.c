@@ -113,7 +113,7 @@ int i, j, M, n, res, el;
  
 void EquivalentToGuave(char *inputfile, char *outputfile) { 
 	char bit, is_valid; 
-	int res, noteq;
+	int res, res2, noteq;
 	long start_offset, end_offset;
 
 	/*
@@ -127,7 +127,7 @@ void EquivalentToGuave(char *inputfile, char *outputfile) {
 		fseek(in, 0L, SEEK_END);
 		end_offset   = ftell(in);
 		rewind(in);
-		fread(&bit, 1, 1, in);
+		res2 = fread(&bit, 1, 1, in);
 		if (bit == 0x0A && (end_offset - start_offset <= 1))
 			is_valid = 0;
 		fclose(in);

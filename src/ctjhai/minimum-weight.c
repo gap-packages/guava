@@ -144,12 +144,18 @@ int generator_matrix(char *fname, MATRIX *M) {
 		fprintf(stderr, "Error opening %s\n", fname);
 		return -1;
 	}
-	fscanf(fptr, "%d %d %d\n", &M->rows, &M->cols, &M->q);
+	if ( fscanf(fptr, "%d %d %d\n", &M->rows, &M->cols, &M->q) < 0 ) {
+		fprintf(stderr, "Error reading header of %s\n", fname);
+	}
 	M->m = (unsigned int **)malloc(M->rows * sizeof(unsigned int *));
 	for (i=0; i<M->rows; i++) 
 		M->m[i] = (unsigned int *)malloc(M->cols * sizeof(unsigned int));
 	for (i=0; i<M->rows; i++) {
-		for (j=0; j<M->cols; j++) fscanf(fptr, "%d ", &M->m[i][j]);
+		for (j=0; j<M->cols; j++) {
+			if ( fscanf(fptr, "%d ", &M->m[i][j]) < 0 ) {
+				fprintf(stderr, "Error reading data from %s\n", fname);
+			}
+		}
 	}
 
 	return 0;
