@@ -2731,9 +2731,13 @@ function(C)
 		param := Concatenation(param, " --lower-bound ", String(C!.lowerBoundMinimumDistance));
 	fi;
 	if LeftActingDomain(C) = GF(2) then
-		if IsSelfOrthogonalCode(C) then
-			param := Concatenation(param, " --mod 4");
-		elif IsEvenCode(C) then 
+		if IsEvenCode(C) then
+                        if IsDoublyEvenCode(C) then
+			        param := Concatenation(param, " --mod 4");
+                        else
+			        param := Concatenation(param, " --mod 2");
+			fi;
+		else
 			param := Concatenation(param, " --mod 1");
 		fi;
 	elif LeftActingDomain(C) = GF(3) then
