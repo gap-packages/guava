@@ -17,9 +17,10 @@ GAP package GUAVA
 
 
  
-<style type="text/css">
+<!-- <style type="text/css">
        BODY { background: url("guava_light.jpg") }
  </style>
+-->
 
 </head>
 
@@ -74,7 +75,7 @@ or (windows) cygwin installation.)
 <!-- current version, maybe further version info, 
        links to old versions ... -->
 
-<strong>Current version: </strong> 3.12
+<strong>Current version: </strong> 3.13
 
 <br>
   
@@ -93,8 +94,9 @@ or (windows) cygwin installation.)
 
 <!-- download location, maybe link to somewhere below -->
 
-<strong>Download: </strong> See <a href="#ARCHS">below</a> for archives in
-  several formats.
+<strong>Download: </strong> See <a href="#ARCHS">below</a> for archives in several 
+formats.  Also, GUAVA is now on GitHub: 
+<a href="https://github.com/osj1961/guava-3.13/">https://github.com/osj1961/guava-3.13/</a>
  
 
 
@@ -109,9 +111,7 @@ or (windows) cygwin installation.)
 
 <p>
   Here is the documentation of the <span class="pkg">GUAVA</span> package in 
-  several output formats. 
-  If you have installed the package as described above you can also access 
-  all of these documents from the 
+  several output formats. You should also be able to access these documents from the 
 <font face="Gill Sans,Helvetica,Arial">GAP</font> online help.
    
 
@@ -119,7 +119,7 @@ or (windows) cygwin installation.)
 <ul>
   
 <li> 
-<a href="../guava/htm/chap0.html">HTML-version</a> 
+<a href="./htm/chap0.html">HTML-version</a> 
 </li>
   
 <li> 
@@ -147,18 +147,6 @@ Browse the code: <a href="https://github.com/osj1961/guava">on GitHub</a>.
 <a href="http://www.opensourcemath.org/coding-theory/coveringcodes.html">
 covering codes calculations</a> (under construction)
 </li>
-
-
-<li>
-<b>Visual GUAVA:</b>
-Thanks to Sergio de los Santos (s.delossantos@amena.com),
-there is a graphical interface to GUAVA which 
-you can download from <a href="http://visualguava.tk/">http://visualguava.tk</a>.
-Sergio reports that his program, written in visual basic, is still under construction.
-  It is a windows only program and written in Spanish. 
-(I have not tried this 
-out, being a Linux person, but am interested in feedback from 
-others on this.) </li>
 </ul>
 
 
@@ -191,29 +179,12 @@ Please send your bug reports
 to <a href="mailto:support@gap-system.org">support</a>. 
 </p>
 
-<p>
-
-An important data type in <font face="Gill Sans,Helvetica,Arial">GAP</font> 
-is a ''record'', and the basic object in GUAVA
- is the ''code record''. A code record contains several components that give
- information about the code. Some of these components, like 
-<strong>name</strong>, 
-<strong>basefield</strong> and <strong>size</strong>, are mandatory. 
-Other components, like <strong>minimumDistance</strong>, 
-<strong>weightDistribution</strong>, <strong>coveringRadius</strong> 
-and <strong>IsSelfDualCode</strong>, are created in the course of a 
-session and contain 
-knowledge about the code. The use of these code records has proven to be 
-very versatile.
-
-</p>
 
 <p>
 The functions within GUAVA can be divided into four categories:
 </p>
 
 <p>
-
 <ul>
 
 <li>  Construction of codes. GUAVA can construct non-linear, linear and 
@@ -221,23 +192,24 @@ cyclic codes over an arbitrary finite field.
 Examples are <strong>HadamardCode</strong>, <strong>ReedMullerCode</strong>, 
 <strong>BestKnownLinearCode</strong>, <strong>QRCode</strong> and 
 <strong>GoppaCode</strong>.</li>
+
 <li>  Manipulation of codes. These functions allow the user to transform 
 one code into another or to construct a new code from two codes. Examples 
 are <strong>PuncturedCode</strong>, <strong>DualCode</strong>, 
 <strong>DirectProductCode</strong> and <strong>UUVCode</strong>.</li>
+
 <li>  Computation of information about codes. This information is stored in 
 the code record. Examples are <strong>MinimumDistance</strong>, 
 <strong>OuterDistribution</strong>, <strong>IsSelfDualCode</strong> and 
 <strong>AutomorphismGroup</strong>.
-
 </li>
+
 <li>  Generation of bounds on linear codes. The table by Brouwer and 
 Verhoeff (as it existed in the mid 1990's)
 is incorporated into GUAVA. For example,
 <strong>BoundsMinimumDistance</strong>.
-
-
 </li>
+
 </ul>
 
 
@@ -440,24 +412,28 @@ is that in the HTML version of the package documentation the links to the
 GUAVA and SAGE
 </h3>
 </center>
-
-
-You can also install GUAVA using SAGE (which includes GAP). 
-Download <a href="http://www.sagemath.org/download.html">SAGE</a> 
-and <a href="http://www.sagemath.org/doc/html/inst/index.html">install</a> it. 
-This should be it. Guava should be loaded in SAGE. 
-You can use GAP and GUAVA within the "GAP console" by
- (a) starting SAGE and typing <tt>gap_console()</tt> at the <tt>sage: </tt> 
-command prompt, (b) typing <tt>sage -gap</tt> at the command line 
-and then loading GUAVA using GAP's <tt>LoadPackage</tt> command.
-
-
 </p>
 
-<p><h2>
+<p>
+The easiest way to begin experimenting with GUAVA is to use it via the 
+<a href="https://cloud.sagemath.com/">SageMathCloud</a> (SMC).  One can 
+sign up for a free SMC account or pay a small amount for a subscription
+(which allows for premium access).  Within a SMC project one can create 
+a sage worksheet and set its default language to GAP.  Then load GUAVA (see below)
+and try out its features. 
+</p>
+
+<p>
+<center>
+ <A href="./GuavaTests-SageMathCloud.pdf">SMC screen shot</A>
+</center>
+</p>
+
+<p>
+ <h2>
 Loading GUAVA
 </h2>
-
+</p>
 
 <p>
 After starting up <font face="Gill Sans,Helvetica,Arial">GAP</font>, 
@@ -465,7 +441,7 @@ the GUAVA package needs to be loaded. Load
  GUAVA by typing at the 
 <font face="Gill Sans,Helvetica,Arial">GAP</font> prompt:
 </p>
-<pre>gap&gt; LoadPackage( "guava");</pre>
+<pre>gap&gt; LoadPackage( "guava" );</pre>
 <br> 
 
 
@@ -616,7 +592,7 @@ Latest <a href="CHANGES.guava">CHANGES</a> file.
 
 <p class="foot">
   <a href="mailto:fieldsj1@southernct.edu">Joe Fields</a> / Last modified:
-2015-6-16
+2016-1-09
  </p>
   
 
