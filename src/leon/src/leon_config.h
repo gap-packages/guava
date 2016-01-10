@@ -1,5 +1,5 @@
 /* src/leon_config.h.  Generated from leon_config.h.in by configure.  */
-/* src/leon_config.h.in.  Generated from configure.in by autoheader.  */
+/* src/leon_config.h.in.  Generated from configure.ac by autoheader.  */
 
 /* Define to 1 if you have the <inttypes.h> header file. */
 #define HAVE_INTTYPES_H 1
