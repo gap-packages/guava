@@ -23,3 +23,5 @@ src/ctjhai/minimum-weight
 src/leon/autom4te.cache/*
 
 *.log
+
+*.status
