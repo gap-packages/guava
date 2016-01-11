@@ -25,3 +25,5 @@ src/leon/autom4te.cache/*
 *.log
 
 *.status
+
+*.swp
