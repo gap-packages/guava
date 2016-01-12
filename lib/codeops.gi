@@ -1243,7 +1243,7 @@ end);
 InstallMethod(InformationWord, "code, codeword", true, [IsCode, IsCodeword], 1, 
 function(C, c)
 	local m;
-	if not(c in C) then return "ERROR: codeword must belong to code"; fi; 
+	if not(c in C) then Error( "ERROR: codeword must belong to code" ); fi; 
 	if not(IsLinearCode(C)) then return "ERROR: code must be linear"; fi; 
 	m := SolutionMat(List(GeneratorMat(C),List), VectorCodeword(c));  
 	return Codeword(m);
