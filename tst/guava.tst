@@ -2,7 +2,7 @@ gap> START_TEST("Guava installation tests");
 ##
 ###################### GUAVA test file
 ##
-## Created 02-2006; last modified 5-22-2012 Joe Fields
+## Created 02-2006; last modified 1-11-2016 Joe Fields
 ##
 gap> Print(" AClosestVectorCombinationsMatFFEVecFFE\n");
  AClosestVectorCombinationsMatFFEVecFFE
