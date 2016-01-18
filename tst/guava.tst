@@ -2,7 +2,7 @@ gap> START_TEST("Guava installation tests");
 ##
 ###################### GUAVA test file
 ##
-## Created 02-2006; last modified 5-22-2012 Joe Fields
+## Created 02-2006; last modified 1-11-2016 Joe Fields
 ##
 gap> Print(" AClosestVectorCombinationsMatFFEVecFFE\n");
  AClosestVectorCombinationsMatFFEVecFFE
@@ -709,28 +709,24 @@ gap> Print(" Decoding with a Hamming code\n");
  Decoding with a Hamming code
 gap> ham:=HammingCode(3,GF(2));
 a linear [7,4,3]1 Hamming (3,2) code over GF(2)
-gap> c:=Random(ham);
-[ 0 0 0 1 1 1 1 ]
+gap> c:=Random(ham);;
 gap> c2:=Codeword("1000000");
 [ 1 0 0 0 0 0 0 ]
-gap> c2:= c+c2;
-[ 1 0 0 1 1 1 1 ]
-gap> Decode(ham,c);
-[ 0 1 1 1 ]
-gap> Decode(ham,c2);
-[ 0 1 1 1 ]
+gap> c2:= c+c2;;
+gap> d:=Decode(ham,c);;
+gap> d2:=Decode(ham,c2);;
+gap> d = d2;
+true
 gap> Print("\n"); 
 
 gap> Print(" Decoding with a BCH code\n");
  Decoding with a BCH code
 gap> bch:=BCHCode(15,7,3,GF(2));
 a cyclic [15,7,3..5]3..4 BCH code, delta=3, b=7 over GF(2)
-gap> c:=Random(bch);
-[ 0 0 0 1 0 1 0 1 0 0 0 1 1 1 1 ]
+gap> c:=Random(bch);;
 gap> c2:=Codeword("110000000000000");
 [ 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
-gap> c2:= c+c2;
-[ 1 1 0 1 0 1 0 1 0 0 0 1 1 1 1 ]
+gap> c2:= c+c2;;
 gap> Decode(bch,c);
 [ 0 0 0 1 1 0 1 ]
 gap> Decode(bch,c2);
@@ -783,22 +779,14 @@ gap> var2:=Concatenation(var1,[b]);
 [ x_1, x_2 ]
 gap> R2:=PolynomialRing(F,var2);
 GF(11)[x_1,x_2]
-gap> crvP1:=AffineCurve(b,R2);
-rec( polynomial := x_2, ring := GF(11)[x_1,x_2] )
+gap> crvP1:=AffineCurve(b,R2);;
 gap> D:=DivisorOnAffineCurve([1,1,1,4],
 >                         [Z(11)^2,Z(11)^3,Z(11)^7,Z(11)],
->                         crvP1);
-rec( coeffs := [ 1, 1, 1, 4 ], 
-  curve := rec( polynomial := x_2, ring := GF(11)[x_1,x_2] ), 
-  support := [ Z(11)^2, Z(11)^3, Z(11)^7, Z(11) ] )
-gap> div:=D;
-rec( coeffs := [ 1, 1, 1, 4 ], 
-  curve := rec( polynomial := x_2, ring := GF(11)[x_1,x_2] ), 
-  support := [ Z(11)^2, Z(11)^3, Z(11)^7, Z(11) ] )
-gap> agp:=DivisorAutomorphismGroupP1(D); ## slow
-<matrix group with 20 generators>
+>                         crvP1);;
+gap> agp:=DivisorAutomorphismGroupP1(div); ## slow
+<matrix group with 10 generators>
 gap> g:=Random(agp);
-[ [ Z(11)^8, 0*Z(11) ], [ 0*Z(11), Z(11)^8 ] ]
+[ [ Z(11)^2, 0*Z(11) ], [ 0*Z(11), Z(11)^2 ] ]
 gap> rho:=MatrixRepresentationOnRiemannRochSpaceP1(g,D);
 [ [ Z(11)^0, 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11) ],
   [ 0*Z(11), Z(11)^0, 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11) ],
@@ -929,14 +917,16 @@ gap> Print("\n");
 
 gap> Print(" RandomLinearCode\n");
  RandomLinearCode
-gap> C := RandomLinearCode( 15, 4, GF(3) ); 
-a  [15,4,?] randomly generated code over GF(3)
-gap> Display(C); 
-a linear [15,4,1..5]6..10 random linear code over GF(3)
-gap> C := RandomLinearCode( 35, 20, GF(3) ); 
-a  [35,20,?] randomly generated code over GF(3)
-gap> Display(C); 
-a linear [35,20,1..9]6..15 random linear code over GF(3)
+gap> C := RandomLinearCode( 15, 4, GF(3) );; 
+gap> WordLength(C); 
+15
+gap> Dimension(C); 
+4
+gap> C := RandomLinearCode( 35, 20, GF(3) );; 
+gap> WordLength(C); 
+35
+gap> Dimension(C); 
+20
 gap> Print("\n"); 
 
 gap> Print(" EvaluationBivariateCode\n");
@@ -1021,5 +1011,6 @@ gap> MinimumDistance(C2);
 56
 gap> MinimumDistance(C3);
 56
-gap> STOP_TEST( "new_guava.tst", 10000 );
+gap> STOP_TEST( "guava.tst", 10000 );
 Guava installation tests
+GAP4stones: 2

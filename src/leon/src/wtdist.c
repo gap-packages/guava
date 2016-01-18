@@ -483,14 +483,16 @@ char *buildOnesCount(void)
                     if ( j < 32 )  \
 			              vec[j+1] = ((cw1 >> j) & 1);  \
                     else if ( j < 64 )  \
-                       vec[j+1] = ((cw2 >> j-32) & 1);  \
+                       vec[j+1] = ((cw2 >> (j-32)) & 1);  \
                     else if ( j < 96 )  \
-                       vec[j+1] = ((cw3 >> j-64) & 1);  \
+                       vec[j+1] = ((cw3 >> (j-64)) & 1);  \
                     else if ( j < 128 )  \
-                       vec[j+1] = ((cw4 >> j-96) & 1);  \
+                       vec[j+1] = ((cw4 >> (j-96)) & 1);  \
                  if ( oneCodeWordOnly )  \
                     saveWeight = UNKNOWN;  \
               }
+
+/* Added parentheses around (e.g.) j-32 in previous code to eliminate a compiler warning */
 
 void binaryWeightDist(
    const Code *const C,

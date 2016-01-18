@@ -1243,7 +1243,7 @@ end);
 InstallMethod(InformationWord, "code, codeword", true, [IsCode, IsCodeword], 1, 
 function(C, c)
 	local m;
-	if not(c in C) then return "ERROR: codeword must belong to code"; fi; 
+	if not(c in C) then Error( "ERROR: codeword must belong to code" ); fi; 
 	if not(IsLinearCode(C)) then return "ERROR: code must be linear"; fi; 
 	m := SolutionMat(List(GeneratorMat(C),List), VectorCodeword(c));  
 	return Codeword(m);
@@ -2731,9 +2731,13 @@ function(C)
 		param := Concatenation(param, " --lower-bound ", String(C!.lowerBoundMinimumDistance));
 	fi;
 	if LeftActingDomain(C) = GF(2) then
-		if IsSelfOrthogonalCode(C) then
-			param := Concatenation(param, " --mod 4");
-		elif IsEvenCode(C) then 
+		if IsEvenCode(C) then
+                        if IsDoublyEvenCode(C) then
+			        param := Concatenation(param, " --mod 4");
+                        else
+			        param := Concatenation(param, " --mod 2");
+			fi;
+		else
 			param := Concatenation(param, " --mod 1");
 		fi;
 	elif LeftActingDomain(C) = GF(3) then
