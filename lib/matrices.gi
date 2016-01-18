@@ -21,7 +21,7 @@ function(n,q)
     if not IsPrimePowerInt(q) then 
 		Error("q must be a prime power int"); 
 	fi;
-	res := MutableNullMat(n+1,n+1);
+	res := NullMat(n+1,n+1);
     for k in [0..n] do
         res[1][k+1]:=1;
     od;
@@ -57,7 +57,7 @@ function(n, F)
 	elem := AsSSortedList(F);
 	q := Length(elem);
     M := q^n;
-    result := MutableNullMat(M,n);
+    result := NullMat(M,n);
     for column in [1..n] do
         goingup := true;
         row:=0;
@@ -173,7 +173,7 @@ InstallMethod(HadamardMat, "order", true, [IsInt], 0, function(n)
         Append(result,List(had,x->Concatenation(x,-x)));
         return result;
     elif IsPrimeInt(n-1) and (n mod 4)=0 then
-        result := List(MutableNullMat(n,n)+1, x->ShallowCopy(x));
+        result := List(NullMat(n,n)+1, x->ShallowCopy(x));
         for i in [2..n] do
             result[i][i]:=-1;  
             for j in [i+1..n] do
@@ -298,7 +298,7 @@ function(q, n)
         local res, els, q, i, j;
         q:=Length(M);
         els:=AsSSortedList(GF(q));
-        res := MutableNullMat(q,q)+1;
+        res := NullMat(q,q)+1;
         for i in [1..q] do
             for j in [1..q] do
                 while els[res[i][j]] <> M[i][j] do
@@ -312,7 +312,7 @@ function(q, n)
     Squares := function(q, n)
         local els, res, i, j, k;
         els:=AsSSortedList(GF(q));
-        res:=List([1..n], x-> MutableNullMat(q,q,GF(q)));
+        res:=List([1..n], x-> NullMat(q,q,GF(q)));
         for i in [1..q] do
             for j in [1..q] do
                 for k in [1..n] do
@@ -398,7 +398,7 @@ function(M, F)
         ConvTable[i] := VectorCodeword(Codeword(x^(i-1) mod temp, m+1));
     od;
 
-    res := MutableNullMat(r * m, n, Fq);
+    res := NullMat(r * m, n, Fq);
     for i in [1..r] do
         for j in [1..n] do
             if M[i][j] <> zero then

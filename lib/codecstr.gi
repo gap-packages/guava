@@ -573,7 +573,7 @@ function(m, w1, w2, check)
     
     w3 := w1 + w2;
             
-    checkmat := MutableNullMat( 5 * 2^(m-2) - 1, 2 * m - 1, GF( 2 ) );
+    checkmat := NullMat( 5 * 2^(m-2) - 1, 2 * m - 1, GF( 2 ) );
     
     size := 2^(m-2);
     
@@ -711,7 +711,7 @@ function(m, w1, w2, el)
     
     w3 := w1 + w2;
             
-    checkmat := MutableNullMat( 7 * 2^(m-2) - 2, 2 * m, GF( 2 ) );
+    checkmat := NullMat( 7 * 2^(m-2) - 2, 2 * m, GF( 2 ) );
     
     size := 2^(m-1);
     
@@ -784,7 +784,7 @@ function(r, v, i, j)
     # 0 < i < 2^v ??
     # 0 < j < 2^(r-v) ??
 
-    checkmat := MutableNullMat( 2^v + 2^(r-v) - 3, r, GF( 2 ) );
+    checkmat := NullMat( 2^v + 2^(r-v) - 3, r, GF( 2 ) );
     
     field1el := i;
     binel1 := BinaryRepresentation( field1el, v );
@@ -888,7 +888,7 @@ function ( arg )
     
     i := arg[ 2 ];
 
-    checkmat := MutableNullMat( 15 * 2^(m-3) - 3, 2*m, GF( 2 ) );
+    checkmat := NullMat( 15 * 2^(m-3) - 3, 2*m, GF( 2 ) );
     
     one := Z(2)^0;
            
@@ -942,7 +942,7 @@ function ( arg )
     od;
     
     # make sub-matrix Theta
-    theta := MutableNullMat( 4*size - 1, 2 * (m-3) + 2, GF( 2 ) );
+    theta := NullMat( 4*size - 1, 2 * (m-3) + 2, GF( 2 ) );
     
     for k in [ 1 .. size - 1 ] do
         for l in [ 1 .. m-3 ] do
@@ -1082,7 +1082,7 @@ function(m, i, beta, gamma, w1, w2, u)
         Error( "EnlargedTombakCode: <m> must be at least 6" );
     fi;
     
-    checkmat := MutableNullMat( 23 * 2^(m-4) - 3, 2 * m - 1, GF( 2 ) );
+    checkmat := NullMat( 23 * 2^(m-4) - 3, 2 * m - 1, GF( 2 ) );
     
     size := 2^(m-1);
     

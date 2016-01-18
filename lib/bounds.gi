@@ -521,7 +521,7 @@ function(arg)
                                spaces, prefix)], cons := false );
                 if kind = 1 and not GLOBAL_ALERT then
                     GUAVA_TEMP_VAR := [n, k];
-                    ReadPkg( "guava",  
+                    ReadPackage( "guava",  
                             Concatenation( "tbl/codes", String(q), ".g" ) );
                     if GUAVA_TEMP_VAR = false then
                         GLOBAL_ALERT := true;
@@ -673,7 +673,7 @@ function(arg)
     fi;
     # Check that right tables are present
     if not IsBound(GUAVA_REF_LIST) or Length(RecNames(GUAVA_REF_LIST))=0 then
-        ReadPkg( "guava", "tbl/refs.g" );
+        ReadPackage( "guava", "tbl/refs.g" );
     fi;
     res := rec(n := n,
                k := k,
@@ -694,7 +694,7 @@ function(arg)
         return res;
 #        Error("boundstable for q = ", q, " is not implemented.");
     else
-        ReadPkg( "guava", Concatenation( "tbl/bdtable", String(q), ".g" ) );
+        ReadPackage( "guava", Concatenation( "tbl/bdtable", String(q), ".g" ) );
     fi;
     if n > Length(GUAVA_BOUNDS_TABLE[1][q]) then
         # no error should be returned here, otherwise Upper and

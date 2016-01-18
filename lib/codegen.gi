@@ -1039,7 +1039,7 @@ function(r, Y, els, F)
         Error("<Y> and <alpha> have inequal length or <alpha> is not distinct");
     fi;
     q := Characteristic(F);
-    temp := MutableNullMat(n, n, F);
+    temp := NullMat(n, n, F);
     for i in [1..n] do
         temp[i][i] := Y[i];
     od;
