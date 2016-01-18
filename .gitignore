@@ -5,14 +5,14 @@ doc/*.pdf
 *.sav
 src/leon/*.o
 src/ctjhai/*.o
+*.*~
+bin/**/desauto
 
-bin/x86_64-apple-darwin15.2.0-gcc-default64/desauto
+bin/**/leonconv
 
-bin/x86_64-apple-darwin15.2.0-gcc-default64/leonconv
+bin/**/minimum-weight
 
-bin/x86_64-apple-darwin15.2.0-gcc-default64/minimum-weight
-
-bin/x86_64-apple-darwin15.2.0-gcc-default64/wtdist
+bin/**/wtdist
 
 Makefile-default64
 
@@ -20,10 +20,44 @@ src/ctjhai/minimum-weight
 
 *.o
 
-src/leon/autom4te.cache/*
+src/leon/autom4te.cache/
 
 *.log
 
 *.status
 
 *.swp
+
+src/leon/cent
+
+src/leon/cjrndper
+
+src/leon/commut
+
+src/leon/compgrp
+
+src/leon/compile
+
+src/leon/desauto
+
+src/leon/fndelt
+
+src/leon/generate
+
+src/leon/inter
+
+src/leon/orbdes
+
+src/leon/orblist
+
+src/leon/randobj
+
+src/leon/setstab
+
+src/leon/wtdist
+
+src/leonconv
+
+*.log
+
+src/leon/autom4te.cache/requests
