@@ -6,6 +6,7 @@ doc/*.pdf
 src/leon/*.o
 src/ctjhai/*.o
 *.*~
+bin/
 bin/**/desauto
 
 bin/**/leonconv
