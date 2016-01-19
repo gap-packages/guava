@@ -7,7 +7,7 @@ entries :=
   [ "Copyright", ".-1", [ 0, 0, 1 ], 48, 2, "copyright", "X81488B807F2A1CF1" ]
     , [ "Acknowledgements", ".-2", [ 0, 0, 2 ], 92, 2, "acknowledgements", 
       "X82A988D47DFAFCFA" ], 
-  [ "Table of Contents", ".-3", [ 0, 0, 3 ], 135, 4, "table of contents", 
+  [ "Table of Contents", ".-3", [ 0, 0, 3 ], 134, 4, "table of contents", 
       "X8537FEB07AF2BEC8" ], 
   [ "\033[1X\033[33X\033[0;-2YIntroduction\033[133X\033[101X", "1", 
       [ 1, 0, 0 ], 1, 6, "introduction", "X7DFB63A97E67C0A1" ], 

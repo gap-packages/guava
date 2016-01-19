@@ -118,9 +118,8 @@
   [33X[0;0YPlease  send  bug  reports,  suggestions  and  other comments about [5XGUAVA[105X to
   [7Xmailto:support@gap-system.org[107X.  Currently  known  bugs  and  suggested [5XGUAVA[105X
   projects    are    listed    on    the    bugs   and   projects   web   page
-  [7Xhttp://www.southernct.edu/~fields/Guava/guava2do.html[107X.  Older  releases  and
-  further    history    can    be    found    on    the    [5XGUAVA[105X    web   page
-  [7Xhttp://osj1961.github.io/guava/[107X.[133X
+  [7Xhttp://osj1961.github.io/guava/guava2do.html[107X.  Older  releases  and  further
+  history can be found on the [5XGUAVA[105X web page [7Xhttp://osj1961.github.io/guava/[107X.[133X
   
   [33X[0;0Y[13XContributors[113X: Other than the authors listed on the title page, the following
   people  have  contributed code to the [5XGUAVA[105X project: Alexander Hulpke, Steve
