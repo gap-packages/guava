@@ -1,0 +1,140 @@
+\newcommand{\etalchar}[1]{$^{#1}$}
+\begin{thebibliography}{HHKK07}
+
+\bibitem[All84]{Alltop84}
+W.~O. Alltop.
+\newblock A method for extending binary linear codes.
+\newblock {\em IEEE Trans. Inform. Theory}, 30:871{\textendash}872, 1984.
+
+\bibitem[BMed]{BM03}
+L.~Bazzi and S.~K. Mitter.
+\newblock Some constructions of codes from group actions.
+\newblock {\em preprint}, March 2003 (submitted).
+
+\bibitem[Bro98]{Brouwer98}
+A.~E. Brouwer.
+\newblock Bounds on the size of linear codes.
+\newblock In V.~S. Pless and W.~C. Huffman, editors, {\em Handbook of Coding
+  Theory}, page 295{\textendash}461. \texttt{\symbol{123}}Elsevier, North
+  Holland\texttt{\symbol{125}}, 1998.
+
+\bibitem[Bro06]{Br}
+A.~E. Brouwer.
+\newblock Bounds on the minimum distance of linear codes.
+\newblock
+  \texttt{\symbol{92}}href\texttt{\symbol{123}}http://www.win.tue.nl/\texttt{\symbol{126}}aeb/voorlincod.html\texttt{\symbol{125}}\texttt{\symbol{123}}http://www.win.tue.nl/\texttt{\symbol{126}}aeb/voorlincod.html\texttt{\symbol{125}},
+  1997-2006.
+
+\bibitem[Che69]{Chen69}
+C.~L. Chen.
+\newblock {\em Some Results on Algebraically Structured Error-Correcting
+  Codes}.
+\newblock Ph.\texttt{\symbol{123}}d\texttt{\symbol{125}} dissertation,
+  \texttt{\symbol{123}}University of Hawaii\texttt{\symbol{125}}, USA, 1969.
+
+\bibitem[Gal62]{Gallager.1962}
+R.~Gallager.
+\newblock Low-density parity-check codes.
+\newblock {\em IRE Trans. Inform. Theory}, IT-8:21{\textendash}28, Jan 1962.
+
+\bibitem[Gao03]{Gao03}
+S.~Gao.
+\newblock A new algorithm for decoding reed-solomon codes.
+\newblock {\em Communications, Information and Network Security (V. Bhargava,
+  H. V. Poor, V. Tarokh and S. Yoon, Eds.)}, page 55{\textendash}68, 2003.
+
+\bibitem[GDT91]{GDT91}
+E.~Gabidulin, A.~Davydov, and L.~Tombak.
+\newblock Linear codes with covering radius 2 and other new covering codes.
+\newblock {\em IEEE Trans. Inform. Theory}, 37(1):219{\textendash}224, 1991.
+
+\bibitem[GS85]{GS85}
+R.~Graham and N.~Sloane.
+\newblock On the covering radius of codes.
+\newblock {\em IEEE Trans. Inform. Theory}, 31(1):385{\textendash}401, 1985.
+
+\bibitem[Han99]{Han99}
+J.~P. Hansen.
+\newblock Toric surfaces and error-correcting codes.
+\newblock {\em Coding theory, cryptography, and related areas (ed., Bachmann et
+  al)}, 1999.
+
+\bibitem[Hel72]{He72}
+H.~J. Helgert.
+\newblock Srivastava codes.
+\newblock {\em IEEE Trans. Inform. Theory}, 18:292{\textendash}297, March 1972.
+
+\bibitem[HHKK07]{HHKK07}
+M.~Harada, W.~Holzmann, H.~Kharaghani, and M.~Khorvash.
+\newblock Extremal ternary self-dual codes constructed from negacirculant
+  matrices.
+\newblock {\em Graphs and Combinatorics}, 23(4):401{\textendash}417, 2007.
+
+\bibitem[HP03]{HP03}
+W.~C. Huffman and V.~Pless.
+\newblock {\em Fundamentals of error-correcting codes}.
+\newblock Cambridge Univ. Press, 2003.
+
+\bibitem[JH04]{JH04}
+J.~Justesen and T.~Hoholdt.
+\newblock {\em A course in error-correcting codes}.
+\newblock European Mathematical Society, 2004.
+
+\bibitem[Joy04]{Jo04}
+D.~Joyner.
+\newblock Toric codes over finite fields.
+\newblock {\em Applicable Algebra in Engineering, Communication and Computing},
+  15:63{\textendash}79, 2004.
+
+\bibitem[Leo82]{Leon82}
+J.~S. Leon.
+\newblock Computing automorphism groups of error-correcting codes.
+\newblock {\em IEEE Trans. Inform. Theory}, 28:496{\textendash}511, May 1982.
+
+\bibitem[Leo88]{Leon88}
+J.~S. Leon.
+\newblock A probabilistic algorithm for computing minimum weights of large
+  error-correcting codes.
+\newblock {\em IEEE Trans. Inform. Theory}, 34:1354{\textendash}1359, September
+  1988.
+
+\bibitem[Leo91]{Leon91}
+J.~S. Leon.
+\newblock Permutation group algorithms based on partitions, {I}: theory and
+  algorithms.
+\newblock {\em J. Symbolic Comput.}, 12:533{\textendash}583, 1991.
+
+\bibitem[MS83]{MS83}
+F.~J. MacWilliams and N.~J.~A. Sloane.
+\newblock {\em The theory of error-correcting codes}.
+\newblock Amsterdam: North-Holland, 1983.
+
+\bibitem[SRC72]{Sloane72}
+N.~Sloane, S.~Reddy, and C.~Chen.
+\newblock New binary codes.
+\newblock {\em IEEE Trans. Inform. Theory}, 18:503{\textendash}510, Jul 1972.
+
+\bibitem[Sti93]{St93}
+H.~Stichtenoth.
+\newblock {\em Algebraic function fields and codes}.
+\newblock Springer-Verlag, 1993.
+
+\bibitem[TSS{\etalchar{+}}04]{TSSFC04}
+R.~Tanner, D.~Sridhara, A.~Sridharan, T.~Fuja, and D.~Costello~Jr.
+\newblock {LDPC} block and convolutional codes based on circulant matrices.
+\newblock {\em IEEE Trans. Inform. Theory}, 50(12):2966{\textendash}2984, Dec
+  2004.
+
+\bibitem[vzGG03]{GG03}
+J.~von~zur Gathen and J.~Gerhard.
+\newblock {\em Modern computer algebra}.
+\newblock Cambridge Univ. Press, 2003.
+
+\bibitem[Zim96]{Zimmermann96}
+K.~H. Zimmermann.
+\newblock Integral hecke modules, integral generalized {Reed-Muller} codes, and
+  linear codes.
+\newblock Technical Report 3{\textendash}96, Technische Universit{\"a}t
+  Hamburg-Harburg, Hamburg, Germany, 1996.
+
+\end{thebibliography}

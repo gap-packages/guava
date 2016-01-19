@@ -1,0 +1,2508 @@
+  
+  [1X5 [33X[0;0YGenerating Codes[133X[101X
+  
+  [33X[0;0YIn this chapter we describe functions for generating codes.[133X
+  
+  [33X[0;0YSection [14X5.1[114X describes functions for generating unrestricted codes.[133X
+  
+  [33X[0;0YSection [14X5.2[114X describes functions for generating linear codes.[133X
+  
+  [33X[0;0YSection  [14X5.3[114X  describes  functions  for constructing certain covering codes,
+  such as the Gabidulin codes.[133X
+  
+  [33X[0;0YSection [14X5.4[114X describes functions for constructing the Golay codes.[133X
+  
+  [33X[0;0YSection [14X5.5[114X describes functions for generating cyclic codes.[133X
+  
+  [33X[0;0YSection  [14X5.6[114X  describes  functions  for  generating codes as the image of an
+  evaluation  map  applied  to  a space of functions. For example, generalized
+  Reed-Solomon codes and toric codes are described there.[133X
+  
+  [33X[0;0YSection [14X5.7[114X describes functions for generating algebraic geometry codes.[133X
+  
+  [33X[0;0YSection  [14X5.8[114X  describes  functions for constructing low-density parity-check
+  (LDPC) codes.[133X
+  
+  
+  [1X5.1 [33X[0;0YGenerating Unrestricted Codes[133X[101X
+  
+  [33X[0;0YIn this section we start with functions that creating code from user defined
+  matrices   or  special  matrices  (see  [2XElementsCode[102X  ([14X5.1-1[114X),  [2XHadamardCode[102X
+  ([14X5.1-2[114X),  [2XConferenceCode[102X  ([14X5.1-3[114X)  and  [2XMOLSCode[102X  ([14X5.1-4[114X)).  These codes are
+  unrestricted codes; they may later be discovered to be linear or cyclic.[133X
+  
+  [33X[0;0YThe  next  functions  generate random codes (see [2XRandomCode[102X ([14X5.1-5[114X)) and the
+  Nordstrom-Robinson code (see [2XNordstromRobinsonCode[102X ([14X5.1-6[114X)), respectively.[133X
+  
+  [33X[0;0YFinally,  we  describe  two functions for generating Greedy codes. These are
+  codes  that  contructed  by gathering codewords from a space (see [2XGreedyCode[102X
+  ([14X5.1-7[114X) and [2XLexiCode[102X ([14X5.1-8[114X)).[133X
+  
+  [1X5.1-1 ElementsCode[101X
+  
+  [29X[2XElementsCode[102X( [3XL[103X[, [3Xname[103X], [3XF[103X ) [32X function
+  
+  [33X[0;0Y[10XElementsCode[110X  creates an unrestricted code of the list of elements [3XL[103X, in the
+  field  [3XF[103X.  [3XL[103X  must  be a list of vectors, strings, polynomials or codewords.
+  [3Xname[103X can contain a short description of the code.[133X
+  
+  [33X[0;0YIf  [3XL[103X  contains a codeword more than once, it is removed from the list and a
+  GAP set is returned.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XM := Z(3)^0 * [ [1, 0, 1, 1], [2, 2, 0, 0], [0, 1, 2, 2] ];;[127X[104X
+    [4X[25Xgap>[125X [27XC := ElementsCode( M, "example code", GF(3) );[127X[104X
+    [4X[28Xa (4,3,1..4)2 example code over GF(3)[128X[104X
+    [4X[25Xgap>[125X [27XMinimumDistance( C );[127X[104X
+    [4X[28X4[128X[104X
+    [4X[25Xgap>[125X [27XAsSSortedList( C );[127X[104X
+    [4X[28X[ [ 0 1 2 2 ], [ 1 0 1 1 ], [ 2 2 0 0 ] ][128X[104X
+  [4X[32X[104X
+  
+  [1X5.1-2 HadamardCode[101X
+  
+  [29X[2XHadamardCode[102X( [3XH[103X[, [3Xt[103X] ) [32X function
+  
+  [33X[0;0YThe four forms this command can take are [10XHadamardCode(H,t)[110X, [10XHadamardCode(H)[110X,
+  [10XHadamardCode(n,t)[110X, and [10XHadamardCode(n)[110X.[133X
+  
+  [33X[0;0YIn  the case when the arguments [3XH[103X and [3Xt[103X are both given, [10XHadamardCode[110X returns
+  a  Hadamard  code of the [22Xt^th[122X kind from the Hadamard matrix [3XH[103X In case only [3XH[103X
+  is given, [22Xt = 3[122X is used.[133X
+  
+  [33X[0;0YBy definition, a Hadamard matrix is a square matrix [3XH[103X with [22XH⋅ H^T = -n⋅ I_n[122X,
+  where [22Xn[122X is the size of [3XH[103X. The entries of [3XH[103X are either 1 or -1.[133X
+  
+  [33X[0;0YThe  matrix [3XH[103X is first transformed into a binary matrix [22XA_n[122X by replacing the
+  [22X1[122X's by [22X0[122X's and the [22X-1[122X's by [22X1[122Xs).[133X
+  
+  [33X[0;0YThe  Hadamard matrix of the [13Xfirst kind[113X ([22Xt=1[122X) is created by using the rows of
+  [22XA_n[122X  as  elements,  after deleting the first column. This is a [22X(n-1, n, n/2)[122X
+  code.  We  use  this  code for creating the Hadamard code of the [13Xsecond kind[113X
+  ([22Xt=2[122X), by adding all the complements of the already existing codewords. This
+  results  in  a  [22X(n-1,  2n,  n/2 -1)[122X code. The [13Xthird kind[113X ([22Xt=3[122X) is created by
+  using  the  rows  of [22XA_n[122X (without cutting a column) and their complements as
+  elements.  This  way,  we  have  an  [22X(n, 2n, n/2)[122X-code. The returned code is
+  generally an unrestricted code, but for [22Xn = 2^r[122X, the code is linear.[133X
+  
+  [33X[0;0YThe  command  [10XHadamardCode(n,t)[110X  returns a Hadamard code with parameter [3Xn[103X of
+  the [22Xt^th[122X kind. For the command [10XHadamardCode(n)[110X, [22Xt=3[122X is used.[133X
+  
+  [33X[0;0YWhen  called  in  these  forms, [10XHadamardCode[110X first creates a Hadamard matrix
+  (see  [2XHadamardMat[102X ([14X7.3-4[114X)), of size [3Xn[103X and then follows the same procedure as
+  described  above.  Therefore  the same restrictions with respect to [3Xn[103X as for
+  Hadamard matrices hold.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XH4 := [[1,1,1,1],[1,-1,1,-1],[1,1,-1,-1],[1,-1,-1,1]];;[127X[104X
+    [4X[25Xgap>[125X [27XHadamardCode( H4, 1 );[127X[104X
+    [4X[28Xa (3,4,2)1 Hadamard code of order 4 over GF(2)[128X[104X
+    [4X[25Xgap>[125X [27XHadamardCode( H4, 2 );[127X[104X
+    [4X[28Xa (3,8,1)0 Hadamard code of order 4 over GF(2)[128X[104X
+    [4X[25Xgap>[125X [27XHadamardCode( H4 );[127X[104X
+    [4X[28Xa (4,8,2)1 Hadamard code of order 4 over GF(2) [128X[104X
+    [4X[25Xgap>[125X [27XH4 := [[1,1,1,1],[1,-1,1,-1],[1,1,-1,-1],[1,-1,-1,1]];;[127X[104X
+    [4X[25Xgap>[125X [27XC := HadamardCode( 4 );[127X[104X
+    [4X[28Xa (4,8,2)1 Hadamard code of order 4 over GF(2)[128X[104X
+    [4X[25Xgap>[125X [27XC = HadamardCode( H4 );[127X[104X
+    [4X[28Xtrue [128X[104X
+  [4X[32X[104X
+  
+  [1X5.1-3 ConferenceCode[101X
+  
+  [29X[2XConferenceCode[102X( [3XH[103X ) [32X function
+  
+  [33X[0;0Y[10XConferenceCode[110X  returns  a  code  of length [22Xn-1[122X constructed from a symmetric
+  'conference  matrix' [3XH[103X. A [13Xconference matrix[113X [3XH[103X is a symmetric matrix of order
+  [22Xn[122X,  which  satisfies  [22XH⋅  H^T  =  ((n-1)⋅  I[122X,  with [22Xn ≡ 2 mod 4[122X. The rows of
+  [22Xfrac12(H+I+J)[122X,  [22Xfrac12(-H+I+J)[122X,  plus the zero and all-ones vectors form the
+  elements of a binary non-linear [22X(n-1, 2n, (n-2)/2)[122X code.[133X
+  
+  [33X[0;0Y[5XGUAVA[105X constructs a symmetric conference matrix of order [22Xn+1[122X ([22Xn≡ 1 mod 4[122X) and
+  uses  the  rows  of  that  matrix,  plus  the  zero and all-ones vectors, to
+  construct a binary non-linear [22X(n, 2(n+1), (n-1)/2)[122X-code.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XH6 := [[0,1,1,1,1,1],[1,0,1,-1,-1,1],[1,1,0,1,-1,-1],[127X[104X
+    [4X[25X>[125X [27X[1,-1,1,0,1,-1],[1,-1,-1,1,0,1],[1,1,-1,-1,1,0]];;[127X[104X
+    [4X[25Xgap>[125X [27XC1 := ConferenceCode( H6 );[127X[104X
+    [4X[28Xa (5,12,2)1..4 conference code over GF(2)[128X[104X
+    [4X[25Xgap>[125X [27XIsLinearCode( C1 );[127X[104X
+    [4X[28Xfalse [128X[104X
+    [4X[25Xgap>[125X [27XC2 := ConferenceCode( 5 );[127X[104X
+    [4X[28Xa (5,12,2)1..4 conference code over GF(2)[128X[104X
+    [4X[25Xgap>[125X [27XAsSSortedList( C2 );[127X[104X
+    [4X[28X[ [ 0 0 0 0 0 ], [ 0 0 1 1 1 ], [ 0 1 0 1 1 ], [ 0 1 1 0 1 ], [ 0 1 1 1 0 ], [128X[104X
+    [4X[28X  [ 1 0 0 1 1 ], [ 1 0 1 0 1 ], [ 1 0 1 1 0 ], [ 1 1 0 0 1 ], [ 1 1 0 1 0 ], [128X[104X
+    [4X[28X  [ 1 1 1 0 0 ], [ 1 1 1 1 1 ] ][128X[104X
+  [4X[32X[104X
+  
+  [1X5.1-4 MOLSCode[101X
+  
+  [29X[2XMOLSCode[102X( [[3Xn[103X, ][3Xq[103X ) [32X function
+  
+  [33X[0;0Y[10XMOLSCode[110X  returns an [22X(n, q^2, n-1)[122X code over [22XGF(q)[122X. The code is created from
+  [22Xn-2[122X  'Mutually  Orthogonal  Latin Squares' (MOLS) of size [22Xq × q[122X. The default
+  for  [3Xn[103X  is  [22X4[122X. [5XGUAVA[105X can construct a MOLS code for [22Xn-2 ≤ q[122X. Here [3Xq[103X must be a
+  prime power, [22Xq > 2[122X. If there are no [22Xn-2[122X MOLS, an error is signalled.[133X
+  
+  [33X[0;0YSince  each  of  the [22Xn-2[122X MOLS is a [22Xq× q[122X matrix, we can create a code of size
+  [22Xq^2[122X  by  listing  in  each  code  element  the  entries that are in the same
+  position  in  each  of the MOLS. We precede each of these lists with the two
+  coordinates that specify this position, making the word length become [22Xn[122X.[133X
+  
+  [33X[0;0YThe MOLS codes are MDS codes (see [2XIsMDSCode[102X ([14X4.3-7[114X)).[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XC1 := MOLSCode( 6, 5 );[127X[104X
+    [4X[28Xa (6,25,5)3..4 code generated by 4 MOLS of order 5 over GF(5)[128X[104X
+    [4X[25Xgap>[125X [27Xmols := List( [1 .. WordLength(C1) - 2 ], function( nr )[127X[104X
+    [4X[25X>[125X [27X      local ls, el;[127X[104X
+    [4X[25X>[125X [27X      ls := NullMat( Size(LeftActingDomain(C1)), Size(LeftActingDomain(C1)) );[127X[104X
+    [4X[25X>[125X [27X      for el in VectorCodeword( AsSSortedList( C1 ) ) do[127X[104X
+    [4X[25X>[125X [27X         ls[IntFFE(el[1])+1][IntFFE(el[2])+1] := el[nr + 2];[127X[104X
+    [4X[25X>[125X [27X      od;[127X[104X
+    [4X[25X>[125X [27X      return ls;[127X[104X
+    [4X[25X>[125X [27X   end );;[127X[104X
+    [4X[25Xgap>[125X [27XAreMOLS( mols );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XC2 := MOLSCode( 11 );[127X[104X
+    [4X[28Xa (4,121,3)2 code generated by 2 MOLS of order 11 over GF(11) [128X[104X
+  [4X[32X[104X
+  
+  [1X5.1-5 RandomCode[101X
+  
+  [29X[2XRandomCode[102X( [3Xn[103X, [3XM[103X, [3XF[103X ) [32X function
+  
+  [33X[0;0Y[10XRandomCode[110X  returns  a random unrestricted code of size [3XM[103X with word length [3Xn[103X
+  over  [3XF[103X. [3XM[103X must be less than or equal to the number of elements in the space
+  [22XGF(q)^n[122X.[133X
+  
+  [33X[0;0YThe   function   [10XRandomLinearCode[110X   returns   a   random  linear  code  (see
+  [2XRandomLinearCode[102X ([14X5.2-12[114X)).[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XC1 := RandomCode( 6, 10, GF(8) );[127X[104X
+    [4X[28Xa (6,10,1..6)4..6 random unrestricted code over GF(8)[128X[104X
+    [4X[25Xgap>[125X [27XMinimumDistance(C1);[127X[104X
+    [4X[28X3[128X[104X
+    [4X[25Xgap>[125X [27XC2 := RandomCode( 6, 10, GF(8) );[127X[104X
+    [4X[28Xa (6,10,1..6)4..6 random unrestricted code over GF(8)[128X[104X
+    [4X[25Xgap>[125X [27XC1 = C2;[127X[104X
+    [4X[28Xfalse [128X[104X
+  [4X[32X[104X
+  
+  [1X5.1-6 NordstromRobinsonCode[101X
+  
+  [29X[2XNordstromRobinsonCode[102X(  ) [32X function
+  
+  [33X[0;0Y[10XNordstromRobinsonCode[110X  returns a Nordstrom-Robinson code, the best code with
+  word  length  [22Xn=16[122X and minimum distance [22Xd=6[122X over [22XGF(2)[122X. This is a non-linear
+  [22X(16, 256, 6)[122X code.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XC := NordstromRobinsonCode();[127X[104X
+    [4X[28Xa (16,256,6)4 Nordstrom-Robinson code over GF(2)[128X[104X
+    [4X[25Xgap>[125X [27XOptimalityCode( C );[127X[104X
+    [4X[28X0 [128X[104X
+  [4X[32X[104X
+  
+  [1X5.1-7 GreedyCode[101X
+  
+  [29X[2XGreedyCode[102X( [3XL[103X, [3Xd[103X, [3XF[103X ) [32X function
+  
+  [33X[0;0Y[10XGreedyCode[110X  returns  a  Greedy  code  with design distance [3Xd[103X over the finite
+  field  [3XF[103X.  The code is constructed using the greedy algorithm on the list of
+  vectors  [3XL[103X. (The greedy algorithm checks each vector in [3XL[103X and adds it to the
+  code  if  its distance to the current code is greater than or equal to [3Xd[103X. It
+  is obvious that the resulting code has a minimum distance of at least [3Xd[103X.[133X
+  
+  [33X[0;0YGreedy codes are often linear codes.[133X
+  
+  [33X[0;0YThe  function  [10XLexiCode[110X  creates  a  greedy  code from a basis instead of an
+  enumerated list (see [2XLexiCode[102X ([14X5.1-8[114X)).[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XC1 := GreedyCode( Tuples( AsSSortedList( GF(2) ), 5 ), 3, GF(2) );[127X[104X
+    [4X[28Xa (5,4,3..5)2 Greedy code, user defined basis over GF(2)[128X[104X
+    [4X[25Xgap>[125X [27XC2 := GreedyCode( Permuted( Tuples( AsSSortedList( GF(2) ), 5 ),[127X[104X
+    [4X[25X>[125X [27X                        (1,4) ), 3, GF(2) );[127X[104X
+    [4X[28Xa (5,4,3..5)2 Greedy code, user defined basis over GF(2)[128X[104X
+    [4X[25Xgap>[125X [27XC1 = C2;[127X[104X
+    [4X[28Xfalse [128X[104X
+  [4X[32X[104X
+  
+  [1X5.1-8 LexiCode[101X
+  
+  [29X[2XLexiCode[102X( [3Xn[103X, [3Xd[103X, [3XF[103X ) [32X function
+  
+  [33X[0;0YIn  this  format,  [10XLexicode[110X  returns  a  lexicode with word length [3Xn[103X, design
+  distance [3Xd[103X over [3XF[103X. The code is constructed using the greedy algorithm on the
+  lexicographically ordered list of all vectors of length [3Xn[103X over [3XF[103X. Every time
+  a  vector is found that has a distance to the current code of at least [3Xd[103X, it
+  is  added  to  the  code.  This  results,  obviously, in a code with minimum
+  distance greater than or equal to [3Xd[103X.[133X
+  
+  [33X[0;0YAnother syntax which one can use is [10XLexiCode( B, d, F )[110X. When called in this
+  format,  [10XLexiCode[110X  uses  the  basis  [3XB[103X instead of the standard basis. [3XB[103X is a
+  matrix of vectors over [3XF[103X. The code is constructed using the greedy algorithm
+  on  the list of vectors spanned by [3XB[103X, ordered lexicographically with respect
+  to [3XB[103X.[133X
+  
+  [33X[0;0YNote that binary lexicodes are always linear.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XC := LexiCode( 4, 3, GF(5) );[127X[104X
+    [4X[28Xa (4,17,3..4)2..4 lexicode over GF(5) [128X[104X
+    [4X[25Xgap>[125X [27XB := [ [Z(2)^0, 0*Z(2), 0*Z(2)], [Z(2)^0, Z(2)^0, 0*Z(2)] ];;[127X[104X
+    [4X[25Xgap>[125X [27XC := LexiCode( B, 2, GF(2) );[127X[104X
+    [4X[28Xa linear [3,1,2]1..2 lexicode over GF(2) [128X[104X
+  [4X[32X[104X
+  
+  [33X[0;0YThe  function  [10XGreedyCode[110X  creates a greedy code that is not restricted to a
+  lexicographical order (see [2XGreedyCode[102X ([14X5.1-7[114X)).[133X
+  
+  
+  [1X5.2 [33X[0;0YGenerating Linear Codes[133X[101X
+  
+  [33X[0;0YIn  this  section  we  describe  functions  for constructing linear codes. A
+  linear code always has a generator or check matrix.[133X
+  
+  [33X[0;0YThe  first  two  functions  generate  linear codes from the generator matrix
+  ([2XGeneratorMatCode[102X  ([14X5.2-1[114X))  or  check  matrix  ([2XCheckMatCode[102X  ([14X5.2-3[114X)). All
+  linear codes can be constructed with these functions.[133X
+  
+  [33X[0;0YThe  next functions we describe generate some well-known codes, like Hamming
+  codes  ([2XHammingCode[102X ([14X5.2-4[114X)), Reed-Muller codes ([2XReedMullerCode[102X ([14X5.2-5[114X)) and
+  the    extended    Golay    codes   ([2XExtendedBinaryGolayCode[102X   ([14X5.4-2[114X)   and
+  [2XExtendedTernaryGolayCode[102X ([14X5.4-4[114X)).[133X
+  
+  [33X[0;0YA  large and powerful family of codes are alternant codes. They are obtained
+  by  a  small  modification  of  the  parity  check matrix of a BCH code (see
+  [2XAlternantCode[102X  ([14X5.2-6[114X), [2XGoppaCode[102X ([14X5.2-7[114X), [2XGeneralizedSrivastavaCode[102X ([14X5.2-8[114X)
+  and [2XSrivastavaCode[102X ([14X5.2-9[114X)).[133X
+  
+  [33X[0;0YFinally,  we  describe  a  function  for generating random linear codes (see
+  [2XRandomLinearCode[102X ([14X5.2-12[114X)).[133X
+  
+  [1X5.2-1 GeneratorMatCode[101X
+  
+  [29X[2XGeneratorMatCode[102X( [3XG[103X[, [3Xname[103X], [3XF[103X ) [32X function
+  
+  [33X[0;0Y[10XGeneratorMatCode[110X  returns a linear code with generator matrix [3XG[103X. [3XG[103X must be a
+  matrix  over  finite  field  [3XF[103X.  [3Xname[103X can contain a short description of the
+  code.  The  generator  matrix  is the basis of the elements of the code. The
+  resulting  code  has  word  length [22Xn[122X, dimension [22Xk[122X if [3XG[103X is a [22Xk × n[122X-matrix. If
+  [22XGF(q)[122X is the field of the code, the size of the code will be [22Xq^k[122X.[133X
+  
+  [33X[0;0YIf  the generator matrix does not have full row rank, the linearly dependent
+  rows are removed. This is done by the GAP function [10XBaseMat[110X and results in an
+  equal  code.  The  generator  matrix  can  be  retrieved  with  the function
+  [10XGeneratorMat[110X (see [2XGeneratorMat[102X ([14X4.7-1[114X)).[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XG := Z(3)^0 * [[1,0,1,2,0],[0,1,2,1,1],[0,0,1,2,1]];;[127X[104X
+    [4X[25Xgap>[125X [27XC1 := GeneratorMatCode( G, GF(3) );[127X[104X
+    [4X[28Xa linear [5,3,1..2]1..2 code defined by generator matrix over GF(3)[128X[104X
+    [4X[25Xgap>[125X [27XC2 := GeneratorMatCode( IdentityMat( 5, GF(2) ), GF(2) );[127X[104X
+    [4X[28Xa linear [5,5,1]0 code defined by generator matrix over GF(2)[128X[104X
+    [4X[25Xgap>[125X [27XGeneratorMatCode( List( AsSSortedList( NordstromRobinsonCode() ),[127X[104X
+    [4X[25X>[125X [27Xx -> VectorCodeword( x ) ), GF( 2 ) );[127X[104X
+    [4X[28Xa linear [16,11,1..4]2 code defined by generator matrix over GF(2)[128X[104X
+    [4X[28X# This is the smallest linear code that contains the N-R code [128X[104X
+  [4X[32X[104X
+  
+  [1X5.2-2 CheckMatCodeMutable[101X
+  
+  [29X[2XCheckMatCodeMutable[102X( [3XH[103X[, [3Xname[103X], [3XF[103X ) [32X function
+  
+  [33X[0;0Y[10XCheckMatCodeMutable[110X is the same as [10XCheckMatCode[110X except that the check matrix
+  and generator matrix are mutable.[133X
+  
+  [1X5.2-3 CheckMatCode[101X
+  
+  [29X[2XCheckMatCode[102X( [3XH[103X[, [3Xname[103X], [3XF[103X ) [32X function
+  
+  [33X[0;0Y[10XCheckMatCode[110X  returns  a linear code with check matrix [3XH[103X. [3XH[103X must be a matrix
+  over Galois field [3XF[103X. [3X[name.[103X can contain a short description of the code. The
+  parity  check  matrix  is  the transposed of the nullmatrix of the generator
+  matrix of the code. Therefore, [22Xc⋅ H^T = 0[122X where [22Xc[122X is an element of the code.
+  If  [3XH[103X  is  a  [22Xr×  n[122X-matrix,  the  code  has  word length [22Xn[122X, redundancy [22Xr[122X and
+  dimension [22Xn-r[122X.[133X
+  
+  [33X[0;0YIf the check matrix does not have full row rank, the linearly dependent rows
+  are  removed.  This  is  done by the GAP function [10XBaseMat[110X. and results in an
+  equal  code.  The  check  matrix can be retrieved with the function [10XCheckMat[110X
+  (see [2XCheckMat[102X ([14X4.7-2[114X)).[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XG := Z(3)^0 * [[1,0,1,2,0],[0,1,2,1,1],[0,0,1,2,1]];;[127X[104X
+    [4X[25Xgap>[125X [27XC1 := CheckMatCode( G, GF(3) );[127X[104X
+    [4X[28Xa linear [5,2,1..2]2..3 code defined by check matrix over GF(3)[128X[104X
+    [4X[25Xgap>[125X [27XCheckMat(C1);[127X[104X
+    [4X[28X[ [ Z(3)^0, 0*Z(3), Z(3)^0, Z(3), 0*Z(3) ],[128X[104X
+    [4X[28X  [ 0*Z(3), Z(3)^0, Z(3), Z(3)^0, Z(3)^0 ],[128X[104X
+    [4X[28X  [ 0*Z(3), 0*Z(3), Z(3)^0, Z(3), Z(3)^0 ] ][128X[104X
+    [4X[25Xgap>[125X [27XC2 := CheckMatCode( IdentityMat( 5, GF(2) ), GF(2) );[127X[104X
+    [4X[28Xa cyclic [5,0,5]5 code defined by check matrix over GF(2)[128X[104X
+  [4X[32X[104X
+  
+  [1X5.2-4 HammingCode[101X
+  
+  [29X[2XHammingCode[102X( [3Xr[103X, [3XF[103X ) [32X function
+  
+  [33X[0;0Y[10XHammingCode[110X  returns a Hamming code with redundancy [3Xr[103X over [3XF[103X. A Hamming code
+  is a single-error-correcting code. The parity check matrix of a Hamming code
+  has  all  nonzero  vectors  of  length  [3Xr[103X  in  its  columns,  except  for  a
+  multiplication  factor.  The  decoding  algorithm  of  the Hamming code (see
+  [2XDecode[102X ([14X4.10-1[114X)) makes use of this property.[133X
+  
+  [33X[0;0YIf  [22Xq[122X  is  the  size  of  its field [3XF[103X, the returned Hamming code is a linear
+  [22X[(q^r-1)/(q-1), (q^r-1)/(q-1) - r, 3][122X code.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XC1 := HammingCode( 4, GF(2) );[127X[104X
+    [4X[28Xa linear [15,11,3]1 Hamming (4,2) code over GF(2)[128X[104X
+    [4X[25Xgap>[125X [27XC2 := HammingCode( 3, GF(9) );[127X[104X
+    [4X[28Xa linear [91,88,3]1 Hamming (3,9) code over GF(9) [128X[104X
+  [4X[32X[104X
+  
+  [1X5.2-5 ReedMullerCode[101X
+  
+  [29X[2XReedMullerCode[102X( [3Xr[103X, [3Xk[103X ) [32X function
+  
+  [33X[0;0Y[10XReedMullerCode[110X  returns a binary 'Reed-Muller code' [3XR(r, k)[103X with dimension [3Xk[103X
+  and  order [3Xr[103X. This is a code with length [22X2^k[122X and minimum distance [22X2^k-r[122X (see
+  for  example,  section 1.10 in [HP03]). By definition, the [22Xr^th[122X order binary
+  Reed-Muller  code  of length [22Xn=2^m[122X, for [22X0 ≤ r ≤ m[122X, is the set of all vectors
+  [22Xf[122X, where [22Xf[122X is a Boolean function which is a polynomial of degree at most [22Xr[122X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XReedMullerCode( 1, 3 );[127X[104X
+    [4X[28Xa linear [8,4,4]2 Reed-Muller (1,3) code over GF(2) [128X[104X
+  [4X[32X[104X
+  
+  [33X[0;0YSee [2XGeneralizedReedMullerCode[102X ([14X5.6-3[114X) for a more general construction.[133X
+  
+  [1X5.2-6 AlternantCode[101X
+  
+  [29X[2XAlternantCode[102X( [3Xr[103X, [3XY[103X[, [3Xalpha[103X], [3XF[103X ) [32X function
+  
+  [33X[0;0Y[10XAlternantCode[110X  returns  an  'alternant code', with parameters [3Xr[103X, [3XY[103X and [3Xalpha[103X
+  (optional).  [3XF[103X  denotes  the  (finite)  base  field.  Here,  [3Xr[103X is the design
+  redundancy  of the code. [3XY[103X and [3Xalpha[103X are both vectors of length [3Xn[103X from which
+  the  parity  check  matrix  is  constructed.  The  check matrix has the form
+  [22XH=([a_i^j  y_i])[122X,  where  [22X0  ≤  j≤  r-1[122X,  [22X1 ≤ i≤ n[122X, and where [22X[...][122X is as in
+  [2XVerticalConversionFieldMat[102X  ([14X7.3-9[114X)).  If  no [3Xalpha[103X is specified, the vector
+  [22X[1,  a,  a^2, .., a^n-1][122X is used, where [22Xa[122X is a primitive element of a Galois
+  field [3XF[103X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XY := [ 1, 1, 1, 1, 1, 1, 1];; a := PrimitiveUnityRoot( 2, 7 );;[127X[104X
+    [4X[25Xgap>[125X [27Xalpha := List( [0..6], i -> a^i );;[127X[104X
+    [4X[25Xgap>[125X [27XC := AlternantCode( 2, Y, alpha, GF(8) );[127X[104X
+    [4X[28Xa linear [7,3,3..4]3..4 alternant code over GF(8) [128X[104X
+  [4X[32X[104X
+  
+  [1X5.2-7 GoppaCode[101X
+  
+  [29X[2XGoppaCode[102X( [3XG[103X, [3XL[103X ) [32X function
+  
+  [33X[0;0Y[10XGoppaCode[110X   returns   a  Goppa  code  [3XC[103X  from  Goppa  polynomial  [3Xg[103X,  having
+  coefficients in a Galois Field [22XGF(q)[122X. [3XL[103X must be a list of elements in [22XGF(q)[122X,
+  that  are not roots of [3Xg[103X. The word length of the code is equal to the length
+  of  [3XL[103X.  The  parity  check  matrix has the form [22XH=([a_i^j / G(a_i)])_0 ≤ j ≤
+  deg(g)-1,    a_i    ∈    L[122X,    where   [22Xa_i∈   L[122X   and   [22X[...][122X   is   as   in
+  [2XVerticalConversionFieldMat[102X  ([14X7.3-9[114X), so [22XH[122X has entries in [22XGF(q)[122X, [22Xq=p^m[122X. It is
+  known that [22Xd(C)≥ deg(g)+1[122X, with a better bound in the binary case provided [22Xg[122X
+  has  no  multiple  roots.  See  Huffman and Pless [HP03] section 13.2.2, and
+  MacWilliams and Sloane [MS83] section 12.3, for more details.[133X
+  
+  [33X[0;0YOne  can  also  call  [10XGoppaCode[110X using the syntax [10XGoppaCode(g,n)[110X. When called
+  with  parameter  [3Xn[103X,  [5XGUAVA[105X  constructs  a  list  [22XL[122X of length [3Xn[103X, such that no
+  element of [3XL[103X is a root of [3Xg[103X.[133X
+  
+  [33X[0;0YThis is a special case of an alternant code.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xx:=Indeterminate(GF(8),"x");[127X[104X
+    [4X[28Xx[128X[104X
+    [4X[25Xgap>[125X [27XL:=Elements(GF(8));[127X[104X
+    [4X[28X[ 0*Z(2), Z(2)^0, Z(2^3), Z(2^3)^2, Z(2^3)^3, Z(2^3)^4, Z(2^3)^5, Z(2^3)^6 ][128X[104X
+    [4X[25Xgap>[125X [27Xg:=x^2+x+1;[127X[104X
+    [4X[28Xx^2+x+Z(2)^0[128X[104X
+    [4X[25Xgap>[125X [27XC:=GoppaCode(g,L);[127X[104X
+    [4X[28Xa linear [8,2,5]3 Goppa code over GF(2)[128X[104X
+    [4X[25Xgap>[125X [27Xxx := Indeterminate( GF(2), "xx" );; [127X[104X
+    [4X[25Xgap>[125X [27Xgg := xx^2 + xx + 1;; L := AsSSortedList( GF(8) );;[127X[104X
+    [4X[25Xgap>[125X [27XC1 := GoppaCode( gg, L );[127X[104X
+    [4X[28Xa linear [8,2,5]3 Goppa code over GF(2) [128X[104X
+    [4X[25Xgap>[125X [27Xy := Indeterminate( GF(2), "y" );; [127X[104X
+    [4X[25Xgap>[125X [27Xh := y^2 + y + 1;;[127X[104X
+    [4X[25Xgap>[125X [27XC2 := GoppaCode( h, 8 );[127X[104X
+    [4X[28Xa linear [8,2,5]3 Goppa code over GF(2) [128X[104X
+    [4X[25Xgap>[125X [27XC1=C2;[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XC=C1;[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
+  [1X5.2-8 GeneralizedSrivastavaCode[101X
+  
+  [29X[2XGeneralizedSrivastavaCode[102X( [3Xa[103X, [3Xw[103X, [3Xz[103X[, [3Xt[103X], [3XF[103X ) [32X function
+  
+  [33X[0;0Y[10XGeneralizedSrivastavaCode[110X   returns   a  generalized  Srivastava  code  with
+  parameters [3Xa[103X, [3Xw[103X, [3Xz[103X, [3Xt[103X. [22Xa ={ a_1, ..., a_n}[122X and [22Xw ={ w_1, ..., w_s}[122X are lists
+  of  [22Xn+s[122X  distinct  elements of [22XF=GF(q^m)[122X, [22Xz[122X is a list of length [22Xn[122X of nonzero
+  elements  of  [22XGF(q^m)[122X. The parameter [3Xt[103X determines the designed distance: [22Xd ≥
+  st + 1[122X. The check matrix of this code is the form[133X
+  
+  
+        [33X[1;6Y[24X[33X[0;0YH=([\frac{z_i}{(a_i - w_j)^k}]),[133X [124X[133X
+  
+  
+  [33X[0;0Y[22X1≤  k≤  t[122X,  where  [22X[...][122X is as in [2XVerticalConversionFieldMat[102X ([14X7.3-9[114X). We use
+  this  definition  of  [22XH[122X  to  define  the  code.  The default for [3Xt[103X is 1. The
+  original  Srivastava  codes  (see [2XSrivastavaCode[102X ([14X5.2-9[114X)) are a special case
+  [22Xt=1[122X, [22Xz_i=a_i^μ[122X, for some [22Xμ[122X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xa := Filtered( AsSSortedList( GF(2^6) ), e -> e in GF(2^3) );;[127X[104X
+    [4X[25Xgap>[125X [27Xw := [ Z(2^6) ];; z := List( [1..8], e -> 1 );;[127X[104X
+    [4X[25Xgap>[125X [27XC := GeneralizedSrivastavaCode( a, w, z, 1, GF(64) );[127X[104X
+    [4X[28Xa linear [8,2,2..5]3..4 generalized Srivastava code over GF(2) [128X[104X
+  [4X[32X[104X
+  
+  [1X5.2-9 SrivastavaCode[101X
+  
+  [29X[2XSrivastavaCode[102X( [3Xa[103X, [3Xw[103X[, [3Xmu[103X], [3XF[103X ) [32X function
+  
+  [33X[0;0Y[22XSrivastavaCode[122X   returns  a  Srivastava  code  with  parameters  [3Xa[103X,  [3Xw[103X  (and
+  optionally [3Xmu[103X). [22Xa ={ a_1, ..., a_n}[122X and [22Xw ={ w_1, ..., w_s}[122X are lists of [22Xn+s[122X
+  distinct elements of [22XF=GF(q^m)[122X. The default for [3Xmu[103X is 1. The Srivastava code
+  is a generalized Srivastava code, in which [22Xz_i = a_i^mu[122X for some [3Xmu[103X and [22Xt=1[122X.[133X
+  
+  [33X[0;0YJ.  N.  Srivastava  introduced  this  code  in 1967, though his work was not
+  published.  See  Helgert  [Hel72] for more details on the properties of this
+  code.  Related  reference: G. Roelofsen, [12XOn Goppa and Generalized Srivastava
+  Codes[112X PhD thesis, Dept. Math. and Comp. Sci., Eindhoven Univ. of Technology,
+  the Netherlands, 1982.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xa := AsSSortedList( GF(11) ){[2..8]};;[127X[104X
+    [4X[25Xgap>[125X [27Xw := AsSSortedList( GF(11) ){[9..10]};;[127X[104X
+    [4X[25Xgap>[125X [27XC := SrivastavaCode( a, w, 2, GF(11) );[127X[104X
+    [4X[28Xa linear [7,5,3]2 Srivastava code over GF(11)[128X[104X
+    [4X[25Xgap>[125X [27XIsMDSCode( C );[127X[104X
+    [4X[28Xtrue    # Always true if F is a prime field [128X[104X
+  [4X[32X[104X
+  
+  [1X5.2-10 CordaroWagnerCode[101X
+  
+  [29X[2XCordaroWagnerCode[102X( [3Xn[103X ) [32X function
+  
+  [33X[0;0Y[10XCordaroWagnerCode[110X  returns  a  binary Cordaro-Wagner code. This is a code of
+  length  [3Xn[103X  and dimension [22X2[122X having the best possible minimum distance [22Xd[122X. This
+  code   is   just   a  little  bit  less  trivial  than  [10XRepetitionCode[110X  (see
+  [2XRepetitionCode[102X ([14X5.5-13[114X)).[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XC := CordaroWagnerCode( 11 );[127X[104X
+    [4X[28Xa linear [11,2,7]5 Cordaro-Wagner code over GF(2)[128X[104X
+    [4X[25Xgap>[125X [27XAsSSortedList(C);                 [127X[104X
+    [4X[28X[ [ 0 0 0 0 0 0 0 0 0 0 0 ], [ 0 0 0 0 1 1 1 1 1 1 1 ], [128X[104X
+    [4X[28X  [ 1 1 1 1 0 0 0 1 1 1 1 ], [ 1 1 1 1 1 1 1 0 0 0 0 ] ][128X[104X
+  [4X[32X[104X
+  
+  [1X5.2-11 FerreroDesignCode[101X
+  
+  [29X[2XFerreroDesignCode[102X( [3XP[103X, [3Xm[103X ) [32X function
+  
+  [33X[0;0Y[13XRequires the GAP package SONATA[113X[133X
+  
+  [33X[0;0YA  group  [22XK[122X  together  with  a  group  of  automorphism [22XH[122X of [22XK[122X such that the
+  semidirect  product  [22XKH[122X  is  a Frobenius group with complement [22XH[122X is called a
+  Ferrero  pair  [22X(K,  H)[122X in SONATA. Take a Frobenius [22X(G,+)[122X group with kernel [22XK[122X
+  and complement [22XH[122X. Consider the design [22XD[122X with point set [22XK[122X and block set [22X{ a^H
+  +  b  |  a,  b  ∈  K,  a  not=  0  }[122X.  Here [22Xa^H[122X denotes the orbit of a under
+  conjugation  by elements of [22XH[122X. Every planar near-ring design of type "*" can
+  be  obtained in this way from groups. These designs (from a Frobenius kernel
+  of  order  [22Xv[122X  and  a Frobenius complement of order [22Xk[122X) have [22Xv(v-1)/k[122X distinct
+  blocks  and  they are all of size [22Xk[122X. Moreover each of the [22Xv[122X points occurs in
+  exactly [22Xv-1[122X distinct blocks. Hence the rows and the columns of the incidence
+  matrix [22XM[122X of the design are always of constant weight.[133X
+  
+  [33X[0;0Y[10XFerreroDesignCode[110X  constructs  binary  linear code arising from the incdence
+  matrix   of  a  design  associated  to  a  "Ferrero  pair"  arising  from  a
+  fixed-point-free (fpf) automorphism groups and Frobenius group.[133X
+  
+  [33X[0;0YINPUT:  [22XP[122X  is a list of prime powers describing an abelian group [22XG[122X. [22Xm > 0[122X is
+  an  integer  such  that  [22XG[122X admits a cyclic fpf automorphism group of size [22Xm[122X.
+  This  means  that for all [22Xq = p^k ∈ P[122X, OrderMod([22Xp[122X, [22Xm[122X) must divide [22Xq[122X (see the
+  SONATA documentation for [10XFpfAutomorphismGroupsCyclic[110X).[133X
+  
+  [33X[0;0YOUTPUT:  The  binary  linear  code  whose  generator matrix is the incidence
+  matrix  of  a  design  associated  to  a  "Ferrero  pair"  arising  from the
+  fixed-point-free  (fpf)  automorphism group of [22XG[122X. The pair [22X(H,K)[122X is called a
+  Ferraro  pair  and  the  semidirect  product  [22XKH[122X  is  a Frobenius group with
+  complement [22XH[122X.[133X
+  
+  [33X[0;0YAUTHORS: Peter Mayr and David Joyner[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XG:=AbelianGroup([5,5] );[127X[104X
+    [4X[28X [ pc group of size 25 with 2 generators ][128X[104X
+    [4X[25Xgap>[125X [27XFpfAutomorphismGroupsMaxSize( G );[127X[104X
+    [4X[28X[ 24, 2 ][128X[104X
+    [4X[25Xgap>[125X [27XL:=FpfAutomorphismGroupsCyclic( [5,5], 3 );[127X[104X
+    [4X[28X[ [ [ f1, f2 ] -> [ f1*f2^2, f1*f2^3 ] ],[128X[104X
+    [4X[28X  [ pc group of size 25 with 2 generators ] ][128X[104X
+    [4X[25Xgap>[125X [27XD := DesignFromFerreroPair( L[2], Group(L[1][1]), "*" );[127X[104X
+    [4X[28X [ a 2 - ( 25, 3, 2 ) nearring generated design ][128X[104X
+    [4X[25Xgap>[125X [27XM:=IncidenceMat( D );; Length(M); Length(TransposedMat(M));[127X[104X
+    [4X[28X25[128X[104X
+    [4X[28X200[128X[104X
+    [4X[25Xgap>[125X [27XC1:=GeneratorMatCode(M*Z(2),GF(2));[127X[104X
+    [4X[28Xa linear [200,25,1..24]62..100 code defined by generator matrix over GF(2)[128X[104X
+    [4X[25Xgap>[125X [27XMinimumDistance(C1);[127X[104X
+    [4X[28X24[128X[104X
+    [4X[25Xgap>[125X [27XC2:=FerreroDesignCode( [5,5],3);[127X[104X
+    [4X[28Xa linear [200,25,1..24]62..100 code defined by generator matrix over GF(2)[128X[104X
+    [4X[25Xgap>[125X [27XC1=C2;[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[28X[128X[104X
+  [4X[32X[104X
+  
+  [1X5.2-12 RandomLinearCode[101X
+  
+  [29X[2XRandomLinearCode[102X( [3Xn[103X, [3Xk[103X, [3XF[103X ) [32X function
+  
+  [33X[0;0Y[10XRandomLinearCode[110X  returns a random linear code with word length [3Xn[103X, dimension
+  [3Xk[103X  over  field [3XF[103X. The method used is to first construct a [22Xk× n[122X matrix of the
+  block  form  [22X(I,A)[122X,  where  [22XI[122X  is a [22Xk× k[122X identity matrix and [22XA[122X is a [22Xk× (n-k)[122X
+  matrix constructed using [10XRandom(F)[110X repeatedly. Then the columns are permuted
+  using a randomly selected element of [10XSymmetricGroup(n)[110X.[133X
+  
+  [33X[0;0YTo  create  a  random  unrestricted  code,  use  [10XRandomCode[110X  (see [2XRandomCode[102X
+  ([14X5.1-5[114X)).[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XC := RandomLinearCode( 15, 4, GF(3) );[127X[104X
+    [4X[28Xa  [15,4,?] randomly generated code over GF(3)[128X[104X
+    [4X[25Xgap>[125X [27XDisplay(C);[127X[104X
+    [4X[28Xa linear [15,4,1..6]6..10 random linear code over GF(3)[128X[104X
+  [4X[32X[104X
+  
+  [33X[0;0YThe  method [5XGUAVA[105X chooses to output the result of a [10XRandomLinearCode[110X command
+  is  different  than  other  codes.  For  example,  the bounds on the minimum
+  distance  is not displayed. Howeer, you can use the [10XDisplay[110X command to print
+  this  information. This new display method was added in version 1.9 to speed
+  up  the  command  (if [22Xn[122X is about 80 and [22Xk[122X about 40, for example, the time it
+  took  to look up and/or calculate the bounds on the minimum distance was too
+  long).[133X
+  
+  [1X5.2-13 OptimalityCode[101X
+  
+  [29X[2XOptimalityCode[102X( [3XC[103X ) [32X function
+  
+  [33X[0;0Y[10XOptimalityCode[110X returns the difference between the smallest known upper bound
+  and  the  actual  size  of  the  code.  Note  that the value of the function
+  [10XUpperBound[110X  is  not  always  equal to the actual upper bound [22XA(n,d)[122X thus the
+  result may not be equal to [22X0[122X even if the code is optimal![133X
+  
+  [33X[0;0Y[10XOptimalityLinearCode[110X is similar but applies only to linear codes.[133X
+  
+  [1X5.2-14 BestKnownLinearCode[101X
+  
+  [29X[2XBestKnownLinearCode[102X( [3Xn[103X, [3Xk[103X, [3XF[103X ) [32X function
+  
+  [33X[0;0Y[10XBestKnownLinearCode[110X  returns  the best known (as of 11 May 2006) linear code
+  of  length  [3Xn[103X,  dimension  [3Xk[103X  over  field  [3XF[103X.  The  function uses the tables
+  described in section [2XBoundsMinimumDistance[102X ([14X7.1-13[114X) to construct this code.[133X
+  
+  [33X[0;0YThis command can also be called using the syntax [10XBestKnownLinearCode( rec )[110X,
+  where  [3Xrec[103X must be a record containing the fields `lowerBound', `upperBound'
+  and  `construction'.  It  uses  the information in this field to construct a
+  code.   This   form   is  meant  to  be  used  together  with  the  function
+  [10XBoundsMinimumDistance[110X  (see  [2XBoundsMinimumDistance[102X  ([14X7.1-13[114X)), if the bounds
+  are already calculated.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XC1 := BestKnownLinearCode( 23, 12, GF(2) );[127X[104X
+    [4X[28Xa linear [23,12,7]3 punctured code[128X[104X
+    [4X[25Xgap>[125X [27XC1 = BinaryGolayCode();[127X[104X
+    [4X[28Xfalse     # it's constructed differently[128X[104X
+    [4X[25Xgap>[125X [27XC1 := BestKnownLinearCode( 23, 12, GF(2) );[127X[104X
+    [4X[28Xa linear [23,12,7]3 punctured code[128X[104X
+    [4X[25Xgap>[125X [27XG1 := MutableCopyMat(GeneratorMat(C1));;[127X[104X
+    [4X[25Xgap>[125X [27XPutStandardForm(G1);[127X[104X
+    [4X[28X()[128X[104X
+    [4X[25Xgap>[125X [27XDisplay(G1);[127X[104X
+    [4X[28X 1 . . . . . . . . . . . 1 . 1 . 1 1 1 . . . 1[128X[104X
+    [4X[28X . 1 . . . . . . . . . . 1 1 1 1 1 . . 1 . . .[128X[104X
+    [4X[28X . . 1 . . . . . . . . . 1 1 . 1 . . 1 . 1 . 1[128X[104X
+    [4X[28X . . . 1 . . . . . . . . 1 1 . . . 1 1 1 . 1 .[128X[104X
+    [4X[28X . . . . 1 . . . . . . . 1 1 . . 1 1 . 1 1 . 1[128X[104X
+    [4X[28X . . . . . 1 . . . . . . . 1 1 . . 1 1 . 1 1 1[128X[104X
+    [4X[28X . . . . . . 1 . . . . . . . 1 1 . . 1 1 . 1 1[128X[104X
+    [4X[28X . . . . . . . 1 . . . . 1 . 1 1 . 1 1 1 1 . .[128X[104X
+    [4X[28X . . . . . . . . 1 . . . . 1 . 1 1 . 1 1 1 1 .[128X[104X
+    [4X[28X . . . . . . . . . 1 . . . . 1 . 1 1 . 1 1 1 .[128X[104X
+    [4X[28X . . . . . . . . . . 1 . 1 . 1 1 1 . . . 1 1 1[128X[104X
+    [4X[28X . . . . . . . . . . . 1 . 1 . 1 1 1 . . . 1 1[128X[104X
+    [4X[25Xgap>[125X [27XC2 := BinaryGolayCode();[127X[104X
+    [4X[28Xa cyclic [23,12,7]3 binary Golay code over GF(2)[128X[104X
+    [4X[25Xgap>[125X [27XG2 := MutableCopyMat(GeneratorMat(C2));;[127X[104X
+    [4X[25Xgap>[125X [27XPutStandardForm(G2);[127X[104X
+    [4X[28X()[128X[104X
+    [4X[25Xgap>[125X [27XDisplay(G2);[127X[104X
+    [4X[28X 1 . . . . . . . . . . . 1 . 1 . 1 1 1 . . . 1[128X[104X
+    [4X[28X . 1 . . . . . . . . . . 1 1 1 1 1 . . 1 . . 1[128X[104X
+    [4X[28X . . 1 . . . . . . . . . 1 1 . 1 . . 1 . 1 . 1[128X[104X
+    [4X[28X . . . 1 . . . . . . . . 1 1 . . . 1 1 1 . 1 1[128X[104X
+    [4X[28X . . . . 1 . . . . . . . 1 1 . . 1 1 . 1 1 . .[128X[104X
+    [4X[28X . . . . . 1 . . . . . . . 1 1 . . 1 1 . 1 1 .[128X[104X
+    [4X[28X . . . . . . 1 . . . . . . . 1 1 . . 1 1 . 1 1[128X[104X
+    [4X[28X . . . . . . . 1 . . . . 1 . 1 1 . 1 1 1 1 . .[128X[104X
+    [4X[28X . . . . . . . . 1 . . . . 1 . 1 1 . 1 1 1 1 .[128X[104X
+    [4X[28X . . . . . . . . . 1 . . . . 1 . 1 1 . 1 1 1 1[128X[104X
+    [4X[28X . . . . . . . . . . 1 . 1 . 1 1 1 . . . 1 1 .[128X[104X
+    [4X[28X . . . . . . . . . . . 1 . 1 . 1 1 1 . . . 1 1[128X[104X
+    [4X[28X## Despite their generator matrices are different, they are equivalent codes, see below.[128X[104X
+    [4X[25Xgap>[125X [27XIsEquivalent(C1,C2);[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XCodeIsomorphism(C1,C2);[127X[104X
+    [4X[28X(4,14,6,12,5)(7,17,18,11,19)(8,22,13,21,16)(10,23,15,20)[128X[104X
+    [4X[25Xgap>[125X [27XDisplay( BestKnownLinearCode( 81, 77, GF(4) ) );[127X[104X
+    [4X[28Xa linear [81,77,3]2..3 shortened code of[128X[104X
+    [4X[28Xa linear [85,81,3]1 Hamming (4,4) code over GF(4)[128X[104X
+    [4X[25Xgap>[125X [27XC:=BestKnownLinearCode(174,72);[127X[104X
+    [4X[28Xa linear [174,72,31..36]26..87 code defined by generator matrix over GF(2)[128X[104X
+    [4X[25Xgap>[125X [27Xbounds := BoundsMinimumDistance( 81, 77, GF(4) );[127X[104X
+    [4X[28Xrec( n := 81, k := 77, q := 4, [128X[104X
+    [4X[28X  references := rec( Ham := [ "%T this reference is unknown, for more info", [128X[104X
+    [4X[28X          "%T contact A.E. Brouwer (aeb@cwi.nl)" ], [128X[104X
+    [4X[28X      cap := [ "%T this reference is unknown, for more info", [128X[104X
+    [4X[28X          "%T contact A.E. Brouwer (aeb@cwi.nl)" ] ), [128X[104X
+    [4X[28X  construction := [ (Operation "ShortenedCode"), [128X[104X
+    [4X[28X      [ [ (Operation "HammingCode"), [ 4, 4 ] ], [ 1, 2, 3, 4 ] ] ], [128X[104X
+    [4X[28X  lowerBound := 3, [128X[104X
+    [4X[28X  lowerBoundExplanation := [ "Lb(81,77)=3, by shortening of:", [128X[104X
+    [4X[28X      "Lb(85,81)=3, reference: Ham" ], upperBound := 3, [128X[104X
+    [4X[28X  upperBoundExplanation := [ "Ub(81,77)=3, by considering shortening to:", [128X[104X
+    [4X[28X      "Ub(18,14)=3, reference: cap" ] )[128X[104X
+    [4X[25Xgap>[125X [27XC := BestKnownLinearCode( bounds );[127X[104X
+    [4X[28Xa linear [81,77,3]2..3 shortened code[128X[104X
+    [4X[25Xgap>[125X [27XC = BestKnownLinearCode(81, 77, GF(4) );[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
+  
+  [1X5.3 [33X[0;0YGabidulin Codes[133X[101X
+  
+  [33X[0;0YThese  five  binary,  linear codes are derived from an article by Gabidulin,
+  Davydov  and  Tombak [GDT91]. All these codes are defined by check matrices.
+  Exact  definitions  can  be  found  in  the article. The Gabidulin code, the
+  enlarged Gabidulin code, the Davydov code, the Tombak code, and the enlarged
+  Tombak  code, correspond with theorem 1, 2, 3, 4, and 5, respectively in the
+  article.[133X
+  
+  [33X[0;0YLike the Hamming codes, these codes have fixed minimum distance and covering
+  radius, but can be arbitrarily long.[133X
+  
+  [1X5.3-1 GabidulinCode[101X
+  
+  [29X[2XGabidulinCode[102X( [3Xm[103X, [3Xw1[103X, [3Xw2[103X ) [32X function
+  
+  [33X[0;0Y[10XGabidulinCode[110X  yields a code of length [22X5[122X . [22X2^m-2-1[122X, redundancy [22X2m-1[122X, minimum
+  distance [22X3[122X and covering radius [22X2[122X. [3Xw1[103X and [3Xw2[103X should be elements of [22XGF(2^m-2)[122X.[133X
+  
+  [1X5.3-2 EnlargedGabidulinCode[101X
+  
+  [29X[2XEnlargedGabidulinCode[102X( [3Xm[103X, [3Xw1[103X, [3Xw2[103X, [3Xe[103X ) [32X function
+  
+  [33X[0;0Y[10XEnlargedGabidulinCode[110X  yields  a  code  of length [22X7[122X. [22X2^m-2-2[122X, redundancy [22X2m[122X,
+  minimum  distance  [22X3[122X  and  covering  radius  [22X2[122X.  [3Xw1[103X  and  [3Xw2[103X are elements of
+  [22XGF(2^m-2)[122X. [3Xe[103X is an element of [22XGF(2^m)[122X.[133X
+  
+  [1X5.3-3 DavydovCode[101X
+  
+  [29X[2XDavydovCode[102X( [3Xr[103X, [3Xv[103X, [3Xei[103X, [3Xej[103X ) [32X function
+  
+  [33X[0;0Y[10XDavydovCode[110X  yields  a code of length [22X2^v + 2^r-v - 3[122X, redundancy [3Xr[103X, minimum
+  distance  [22X4[122X and covering radius [22X2[122X. [3Xv[103X is an integer between [22X2[122X and [22Xr-2[122X. [3Xei[103X and
+  [3Xej[103X are elements of [22XGF(2^v)[122X and [22XGF(2^r-v)[122X, respectively.[133X
+  
+  [1X5.3-4 TombakCode[101X
+  
+  [29X[2XTombakCode[102X( [3Xm[103X, [3Xe[103X, [3Xbeta[103X, [3Xgamma[103X, [3Xw1[103X, [3Xw2[103X ) [32X function
+  
+  [33X[0;0Y[10XTombakCode[110X  yields  a  code of length [22X15 ⋅ 2^m-3 - 3[122X, redundancy [22X2m[122X, minimum
+  distance [22X4[122X and covering radius [22X2[122X. [3Xe[103X is an element of [22XGF(2^m)[122X. [3Xbeta[103X and [3Xgamma[103X
+  are elements of [22XGF(2^m-1)[122X. [3Xw1[103X and [3Xw2[103X are elements of [22XGF(2^m-3)[122X.[133X
+  
+  [1X5.3-5 EnlargedTombakCode[101X
+  
+  [29X[2XEnlargedTombakCode[102X( [3Xm[103X, [3Xe[103X, [3Xbeta[103X, [3Xgamma[103X, [3Xw1[103X, [3Xw2[103X, [3Xu[103X ) [32X function
+  
+  [33X[0;0Y[10XEnlargedTombakCode[110X  yields a code of length [22X23 ⋅ 2^m-4 - 3[122X, redundancy [22X2m-1[122X,
+  minimum  distance [22X4[122X and covering radius [22X2[122X. The parameters [3Xm[103X, [3Xe[103X, [3Xbeta[103X, [3Xgamma[103X,
+  [3Xw1[103X and [3Xw2[103X are defined as in [10XTombakCode[110X. [3Xu[103X is an element of [22XGF(2^m-1)[122X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XGabidulinCode( 4, Z(4)^0, Z(4)^1 );[127X[104X
+    [4X[28Xa linear [19,12,3]2 Gabidulin code (m=4) over GF(2)[128X[104X
+    [4X[25Xgap>[125X [27XEnlargedGabidulinCode( 4, Z(4)^0, Z(4)^1, Z(16)^11 );[127X[104X
+    [4X[28Xa linear [26,18,3]2 enlarged Gabidulin code (m=4) over GF(2)[128X[104X
+    [4X[25Xgap>[125X [27XDavydovCode( 6, 3, Z(8)^1, Z(8)^5 );[127X[104X
+    [4X[28Xa linear [13,7,4]2 Davydov code (r=6, v=3) over GF(2)[128X[104X
+    [4X[25Xgap>[125X [27XTombakCode( 5, Z(32)^6, Z(16)^14, Z(16)^10, Z(4)^0, Z(4)^1 );[127X[104X
+    [4X[28Xa linear [57,47,4]2 Tombak code (m=5) over GF(2)[128X[104X
+    [4X[25Xgap>[125X [27XEnlargedTombakCode( 6, Z(32)^6, Z(16)^14, Z(16)^10,[127X[104X
+    [4X[25X>[125X [27XZ(4)^0, Z(4)^0, Z(32)^23 );[127X[104X
+    [4X[28Xa linear [89,78,4]2 enlarged Tombak code (m=6) over GF(2)[128X[104X
+  [4X[32X[104X
+  
+  
+  [1X5.4 [33X[0;0YGolay Codes[133X[101X
+  
+  [33X[0;0Y[21X  The  Golay  code  is  probably  the  most  important of all codes for both
+  practical  and  theoretical  reasons.  [121X  ([MS83],  pg.  64).  Though born in
+  Switzerland, M. J. E. Golay (1902-1989) worked for the US Army Labs for most
+  of  his  career.  For more information on his life, see his obit in the June
+  1990 IEEE Information Society Newsletter.[133X
+  
+  [1X5.4-1 BinaryGolayCode[101X
+  
+  [29X[2XBinaryGolayCode[102X(  ) [32X function
+  
+  [33X[0;0Y[10XBinaryGolayCode[110X  returns  a  binary  Golay code. This is a perfect [22X[23,12,7][122X
+  code.    It    is    also    cyclic,    and    has    generator   polynomial
+  [22Xg(x)=1+x^2+x^4+x^5+x^6+x^10+x^11[122X.  Extending it results in an extended Golay
+  code  (see  [2XExtendedBinaryGolayCode[102X ([14X5.4-2[114X)). There's also the ternary Golay
+  code (see [2XTernaryGolayCode[102X ([14X5.4-3[114X)).[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XC:=BinaryGolayCode();[127X[104X
+    [4X[28Xa cyclic [23,12,7]3 binary Golay code over GF(2)[128X[104X
+    [4X[25Xgap>[125X [27XExtendedBinaryGolayCode() = ExtendedCode(BinaryGolayCode());[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIsPerfectCode(C);[127X[104X
+    [4X[28Xtrue [128X[104X
+    [4X[25Xgap>[125X [27XIsCyclicCode(C);[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
+  [1X5.4-2 ExtendedBinaryGolayCode[101X
+  
+  [29X[2XExtendedBinaryGolayCode[102X(  ) [32X function
+  
+  [33X[0;0Y[10XExtendedBinaryGolayCode[110X  returns  an  extended  binary Golay code. This is a
+  [22X[24,12,8][122X  code. Puncturing in the last position results in a perfect binary
+  Golay code (see [2XBinaryGolayCode[102X ([14X5.4-1[114X)). The code is self-dual.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XC := ExtendedBinaryGolayCode();[127X[104X
+    [4X[28Xa linear [24,12,8]4 extended binary Golay code over GF(2)[128X[104X
+    [4X[25Xgap>[125X [27XIsSelfDualCode(C);[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XP := PuncturedCode(C);[127X[104X
+    [4X[28Xa linear [23,12,7]3 punctured code[128X[104X
+    [4X[25Xgap>[125X [27XP = BinaryGolayCode();[127X[104X
+    [4X[28Xtrue [128X[104X
+    [4X[25Xgap>[125X [27XIsCyclicCode(C);[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[28X[128X[104X
+  [4X[32X[104X
+  
+  [1X5.4-3 TernaryGolayCode[101X
+  
+  [29X[2XTernaryGolayCode[102X(  ) [32X function
+  
+  [33X[0;0Y[10XTernaryGolayCode[110X  returns  a  ternary Golay code. This is a perfect [22X[11,6,5][122X
+  code.    It    is    also    cyclic,    and    has    generator   polynomial
+  [22Xg(x)=2+x^2+2x^3+x^4+x^5[122X. Extending it results in an extended Golay code (see
+  [2XExtendedTernaryGolayCode[102X  ([14X5.4-4[114X)).  There's also the binary Golay code (see
+  [2XBinaryGolayCode[102X ([14X5.4-1[114X)).[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XC:=TernaryGolayCode();[127X[104X
+    [4X[28Xa cyclic [11,6,5]2 ternary Golay code over GF(3)[128X[104X
+    [4X[25Xgap>[125X [27XExtendedTernaryGolayCode() = ExtendedCode(TernaryGolayCode());[127X[104X
+    [4X[28Xtrue [128X[104X
+    [4X[25Xgap>[125X [27XIsCyclicCode(C);[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
+  [1X5.4-4 ExtendedTernaryGolayCode[101X
+  
+  [29X[2XExtendedTernaryGolayCode[102X(  ) [32X function
+  
+  [33X[0;0Y[10XExtendedTernaryGolayCode[110X  returns  an extended ternary Golay code. This is a
+  [22X[12,6,6][122X  code. Puncturing this code results in a perfect ternary Golay code
+  (see [2XTernaryGolayCode[102X ([14X5.4-3[114X)). The code is self-dual.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XC := ExtendedTernaryGolayCode();[127X[104X
+    [4X[28Xa linear [12,6,6]3 extended ternary Golay code over GF(3)[128X[104X
+    [4X[25Xgap>[125X [27XIsSelfDualCode(C);[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XP := PuncturedCode(C);[127X[104X
+    [4X[28Xa linear [11,6,5]2 punctured code[128X[104X
+    [4X[25Xgap>[125X [27XP = TernaryGolayCode();[127X[104X
+    [4X[28Xtrue [128X[104X
+    [4X[25Xgap>[125X [27XIsCyclicCode(C);[127X[104X
+    [4X[28Xfalse[128X[104X
+  [4X[32X[104X
+  
+  
+  [1X5.5 [33X[0;0YGenerating Cyclic Codes[133X[101X
+  
+  [33X[0;0YThe  elements  of  a  cyclic  code  [22XC[122X  are  all multiples of a ('generator')
+  polynomial [22Xg(x)[122X, where calculations are carried out modulo [22Xx^n-1[122X. Therefore,
+  as  polynomials  in [22Xx[122X, the elements always have degree less than [22Xn[122X. A cyclic
+  code is an ideal in the ring [22XF[x]/(x^n-1)[122X of polynomials modulo [22Xx^n - 1[122X. The
+  unique  monic  polynomial  of  least  degree  that generates [22XC[122X is called the
+  [13Xgenerator polynomial[113X of [22XC[122X. It is a divisor of the polynomial [22Xx^n-1[122X.[133X
+  
+  [33X[0;0YThe  [13Xcheck  polynomial[113X is the polynomial [22Xh(x)[122X with [22Xg(x)h(x)=x^n-1[122X. Therefore
+  it is also a divisor of [22Xx^n-1[122X. The check polynomial has the property that[133X
+  
+  
+        [33X[1;6Y[24X[33X[0;0Yc(x)h(x) \equiv 0 \pmod{x^n-1},[133X [124X[133X
+  
+  
+  [33X[0;0Yfor every codeword [22Xc(x)∈ C[122X.[133X
+  
+  [33X[0;0YThe  first  two functions described below generate cyclic codes from a given
+  generator  or  check  polynomial.  All cyclic codes can be constructed using
+  these functions.[133X
+  
+  [33X[0;0YTwo  of  the  Golay  codes already described are cyclic (see [2XBinaryGolayCode[102X
+  ([14X5.4-1[114X)  and  [2XTernaryGolayCode[102X ([14X5.4-3[114X)). For example, the [5XGUAVA[105X record for a
+  binary Golay code contains the generator polynomial:[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XC := BinaryGolayCode();[127X[104X
+    [4X[28Xa cyclic [23,12,7]3 binary Golay code over GF(2)[128X[104X
+    [4X[25Xgap>[125X [27XNamesOfComponents(C);[127X[104X
+    [4X[28X[ "LeftActingDomain", "GeneratorsOfLeftOperatorAdditiveGroup", "WordLength",[128X[104X
+    [4X[28X  "GeneratorMat", "GeneratorPol", "Dimension", "Redundancy", "Size", "name",[128X[104X
+    [4X[28X  "lowerBoundMinimumDistance", "upperBoundMinimumDistance", "WeightDistribution",[128X[104X
+    [4X[28X  "boundsCoveringRadius", "MinimumWeightOfGenerators", [128X[104X
+    [4X[28X  "UpperBoundOptimalMinimumDistance" ][128X[104X
+    [4X[25Xgap>[125X [27XC!.GeneratorPol;[127X[104X
+    [4X[28Xx_1^11+x_1^10+x_1^6+x_1^5+x_1^4+x_1^2+Z(2)^0[128X[104X
+  [4X[32X[104X
+  
+  [33X[0;0YThen  functions that generate cyclic codes from a prescribed set of roots of
+  the  generator  polynomial  are  described,  including  the  BCH  codes (see
+  [2XRootsCode[102X  ([14X5.5-3[114X),  [2XBCHCode[102X  ([14X5.5-4[114X),  [2XReedSolomonCode[102X  ([14X5.5-5[114X)  and [2XQRCode[102X
+  ([14X5.5-7[114X)).[133X
+  
+  [33X[0;0YFinally we describe the trivial codes (see [2XWholeSpaceCode[102X ([14X5.5-11[114X), [2XNullCode[102X
+  ([14X5.5-12[114X),  [2XRepetitionCode[102X ([14X5.5-13[114X)), and the command [10XCyclicCodes[110X which lists
+  all cyclic codes ([2XCyclicCodes[102X ([14X5.5-14[114X)).[133X
+  
+  [1X5.5-1 GeneratorPolCode[101X
+  
+  [29X[2XGeneratorPolCode[102X( [3Xg[103X, [3Xn[103X[, [3Xname[103X], [3XF[103X ) [32X function
+  
+  [33X[0;0Y[10XGeneratorPolCode[110X  creates  a cyclic code with a generator polynomial [3Xg[103X, word
+  length [3Xn[103X, over [3XF[103X. [3Xname[103X can contain a short description of the code.[133X
+  
+  [33X[0;0YIf [3Xg[103X is not a divisor of [22Xx^n-1[122X, it cannot be a generator polynomial. In that
+  case,  a code is created with generator polynomial [22Xgcd( g, x^n-1 )[122X, i.e. the
+  greatest common divisor of [3Xg[103X and [22Xx^n-1[122X. This is a valid generator polynomial
+  that generates the ideal [22X(g)[122X. See [2XGenerating Cyclic Codes[102X ([14X5.5[114X).[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xx:= Indeterminate( GF(2) );; P:= x^2+1;[127X[104X
+    [4X[28XZ(2)^0+x^2[128X[104X
+    [4X[25Xgap>[125X [27XC1 := GeneratorPolCode(P, 7, GF(2));[127X[104X
+    [4X[28Xa cyclic [7,6,1..2]1 code defined by generator polynomial over GF(2)[128X[104X
+    [4X[25Xgap>[125X [27XGeneratorPol( C1 );[127X[104X
+    [4X[28XZ(2)^0+x[128X[104X
+    [4X[25Xgap>[125X [27XC2 := GeneratorPolCode( x+1, 7, GF(2)); [127X[104X
+    [4X[28Xa cyclic [7,6,1..2]1 code defined by generator polynomial over GF(2)[128X[104X
+    [4X[25Xgap>[125X [27XGeneratorPol( C2 );[127X[104X
+    [4X[28XZ(2)^0+x[128X[104X
+  [4X[32X[104X
+  
+  [1X5.5-2 CheckPolCode[101X
+  
+  [29X[2XCheckPolCode[102X( [3Xh[103X, [3Xn[103X[, [3Xname[103X], [3XF[103X ) [32X function
+  
+  [33X[0;0Y[10XCheckPolCode[110X creates a cyclic code with a check polynomial [3Xh[103X, word length [3Xn[103X,
+  over [3XF[103X. [3Xname[103X can contain a short description of the code (as a string).[133X
+  
+  [33X[0;0YIf  [3Xh[103X  is  not  a divisor of [22Xx^n-1[122X, it cannot be a check polynomial. In that
+  case,  a  code  is  created  with check polynomial [22Xgcd( h, x^n-1 )[122X, i.e. the
+  greatest  common  divisor  of  [3Xh[103X and [22Xx^n-1[122X. This is a valid check polynomial
+  that yields the same elements as the ideal [22X(h)[122X. See [14X5.5[114X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27X x:= Indeterminate( GF(3) );; P:= x^2+2;[127X[104X
+    [4X[28X-Z(3)^0+x_1^2[128X[104X
+    [4X[25Xgap>[125X [27XH := CheckPolCode(P, 7, GF(3));[127X[104X
+    [4X[28Xa cyclic [7,1,7]4 code defined by check polynomial over GF(3)[128X[104X
+    [4X[25Xgap>[125X [27XCheckPol(H);[127X[104X
+    [4X[28X-Z(3)^0+x_1[128X[104X
+    [4X[25Xgap>[125X [27XGcd(P, X(GF(3))^7-1);[127X[104X
+    [4X[28X-Z(3)^0+x_1[128X[104X
+  [4X[32X[104X
+  
+  [1X5.5-3 RootsCode[101X
+  
+  [29X[2XRootsCode[102X( [3Xn[103X, [3Xlist[103X ) [32X function
+  
+  [33X[0;0YThis  is  the  generalization of the BCH, Reed-Solomon and quadratic residue
+  codes (see [2XBCHCode[102X ([14X5.5-4[114X), [2XReedSolomonCode[102X ([14X5.5-5[114X) and [2XQRCode[102X ([14X5.5-7[114X)). The
+  user  can  give  a  length  of the code [3Xn[103X and a prescribed set of zeros. The
+  argument  [3Xlist[103X  must  be  a valid list of [22Xn^th[122X roots of unity in a splitting
+  field [22XGF(q^m)[122X. The resulting code will be over the field [22XGF(q)[122X. The function
+  will  return  the  largest possible cyclic code for which the list [3Xlist[103X is a
+  subset of the roots of the code. From this list, [5XGUAVA[105X calculates the entire
+  set of roots.[133X
+  
+  [33X[0;0YThis  command can also be called with the syntax [10XRootsCode( n, list, q )[110X. In
+  this  second form, the second argument is a list of integers, ranging from [22X0[122X
+  to  [22Xn-1[122X.  The  resulting code will be over a field [22XGF(q)[122X. [5XGUAVA[105X calculates a
+  primitive  [22Xn^th[122X  root  of unity, [22Xα[122X, in the extension field of [22XGF(q)[122X. It uses
+  the set of the powers of [22Xα[122X in the list as a prescribed set of zeros.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xa := PrimitiveUnityRoot( 3, 14 );[127X[104X
+    [4X[28XZ(3^6)^52[128X[104X
+    [4X[25Xgap>[125X [27XC1 := RootsCode( 14, [ a^0, a, a^3 ] );[127X[104X
+    [4X[28Xa cyclic [14,7,3..6]3..7 code defined by roots over GF(3)[128X[104X
+    [4X[25Xgap>[125X [27XMinimumDistance( C1 );[127X[104X
+    [4X[28X4[128X[104X
+    [4X[25Xgap>[125X [27Xb := PrimitiveUnityRoot( 2, 15 );[127X[104X
+    [4X[28XZ(2^4)[128X[104X
+    [4X[25Xgap>[125X [27XC2 := RootsCode( 15, [ b, b^2, b^3, b^4 ] );[127X[104X
+    [4X[28Xa cyclic [15,7,5]3..5 code defined by roots over GF(2)[128X[104X
+    [4X[25Xgap>[125X [27XC2 = BCHCode( 15, 5, GF(2) );[127X[104X
+    [4X[28Xtrue [128X[104X
+    [4X[25Xgap>[125X [27XC3 := RootsCode( 4, [ 1, 2 ], 5 );[127X[104X
+    [4X[28Xa cyclic [4,2,2..3]2 code defined by roots over GF(5)[128X[104X
+    [4X[25Xgap>[125X [27XRootsOfCode( C3 );[127X[104X
+    [4X[28X[ Z(5), Z(5)^2 ][128X[104X
+    [4X[25Xgap>[125X [27XC3 = ReedSolomonCode( 4, 3 );[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
+  [1X5.5-4 BCHCode[101X
+  
+  [29X[2XBCHCode[102X( [3Xn[103X[, [3Xb[103X], [3Xdelta[103X, [3XF[103X ) [32X function
+  
+  [33X[0;0YThe function [10XBCHCode[110X returns a 'Bose-Chaudhuri-Hockenghem code' (or [13XBCH code[113X
+  for  short). This is the largest possible cyclic code of length [3Xn[103X over field
+  [3XF[103X, whose generator polynomial has zeros[133X
+  
+  
+        [33X[1;6Y[24X[33X[0;0Ya^{b},a^{b+1}, ..., a^{b+delta-2},[133X [124X[133X
+  
+  
+  [33X[0;0Ywhere  [22Xa[122X is a primitive [22Xn^th[122X root of unity in the splitting field [22XGF(q^m)[122X, [3Xb[103X
+  is  an integer [22X0≤ b≤ n-delta+1[122X and [22Xm[122X is the multiplicative order of [22Xq[122X modulo
+  [3Xn[103X.  (The integers [22X{b,...,b+delta-2}[122X typically lie in the range [22X{1,...,n-1}[122X.)
+  Default  value  for [3Xb[103X is [22X1[122X, though the algorithm allows [22Xb=0[122X. The length [3Xn[103X of
+  the code and the size [22Xq[122X of the field must be relatively prime. The generator
+  polynomial  is equal to the least common multiple of the minimal polynomials
+  of[133X
+  
+  
+        [33X[1;6Y[24X[33X[0;0Ya^{b}, a^{b+1}, ..., a^{b+delta-2}.[133X [124X[133X
+  
+  
+  [33X[0;0YThe  set  of zeroes of the generator polynomial is equal to the union of the
+  sets[133X
+  
+  
+        [33X[1;6Y[24X[33X[0;0Y\{a^x\ |\ x \in C_k\},[133X [124X[133X
+  
+  
+  [33X[0;0Ywhere  [22XC_k[122X  is  the  [22Xk^th[122X cyclotomic coset of [22Xq[122X modulo [22Xn[122X and [22Xb≤ k≤ b+delta-2[122X
+  (see [2XCyclotomicCosets[102X ([14X7.5-12[114X)).[133X
+  
+  [33X[0;0YSpecial cases are [22Xb=1[122X (resulting codes are called 'narrow-sense' BCH codes),
+  and  [22Xn=q^m-1[122X  (known as 'primitive' BCH codes). [5XGUAVA[105X calculates the largest
+  value  of  [22Xd[122X  for which the BCH code with designed distance [22Xd[122X coincides with
+  the  BCH  code  with  designed distance [3Xdelta[103X. This distance [22Xd[122X is called the
+  [13XBose  distance[113X of the code. The true minimum distance of the code is greater
+  than or equal to the Bose distance.[133X
+  
+  [33X[0;0YPrinted  are the designed distance (to be precise, the Bose distance) [22Xd[122X, and
+  the starting power [22Xb[122X.[133X
+  
+  [33X[0;0YThe  Sugiyama  decoding  algorithm  has  been implemented for this code (see
+  [2XDecode[102X ([14X4.10-1[114X)).[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XC1 := BCHCode( 15, 3, 5, GF(2) );[127X[104X
+    [4X[28Xa cyclic [15,5,7]5 BCH code, delta=7, b=1 over GF(2)[128X[104X
+    [4X[25Xgap>[125X [27XDesignedDistance( C1 );[127X[104X
+    [4X[28X7[128X[104X
+    [4X[25Xgap>[125X [27XC2 := BCHCode( 23, 2, GF(2) );[127X[104X
+    [4X[28Xa cyclic [23,12,5..7]3 BCH code, delta=5, b=1 over GF(2)[128X[104X
+    [4X[25Xgap>[125X [27XDesignedDistance( C2 );       [127X[104X
+    [4X[28X5[128X[104X
+    [4X[25Xgap>[125X [27XMinimumDistance(C2);[127X[104X
+    [4X[28X7 [128X[104X
+  [4X[32X[104X
+  
+  [33X[0;0YSee [2XRootsCode[102X ([14X5.5-3[114X) for a more general construction.[133X
+  
+  [1X5.5-5 ReedSolomonCode[101X
+  
+  [29X[2XReedSolomonCode[102X( [3Xn[103X, [3Xd[103X ) [32X function
+  
+  [33X[0;0Y[10XReedSolomonCode[110X returns a 'Reed-Solomon code' of length [3Xn[103X, designed distance
+  [3Xd[103X.  This  code  is  a  primitive narrow-sense BCH code over the field [22XGF(q)[122X,
+  where  [22Xq=n+1[122X.  The  dimension  of  an  RS  code  is  [22Xn-d+1[122X. According to the
+  Singleton  bound  (see  [2XUpperBoundSingleton[102X ([14X7.1-1[114X)) the dimension cannot be
+  greater  than this, so the true minimum distance of an RS code is equal to [3Xd[103X
+  and the code is maximum distance separable (see [2XIsMDSCode[102X ([14X4.3-7[114X)).[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XC1 := ReedSolomonCode( 3, 2 );[127X[104X
+    [4X[28Xa cyclic [3,2,2]1 Reed-Solomon code over GF(4)[128X[104X
+    [4X[25Xgap>[125X [27XIsCyclicCode(C1);[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XC2 := ReedSolomonCode( 4, 3 );[127X[104X
+    [4X[28Xa cyclic [4,2,3]2 Reed-Solomon code over GF(5)[128X[104X
+    [4X[25Xgap>[125X [27XRootsOfCode( C2 );[127X[104X
+    [4X[28X[ Z(5), Z(5)^2 ][128X[104X
+    [4X[25Xgap>[125X [27XIsMDSCode(C2);[127X[104X
+    [4X[28Xtrue [128X[104X
+  [4X[32X[104X
+  
+  [33X[0;0YSee [2XGeneralizedReedSolomonCode[102X ([14X5.6-2[114X) for a more general construction.[133X
+  
+  [1X5.5-6 ExtendedReedSolomonCode[101X
+  
+  [29X[2XExtendedReedSolomonCode[102X( [3Xn[103X, [3Xd[103X ) [32X function
+  
+  [33X[0;0Y[10XExtendedReedSolomonCode[110X  creates  a  Reed-Solomon  code  of  length [22Xn-1[122X with
+  designed  distance [22Xd-1[122X and then returns the code which is extended by adding
+  an overall parity-check symbol. The motivation for creating this function is
+  calling  [2XExtendedCode[102X  ([14X6.1-1[114X)  function  over a Reed-Solomon code will take
+  considerably long time.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XC := ExtendedReedSolomonCode(17, 13);[127X[104X
+    [4X[28Xa linear [17,5,13]9..12 extended Reed Solomon code over GF(17)[128X[104X
+    [4X[25Xgap>[125X [27XIsMDSCode(C);[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
+  [1X5.5-7 QRCode[101X
+  
+  [29X[2XQRCode[102X( [3Xn[103X, [3XF[103X ) [32X function
+  
+  [33X[0;0Y[10XQRCode[110X  returns a quadratic residue code. If [3XF[103X is a field [22XGF(q)[122X, then [22Xq[122X must
+  be  a  quadratic  residue modulo [3Xn[103X. That is, an [22Xx[122X exists with [22Xx^2 ≡ q mod n[122X.
+  Both  [3Xn[103X and [22Xq[122X must be primes. Its generator polynomial is the product of the
+  polynomials  [22Xx-a^i[122X. [22Xa[122X is a primitive [22Xn^th[122X root of unity, and [22Xi[122X is an integer
+  in the set of quadratic residues modulo [3Xn[103X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XC1 := QRCode( 7, GF(2) );[127X[104X
+    [4X[28Xa cyclic [7,4,3]1 quadratic residue code over GF(2)[128X[104X
+    [4X[25Xgap>[125X [27XIsEquivalent( C1, HammingCode( 3, GF(2) ) );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIsCyclicCode(C1);[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIsCyclicCode(HammingCode( 3, GF(2) ));[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27XC2 := QRCode( 11, GF(3) );[127X[104X
+    [4X[28Xa cyclic [11,6,4..5]2 quadratic residue code over GF(3)[128X[104X
+    [4X[25Xgap>[125X [27XC2 = TernaryGolayCode();[127X[104X
+    [4X[28Xtrue [128X[104X
+    [4X[25Xgap>[125X [27XQ1 := QRCode( 7, GF(2));[127X[104X
+    [4X[28Xa cyclic [7,4,3]1 quadratic residue code over GF(2)[128X[104X
+    [4X[25Xgap>[125X [27XP1:=AutomorphismGroup(Q1); IdGroup(P1);[127X[104X
+    [4X[28XGroup([ (1,2)(5,7), (2,3)(4,7), (2,4)(5,6), (3,5)(6,7), (3,7)(5,6) ])[128X[104X
+    [4X[28X[ 168, 42 ][128X[104X
+  [4X[32X[104X
+  
+  [1X5.5-8 QQRCodeNC[101X
+  
+  [29X[2XQQRCodeNC[102X( [3Xp[103X ) [32X function
+  
+  [33X[0;0Y[10XQQRCodeNC[110X  is  the  same  as [10XQQRCode[110X, except that it uses [10XGeneratorMatCodeNC[110X
+  instead of [10XGeneratorMatCode[110X.[133X
+  
+  [1X5.5-9 QQRCode[101X
+  
+  [29X[2XQQRCode[102X( [3Xp[103X ) [32X function
+  
+  [33X[0;0Y[10XQQRCode[110X  returns  a  quasi-quadratic residue code, as defined by Proposition
+  2.2  in  Bazzi-Mittel [BMd)]. The parameter [3Xp[103X must be a prime. Its generator
+  matrix has the block form [22XG=(Q,N)[122X. Here [22XQ[122X is a [22Xp×[122X circulant matrix whose top
+  row  is  [22X(0,x_1,...,x_p-1)[122X,  where  [22Xx_i=1[122X  if  and  only if [22Xi[122X is a quadratic
+  residue   mod  [22Xp[122X,  and  [22XN[122X  is  a  [22Xp×[122X  circulant  matrix  whose  top  row  is
+  [22X(0,y_1,...,y_p-1)[122X,  where  [22Xx_i+y_i=1[122X for all [22Xi[122X. (In fact, this matrix can be
+  recovered as the component [10XDoublyCirculant[110X of the code.)[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XC1 := QQRCode( 7);[127X[104X
+    [4X[28Xa linear [14,7,1..4]3..5 code defined by generator matrix over GF(2)[128X[104X
+    [4X[25Xgap>[125X [27XG1:=GeneratorMat(C1);;[127X[104X
+    [4X[25Xgap>[125X [27XDisplay(G1);[127X[104X
+    [4X[28X . 1 1 . 1 . . . . . 1 . 1 1[128X[104X
+    [4X[28X 1 . 1 1 1 . . . . 1 1 1 . 1[128X[104X
+    [4X[28X . . . 1 1 . 1 . 1 1 . . . 1[128X[104X
+    [4X[28X . . 1 . 1 1 1 1 . 1 . . 1 1[128X[104X
+    [4X[28X . . . . . . . 1 . . 1 1 1 .[128X[104X
+    [4X[28X . . . . . . . . . 1 1 1 . 1[128X[104X
+    [4X[28X . . . . . . . . 1 . . 1 1 1[128X[104X
+    [4X[25Xgap>[125X [27XDisplay(C1!.DoublyCirculant);[127X[104X
+    [4X[28X . 1 1 . 1 . . . . . 1 . 1 1[128X[104X
+    [4X[28X 1 1 . 1 . . . . . 1 . 1 1 .[128X[104X
+    [4X[28X 1 . 1 . . . 1 . 1 . 1 1 . .[128X[104X
+    [4X[28X . 1 . . . 1 1 1 . 1 1 . . .[128X[104X
+    [4X[28X 1 . . . 1 1 . . 1 1 . . . 1[128X[104X
+    [4X[28X . . . 1 1 . 1 1 1 . . . 1 .[128X[104X
+    [4X[28X . . 1 1 . 1 . 1 . . . 1 . 1[128X[104X
+    [4X[25Xgap>[125X [27XMinimumDistance(C1);[127X[104X
+    [4X[28X4[128X[104X
+    [4X[25Xgap>[125X [27XC2 := QQRCode( 29); MinimumDistance(C2);[127X[104X
+    [4X[28Xa linear [58,28,1..14]8..29 code defined by generator matrix over GF(2)[128X[104X
+    [4X[28X12[128X[104X
+    [4X[25Xgap>[125X [27XAut2:=AutomorphismGroup(C2); IdGroup(Aut2);[127X[104X
+    [4X[28X[ permutation group of size 812 with 4 generators ][128X[104X
+    [4X[28X[ 812, 7 ][128X[104X
+  [4X[32X[104X
+  
+  [1X5.5-10 FireCode[101X
+  
+  [29X[2XFireCode[102X( [3Xg[103X, [3Xb[103X ) [32X function
+  
+  [33X[0;0Y[10XFireCode[110X  constructs  a  (binary)  Fire code. [3Xg[103X is a primitive polynomial of
+  degree  [22Xm[122X, and a factor of [22Xx^r-1[122X. [3Xb[103X an integer [22X0 ≤ b ≤ m[122X not divisible by [22Xr[122X,
+  that  determines  the  burst  length  of  a  single  error burst that can be
+  corrected.  The  argument  [3Xg[103X  can be a polynomial with base ring [22XGF(2)[122X, or a
+  list  of  coefficients  in  [22XGF(2)[122X.  The  generator polynomial of the code is
+  defined as the product of [3Xg[103X and [22Xx^2b-1+1[122X.[133X
+  
+  [33X[0;0YHere  is  the  general  definition  of 'Fire code', named after P. Fire, who
+  introduced  these  codes  in 1959 in order to correct burst errors. First, a
+  definition.  If  [22XF=GF(q)[122X  and  [22Xf∈  F[x][122X  then  we  say  [22Xf[122X  has  [13Xorder[113X  [22Xe[122X  if
+  [22Xf(x)|(x^e-1)[122X.  A [13XFire code[113X is a cyclic code over [22XF[122X with generator polynomial
+  [22Xg(x)=  (x^2t-1-1)p(x)[122X,  where  [22Xp(x)[122X  does  not divide [22Xx^2t-1-1[122X and satisfies
+  [22Xdeg(p(x))≥  t[122X.  The  length  of such a code is the order of [22Xg(x)[122X. Non-binary
+  Fire codes have not been implemented.[133X
+  
+  [33X[0;0Y.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xx:= Indeterminate( GF(2) );; G:= x^3+x^2+1;[127X[104X
+    [4X[28XZ(2)^0+x^2+x^3[128X[104X
+    [4X[25Xgap>[125X [27XFactors( G );[127X[104X
+    [4X[28X[ Z(2)^0+x^2+x^3 ][128X[104X
+    [4X[25Xgap>[125X [27XC := FireCode( G, 3 );[127X[104X
+    [4X[28Xa cyclic [35,27,1..4]2..6 3 burst error correcting fire code over GF(2)[128X[104X
+    [4X[25Xgap>[125X [27XMinimumDistance( C );[127X[104X
+    [4X[28X4     # Still it can correct bursts of length 3 [128X[104X
+  [4X[32X[104X
+  
+  [1X5.5-11 WholeSpaceCode[101X
+  
+  [29X[2XWholeSpaceCode[102X( [3Xn[103X, [3XF[103X ) [32X function
+  
+  [33X[0;0Y[10XWholeSpaceCode[110X  returns the cyclic whole space code of length [3Xn[103X over [3XF[103X. This
+  code  consists  of all polynomials of degree less than [3Xn[103X and coefficients in
+  [3XF[103X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XC := WholeSpaceCode( 5, GF(3) );[127X[104X
+    [4X[28Xa cyclic [5,5,1]0 whole space code over GF(3)[128X[104X
+  [4X[32X[104X
+  
+  [1X5.5-12 NullCode[101X
+  
+  [29X[2XNullCode[102X( [3Xn[103X, [3XF[103X ) [32X function
+  
+  [33X[0;0Y[10XNullCode[110X  returns  the  zero-dimensional nullcode with length [3Xn[103X over [3XF[103X. This
+  code has only one word: the all zero word. It is cyclic though![133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XC := NullCode( 5, GF(3) );[127X[104X
+    [4X[28Xa cyclic [5,0,5]5 nullcode over GF(3)[128X[104X
+    [4X[25Xgap>[125X [27XAsSSortedList( C );[127X[104X
+    [4X[28X[ [ 0 0 0 0 0 ] ][128X[104X
+  [4X[32X[104X
+  
+  [1X5.5-13 RepetitionCode[101X
+  
+  [29X[2XRepetitionCode[102X( [3Xn[103X, [3XF[103X ) [32X function
+  
+  [33X[0;0Y[10XRepetitionCode[110X  returns  the  cyclic repetition code of length [3Xn[103X over [3XF[103X. The
+  code  has  as  many  elements  as  [3XF[103X,  because  each  codeword consists of a
+  repetition of one of these elements.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XC := RepetitionCode( 3, GF(5) );[127X[104X
+    [4X[28Xa cyclic [3,1,3]2 repetition code over GF(5)[128X[104X
+    [4X[25Xgap>[125X [27XAsSSortedList( C );[127X[104X
+    [4X[28X[ [ 0 0 0 ], [ 1 1 1 ], [ 2 2 2 ], [ 4 4 4 ], [ 3 3 3 ] ][128X[104X
+    [4X[25Xgap>[125X [27XIsPerfectCode( C );[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27XIsMDSCode( C );[127X[104X
+    [4X[28Xtrue [128X[104X
+  [4X[32X[104X
+  
+  [1X5.5-14 CyclicCodes[101X
+  
+  [29X[2XCyclicCodes[102X( [3Xn[103X, [3XF[103X ) [32X function
+  
+  [33X[0;0Y[10XCyclicCodes[110X  returns  a  list  of  all  cyclic  codes of length [3Xn[103X over [3XF[103X. It
+  constructs  all  possible  generator  polynomials from the factors of [22Xx^n-1[122X.
+  Each  combination  of  these  factors  yields  a  generator polynomial after
+  multiplication.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XCyclicCodes(3,GF(3));[127X[104X
+    [4X[28X[ a cyclic [3,3,1]0 enumerated code over GF(3), [128X[104X
+    [4X[28Xa cyclic [3,2,1..2]1 enumerated code over GF(3), [128X[104X
+    [4X[28Xa cyclic [3,1,3]2 enumerated code over GF(3), [128X[104X
+    [4X[28Xa cyclic [3,0,3]3 enumerated code over GF(3) ][128X[104X
+  [4X[32X[104X
+  
+  [1X5.5-15 NrCyclicCodes[101X
+  
+  [29X[2XNrCyclicCodes[102X( [3Xn[103X, [3XF[103X ) [32X function
+  
+  [33X[0;0YThe function [10XNrCyclicCodes[110X calculates the number of cyclic codes of length [3Xn[103X
+  over field [3XF[103X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XNrCyclicCodes( 23, GF(2) );[127X[104X
+    [4X[28X8[128X[104X
+    [4X[25Xgap>[125X [27Xcodelist := CyclicCodes( 23, GF(2) );[127X[104X
+    [4X[28X[ a cyclic [23,23,1]0 enumerated code over GF(2), [128X[104X
+    [4X[28X  a cyclic [23,22,1..2]1 enumerated code over GF(2), [128X[104X
+    [4X[28X  a cyclic [23,11,1..8]4..7 enumerated code over GF(2), [128X[104X
+    [4X[28X  a cyclic [23,0,23]23 enumerated code over GF(2), [128X[104X
+    [4X[28X  a cyclic [23,11,1..8]4..7 enumerated code over GF(2), [128X[104X
+    [4X[28X  a cyclic [23,12,1..7]3 enumerated code over GF(2), [128X[104X
+    [4X[28X  a cyclic [23,1,23]11 enumerated code over GF(2), [128X[104X
+    [4X[28X  a cyclic [23,12,1..7]3 enumerated code over GF(2) ][128X[104X
+    [4X[25Xgap>[125X [27XBinaryGolayCode() in codelist;[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XRepetitionCode( 23, GF(2) ) in codelist;[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XCordaroWagnerCode( 23 ) in codelist;[127X[104X
+    [4X[28Xfalse    # This code is not cyclic [128X[104X
+  [4X[32X[104X
+  
+  [1X5.5-16 QuasiCyclicCode[101X
+  
+  [29X[2XQuasiCyclicCode[102X( [3XG[103X, [3Xs[103X, [3XF[103X ) [32X function
+  
+  [33X[0;0Y[10XQuasiCyclicCode( G, k, F )[110X generates a rate [22X1/m[122X quasi-cyclic code over field
+  [3XF[103X.  The input [3XG[103X is a list of univariate polynomials and [22Xm[122X is the cardinality
+  of  this  list.  Note  that [22Xm[122X must be at least [22X2[122X. The input [3Xs[103X is the size of
+  each  circulant and it may not necessarily be the same as the code dimension
+  [22Xk[122X, i.e. [22Xk le s[122X.[133X
+  
+  [33X[0;0YThere  also  exists  another version, [10XQuasiCyclicCode( G, s )[110X which produces
+  quasi-cyclic  codes  over  [22XF_2[122X  only.  Here  the  parameter [3Xs[103X holds the same
+  definition  and  the input [3XG[103X is a list of integers, where each integer is an
+  octal representation of a binary univariate polynomial.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27X#[127X[104X
+    [4X[25Xgap>[125X [27X# This example show the case for k = s[127X[104X
+    [4X[25Xgap>[125X [27X#[127X[104X
+    [4X[25Xgap>[125X [27XL1 := PolyCodeword( Codeword("10000000000", GF(4)) );[127X[104X
+    [4X[28XZ(2)^0[128X[104X
+    [4X[25Xgap>[125X [27XL2 := PolyCodeword( Codeword("12223201000", GF(4)) );[127X[104X
+    [4X[28Xx^7+Z(2^2)*x^5+Z(2^2)^2*x^4+Z(2^2)*x^3+Z(2^2)*x^2+Z(2^2)*x+Z(2)^0[128X[104X
+    [4X[25Xgap>[125X [27XL3 := PolyCodeword( Codeword("31111220110", GF(4)) );[127X[104X
+    [4X[28Xx^9+x^8+Z(2^2)*x^6+Z(2^2)*x^5+x^4+x^3+x^2+x+Z(2^2)^2[128X[104X
+    [4X[25Xgap>[125X [27XL4 := PolyCodeword( Codeword("13320333010", GF(4)) );[127X[104X
+    [4X[28Xx^9+Z(2^2)^2*x^7+Z(2^2)^2*x^6+Z(2^2)^2*x^5+Z(2^2)*x^3+Z(2^2)^2*x^2+Z(2^2)^2*x+\[128X[104X
+    [4X[28XZ(2)^0[128X[104X
+    [4X[25Xgap>[125X [27XL5 := PolyCodeword( Codeword("20102211100", GF(4)) );[127X[104X
+    [4X[28Xx^8+x^7+x^6+Z(2^2)*x^5+Z(2^2)*x^4+x^2+Z(2^2)[128X[104X
+    [4X[25Xgap>[125X [27XC := QuasiCyclicCode( [L1, L2, L3, L4, L5], 11, GF(4) );[127X[104X
+    [4X[28Xa linear [55,11,1..32]24..41 quasi-cyclic code over GF(4)[128X[104X
+    [4X[25Xgap>[125X [27XMinimumDistance(C);[127X[104X
+    [4X[28X29[128X[104X
+    [4X[25Xgap>[125X [27XDisplay(C);[127X[104X
+    [4X[28Xa linear [55,11,29]24..41 quasi-cyclic code over GF(4)[128X[104X
+    [4X[25Xgap>[125X [27X#[127X[104X
+    [4X[25Xgap>[125X [27X# This example show the case for k < s[127X[104X
+    [4X[25Xgap>[125X [27X#[127X[104X
+    [4X[25Xgap>[125X [27XL1 := PolyCodeword( Codeword("02212201220120211002000",GF(3)) );[127X[104X
+    [4X[28X-x^19+x^16+x^15-x^14-x^12+x^11-x^9-x^8+x^7-x^5-x^4+x^3-x^2-x[128X[104X
+    [4X[25Xgap>[125X [27XL2 := PolyCodeword( Codeword("00221100200120220001110",GF(3)) );[127X[104X
+    [4X[28Xx^21+x^20+x^19-x^15-x^14-x^12+x^11-x^8+x^5+x^4-x^3-x^2[128X[104X
+    [4X[25Xgap>[125X [27XL3 := PolyCodeword( Codeword("22021011202221111020021",GF(3)) );[127X[104X
+    [4X[28Xx^22-x^21-x^18+x^16+x^15+x^14+x^13-x^12-x^11-x^10-x^8+x^7+x^6+x^4-x^3-x-Z(3)^0[128X[104X
+    [4X[25Xgap>[125X [27XC := QuasiCyclicCode( [L1, L2, L3], 23, GF(3) );[127X[104X
+    [4X[28Xa linear [69,12,1..37]27..46 quasi-cyclic code over GF(3)[128X[104X
+    [4X[25Xgap>[125X [27XMinimumDistance(C);[127X[104X
+    [4X[28X34[128X[104X
+    [4X[25Xgap>[125X [27XDisplay(C);[127X[104X
+    [4X[28Xa linear [69,12,34]27..46 quasi-cyclic code over GF(3)[128X[104X
+    [4X[25Xgap>[125X [27X#[127X[104X
+    [4X[25Xgap>[125X [27X# This example show the binary case using octal representation[127X[104X
+    [4X[25Xgap>[125X [27X#[127X[104X
+    [4X[25Xgap>[125X [27XL1 := 001;;   # 0 000 001[127X[104X
+    [4X[25Xgap>[125X [27XL2 := 013;;   # 0 001 011[127X[104X
+    [4X[25Xgap>[125X [27XL3 := 015;;   # 0 001 101[127X[104X
+    [4X[25Xgap>[125X [27XL4 := 077;;   # 0 111 111[127X[104X
+    [4X[25Xgap>[125X [27XC := QuasiCyclicCode( [L1, L2, L3, L4], 7 );[127X[104X
+    [4X[28Xa linear [28,7,1..12]8..14 quasi-cyclic code over GF(2)[128X[104X
+    [4X[25Xgap>[125X [27XMinimumDistance(C);[127X[104X
+    [4X[28X12[128X[104X
+    [4X[25Xgap>[125X [27XDisplay(C);[127X[104X
+    [4X[28Xa linear [28,7,12]8..14 quasi-cyclic code over GF(2)[128X[104X
+  [4X[32X[104X
+  
+  [1X5.5-17 CyclicMDSCode[101X
+  
+  [29X[2XCyclicMDSCode[102X( [3Xq[103X, [3Xm[103X, [3Xk[103X ) [32X function
+  
+  [33X[0;0YGiven  the input parameters [3Xq[103X, [3Xm[103X and [3Xk[103X, this function returns a [22X[q^m + 1, k,
+  q^m  -  k  + 2][122X cyclic MDS code over GF([22Xq^m[122X). If [22Xq^m[122X is even, any value of [22Xk[122X
+  can be used, otherwise only odd value of [22Xk[122X is accepted.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XC:=CyclicMDSCode(2,6,24);[127X[104X
+    [4X[28Xa cyclic [65,24,42]31..41 MDS code over GF(64)[128X[104X
+    [4X[25Xgap>[125X [27XIsMDSCode(C);[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XC:=CyclicMDSCode(5,3,77);[127X[104X
+    [4X[28Xa cyclic [126,77,50]35..49 MDS code over GF(125)[128X[104X
+    [4X[25Xgap>[125X [27XIsMDSCode(C);[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XC:=CyclicMDSCode(3,3,25);[127X[104X
+    [4X[28Xa cyclic [28,25,4]2..3 MDS code over GF(27)[128X[104X
+    [4X[25Xgap>[125X [27XGeneratorPol(C);[127X[104X
+    [4X[28Xx^3+Z(3^3)^7*x^2+Z(3^3)^20*x-Z(3)^0[128X[104X
+    [4X[28Xgap>[128X[104X
+  [4X[32X[104X
+  
+  [1X5.5-18 FourNegacirculantSelfDualCode[101X
+  
+  [29X[2XFourNegacirculantSelfDualCode[102X( [3Xax[103X, [3Xbx[103X, [3Xk[103X ) [32X function
+  
+  [33X[0;0YA  four-negacirculant  self-dual  code  has  a generator matrix [22XG[122X of the the
+  following form[133X
+  
+      -                    -
+      |        |  A  |  B  |
+  G = |  I_2k  |-----+-----|
+      |        | -B^T| A^T |
+      -                    -
+  		
+  
+  [33X[0;0Ywhere  [22XAA^T  +  BB^T  =  -I_k[122X  and  [22XA[122X,  [22XB[122X and their transposed are all [22Xk × k[122X
+  negacirculant  matrices.  The  generator  matrix  [22XG[122X  returns  a [22X[2k, k, d]_q[122X
+  self-dual  code  over  GF([22Xq[122X). For discussion on four-negacirculant self-dual
+  codes, refer to [HHKK07].[133X
+  
+  [33X[0;0YThe  input  parameters  [3Xax[103X and [3Xbx[103X are the defining polynomials over GF([22Xq[122X) of
+  negacirculant  matrices  [22XA[122X  and  [22XB[122X respectively. The last parameter [3Xk[103X is the
+  dimension of the code.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xax:=PolyCodeword(Codeword("1200200", GF(3)));[127X[104X
+    [4X[28X-x_1^4-x_1+Z(3)^0[128X[104X
+    [4X[25Xgap>[125X [27Xbx:=PolyCodeword(Codeword("2020221", GF(3)));[127X[104X
+    [4X[28Xx_1^6-x_1^5-x_1^4-x_1^2-Z(3)^0[128X[104X
+    [4X[25Xgap>[125X [27XC:=FourNegacirculantSelfDualCode(ax, bx, 14);;[127X[104X
+    [4X[25Xgap>[125X [27XMinimumDistance(C);;[127X[104X
+    [4X[25Xgap>[125X [27XCoveringRadius(C);;[127X[104X
+    [4X[25Xgap>[125X [27XIsSelfDualCode(C);[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XDisplay(C);[127X[104X
+    [4X[28Xa linear [28,14,9]7 four-negacirculant self-dual code over GF(3)[128X[104X
+    [4X[25Xgap>[125X [27XDisplay( GeneratorMat(C) );[127X[104X
+    [4X[28X 1 . . . . . . . . . . . . . 1 2 . . 2 . . 2 . 2 . 2 2 1[128X[104X
+    [4X[28X . 1 . . . . . . . . . . . . . 1 2 . . 2 . 2 2 . 2 . 2 2[128X[104X
+    [4X[28X . . 1 . . . . . . . . . . . . . 1 2 . . 2 1 2 2 . 2 . 2[128X[104X
+    [4X[28X . . . 1 . . . . . . . . . . 1 . . 1 2 . . 1 1 2 2 . 2 .[128X[104X
+    [4X[28X . . . . 1 . . . . . . . . . . 1 . . 1 2 . . 1 1 2 2 . 2[128X[104X
+    [4X[28X . . . . . 1 . . . . . . . . . . 1 . . 1 2 1 . 1 1 2 2 .[128X[104X
+    [4X[28X . . . . . . 1 . . . . . . . 1 . . 1 . . 1 . 1 . 1 1 2 2[128X[104X
+    [4X[28X . . . . . . . 1 . . . . . . 1 1 2 2 . 2 . 1 . . 1 . . 1[128X[104X
+    [4X[28X . . . . . . . . 1 . . . . . . 1 1 2 2 . 2 2 1 . . 1 . .[128X[104X
+    [4X[28X . . . . . . . . . 1 . . . . 1 . 1 1 2 2 . . 2 1 . . 1 .[128X[104X
+    [4X[28X . . . . . . . . . . 1 . . . . 1 . 1 1 2 2 . . 2 1 . . 1[128X[104X
+    [4X[28X . . . . . . . . . . . 1 . . 1 . 1 . 1 1 2 2 . . 2 1 . .[128X[104X
+    [4X[28X . . . . . . . . . . . . 1 . 1 1 . 1 . 1 1 . 2 . . 2 1 .[128X[104X
+    [4X[28X . . . . . . . . . . . . . 1 2 1 1 . 1 . 1 . . 2 . . 2 1[128X[104X
+    [4X[25Xgap>[125X [27Xax:=PolyCodeword(Codeword("013131000", GF(7)));[127X[104X
+    [4X[28Xx_1^5+Z(7)*x_1^4+x_1^3+Z(7)*x_1^2+x_1[128X[104X
+    [4X[25Xgap>[125X [27Xbx:=PolyCodeword(Codeword("425435030", GF(7)));[127X[104X
+    [4X[28XZ(7)*x_1^7+Z(7)^5*x_1^5+Z(7)*x_1^4+Z(7)^4*x_1^3+Z(7)^5*x_1^2+Z(7)^2*x_1+Z(7)^4[128X[104X
+    [4X[25Xgap>[125X [27XC:=FourNegacirculantSelfDualCodeNC(ax, bx, 18);[127X[104X
+    [4X[28Xa linear [36,18,1..13]0..36 four-negacirculant self-dual code over GF(7)[128X[104X
+    [4X[25Xgap>[125X [27XIsSelfDualCode(C);[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
+  [1X5.5-19 FourNegacirculantSelfDualCodeNC[101X
+  
+  [29X[2XFourNegacirculantSelfDualCodeNC[102X( [3Xax[103X, [3Xbx[103X, [3Xk[103X ) [32X function
+  
+  [33X[0;0YThis  function  is  the  same  as [10XFourNegacirculantSelfDualCode[110X, except this
+  version  is faster as it does not estimate the minimum distance and covering
+  radius of the code.[133X
+  
+  
+  [1X5.6 [33X[0;0YEvaluation Codes[133X[101X
+  
+  [1X5.6-1 EvaluationCode[101X
+  
+  [29X[2XEvaluationCode[102X( [3XP[103X, [3XL[103X, [3XR[103X ) [32X function
+  
+  [33X[0;0YInput:  [3XF[103X  is  a  finite  field,  [3XL[103X  is  a  list  of  rational  functions in
+  [22XR=F[x_1,...,x_r][122X,  [3XP[103X  is  a  list  of  [22Xn[122X  points  in [22XF^r[122X at which all of the
+  functions in [3XL[103X are defined.[133X
+  [33X[0;0YOutput: The 'evaluation code' [22XC[122X, which is the image of the evalation map[133X
+  
+  
+        [33X[1;6Y[24X[33X[0;0YEval_P:span(L)\rightarrow F^n,[133X [124X[133X
+  
+  
+  [33X[0;0Ygiven  by  [22Xflongmapsto (f(p_1),...,f(p_n))[122X, where [22XP={p_1,...,p_n}[122X and [22Xf ∈ L[122X.
+  The generator matrix of [22XC[122X is [22XG=(f_i(p_j))_f_i∈ L,p_j∈ P[122X.[133X
+  
+  [33X[0;0YThis command returns a "record" object [10XC[110X with several extra components (type
+  [10XNamesOfComponents(C)[110X to see them all): [10XC!.EvaluationMat[110X (not the same as the
+  generator matrix in general), [10XC!.points[110X (namely [3XP[103X), [10XC!.basis[110X (namely [3XL[103X), and
+  [10XC!.ring[110X (namely [3XR[103X).[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XF:=GF(11);[127X[104X
+    [4X[28XGF(11)[128X[104X
+    [4X[25Xgap>[125X [27XR := PolynomialRing(F,2);;[127X[104X
+    [4X[25Xgap>[125X [27Xindets := IndeterminatesOfPolynomialRing(R);;[127X[104X
+    [4X[25Xgap>[125X [27Xx:=indets[1];; y:=indets[2];;[127X[104X
+    [4X[25Xgap>[125X [27XL:=[x^2*y,x*y,x^5,x^4,x^3,x^2,x,x^0];;[127X[104X
+    [4X[25Xgap>[125X [27XPts:=[ [ Z(11)^9, Z(11) ], [ Z(11)^8, Z(11) ], [ Z(11)^7, 0*Z(11) ],[127X[104X
+    [4X[28X   [ Z(11)^6, 0*Z(11) ], [ Z(11)^5, 0*Z(11) ], [ Z(11)^4, 0*Z(11) ],[128X[104X
+    [4X[28X   [ Z(11)^3, Z(11) ], [ Z(11)^2, 0*Z(11) ], [ Z(11), 0*Z(11) ], [128X[104X
+    [4X[28X   [ Z(11)^0, 0*Z(11) ], [ 0*Z(11), Z(11) ] ];;[128X[104X
+    [4X[25Xgap>[125X [27XC:=EvaluationCode(Pts,L,R);[127X[104X
+    [4X[28Xa linear [11,8,1..3]2..3  evaluation code over GF(11)[128X[104X
+    [4X[25Xgap>[125X [27XMinimumDistance(C);[127X[104X
+    [4X[28X3[128X[104X
+    [4X[28X[128X[104X
+  [4X[32X[104X
+  
+  [1X5.6-2 GeneralizedReedSolomonCode[101X
+  
+  [29X[2XGeneralizedReedSolomonCode[102X( [3XP[103X, [3Xk[103X, [3XR[103X ) [32X function
+  
+  [33X[0;0YInput:  R=F[x],  where  [3XF[103X is a finite field, [3Xk[103X is a positive integer, [3XP[103X is a
+  list of [22Xn[122X points in [22XF[122X.[133X
+  [33X[0;0YOutput: The [22XC[122X which is the image of the evaluation map[133X
+  
+  
+        [33X[1;6Y[24X[33X[0;0YEval_P:F[x]_k\rightarrow F^n,[133X [124X[133X
+  
+  
+  [33X[0;0Ygiven  by  [22Xflongmapsto  (f(p_1),...,f(p_n))[122X,  where [22XP={p_1,...,p_n}⊂ F[122X and [22Xf[122X
+  ranges over the space [22XF[x]_k[122X of all polynomials of degree less than [22Xk[122X.[133X
+  
+  [33X[0;0YThis command returns a "record" object [10XC[110X with several extra components (type
+  [10XNamesOfComponents(C)[110X  to  see  them  all):  [10XC!.points[110X  (namely [3XP[103X), [10XC!.degree[110X
+  (namely [3Xk[103X), and [10XC!.ring[110X (namely [3XR[103X).[133X
+  
+  [33X[0;0YThis code can be decoded using [10XDecodeword[110X, which applies the special decoder
+  method (the interpolation method), or using [10XGeneralizedReedSolomonDecoderGao[110X
+  which  applies  an algorithm of S. Gao (see [2XGeneralizedReedSolomonDecoderGao[102X
+  ([14X4.10-3[114X)).  This  code  has  a  special  decoder record which implements the
+  interpolation  algorithm  described  in  section 5.2 of Justesen and Hoholdt
+  [JH04]. See [2XDecode[102X ([14X4.10-1[114X) and [2XDecodeword[102X ([14X4.10-2[114X) for more details.[133X
+  
+  [33X[0;0YThe     weighted     version     has    implemented    with    the    option
+  [10XGeneralizedReedSolomonCode(P,k,R,wts)[110X,  where  [22Xwts  =  [v_1,  ..., v_n][122X is a
+  sequence  of  [22Xn[122X  non-zero  elements from the base field [22XF[122X of [3XR[103X. See also the
+  generalized Reed--Solomon code [22XGRS_k(P, V)[122X described in [MS83], p.303.[133X
+  
+  [33X[0;0YThe list-decoding algorithm of Sudan-Guraswami (described in section 12.1 of
+  [JH04])  has  been  implemented  for  generalized  Reed-Solomon  codes.  See
+  [2XGeneralizedReedSolomonListDecoder[102X ([14X4.10-4[114X).[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XR:=PolynomialRing(GF(11),["t"]);[127X[104X
+    [4X[28XGF(11)[t][128X[104X
+    [4X[25Xgap>[125X [27XP:=List([1,3,4,5,7],i->Z(11)^i);[127X[104X
+    [4X[28X[ Z(11), Z(11)^3, Z(11)^4, Z(11)^5, Z(11)^7 ][128X[104X
+    [4X[25Xgap>[125X [27XC:=GeneralizedReedSolomonCode(P,3,R);[127X[104X
+    [4X[28Xa linear [5,3,1..3]2  generalized Reed-Solomon code over GF(11)[128X[104X
+    [4X[25Xgap>[125X [27XMinimumDistance(C);[127X[104X
+    [4X[28X3[128X[104X
+    [4X[25Xgap>[125X [27XV:=[Z(11)^0,Z(11)^0,Z(11)^0,Z(11)^0,Z(11)];[127X[104X
+    [4X[28X[ Z(11)^0, Z(11)^0, Z(11)^0, Z(11)^0, Z(11) ][128X[104X
+    [4X[25Xgap>[125X [27XC:=GeneralizedReedSolomonCode(P,3,R,V);[127X[104X
+    [4X[28Xa linear [5,3,1..3]2  weighted generalized Reed-Solomon code over GF(11)[128X[104X
+    [4X[25Xgap>[125X [27XMinimumDistance(C);[127X[104X
+    [4X[28X3[128X[104X
+  [4X[32X[104X
+  
+  [33X[0;0YSee [2XEvaluationCode[102X ([14X5.6-1[114X) for a more general construction.[133X
+  
+  [1X5.6-3 GeneralizedReedMullerCode[101X
+  
+  [29X[2XGeneralizedReedMullerCode[102X( [3XPts[103X, [3Xr[103X, [3XF[103X ) [32X function
+  
+  [33X[0;0Y[10XGeneralizedReedMullerCode[110X  returns  a 'Reed-Muller code' [22XC[122X with length [22X|Pts|[122X
+  and  order  [22Xr[122X.  One  considers (a) a basis of monomials for the vector space
+  over  [22XF=GF(q)[122X  of all polynomials in [22XF[x_1,...,x_d][122X of degree at most [22Xr[122X, and
+  (b)  a  set  [22XPts[122X  of  points  in [22XF^d[122X. The generator matrix of the associated
+  [13XReed-Muller  code[113X  [22XC[122X  is  [22XG=(f(p))_f∈  B,p ∈ Pts[122X. This code [22XC[122X is constructed
+  using the command [10XGeneralizedReedMullerCode(Pts,r,F)[110X. When [22XPts[122X is the set of
+  all  [22Xq^d[122X  points in [22XF^d[122X then the command [10XGeneralizedReedMuller(d,r,F)[110X yields
+  the code. When [22XPts[122X is the set of all [22X(q-1)^d[122X points with no coordinate equal
+  to  [22X0[122X  then  this  is  can  be constructed using the [10XToricCode[110X command (as a
+  special case).[133X
+  
+  [33X[0;0YThis command returns a "record" object [10XC[110X with several extra components (type
+  [10XNamesOfComponents(C)[110X  to see them all): [10XC!.points[110X (namely [3XPts[103X) and [10XC!.degree[110X
+  (namely [3Xr[103X).[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XPts:=ToricPoints(2,GF(5));[127X[104X
+    [4X[28X[ [ Z(5)^0, Z(5)^0 ], [ Z(5)^0, Z(5) ], [ Z(5)^0, Z(5)^2 ], [ Z(5)^0, Z(5)^3 ],[128X[104X
+    [4X[28X  [ Z(5), Z(5)^0 ], [ Z(5), Z(5) ], [ Z(5), Z(5)^2 ], [ Z(5), Z(5)^3 ],[128X[104X
+    [4X[28X  [ Z(5)^2, Z(5)^0 ], [ Z(5)^2, Z(5) ], [ Z(5)^2, Z(5)^2 ], [ Z(5)^2, Z(5)^3 ],[128X[104X
+    [4X[28X  [ Z(5)^3, Z(5)^0 ], [ Z(5)^3, Z(5) ], [ Z(5)^3, Z(5)^2 ], [ Z(5)^3, Z(5)^3 ] ][128X[104X
+    [4X[25Xgap>[125X [27XC:=GeneralizedReedMullerCode(Pts,2,GF(5));[127X[104X
+    [4X[28Xa linear [16,6,1..11]6..10  generalized Reed-Muller code over GF(5)[128X[104X
+  [4X[32X[104X
+  
+  [33X[0;0YSee [2XEvaluationCode[102X ([14X5.6-1[114X) for a more general construction.[133X
+  
+  [1X5.6-4 ToricPoints[101X
+  
+  [29X[2XToricPoints[102X( [3Xn[103X, [3XF[103X ) [32X function
+  
+  [33X[0;0Y[10XToricPoints(n,F)[110X returns the points in [22X(F^×)^n[122X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XToricPoints(2,GF(5));[127X[104X
+    [4X[28X[ [ Z(5)^0, Z(5)^0 ], [ Z(5)^0, Z(5) ], [ Z(5)^0, Z(5)^2 ], [128X[104X
+    [4X[28X  [ Z(5)^0, Z(5)^3 ], [ Z(5), Z(5)^0 ], [ Z(5), Z(5) ], [ Z(5), Z(5)^2 ], [128X[104X
+    [4X[28X  [ Z(5), Z(5)^3 ], [ Z(5)^2, Z(5)^0 ], [ Z(5)^2, Z(5) ], [ Z(5)^2, Z(5)^2 ], [128X[104X
+    [4X[28X  [ Z(5)^2, Z(5)^3 ], [ Z(5)^3, Z(5)^0 ], [ Z(5)^3, Z(5) ], [128X[104X
+    [4X[28X  [ Z(5)^3, Z(5)^2 ], [ Z(5)^3, Z(5)^3 ] ][128X[104X
+  [4X[32X[104X
+  
+  [1X5.6-5 ToricCode[101X
+  
+  [29X[2XToricCode[102X( [3XL[103X, [3XF[103X ) [32X function
+  
+  [33X[0;0YThis  function  returns the toric codes as in D. Joyner [Joy04] (see also J.
+  P. Hansen [Han99]). This is a truncated (generalized) Reed-Muller code. Here
+  [3XL[103X  is  a  list  of integral vectors and [3XF[103X is the finite field. The size of [3XF[103X
+  must be different from [22X2[122X.[133X
+  
+  [33X[0;0YThis  command  returns  a  record  object  [10XC[110X  with  an extra component (type
+  [10XNamesOfComponents(C)[110X to see them all): [10XC!.exponents[110X (namely [3XL[103X).[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XC:=ToricCode([[1,0],[3,4]],GF(3));[127X[104X
+    [4X[28Xa linear [4,1,4]2 toric code over GF(3)[128X[104X
+    [4X[25Xgap>[125X [27XDisplay(GeneratorMat(C));[127X[104X
+    [4X[28X 1 1 2 2[128X[104X
+    [4X[25Xgap>[125X [27XElements(C);[127X[104X
+    [4X[28X[ [ 0 0 0 0 ], [ 1 1 2 2 ], [ 2 2 1 1 ] ][128X[104X
+  [4X[32X[104X
+  
+  [33X[0;0YSee [2XEvaluationCode[102X ([14X5.6-1[114X) for a more general construction.[133X
+  
+  
+  [1X5.7 [33X[0;0YAlgebraic geometric codes[133X[101X
+  
+  [33X[0;0YCertain  [5XGUAVA[105X  functions related to algebraic geometric codes are described
+  in this section.[133X
+  
+  [1X5.7-1 AffineCurve[101X
+  
+  [29X[2XAffineCurve[102X( [3Xpoly[103X, [3Xring[103X ) [32X function
+  
+  [33X[0;0YThis function simply defines the data structure of an affine plane curve. In
+  [5XGUAVA[105X,  an  affine curve is a record [3Xcrv[103X having two components: a polynomial
+  [3Xpoly[103X,  accessed  in  [5XGUAVA[105X  by  [3Xcrv.polynomial[103X, and a polynomial ring over a
+  field  [22XF[122X  in  two  variables [3Xring[103X, accessed in [5XGUAVA[105X by [3Xcrv.ring[103X, containing
+  [3Xpoly[103X. You use this function to define a curve in [5XGUAVA[105X.[133X
+  
+  [33X[0;0YFor  example,  for  the ring, one could take [22XQ}[x,y][122X, and for the polynomial
+  one  could take [22Xf(x,y)=x^2+y^2-1[122X. For the affine line, simply taking [22XQ}[x,y][122X
+  for the ring and [22Xf(x,y)=y[122X for the polynomial.[133X
+  
+  [33X[0;0Y(Not sure if [22XF[122X neeeds to be a field in fact ...)[133X
+  
+  [33X[0;0YTo  compute  its degree, simply use the [2XDegreeMultivariatePolynomial[102X ([14X7.6-2[114X)
+  command.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[28Xgap>[128X[104X
+    [4X[25Xgap>[125X [27XF:=GF(11);;[127X[104X
+    [4X[25Xgap>[125X [27XR2:=PolynomialRing(F,2);[127X[104X
+    [4X[28XPolynomialRing(..., [ x_1, x_2 ])[128X[104X
+    [4X[25Xgap>[125X [27Xvars:=IndeterminatesOfPolynomialRing(R2);;[127X[104X
+    [4X[25Xgap>[125X [27Xx:=vars[1];; y:=vars[2];;[127X[104X
+    [4X[25Xgap>[125X [27Xpoly:=y;; crvP1:=AffineCurve(poly,R2);[127X[104X
+    [4X[28Xrec( ring := PolynomialRing(..., [ x_1, x_2 ]), polynomial := x_2 )[128X[104X
+    [4X[25Xgap>[125X [27Xdegree_crv:=DegreeMultivariatePolynomial(poly,R2);[127X[104X
+    [4X[28X1[128X[104X
+    [4X[25Xgap>[125X [27Xpoly:=y^2-x*(x^2-1);; ell_crv:=AffineCurve(poly,R2);[127X[104X
+    [4X[28Xrec( ring := PolynomialRing(..., [ x_1, x_2 ]), polynomial := -x_1^3+x_2^2+x_1 )[128X[104X
+    [4X[25Xgap>[125X [27Xdegree_crv:=DegreeMultivariatePolynomial(poly,R2);[127X[104X
+    [4X[28X3[128X[104X
+    [4X[25Xgap>[125X [27Xpoly:=x^2+y^2-1;; circle:=AffineCurve(poly,R2);[127X[104X
+    [4X[28Xrec( ring := PolynomialRing(..., [ x_1, x_2 ]), polynomial := x_1^2+x_2^2-Z(11)^0 )[128X[104X
+    [4X[25Xgap>[125X [27Xdegree_crv:=DegreeMultivariatePolynomial(poly,R2);[127X[104X
+    [4X[28X2[128X[104X
+    [4X[25Xgap>[125X [27Xq:=3;;[127X[104X
+    [4X[25Xgap>[125X [27XF:=GF(q^2);;[127X[104X
+    [4X[25Xgap>[125X [27XR:=PolynomialRing(F,2);;[127X[104X
+    [4X[25Xgap>[125X [27Xvars:=IndeterminatesOfPolynomialRing(R);[127X[104X
+    [4X[28X[ x_1, x_2 ][128X[104X
+    [4X[25Xgap>[125X [27Xx:=vars[1];[127X[104X
+    [4X[28Xx_1[128X[104X
+    [4X[25Xgap>[125X [27Xy:=vars[2];[127X[104X
+    [4X[28Xx_2[128X[104X
+    [4X[25Xgap>[125X [27Xcrv:=AffineCurve(y^q+y-x^(q+1),R);[127X[104X
+    [4X[28Xrec( ring := PolynomialRing(..., [ x_1, x_2 ]), polynomial := -x_1^4+x_2^3+x_2 )[128X[104X
+    [4X[28Xgap>[128X[104X
+  [4X[32X[104X
+  
+  [33X[0;0YIn  GAP,  a  [13Xpoint[113X  on a curve defined by [22Xf(x,y)=0[122X is simply a list [3X[a,b][103X of
+  elements of [22XF[122X satisfying this polynomial equation.[133X
+  
+  [1X5.7-2 AffinePointsOnCurve[101X
+  
+  [29X[2XAffinePointsOnCurve[102X( [3Xf[103X, [3XR[103X, [3XE[103X ) [32X function
+  
+  [33X[0;0Y[10XAffinePointsOnCurve(f,R,E)[110X   returns   the  points  [22X(x,y)  ∈  E^2[122X  satisying
+  [22Xf(x,y)=0[122X, where [3Xf[103X is an element of [22XR=F[x,y][122X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XF:=GF(11);;[127X[104X
+    [4X[25Xgap>[125X [27XR := PolynomialRing(F,["x","y"]);[127X[104X
+    [4X[28XPolynomialRing(..., [ x, y ])[128X[104X
+    [4X[25Xgap>[125X [27Xindets := IndeterminatesOfPolynomialRing(R);;[127X[104X
+    [4X[25Xgap>[125X [27Xx:=indets[1];; y:=indets[2];;[127X[104X
+    [4X[25Xgap>[125X [27XP:=AffinePointsOnCurve(y^2-x^11+x,R,F);[127X[104X
+    [4X[28X[ [ Z(11)^9, 0*Z(11) ], [ Z(11)^8, 0*Z(11) ], [ Z(11)^7, 0*Z(11) ], [128X[104X
+    [4X[28X  [ Z(11)^6, 0*Z(11) ], [ Z(11)^5, 0*Z(11) ], [ Z(11)^4, 0*Z(11) ], [128X[104X
+    [4X[28X  [ Z(11)^3, 0*Z(11) ], [ Z(11)^2, 0*Z(11) ], [ Z(11), 0*Z(11) ], [128X[104X
+    [4X[28X  [ Z(11)^0, 0*Z(11) ], [ 0*Z(11), 0*Z(11) ] ][128X[104X
+  [4X[32X[104X
+  
+  [1X5.7-3 GenusCurve[101X
+  
+  [29X[2XGenusCurve[102X( [3Xcrv[103X ) [32X function
+  
+  [33X[0;0YIf  [3Xcrv[103X  represents [22Xf(x,y)=0[122X, where [22Xf[122X is a polynomial of degree [22Xd[122X, then this
+  function  simply returns [22X(d-1)(d-2)/2[122X. At the present, the function does not
+  check if the curve is singular (in which case the result may be false).[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xq:=4;;[127X[104X
+    [4X[25Xgap>[125X [27XF:=GF(q^2);;[127X[104X
+    [4X[25Xgap>[125X [27Xa:=X(F);;[127X[104X
+    [4X[25Xgap>[125X [27XR1:=PolynomialRing(F,[a]);;[127X[104X
+    [4X[25Xgap>[125X [27Xvar1:=IndeterminatesOfPolynomialRing(R1);;[127X[104X
+    [4X[25Xgap>[125X [27Xb:=X(F);;[127X[104X
+    [4X[25Xgap>[125X [27XR2:=PolynomialRing(F,[a,b]);;[127X[104X
+    [4X[25Xgap>[125X [27Xvar2:=IndeterminatesOfPolynomialRing(R2);;[127X[104X
+    [4X[25Xgap>[125X [27Xcrv:=AffineCurve(b^q+b-a^(q+1),R2);;[127X[104X
+    [4X[25Xgap>[125X [27Xcrv:=AffineCurve(b^q+b-a^(q+1),R2);[127X[104X
+    [4X[28Xrec( ring := PolynomialRing(..., [ x_1, x_1 ]), polynomial := x_1^5+x_1^4+x_1 )[128X[104X
+    [4X[25Xgap>[125X [27XGenusCurve(crv);[127X[104X
+    [4X[28X36[128X[104X
+    [4X[28X[128X[104X
+  [4X[32X[104X
+  
+  [1X5.7-4 GOrbitPoint [101X
+  
+  [29X[2XGOrbitPoint [102X( [3XG[103X, [3XP[103X ) [32X function
+  
+  [33X[0;0Y[3XP[103X must be a point in projective space [22XP^n(F)[122X, [3XG[103X must be a finite subgroup of
+  [22XGL(n+1,F)[122X,  This function returns all (representatives of projective) points
+  in the orbit [22XG⋅ P[122X.[133X
+  
+  [33X[0;0YThe  example below computes the orbit of the automorphism group on the Klein
+  quartic over the field [22XGF(43)[122X on the ``point at infinity''.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XR:= PolynomialRing( GF(43), 3 );;[127X[104X
+    [4X[25Xgap>[125X [27Xvars:= IndeterminatesOfPolynomialRing(R);;[127X[104X
+    [4X[25Xgap>[125X [27Xx:= vars[1];; y:= vars[2];; z:= vars[3];;[127X[104X
+    [4X[25Xgap>[125X [27Xzz:=Z(43)^6;[127X[104X
+    [4X[28XZ(43)^6[128X[104X
+    [4X[25Xgap>[125X [27Xzzz:=Z(43);[127X[104X
+    [4X[28XZ(43)[128X[104X
+    [4X[25Xgap>[125X [27Xrho1:=zz^0*[[zz^4,0,0],[0,zz^2,0],[0,0,zz]];[127X[104X
+    [4X[28X[ [ Z(43)^24, 0*Z(43), 0*Z(43) ], [128X[104X
+    [4X[28X[ 0*Z(43), Z(43)^12, 0*Z(43) ], [128X[104X
+    [4X[28X[ 0*Z(43), 0*Z(43), Z(43)^6 ] ][128X[104X
+    [4X[25Xgap>[125X [27Xrho2:=zz^0*[[0,1,0],[0,0,1],[1,0,0]];[127X[104X
+    [4X[28X[ [ 0*Z(43), Z(43)^0, 0*Z(43) ], [128X[104X
+    [4X[28X[ 0*Z(43), 0*Z(43), Z(43)^0 ], [128X[104X
+    [4X[28X[ Z(43)^0, 0*Z(43), 0*Z(43) ] ][128X[104X
+    [4X[25Xgap>[125X [27Xrho3:=(-1)*[[(zz-zz^6 )/zzz^7,( zz^2-zz^5 )/ zzz^7, ( zz^4-zz^3 )/ zzz^7],[127X[104X
+    [4X[25X>[125X [27X            [( zz^2-zz^5 )/ zzz^7, ( zz^4-zz^3 )/ zzz^7, ( zz-zz^6 )/ zzz^7],[127X[104X
+    [4X[25X>[125X [27X            [( zz^4-zz^3 )/ zzz^7, ( zz-zz^6 )/ zzz^7, ( zz^2-zz^5 )/ zzz^7]];[127X[104X
+    [4X[28X[ [ Z(43)^9, Z(43)^28, Z(43)^12 ], [128X[104X
+    [4X[28X[ Z(43)^28, Z(43)^12, Z(43)^9 ], [128X[104X
+    [4X[28X[ Z(43)^12, Z(43)^9, Z(43)^28 ] ][128X[104X
+    [4X[25Xgap>[125X [27XG:=Group([rho1,rho2,rho3]);; #PSL(2,7)[127X[104X
+    [4X[25Xgap>[125X [27XSize(G);[127X[104X
+    [4X[28X168[128X[104X
+    [4X[25Xgap>[125X [27XP:=[1,0,0]*zzz^0;[127X[104X
+    [4X[28X[ Z(43)^0, 0*Z(43), 0*Z(43) ][128X[104X
+    [4X[25Xgap>[125X [27XO:=GOrbitPoint(G,P);[127X[104X
+    [4X[28X[ [ Z(43)^0, 0*Z(43), 0*Z(43) ], [ 0*Z(43), Z(43)^0, 0*Z(43) ], [128X[104X
+    [4X[28X[ 0*Z(43), 0*Z(43), Z(43)^0 ], [ Z(43)^0, Z(43)^39, Z(43)^16 ], [128X[104X
+    [4X[28X[ Z(43)^0, Z(43)^33, Z(43)^28 ], [ Z(43)^0, Z(43)^27, Z(43)^40 ],[128X[104X
+    [4X[28X[ Z(43)^0, Z(43)^21, Z(43)^10 ], [ Z(43)^0, Z(43)^15, Z(43)^22 ], [128X[104X
+    [4X[28X[ Z(43)^0, Z(43)^9, Z(43)^34 ], [ Z(43)^0, Z(43)^3, Z(43)^4 ], [128X[104X
+    [4X[28X[ Z(43)^3, Z(43)^22, Z(43)^6 ], [ Z(43)^3, Z(43)^16, Z(43)^18 ],[128X[104X
+    [4X[28X[ Z(43)^3, Z(43)^10, Z(43)^30 ], [ Z(43)^3, Z(43)^4, Z(43)^0 ], [128X[104X
+    [4X[28X[ Z(43)^3, Z(43)^40, Z(43)^12 ], [ Z(43)^3, Z(43)^34, Z(43)^24 ], [128X[104X
+    [4X[28X[ Z(43)^3, Z(43)^28, Z(43)^36 ], [ Z(43)^4, Z(43)^30, Z(43)^27 ],[128X[104X
+    [4X[28X[ Z(43)^4, Z(43)^24, Z(43)^39 ], [ Z(43)^4, Z(43)^18, Z(43)^9 ], [128X[104X
+    [4X[28X[ Z(43)^4, Z(43)^12, Z(43)^21 ], [ Z(43)^4, Z(43)^6, Z(43)^33 ], [128X[104X
+    [4X[28X[ Z(43)^4, Z(43)^0, Z(43)^3 ], [ Z(43)^4, Z(43)^36, Z(43)^15 ] ][128X[104X
+    [4X[25Xgap>[125X [27XLength(O);[127X[104X
+    [4X[28X24[128X[104X
+    [4X[28X[128X[104X
+  [4X[32X[104X
+  
+  [33X[0;0YInformally,  a  [13Xdivisor[113X on a curve is a formal integer linear combination of
+  points  on  the  curve, [22XD=m_1P_1+...+m_kP_k[122X, where the [22Xm_i[122X are integers (the
+  ``multiplicity''  of [22XP_i[122X in [22XD[122X) and [22XP_i[122X are ([22XF[122X-rational) points on the affine
+  plane  curve.  In  other  words, a divisor is an element of the free abelian
+  group generated by the [22XF[122X-rational affine points on the curve. The [13Xsupport[113X of
+  a  divisor  [22XD[122X is simply the set of points which occurs in the sum defining [22XD[122X
+  with  non-zero  ``multiplicity''.  The  data  structure  for a divisor on an
+  affine plane curve is a record having the following components:[133X
+  
+  [30X    [33X[0;6Ythe coefficients (the integer weights of the points in the support),[133X
+  
+  [30X    [33X[0;6Ythe support,[133X
+  
+  [30X    [33X[0;6Ythe  curve,  itself  a  record  which  has  components: polynomial and
+        polynomial ring.[133X
+  
+  [1X5.7-5 DivisorOnAffineCurve[101X
+  
+  [29X[2XDivisorOnAffineCurve[102X( [3Xcdiv[103X, [3Xsdiv[103X, [3Xcrv[103X ) [32X function
+  
+  [33X[0;0YThis  is the command you use to define a divisor in [5XGUAVA[105X. Of course, [3Xcrv[103X is
+  the  curve  on which the divisor lives, [3Xcdiv[103X is the list of coefficients (or
+  ``multiplicities''), [3Xsdiv[103X is the list of points on [3Xcrv[103X in the support.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xq:=5;[127X[104X
+    [4X[28X5[128X[104X
+    [4X[25Xgap>[125X [27XF:=GF(q);[127X[104X
+    [4X[28XGF(5)[128X[104X
+    [4X[25Xgap>[125X [27XR:=PolynomialRing(F,2);;[127X[104X
+    [4X[25Xgap>[125X [27Xvars:=IndeterminatesOfPolynomialRing(R);[127X[104X
+    [4X[28X[ x_1, x_2 ][128X[104X
+    [4X[25Xgap>[125X [27Xx:=vars[1];[127X[104X
+    [4X[28Xx_1[128X[104X
+    [4X[25Xgap>[125X [27Xy:=vars[2];[127X[104X
+    [4X[28Xx_2[128X[104X
+    [4X[25Xgap>[125X [27Xcrv:=AffineCurve(y^3-x^3-x-1,R);[127X[104X
+    [4X[28Xrec( ring := PolynomialRing(..., [ x_1, x_2 ]), [128X[104X
+    [4X[28X     polynomial := -x_1^3+x_2^3-x_1-Z(5)^0 )[128X[104X
+    [4X[25Xgap>[125X [27XPts:=AffinePointsOnCurve(crv,R,F);;[127X[104X
+    [4X[25Xgap>[125X [27Xsupp:=[Pts[1],Pts[2]];[127X[104X
+    [4X[28X[ [ 0*Z(5), Z(5)^0 ], [ Z(5)^0, Z(5) ] ][128X[104X
+    [4X[25Xgap>[125X [27XD:=DivisorOnAffineCurve([1,-1],supp,crv);[127X[104X
+    [4X[28Xrec( coeffs := [ 1, -1 ], [128X[104X
+    [4X[28X     support := [ [ 0*Z(5), Z(5)^0 ], [ Z(5)^0, Z(5) ] ],[128X[104X
+    [4X[28X     curve := rec( ring := PolynomialRing(..., [ x_1, x_2 ]), [128X[104X
+    [4X[28X                   polynomial := -x_1^3+x_2^3-x_1-Z(5)^0 ) )[128X[104X
+    [4X[28X[128X[104X
+  [4X[32X[104X
+  
+  [1X5.7-6 DivisorAddition [101X
+  
+  [29X[2XDivisorAddition [102X( [3XD1[103X, [3XD2[103X ) [32X function
+  
+  [33X[0;0YIf   [22XD_1=m_1P_1+...+m_kP_k[122X   and  [22XD_2=n_1P_1+...+n_kP_k[122X  are  divisors  then
+  [22XD_1+D_2=(m_1+n_1)P_1+...+(m_k+n_k)P_k[122X.[133X
+  
+  [1X5.7-7 DivisorDegree [101X
+  
+  [29X[2XDivisorDegree [102X( [3XD[103X ) [32X function
+  
+  [33X[0;0YIf [22XD=m_1P_1+...+m_kP_k[122X is a divisor then the [13Xdegree[113X is [22Xm_1+...+m_k[122X.[133X
+  
+  [1X5.7-8 DivisorNegate [101X
+  
+  [29X[2XDivisorNegate [102X( [3XD[103X ) [32X function
+  
+  [33X[0;0YSelf-explanatory.[133X
+  
+  [1X5.7-9 DivisorIsZero [101X
+  
+  [29X[2XDivisorIsZero [102X( [3XD[103X ) [32X function
+  
+  [33X[0;0YSelf-explanatory.[133X
+  
+  [1X5.7-10 DivisorsEqual [101X
+  
+  [29X[2XDivisorsEqual [102X( [3XD1[103X, [3XD2[103X ) [32X function
+  
+  [33X[0;0YSelf-explanatory.[133X
+  
+  [1X5.7-11 DivisorGCD [101X
+  
+  [29X[2XDivisorGCD [102X( [3XD1[103X, [3XD2[103X ) [32X function
+  
+  [33X[0;0YIf  [22Xm=p_1^e_1...p_k^e_k[122X  and [22Xn=p_1^f_1...p_k^f_k[122X are two integers then their
+  greatest  common  divisor is [22XGCD(m,n)=p_1^min(e_1,f_1)...p_k^min(e_k,f_k)[122X. A
+  similar    definition    works   for   two   divisors   on   a   curve.   If
+  [22XD_1=e_1P_1+...+e_kP_k[122X and [22XD_2n=f_1P_1+...+f_kP_k[122X are two divisors on a curve
+  then         their         [13Xgreatest         common         divisor[113X        is
+  [22XGCD(m,n)=min(e_1,f_1)P_1+...+min(e_k,f_k)P_k[122X.  This  function  computes this
+  quantity.[133X
+  
+  [1X5.7-12 DivisorLCM [101X
+  
+  [29X[2XDivisorLCM [102X( [3XD1[103X, [3XD2[103X ) [32X function
+  
+  [33X[0;0YIf  [22Xm=p_1^e_1...p_k^e_k[122X  and [22Xn=p_1^f_1...p_k^f_k[122X are two integers then their
+  least  common  multiple  is  [22XLCM(m,n)=p_1^max(e_1,f_1)...p_k^max(e_k,f_k)[122X. A
+  similar    definition    works   for   two   divisors   on   a   curve.   If
+  [22XD_1=e_1P_1+...+e_kP_k[122X  and [22XD_2=f_1P_1+...+f_kP_k[122X are two divisors on a curve
+  then          their         [13Xleast         common         multiple[113X         is
+  [22XLCM(m,n)=max(e_1,f_1)P_1+...+max(e_k,f_k)P_k[122X.  This  function  computes this
+  quantity.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XF:=GF(11);[127X[104X
+    [4X[28XGF(11)[128X[104X
+    [4X[25Xgap>[125X [27XR1:=PolynomialRing(F,["a"]);;[127X[104X
+    [4X[25Xgap>[125X [27Xvar1:=IndeterminatesOfPolynomialRing(R1);; a:=var1[1];;[127X[104X
+    [4X[25Xgap>[125X [27Xb:=X(F,"b",var1);[127X[104X
+    [4X[28Xb[128X[104X
+    [4X[25Xgap>[125X [27Xvar2:=Concatenation(var1,[b]);[127X[104X
+    [4X[28X[ a, b ][128X[104X
+    [4X[25Xgap>[125X [27XR2:=PolynomialRing(F,var2);[127X[104X
+    [4X[28XPolynomialRing(..., [ a, b ])[128X[104X
+    [4X[25Xgap>[125X [27XcrvP1:=AffineCurve(b,R2);[127X[104X
+    [4X[28Xrec( ring := PolynomialRing(..., [ a, b ]), polynomial := b )[128X[104X
+    [4X[25Xgap>[125X [27Xdiv1:=DivisorOnAffineCurve([1,2,3,4],[Z(11)^2,Z(11)^3,Z(11)^7,Z(11)],crvP1);[127X[104X
+    [4X[28Xrec( coeffs := [ 1, 2, 3, 4 ], [128X[104X
+    [4X[28X     support := [ Z(11)^2, Z(11)^3, Z(11)^7, Z(11) ], [128X[104X
+    [4X[28X     curve := rec( ring := PolynomialRing(..., [ a, b ]), polynomial := b ) )[128X[104X
+    [4X[25Xgap>[125X [27XDivisorDegree(div1);[127X[104X
+    [4X[28X10[128X[104X
+    [4X[25Xgap>[125X [27Xdiv2:=DivisorOnAffineCurve([1,2,3,4],[Z(11),Z(11)^2,Z(11)^3,Z(11)^4],crvP1);[127X[104X
+    [4X[28Xrec( coeffs := [ 1, 2, 3, 4 ], [128X[104X
+    [4X[28X     support := [ Z(11), Z(11)^2, Z(11)^3, Z(11)^4 ], [128X[104X
+    [4X[28X     curve := rec( ring := PolynomialRing(..., [ a, b ]), polynomial := b ) )[128X[104X
+    [4X[25Xgap>[125X [27XDivisorDegree(div2);[127X[104X
+    [4X[28X10[128X[104X
+    [4X[25Xgap>[125X [27Xdiv3:=DivisorAddition(div1,div2);[127X[104X
+    [4X[28Xrec( coeffs := [ 5, 3, 5, 4, 3 ], [128X[104X
+    [4X[28X     support := [ Z(11), Z(11)^2, Z(11)^3, Z(11)^4, Z(11)^7 ], [128X[104X
+    [4X[28X     curve := rec( ring := PolynomialRing(..., [ a, b ]), polynomial := b ) )[128X[104X
+    [4X[25Xgap>[125X [27XDivisorDegree(div3);[127X[104X
+    [4X[28X20[128X[104X
+    [4X[25Xgap>[125X [27XDivisorIsEffective(div1);[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XDivisorIsEffective(div2);[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[28Xgap>[128X[104X
+    [4X[25Xgap>[125X [27Xndiv1:=DivisorNegate(div1);[127X[104X
+    [4X[28Xrec( coeffs := [ -1, -2, -3, -4 ], [128X[104X
+    [4X[28X     support := [ Z(11)^2, Z(11)^3, Z(11)^7, Z(11) ], [128X[104X
+    [4X[28X     curve := rec( ring := PolynomialRing(..., [ a, b ]), polynomial := b ) )[128X[104X
+    [4X[25Xgap>[125X [27Xzdiv:=DivisorAddition(div1,ndiv1);[127X[104X
+    [4X[28Xrec( coeffs := [ 0, 0, 0, 0 ], [128X[104X
+    [4X[28X     support := [ Z(11), Z(11)^2, Z(11)^3, Z(11)^7 ], [128X[104X
+    [4X[28X     curve := rec( ring := PolynomialRing(..., [ a, b ]), polynomial := b ) )[128X[104X
+    [4X[25Xgap>[125X [27XDivisorIsZero(zdiv);[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27Xdiv_gcd:=DivisorGCD(div1,div2);[127X[104X
+    [4X[28Xrec( coeffs := [ 1, 1, 2, 0, 0 ], [128X[104X
+    [4X[28X     support := [ Z(11), Z(11)^2, Z(11)^3, Z(11)^4, Z(11)^7 ], [128X[104X
+    [4X[28X     curve := rec( ring := PolynomialRing(..., [ a, b ]), polynomial := b ) )[128X[104X
+    [4X[25Xgap>[125X [27Xdiv_lcm:=DivisorLCM(div1,div2);[127X[104X
+    [4X[28Xrec( coeffs := [ 4, 2, 3, 4, 3 ], [128X[104X
+    [4X[28X     support := [ Z(11), Z(11)^2, Z(11)^3, Z(11)^4, Z(11)^7 ], [128X[104X
+    [4X[28X     curve := rec( ring := PolynomialRing(..., [ a, b ]), polynomial := b ) )[128X[104X
+    [4X[25Xgap>[125X [27XDivisorDegree(div_gcd);[127X[104X
+    [4X[28X4[128X[104X
+    [4X[25Xgap>[125X [27XDivisorDegree(div_lcm);[127X[104X
+    [4X[28X16[128X[104X
+    [4X[25Xgap>[125X [27XDivisorEqual(div3,DivisorAddition(div_gcd,div_lcm));[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[28X[128X[104X
+  [4X[32X[104X
+  
+  [33X[0;0YLet [22XG[122X denote a finite subgroup of [22XPGL(2,F)[122X and let [22XD[122X denote a divisor on the
+  projective  line  [22XP^1(F)[122X. If [22XG[122X leaves [22XD[122X unchanged (it may permute the points
+  in  the support of [22XD[122X but must preserve their sum in [22XD[122X) then the Riemann-Roch
+  space  [22XL(D)[122X  is  a  [22XG[122X-module.  The commands in this section help explore the
+  [22XG[122X-module structure of [22XL(D)[122X in the case then the ground field [22XF[122X is finite.[133X
+  
+  [1X5.7-13 RiemannRochSpaceBasisFunctionP1 [101X
+  
+  [29X[2XRiemannRochSpaceBasisFunctionP1 [102X( [3XP[103X, [3Xk[103X, [3XR2[103X ) [32X function
+  
+  [33X[0;0YInput: [3XR2[103X is a polynomial ring in two variables, say [22XF[x,y][122X; [3XP[103X is an element
+  of the base field, say [22XF[122X; [3Xk[103X is an integer. Output: [22X1/(x-P)^k[122X[133X
+  
+  [1X5.7-14 DivisorOfRationalFunctionP1 [101X
+  
+  [29X[2XDivisorOfRationalFunctionP1 [102X( [3Xf[103X, [3XR[103X ) [32X function
+  
+  [33X[0;0YHere  [22XR  =  F[x,y][122X  is  a  polynomial  ring  in the variables [22Xx,y[122X and [22Xf[122X is a
+  rational  function  of  [22Xx[122X.  Simply  returns  the  principal  divisor on [22XP}^1[122X
+  associated to [22Xf[122X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[28X[128X[104X
+    [4X[25Xgap>[125X [27XF:=GF(11);[127X[104X
+    [4X[28XGF(11)[128X[104X
+    [4X[25Xgap>[125X [27XR1:=PolynomialRing(F,["a"]);;[127X[104X
+    [4X[25Xgap>[125X [27Xvar1:=IndeterminatesOfPolynomialRing(R1);; a:=var1[1];;[127X[104X
+    [4X[25Xgap>[125X [27Xb:=X(F,"b",var1);[127X[104X
+    [4X[28Xb[128X[104X
+    [4X[25Xgap>[125X [27Xvar2:=Concatenation(var1,[b]);[127X[104X
+    [4X[28X[ a, b ][128X[104X
+    [4X[25Xgap>[125X [27XR2:=PolynomialRing(F,var2);[127X[104X
+    [4X[28XPolynomialRing(..., [ a, b ])[128X[104X
+    [4X[25Xgap>[125X [27Xpt:=Z(11);[127X[104X
+    [4X[28XZ(11)[128X[104X
+    [4X[25Xgap>[125X [27Xf:=RiemannRochSpaceBasisFunctionP1(pt,2,R2);[127X[104X
+    [4X[28X(Z(11)^0)/(a^2+Z(11)^7*a+Z(11)^2)[128X[104X
+    [4X[25Xgap>[125X [27XDf:=DivisorOfRationalFunctionP1(f,R2);[127X[104X
+    [4X[28Xrec( coeffs := [ -2 ], support := [ Z(11) ], [128X[104X
+    [4X[28X     curve := rec( ring := PolynomialRing(..., [ a, b ]), polynomial := a )[128X[104X
+    [4X[28X   )[128X[104X
+    [4X[25Xgap>[125X [27XDf.support;[127X[104X
+    [4X[28X[ Z(11) ][128X[104X
+    [4X[25Xgap>[125X [27XF:=GF(11);;[127X[104X
+    [4X[25Xgap>[125X [27XR:=PolynomialRing(F,2);;[127X[104X
+    [4X[25Xgap>[125X [27Xvars:=IndeterminatesOfPolynomialRing(R);;[127X[104X
+    [4X[25Xgap>[125X [27Xa:=vars[1];;[127X[104X
+    [4X[25Xgap>[125X [27Xb:=vars[2];;[127X[104X
+    [4X[25Xgap>[125X [27Xf:=(a^4+Z(11)^6*a^3-a^2+Z(11)^7*a+Z(11)^0)/(a^4+Z(11)*a^2+Z(11)^7*a+Z(11));;[127X[104X
+    [4X[25Xgap>[125X [27Xdivf:=DivisorOfRationalFunctionP1(f,R);[127X[104X
+    [4X[28Xrec( coeffs := [ 3, 1 ], support := [ Z(11), Z(11)^7 ],[128X[104X
+    [4X[28X  curve := rec( ring := PolynomialRing(..., [ a, b ]), polynomial := a ) )[128X[104X
+    [4X[25Xgap>[125X [27Xdenf:=DenominatorOfRationalFunction(f); RootsOfUPol(denf);[127X[104X
+    [4X[28Xa^4+Z(11)*a^2+Z(11)^7*a+Z(11)[128X[104X
+    [4X[28X[  ][128X[104X
+    [4X[25Xgap>[125X [27Xnumf:=NumeratorOfRationalFunction(f); RootsOfUPol(numf);[127X[104X
+    [4X[28Xa^4+Z(11)^6*a^3-a^2+Z(11)^7*a+Z(11)^0[128X[104X
+    [4X[28X[ Z(11)^7, Z(11), Z(11), Z(11) ][128X[104X
+    [4X[28X[128X[104X
+  [4X[32X[104X
+  
+  [1X5.7-15 RiemannRochSpaceBasisP1 [101X
+  
+  [29X[2XRiemannRochSpaceBasisP1 [102X( [3XD[103X ) [32X function
+  
+  [33X[0;0YThis  returns  the  basis  of  the Riemann-Roch space [22XL(D)[122X associated to the
+  divisor [3XD[103X on the projective line [22XP}^1[122X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XF:=GF(11);[127X[104X
+    [4X[28XGF(11)[128X[104X
+    [4X[25Xgap>[125X [27XR1:=PolynomialRing(F,["a"]);;[127X[104X
+    [4X[25Xgap>[125X [27Xvar1:=IndeterminatesOfPolynomialRing(R1);; a:=var1[1];;[127X[104X
+    [4X[25Xgap>[125X [27Xb:=X(F,"b",var1);[127X[104X
+    [4X[28Xb[128X[104X
+    [4X[25Xgap>[125X [27Xvar2:=Concatenation(var1,[b]);[127X[104X
+    [4X[28X[ a, b ][128X[104X
+    [4X[25Xgap>[125X [27XR2:=PolynomialRing(F,var2);[127X[104X
+    [4X[28XPolynomialRing(..., [ a, b ])[128X[104X
+    [4X[25Xgap>[125X [27XcrvP1:=AffineCurve(b,R2);[127X[104X
+    [4X[28Xrec( ring := PolynomialRing(..., [ a, b ]), polynomial := b )[128X[104X
+    [4X[25Xgap>[125X [27XD:=DivisorOnAffineCurve([1,2,3,4],[Z(11)^2,Z(11)^3,Z(11)^7,Z(11)],crvP1);[127X[104X
+    [4X[28Xrec( coeffs := [ 1, 2, 3, 4 ], [128X[104X
+    [4X[28X     support := [ Z(11)^2, Z(11)^3, Z(11)^7, Z(11) ], [128X[104X
+    [4X[28X     curve := rec( ring := PolynomialRing(..., [ a, b ]), polynomial := b ) )[128X[104X
+    [4X[25Xgap>[125X [27XB:=RiemannRochSpaceBasisP1(D);[127X[104X
+    [4X[28X[ Z(11)^0, (Z(11)^0)/(a+Z(11)^7), (Z(11)^0)/(a+Z(11)^8), [128X[104X
+    [4X[28X(Z(11)^0)/(a^2+Z(11)^9*a+Z(11)^6), (Z(11)^0)/(a+Z(11)^2), [128X[104X
+    [4X[28X(Z(11)^0)/(a^2+Z(11)^3*a+Z(11)^4), (Z(11)^0)/(a^3+a^2+Z(11)^2*a+Z(11)^6),[128X[104X
+    [4X[28X  (Z(11)^0)/(a+Z(11)^6), (Z(11)^0)/(a^2+Z(11)^7*a+Z(11)^2), [128X[104X
+    [4X[28X(Z(11)^0)/(a^3+Z(11)^4*a^2+a+Z(11)^8), [128X[104X
+    [4X[28X(Z(11)^0)/(a^4+Z(11)^8*a^3+Z(11)*a^2+a+Z(11)^4) ][128X[104X
+    [4X[25Xgap>[125X [27XDivisorOfRationalFunctionP1(B[1],R2).support;[127X[104X
+    [4X[28X[  ][128X[104X
+    [4X[25Xgap>[125X [27XDivisorOfRationalFunctionP1(B[2],R2).support;[127X[104X
+    [4X[28X[ Z(11)^2 ][128X[104X
+    [4X[25Xgap>[125X [27XDivisorOfRationalFunctionP1(B[3],R2).support;[127X[104X
+    [4X[28X[ Z(11)^3 ][128X[104X
+    [4X[25Xgap>[125X [27XDivisorOfRationalFunctionP1(B[4],R2).support;[127X[104X
+    [4X[28X[ Z(11)^3 ][128X[104X
+    [4X[25Xgap>[125X [27XDivisorOfRationalFunctionP1(B[5],R2).support;[127X[104X
+    [4X[28X[ Z(11)^7 ][128X[104X
+    [4X[25Xgap>[125X [27XDivisorOfRationalFunctionP1(B[6],R2).support;[127X[104X
+    [4X[28X[ Z(11)^7 ][128X[104X
+    [4X[25Xgap>[125X [27XDivisorOfRationalFunctionP1(B[7],R2).support;[127X[104X
+    [4X[28X[ Z(11)^7 ][128X[104X
+    [4X[25Xgap>[125X [27XDivisorOfRationalFunctionP1(B[8],R2).support;[127X[104X
+    [4X[28X[ Z(11) ][128X[104X
+    [4X[25Xgap>[125X [27XDivisorOfRationalFunctionP1(B[9],R2).support;[127X[104X
+    [4X[28X[ Z(11) ][128X[104X
+    [4X[25Xgap>[125X [27XDivisorOfRationalFunctionP1(B[10],R2).support;[127X[104X
+    [4X[28X[ Z(11) ][128X[104X
+    [4X[25Xgap>[125X [27XDivisorOfRationalFunctionP1(B[11],R2).support;[127X[104X
+    [4X[28X[ Z(11) ][128X[104X
+    [4X[28X[128X[104X
+  [4X[32X[104X
+  
+  [1X5.7-16 MoebiusTransformation [101X
+  
+  [29X[2XMoebiusTransformation [102X( [3XA[103X, [3XR[103X ) [32X function
+  
+  [33X[0;0YThe arguments are a [22X2× 2[122X matrix [22XA[122X with entries in a field [22XF[122X and a polynomial
+  ring [3XR[103Xof one variable, say [22XF[x][122X. This function returns the linear fractional
+  transformatio  associated  to  [3XA[103X. These transformations can be composed with
+  each other using GAP's [10XValue[110X command.[133X
+  
+  [1X5.7-17 ActionMoebiusTransformationOnFunction [101X
+  
+  [29X[2XActionMoebiusTransformationOnFunction [102X( [3XA[103X, [3Xf[103X, [3XR2[103X ) [32X function
+  
+  [33X[0;0YThe  arguments  are  a  [22X2×  2[122X matrix [22XA[122X with entries in a field [22XF[122X, a rational
+  function  [3Xf[103X  of  one  variable,  say  in [22XF(x)[122X, and a polynomial ring [3XR2[103X, say
+  [22XF[x,y][122X.  This function simply returns the composition of the function [3Xf[103X with
+  the Möbius transformation of [3XA[103X.[133X
+  
+  [1X5.7-18 ActionMoebiusTransformationOnDivisorP1 [101X
+  
+  [29X[2XActionMoebiusTransformationOnDivisorP1 [102X( [3XA[103X, [3XD[103X ) [32X function
+  
+  [33X[0;0YA Möbius transformation may be regarded as an automorphism of the projective
+  line  [22XP^1[122X. This function simply returns the image of the divisor [3XD[103X under the
+  Möbius      transformation      defined      by     [3XA[103X,     provided     that
+  [10XIsActionMoebiusTransformationOnDivisorDefinedP1(A,D)[110X returns true.[133X
+  
+  [1X5.7-19 IsActionMoebiusTransformationOnDivisorDefinedP1 [101X
+  
+  [29X[2XIsActionMoebiusTransformationOnDivisorDefinedP1 [102X( [3XA[103X, [3XD[103X ) [32X function
+  
+  [33X[0;0YReturns  true  of  none of the points in the support of the divisor [3XD[103X is the
+  pole of the Möbius transformation.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XF:=GF(11);[127X[104X
+    [4X[28XGF(11)[128X[104X
+    [4X[25Xgap>[125X [27XR1:=PolynomialRing(F,["a"]);;[127X[104X
+    [4X[25Xgap>[125X [27Xvar1:=IndeterminatesOfPolynomialRing(R1);; a:=var1[1];;[127X[104X
+    [4X[25Xgap>[125X [27Xb:=X(F,"b",var1);[127X[104X
+    [4X[28Xb[128X[104X
+    [4X[25Xgap>[125X [27Xvar2:=Concatenation(var1,[b]);[127X[104X
+    [4X[28X[ a, b ][128X[104X
+    [4X[25Xgap>[125X [27XR2:=PolynomialRing(F,var2);[127X[104X
+    [4X[28XPolynomialRing(..., [ a, b ])[128X[104X
+    [4X[25Xgap>[125X [27XcrvP1:=AffineCurve(b,R2);[127X[104X
+    [4X[28Xrec( ring := PolynomialRing(..., [ a, b ]), polynomial := b )[128X[104X
+    [4X[25Xgap>[125X [27XD:=DivisorOnAffineCurve([1,2,3,4],[Z(11)^2,Z(11)^3,Z(11)^7,Z(11)],crvP1);[127X[104X
+    [4X[28Xrec( coeffs := [ 1, 2, 3, 4 ], [128X[104X
+    [4X[28X     support := [ Z(11)^2, Z(11)^3, Z(11)^7, Z(11) ], [128X[104X
+    [4X[28X     curve := rec( ring := PolynomialRing(..., [ a, b ]), polynomial := b ) )[128X[104X
+    [4X[25Xgap>[125X [27XA:=Z(11)^0*[[1,2],[1,4]];[127X[104X
+    [4X[28X[ [ Z(11)^0, Z(11) ], [ Z(11)^0, Z(11)^2 ] ][128X[104X
+    [4X[25Xgap>[125X [27XActionMoebiusTransformationOnDivisorDefinedP1(A,D);[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27XA:=Z(11)^0*[[1,2],[3,4]];[127X[104X
+    [4X[28X[ [ Z(11)^0, Z(11) ], [ Z(11)^8, Z(11)^2 ] ][128X[104X
+    [4X[25Xgap>[125X [27XActionMoebiusTransformationOnDivisorDefinedP1(A,D);[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XActionMoebiusTransformationOnDivisorP1(A,D);[127X[104X
+    [4X[28Xrec( coeffs := [ 1, 2, 3, 4 ], [128X[104X
+    [4X[28X     support := [ Z(11)^5, Z(11)^6, Z(11)^8, Z(11)^7 ], [128X[104X
+    [4X[28X     curve := rec( ring := PolynomialRing(..., [ a, b ]), polynomial := b ) )[128X[104X
+    [4X[25Xgap>[125X [27Xf:=MoebiusTransformation(A,R1);[127X[104X
+    [4X[28X(a+Z(11))/(Z(11)^8*a+Z(11)^2)[128X[104X
+    [4X[25Xgap>[125X [27XActionMoebiusTransformationOnFunction(A,f,R1);[127X[104X
+    [4X[28X-Z(11)^0+Z(11)^3*a^-1[128X[104X
+    [4X[28X[128X[104X
+  [4X[32X[104X
+  
+  [1X5.7-20 DivisorAutomorphismGroupP1 [101X
+  
+  [29X[2XDivisorAutomorphismGroupP1 [102X( [3XD[103X ) [32X function
+  
+  [33X[0;0YInput:  A divisor [3XD[103X on [22XP^1(F)[122X, where [22XF[122X is a finite field. Output: A subgroup
+  [22XAut(D)⊂ Aut(P^1)[122X preserving [3XD[103X.[133X
+  
+  [33X[0;0YVery slow.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XF:=GF(11);[127X[104X
+    [4X[28XGF(11)[128X[104X
+    [4X[25Xgap>[125X [27XR1:=PolynomialRing(F,["a"]);;[127X[104X
+    [4X[25Xgap>[125X [27Xvar1:=IndeterminatesOfPolynomialRing(R1);; a:=var1[1];;[127X[104X
+    [4X[25Xgap>[125X [27Xb:=X(F,"b",var1);[127X[104X
+    [4X[28Xb[128X[104X
+    [4X[25Xgap>[125X [27Xvar2:=Concatenation(var1,[b]);[127X[104X
+    [4X[28X[ a, b ][128X[104X
+    [4X[25Xgap>[125X [27XR2:=PolynomialRing(F,var2);[127X[104X
+    [4X[28XPolynomialRing(..., [ a, b ])[128X[104X
+    [4X[25Xgap>[125X [27XcrvP1:=AffineCurve(b,R2);[127X[104X
+    [4X[28Xrec( ring := PolynomialRing(..., [ a, b ]), polynomial := b )[128X[104X
+    [4X[25Xgap>[125X [27XD:=DivisorOnAffineCurve([1,2,3,4],[Z(11)^2,Z(11)^3,Z(11)^7,Z(11)],crvP1);[127X[104X
+    [4X[28Xrec( coeffs := [ 1, 2, 3, 4 ], [128X[104X
+    [4X[28X     support := [ Z(11)^2, Z(11)^3, Z(11)^7, Z(11) ], [128X[104X
+    [4X[28X     curve := rec( ring := PolynomialRing(..., [ a, b ]), polynomial := b ) )[128X[104X
+    [4X[25Xgap>[125X [27Xagp:=DivisorAutomorphismGroupP1(D);; time;[127X[104X
+    [4X[28X7305[128X[104X
+    [4X[25Xgap>[125X [27XIdGroup(agp);[127X[104X
+    [4X[28X[ 10, 2 ][128X[104X
+    [4X[28X[128X[104X
+  [4X[32X[104X
+  
+  [1X5.7-21 MatrixRepresentationOnRiemannRochSpaceP1 [101X
+  
+  [29X[2XMatrixRepresentationOnRiemannRochSpaceP1 [102X( [3Xg[103X, [3XD[103X ) [32X function
+  
+  [33X[0;0YInput: An element [3Xg[103X in [22XG[122X, a subgroup of [22XAut(D)⊂ Aut(P^1)[122X, and a divisor [3XD[103X on
+  [22XP^1(F)[122X,  where  [22XF[122X  is  a  finite field. Output: a [22Xd× d[122X matrix, where [22Xd = dim
+  L(D)[122X, representing the action of [3Xg[103X on [22XL(D)[122X.[133X
+  
+  [33X[0;0YNote: [3Xg[103X sends [22XL(D)[122X to [22Xr⋅ L(D)[122X, where [22Xr[122X is a polynomial of degree [22X1[122X depending
+  on [3Xg[103X and [3XD[103X.[133X
+  
+  [33X[0;0YAlso very slow.[133X
+  
+  [33X[0;0YThe GAP command [10XBrauerCharacterValue[110X can be used to ``lift'' the eigenvalues
+  of this matrix to the complex numbers.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XF:=GF(11);[127X[104X
+    [4X[28XGF(11)[128X[104X
+    [4X[25Xgap>[125X [27XR1:=PolynomialRing(F,["a"]);;[127X[104X
+    [4X[25Xgap>[125X [27Xvar1:=IndeterminatesOfPolynomialRing(R1);; a:=var1[1];;[127X[104X
+    [4X[25Xgap>[125X [27Xb:=X(F,"b",var1);[127X[104X
+    [4X[28Xb[128X[104X
+    [4X[25Xgap>[125X [27Xvar2:=Concatenation(var1,[b]);[127X[104X
+    [4X[28X[ a, b ][128X[104X
+    [4X[25Xgap>[125X [27XR2:=PolynomialRing(F,var2);[127X[104X
+    [4X[28XPolynomialRing(..., [ a, b ])[128X[104X
+    [4X[25Xgap>[125X [27XcrvP1:=AffineCurve(b,R2);[127X[104X
+    [4X[28Xrec( ring := PolynomialRing(..., [ a, b ]), polynomial := b )[128X[104X
+    [4X[25Xgap>[125X [27XD:=DivisorOnAffineCurve([1,1,1,4],[Z(11)^2,Z(11)^3,Z(11)^7,Z(11)],crvP1);[127X[104X
+    [4X[28Xrec( coeffs := [ 1, 1, 1, 4 ],  [128X[104X
+    [4X[28X     support := [ Z(11)^2, Z(11)^3, Z(11)^7, Z(11) ], [128X[104X
+    [4X[28X     curve := rec( ring := PolynomialRing(..., [ a, b ]), polynomial := b ) )[128X[104X
+    [4X[25Xgap>[125X [27Xagp:=DivisorAutomorphismGroupP1(D);; time;[127X[104X
+    [4X[28X7198[128X[104X
+    [4X[25Xgap>[125X [27XIdGroup(agp);[127X[104X
+    [4X[28X[ 20, 5 ][128X[104X
+    [4X[25Xgap>[125X [27Xg:=Random(agp);[127X[104X
+    [4X[28X[ [ Z(11)^4, Z(11)^9 ], [ Z(11)^0, Z(11)^9 ] ][128X[104X
+    [4X[25Xgap>[125X [27Xrho:=MatrixRepresentationOnRiemannRochSpaceP1(g,D);[127X[104X
+    [4X[28X[ [ Z(11)^0, 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11) ], [128X[104X
+    [4X[28X[ Z(11)^0, 0*Z(11), 0*Z(11), Z(11), 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11) ],[128X[104X
+    [4X[28X  [ Z(11)^7, 0*Z(11), Z(11)^5, 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11) ], [128X[104X
+    [4X[28X[ Z(11)^4, Z(11)^9, 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11) ],[128X[104X
+    [4X[28X  [ Z(11)^2, 0*Z(11), 0*Z(11), 0*Z(11), Z(11)^5, 0*Z(11), 0*Z(11), 0*Z(11) ], [128X[104X
+    [4X[28X[ Z(11)^4, 0*Z(11), 0*Z(11), 0*Z(11), Z(11)^8, Z(11)^0, 0*Z(11), 0*Z(11) ],[128X[104X
+    [4X[28X  [ Z(11)^6, 0*Z(11), 0*Z(11), 0*Z(11), Z(11)^7, Z(11)^0, Z(11)^5, 0*Z(11) ], [128X[104X
+    [4X[28X[ Z(11)^8, 0*Z(11), 0*Z(11), 0*Z(11), Z(11)^3, Z(11)^3, Z(11)^9, Z(11)^0 ] ][128X[104X
+    [4X[25Xgap>[125X [27XDisplay(rho);[127X[104X
+    [4X[28X  1  .  .  .  .  .  .  .[128X[104X
+    [4X[28X  1  .  .  2  .  .  .  .[128X[104X
+    [4X[28X  7  . 10  .  .  .  .  .[128X[104X
+    [4X[28X  5  6  .  .  .  .  .  .[128X[104X
+    [4X[28X  4  .  .  . 10  .  .  .[128X[104X
+    [4X[28X  5  .  .  .  3  1  .  .[128X[104X
+    [4X[28X  9  .  .  .  7  1 10  .[128X[104X
+    [4X[28X  3  .  .  .  8  8  6  1[128X[104X
+    [4X[28X[128X[104X
+  [4X[32X[104X
+  
+  [1X5.7-22 GoppaCodeClassical[101X
+  
+  [29X[2XGoppaCodeClassical[102X( [3Xdiv[103X, [3Xpts[103X ) [32X function
+  
+  [33X[0;0YInput:  A  divisor  [3Xdiv[103X on the projective line [22XP}^1(F)[122X over a finite field [22XF[122X
+  and a list [3Xpts[103X of points [22X{P_1,...,P_n}⊂ F[122X disjoint from the support of [3Xdiv[103X.[133X
+  [33X[0;0YOutput:  The classical (evaluation) Goppa code associated to this data. This
+  is the code[133X
+  
+  
+        [33X[1;6Y[24X[33X[0;0YC=\{(f(P_1),...,f(P_n))\ |\ f\in L(D)_F\}.[133X [124X[133X
+  
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XF:=GF(11);;[127X[104X
+    [4X[25Xgap>[125X [27XR2:=PolynomialRing(F,2);;[127X[104X
+    [4X[25Xgap>[125X [27Xvars:=IndeterminatesOfPolynomialRing(R2);;[127X[104X
+    [4X[25Xgap>[125X [27Xa:=vars[1];;b:=vars[2];;[127X[104X
+    [4X[25Xgap>[125X [27Xcdiv:=[ 1, 2, -1, -2 ];[127X[104X
+    [4X[28X[ 1, 2, -1, -2 ][128X[104X
+    [4X[25Xgap>[125X [27Xsdiv:=[ Z(11)^2, Z(11)^3, Z(11)^6, Z(11)^9 ];[127X[104X
+    [4X[28X[ Z(11)^2, Z(11)^3, Z(11)^6, Z(11)^9 ][128X[104X
+    [4X[25Xgap>[125X [27Xcrv:=rec(polynomial:=b,ring:=R2);[127X[104X
+    [4X[28Xrec( polynomial := x_2, ring := PolynomialRing(..., [ x_1, x_2 ]) )[128X[104X
+    [4X[25Xgap>[125X [27Xdiv:=DivisorOnAffineCurve(cdiv,sdiv,crv);[127X[104X
+    [4X[28Xrec( coeffs := [ 1, 2, -1, -2 ], support := [ Z(11)^2, Z(11)^3, Z(11)^6, Z(11)^9 ],[128X[104X
+    [4X[28X  curve := rec( polynomial := x_2, ring := PolynomialRing(..., [ x_1, x_2 ]) ) )[128X[104X
+    [4X[25Xgap>[125X [27Xpts:=Difference(Elements(GF(11)),div.support);[127X[104X
+    [4X[28X[ 0*Z(11), Z(11)^0, Z(11), Z(11)^4, Z(11)^5, Z(11)^7, Z(11)^8 ][128X[104X
+    [4X[25Xgap>[125X [27XC:=GoppaCodeClassical(div,pts);[127X[104X
+    [4X[28Xa linear [7,2,1..6]4..5 code defined by generator matrix over GF(11)[128X[104X
+    [4X[25Xgap>[125X [27XMinimumDistance(C);[127X[104X
+    [4X[28X6[128X[104X
+  [4X[32X[104X
+  
+  [1X5.7-23 EvaluationBivariateCode[101X
+  
+  [29X[2XEvaluationBivariateCode[102X( [3Xpts[103X, [3XL[103X, [3Xcrv[103X ) [32X function
+  
+  [33X[0;0YInput:  [10Xpts[110X  is  a  set  of  affine  points  on [10Xcrv[110X, [10XL[110X is a list of rational
+  functions on [10Xcrv[110X.[133X
+  [33X[0;0YOutput: The evaluation code associated to the points in [10Xpts[110X and functions in
+  [10XL[110X,  but  specifically  for  affine  plane curves and this function checks if
+  points  are  "bad"  (if  so removes them from the list [10Xpts[110X automatically). A
+  point  is  ``bad''  if  either  it  does  not lie on the set of non-singular
+  [22XF[122X-rational points (places of degree 1) on the curve.[133X
+  
+  [33X[0;0YVery  similar  to  [10XEvaluationCode[110X  (see  [2XEvaluationCode[102X  ([14X5.6-1[114X)  for a more
+  general construction).[133X
+  
+  [1X5.7-24 EvaluationBivariateCodeNC[101X
+  
+  [29X[2XEvaluationBivariateCodeNC[102X( [3Xpts[103X, [3XL[103X, [3Xcrv[103X ) [32X function
+  
+  [33X[0;0YAs in [10XEvaluationBivariateCode[110X but does not check if the points are ``bad''.[133X
+  
+  [33X[0;0YInput:  [10Xpts[110X  is  a  set  of  affine  points  on [10Xcrv[110X, [10XL[110X is a list of rational
+  functions on [10Xcrv[110X.[133X
+  [33X[0;0YOutput: The evaluation code associated to the points in [10Xpts[110X and functions in
+  [10XL[110X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xq:=4;;[127X[104X
+    [4X[25Xgap>[125X [27XF:=GF(q^2);;[127X[104X
+    [4X[25Xgap>[125X [27XR:=PolynomialRing(F,2);;[127X[104X
+    [4X[25Xgap>[125X [27Xvars:=IndeterminatesOfPolynomialRing(R);;[127X[104X
+    [4X[25Xgap>[125X [27Xx:=vars[1];;[127X[104X
+    [4X[25Xgap>[125X [27Xy:=vars[2];;[127X[104X
+    [4X[25Xgap>[125X [27Xcrv:=AffineCurve(y^q+y-x^(q+1),R);[127X[104X
+    [4X[28Xrec( ring := PolynomialRing(..., [ x_1, x_2 ]), polynomial := x_1^5+x_2^4+x_2 )[128X[104X
+    [4X[25Xgap>[125X [27XL:=[ x^0, x, x^2*y^-1 ];[127X[104X
+    [4X[28X[ Z(2)^0, x_1, x_1^2/x_2 ][128X[104X
+    [4X[25Xgap>[125X [27XPts:=AffinePointsOnCurve(crv.polynomial,crv.ring,F);;[127X[104X
+    [4X[25Xgap>[125X [27XC1:=EvaluationBivariateCode(Pts,L,crv); time;[127X[104X
+    [4X[28X[128X[104X
+    [4X[28X[128X[104X
+    [4X[28X Automatically removed the following 'bad' points (either a pole or not [128X[104X
+    [4X[28X on the curve):[128X[104X
+    [4X[28X[ [ 0*Z(2), 0*Z(2) ] ][128X[104X
+    [4X[28X[128X[104X
+    [4X[28Xa linear [63,3,1..60]51..59  evaluation code over GF(16)[128X[104X
+    [4X[28X52[128X[104X
+    [4X[25Xgap>[125X [27XP:=Difference(Pts,[[ 0*Z(2^4)^0, 0*Z(2)^0 ]]);;[127X[104X
+    [4X[25Xgap>[125X [27XC2:=EvaluationBivariateCodeNC(P,L,crv); time;[127X[104X
+    [4X[28Xa linear [63,3,1..60]51..59  evaluation code over GF(16)[128X[104X
+    [4X[28X48[128X[104X
+    [4X[25Xgap>[125X [27XC3:=EvaluationCode(P,L,R); time;[127X[104X
+    [4X[28Xa linear [63,3,1..56]51..59  evaluation code over GF(16)[128X[104X
+    [4X[28X58[128X[104X
+    [4X[25Xgap>[125X [27XMinimumDistance(C1);[127X[104X
+    [4X[28X56[128X[104X
+    [4X[25Xgap>[125X [27XMinimumDistance(C2);[127X[104X
+    [4X[28X56[128X[104X
+    [4X[25Xgap>[125X [27XMinimumDistance(C3);[127X[104X
+    [4X[28X56[128X[104X
+    [4X[28Xgap>[128X[104X
+  [4X[32X[104X
+  
+  [1X5.7-25 OnePointAGCode[101X
+  
+  [29X[2XOnePointAGCode[102X( [3Xf[103X, [3XP[103X, [3Xm[103X, [3XR[103X ) [32X function
+  
+  [33X[0;0YInput:  [3Xf[103X  is  a  polynomial  in R=F[x,y], where [3XF[103X is a finite field, [3Xm[103X is a
+  positive integer (the multiplicity of the `point at infinity' [22X∞[122X on the curve
+  [22Xf(x,y)=0[122X), [3XP[103X is a list of [22Xn[122X points on the curve over [22XF[122X.[133X
+  [33X[0;0YOutput: The [22XC[122X which is the image of the evaluation map[133X
+  
+  
+        [33X[1;6Y[24X[33X[0;0YEval_P:L(m \cdot \infty)\rightarrow F^n,[133X [124X[133X
+  
+  
+  [33X[0;0Ygiven  by  [22Xflongmapsto  (f(p_1),...,f(p_n))[122X,  where  [22Xp_i  ∈ P[122X. Here [22XL(m ⋅ ∞)[122X
+  denotes the Riemann-Roch space of the divisor [22Xm ⋅ ∞[122X on the curve. This has a
+  basis  consisting  of  monomials  [22Xx^iy^j[122X,  where  [22X(i,j)[122X range over a polygon
+  depending on [22Xm[122X and [22Xf(x,y)[122X. For more details on the Riemann-Roch space of the
+  divisor [22Xm ⋅ ∞[122X see Proposition III.10.5 in Stichtenoth [Sti93].[133X
+  
+  [33X[0;0YThis command returns a "record" object [10XC[110X with several extra components (type
+  [10XNamesOfComponents(C)[110X to see them all): [10XC!.points[110X (namely [3XP[103X), [10XC!.multiplicity[110X
+  (namely [3Xm[103X), [10XC!.curve[110X (namely [3Xf[103X) and [10XC!.ring[110X (namely [3XR[103X).[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XF:=GF(11);[127X[104X
+    [4X[28XGF(11)[128X[104X
+    [4X[25Xgap>[125X [27XR := PolynomialRing(F,["x","y"]);[127X[104X
+    [4X[28XPolynomialRing(..., [ x, y ])[128X[104X
+    [4X[25Xgap>[125X [27Xindets := IndeterminatesOfPolynomialRing(R);[127X[104X
+    [4X[28X[ x, y ][128X[104X
+    [4X[25Xgap>[125X [27Xx:=indets[1]; y:=indets[2];[127X[104X
+    [4X[28Xx[128X[104X
+    [4X[28Xy[128X[104X
+    [4X[25Xgap>[125X [27XP:=AffinePointsOnCurve(y^2-x^11+x,R,F);;[127X[104X
+    [4X[25Xgap>[125X [27XC:=OnePointAGCode(y^2-x^11+x,P,15,R);[127X[104X
+    [4X[28Xa linear [11,8,1..0]2..3  one-point AG code over GF(11)[128X[104X
+    [4X[25Xgap>[125X [27XMinimumDistance(C);[127X[104X
+    [4X[28X4[128X[104X
+    [4X[25Xgap>[125X [27XPts:=List([1,2,4,6,7,8,9,10,11],i->P[i]);;[127X[104X
+    [4X[25Xgap>[125X [27XC:=OnePointAGCode(y^2-x^11+x,PT,10,R);[127X[104X
+    [4X[28Xa linear [9,6,1..4]2..3 one-point AG code over GF(11)[128X[104X
+    [4X[25Xgap>[125X [27XMinimumDistance(C);[127X[104X
+    [4X[28X4[128X[104X
+  [4X[32X[104X
+  
+  [33X[0;0YSee [2XEvaluationCode[102X ([14X5.6-1[114X) for a more general construction.[133X
+  
+  
+  [1X5.8 [33X[0;0YLow-Density Parity-Check Codes[133X[101X
+  
+  [33X[0;0YLow-density  parity-check  (LDPC)  codes  form a class of linear block codes
+  whose  parity-check  matrix--as the name implies, is sparse. LDPC codes were
+  introduced  by  Robert  Gallager in 1962 [Gal62] as his PhD work. Due to the
+  decoding   complexity  for  the  technology  back  then,  these  codes  were
+  forgotten.  Not  until  the  late  1990s,  these codes were rediscovered and
+  research  results  have  shown  that  LDPC  codes can achieve near Shannon's
+  capacity  performance  provided  that  their block length is long enough and
+  soft-decision  iterative  decoder  is  employed.  Note that the bit-flipping
+  decoder  (see  [10XBitFlipDecoder[110X) is a hard-decision decoder and hence capacity
+  achieving  performance  cannot  be  achieved  despite  having  a large block
+  length.[133X
+  
+  [33X[0;0YBased  on  the  structure  of  their  parity-check matrix, LDPC codes may be
+  categorised into two classes:[133X
+  
+  [30X    [33X[0;6YRegular LDPC codes[133X
+  
+        [33X[0;6YThis class of codes has a fixed number of non zeros per column and per
+        row  in  their parity-check matrix. These codes are usually denoted as
+        [22X(n,j,k)[122X  codes  where  [22Xn[122X  is  the block length, [22Xj[122X is the number of non
+        zeros  per  column in their parity-check matrix and [22Xk[122X is the number of
+        non zeros per row in their parity-check matrix.[133X
+  
+  [30X    [33X[0;6YIrregular LDPC codes[133X
+  
+        [33X[0;6YThe  irregular codes, on the other hand, do not have a fixed number of
+        non  zeros per column and row in their parity-check matrix. This class
+        of  codes are commonly represented by two polynomials which denote the
+        distribution  of  the  number  of  non  zeros  in the columns and rows
+        respectively of their parity-check matrix.[133X
+  
+  [1X5.8-1 QCLDPCCodeFromGroup[101X
+  
+  [29X[2XQCLDPCCodeFromGroup[102X( [3Xm[103X, [3Xj[103X, [3Xk[103X ) [32X function
+  
+  [33X[0;0Y[10XQCLDCCodeFromGroup[110X  produces  an [22X(n,j,k)[122X regular quasi-cyclic LDPC code over
+  GF(2)  of  block length [22Xn = mk[122X. The term quasi-cyclic in the context of LDPC
+  codes  typically  refers  to  LDPC codes whose parity-check matrix [22XH[122X has the
+  following form[133X
+  
+      -                                              -
+      |  I_P(0,0)  |  I_P(0,1)  | ... |  I_P(0,k-1)  |
+      |  I_P(1,0)  |  I_P(1,1)  | ... |  I_P(1,k-1)  |
+  H = |      .     |     .      |  .  |       .      |,
+      |      .     |     .      |  .  |       .      |
+      | I_P(j-1,0) | I_P(j-1,1) | ... | I_P(j-1,k-1) |
+      -                                              -
+  		
+  
+  [33X[0;0Ywhere [22XI_P(s,t)[122X is an identity matrix of size [22Xm × m[122X which has been shifted so
+  that the [22X1[122X on the first row starts at position [22XP(s,t)[122X.[133X
+  
+  [33X[0;0YLet  [22XF[122X  be  a  multiplicative  group  of integers modulo [22Xm[122X. If [22Xm[122X is a prime,
+  [22XF={0,1,...,m-1}[122X, otherwise [22XF[122X contains a set of integers which are relatively
+  prime  to  [22Xm[122X. In both cases, the order of [22XF[122X is equal to [22Xϕ(m)[122X. Let [22Xa[122X and [22Xb[122X be
+  non  zeros  of  [22XF[122X  such that the orders of [22Xa[122X and [22Xb[122X are [22Xk[122X and [22Xj[122X respectively.
+  Note  that  the  integers  [22Xa[122X and [22Xb[122X can always be found provided that [22Xk[122X and [22Xj[122X
+  respectively  divide  [22Xϕ(m)[122X.  Having  obtain  integers [22Xa[122X and [22Xb[122X, construct the
+  following  [22Xj × k[122X matrix [22XP[122X so that the element at row [22Xs[122X and column [22Xt[122X is given
+  by [22XP(s,t) = a^tb^s[122X, i.e.[133X
+  
+      -                                             -
+      |    1    |     a    | . . . |      a^{k-1}   |
+      |    b    |    ab    | . . . |     a^{k-1}b   |
+  P = |    .    |    .     |   .   |        .       |.
+      |    .    |    .     |   .   |        .       |
+      | b^{j-1} | ab^{j-1} | . . . | a^{k-1}b^{j-1} |
+      -                                             -
+  		
+  
+  [33X[0;0YThe parity-check matrix [22XH[122X of the LDPC code can be obtained by replacing each
+  element of matrix [22XP[122X, i.e. [22XP(s,t)[122X, with an identity matrix [22XI_P(s,t)[122X of size [22Xm
+  × m[122X.[133X
+  
+  [33X[0;0YThe code rate [22XR[122X of the constructed code is given by[133X
+  
+  
+        [33X[1;6Y[24X[33X[0;0YR \geq 1 - \frac{j}{k}[133X [124X[133X
+  
+  
+  [33X[0;0Ywhere  the  sign  [22X≥[122X  is  due  to the possible existence of some non linearly
+  independent  rows in [22XH[122X. For more details, refer to the paper by Tanner et al
+  [TSSFJ04].[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XC := QCLDPCCodeFromGroup(7,2,3);[127X[104X
+    [4X[28Xa linear [21,8,1..6]5..10 low-density parity-check code over GF(2)[128X[104X
+    [4X[25Xgap>[125X [27XMinimumWeight(C);[127X[104X
+    [4X[28X[21,8] linear code over GF(2) - minimum weight evaluation[128X[104X
+    [4X[28XKnown lower-bound: 1[128X[104X
+    [4X[28XThere are 3 generator matrices, ranks : 8 8 5 [128X[104X
+    [4X[28XThe weight of the minimum weight codeword satisfies 0 mod 2 congruence[128X[104X
+    [4X[28XEnumerating codewords with information weight 1 (w=1)[128X[104X
+    [4X[28X    Found new minimum weight 6[128X[104X
+    [4X[28XNumber of matrices required for codeword enumeration 2[128X[104X
+    [4X[28XCompleted w= 1, 24 codewords enumerated, lower-bound 4, upper-bound 6[128X[104X
+    [4X[28XTermination expected with information weight 2 at matrix 1[128X[104X
+    [4X[28X-----------------------------------------------------------------------------[128X[104X
+    [4X[28XEnumerating codewords with information weight 2 (w=2) using 1 matrices[128X[104X
+    [4X[28XCompleted w= 2, 28 codewords enumerated, lower-bound 6, upper-bound 6[128X[104X
+    [4X[28X-----------------------------------------------------------------------------[128X[104X
+    [4X[28XMinimum weight: 6[128X[104X
+    [4X[28X6[128X[104X
+    [4X[25Xgap>[125X [27X# The quasi-cyclic structure is obvious from the check matrix[127X[104X
+    [4X[25Xgap>[125X [27XDisplay( CheckMat(C) );[127X[104X
+    [4X[28X 1 . . . . . . . 1 . . . . . . . . 1 . . .[128X[104X
+    [4X[28X . 1 . . . . . . . 1 . . . . . . . . 1 . .[128X[104X
+    [4X[28X . . 1 . . . . . . . 1 . . . . . . . . 1 .[128X[104X
+    [4X[28X . . . 1 . . . . . . . 1 . . . . . . . . 1[128X[104X
+    [4X[28X . . . . 1 . . . . . . . 1 . 1 . . . . . .[128X[104X
+    [4X[28X . . . . . 1 . . . . . . . 1 . 1 . . . . .[128X[104X
+    [4X[28X . . . . . . 1 1 . . . . . . . . 1 . . . .[128X[104X
+    [4X[28X . . . . . 1 . . . . . 1 . . . . 1 . . . .[128X[104X
+    [4X[28X . . . . . . 1 . . . . . 1 . . . . 1 . . .[128X[104X
+    [4X[28X 1 . . . . . . . . . . . . 1 . . . . 1 . .[128X[104X
+    [4X[28X . 1 . . . . . 1 . . . . . . . . . . . 1 .[128X[104X
+    [4X[28X . . 1 . . . . . 1 . . . . . . . . . . . 1[128X[104X
+    [4X[28X . . . 1 . . . . . 1 . . . . 1 . . . . . .[128X[104X
+    [4X[28X . . . . 1 . . . . . 1 . . . . 1 . . . . .[128X[104X
+    [4X[25Xgap>[125X [27X# This is the famous [155,64,20] quasi-cyclic LDPC codes[127X[104X
+    [4X[25Xgap>[125X [27XC := QCLDPCCodeFromGroup(31,3,5);[127X[104X
+    [4X[28Xa linear [155,64,1..24]24..77 low-density parity-check code over GF(2)[128X[104X
+    [4X[25Xgap>[125X [27X# An example using non prime m, it may take a while to construct this code[127X[104X
+    [4X[25Xgap>[125X [27XC := QCLDPCCodeFromGroup(356,4,8);[127X[104X
+    [4X[28Xa linear [2848,1436,1..120]312..1412 low-density parity-check code over GF(2)[128X[104X
+  [4X[32X[104X
+  

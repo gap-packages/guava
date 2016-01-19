@@ -1,0 +1,253 @@
+In this file we record the changes since the first GAP 4 release of
+the GUAVA package.
+
+Version 3.13 (1-2016):
+   o Incorporate fixes by Dima Pasechnik 
+   o Fix BCH decoding (I hope)
+   o Changes necessitated by switch to GitHub (mostly to the webpage)
+
+
+Version 3.12 (5-2012):
+   o More work on configure/make.  Switched "configure" script to that 
+     written by Frank Lubeck for Browse. EDIM, etc.
+   o Revamped init.g and read.g and the AvailabilityTest function in 
+     PackageInfo.g for GAP 4.5 compatability.
+   o Some fixes to guava.tst.  There are now exactly 4 known errors. 
+   o Switched bibliography database in /doc to an xml format and repaired
+     many LaTeX warnings due to innapropriate Label attributes in 
+     <ManSection> tags.
+
+Version 3.11 (1-2012):
+   o General editing and improvements to the documentation.
+   o Various modifications for compatability with GAP 4.5.
+   o Rework of configure/make process for compiling binaries of subsystems
+     written by Leon and Tjhai.
+   o Revamped the "guava.tst" file.
+   o Bug fix in TraceCode reported by Stanislav Bulygin.
+   o Fixes to RootsCode, bugs reported by Andries Brouwer.
+   o One known bug: Decoding of BCH codes is broken.
+
+Version 3.10 (3-2009):
+   o Improved fix for BCH decoder bug reported by Heiko Dietrich.
+   o Bug fix for GV lower bound reported by Stanislav Bulygin.
+
+Version 3.9 (12-2008):
+   o Fix for BCH decoder bug reported by Heiko Dietrich.
+   o Fix for MinimumDistanceLeon bug reported by Jorge Ernesto 
+     Perez Chamorro
+
+Version 3.8 (11-2008):
+   o Fix for C code computing minimum distance written by CJ Tjhal
+
+Version 3.7 (08-2008):
+   o Fix to leonconv.c reported by Klaus Lux.
+   o Fix to libtool problem in leon configure script, 
+     reported by Petr Salinger and Timothy Abbott.
+
+Version 3.6 (06-2008):
+   o Added QCLDPCCodeFromGroup function.
+   o Improved HadamardMat.
+   o Corrected a missing ';' in Makefile.in, as well as several
+     other minor make edits (thanks to Timothy Abbott)
+   o Updated documentation.
+
+Version 3.5 (04-2008):
+   o Minor changes (permission changes, etc)
+
+Version 3.4 (03-2008):
+   o Modified the configure file for the C code (R. Miller).
+   o Updated documentation.
+
+Version 3.3 (03-2008):
+   o Added new C code written by CJ and a new Guava function MinimumWeight
+     which is *much* faster than MinimumDistance (when the ground
+     field is GF(2) or GF(3)).
+   o Added Andreas Brouwer's patch for Leon's code to avoid some
+     memory problems.
+
+Version 3.2 (01-2008):
+   o Added a macro for malloc.h in leonconv.c to fix compilation error
+     under Mac OS X
+   o Added ExtendedReedSolomonCode, QuasiCyclicCode, CyclicMDSCode, 
+     FourNegacirculantSelfDualCode, ConstructionXCode, ConstructionXXCode,
+     BZCode, IsDoublyEvenCode, IsSinglyEvenCode and IsEvenCode functions.
+
+Version 3.1 (10-2007):
+   o Fixed a bug in MinimumDistance reported by Lappas Eleftherios.
+   o William Stein fixed a compilation bug.
+   o Fixed XML bugs pointed out by Frank Luebeck and Max Neunhoeffer
+
+Version 3.0: (7-2007) 
+   o Robert Miller and Tom Boothby added as authors. 
+   o Leon's code is now GPL'd (many thanks to Vera Pless 
+     and Steve Smith)! Robert and Tom are working on rewriting 
+     the code and have already fixed some bugs, compiling errors, 
+     and memory problems.
+   o Fixed several bugs reported by Punarbasu Purkayastha (a EE
+     grad student at the Univ of Maryland) in Decode, Decodeword
+     for ReedSolomon codes, as well as a problem in the
+     GUAVA documentation.
+   o Re-united the "odd" and "even" forks of the GUAVA code.
+
+Version 2.8: Forked off a branch of GUAVA which is entirely
+GPL'd code. (None of Leon's code is included.) Otherwise, same
+as 2.7. This branch is used in SAGE (sage.scipy.org).
+
+Version 2.7: (5-2005) 
+   o Cen Tjhai ("CJ") added as author.
+   o cjt: Complete rewrite of the files in the tbl subdirectory. 
+     There are (as of May 11, 2006) as updated as Brouwer's
+     online tables (www.win.tue.nl/~aeb/voorlincod.html).
+   o cjt: Created two functions in codeman.g*, SubCode and 
+     ConstructionB2Code. The ConstructionB2Code function is empty
+     and to be implemented in a future version.
+   o wdj: GUAVA Manual changes.
+
+Version 2.6: Forked off a branch of GUAVA which is entirely
+GPL'd code. (None of Leon's code is included.) Otherwise, same
+as 2.5. This branch is used in SAGE (sage.scipy.org).
+
+Version 2.5: (1-2006) 
+   o Fixed undesired feature in Decodeword (spotten by Cayanne 
+     McFarlane).
+   o Added MinimumWeightWords to manual; modified GAP code
+     for MinimumWeightWords to speed it up. 
+   o Modified CheckMatCode to "Set" *mutable* generator
+     and check matrices.
+   o Added BitFlipDecoder, a fast decoder for LDPC codes 
+     (written with Gordon McDonald).
+   o Added GuavaVersion and guava_version
+   o Added FerrorDesignCode, written with Peter Mayr at Linz
+     (one of the SONATA authors). This requires SONATA be
+     loaded.
+   o Added QQRCodeNC (written with Greg Coy).
+   o Miscellaneous additions to the GUAVA manual.
+
+Version 2.4: (6-2005) Minor bug fix - 
+   o In MatrixRepresentationOnRiemannRochSpaceP1,
+     cleaned up code and fixed a bug (GAP does not process 1 the 
+     same as x^0 in some cases).
+   o Fixed spelling error in guava.tst file.
+
+Version 2.3: (5-2005)
+   o added PermutationDecoderNC, CyclicDecoder
+   o change PermutationGroup in PermutationDecoder
+     to PermutationAutomorphismGroup 
+   o in codegen.gi, line 2066, replace C.GeneratorMat 
+     by C.EvaluationMat, and then add the existence of this extra 
+     record component to the documentation 
+   o classical Goppa = AG codes over P^1
+   o curve record data structure for plane curves 
+     and some associated functions
+   o divisor record data structure for curves (only used for P^1)
+     and some associated functions
+   o automorphism group of a divisor on P^1 (very slow)
+   o function computing matrix representation of group 
+     action on Riemann-Roch space (in P^1 case only, also
+     very slow)
+   o one point AG codes
+   o nicer evaluation codes in 2-d
+   o miscellaneous functions for multivariate polynomials
+   o new section on algebraic geometric codes in manual
+
+Version 2.0002 (5-2005)
+   o A renaming of GUAVA 2.0, for the GAP 4.4.5 release.
+
+Version 2.0001: (12-2004)
+   o Merely aded PolynomialByExtRepNC to GUAVA. (A *temporary* addition to 
+     last until GAP 4.4.5 was released.)
+
+Version 2.0: (12-2004)
+   o Changed `ViewObj` method for random linear codes, 
+     speeding up the implementation of the RandomLinearCode command.
+   o Modified BCHCode and RootsCode implementation.
+   o Corrected bug in UpperBoundElias.
+   o Rewrote GUAVA documentation into GAPDoc, with many revisions.
+   o Added EvaluationCode and related codes
+     (GeneralizedReedMullerCode, GeneralizedReedSolomonCode, 
+      OnePointAGCode, joint with Jason McGowan)
+   o Added interpolation decoding method for GeneralizedReedSolomonCode
+     (joint with Jason McGowan), GeneralizedReedSolomonDecoder.
+   o Added S. Gao decoding method for GeneralizedReedSolomonCode,
+     GeneralizedReedSolomonDecoderGao.
+   o Fixed bug in MinimumDistance (wrong result if G=(I|A)
+     and A had a row of 0s)
+   o MinimumDistanceRandom algorithm implemented in non-binary case
+     (joint with Wayne Irons).
+   o Added list-decoding algorithm GeneralizedReedSolomonListDecoder
+     (joint with Clifton Lennon) and related commands
+     (some undocumented). 
+   o Bug fix for SortedGaloisFieldElements (used to construct
+     Gabidulin codes).
+   o CalculateLinearCodeCoveringRadius changed to a slightly faster
+     algorithm.
+   o minor bug fix for ExhaustiveSearchCoveringRadius
+   o minor bug fix for IncreaseCoveringRadiusLowerBound
+   o Changed ConstantWeightSubcode so it does not call Leon's
+     program if wtdist is not installed. Moreover, the procedure 
+     interfacing with the binary had a bug, which was fixed.
+   o Added check in AutomorphismGroup: if Leon's desauto is not
+     compiled (e.g., on a windows machine) then it calls PermutationGroup 
+     command instead.
+   o Added Decodeword (which also works for non-linear codes)
+   o Added NearestNeighborDecodewords (for linear codes)
+   o Added NearestNeighborGRSDecodewords (for GRS codes)
+   o Added PermutationAutomorphismGroup (which will replace the
+     poorly named PermutationGroup command added in version 1.9)
+   o Moved several decoding commands from codeops.gi to decoders.gi
+     (with no change in functionality).
+   o Added LowerBoundGilbertVarshamov and LowerBoundSpherePacking.
+   o Added DivisorsMultivariatePolynomial and related commands
+     (some undocumented). 
+   o Released under the GNU GPL.
+
+Version 1.9: (3-2004)
+   o Faster MinimumDistance algorithm (joint with Aron Foster, a student).
+   o MinimumDistanceLeon algorithm (joint with Aron Foster) in 
+     binary case.
+   o Faster PutStandard form algorithm (with Frank Luebeck).
+   o New PermutationGroup command (for possibly non-binary codes).
+   o New PermutationDecode command.
+
+Version 1.82: (7-2003)
+   o Slight changes to prepare for the different loading 
+     mechanism for GAP packages used in the upcoming GAP 4.4.
+
+Version 1.8: 
+   o New commands for toric codes. 
+
+Version 1.7: (2-2003)
+   o Various typos in manual fixed.
+   o lib/codecstr.g[di]:
+       `AmalgamatedDirectSumCode' previously misspelt as 
+       `AmalgatedDirectSumCode' corrected.
+   o Version Id headers in doc/* and lib/* files added.
+   o README:
+       updated.
+   o init.g:
+       now checks the C code has been compiled and warns of
+       missing functionality if not compiled.
+   o banner.g, lib/setup.g:
+       banner split off as a separate file.
+   o PkgInfo.g, CHANGES (this file):
+       added.
+
+Version 1.6: (9-2001)
+   New maintainer: David Joyner.
+   o Bugs in `IsAffineCode' and `MinimumDistance' (reported by
+     Akihiro Munemasa, who also supplied a fix for the `IsAffineCode'
+     bug) fixed.
+   o Manual thoroughly reworked. HTML manual made available.
+
+Version 1.5:
+   GAP 4.2 version. Not compatible with GAP 4.1.
+
+Version 1.4:
+   First GAP4 version by Lea Ruscio. Created for GAP 4.1. 
+   Incompatible with GAP 4.2.
+
+Version 1.3:
+   Last GAP3 version.
+
+  - Joe Fields (fieldsj1@southernct.edu)
+    July 14, 2011

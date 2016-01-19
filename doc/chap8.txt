@@ -1,0 +1,231 @@
+  
+  [1X8 [33X[0;0YCoding theory functions in GAP[133X[101X
+  
+  [33X[0;0YThis  chapter  will  recall  from the GAP4.4.5 manual some of the GAP coding
+  theory  and  finite  field functions useful for coding theory. Some of these
+  functions are partially written in C for speed. The main functions are[133X
+  
+  [30X    [33X[0;6Y[10XAClosestVectorCombinationsMatFFEVecFFE[110X,[133X
+  
+  [30X    [33X[0;6Y[10XAClosestVectorCombinationsMatFFEVecFFECoords[110X,[133X
+  
+  [30X    [33X[0;6Y[10XCosetLeadersMatFFE[110X,[133X
+  
+  [30X    [33X[0;6Y[10XDistancesDistributionMatFFEVecFFE[110X,[133X
+  
+  [30X    [33X[0;6Y[10XDistancesDistributionVecFFEsVecFFE[110X,[133X
+  
+  [30X    [33X[0;6Y[10XDistanceVecFFE[110X and [10XWeightVecFFE[110X,[133X
+  
+  [30X    [33X[0;6Y[10XConwayPolynomial[110X and [10XIsCheapConwayPolynomial[110X,[133X
+  
+  [30X    [33X[0;6Y[10XIsPrimitivePolynomial[110X, and [10XRandomPrimitivePolynomial[110X.[133X
+  
+  [33X[0;0YHowever,  the  GAP  command [10XPrimitivePolynomial[110X returns an integer primitive
+  polynomial not the finite field kind.[133X
+  
+  
+  [1X8.1 [33X[0;0YDistance functions[133X[101X
+  
+  [1X8.1-1 AClosestVectorCombinationsMatFFEVecFFE[101X
+  
+  [29X[2XAClosestVectorCombinationsMatFFEVecFFE[102X( [3Xmat[103X, [3XF[103X, [3Xvec[103X, [3Xr[103X, [3Xst[103X ) [32X function
+  
+  [33X[0;0YThis  command  runs  through the [3XF[103X-linear combinations of the vectors in the
+  rows of the matrix [3Xmat[103X that can be written as linear combinations of exactly
+  [3Xr[103X  rows  (that  is without using zero as a coefficient) and returns a vector
+  from  these that is closest to the vector [3Xvec[103X. The length of the rows of [3Xmat[103X
+  and  the  length  of  [3Xvec[103X must be equal, and all elements must lie in [3XF[103X. The
+  rows  of  [3Xmat[103X must be linearly independent. If it finds a vector of distance
+  at  most  [3Xst[103X, which must be a nonnegative integer, then it stops immediately
+  and returns this vector.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XF:=GF(3);;[127X[104X
+    [4X[25Xgap>[125X [27Xx:= Indeterminate( F );; pol:= x^2+1;[127X[104X
+    [4X[28Xx_1^2+Z(3)^0[128X[104X
+    [4X[25Xgap>[125X [27XC := GeneratorPolCode(pol,8,F);[127X[104X
+    [4X[28Xa cyclic [8,6,1..2]1..2 code defined by generator polynomial over GF(3)[128X[104X
+    [4X[25Xgap>[125X [27Xv:=Codeword("12101111");[127X[104X
+    [4X[28X[ 1 2 1 0 1 1 1 1 ][128X[104X
+    [4X[25Xgap>[125X [27Xv:=VectorCodeword(v);[127X[104X
+    [4X[28X[ Z(3)^0, Z(3), Z(3)^0, 0*Z(3), Z(3)^0, Z(3)^0, Z(3)^0, Z(3)^0 ][128X[104X
+    [4X[25Xgap>[125X [27XG:=GeneratorMat(C);[127X[104X
+    [4X[28X[ [ Z(3)^0, 0*Z(3), Z(3)^0, 0*Z(3), 0*Z(3), 0*Z(3), 0*Z(3), 0*Z(3) ],[128X[104X
+    [4X[28X  [ 0*Z(3), Z(3)^0, 0*Z(3), Z(3)^0, 0*Z(3), 0*Z(3), 0*Z(3), 0*Z(3) ],[128X[104X
+    [4X[28X  [ 0*Z(3), 0*Z(3), Z(3)^0, 0*Z(3), Z(3)^0, 0*Z(3), 0*Z(3), 0*Z(3) ],[128X[104X
+    [4X[28X  [ 0*Z(3), 0*Z(3), 0*Z(3), Z(3)^0, 0*Z(3), Z(3)^0, 0*Z(3), 0*Z(3) ],[128X[104X
+    [4X[28X  [ 0*Z(3), 0*Z(3), 0*Z(3), 0*Z(3), Z(3)^0, 0*Z(3), Z(3)^0, 0*Z(3) ],[128X[104X
+    [4X[28X  [ 0*Z(3), 0*Z(3), 0*Z(3), 0*Z(3), 0*Z(3), Z(3)^0, 0*Z(3), Z(3)^0 ] ][128X[104X
+    [4X[25Xgap>[125X [27XAClosestVectorCombinationsMatFFEVecFFE(G,F,v,1,1);[127X[104X
+    [4X[28X[ 0*Z(3), 0*Z(3), 0*Z(3), 0*Z(3), 0*Z(3), Z(3)^0, 0*Z(3), Z(3)^0 ][128X[104X
+  [4X[32X[104X
+  
+  [1X8.1-2 AClosestVectorComb..MatFFEVecFFECoords[101X
+  
+  [29X[2XAClosestVectorComb..MatFFEVecFFECoords[102X( [3Xmat[103X, [3XF[103X, [3Xvec[103X, [3Xr[103X, [3Xst[103X ) [32X function
+  
+  [33X[0;0Y[10XAClosestVectorCombinationsMatFFEVecFFECoords[110X  returns  a  two  element  list
+  containing      (a)      the      same      closest     vector     as     in
+  [10XAClosestVectorCombinationsMatFFEVecFFE[110X,  and  (b)  a vector [3Xv[103X with exactly [3Xr[103X
+  non-zero entries, such that [22Xv*mat[122X is the closest vector.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XF:=GF(3);;[127X[104X
+    [4X[25Xgap>[125X [27Xx:= Indeterminate( F );; pol:= x^2+1;[127X[104X
+    [4X[28Xx_1^2+Z(3)^0[128X[104X
+    [4X[25Xgap>[125X [27XC := GeneratorPolCode(pol,8,F);[127X[104X
+    [4X[28Xa cyclic [8,6,1..2]1..2 code defined by generator polynomial over GF(3)[128X[104X
+    [4X[25Xgap>[125X [27Xv:=Codeword("12101111"); v:=VectorCodeword(v);;[127X[104X
+    [4X[28X[ 1 2 1 0 1 1 1 1 ][128X[104X
+    [4X[25Xgap>[125X [27XG:=GeneratorMat(C);;[127X[104X
+    [4X[25Xgap>[125X [27XAClosestVectorCombinationsMatFFEVecFFECoords(G,F,v,1,1);[127X[104X
+    [4X[28X[ [ 0*Z(3), 0*Z(3), 0*Z(3), 0*Z(3), 0*Z(3), Z(3)^0, 0*Z(3), Z(3)^0 ],[128X[104X
+    [4X[28X  [ 0*Z(3), 0*Z(3), 0*Z(3), 0*Z(3), 0*Z(3), Z(3)^0 ] ][128X[104X
+  [4X[32X[104X
+  
+  [1X8.1-3 DistancesDistributionMatFFEVecFFE[101X
+  
+  [29X[2XDistancesDistributionMatFFEVecFFE[102X( [3Xmat[103X, [3Xf[103X, [3Xvec[103X ) [32X function
+  
+  [33X[0;0Y[10XDistancesDistributionMatFFEVecFFE[110X  returns the distances distribution of the
+  vector  [3Xvec[103X  to the vectors in the vector space generated by the rows of the
+  matrix  [3Xmat[103X  over the finite field [3Xf[103X. All vectors must have the same length,
+  and all elements must lie in a common field. The distances distribution is a
+  list  [22Xd[122X  of  length [22XLength(vec)+1[122X, such that the value [22Xd[i][122X is the number of
+  vectors in vecs that have distance [22Xi+1[122X to [3Xvec[103X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xv:=[ Z(3)^0, Z(3), Z(3)^0, 0*Z(3), Z(3)^0, Z(3)^0, Z(3)^0, Z(3)^0 ];;[127X[104X
+    [4X[25Xgap>[125X [27Xvecs:=[ [ Z(3)^0, 0*Z(3), Z(3)^0, 0*Z(3), 0*Z(3), 0*Z(3), 0*Z(3), 0*Z(3) ],[127X[104X
+    [4X[25X>[125X [27X  [ 0*Z(3), Z(3)^0, 0*Z(3), Z(3)^0, 0*Z(3), 0*Z(3), 0*Z(3), 0*Z(3) ],[127X[104X
+    [4X[25X>[125X [27X  [ 0*Z(3), 0*Z(3), Z(3)^0, 0*Z(3), Z(3)^0, 0*Z(3), 0*Z(3), 0*Z(3) ],[127X[104X
+    [4X[25X>[125X [27X  [ 0*Z(3), 0*Z(3), 0*Z(3), Z(3)^0, 0*Z(3), Z(3)^0, 0*Z(3), 0*Z(3) ],[127X[104X
+    [4X[25X>[125X [27X  [ 0*Z(3), 0*Z(3), 0*Z(3), 0*Z(3), Z(3)^0, 0*Z(3), Z(3)^0, 0*Z(3) ],[127X[104X
+    [4X[25X>[125X [27X  [ 0*Z(3), 0*Z(3), 0*Z(3), 0*Z(3), 0*Z(3), Z(3)^0, 0*Z(3), Z(3)^0 ] ];;[127X[104X
+    [4X[25Xgap>[125X [27XDistancesDistributionMatFFEVecFFE(vecs,GF(3),v);[127X[104X
+    [4X[28X[ 0, 4, 6, 60, 109, 216, 192, 112, 30 ][128X[104X
+  [4X[32X[104X
+  
+  [1X8.1-4 DistancesDistributionVecFFEsVecFFE[101X
+  
+  [29X[2XDistancesDistributionVecFFEsVecFFE[102X( [3Xvecs[103X, [3Xvec[103X ) [32X function
+  
+  [33X[0;0Y[10XDistancesDistributionVecFFEsVecFFE[110X returns the distances distribution of the
+  vector  [3Xvec[103X  to the vectors in the list [3Xvecs[103X. All vectors must have the same
+  length,  and  all  elements  must  lie  in  a  common  field.  The distances
+  distribution  is  a list [22Xd[122X of length [22XLength(vec)+1[122X, such that the value [22Xd[i][122X
+  is the number of vectors in [3Xvecs[103X that have distance [22Xi+1[122X to [3Xvec[103X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xv:=[ Z(3)^0, Z(3), Z(3)^0, 0*Z(3), Z(3)^0, Z(3)^0, Z(3)^0, Z(3)^0 ];;[127X[104X
+    [4X[25Xgap>[125X [27Xvecs:=[ [ Z(3)^0, 0*Z(3), Z(3)^0, 0*Z(3), 0*Z(3), 0*Z(3), 0*Z(3), 0*Z(3) ],[127X[104X
+    [4X[25X>[125X [27X  [ 0*Z(3), Z(3)^0, 0*Z(3), Z(3)^0, 0*Z(3), 0*Z(3), 0*Z(3), 0*Z(3) ],[127X[104X
+    [4X[25X>[125X [27X  [ 0*Z(3), 0*Z(3), Z(3)^0, 0*Z(3), Z(3)^0, 0*Z(3), 0*Z(3), 0*Z(3) ],[127X[104X
+    [4X[25X>[125X [27X  [ 0*Z(3), 0*Z(3), 0*Z(3), Z(3)^0, 0*Z(3), Z(3)^0, 0*Z(3), 0*Z(3) ],[127X[104X
+    [4X[25X>[125X [27X  [ 0*Z(3), 0*Z(3), 0*Z(3), 0*Z(3), Z(3)^0, 0*Z(3), Z(3)^0, 0*Z(3) ],[127X[104X
+    [4X[25X>[125X [27X  [ 0*Z(3), 0*Z(3), 0*Z(3), 0*Z(3), 0*Z(3), Z(3)^0, 0*Z(3), Z(3)^0 ] ];;[127X[104X
+    [4X[25Xgap>[125X [27XDistancesDistributionVecFFEsVecFFE(vecs,v);[127X[104X
+    [4X[28X[ 0, 0, 0, 0, 0, 4, 0, 1, 1 ][128X[104X
+  [4X[32X[104X
+  
+  [1X8.1-5 WeightVecFFE[101X
+  
+  [29X[2XWeightVecFFE[102X( [3Xvec[103X ) [32X function
+  
+  [33X[0;0Y[10XWeightVecFFE[110X  returns  the  weight  of the finite field vector [3Xvec[103X, i.e. the
+  number of nonzero entries.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xv:=[ Z(3)^0, Z(3), Z(3)^0, 0*Z(3), Z(3)^0, Z(3)^0, Z(3)^0, Z(3)^0 ];;[127X[104X
+    [4X[25Xgap>[125X [27XWeightVecFFE(v);[127X[104X
+    [4X[28X7[128X[104X
+  [4X[32X[104X
+  
+  [1X8.1-6 DistanceVecFFE[101X
+  
+  [29X[2XDistanceVecFFE[102X( [3Xvec1[103X, [3Xvec2[103X ) [32X function
+  
+  [33X[0;0YThe [13XHamming metric[113X on [22XGF(q)^n[122X is the function[133X
+  
+  
+        [33X[1;6Y[24X[33X[0;0Ydist((v_1,...,v_n),(w_1,...,w_n)) =|\{i\in [1..n]\ |\ v_i\not= w_i\}|.[133X
+        [124X[133X
+  
+  
+  [33X[0;0YThis  is  also  called  the  (Hamming)  distance between [22Xv=(v_1,...,v_n)[122X and
+  [22Xw=(w_1,...,w_n)[122X. [10XDistanceVecFFE[110X returns the distance between the two vectors
+  [3Xvec1[103X  and  [3Xvec2[103X, which must have the same length and whose elements must lie
+  in  a common field. The distance is the number of places where [3Xvec1[103X and [3Xvec2[103X
+  differ.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xv1:=[ Z(3)^0, Z(3), Z(3)^0, 0*Z(3), Z(3)^0, Z(3)^0, Z(3)^0, Z(3)^0 ];;[127X[104X
+    [4X[25Xgap>[125X [27Xv2:=[ Z(3), Z(3)^0, Z(3)^0, 0*Z(3), Z(3)^0, Z(3)^0, Z(3)^0, Z(3)^0 ];;[127X[104X
+    [4X[25Xgap>[125X [27XDistanceVecFFE(v1,v2);[127X[104X
+    [4X[28X2[128X[104X
+  [4X[32X[104X
+  
+  
+  [1X8.2 [33X[0;0YOther functions[133X[101X
+  
+  [33X[0;0YWe basically repeat, with minor variation, the material in the GAP manual or
+  from                 Frank                 Luebeck's                 website
+  [7Xhttp://www.math.rwth-aachen.de:8001/~Frank.Luebeck/data/ConwayPol[107X  on Conway
+  polynomials.  The  [12Xprime  fields[112X:  If [22Xp≥ 2[122X is a prime then [22XGF(p)[122X denotes the
+  field [22XZ}/pZ}[122X, with addition and multiplication performed mod [22Xp[122X.[133X
+  
+  [33X[0;0YThe  [12Xprime  power  fields[112X:  Suppose  [22Xq=p^r[122X  is  a  prime power, [22Xr>1[122X, and put
+  [22XF=GF(p)[122X.  Let  [22XF[x][122X  denote  the ring of all polynomials over [22XF[122X and let [22Xf(x)[122X
+  denote  a monic irreducible polynomial in [22XF[x][122X of degree [22Xr[122X. The quotient [22XE =
+  F[x]/(f(x))=  F[x]/f(x)F[x][122X  is  a  field with [22Xq[122X elements. If [22Xf(x)[122X and [22XE[122X are
+  related  in  this way, we say that [22Xf(x)[122X is the [12Xdefining polynomial[112X of [22XE[122X. Any
+  defining polynomial factors completely into distinct linear factors over the
+  field it defines.[133X
+  
+  [33X[0;0YFor any finite field [22XF[122X, the multiplicative group of non-zero elements [22XF^×[122X is
+  a  cyclic group. An [22Xα ∈ F[122X is called a [12Xprimitive element[112X if it is a generator
+  of  [22XF^×[122X. A defining polynomial [22Xf(x)[122X of [22XF[122X is said to be [12Xprimitive[112X if it has a
+  root in [22XF[122X which is a primitive element.[133X
+  
+  [1X8.2-1 ConwayPolynomial[101X
+  
+  [29X[2XConwayPolynomial[102X( [3Xp[103X, [3Xn[103X ) [32X function
+  
+  [33X[0;0YA   standard   notation   for  the  elements  of  [22XGF(p)[122X  is  given  via  the
+  representatives  [22X0, ..., p-1[122X of the cosets modulo [22Xp[122X. We order these elements
+  by  [22X0  ⟨  1  ⟨ 2 ⟨ ... ⟨ p-1[122X. We introduce an ordering of the polynomials of
+  degree [22Xr[122X over [22XGF(p)[122X. Let [22Xg(x) = g_rx^r + ... + g_0[122X and [22Xh(x) = h_rx^r + ... +
+  h_0[122X  (by  convention, [22Xg_i=h_i=0[122X for [22Xi ⟩ r[122X). Then we define [22Xg ⟨ h[122X if and only
+  if  there is an index [22Xk[122X with [22Xg_i = h_i[122X for [22Xi ⟩ k[122X and [22X(-1)^r-k g_k ⟨ (-1)^r-k
+  h_k[122X.[133X
+  
+  [33X[0;0YThe  [12XConway  polynomial[112X  [22Xf_p,r(x)[122X  for [22XGF(p^r)[122X is the smallest polynomial of
+  degree [22Xr[122X with respect to this ordering such that:[133X
+  
+  [30X    [33X[0;6Y[22Xf_p,r(x)[122X is monic,[133X
+  
+  [30X    [33X[0;6Y[22Xf_p,r(x)[122X  is  primitive,  that  is,  any  zero  is  a generator of the
+        (cyclic) multiplicative group of [22XGF(p^r)[122X,[133X
+  
+  [30X    [33X[0;6Yfor each proper divisor [22Xm[122X of [22Xr[122X we have that [22Xf_p,m(x^(p^r-1) / (p^m-1))
+        ≡ 0 mod f_p,r(x)[122X; that is, the [22X(p^r-1) / (p^m-1)[122X-th power of a zero of
+        [22Xf_p,r(x)[122X is a zero of [22Xf_p,m(x)[122X.[133X
+  
+  [33X[0;0Y[10XConwayPolynomial(p,n)[110X returns the polynomial [22Xf_p,r(x)[122X defined above.[133X
+  
+  [33X[0;0Y[10XIsCheapConwayPolynomial(p,n)[110X  returns  true if [10XConwayPolynomial( p, n )[110X will
+  give  a  result  in  reasonable  time.  This  is  either  the case when this
+  polynomial is pre-computed, or if [22Xn,p[122X are not too big.[133X
+  
+  [1X8.2-2 RandomPrimitivePolynomial[101X
+  
+  [29X[2XRandomPrimitivePolynomial[102X( [3XF[103X, [3Xn[103X ) [32X function
+  
+  [33X[0;0YFor  a  finite  field  [3XF[103X  and  a  positive integer [3Xn[103X this function returns a
+  primitive  polynomial  of degree [3Xn[103X over [3XF[103X, that is a zero of this polynomial
+  has maximal multiplicative order [22X|F|^n-1[122X.[133X
+  
+  [33X[0;0Y[10XIsPrimitivePolynomial(f)[110X  can  be used to check if a univariate polynomial [3Xf[103X
+  is primitive or not.[133X
+  
