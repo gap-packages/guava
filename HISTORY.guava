@@ -1,0 +1,47 @@
+                            History of
+                            ----------
+                    the GUAVA Coding Theory Package
+                    -------------------------------
+
+
+GUAVA was originally written in  GAP 3  by  Jasper  Cramwinckel,  Erik
+Roijackers, and Reinald Baart as a final project during their study of
+Mathematics at the Delft University of Technology, Department of  Pure
+Mathematics, and in Aachen, at Lehrstuhl D fuer Mathematik.
+
+In version 1.3 (still GAP 3), new functions were added by Eric Minkes,
+also from Delft University of Technology.
+
+Version 1.4 (the first GAP 4 version) of  GUAVA  was  created  by  Lea
+Ruscio who maintained it through to version 1.5.
+
+Versions of GUAVA from 1.6 to 3.9 were maintained by David Joyner.
+Starting with Versions 2.5/2.6, GUAVA was forked: the "odd versions"
+(e.g., 2.5) include the code of J. S. Leon mentioned above (which is not
+licensed under the GPL at the time). The "even versions" (e.g., 2.6) 
+were entirely GPL'd, but were otherwise are basically the same as the 
+previous "odd version" (i.e., "2.6 = 2.5 - non-GPL'd code"). 
+
+Starting with Versions 2.7/2.8, Cen Tjhai, a PhD student in the
+School of Computing, Communications & Electronics at the University of 
+Plymouth, was added as an author. He completely updated the tables,
+which had not been updated since 1998, and added some new functions.
+
+Starting with Versions 3.0, Robert Miller, a PhD student in the
+Department of Mathematics at the University of Washington in Seattle, 
+and Tom Boothby, (then) an undergraduate in the same department, 
+were added as authors. They both revised Leon's code,
+which was GPL'd on April 17th, 2007:
+
+        I, Jeffrey S. Leon, agree to license all the partition
+        backtrack code which I have written under the GPL
+       (www.fsf.org) as of this date, April 17, 2007.
+
+The ``even''/``odd'' forks of the GUAVA code are now united.
+
+Joe Fields has been the maintainer since version 3.10. 
+
+The current version is 3.13. 
+
+   - Joe Fields (fieldsj1@southernct.edu)
+    January, 2016
