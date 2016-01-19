@@ -38,7 +38,7 @@
 
 <h4>1.1 <span class="Heading">Introduction to the <strong class="pkg">GUAVA</strong> package</span></h4>
 
-<p>This is the manual of the GAP package <strong class="pkg">GUAVA</strong>. <strong class="pkg">GUAVA</strong> contains many functions that allow one to perform computations relevant to the theory of error-correcting codes. This version of <strong class="pkg">GUAVA</strong> requires GAP 4.4.5 or later. <strong class="pkg">GUAVA</strong> 3.12 was updated to work with GAP 4.5.3.</p>
+<p>This is the manual of the GAP package <strong class="pkg">GUAVA</strong>. <strong class="pkg">GUAVA</strong> contains many functions that allow one to perform computations relevant to the theory of error-correcting codes. This version of <strong class="pkg">GUAVA</strong> requires GAP 4.4.5 or later. The current version of <strong class="pkg">GUAVA</strong> (3.13) was updated to work with GAP 4.7.9.</p>
 
 <p>The functions in <strong class="pkg">GUAVA</strong> can be divided into three subcategories:</p>
 
@@ -62,11 +62,11 @@
 
 <h4>1.2 <span class="Heading">Installing <strong class="pkg">GUAVA</strong></span></h4>
 
-<p>The most recent version of GAP (4.5) comes complete with all of the packages -- including <strong class="pkg">GUAVA</strong>. Thus the following instructions are not usually applicable but may be needed in certain circumstances.</p>
+<p>The most recent version of GAP (4.7) comes complete with all of the packages -- including <strong class="pkg">GUAVA</strong>. Thus the following instructions are not usually applicable but may be needed in certain circumstances.</p>
 
 <p>To install <strong class="pkg">GUAVA</strong> unpack the archive file in a directory in the `pkg' hierarchy of your version of GAP 4.</p>
 
-<p>After unpacking <strong class="pkg">GUAVA</strong> the GAP-only part of <strong class="pkg">GUAVA</strong> is installed. The parts of <strong class="pkg">GUAVA</strong> depending on J. Leon's backtrack programs package (for computing automorphism groups) are only available in a UNIX environment, where you should proceed as follows: Go to the newly created `guava' directory and call <code class="code">`./configure /gappath'</code> where <code class="code">/gappath</code> is the path to the GAP home directory. So for example, if you install the package in the main `pkg' directory call</p>
+<p>After unpacking <strong class="pkg">GUAVA</strong> the GAP-only part of <strong class="pkg">GUAVA</strong> is installed. The parts of <strong class="pkg">GUAVA</strong> depending on J. Leon's backtrack programs package (for computing automorphism groups) are only available in a UNIX-like environment, where you should proceed as follows: Go to the newly created `guava' directory and call <code class="code">`./configure /gappath'</code> where <code class="code">/gappath</code> is the path to the GAP home directory. So for example, if you install the package in the main `pkg' directory call</p>
 
 
 <pre class="normal">
@@ -84,7 +84,7 @@ make
 
 </pre>
 
-<p>to compile the binaries and install them in the appropriate place. (For a windows machine with CYGWIN installed - see <span class="URL"><a href="http://www.cygwin.com/">http://www.cygwin.com/</a></span> - instructions for compiling Leon's binaries are likely to be similar to those above. On a 64-bit SUSE linux computer, instead of the configure command above - which will only compile the 32-bit binary - type</p>
+<p>to compile the binaries and install them in the appropriate place. (For a Windows machine with CYGWIN installed - see <span class="URL"><a href="http://www.cygwin.com/">http://www.cygwin.com/</a></span> - instructions for compiling Leon's binaries are likely to be similar to those above. On a 64-bit SUSE linux computer, instead of the configure command above - which will only compile the 32-bit binary - type</p>
 
 
 <pre class="normal">
@@ -96,7 +96,7 @@ make
 
 <p>to compile Leon's program as a 64 bit native binary. This may also work for other 64-bit linux distributions as well.)</p>
 
-<p>Starting with version 2.5, you should also install the GAP package <strong class="pkg">SONATA</strong>. You can download this from the GAP website and unpack it in the `pkg' subdirectory.</p>
+<p>If it is not already installed, you should also install the GAP package <strong class="pkg">SONATA</strong>. You can download this from the GAP website and unpack it in the `pkg' subdirectory.</p>
 
 <p>This completes the installation of <strong class="pkg">GUAVA</strong> for a single architecture. If you use this installation of <strong class="pkg">GUAVA</strong> on different hardware platforms you will have to compile the binaries for each platform separately.</p>
 
@@ -111,7 +111,7 @@ make
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LoadPackage( "guava" );</span>
 </pre></div>
 
-<p>If <strong class="pkg">GUAVA</strong> isn't already in memory, it is loaded and the author information is displayed. If you are a frequent user of <strong class="pkg">GUAVA</strong>, you might consider putting this line in your gap initialization file. (Usually <code class="file">gap.ini</code> which should be located in directory <code class="file">.gap</code> in your home directory.</p>
+<p>If <strong class="pkg">GUAVA</strong> isn't already in memory, it is loaded and the author information is displayed. If you are a frequent user of <strong class="pkg">GUAVA</strong>, you might consider adding <strong class="pkg">GUAVA</strong> to the "PackagesToLoad" preference in your gap initialization file. (Usually <code class="file">gap.ini</code> which should be located in your home directory.) Type <code class="file">GAPInfo.UserGapRoot;</code> at the GAP prompt to find the location of your initialization file. If none exists, the command <code class="file">WriteGapIniFile();</code> will create a default <code class="file">gap.ini</code> file which you can then modify.</p>
 
 
 <div class="chlinkprevnextbot">&nbsp;<a href="chap0.html">[Top of Book]</a>&nbsp;  <a href="chap0.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap0.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap2.html">[Next Chapter]</a>&nbsp;  </div>

@@ -98,8 +98,8 @@
 {\Huge \textbf{  A \textsf{GAP}4 Package for computing with error-correcting codes {\nobreakspace} \mbox{}}}\\
 \vfill
 
-{\Huge Version 3.12\mbox{}}\\[1cm]
-{May 22, 2012\mbox{}}\\[1cm]
+{\Huge Version 3.13\mbox{}}\\[1cm]
+{January 31, 2016\mbox{}}\\[1cm]
 \mbox{}\\[2cm]
 {\Large \textbf{ Jasper Cramwinckel \mbox{}}}\\
 {\Large \textbf{ Erik Roijackers \mbox{}}}\\
@@ -117,7 +117,7 @@
 \mbox{}\\
 {\mbox{}\\
 \small \noindent \textbf{ Joe Fields (Maintainer)    }  Email: \href{mailto://fieldsj1@southernct.edu} {\texttt{fieldsj1@southernct.edu}}\\
-  Homepage: \href{http://www.southernct.edu/~fields/Guava/} {\texttt{http://www.southernct.edu/\texttt{\symbol{126}}fields/Guava/}}\\
+  Homepage: \href{http://osj1961.github.io/guava/} {\texttt{http://osj1961.github.io/guava/}}\\
   Address: \begin{minipage}[t]{8cm}\noindent
  Mathematics Department,\\
  Southern Connecticut State University,\\
@@ -134,7 +134,7 @@
 Roijackers,Reinald Baart, Eric Minkes, Lea Ruscio (for the tex version),
 Jeffrey Leon {\copyright} 2004 David Joyner, Cen Tjhai, Jasper Cramwinckel,
 Erik Roijackers, Reinald Baart, Eric Minkes, Lea Ruscio. {\copyright} 2007
-Robert L Miller, Tom Boothby {\copyright} 2009, 2012 Joe Fields 
+Robert L Miller, Tom Boothby {\copyright} 2009, 2012, 2016 Joe Fields 
 
  \textsf{GUAVA} is released under the GNU General Public License (GPL). 
 
@@ -187,13 +187,13 @@ version 1.6, to early 2009) was maintained by David Joyner, who (with the help
 of several students) added several new functions. Starting with version 2.7,
 the ``best linear code'' tables for binary codes have been updated. From 2009,
 starting with version 3.10, \textsf{GUAVA} has been maintained by Joe Fields. For further details, see the CHANGES file
-in the \textsf{GUAVA} directory, also available at \href{http://www.southernct.edu/~fields/Guava/CHANGES.guava} {\texttt{http://www.southernct.edu/\texttt{\symbol{126}}fields/Guava/CHANGES.guava}}. 
+in the \textsf{GUAVA} directory, also available at \href{http://osj1961.github.io/guava/CHANGES.guava} {\texttt{http://osj1961.github.io/guava/CHANGES.guava}}. 
 
  
 
 This documentation was prepared with the \textsf{GAPDoc} package of Frank L{\"u}beck and Max Neunh{\"o}ffer. The conversion from TeX to \textsf{GAPDoc}'s XML was done by David Joyner in 2004. 
 
- Please send bug reports, suggestions and other comments about \textsf{GUAVA} to \href{mailto://support@gap-system.org} {\texttt{support@gap-system.org}}. Currently known bugs and suggested \textsf{GUAVA} projects are listed on the bugs and projects web page \href{http://www.southernct.edu/~fields/Guava/guava2do.html} {\texttt{http://www.southernct.edu/\texttt{\symbol{126}}fields/Guava/guava2do.html}}. Older releases and further history can be found on the \textsf{GUAVA} web page \href{http://www.southernct.edu/~fields/Guava/} {\texttt{http://www.southernct.edu/\texttt{\symbol{126}}fields/Guava/}}. 
+ Please send bug reports, suggestions and other comments about \textsf{GUAVA} to \href{mailto://support@gap-system.org} {\texttt{support@gap-system.org}}. Currently known bugs and suggested \textsf{GUAVA} projects are listed on the bugs and projects web page \href{http://www.southernct.edu/~fields/Guava/guava2do.html} {\texttt{http://www.southernct.edu/\texttt{\symbol{126}}fields/Guava/guava2do.html}}. Older releases and further history can be found on the \textsf{GUAVA} web page \href{http://osj1961.github.io/guava/} {\texttt{http://osj1961.github.io/guava/}}. 
 
  \emph{Contributors}: Other than the authors listed on the title page, the following people have
 contributed code to the \textsf{GUAVA} project: Alexander Hulpke, Steve Linton, Frank L{\"u}beck, Aron Foster, Wayne
@@ -217,7 +217,7 @@ Jeffrey S. Leon.
 \hyperdef{L}{X7E87A61A7CC53117}{}
 {
   This is the manual of the GAP package \textsf{GUAVA}. \textsf{GUAVA} contains many functions that allow one to perform computations relevant to the
-theory of error-correcting codes. This version of \textsf{GUAVA} requires GAP 4.4.5 or later. \textsf{GUAVA} 3.12 was updated to work with GAP 4.5.3. 
+theory of error-correcting codes. This version of \textsf{GUAVA} requires GAP 4.4.5 or later. The current version of \textsf{GUAVA} (3.13) was updated to work with GAP 4.7.9. 
 
  The functions in \textsf{GUAVA} can be divided into three subcategories: 
 \begin{itemize}
@@ -246,7 +246,7 @@ this manual are MacWilliams and Sloane \cite{MS83} and also Huffman and Pless \c
 \section{\textcolor{Chapter }{Installing \textsf{GUAVA}}}\logpage{[ 1, 2, 0 ]}
 \hyperdef{L}{X810ED40A85FFF6B1}{}
 {
-  \label{Installing GUAVA} The most recent version of GAP (4.5) comes complete with all of the packages
+  \label{Installing GUAVA} The most recent version of GAP (4.7) comes complete with all of the packages
 -- including \textsf{GUAVA}. Thus the following instructions are not usually applicable but may be needed
 in certain circumstances. 
 
@@ -254,8 +254,8 @@ in certain circumstances.
 of GAP 4. 
 
  After unpacking \textsf{GUAVA} the GAP-only part of \textsf{GUAVA} is installed. The parts of \textsf{GUAVA} depending on J. Leon's backtrack programs package (for computing automorphism
-groups) are only available in a UNIX environment, where you should proceed as
-follows: Go to the newly created `guava' directory and call \texttt{`./configure /gappath'} where \texttt{/gappath} is the path to the GAP home directory. So for example, if you install the
+groups) are only available in a UNIX-like environment, where you should
+proceed as follows: Go to the newly created `guava' directory and call \texttt{`./configure /gappath'} where \texttt{/gappath} is the path to the GAP home directory. So for example, if you install the
 package in the main `pkg' directory call 
 \begin{verbatim}  
   ./configure ../..
@@ -266,7 +266,7 @@ create a `Makefile'. Now call
   make
 \end{verbatim}
  to compile the binaries and install them in the appropriate place. (For a
-windows machine with CYGWIN installed - see \href{http://www.cygwin.com/} {\texttt{http://www.cygwin.com/}} - instructions for compiling Leon's binaries are likely to be similar to those
+Windows machine with CYGWIN installed - see \href{http://www.cygwin.com/} {\texttt{http://www.cygwin.com/}} - instructions for compiling Leon's binaries are likely to be similar to those
 above. On a 64-bit SUSE linux computer, instead of the configure command above
 - which will only compile the 32-bit binary - type 
 \begin{verbatim}  
@@ -276,7 +276,7 @@ above. On a 64-bit SUSE linux computer, instead of the configure command above
  to compile Leon's program as a 64 bit native binary. This may also work for
 other 64-bit linux distributions as well.) 
 
- Starting with version 2.5, you should also install the GAP package \textsf{SONATA}. You can download this from the GAP website and unpack it in the `pkg'
+ If it is not already installed, you should also install the GAP package \textsf{SONATA}. You can download this from the GAP website and unpack it in the `pkg'
 subdirectory. 
 
  This completes the installation of \textsf{GUAVA} for a single architecture. If you use this installation of \textsf{GUAVA} on different hardware platforms you will have to compile the binaries for each
@@ -291,8 +291,8 @@ platform separately. }
   !gapprompt@gap>| !gapinput@LoadPackage( "guava" );|
 \end{Verbatim}
  If \textsf{GUAVA} isn't already in memory, it is loaded and the author information is displayed.
-If you are a frequent user of \textsf{GUAVA}, you might consider putting this line in your gap initialization file.
-(Usually \texttt{gap.ini} which should be located in directory \texttt{.gap} in your home directory. }
+If you are a frequent user of \textsf{GUAVA}, you might consider adding \textsf{GUAVA} to the "PackagesToLoad" preference in your gap initialization file. (Usually \texttt{gap.ini} which should be located in your home directory.) Type \texttt{GAPInfo.UserGapRoot;} at the GAP prompt to find the location of your initialization file. If none
+exists, the command \texttt{WriteGapIniFile();} will create a default \texttt{gap.ini} file which you can then modify. }
 
  }
 
