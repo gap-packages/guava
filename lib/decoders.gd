@@ -60,7 +60,7 @@ DeclareOperation("PermutationDecodeNC", [IsLinearCode,IsCodeword,IsGroup]);
 ##
 ##  Special function to decode 
 ##
-DeclareAttribute("SpecialDecoder", IsCode);
+DeclareAttribute("SpecialDecoder", IsCode, "mutable");
 
 #############################################################################
 ##
