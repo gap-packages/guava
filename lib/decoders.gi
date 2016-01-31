@@ -374,7 +374,7 @@ function (C, r)
     x := Indeterminate(F);
     if q = 2 then # error locator is not necessary
         pol := Sum(List([1..Length(ErrorLocator)], i->x^ErrorLocator[i]));
-        return Codeword((r - pol) / GeneratorPol(C), C);
+        return Codeword((r - pol) mod GeneratorPol(C), C);
     else
         pol := Derivative(sigma);
         Fp := One(F)*(x^n-1);
