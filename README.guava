@@ -33,7 +33,7 @@ Packages"  of  the  GAP4 reference manual for details on how to do this.)
 
 After unpacking GUAVA the GAP-only part of  GUAVA  is  installed.  The
 parts of GUAVA depending on J. S. Leon's backtrack programs package  (for
-computing  automorphism  groups)  are available in a UNIX of MacOS
+computing  automorphism  groups)  are available in a UNIX or MacOS
 environment.  You should proceed as follows:
 
 Go to the  newly  created  `guava'  directory  and  call  `./configure
@@ -86,12 +86,14 @@ Guava test file:
                               Bug reports
                               -----------
 
-The preferred method for bug reports and feature requests is to raise an issue at the GUAVA GitHub repository:
+The preferred method for bug reports and feature requests is to raise an 
+issue at the GUAVA GitHub repository:
+
 https://github.com/osj1961/guava/issues
 
 Alternatively, you are welcome to send bug reports and other requests via email
-to support@gap-system.org.  Remember we
-will need to be able to reproduce the problem; so please include:
+to support@gap-system.org.  Remember we will need to be able to reproduce the 
+problem; so please include:
 
  * The version of GAP you are using; either look at  the  header  when
    you start up GAP, or at the gap> prompt type: GAPInfo.Version;
