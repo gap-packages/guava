@@ -3,7 +3,11 @@ the GUAVA package.
 
 Version 3.13 (1-2016):
    o Incorporate fixes by Dima Pasechnik 
-   o Fix BCH decoding (I hope)
+   o Patches from Debian mainainer, Jerome Benoit 
+   o Fixed BCH decoding.
+   o Fixed bug in MinimumWeight() reported by Simon Tinius
+   o Changes to guava.tst so randomized variables in the tests don't 
+      effect the expected output.
    o Changes necessitated by switch to GitHub (mostly to the webpage)
 
 
