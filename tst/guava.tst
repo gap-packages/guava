@@ -99,8 +99,7 @@ gap> Print(" Codes\n");
  Codes
 gap> C:=RandomLinearCode(20,10,GF(4));
 a  [20,10,?] randomly generated code over GF(4)
-gap> c:=Random(C);
-[ 0 0 0 1 a^2 a a^2 0 0 a a^2 a a 0 a 0 a 1 a^2 a ]
+gap> c:=Random(C);;
 gap> NamesOfComponents(C);
 [ "Representative", "ZeroImmutable", "name", "LeftActingDomain", "Dimension", 
   "GeneratorsOfLeftOperatorAdditiveGroup", "Basis", "NiceFreeLeftModule", 
@@ -109,10 +108,6 @@ gap> NamesOfComponents(c);
 [ "VectorCodeword", "WordLength", "treatAsPoly" ]
 gap> c!.VectorCodeword;
 < immutable compressed vector length 20 over GF(4) >
-gap> Display(last);
-[ 0*Z(2), 0*Z(2), 0*Z(2), Z(2)^0, Z(2^2)^2, Z(2^2), Z(2^2)^2, 0*Z(2), 0*Z(2),
-   Z(2^2), Z(2^2)^2, Z(2^2), Z(2^2), 0*Z(2), Z(2^2), 0*Z(2), Z(2^2), Z(2)^0,
-   Z(2^2)^2, Z(2^2) ]
 gap> C!.Dimension;
 10
 gap> Print("\n"); 
@@ -191,45 +186,40 @@ gap> c = c2;
 true
 gap> C:=HammingCode(3);
 a linear [7,4,3]1 Hamming (3,2) code over GF(2)
-gap> c1:=Random(C);
-[ 0 0 0 0 0 0 0 ]
-gap> c2:=Random(C);
-[ 1 1 0 1 0 0 1 ]
+gap> c1:=Random(C);;
+gap> c2:=Random(C);;
 gap> EQ(c1,c2);
 false
-gap> not EQ(c1,c2);
-true
 gap> Print("\n"); 
 
 gap> Print(" Codewords +\n");
  Codewords +
 gap> C:=RandomLinearCode(10,5,GF(3));
 a  [10,5,?] randomly generated code over GF(3)
-gap> c:=Random(C);
-[ 2 1 2 2 0 0 1 1 2 0 ]
-gap> Codeword(c+"2000000000");
-[ 1 1 2 2 0 0 1 1 2 0 ]
+gap> c:=Random(C);;
+gap> d:=Codeword(c+"2000000000");;
+gap> WordLength(d);
+10
 gap> Print("\n"); 
 
 gap> Print(" Codewords +, 2\n");
  Codewords +, 2
 gap> C:=RandomLinearCode(10,5);
 a  [10,5,?] randomly generated code over GF(2)
-gap> c:=Random(C);
-[ 1 0 1 1 0 0 0 1 0 0 ]
-gap> c+C;
+gap> c:=Random(C);;
+gap> D:=c+C;
 <add. coset of a  [10,5,?] randomly generated code over GF(2)>
-gap> c+C=C;
+gap> D=C;
 true
-gap> IsLinearCode(c+C);
+gap> IsLinearCode(D);
 false
 gap> v:=Codeword("100000000");
 [ 1 0 0 0 0 0 0 0 0 ]
-gap> v+C;
+gap> E:=v+C;
 <add. coset of a  [10,5,?] randomly generated code over GF(2)>
-gap> C=v+C;
+gap> C=E;
 false
-gap> C := GeneratorMatCode( [ [1, 0,0,0], [0, 1,0,0] ], GF(2) );
+gap> C := GeneratorMatCode( [ [1,0,0,0], [0,1,0,0] ], GF(2) );
 a linear [4,2,1]1..2 code defined by generator matrix over GF(2)
 gap> Elements(C);
 [ [ 0 0 0 0 ], [ 0 1 0 0 ], [ 1 0 0 0 ], [ 1 1 0 0 ] ]
@@ -785,8 +775,7 @@ gap> D:=DivisorOnAffineCurve([1,1,1,4],
 >                         crvP1);;
 gap> agp:=DivisorAutomorphismGroupP1(div); ## slow
 <matrix group with 10 generators>
-gap> g:=Random(agp);
-[ [ Z(11)^2, 0*Z(11) ], [ 0*Z(11), Z(11)^2 ] ]
+gap> g:=Random(agp);;
 gap> rho:=MatrixRepresentationOnRiemannRochSpaceP1(g,D);
 [ [ Z(11)^0, 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11) ],
   [ 0*Z(11), Z(11)^0, 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11) ],
