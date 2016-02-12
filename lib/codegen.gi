@@ -1429,8 +1429,8 @@ CyclicCodeByGenerator := function(F, n, G)
 	else 
 		GM := GeneratorMatrixFromPoly(PolyCodeword(G), n); 
 	fi;
-	#C := LinearCodeByGenerators(F, Codeword(GM, F)); 
-	C := LinearCodeByGenerators(F, One(F)*GM); 
+	C := LinearCodeByGenerators(F, Codeword(One(F)*GM, F)); 
+	#C := LinearCodeByGenerators(F, One(F)*GM); 
 	SetGeneratorMat(C, GM);  
 	SetIsCyclicCode(C, true); 
         SetSpecialDecoder(C, CyclicDecoder);   
