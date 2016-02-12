@@ -215,9 +215,9 @@ gap> IsLinearCode(D);
 false
 gap> v:=Codeword("100000000");
 [ 1 0 0 0 0 0 0 0 0 ]
-gap> E:=v+C;
+gap> C2:=v+C;
 <add. coset of a  [10,5,?] randomly generated code over GF(2)>
-gap> C=E;
+gap> C=C2;
 false
 gap> C := GeneratorMatCode( [ [1,0,0,0], [0,1,0,0] ], GF(2) );
 a linear [4,2,1]1..2 code defined by generator matrix over GF(2)
