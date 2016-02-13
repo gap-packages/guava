@@ -482,3 +482,15 @@ guava_version:=function()
  return GuavaVersion();
 end;
 
+InstallMethod(SupportToCodeword, "set, wordlength", true, [IsSet, IsInt], 0, 
+function(s, n) 
+ local v,i;                        
+ v := NullVector(n,GF(2));
+ for i in s do
+   if (i > n) or (i<1) then
+      Error("Support elements should lie between 1 and n");
+   fi;
+   v[i]:=1;
+ od;
+ return Codeword(v,n,GF(2));
+end);

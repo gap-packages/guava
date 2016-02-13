@@ -114,3 +114,15 @@ DeclareOperation("VandermondeMat", [IsList, IsInt]);
 ## Input: a list L
 ## Output: an a in L which occurs at least as much as any other in L
 ##
+
+########################################################################
+##
+#F  SupportToCodeword( <set> , <num> )
+##
+## Input:  <set>, a subset of [1 .. <num>]
+## Output: A codeword over GF(2) with wordlength <num> whose support is <set>
+##  
+##  For binary codes this function gives an inverse for Support(). 
+
+DeclareOperation("SupportToCodeword", [IsSet, IsInt]); 
+
