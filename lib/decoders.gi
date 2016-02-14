@@ -42,7 +42,7 @@ function(C, v)
         fi;
 	c := Codeword(v, C); 
 	if HasSpecialDecoder(C) then
-		return SpecialDecoder(C)(C, c);
+		return InformationWord(C, SpecialDecoder(C)(C, c) );
 	elif IsCyclicCode(C) or IsLinearCode(C) then 
 		return Decode(C, c);
 	else
@@ -67,7 +67,7 @@ function(C, v)
     fi;
     c := Codeword(v, C); 
     if HasSpecialDecoder(C) then 
-	return SpecialDecoder(C)(C, c); 
+	return InformationWord(C, SpecialDecoder(C)(C, c) ); 
     fi; 
     F := LeftActingDomain(C);
     S := SyndromeTable(C);
@@ -292,7 +292,8 @@ local d, g, wpol, s, ds, cpol, cc, c, i, m, e, x, n, ccc, r;
    r:=Length(cc);
    ccc:=Concatenation(cc,List([1..(n-r)],k->0*cc[1]));
    c:=Codeword(ccc);
-   return InformationWord( C, c );
+   #return InformationWord( C, c );
+   return c;
  fi;
  for i in [1..(n-1)] do
    s:=x^i*wpol mod g;
@@ -305,7 +306,8 @@ local d, g, wpol, s, ds, cpol, cc, c, i, m, e, x, n, ccc, r;
      r:=Length(cc);
      ccc:=Concatenation(cc,List([1..(n-r)],k->0*cc[1]));
      c:=Codeword(ccc);
-     return InformationWord( C, c );
+     #return InformationWord( C, c );
+     return c;
    fi;
  od;
  return "fail";
@@ -338,7 +340,7 @@ function (C, r)
     Syndromes :=  List([1..2*QuoInt(DesignedDistance(C) - 1,2)],
                        i->Value(r, a^i));
     if Maximum(Syndromes) = Zero(F) then # no errors
-        return Codeword(r / GeneratorPol(C), C);
+        return Codeword(r mod (x^n-1), C);
     fi;
     # Use Euclidean algorithm:
     ri_1 := x^(2*t); 
@@ -374,7 +376,7 @@ function (C, r)
     x := Indeterminate(F);
     if q = 2 then # error locator is not necessary
         pol := Sum(List([1..Length(ErrorLocator)], i->x^ErrorLocator[i]));
-        return Codeword((r - pol) mod GeneratorPol(C), C);
+        return Codeword((r - pol) mod (x^n-1), C);
     else
         pol := Derivative(sigma);
         Fp := One(F)*(x^n-1);
@@ -382,7 +384,7 @@ function (C, r)
                               Value(rnew,a^-i)/Value(pol, a^-i));
         pol := Sum(List([1..Length(ErrorLocator)], i->
                        -ErrorEvaluator[i]*x^ErrorLocator[i]));
-        return Codeword((r - pol) / GeneratorPol(C), C);
+        return  Codeword((r - pol) mod (x^n-1) , C);
     fi;
 end);
 
@@ -416,8 +418,9 @@ function(C, r)
         e := ind[1];
         r[e] := r[e]-fac;     # correct error
     fi;
-    x := SolutionMat(GeneratorMat(C), r);
-    return Codeword(x);
+    #x := SolutionMat(GeneratorMat(C), r);
+    #return Codeword(x);
+    return Codeword(r, C);
 end);	
 
 #############################################################################

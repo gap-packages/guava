@@ -711,16 +711,19 @@ gap> Print("\n");
 
 gap> Print(" Decoding with a BCH code\n");
  Decoding with a BCH code
-gap> bch:=BCHCode(15,7,3,GF(2));
-a cyclic [15,7,3..5]3..4 BCH code, delta=3, b=7 over GF(2)
+gap> bch:=BCHCode(15,1,5,GF(2));
+a cyclic [15,7,5]3..5 BCH code, delta=5, b=1 over GF(2)
 gap> c:=Random(bch);;
+gap> i:=InformationWord(bch,c);;
 gap> c2:=Codeword("110000000000000");
 [ 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
 gap> c2:= c+c2;;
-gap> Decode(bch,c);
-[ 0 0 0 1 1 0 1 ]
-gap> Decode(bch,c2);
-"fail"
+gap> j:=Decode(bch,c);;
+gap> (i=j);
+"true"
+gap> j:=Decode(bch,c2);;
+gap> (i=j);
+"true"
 gap> Print("\n"); 
 
 gap> Print(" direct sum code\n");
