@@ -162,8 +162,8 @@ SetPackageInfo( rec(
 ##  and updating of the package in the GAP distribution.
 ##  
 
-  README_URL := "http://www.southernct.edu/~fields/Guava/README.guava",
-  PackageInfoURL := "http://www.southernct.edu/~fields/Guava/PackageInfo.g",
+  README_URL := "http://osj1961.github.io/guava/README.guava",
+  PackageInfoURL := "http://osj1961.github.io/guava/PackageInfo.g",
 
 ##  Here you  must provide a short abstract explaining the package content 
 ##  in HTML format (used on the package overview Web page) and an URL 
