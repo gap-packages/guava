@@ -18,8 +18,8 @@ in the main GUAVA package directory.
 
                             Installing GUAVA
                             ----------------
-A fresh installation of GAP 4.5 will include Guava automatically in the
-system `pkg' directory (typically something like /usr/lib/gap4r5/pkg on 
+A fresh installation of GAP 4.7 or higher will include Guava automatically in the
+system `pkg' directory (typically something like /usr/lib/gap4r7/pkg on 
 unix machines.)  The backtrack programs which compute code automorphism
 groups may need to be compiled (see below).
 
@@ -33,7 +33,7 @@ Packages"  of  the  GAP4 reference manual for details on how to do this.)
 
 After unpacking GUAVA the GAP-only part of  GUAVA  is  installed.  The
 parts of GUAVA depending on J. S. Leon's backtrack programs package  (for
-computing  automorphism  groups)  are available in a UNIX of MacOS
+computing  automorphism  groups)  are available in a UNIX or MacOS
 environment.  You should proceed as follows:
 
 Go to the  newly  created  `guava'  directory  and  call  `./configure
@@ -73,7 +73,10 @@ If GUAVA isn't already in memory,  it  is  loaded  and  its  beautiful
 banner is displayed.
 
 If you  are a frequent user of  GUAVA, you might consider putting this
-line in your `gaprc' file.
+line in your `gaprc' file, or add GUAVA to the "PackagesToLoad" preference in
+your gap.ini file (the location of the ini file can be determined by typing
+  gap> GAPInfo.UserGapRoot;
+at the gap prompt.
 
 Additionally, you may wish to test the installation by reading in the 
 Guava test file:
@@ -83,12 +86,14 @@ Guava test file:
                               Bug reports
                               -----------
 
-The preferred method for bug reports and feature requests is to raise an issue at the GUAVA GitHub repository:
-https://github.com/osj1961/guava-3.13/issues
+The preferred method for bug reports and feature requests is to raise an 
+issue at the GUAVA GitHub repository:
+
+https://github.com/osj1961/guava/issues
 
 Alternatively, you are welcome to send bug reports and other requests via email
-to support@gap-system.org.  Remember we
-will need to be able to reproduce the problem; so please include:
+to support@gap-system.org.  Remember we will need to be able to reproduce the 
+problem; so please include:
 
  * The version of GAP you are using; either look at  the  header  when
    you start up GAP, or at the gap> prompt type: GAPInfo.Version;
