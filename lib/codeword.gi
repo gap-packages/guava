@@ -846,3 +846,35 @@ InstallMethod(AdditiveInverseMutable, "negative of a codeword", true, [IsCodewor
 function(w)
         return (Characteristic(Field(VectorCodeword(w))) - 1) * w;
 end);
+
+#############################################################################
+##
+#F  ErrorVector( <list> , <n> [, <F>] ) . . . . . . . . . . . . . . . . . . .
+##  ErrorVector( <list>, Code)  . . . . . . . . . . . . . . . . . . . . . . . 
+##
+
+InstallMethod(ErrorVector, "set,n,FFE", true, [IsSet, IsInt, IsFFE], 1, 
+function(lst, n, ffe)
+	local c, i;
+	c := ShallowCopy(NullWord(n, ffe));
+	for i in lst do
+		c[i] := One(ffe);
+	od;
+	return Codeword(c, n, ffe);
+end);
+
+InstallOtherMethod(ErrorVector, "list,n,ffe", true, [IsList, IsInt, IsFFE], 1,
+function(lst, n, ffe)
+        return ErrorVector(Set(lst), n, ffe);
+end);
+
+InstallOtherMethod(ErrorVector, "list,Code", true, [IsList, IsCode], 1,
+function(lst, C)
+        return ErrorVector(Set(lst), WordLength(C), One(LeftActingDomain(C)));
+end);
+
+InstallOtherMethod(ErrorVector, "pos,Code", true, [IsInt, IsCode], 1,
+function(pos, C)
+        return ErrorVector(Set([pos]), WordLength(C), One(LeftActingDomain(C)));
+end);
+

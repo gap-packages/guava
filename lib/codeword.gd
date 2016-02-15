@@ -105,3 +105,11 @@ DeclareAttribute("WordLength", IsCodeword);
 ##                              codewor <v>. (Used in subtraction of codewords.)
 ## 			
 # DeclareOperation("AdditiveInverseMutable", [IsCodeword]);
+
+#############################################################################
+##
+#F  Codeword( <list>, <n> [, <F>] or . . . . . . . . creates new codeword with
+#F  Codeword( <list> , <Code> ) . . . . . . . . . . . support in <list>
+##
+DeclareOperation("ErrorVector", [IsSet, IsInt, IsFFE]);
+
