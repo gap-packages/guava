@@ -1,7 +1,7 @@
 #############################################################################
 ##
 #W  PackageInfo.g                GUAVA Package                   Greg Gamble
-#W                                                               Frank Lübeck
+#W                                                               Frank LÃ¼beck
 #W                                                               David Joyner
 #W                                                               Joe Fields
 ##
@@ -14,7 +14,7 @@ SetPackageInfo( rec(
   Version := "3.13",
   Date    := "31/01/2016",
   ArchiveURL 
-          := "http://osj1961.github.io/guava",
+          := "http://osj1961.github.io/guava/archives/guava-3.13",
   ArchiveFormats 
           := ".tar.gz",
   BannerString:=Concatenation(["\n   ____                          |\n",
