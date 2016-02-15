@@ -214,87 +214,43 @@ is incorporated into GUAVA. For example,
 
 
 
-<p><center>
-<b>History</b>
-</center>
-<p>
-GUAVA was originally written in the 1990's
-<font face="Gill Sans,Helvetica,Arial">GAP</font> 3  
-by  Jasper  Cramwinckel,  Erik
-Roijackers, and Reinald Baart as a final project during their study of 
-Mathematics at the Delft University of Technology, Department of  Pure
- Mathematics, under the direction of 
-Professor Juriaan Simonis. This work was continued in
-Aachen, at Lehrstuhl D fuer Mathematik. It appears version 1.1 was 
-written around 1994 and 1.3 was around 1997. I don't 
-know the date of the creation for 1.2.
-</p> 
 
 
-<p>
-In version 1.3 (still 
-<font face="Gill Sans,Helvetica,Arial">GAP</font> 3), 
-new functions were added by Eric Minkes, 
-also from Delft University of Technology.
-</p>
-
-
-<p>
-Version 1.4 (the first GAP 4 version) of GUAVA  was  created 
-around 1998 by Lea Ruscio who maintained it through to version 1.5.
-</p>
-
-
-<p>
-Versions of GUAVA from 1.6 to 3.9 were maintained by 
-David Joyner.
-
-</p>
-
-
-<p>Version 1.8 contained new commands for toric codes.</p>
-
-<p>Version 2.0 was a significant upgrade, adding a number of new 
-functions and a completely re-written manual. Starting with version
- 2.0, the GUAVA package was released under the GPL.</p>
-
-<p>Version 2.3 is a significant 
-upgrade of version 2.0, adding a number of new functions.</p>
-
-<p>Starting with Versions 2.5/2.6, GUAVA was forked: the "odd versions"
-(e.g., 2.5, 2.7) include the code of J. S. Leon mentioned above (which was 
-not licensed under the GPL at the time). 
-The "even versions" (e.g., 2.6, 2.8) are entirely 
-GPL'd, but are otherwise basically the same as the previous 
-``odd version'' (i.e., "2.8 = 2.7 - non-GPL'd code"). 
-</p>
-
-<p>
-Starting with Versions 2.7/2.8, Cen Tjhai, a PhD student in the
-School of Computing, Communications &amp; Electronics at the University of 
-Plymouth, was added as an author. He completely updated the tables, 
-which have not been updated since 1998, and added some new functions. 
-In April of 2007, Jeffrey Leon GPL'd his C code included in GUAVA. 
-At that point, Robert Miller and Tom Boothby began to revise his code and 
-fix bugs. As of Version 3.0, Robert Miller and Tom Boothby are authors 
-and there is no longer an odd/even non-GPL/GPL fork of GUAVA.
-</p>
-
+<p><h2>History</h2></p>
 
 <p>
 As of 3.10, <a href="mailto:fieldsj1@southernct.edu">Joe Fields</a> is the lead maintainer.
- 
 
-See the latest 
+<p>See the latest 
 <a href="CHANGES.guava">
-CHANGES</a> file for further details.
+CHANGES.guava</a> file for recent information.  The file <a href="HISTORY.guava">HISTORY.guava</a> contains further details.
+
+<p>
+<h2>
+GUAVA and SAGE
+</h2>
+
+</p>
+
+<p>
+The easiest way to begin experimenting with GUAVA is to use it via the 
+<a href="https://cloud.sagemath.com/">SageMathCloud</a> (SMC).  One can 
+sign up for a free SMC account or pay a small amount for a subscription
+(which allows for premium access).  Within a SMC project one can create 
+a sage worksheet and set its default language to GAP.  Then load GUAVA (see below)
+and try out its features. 
+</p>
+
+<p>
+<center>
+ <A href="./GuavaTests-SageMathCloud.pdf"><IMG src="Guava-SMC.png" alt="SMC screen shot"></A>
+</center>
+</p>
 
 
 <p>
-
-<center>
 <h2>Installation</h2>
-</center>
+
 <p>
 To install GUAVA, as a <font face="Gill Sans,Helvetica,Arial">GAP</font> 4 
 package, unpack the 
@@ -356,23 +312,6 @@ compilation of the application by default as 64-bit.</li>
 <li>
 <i>Mac OS X instructions</i>:
 The 32-bit linux instructions should work here as well.
-
-
-<!--
-Charles Wright discovered and Alexander Hulpke fixed a compilation 
-error for compiling the binaries associated to GUAVA on a Mac running OS X. 
-The C code (connecting GUAVA to the C-code written by J. Leon) 
-included with GUAVA does not compile correctly on a Mac running OX. 
-In this case,  on line 2 of
-<tt>guava/src/leonconv.c</tt>, replace
-<pre>#include &lt;malloc.h&gt;
-</pre>
-by
-<pre>#include &lt;stdlib.h&gt;
-</pre>
-Compilation should now work if you follow the steps for a linux computer
-above. 
--->
 </li>
 
 </ul>
@@ -407,33 +346,9 @@ is that in the HTML version of the package documentation the links to the
 </p>
 
 
-<p><center>
-<h3>
-GUAVA and SAGE
-</h3>
-</center>
-</p>
 
 <p>
-The easiest way to begin experimenting with GUAVA is to use it via the 
-<a href="https://cloud.sagemath.com/">SageMathCloud</a> (SMC).  One can 
-sign up for a free SMC account or pay a small amount for a subscription
-(which allows for premium access).  Within a SMC project one can create 
-a sage worksheet and set its default language to GAP.  Then load GUAVA (see below)
-and try out its features. 
-</p>
-
-<p>
-<center>
- <A href="./GuavaTests-SageMathCloud.pdf"><IMG src="Guava-SMC.png" alt="SMC screen shot"></A>
-</center>
-</p>
-
-<p>
- <h2>
-Loading GUAVA
-</h2>
-</p>
+ <h2>Loading GUAVA</h2>
 
 <p>
 After starting up <font face="Gill Sans,Helvetica,Arial">GAP</font>, 
