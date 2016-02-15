@@ -2,10 +2,21 @@ In this file we record the changes since the first GAP 4 release of
 the GUAVA package.
 
 Version 3.13 (1-2016):
-   o Incorporate fixes by Dima Pasechnik 
-   o Fix BCH decoding (I hope)
+   o Incorporated fixes by Dima Pasechnik. 
+   o Incorporated fixes by Jerome Benoit.
+   o Fixed bug in MinimumWeight() uncovered by Simon Tinius.
+   o The infix "in" operator was not working for the case of a codeword 
+     in a code, when the code was defined by a generator polynomial.  
+   o Fixed BCH decoding 
    o Changes necessitated by switch to GitHub (mostly to the webpage)
-
+   o Added ErrorVector() convenience function for creating small weight
+      error vectors from a list of error positions (used in testing Decode()
+      methods.)
+   o Cleaned up Decode/Decodeword which are supposed to return info. words 
+     and corrected codewords respectively.  Many codes with SpecialDecoder 
+     functions were doing the wrong thing.
+   o Tested against GAP 4.8.1 and made changes necessitated by GAP updates.
+     (E.g. ReadTest -> Test)
 
 Version 3.12 (5-2012):
    o More work on configure/make.  Switched "configure" script to that 
