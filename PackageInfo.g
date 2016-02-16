@@ -222,7 +222,7 @@ SetPackageInfo( rec(
   Dependencies := rec(
     # GAP version, use version strings for specifying exact versions,
     # prepend a '>=' for specifying a least version.
-    GAP := ">= 4.5.3",
+    GAP := ">= 4.8.0",
     # list of pairs [package name, (least) version],  package name is case
     # insensitive, least version denoted with '>=' prepended to version string.
     # without these, the package will not load
