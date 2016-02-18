@@ -132,15 +132,14 @@ HadamardMat_paleyII := function(n)
       return(0);
   fi;
   H2 := function(i,j)
-     if (i=0 and j=0) then return(0); fi;
-     if i=0 or j=0 then return(1); fi;
-     if i=j then return(0); fi;
-     return Legendre(i-j,p);
+        if i=j then return(0); fi;
+        if i=0 or j=0 then return(1); fi;
+        return Legendre(i-j,p);
      end;
   S := List([0..p],j->List([0..p], i->H2(i,j)));
   I := IdentityMat(N,Integers);
-  Display(S);
-  Print(S,"\n",I,"\n");
+  #Display(S);
+  #Print(S,"\n",I,"\n");
   B := BlockMatrix([[1,1,S+I],[1,2,S-I],[2,1,S-I],[2,2,-S-I]],2,2);
   return MatrixByBlockMatrix(B);
   end;
