@@ -11,7 +11,13 @@ Version 3.13 (2-2016):
    o Changes to the test suite:  moved test files to a seperate "tst" 
      subdirectory,  added "decoding.tst" file which includes thorough tests 
      of decoding algorithms, modified "guava.tst" so that randomization of 
-     input values does not effect output.
+     input values does not effect output. Added "hadamard.tst" for testing the 
+     construction of Hadamard matrices
+   o Rewrite of the algorithms for constructing Hadamard matrices.  Hadamard matrices
+     can be constructed using Sylvester's and Paley's (type I and II) methods.  The Paley
+     constructions use properties of the quadratic residues in a finite field, which previously
+     was assumed to be of prime order - GF(p) - now we can also handle extension fields - GF(p^k).
+     The smallest order without a construction is now 92.
    o Changes necessitated by switch to GitHub (mostly to the webpage)
    o Added ErrorVector() convenience function for creating small weight
       error vectors from a list of error positions (used in testing Decode()
