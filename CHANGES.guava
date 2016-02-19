@@ -13,10 +13,11 @@ Version 3.13 (2-2016):
      of decoding algorithms, modified "guava.tst" so that randomization of 
      input values does not effect output. Added "hadamard.tst" for testing the 
      construction of Hadamard matrices
-   o Rewrite of the algorithms for constructing Hadamard matrices.  Hadamard matrices
-     can be constructed using Sylvester's and Paley's (type I and II) methods.  The Paley
-     constructions use properties of the quadratic residues in a finite field, which previously
-     was assumed to be of prime order - GF(p) - now we can also handle extension fields - GF(p^k).
+   o Rewrite of the algorithms for constructing Hadamard matrices.  Hadamard 
+     matrices can be constructed using Sylvester's and Paley's (type I and II) 
+     methods.  The Paley constructions use properties of the quadratic 
+     residues in a finite field, which previously was assumed to be of 
+     prime order - GF(p) - now we can also handle extension fields - GF(p^k).
      The smallest order without a construction is now 92.
    o Changes necessitated by switch to GitHub (mostly to the webpage)
    o Added ErrorVector() convenience function for creating small weight
