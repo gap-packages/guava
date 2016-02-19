@@ -1,7 +1,7 @@
 #############################################################################
 ##
 #W  PackageInfo.g                GUAVA Package                   Greg Gamble
-#W                                                               Frank Lübeck
+#W                                                               Frank LÃ¼beck
 #W                                                               David Joyner
 #W                                                               Joe Fields
 ##
@@ -18,7 +18,7 @@ SetPackageInfo( rec(
   ArchiveFormats 
           := ".tar.gz",
   BannerString:=Concatenation(["\n   ____                          |\n",
-    "  /            \\           /   --+--  Version 3.13", "\n",
+    "  /            \\           /   --+--  Version ", ~.Version, "\n",
     " /      |    | |\\\\        //|    |\n",
     "|    _  |    | | \\\\      // |     GUAVA Group\n",
     "|     \\ |    | |--\\\\    //--|     \n",
@@ -200,10 +200,10 @@ SetPackageInfo( rec(
   PackageDoc := rec(
     # use same as in GAP            
     BookName  := "GUAVA",
-    ArchiveURLSubset := ["doc", "htm"],
+    ArchiveURLSubset := ["doc"],
     # format/extension can be one of .zoo, .tar.gz, .tar.bz2, -win.zip
     #Archive   := "http://www.southernct.edu/~fields/Guava/guava3.10.tar.gz",
-    HTMLStart := "htm/chap0.html",
+    HTMLStart := "doc/chap0.html",
     PDFFile   := "doc/manual.pdf",
     # the path to the .six file used by GAP's help system
     SixFile   := "doc/manual.six",
@@ -222,7 +222,7 @@ SetPackageInfo( rec(
   Dependencies := rec(
     # GAP version, use version strings for specifying exact versions,
     # prepend a '>=' for specifying a least version.
-    GAP := ">= 4.5.3",
+    GAP := ">= 4.8.0",
     # list of pairs [package name, (least) version],  package name is case
     # insensitive, least version denoted with '>=' prepended to version string.
     # without these, the package will not load
@@ -275,7 +275,7 @@ SetPackageInfo( rec(
 
 ##  *Optional*, but recommended: path relative to package root to a file which 
 ##  contains as many tests of the package functionality as sensible.
-TestFile := "guava.tst",
+TestFile := "tst/guava.tst",
 
 ##  *Optional*: Here you can list some keyword related to the topic 
 ##  of the package.
