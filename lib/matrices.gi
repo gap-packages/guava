@@ -104,88 +104,165 @@ function(n)
     fi;
 end);
 
-HadamardMat_paleyI := function(n)
-  local p,N,i,j,H1,H2,L,S,I;
-  if IsPrime(n-1) and (n-1) mod 4=3 then 
-      p := n-1;
-  else
-      Print("The order ",n," is not covered by the Paley type I construction.\n");
-      return(0);
+PaleyClasses@ := function(m)
+  local k,e,q,n,l,M,L,ret;
+  L:=PrimePowersInt(m);
+  if L[1] <> 2 then
+    Error("Argument must be even.\n");
   fi;
-  H1 := function(i,j)
-     if i=0 then return(1); fi;
-     if j=0 then return(-1); fi;
-     if i=j then return(1); fi;
-     return Legendre(i-j,p);
-     end;
-  L := List([0..p],j->List([0..p], i->H1(i,j)));
-  return L;
-  end;
-
-HadamardMat_paleyII := function(n)
-  local p,N,i,j,H1,H2,L,S,I,B;
-  N := n/2;
-  if IsPrime(N-1) and (N-1) mod 4=1 then 
-      p := N-1;
-  else
-      Print("The order ",n," is not covered by the Paley type II construction.\n");
-      return(0);
+  l := L[2];
+  if l < 2 then
+    Error("Argument must be divisible by 4.\n");
   fi;
-  H2 := function(i,j)
-        if i=j then return(0); fi;
-        if i=0 or j=0 then return(1); fi;
-        return Legendre(i-j,p);
-     end;
-  S := List([0..p],j->List([0..p], i->H2(i,j)));
-  I := IdentityMat(N,Integers);
-  #Display(S);
-  #Print(S,"\n",I,"\n");
-  B := BlockMatrix([[1,1,S+I],[1,2,S-I],[2,1,S-I],[2,2,-S-I]],2,2);
-  return MatrixByBlockMatrix(B);
-  end;
+  k := 0;
+  q := 0;
+  n := 0;
+  M:=m;
+  ret:=[];
+  for e in [0 .. l] do
+    if IsPrimePowerInt(M-1) then
+      L:=PrimePowersInt(M-1);
+      q:=L[1];
+      n:=L[2];
+      if q = 2 then
+        k:=0;
+      elif q mod 4 = 3 and n mod 2 = 1 then
+        k:=1;
+      else
+        k:=2;
+      fi;
+      if q mod 2 <> 0 then
+        Append(ret, [[k,e,q,n]]);
+      fi;
+    fi;
+   M:=M/2;
+  od;
+  return ret;
+end;;
 
+Jacobsthal@ := function(m)
+  local i, j, F, L, Lstar, Qr, M, qx, x, y;
+  if not IsPrimePowerInt(m) then
+    Error("Input must be the order of a finite field.\n");
+  fi;
+  if IsPrimeInt(m) then
+    if 1 = m mod 4 then
+      qx := function(x,y)
+        if x=y then
+          return 0;
+        elif x=0 or y=0 then
+          return 1;
+        fi;
+        return Legendre(x-y,m);
+      end;
+    else
+      qx := function(x,y)
+        if x=y then
+          return 0;
+        elif y=0 then
+          return 1;
+        elif x=0 then
+          return -1;
+        else
+          return Legendre(x-y,m);
+        fi;
+      end;
+    fi;
+  else
+    F:=GF(m);
+    L:=Elements(F);
+    Lstar:=Filtered(L, x -> x <> Zero(F));
+    Qr:=Set(List(Lstar,i->i^2)); #non-zero quadratic residues in the Galois field.
+    if -1*One(F) in Qr then      #matrix is symmetric
+      qx := function(x,y)
+        if x=y then
+          return 0;
+        elif x=0 or y=0 then
+          return 1;
+        elif (L[x]-L[y]) in Qr then
+          return 1;
+        else
+          return -1;
+        fi;
+      end;
+    else                         #matrix is anti-symmetric
+      qx := function(x,y)
+        if x=y then
+          return 0;
+        elif y=0 then
+          return 1;
+        elif x=0 then
+          return -1;
+        elif (L[x]-L[y]) in Qr then
+          return 1;
+        else
+          return -1;
+        fi;
+      end;
+    fi;
+  fi;
+  return List([0..m],j->List([0..m], i->qx(i,j)));
+end;;
 
+PaleyI@ := function(m)
+  #local e, f, i, j, F, L, Qr, M;
+  if not IsPrimePowerInt(m) then
+    Error("Input must be the order of a finite field.\n");
+  fi;
+  if (m mod 4) <> 3 then
+    Error("Input must be 3 mod 4 for the Paley I construction.\n");
+  fi;
+  return Jacobsthal@(m) + IdentityMat(m+1, Integers);
+end;;
 
+PaleyII@ := function(m)
+  local S, I, M;
+  if not IsPrimePowerInt(m) then
+    Error("Input must be the order of a finite field.\n");
+  fi;
+  if (m mod 4) <> 1 then
+    Error("Input must be 1 mod 4 for the Paley II construction.\n");
+  fi;
+  S:= Jacobsthal@(m);
+  I := IdentityMat(m+1,Integers);
+  M := BlockMatrix([[1,1,S+I],[1,2,S-I],[2,1,S-I],[2,2,-S-I]],2,2);
+  return MatrixByBlockMatrix(M);
+end;;
 
 #############################################################################
 ##
 #F  HadamardMat( <n> )  . . . . . . . . . . . .  Hadamard matrix of order <n>
 ##
 
-InstallMethod(HadamardMat, "order", true, [IsInt], 0, function(n) 
-    local result, had, i, j, N;
-    if n mod 2 = 0 then 
-        N:=n/2; 
-    elif n = 1 then
-        N :=1;
-    else
-        Error("The Hadamard matrix of order ",n," does not exist");
-    fi;
-    if n = 1 then
-        return [[1]];
-    elif IsPrimeInt(N-1) and ((N-1) mod 4)=1 then
-        Print("Type II\n");
-        return HadamardMat_paleyII(n);
-    elif (n=2) or (n=4) or ((n mod 8)=0) then
-        had:=HadamardMat(n/2);
-        result:=List(had, x->Concatenation(x,x));
-        Append(result,List(had,x->Concatenation(x,-x)));
-        return result;
-    elif IsPrimeInt(n-1) and (n mod 4)=0 then
-        result := List(NullMat(n,n)+1, x->ShallowCopy(x));
-        for i in [2..n] do
-            result[i][i]:=-1;  
-            for j in [i+1..n] do
-                result[i][j]:=Legendre(j-i,n-1);
-                result[j][i]:=-result[i][j];
-            od;
-        od;
-        return result;
-    elif (n mod 4)=0 then
-        Error("The Hadamard matrix of order ",n," is not yet implemented");
-    else
-        Error("The Hadamard matrix of order ",n," does not exist");
-    fi;
+InstallMethod(HadamardMat, "order", true, [IsInt], 0, 
+function(m) 
+  local L,k,e,q,n;
+  if not (m=1 or m=2 or 0=(m mod 4)) then
+    Error("Hadamard matrices exist only when the order is 1, 2 or a multiple of 4.\n");
+  fi;
+  if m=1 then
+    return [[1]];
+  fi;
+  if m=2 then
+    return SylvesterMat(2);
+  fi;
+  L:=PaleyClasses@(m);
+  if IsEmpty(L) then
+    Print("The Paley-type constructions fail at this order.\n");
+    return fail;
+  fi;
+  k:=L[1][1];
+  e:=L[1][2];
+  q:=L[1][3];
+  n:=L[1][4];
+#  Print(k," ", e, " ", q, " ", n, " ", 2^e*(1+q^n), "\n");
+  if k=1 then                # do the Paley type-I construction
+    return KroneckerProduct(SylvesterMat(2^e), PaleyI@(q^n));
+  elif k=2 then              # or the type-II
+    return KroneckerProduct(SylvesterMat(2^(e-1)), PaleyII@(q^n));
+  else                       # or punt
+    Error("Something is very strange. This line should never be reached. \n");
+  fi;
 end);
 
 
