@@ -114,19 +114,20 @@ PaleyClasses@ := function(m)
   if l < 2 then
     Error("Argument must be divisible by 4.\n");
   fi;
-  k := 0;
   q := 0;
   n := 0;
+  k := 0;
   M:=m;
+  if Length(L) = 2 then    #arg is a power of 2
+    return [[0,L[2],0,0]]; #don't bother computing the rest of the Paley classes
+  fi; 
   ret:=[];
   for e in [0 .. l] do
     if IsPrimePowerInt(M-1) then
       L:=PrimePowersInt(M-1);
       q:=L[1];
       n:=L[2];
-      if q = 2 then
-        k:=0;
-      elif q mod 4 = 3 and n mod 2 = 1 then
+      if q mod 4 = 3 and n mod 2 = 1 then
         k:=1;
       else
         k:=2;
@@ -244,7 +245,7 @@ function(m)
     return [[1]];
   fi;
   if m=2 then
-    return SylvesterMat(2);
+    return [[1,1],[1,-1]];
   fi;
   L:=PaleyClasses@(m);
   if IsEmpty(L) then
@@ -255,8 +256,9 @@ function(m)
   e:=L[1][2];
   q:=L[1][3];
   n:=L[1][4];
-#  Print(k," ", e, " ", q, " ", n, " ", 2^e*(1+q^n), "\n");
-  if k=1 then                # do the Paley type-I construction
+  if k=0 then                # the order is a power of 2 -- go recursive
+    return KroneckerProduct([[1,1],[1,-1]], HadamardMat(m/2) );
+  elif k=1 then                # do the Paley type-I construction
     return KroneckerProduct(SylvesterMat(2^e), PaleyI@(q^n));
   elif k=2 then              # or the type-II
     return KroneckerProduct(SylvesterMat(2^(e-1)), PaleyII@(q^n));
