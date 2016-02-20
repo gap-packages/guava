@@ -13,8 +13,9 @@ SetPackageInfo( rec(
   Subtitle := "a GAP package for computing with error-correcting codes",
   Version := "3.13",
   Date    := "31/01/2016",
-  ArchiveURL 
-          := "http://osj1961.github.io/guava",
+  PackageWWWHome := Concatenation( "http://osj1961.github.io/",
+      LowercaseString( ~.PackageName ), "/" ),
+  ArchiveURL := Concatenation( ~.PackageWWWHome, "archives/guava-", ~.Version ),
   ArchiveFormats 
           := ".tar.gz",
   BannerString:=Concatenation(["\n   ____                          |\n",
@@ -162,8 +163,10 @@ SetPackageInfo( rec(
 ##  and updating of the package in the GAP distribution.
 ##  
 
-  README_URL := "http://www.southernct.edu/~fields/Guava/README.guava",
-  PackageInfoURL := "http://www.southernct.edu/~fields/Guava/PackageInfo.g",
+  README_URL := 
+    Concatenation( ~.PackageWWWHome, "README.guava" ),
+  PackageInfoURL := 
+    Concatenation( ~.PackageWWWHome, "PackageInfo.g" ),
 
 ##  Here you  must provide a short abstract explaining the package content 
 ##  in HTML format (used on the package overview Web page) and an URL 
@@ -176,8 +179,6 @@ SetPackageInfo( rec(
   AbstractHTML := 
     "<span class=\"pkgname\">GUAVA</span> is a <span class=\"pkgname\">GAP</span> package for computing with codes. <span class=\"pkgname\">GUAVA</span> can construct unrestricted (non-linear), linear and cyclic codes; transform one code into another (for example by puncturing); construct a new code from two other codes (using direct sums for example); perform decoding/error-correction; and can calculate important data of codes (such as the minumim distance or covering radius) quickly. Limited ability to compute algebraic geometric codes.",
 
-  PackageWWWHome := "http://osj1961.github.io/guava",
-                  
 ##  On the GAP Website there is an online version of all manuals in the
 ##  GAP distribution. To handle the documentation of a package it is
 ##  necessary to have:
@@ -202,7 +203,6 @@ SetPackageInfo( rec(
     BookName  := "GUAVA",
     ArchiveURLSubset := ["doc"],
     # format/extension can be one of .zoo, .tar.gz, .tar.bz2, -win.zip
-    #Archive   := "http://www.southernct.edu/~fields/Guava/guava3.10.tar.gz",
     HTMLStart := "doc/chap0.html",
     PDFFile   := "doc/manual.pdf",
     # the path to the .six file used by GAP's help system
@@ -228,7 +228,7 @@ SetPackageInfo( rec(
     # without these, the package will not load
     NeededOtherPackages := [],
     # without these the package will issue a warning while loading
-    SuggestedOtherPackages := [["SONATA","2.3"]],
+    SuggestedOtherPackages := [["SONATA",">= 2.3"]],
     # needed external conditions (programs, operating system, ...)  provide 
     # just strings as text or
     # pairs [text, URL] where URL  provides further information
