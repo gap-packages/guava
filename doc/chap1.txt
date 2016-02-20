@@ -7,7 +7,7 @@
   [33X[0;0YThis  is  the manual of the GAP package [5XGUAVA[105X. [5XGUAVA[105X contains many functions
   that   allow   one  to  perform  computations  relevant  to  the  theory  of
   error-correcting  codes.  This version of [5XGUAVA[105X requires GAP 4.4.5 or later.
-  [5XGUAVA[105X 3.12 was updated to work with GAP 4.5.3.[133X
+  The current version of [5XGUAVA[105X (3.13) was updated to work with GAP 4.7.9.[133X
   
   [33X[0;0YThe functions in [5XGUAVA[105X can be divided into three subcategories:[133X
   
@@ -39,7 +39,7 @@
   
   [1X1.2 [33X[0;0YInstalling [5XGUAVA[105X[101X[1X[133X[101X
   
-  [33X[0;0YThe most recent version of GAP (4.5) comes complete with all of the packages
+  [33X[0;0YThe most recent version of GAP (4.7) comes complete with all of the packages
   --  including  [5XGUAVA[105X.  Thus  the  following  instructions  are  not  usually
   applicable but may be needed in certain circumstances.[133X
   
@@ -48,8 +48,8 @@
   
   [33X[0;0YAfter  unpacking [5XGUAVA[105X the GAP-only part of [5XGUAVA[105X is installed. The parts of
   [5XGUAVA[105X  depending  on  J.  Leon's  backtrack  programs package (for computing
-  automorphism  groups)  are  only  available in a UNIX environment, where you
-  should  proceed  as  follows:  Go to the newly created `guava' directory and
+  automorphism  groups)  are  only available in a UNIX-like environment, where
+  you should proceed as follows: Go to the newly created `guava' directory and
   call  [10X`./configure  /gappath'[110X  where  [10X/gappath[110X  is  the path to the GAP home
   directory.  So  for  example,  if  you install the package in the main `pkg'
   directory call[133X
@@ -62,7 +62,7 @@
   make
   
   [33X[0;0Yto  compile  the  binaries and install them in the appropriate place. (For a
-  windows  machine  with  CYGWIN  installed  -  see  [7Xhttp://www.cygwin.com/[107X  -
+  Windows  machine  with  CYGWIN  installed  -  see  [7Xhttp://www.cygwin.com/[107X  -
   instructions for compiling Leon's binaries are likely to be similar to those
   above.  On  a  64-bit  SUSE linux computer, instead of the configure command
   above - which will only compile the 32-bit binary - type[133X
@@ -73,9 +73,9 @@
   [33X[0;0Yto  compile Leon's program as a 64 bit native binary. This may also work for
   other 64-bit linux distributions as well.)[133X
   
-  [33X[0;0YStarting  with  version 2.5, you should also install the GAP package [5XSONATA[105X.
-  You  can  download  this  from  the  GAP  website and unpack it in the `pkg'
-  subdirectory.[133X
+  [33X[0;0YIf  it  is  not  already  installed, you should also install the GAP package
+  [5XSONATA[105X.  You  can  download  this  from the GAP website and unpack it in the
+  `pkg' subdirectory.[133X
   
   [33X[0;0YThis  completes  the installation of [5XGUAVA[105X for a single architecture. If you
   use this installation of [5XGUAVA[105X on different hardware platforms you will have
@@ -92,7 +92,10 @@
   [4X[32X[104X
   
   [33X[0;0YIf [5XGUAVA[105X isn't already in memory, it is loaded and the author information is
-  displayed.  If  you are a frequent user of [5XGUAVA[105X, you might consider putting
-  this  line in your gap initialization file. (Usually [11Xgap.ini[111X which should be
-  located in directory [11X.gap[111X in your home directory.[133X
+  displayed.  If  you  are a frequent user of [5XGUAVA[105X, you might consider adding
+  [5XGUAVA[105X  to  the  "PackagesToLoad" preference in your gap initialization file.
+  (Usually  [11Xgap.ini[111X  which  should  be  located  in your home directory.) Type
+  [11XGAPInfo.UserGapRoot;[111X  at  the  GAP  prompt  to  find  the  location  of your
+  initialization  file.  If  none  exists, the command [11XWriteGapIniFile();[111X will
+  create a default [11Xgap.ini[111X file which you can then modify.[133X
   

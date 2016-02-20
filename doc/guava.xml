@@ -16,7 +16,7 @@
        &nbsp;
     </Subtitle>
 
-    <Version>Version 3.12</Version>     <!-- OPTIONAL -->
+    <Version>Version 3.13</Version>     <!-- OPTIONAL -->
 <Author>
 Jasper Cramwinckel
 </Author>
@@ -62,9 +62,9 @@ Joe Fields (Maintainer)
          06515 USA.
     </Address>
     <Email>fieldsj1@southernct.edu</Email> 
-    <Homepage>http://www.southernct.edu/~fields/Guava/</Homepage>
+    <Homepage>http://osj1961.github.io/guava/</Homepage>
 </Author> 
-<Date>May 22, 2012</Date>    <!-- OPTIONAL -->
+<Date>January 31, 2016</Date>    <!-- OPTIONAL -->
 <Copyright>     <!-- OPTIONAL -->
 <Package>GUAVA</Package>: &copyright; The GUAVA Group: 1992-2003
 Jasper Cramwinckel, Erik Roijackers,Reinald Baart, Eric Minkes,
@@ -72,7 +72,7 @@ Lea Ruscio (for the tex version), Jeffrey Leon
 &copyright; 2004 David Joyner, Cen Tjhai, Jasper Cramwinckel, Erik Roijackers,
 Reinald Baart, Eric Minkes, Lea Ruscio.
 &copyright; 2007 Robert L Miller, Tom Boothby
-&copyright; 2009, 2012 Joe Fields
+&copyright; 2009, 2012, 2016 Joe Fields
 
 <P/>
 <Package>GUAVA</Package> is released under the 
@@ -149,7 +149,7 @@ starting with version 3.10, <Package>GUAVA</Package> has been maintained
 by Joe Fields.
 For further details, see the CHANGES file in the
 <Package>GUAVA</Package> directory, also available at 
-<URL>http://www.southernct.edu/~fields/Guava/CHANGES.guava</URL>.
+<URL>http://osj1961.github.io/guava/CHANGES.guava</URL>.
    <P/>
 <P/>This documentation was prepared with the 
 <Package>GAPDoc</Package> package of Frank L&#xfc;beck and Max Neunh&#xf6;ffer. 
@@ -161,10 +161,10 @@ Please send bug reports, suggestions and other comments about
 <Email>support@gap-system.org</Email>. Currently known bugs and 
 suggested <Package>GUAVA</Package> projects are listed on the
 bugs and projects web page
-<URL>http://www.southernct.edu/~fields/Guava/guava2do.html</URL>.
+<URL>http://osj1961.github.io/guava/guava2do.html</URL>.
 Older releases and further history can be found on the 
 <Package>GUAVA</Package> web page
-<URL>http://www.southernct.edu/~fields/Guava/</URL>.
+<URL>http://osj1961.github.io/guava/</URL>.
 <P/>
 <E>Contributors</E>: Other than the authors listed on the title page,
 the following people have contributed code to the <Package>GUAVA</Package> 
@@ -196,8 +196,7 @@ This is the manual of the GAP package <Package>GUAVA</Package>.
 <Package>GUAVA</Package> contains many functions that allow one 
 to perform computations relevant to the theory of error-correcting codes.  
 This version of <Package>GUAVA</Package> 
-requires GAP 4.4.5 or later.  <Package>GUAVA</Package> 3.12 was updated to
-work with GAP 4.5.3.
+requires GAP 4.4.5 or later.  The current version of <Package>GUAVA</Package> (3.13) was updated to work with GAP 4.7.9.
 
 <P/>
 The functions in <Package>GUAVA</Package> can be divided into three subcategories:
@@ -248,7 +247,7 @@ and also Huffman and Pless <Cite Key="HP03"/>.
   <Heading>Installing <Package>GUAVA</Package></Heading>
 <Label Name="Installing GUAVA"/>
 
-The most recent version of GAP (4.5) comes complete with
+The most recent version of GAP (4.7) comes complete with
 all of the packages -- including <Package>GUAVA</Package>.
 Thus the following instructions are not usually applicable
 but may be needed in certain circumstances.
@@ -262,7 +261,7 @@ After unpacking <Package>GUAVA</Package>
 the GAP-only part of <Package>GUAVA</Package> is installed.
 The parts of <Package>GUAVA</Package>
 depending on J. Leon's backtrack  programs  package
-(for  computing  automorphism  groups)  are  only  available  in  a  UNIX
+(for  computing  automorphism  groups)  are  only  available  in  a  UNIX-like
 environment, where you should proceed as follows:
 Go to the newly created `guava' directory and call  
 <C>`./configure  /gappath'</C>
@@ -283,7 +282,7 @@ make
 
 to compile the binaries and install them in the appropriate place.
 
-(For a windows machine with CYGWIN installed -
+(For a Windows machine with CYGWIN installed -
 see <URL>http://www.cygwin.com/</URL> - instructions for 
 compiling Leon's binaries are likely to be similar to those above.
 On a 64-bit SUSE linux computer, instead of the configure command above
@@ -295,7 +294,7 @@ make
 to compile Leon's program as a 64 bit native binary. This may also
 work for other 64-bit linux distributions as well.)
 <P/>
-Starting with version 2.5, you should also install the GAP
+If it is not already installed, you should also install the GAP
 package <Package>SONATA</Package>. You can download 
 this from the GAP website and unpack it in the `pkg'
 subdirectory.
@@ -324,9 +323,12 @@ gap> LoadPackage( "guava" );
 If <Package>GUAVA</Package> isn't already in memory, it is 
 loaded and the author information is displayed.
 If you  are a frequent user of <Package>GUAVA</Package>, 
-you might consider putting this line in your gap initialization file.
-(Usually <F>gap.ini</F> which should be located in directory <F>.gap</F> in your
-home directory.
+you might consider adding  <Package>GUAVA</Package> to the "PackagesToLoad" preference in your gap initialization file.
+(Usually <F>gap.ini</F> which should be located in your
+home directory.)  Type <F>GAPInfo.UserGapRoot;</F> at the GAP prompt to 
+find the location of your initialization file.  If none exists, the command
+<F>WriteGapIniFile();</F> will create a default <F>gap.ini</F> file which you 
+can then modify. 
 
 </Section>
 </Chapter>
