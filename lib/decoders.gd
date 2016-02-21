@@ -15,8 +15,6 @@
 ## added PermutationDecoderNC, CyclicDecoder 5-2005
 ## 1-2006: added BitFlipDecoder
 ##
-Revision.("guava/lib/decoders_gd") :=
-    "@(#)$Id: decoders.gd,v 1.3 2003/02/12 03:49:19 gap Exp $";
 
 #############################################################################
 ##

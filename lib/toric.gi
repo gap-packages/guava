@@ -11,8 +11,6 @@
 ##     points, degree, GeneratorMat
 ##  added "record" components exponents, GeneratorMat to ToricCode
 ##
-Revision.("guava/lib/toric_gi") :=
-    "@(#)$Id: toric.gi,v 1.1 2003/02/27 22:45:16 gap Exp $";
 
 #############################################################################
 ##

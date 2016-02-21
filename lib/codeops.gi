@@ -23,8 +23,6 @@
 ## 18 Dec 2008 (wdj) bugfix for MinimumDistanceLeon reported by
 ##                    Jorge Ernesto PÉREZ CHAMORRO
 ##
-Revision.("guava/lib/codeops_gi") :=
-    "@(#)$Id: codeops.gi,v 1.11 2004/09/29 03:49:17 gap Exp $";
 
 
 #############################################################################

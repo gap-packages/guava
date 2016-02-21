@@ -17,8 +17,6 @@
 ##  added SolveLinearSystem (with bug fix due to 
 ##             Punarbasu Purkayastha <ppurka@umd.edu>)
 ##
-Revision.("guava2.1/lib/curves_gi") :=
-    "@(#)$Id: curves.gi,v 1.1 2005/05/09 22:45:16 gap Exp $";
 
 ############ some miscellaneous functions ###############
 

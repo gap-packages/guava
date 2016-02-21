@@ -12,8 +12,6 @@
 ##
 ## added 12-207 (CJ): ConstructionXCode, ConstructionXXCode, BZCode functions
 ##
-Revision.("guava/lib/codeman_gi") :=
-    "@(#)$Id: codeman.gi,v 1.5 2003/02/12 03:49:16 gap Exp $";
 
 #############################################################################
 ##

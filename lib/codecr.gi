@@ -15,8 +15,6 @@
 ## 2. minor bug fix for ExhaustiveSearchCoveringRadius
 ## 2. minor bug fix for IncreaseCoveringRadiusLowerBound
 ##
-Revision.("guava/lib/codecr_gi") :=
-    "@(#)$Id: codecr.gi,v 1.6 2003/02/12 03:49:16 gap Exp $";
 
 ########################################################################
 ##

@@ -22,8 +22,6 @@
 ##             Punarbasu Purkayastha <ppurka@umd.edu>
 ## 2009-3: Bugfix for Decodeword (J. Fields and wdj)
 ##
-Revision.("guava/lib/decoders_gi") :=
-    "@(#)$Id: decoders.gi,v 1.4 2003/02/12 03:49:19 gap Exp $";
 
 
 #############################################################################

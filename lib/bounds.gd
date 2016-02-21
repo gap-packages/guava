@@ -10,8 +10,6 @@
 ##
 ## added LowerBoundGilbertVarshamov, LowerBoundSpherePacking
 ##
-Revision.("guava/lib/bounds_gd") :=
-    "@(#)$Id: bounds.gd,v 1.99 09/25/2004 gap Exp $";
 
 #############################################################################
 ##

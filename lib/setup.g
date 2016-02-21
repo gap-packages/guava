@@ -8,8 +8,6 @@
 ##
 #H  @(#)$Id: setup.g,v 1.5 2003/02/13 11:57:58 gap Exp $
 ##
-Revision.("guava/lib/setup_g") :=
-    "@(#)$Id: setup.g,v 1.5 2003/02/13 11:57:58 gap Exp $";
 
 if not IsBound( InfoCoveringRadius ) then InfoCoveringRadius := Print; fi;
 if not IsBound( InfoMinimumDistance ) then InfoMinimumDistance := Ignore; fi;

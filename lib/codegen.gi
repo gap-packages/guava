@@ -35,8 +35,6 @@
 ##  added 12-2007 (CJ): ExtendedReedSolomonCode, QuasiCyclicCode,
 ##    CyclicMDSCode, FourNegacirculantSelfDualCode functions.
 ##
-Revision.("guava/lib/codegen_gi") :=
-    "@(#)$Id: codegen.gi,v 1.99 2004/09/22 03:49:16 gap Exp $";
 
 DeclareRepresentation( "IsCodeDefaultRep", 
                IsAttributeStoringRep and IsComponentObjectRep and IsCode,

@@ -16,8 +16,6 @@
 ##       ActionMoebiusTransformationOnDivisorP1, DivisorAutomorphismGroupP1,
 ##       MatrixRepresentationOnRiemannRochSpaceP1
 ##
-Revision.("guava2.1/lib/curves_gd") :=
-    "@(#)$Id: curves.gd,v 1.3 2005/05/09 03:49:21 gap Exp $";
 
 ###########################################################
 ##
