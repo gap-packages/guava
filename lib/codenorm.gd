@@ -7,10 +7,6 @@
 ##
 ##  This file contains functions for calculating code norms
 ##
-#H  @(#)$Id: codenorm.gd,v 1.2 2003/02/12 03:49:16 gap Exp $
-##
-Revision.("guava/lib/codenorm_gd") :=
-    "@(#)$Id: codenorm.gd,v 1.2 2003/02/12 03:49:16 gap Exp $";
 
 ########################################################################
 ##

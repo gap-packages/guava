@@ -5,8 +5,6 @@
 ##  this file contains implementations for some AG codes and Riemann-Roch
 ##  spaces for the projective line P^1
 ##
-#H  @(#)$Id: curves.gi,v 1.1 2005/05/09 22:45:16 gap Exp $
-##
 ##  created 5-9-2005: also, moved
 ##       DivisorsMultivariatePolynomial (and subfunctions), 
 ##       from util2.gi (where it was in guava 2.0)
@@ -17,8 +15,6 @@
 ##  added SolveLinearSystem (with bug fix due to 
 ##             Punarbasu Purkayastha <ppurka@umd.edu>)
 ##
-Revision.("guava2.1/lib/curves_gi") :=
-    "@(#)$Id: curves.gi,v 1.1 2005/05/09 22:45:16 gap Exp $";
 
 ############ some miscellaneous functions ###############
 

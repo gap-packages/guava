@@ -6,10 +6,6 @@
 ##
 ##  The complete Nordstrom-Robinson Code
 ##
-#H  @(#)$Id: nordrob.gd,v 1.2 2003/02/12 03:49:20 gap Exp $
-##
-Revision.("guava/lib/nordrob_gd") :=
-    "@(#)$Id: nordrob.gd,v 1.2 2003/02/12 03:49:20 gap Exp $";
 
 #############################################################################
 ##

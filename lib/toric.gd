@@ -4,10 +4,6 @@
 ##
 ##  this file contains declarations for toric codes
 ##
-#H  @(#)$Id: toric.gd,v 1.1 2003/02/27 22:45:16 gap Exp $
-##
-Revision.("guava/lib/toric_gd") :=
-    "@(#)$Id: toric.gd,v 1.1 2003/02/27 22:45:16 gap Exp $";
 
 
 #############################################################################

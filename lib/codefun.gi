@@ -6,10 +6,6 @@
 ##
 ##  This file contains non-dispatched functions to get info of codes
 ##
-#H  @(#)$Id: codefun.gi,v 1.2 2003/02/12 03:49:16 gap Exp $
-##
-Revision.("guava/lib/codefun_gi") :=
-    "@(#)$Id: codefun.gi,v 1.2 2003/02/12 03:49:16 gap Exp $";
 
 #############################################################################
 ##

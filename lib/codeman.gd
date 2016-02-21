@@ -6,10 +6,6 @@
 ##
 ##  This file contains functions for manipulating codes
 ##
-#H  @(#)$Id: codeman.gd,v 1.3 2003/02/12 03:49:16 gap Exp $
-##
-Revision.("guava/lib/codeman_gd") :=
-    "@(#)$Id: codeman.gd,v 1.3 2003/02/12 03:49:16 gap Exp $";
 
 #############################################################################
 ##

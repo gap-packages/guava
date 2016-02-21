@@ -7,16 +7,12 @@
 ##
 ##  This file contains functions for calculating with code covering radii
 ##
-#H  @(#)$Id: codecr.gi,v 1.6 2003/02/12 03:49:16 gap Exp $
-##
 ## changes 10-2004:
 ## 1. CalculateLinearCodeCoveringRadius changed to a slightly faster
 ##    algorithm.
 ## 2. minor bug fix for ExhaustiveSearchCoveringRadius
 ## 2. minor bug fix for IncreaseCoveringRadiusLowerBound
 ##
-Revision.("guava/lib/codecr_gi") :=
-    "@(#)$Id: codecr.gi,v 1.6 2003/02/12 03:49:16 gap Exp $";
 
 ########################################################################
 ##

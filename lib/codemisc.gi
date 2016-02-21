@@ -7,10 +7,6 @@
 ##
 ##  This file contains miscellaneous functions for codes
 ##
-#H  @(#)$Id: codemisc.gi,v 1.6 2003/02/12 03:49:16 gap Exp $
-##
-Revision.("guava/lib/codemisc_gi") :=
-    "@(#)$Id: codemisc.gi,v 1.6 2003/02/12 03:49:16 gap Exp $";
 
 ########################################################################
 ##

@@ -7,8 +7,6 @@
 ##  This file contains a reference and an upper bound on the minimum distance
 ##  of a linear code over GF(4) of given word length and dimension.
 ##
-#H  @(#)$Id: upperbd4.g,v 1.1.1.1 1998/03/19 17:31:45 lea Exp $
-##
 #Y  Copyright (C)  1994,  Vakgroep Algemene Wiskunde,  T.U. Delft,  Nederland
 ##
 #H  CJ, 17 May 2006

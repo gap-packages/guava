@@ -7,10 +7,6 @@
 ##
 ##  Table generation
 ##
-#H  @(#)$Id: tblgener.gd,v 1.2 2003/02/12 03:49:21 gap Exp $
-##
-Revision.("guava/lib/tblgener_gd") :=
-    "@(#)$Id: tblgener.gd,v 1.2 2003/02/12 03:49:21 gap Exp $";
 
 #############################################################################
 ##

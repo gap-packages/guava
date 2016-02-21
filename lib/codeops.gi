@@ -7,8 +7,6 @@
 ##
 ##  All the code operations 
 ##
-#H  @(#)$Id: codeops.gi,v 1.11 2004/09/29 03:49:17 gap Exp $
-##
 ## changes 2003-2004 to MinimumDistance by David Joyner, Aron Foster
 ## bug in MinimumDistance corrected 9-29-2004 by wdj
 ## moved Decode and PermutationDecode to decoders.gi on 10-2004
@@ -23,8 +21,6 @@
 ## 18 Dec 2008 (wdj) bugfix for MinimumDistanceLeon reported by
 ##                    Jorge Ernesto PÉREZ CHAMORRO
 ##
-Revision.("guava/lib/codeops_gi") :=
-    "@(#)$Id: codeops.gi,v 1.11 2004/09/29 03:49:17 gap Exp $";
 
 
 #############################################################################

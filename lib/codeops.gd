@@ -6,13 +6,9 @@
 ##
 ##  All the code operations 
 ##
-#H  @(#)$Id: codeops.gd,v 1.5 2003/02/12 03:49:17 gap Exp $
-##
 ##  20 Dec 07 14:24 (CJ) added IsDoublyEvenCode, IsSinglyEvenCode
 ##                       and IsEvenCode functions
 ##
-Revision.("guava/lib/codeops_gd") :=
-    "@(#)$Id: codeops.gd,v 1.5 2003/02/12 03:49:17 gap Exp $";
 
 #############################################################################
 ##

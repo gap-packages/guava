@@ -6,10 +6,6 @@
 ##
 ##  This file contains miscellaneous functions
 ##
-#H  @(#)$Id: util.gd,v 1.4 2003/02/12 03:49:21 gap Exp $
-##
-Revision.("guava/lib/util_gd") :=
-    "@(#)$Id: util.gd,v 1.4 2003/02/12 03:49:21 gap Exp $";
 
 #############################################################################
 ##
