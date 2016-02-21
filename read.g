@@ -10,17 +10,7 @@
 ##  This file is read by GAP upon startup. It installs all functions of
 ##  the GUAVA library 
 ##
-#H  @(#)$Id: read.g,v 1.5 2003/02/27 22:45:16 gap Exp $
-##
-## added read curves.gi 5-2005
-## Changed "ReadPkg" to "ReadPackage" as the former is now deprecated 
-##   (GAP 4.5.3)  --JEF 21/5/2012
-##
 
-#############################################################################
-##
-#F  Read calls to load all files.  
-##
 ReadPackage("guava", "lib/util2.gi"); 
 ReadPackage("guava", "lib/setup.g");
 ReadPackage("guava", "lib/codeword.gi");    
