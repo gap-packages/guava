@@ -7,8 +7,6 @@
 ## 
 ##  This file contains miscellaneous functions
 ##
-#H  @(#)$Id: util2.gd,v 1.3 2003/02/12 03:49:21 gap Exp $
-##
 ## several functions added 12-16-2005 
 ##  
 

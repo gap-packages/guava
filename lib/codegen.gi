@@ -7,8 +7,6 @@
 ##
 ##  This file contains info/functions for generating codes
 ##
-#H  @(#)$Id: codegen.gi,v 1.99 2004/09/22 03:49:16 gap Exp $
-##
 ##  BCHCode modified 9-2004
 ##  added 11-2004:
 ##  comment in GoppaCode 

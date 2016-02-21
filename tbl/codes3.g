@@ -3,8 +3,6 @@
 #A  codes3.g                GUAVA library                   Reinald Baart
 #A                                                       & Jasper Cramwinckel
 #A                                                          & Erik Roijackers
-##
-#H  @(#)$Id: codes3.g,v 1.1.1.1 1998/03/19 17:31:39 lea Exp $
 ##  
 #Y  Copyright (C)  1994,  Vakgroep Algemene Wiskunde,  T.U. Delft,  Nederland
 ## 

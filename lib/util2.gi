@@ -7,8 +7,6 @@
 ##
 ##  This file contains miscellaneous functions
 ##
-#H  @(#)$Id: util2.gi,v 1.99 09/23/2004 gap Exp $
-##
 ## minor bug in SortedGaloisFieldElements fixed 9-24-2004
 ## several functions added 12-16-2005 MostCommonInList,
 ##       MultiplicityInList, VandermondeMat

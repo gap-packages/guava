@@ -6,8 +6,6 @@
 ##
 ##  This file contains functions related to AG codes and RR speaces on P^1
 ##
-#H  @(#)$Id: curves.gd,v 1.3 2005/05/09 03:49:21 gap Exp $
-##
 ## created 5-9-2005: also, moved
 ##       DivisorsMultivariatePolynomial (and subfunctions), 
 ##       from util2.gi (where it was in guava 2.0)

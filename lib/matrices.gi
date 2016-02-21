@@ -6,8 +6,6 @@
 ##
 ##  This file contains functions for generating matrices
 ##
-#H  @(#)$Id: matrices.gi,v 1.4 2003/02/12 03:49:19 gap Exp $
-##
 
 #############################################################################
 ##

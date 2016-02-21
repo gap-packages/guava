@@ -7,8 +7,6 @@
 ##
 ##  This file contains functions for calculating code norms
 ##
-#H  @(#)$Id: codenorm.gi,v 1.3 2003/02/12 03:49:16 gap Exp $
-##
 
 ########################################################################
 ##

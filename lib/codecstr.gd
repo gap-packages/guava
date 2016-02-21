@@ -8,8 +8,6 @@
 ##
 ##  This file contains functions for constructing codes
 ##
-#H  @(#)$Id: codecstr.gd,v 1.2 2003/02/12 03:36:54 gap Exp $
-##
 
 ########################################################################
 ##

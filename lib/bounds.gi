@@ -8,8 +8,6 @@
 ##
 ##  2009-3: wdj: LowerBoundGilbertVarshamov debugged by Jack Schmidt
 ##
-#H  @(#)$Id: bounds.gi,v 1.99 09/25/2004 gap Exp $
-##
 
 #############################################################################
 ##

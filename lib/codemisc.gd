@@ -7,8 +7,6 @@
 ##
 ##  This file contains miscellaneous functions for codes
 ##
-#H  @(#)$Id: codemisc.gd,v 1.2 2003/02/12 03:49:16 gap Exp $
-##
 
 ########################################################################
 ##

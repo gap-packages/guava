@@ -6,8 +6,6 @@
 ##
 ##  This file contains functions for working with codewords
 ##
-#H  @(#)$Id: codeword.gd,v 1.5 2003/02/12 03:49:18 gap Exp $
-##
 
 #############################################################################
 ##

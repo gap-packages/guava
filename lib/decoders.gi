@@ -6,8 +6,6 @@
 ##                                                              &David Joyner
 ##  This file contains functions for decoding codes
 ##
-#H  @(#)$Id: decoders.gi,v 1.4 2003/02/12 03:49:19 gap Exp $
-##
 ## Decodeword (unrestricted) modified 11-3-2004
 ## Decodeword (linear) created 10-2004
 ## Hamming, permutation, and BCH decoders moved into this file 10-2004

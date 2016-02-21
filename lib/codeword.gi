@@ -14,8 +14,6 @@
 ##	Weight 
 ##	WordLength 
 ##	Support 
-## 	
-#H  @(#)$Id: codeword.gi,v 1.9 2003/02/12 03:49:19 gap Exp $
 ##
 
 DeclareRepresentation("IsCodewordRep", 

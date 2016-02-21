@@ -7,8 +7,6 @@
 ##
 ##  This file contains functions for decoding codes
 ##
-#H  @(#)$Id: decoders.gd,v 1.3 2003/02/12 03:49:19 gap Exp $
-##
 ## some commands moved form cdeops.gi and Decodeword added in 10-2004
 ## added GeneralizedReedSolomonDecoder 11-2005
 ## added GeneralizedReedSolomonListDecoder and GRS<functions>, 12-2004

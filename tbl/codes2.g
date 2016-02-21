@@ -4,8 +4,6 @@
 #A                                                       & Jasper Cramwinckel
 #A                                                          & Erik Roijackers
 ##
-#H  @(#)$Id: codes2.g,v 1.1.1.1 1998/03/19 17:31:36 lea Exp $
-##
 #Y  Copyright (C)  1994,  Vakgroep Algemene Wiskunde,  T.U. Delft,  Nederland
 ##
 #H  CJ, 17 May 2006
