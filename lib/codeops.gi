@@ -1987,7 +1987,7 @@ function(C1, C2)
         Error("GUAVA can only calculate equivalence over GF(2)");
     fi;
     
-	code1 := TmpNameAllArchs(); PrintTo( code1, "\n" );
+    code1 := TmpNameAllArchs(); PrintTo( code1, "\n" );
     code2 := TmpNameAllArchs(); PrintTo( code2, "\n" );
     cwcode1 := TmpNameAllArchs(); PrintTo( cwcode1, "\n" );
     cwcode2 := TmpNameAllArchs(); PrintTo( cwcode2, "\n" );
@@ -2009,7 +2009,7 @@ function(C1, C2)
             Concatenation("-e ",output," ", 
             infile));
     Read(infile);
-    RemoveFiles(code1,code2,cwcode1,cwcode2,output,infile);
+   # RemoveFiles(code1,code2,cwcode1,cwcode2,output,infile);
     if not IsPerm(GUAVA_TEMP_VAR) then
         return false; #it is good that false is returned
     else
