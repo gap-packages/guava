@@ -1698,10 +1698,10 @@ return PermutationGroup(C);
         Print("... automatically switching to PermutationGroup ...\n");
         return PermutationGroup(C);
 	fi; 
-    incode :=  TmpName(); PrintTo( incode, "\n" );
-    inV := TmpName(); PrintTo( inV, "\n" );
-    outgroup := TmpName(); PrintTo( outgroup, "\n" );
-    infile := TmpName(); PrintTo( infile, "\n" );
+    incode :=  TmpNameAllArchs(); PrintTo( incode, "\n" );
+    inV := TmpNameAllArchs(); PrintTo( inV, "\n" );
+    outgroup := TmpNameAllArchs(); PrintTo( outgroup, "\n" );
+    infile := TmpNameAllArchs(); PrintTo( infile, "\n" );
     # Calculate with dual code if it is smaller:
     if Dimension(C) > QuoInt(WordLength(C), 2) then
         Ccalc := DualCode(C);
@@ -1987,12 +1987,12 @@ function(C1, C2)
         Error("GUAVA can only calculate equivalence over GF(2)");
     fi;
     
-	code1 := TmpName(); PrintTo( code1, "\n" );
-    code2 := TmpName(); PrintTo( code2, "\n" );
-    cwcode1 := TmpName(); PrintTo( cwcode1, "\n" );
-    cwcode2 := TmpName(); PrintTo( cwcode2, "\n" );
-    output := TmpName(); PrintTo( output, "\n" );
-    infile := TmpName(); PrintTo( infile, "\n" );
+	code1 := TmpNameAllArchs(); PrintTo( code1, "\n" );
+    code2 := TmpNameAllArchs(); PrintTo( code2, "\n" );
+    cwcode1 := TmpNameAllArchs(); PrintTo( cwcode1, "\n" );
+    cwcode2 := TmpNameAllArchs(); PrintTo( cwcode2, "\n" );
+    output := TmpNameAllArchs(); PrintTo( output, "\n" );
+    infile := TmpNameAllArchs(); PrintTo( infile, "\n" );
     GuavaToLeon(C1, code1);
     GuavaToLeon(C2, code2);
     Exec(Filename(DirectoriesPackagePrograms("guava"), "wtdist"), 
@@ -2707,7 +2707,7 @@ function(C)
     k := DimensionsMat(G)[1];
     n := DimensionsMat(G)[2];
     #path := DirectoriesPackagePrograms( "guava" );; #seems unnecessary -- already done above...
-    tmpFile := TmpName(); tmpOutFile := TmpName();
+    tmpFile := TmpNameAllArchs(); tmpOutFile := TmpNameAllArchs();
 	
 	PrintTo(tmpFile, k, " ", n, " ", Size(LeftActingDomain(C)), "\n");
 	for r in [1..k] do;

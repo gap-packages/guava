@@ -402,11 +402,11 @@ else
 	 Print("the C code programs are compiled, so using Leon's binary....\n");
 
  tmpdir := DirectoryTemporary();;
- incode := TmpName();
+ incode := TmpNameAllArchs();
  PrintTo( incode, "\n" );
 # inV := TmpName(); 
 # PrintTo( inV, "\n" );
- infile := TmpName();
+ infile := TmpNameAllArchs();
  PrintTo( infile, "\n" );
  GuavaToLeon(C, incode);
  Exec(Filename(DirectoriesPackagePrograms("guava"), "wtdist"), 
