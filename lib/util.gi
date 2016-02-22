@@ -196,7 +196,10 @@ InstallGlobalFunction(RemoveFiles,
 function(arg)
     local f;
     for f in arg do
-        Exec(Concatenation("rm -f ",f));
+    #    This only works on unix
+    #    Exec(Concatenation("rm -f ",f));
+    #    This is better:
+      RemoveFile(f); 
     od;
 end);
 
