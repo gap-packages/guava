@@ -232,8 +232,8 @@ function(C)
     #To be inspected:
     #if HasCheckMat(C) and IsInStandardForm(CheckMat(C), false) then
     #    G := TransposedMat(Concatenation(IdentityMat(Dimension(C), 
-	#													LeftActingDomain(C)),
-    #                 List(-CheckMat(C), x->x{[1..Dimension(C)]})));
+    #          LeftActingDomain(C)),
+    #          List(-CheckMat(C), x->x{[1..Dimension(C)]})));
     #else
         F := LeftActingDomain(C);
         p := GeneratorPol(C);
@@ -2009,7 +2009,7 @@ function(C1, C2)
             Concatenation("-e ",output," ", 
             infile));
     Read(infile);
-   # RemoveFiles(code1,code2,cwcode1,cwcode2,output,infile);
+    RemoveFiles(code1,code2,cwcode1,cwcode2,output,infile);
     if not IsPerm(GUAVA_TEMP_VAR) then
         return false; #it is good that false is returned
     else
