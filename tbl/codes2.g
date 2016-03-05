@@ -192,7 +192,11 @@ if YouWantThisCode(  45,  10,  18, "Gu9" ) then
 	GUAVA_TEMP_VAR := false;
 fi;
 if YouWantThisCode(  45,  14,  16, "Bo0" ) then
-	GUAVA_TEMP_VAR := false;
+        # from a different reference...
+	GUAVA_TEMP_VAR := [QuasiCyclicCode,[ [
+PolyCodeword( Codeword("000010000000010") ),
+PolyCodeword( Codeword("001000110000001") ),
+PolyCodeword( Codeword("111011000110111") )], 15, GF(2) ] ];
 fi;
 if YouWantThisCode(  45,  16,  13, "DJ" ) then
 	GUAVA_TEMP_VAR := false;
