@@ -473,11 +473,11 @@ function(arg)
                 return DoTheTrick( obj, 3, InfoLine(n, k, obj.d,
                                "by extending:", spaces, prefix) );
 # begin CJ 25 April 2006
-			elif i = 20 then  # Taking subcode
-				obj := RecurseBound(n, k+1, spaces, "");
-				obj.cons := [ SubCode, [ obj.cons ]];
-				return DoTheTrick( obj, 20, InfoLine(n, k, obj.d,
-								"by taking subcode of:", spaces, prefix) );
+            elif i = 20 then  # Taking subcode
+                obj := RecurseBound(n, k+1, spaces, "");
+                obj.cons := [ SubCode, [ obj.cons ]];
+                return DoTheTrick( obj, 20, InfoLine(n, k, obj.d,
+                                  "by taking subcode of:", spaces, prefix) );
 # end CJ
             # Methods for upper bounds:
             elif i = 11 then  # Shortening
@@ -546,8 +546,8 @@ function(arg)
                 obj.d := Minimum( 2 * obj.d, obj2.d );
                 obj.expl := Concatenation(obj2.expl, obj.expl);
                 Add(obj.expl, InfoLine(n, k, obj.d, 
-						Concatenation("by the u|u+v construction applied to C1 [",
-						String(n/2), ",", String(i[2]), ",",
+                        Concatenation("by the u|u+v construction applied to C1 [",
+                        String(n/2), ",", String(i[2]), ",",
                         String(d1), "] and C2 [", String(n/2),
                         ",", String(k-i[2]), ",", String(obj2.d), "]: "),
                         spaces, prefix) );
@@ -565,8 +565,8 @@ function(arg)
                 if (k-(i[2]+i[3]) > 0) then obj.d := Minimum( obj.d, d3 ); fi;
                 obj.expl := Concatenation(obj3.expl, obj2.expl, obj.expl);
                 Add(obj.expl, InfoLine(n, k, obj.d, 
-						Concatenation("by the u|u+av|u+v+w construction applied to C1 [",
-						String(n/3), ",", String(i[2]), ",",
+                        Concatenation("by the u|u+av|u+v+w construction applied to C1 [",
+                        String(n/3), ",", String(i[2]), ",",
                         String(d1), "] and C2 [", String(n/3),
                         ",", String(i[3]), ",", String(d2), "] and C3 [",
                         String(n/3), ",", String(k-i[2]-i[3]), ",",
@@ -581,8 +581,8 @@ function(arg)
                 obj.d := obj.d + obj2.d;
                 obj.expl := Concatenation(obj2.expl, obj.expl);
                 Add(obj.expl, InfoLine(n, k, obj.d, 
-						Concatenation("by concatenation of C1 [",
-						String(n-i[2]), ",", String(k), ",",
+                        Concatenation("by concatenation of C1 [",
+                        String(n-i[2]), ",", String(k), ",",
                         String(d1), "] and C2 [", String(i[2]), ",",
                         String(k), ",", String(obj2.d), "]: "),
                         spaces, prefix) );
@@ -593,16 +593,16 @@ function(arg)
 # begin CJ 27 April 2006
 # The current Brouwer's table contains some 'MYSTERY' codes, these codes are
 # resulted from Construction A.
-				if ((q = 2 and i[2] > 257) or (q = 3 and i[2] > 243) or (q = 4 and i[2] > 256)) then
-                	d1 := QuoInt((i[2]-n), q) + SignInt((i[2]-n) mod q);
-                	obj := rec( d := d1, expl := [InfoLine(n, k, d1,
+                if ((q = 2 and i[2] > 257) or (q = 3 and i[2] > 243) or (q = 4 and i[2] > 256)) then
+                	   d1 := QuoInt((i[2]-n), q) + SignInt((i[2]-n) mod q);
+                	   obj := rec( d := d1, expl := [InfoLine(n, k, d1,
                                Concatenation("by construction A (taking residue) of a [",
                                String(i[2]), ",", String(k+1), ",", String(i[2]-n), "]",
                                " MYSTERY code, contact A.E. Brouwer (aeb@cwi.nl)"),
                                spaces, prefix)], cons := false );
-					Unbind(obj.lastman);
-					return obj;
-				fi;
+                    Unbind(obj.lastman);
+                    return obj;
+                fi;
 # end CJ
                 obj := RecurseBound(i[2], k+1, spaces, "");
                 obj.d := QuoInt(obj.d, q) + SignInt(obj.d mod q);
@@ -627,21 +627,21 @@ function(arg)
                 return obj;
             elif i[1] = 16 then # one-step Griesmer bound
                 obj := RecurseBound(n-(i[2]+1), k-1, spaces, "");
-				obj.d := i[2];
+                obj.d := i[2];
                 Add(obj.expl, InfoLine(n, k, obj.d,
                         "by a one-step Griesmer bound from:", spaces, prefix) );
                 Unbind(obj.lastman);
                 return obj;
-			elif i[1] = 21 then	# Construction B2
-				obj := RecurseBound(n+i[2], k+i[2]-(2*i[3])-1, spaces, "");
-				obj.cons := [ConstructionB2Code, [obj.cons]];
-				obj.d := obj.d - (2*i[3]); 
-				Add(obj.expl, InfoLine(n, k, obj.d, Concatenation(
-					"by applying construction B2 to a [", String(n+i[2]), ",",
-					String(k+i[2]-(2*i[3])-1), ",", String(obj.d+(2*i[3])),
-					"] code"), spaces, prefix) );
-				Unbind(obj.lastman);
-				return obj;
+            elif i[1] = 21 then	# Construction B2
+                obj := RecurseBound(n+i[2], k+i[2]-(2*i[3])-1, spaces, "");
+                obj.cons := [ConstructionB2Code, [obj.cons]];
+                obj.d := obj.d - (2*i[3]); 
+                Add(obj.expl, InfoLine(n, k, obj.d, Concatenation(
+                    "by applying construction B2 to a [", String(n+i[2]), ",",
+                    String(k+i[2]-(2*i[3])-1), ",", String(obj.d+(2*i[3])),
+                    "] code"), spaces, prefix) );
+                Unbind(obj.lastman);
+                return obj;
 #end CJ
             else
                 Error("invalid table entry; table is corrupted");
