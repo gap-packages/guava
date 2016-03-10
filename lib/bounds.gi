@@ -679,12 +679,6 @@ function(arg)
     if not ( IsBound(GUAVA_BOUNDS_TABLE[1][q]) and
              IsBound(GUAVA_BOUNDS_TABLE[2][q]) ) and
        q > 4 then
-        # Left the following lines out and replaced them with the previous,
-        # and the else-part of this if, because using READ in
-        # this way does not work in GAP 3.5.
-        # (the behaviour of LOADED_PACKAGES has changed)
-#       not READ(Concatenation(LOADED_PACKAGES.guava, "tbl/bdtable",
-#               String(q),".g")) then       
         res.lowerBound := 1;
         res.upperBound := n - k + 1;
         return res;
