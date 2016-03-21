@@ -90,21 +90,14 @@ function(Sz, q, info)
     end;
     
     FillPoints := function( BT, lb )
-        local pt, initialfile;
+        local dir, initialfile, pt;
         GUAVA_TEMP_VAR := [false];
+        dir := DirectoriesPackageLibrary("guava", "tbl")l
         if lb then
-	    # LOADED_PACKAGES is now defunct -JEF (1/18/2016)
-            #initialfile := Filename(LOADED_PACKAGES.guava, 
-	    #			Concatenation("tbl/codes", 
-	    #			String(q),".g") );
-	    initialfile := Filename( DirectoriesPackageLibrary("guava", "tbl"),
+            initialfile := Filename( dir,
 	                          Concatenation("codes",String(q),".g") );
         else
-	    # LOADED_PACKAGES is now defunct -JEF (1/18/2016)
-            #initialfile := Filename(LOADED_PACKAGES.guava, 
-	    #			Concatenation("tbl/upperbd",
-	    #			String(q),".g") );
-            initialfile := Filename( DirectoriesPackageLibrary("guava", "tbl"),
+            initialfile := Filename( dir,
 	                         Concatenation("upperbd",String(q),".g") );
         fi;
         if initialfile = fail then
@@ -418,9 +411,6 @@ function(Sz, q, info)
 	##LR - This trick is not yet working in GAP4.  Until it does, 
         ##  the tables will not be printed to the file.  
 	if info then Print("\nSaving the bound tables...\n"); fi;
-    #file := Filename(LOADED_PACKAGES.guava,
-    #					 Concatenation("tbl/bdtable",String(q),".g") );
-    # The LOADED_PACKAGES record is now defunct.  The following was suggested by Alex Konovalov. --JEF (1/18/2016)
     file := Filename( DirectoriesPackageLibrary("guava", "tbl"),
                          Concatenation("bdtable",String(q),".g") );
     PrintTo(file, "#A  BOUNDS FOR q = ", String(q), help,
