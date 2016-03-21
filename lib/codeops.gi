@@ -1709,14 +1709,32 @@ return PermutationGroup(C);
         Ccalc := ShallowCopy(C);
     fi;
     GuavaToLeon(Ccalc, incode);
-    Exec(Filename(DirectoriesPackagePrograms("guava"), "wtdist"), 
-            Concatenation("-q ",incode,"::code ",
-            String(MinimumDistance(Ccalc))," ",inV,"::code"));
-    Exec(Filename(DirectoriesPackagePrograms("guava"), "desauto"), 
-            Concatenation("-code -q ",
-            incode,"::code ",inV,"::code ",outgroup));
-    Exec(Filename(DirectoriesPackagePrograms("guava"), "leonconv"), 
-            Concatenation("-a ",outgroup," ", infile));
+    Process(DirectoryCurrent(),
+            Filename(path, "wtdist"),
+            InputTextUser(),
+            OutputTextUser(),
+            ["-q", Concatenation(incode,"::code"), MinimumDistance(Ccalc), Concatenation(inV, "::code")]
+    );
+    #Exec(Filename(DirectoriesPackagePrograms("guava"), "wtdist"), 
+    #        Concatenation("-q ",incode,"::code ",
+    #        String(MinimumDistance(Ccalc))," ",inV,"::code"));
+    Process(DirectoryCurrent(),
+            Filename(path, "desauto"),
+            InputTextUser(),
+            OutputTextUser(),
+            ["-code", "-q", Concatenation(incode,"::code"), Concatenation(inV, "::code"), outgroup]
+    );
+    #Exec(Filename(DirectoriesPackagePrograms("guava"), "desauto"), 
+    #        Concatenation("-code -q ",
+    #        incode,"::code ",inV,"::code ",outgroup));
+    Process(DirectoryCurrent(),
+            Filename(path, "leonconv"),
+            InputTextUser(),
+            OutputTextUser(),
+            ["-a", outgroup, infile]
+    );
+    #Exec(Filename(DirectoriesPackagePrograms("guava"), "leonconv"), 
+    #        Concatenation("-a ",outgroup," ", infile));
     Read(infile);
     RemoveFiles(incode,inV,outgroup,infile);
     return GUAVA_TEMP_VAR;
