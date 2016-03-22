@@ -16,7 +16,7 @@ InstallMethod(CreateBoundsTable, "Sz, fieldsize, info", true,
 	[IsInt, IsInt, IsBool], 0, 
 function(Sz, q, info) 
     local RulesList, LBT, UBT, FillPoints, NumberUnchanged, RuleNumber, file,
-          WriteToFile, InitialTable, help, temp;
+          WriteToStream, InitialTable, help, temp, stream;
 
     help := 
       Concatenation("\n##\n",
@@ -92,7 +92,7 @@ function(Sz, q, info)
     FillPoints := function( BT, lb )
         local dir, initialfile, pt;
         GUAVA_TEMP_VAR := [false];
-        dir := DirectoriesPackageLibrary("guava", "tbl")l
+        dir := DirectoriesPackageLibrary("guava", "tbl");
         if lb then
             initialfile := Filename( dir,
 	                          Concatenation("codes",String(q),".g") );
@@ -116,9 +116,9 @@ function(Sz, q, info)
         return BT;
     end;
         
-    WriteToFile := function(BT)
+    WriteToStream := function(s, BT)
         local list, k, n;
-        Print(Concatenation( "][", String(q), "] := [\n#V   n = 1\n[  ]" ) );
+        PrintTo(s, Concatenation( "][", String(q), "] := [\n#V   n = 1\n[  ]" ) );
         for n in [2 .. Sz] do
             list := [];
             for k in [1 .. n] do
@@ -126,9 +126,9 @@ function(Sz, q, info)
                     list[k] := BT[n][k][2];
                 fi;
             od;
-            Print(Concatenation(",\n#V   n = ",String(n),"\n"), list);
+            PrintTo(s, Concatenation(",\n#V   n = ",String(n),"\n"), list);
         od;
-        Print("];");
+        PrintTo(s, "];");
     end; 
 #F              begin of rules for lowerbound
 
@@ -413,9 +413,14 @@ function(Sz, q, info)
 	if info then Print("\nSaving the bound tables...\n"); fi;
     file := Filename( DirectoriesPackageLibrary("guava", "tbl"),
                          Concatenation("bdtable",String(q),".g") );
-    PrintTo(file, "#A  BOUNDS FOR q = ", String(q), help,
-            "\n\nGUAVA_BOUNDS_TABLE[1", WriteToFile(LBT),
-            "\n\nGUAVA_BOUNDS_TABLE[2", WriteToFile(UBT) );
+    stream := OutputTextFile( file, true );
+    SetPrintFormattingStatus( stream, false ); # disable automatic line breaks
+    PrintTo(stream, "#A  BOUNDS FOR q = ", String(q), help,
+            "\n\nGUAVA_BOUNDS_TABLE[1");
+    WriteToStream(stream, LBT);
+    PrintTo(stream, "\n\nGUAVA_BOUNDS_TABLE[2");
+    WriteToStream(stream, UBT);
+    CloseStream(stream);
     return [LBT,UBT];                    #just used for testing the program
 end);
 
