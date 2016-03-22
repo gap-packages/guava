@@ -79,6 +79,9 @@ int res;
 	res = ReadUntil(in, ':', 1); 
 	fprintf(out, "SetSize(GUAVA_TEMP_VAR, "); 
 	res = fscanf(in, "%c", &bit); 
+        if (bit != ' ') {
+            res = ReadUntil(in, ':', 1);
+        }
 	while ((bit != ';') && (res != EOF)) { 
 		fprintf(out, "%c", bit); 
 		res = fscanf(in, "%c", &bit); 
