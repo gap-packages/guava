@@ -81,6 +81,7 @@ int res;
 	res = fscanf(in, "%c", &bit); 
         if (bit != ' ') {
             res = ReadUntil(in, ':', 1);
+	    res = fscanf(in, "%c", &bit); 
         }
 	while ((bit != ';') && (res != EOF)) { 
 		fprintf(out, "%c", bit); 
