@@ -1667,13 +1667,13 @@ function(C)
 
       if ForAny( ["desauto", "leonconv", "wtdist"], 
                  f -> Filename( path, f ) = fail ) then
-Print("desauto not loaded ... switching to PermutationGroup ...\n");
-return PermutationGroup(C);
+Print("desauto not loaded ... switching to PermutationAutomorphismGroup ...\n");
+return PermutationAutomorphismGroup(C);
       fi;
     if Size(LeftActingDomain(C)) > 2 then
 	Print("This command calculates automorphism groups for binary codes only\n");
-        Print("... automatically switching to PermutationGroup ...\n");
-        return PermutationGroup(C);
+        Print("... automatically switching to PermutationAutomorphismGroup ...\n");
+        return PermutationAutomorphismGroup(C);
     elif IsLinearCode(C) then
         return AutomorphismGroup(C);
     else
@@ -1690,13 +1690,13 @@ function(C)
 
       if ForAny( ["desauto", "leonconv", "wtdist"], 
                  f -> Filename( path, f ) = fail ) then
-Print("desauto not loaded ... switching to PermutationGroup ...\n");
-return PermutationGroup(C);
+Print("desauto not loaded ... switching to PermutationAutomorphismGroup ...\n");
+return PermutationAutomorphismGroup(C);
       fi;
     if Size(LeftActingDomain(C)) > 2 then 
 	Print("This command calculates automorphism groups for binary codes only\n");
-        Print("... automatically switching to PermutationGroup ...\n");
-        return PermutationGroup(C);
+        Print("... automatically switching to PermutationAutomorphismGroup ...\n");
+        return PermutationAutomorphismGroup(C);
 	fi; 
     incode :=  TmpNameAllArchs(); PrintTo( incode, "\n" );
     inV := TmpNameAllArchs(); PrintTo( inV, "\n" );
