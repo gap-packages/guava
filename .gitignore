@@ -62,3 +62,5 @@ src/leonconv
 *.log
 
 src/leon/autom4te.cache/requests
+*.exe
+Makefile-default32
