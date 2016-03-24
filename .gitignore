@@ -62,3 +62,11 @@ src/leonconv
 *.log
 
 src/leon/autom4te.cache/requests
+Makefile-default32
+*.exe
+src/leon/Makefile
+src/leon/src/leon_config.h
+src/leon/src/stamp-h1
+src/leon/Makefile
+src/leon/src/leon_config.h
+src/leon/src/stamp-h1
