@@ -33,8 +33,11 @@ Packages"  of  the  GAP4 reference manual for details on how to do this.)
 
 After unpacking GUAVA the GAP-only part of  GUAVA  is  installed.  The
 parts of GUAVA depending on J. S. Leon's backtrack programs package  (for
-computing  automorphism  groups)  are available in a UNIX or MacOS
-environment.  You should proceed as follows:
+computing  automorphism  groups and code equivalence) need to be compiled
+separately. For Windows machines it will probably be necessary to install
+additional software -- instructions are available at the Guava website.
+
+In a UNIX or MacOS environment.  You should proceed as follows:
 
 Go to the  newly  created  `guava'  directory  and  call  `./configure
 <path>' where <path> is the path to the GAP  home  directory.  So  for
@@ -106,4 +109,4 @@ problem; so please include:
    comments in GAP  begin with a #).
 
   - Joe Fields (fieldsj1@southernct.edu)
-    January, 2016
+    April, 2016
