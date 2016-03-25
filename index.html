@@ -4,15 +4,12 @@
 <head>
 
 
-<meta name="description" content="Home page for GUAVA, guava,
-coding theory with GAP,
-GAP package for error-correcting codes">
+<meta name="description" content="Home page for GUAVA, the GAP package for computations related to error-correcting codes.">
 
 
-<meta name="keywords" content="GUAVA, GAP, coding theory with GAP">
+<meta name="keywords" content="GUAVA, GAP, coding theory, error-correcting codes">
 
-<title>GAP package GUAVA
-</title>
+<title>GAP package GUAVA</title>
 
 
  
@@ -63,9 +60,7 @@ suggests also installing the <font face="Gill Sans,Helvetica,Arial">GAP</font> p
 <strong>Operating    systems:    </strong>    
 Any, on which  
 <font face="Gill Sans,Helvetica,Arial">GAP</font> 4 
-is running. (Some functions involving the
-automorphism group of a code require a linux/unix system 
-or (windows) cygwin installation.)
+is running. 
 
 <br>
 
@@ -74,7 +69,7 @@ or (windows) cygwin installation.)
 <!-- current version, maybe further version info, 
        links to old versions ... -->
 
-<strong>Current version: </strong> 3.13
+<strong>Current version: </strong> 3.14
 
 <br>
   
@@ -148,8 +143,7 @@ Codes can  be created and manipulated  and
 
 <p>
 GUAVA consists of various files written in the <font face="Gill Sans,Helvetica,Arial">GAP</font> language, and an
- external program (which requires a linux/unix system) 
-from J.S. Leon for dealing with automorphism groups of 
+ external program from J. S. Leon for dealing with automorphism groups of 
 codes and isomorphism testing functions (for the manual 
 to his program, click <a href="leon_guava_manual.pdf">here</a> for the pdf). 
 Several algorithms that need the speed are integrated in the 
@@ -230,8 +224,9 @@ Then load GUAVA (see below) and try out its features.
 </p>
 
 <p>
-A fresh install of <font face="Gill Sans,Helvetica,Arial">GAP</font> will include GUAVA by default.  The directions below are only for those who 
-find themselves in an unusual situation.
+A fresh install of <font face="Gill Sans,Helvetica,Arial">GAP</font> will include GUAVA by default.  The directions in the next paragraph only apply to those who 
+find themselves in the unusual situation of not having the default GUAVA installation.  In the
+majority of cases you can skip to the following paragraph.
 </p>
 
 <p>
@@ -252,22 +247,23 @@ reference manual for details on how to do this.)
 After unpacking GUAVA the <font face="Gill Sans,Helvetica,Arial">GAP</font>-only 
 part of GUAVA is installed.  The parts 
 of GUAVA depending on J. Leon's backtrack programs package (for computing
-automorphism groups) are only available in a UNIX environment, where you 
+automorphism groups and code equivalences) are now available in a Window, MacOS and UNIX environments.  For Windows machines, separate instructions are available <a href="windows-compiling.html">here</a>.   For UNIX and MacOS you 
 should proceed as follows:
 </p>
 
 <p>
 <ul>
-<li> <i>32-bit linux (or windows cygwin) installation instructions</i>:
+<li> <i>Linux/UNIX installation instructions</i>:
 
 <p>
 Go to the newly created `guava' directory and call `./configure <tt>GAPPATH</tt>'
 where <tt>GAPPATH</tt> is the path to the <font face="Gill Sans,Helvetica,Arial">GAP</font> 
-home directory. So for example, if 
-you install the package in the main `pkg' directory call
+home directory. The default value for <tt>GAPPATH</tt> is `../..' so if
+you install the package in the main `pkg' directory it is sufficient to call
 </p>
-<pre>./configure ../..</pre>
-<br>
+<pre>./configure </pre><br>
+</p>
+<p>
 
 
 </p>
@@ -275,23 +271,22 @@ you install the package in the main `pkg' directory call
 <p>This will fetch the architecture type for which <font face="Gill Sans,Helvetica,Arial">GAP</font> has been compiled 
 last and create a `Makefile'. Now call 
 <pre>make<br></pre> 
-to compile the binary and to install it in the appropriate place.
+to compile the binary and to install it in the appropriate place.  Note that there is no seperate `<pre>make install</pre> call.
 </li>
 
 <li><i>64-bit linux instructions</i>:
 
-If the OS is 64-bit SUSE or Redhat linux, type
+The above instructions should suffice to create 64 bit binaries but if there is a problem
+one can use the `--enable-libsuffix=64' option to configure to force the issue:
+
+<p>
 <pre>./configure ../.. --enable-libsuffix=64 <br>
 make<br>
 </pre>
-to compile Leon's program as a 64 bit native binary. If you have 
-Debian-based 64-bit linux then this still works but the simpler 
-command <tt>./configure ../..</tt> will configure the 
-compilation of the application by default as 64-bit.</li>
-
+</li>
 
 <li><i>Mac OS X instructions</i>:
-The 32-bit linux instructions should work here as well.
+The linux instructions should work here as well.
 </li>
 
 </ul>

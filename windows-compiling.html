@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+
+<title>Compiling GUAVA binaries in a MS Windows environment</title>
+
+</head>
+
+<body>
+
+
+<center><h2 text="#004000">Compiling on Windows</h2></center>
+
+<center><a href="http://www.southernct.edu/~fields/">Joe Fields</a></center>
+
+<p>
+<h3>Intro</h3>
+
+<p>
+In order to successfully compile the external binaries that are needed for full GUAVA functionality you will need to install some additional software on your Windows computer.
+A zip file containing a set of precompiled binaries is available <a href="guava-win-bin">here</a> -- this should be unpacked in the guava/bin folder -- however these binaries may not be suitable for your particular architecture; the surest course is to compile your own.
+
+<p>
+<h3>Prereqs</h3>
+
+<p>
+At a minimum you will need a C compiler and a so-called "make" utility.  I have had success 
+on several Windows machines using the GNU tools: gcc and gmake.  These applications are designed to be run from the command line so a good "shell" is also desirable.  To get these
+prerequisites I recommend installing two packages: <a href="http://win-builds.org/">Win-builds</a> and <a href="https://desktop.github.com/">GitHub desktop</a>.  Win-builds 
+includes the GNU tools and GitHub desktop includes a shell program (PowerShell) which is nicely configured to emulate a Unix environment.
+
+<p>
+After downloading, run the Win-builds application.  It presents you with a large suite of tools which you can then download and install on your architecture.  I have always just installed everything, but as stated before, only gcc and gmake are truly required.   
+
+<p>
+<h3>Do It</h3>
+
+<p>
+Once the Win-builds tools have been installed (I put everything in C:Win-builds) and GitHub desktop is installed, you should see a shortcut to "Git Shell" on your desktop.  Run it, and in the resulting command shell execute the following at the command line prompts:
+<p>
+<pre>
+>bash
+</pre>
+
+<p>(N.B. after running `bash' the command line prompt changes to a dollar sign, and folder names are expressed in the UNIX rather than DOS style.  
+For example, "C:\win-builds\bin" now becomes "/c/win-builds/bin")
+ 
+<p>
+<pre>
+$ cd /c/gap4r8/pkg/guava-3.14/
+$ PATH = $PATH:/c/win-builds/bin
+</pre>
+
+<p>In the second line we are setting up the environment so that the gcc and gmake commands can be found by the system.  If you installed the Win-builds tools elsewhere you will need to modify the second line above.  If your GAP installation is not in the default location you may also need to modify the first line.
+
+<p>From here you can proceed just as you would on a Linux/UNIX/MacOS system:
+
+<p>
+<pre>
+$ ./configure
+
+   (lots of output)
+
+$ gmake
+
+   (even more output)
+
+</pre>
+
+<p>In several instances the `make' run ended with an error.  A second run of `make' has (so far!) sufficed to get the job done.
+
+<p>
+<h3>Testing</h3>
+</p>
+
+<p> To verify that your installation/compilation of the binaries has been successful try the following in a GAP window;
+
+<p>
+<pre>
+gap> LoadPackage("guava");
+gap> C:=HammingCode(3,2);
+gap> G:=AutomorphismGroup(C);
+</pre>
+
+<p>If the call to AutomorphismGroup() produces a group object, all is well.  If it hangs,
+or prints
+
+<p>
+<pre>  desauto not loaded ... switching to PermutationAutomorphismGroup ...</pre>
+
+<p>(thus using a MUCH slower algorithm) before giving you the group, then all is not well.
+
+<p>Feel free to contact me with questions or feedback on these instructions.
+
+<p>
+&nbsp; &nbsp; &nbsp; &nbsp; Joe Fields -- fieldsj1@southernct.edu
+
+</body>
+</html>
