@@ -2013,19 +2013,50 @@ function(C1, C2)
     infile := TmpNameAllArchs(); PrintTo( infile, "\n" );
     GuavaToLeon(C1, code1);
     GuavaToLeon(C2, code2);
-    Exec(Filename(DirectoriesPackagePrograms("guava"), "wtdist"), 
-            Concatenation("-q ",code1,"::code ",
-            String(MinimumDistance(C1))," ",cwcode1,"::code"));
-    Exec(Filename(DirectoriesPackagePrograms("guava"), "wtdist"), 
-            Concatenation("-q ",code2,"::code ",
-            String(MinimumDistance(C2))," ",cwcode2,"::code"));
-    Exec(Filename(DirectoriesPackagePrograms("guava"), "desauto"), 
-            Concatenation("-iso -code -q ",
-            code1,"::code ",code2,"::code ",cwcode1,"::code ",
-            cwcode2,"::code ",output));
-    Exec(Filename(DirectoriesPackagePrograms("guava"), "leonconv"), 
-            Concatenation("-e ",output," ", 
-            infile));
+    #Exec(Filename(DirectoriesPackagePrograms("guava"), "wtdist"), 
+    #        Concatenation("-q ",code1,"::code ",
+    #        String(MinimumDistance(C1))," ",cwcode1,"::code"));
+    Process(DirectoryCurrent(),
+            Filename(DirectoriesPackagePrograms("guava"), "wtdist"),
+            InputTextUser(),
+            OutputTextUser(),
+            ["-q", Concatenation(code1,"::code"), 
+             MinimumDistance(C1), Concatenation(cwcode1, "::code")]
+    );
+    #Exec(Filename(DirectoriesPackagePrograms("guava"), "wtdist"), 
+    #        Concatenation("-q ",code2,"::code ",
+    #        String(MinimumDistance(C2))," ",cwcode2,"::code"));
+    Process(DirectoryCurrent(),
+            Filename(DirectoriesPackagePrograms("guava"), "wtdist"),
+            InputTextUser(),
+            OutputTextUser(),
+            ["-q", Concatenation(code2,"::code"), 
+             MinimumDistance(C2), Concatenation(cwcode2, "::code")]
+    );
+    #Exec(Filename(DirectoriesPackagePrograms("guava"), "desauto"), 
+    #        Concatenation("-iso -code -q ",
+    #        code1,"::code ",code2,"::code ",cwcode1,"::code ",
+    #        cwcode2,"::code ",output));
+    Process(DirectoryCurrent(),
+            Filename(DirectoriesPackagePrograms("guava"), "desauto"),
+            InputTextUser(),
+            OutputTextUser(),
+            ["-iso", "-code", "-q", 
+             Concatenation(code1,"::code"), 
+             Concatenation(code2,"::code"), 
+             Concatenation(cwcode1, "::code"),
+             Concatenation(cwcode2, "::code"), 
+             output]
+    );
+    #Exec(Filename(DirectoriesPackagePrograms("guava"), "leonconv"), 
+    #        Concatenation("-e ",output," ", 
+    #        infile));
+    Process(DirectoryCurrent(),
+            Filename(DirectoriesPackagePrograms("guava"), "leonconv"),
+            InputTextUser(),
+            OutputTextUser(),
+            ["-e", output, infile] 
+    );
     Read(infile);
     RemoveFiles(code1,code2,cwcode1,cwcode2,output,infile);
     if not IsPerm(GUAVA_TEMP_VAR) then
