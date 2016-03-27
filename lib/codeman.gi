@@ -397,18 +397,13 @@ function(C, wt)
       CWS!.upperBoundMinimumDistance:=a;
       return CWS;
    else 
-      Print("the C code programs are compiled, so using Leon's binary....\n");
+      #Print("the C code programs are compiled, so using Leon's binary....\n");
       incode := TmpNameAllArchs();
       PrintTo( incode, "\n" );
-      # inV := TmpName(); 
-      # PrintTo( inV, "\n" );
       infile := TmpNameAllArchs();
       cwsc := TmpNameAllArchs();
       PrintTo( infile, "\n" );
-      GuavaToLeon(C, incode);
-      #Exec(Filename(DirectoriesPackagePrograms("guava"), "wtdist"), 
-      #           Concatenation("-q ",incode,"::code ",
-      #           String(wt), " ", Filename( tmpdir, "cwsc.txt" ),"::code"));  
+      GuavaToLeon(C, incode);  
       Process(DirectoryCurrent(),
          Filename(DirectoriesPackagePrograms("guava"), "wtdist"), 
 	 InputTextUser(),
@@ -416,9 +411,7 @@ function(C, wt)
 	 ["-q",  Concatenation(incode,"::code"), wt, 
 	  Concatenation(cwsc,"::code")]
       );  
-      if IsReadableFile( cwsc ) then
-         #Exec(Filename(DirectoriesPackagePrograms("guava"), "leonconv"), 
-         #      Concatenation("-c ",inV," ",infile));  
+      if IsReadableFile( cwsc ) then  
          Process(DirectoryCurrent(),
               Filename(DirectoriesPackagePrograms("guava"), "leonconv"), 
               InputTextUser(),
