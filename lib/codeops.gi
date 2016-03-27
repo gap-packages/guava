@@ -2767,32 +2767,50 @@ function(C)
     od;
 
 	# Build the parameters required for the external program
-	param := "";
-	param := Concatenation(param, " --out ", tmpOutFile);
+	# FYI, here is the usage string for the external program:
+#usage: C:\gap4r8\pkg\guava-3.13\bin\i686-pc-cygwin-gcc-default32\minimum-weight.exe options [generator matrix file]
+# -h --help             Display this help screen
+# -c --cyclic           Indicate that the code is cyclic
+# -l --lower-bound [x]  Known lower-bound on the minimum distance
+# -m --mod [x]          Constraint on minimum weight codeword
+#        1 : 0 mod 2
+#        2 : 1 mod 2
+#        3 : 3 mod 4
+#        4 : 0 mod 4
+#        5 : 0 mod 3
+    param := ["--out", tmpOutFile];
     if IsCyclicCode(C) then
-	   param := Concatenation(param, " --cyclic");
+	Add(param,  "--cyclic");
 	fi;
 	if IsBound(C!.lowerBoundMinimumDistance) then
-		param := Concatenation(param, " --lower-bound ", String(C!.lowerBoundMinimumDistance));
+	   Add(param, "--lower-bound");
+	   Add(param, C!.lowerBoundMinimumDistance);
 	fi;
 	if LeftActingDomain(C) = GF(2) then
 		if IsEvenCode(C) then
+		        Add(param, "--mod");
                         if IsDoublyEvenCode(C) then
-			        param := Concatenation(param, " --mod 4");
+				Add(param,  4);
                         else
-			        param := Concatenation(param, " --mod 2");
+				Add(param,  1);
 			fi;
 		else
-			param := Concatenation(param, " --mod 1");
-		fi;
+		        Add(param, 2);
+                fi;
 	elif LeftActingDomain(C) = GF(3) then
 		if IsSelfOrthogonalCode(C) then
-			param := Concatenation(param, " --mod 5");
+			Add(param, "--mod");
+			Add(param, 5);
 		fi;
 	fi;
-	
+	Add(param, tmpFile);
 	## Now call the external program
-    Exec(Filename(path, "minimum-weight"), Concatenation(" ", param, " ", tmpFile));
+        Process(DirectoryCurrent(),
+            Filename(path, "minimum-weight"),
+            InputTextUser(),
+            OutputTextUser(),
+            param
+        );
 	Read(tmpOutFile);
 	RemoveFiles(tmpFile, tmpOutFile);
 	C!.lowerBoundMinimumDistance := GUAVA_TEMP_VAR; 

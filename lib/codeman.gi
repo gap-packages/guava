@@ -371,71 +371,81 @@ end);
 InstallMethod(ConstantWeightSubcode, "method for linear code, weight", true, 
 	[IsLinearCode, IsInt], 0, 
 function(C, wt) 
-    local S, c, a, CWS, path, F, tmpdir, incode, infile, inV, Els, i, D;
-    a:=wt;
-    if wt = 0 then
-        return NullCode(WordLength(C), LeftActingDomain(C));
-    fi;
-    if Dimension(C) = 0 then
-        Error("no constant weight subcode of a null code is defined");
-    fi;
+   local S, c, a, CWS, path, F, incode, infile, cwsc, Els, i, D;
+   a:=wt;
+   if wt = 0 then
+      return NullCode(WordLength(C), LeftActingDomain(C));
+   fi;
+   if Dimension(C) = 0 then
+      Error("no constant weight subcode of a null code is defined");
+   fi;
 
-      path := DirectoriesPackagePrograms( "guava" );
+   path := DirectoriesPackagePrograms( "guava" );
 
-      if ForAny( ["desauto", "leonconv", "wtdist"], 
+   if ForAny( ["desauto", "leonconv", "wtdist"], 
                  f -> Filename( path, f ) = fail ) then
-##  begin if-then
-	  Print("the C code programs are not compiled, so using GAP code...\n");
-	  F:=LeftActingDomain(C);
-	  S:=[];
-	  for c in Elements(C) do
-	   if WeightCodeword(c)=a then
-	     S:=Concatenation([c],S); 
-	   fi;
-	  od;
-	  CWS:=ElementsCode(S,"constant weight subcode",F);
-	  CWS!.lowerBoundMinimumDistance:=a;
-	  CWS!.upperBoundMinimumDistance:=a;
-	  return CWS;
-## end if-then
-else 
-	 Print("the C code programs are compiled, so using Leon's binary....\n");
-
- tmpdir := DirectoryTemporary();;
- incode := TmpNameAllArchs();
- PrintTo( incode, "\n" );
-# inV := TmpName(); 
-# PrintTo( inV, "\n" );
- infile := TmpNameAllArchs();
- PrintTo( infile, "\n" );
- GuavaToLeon(C, incode);
- Exec(Filename(DirectoriesPackagePrograms("guava"), "wtdist"), 
-            Concatenation("-q ",incode,"::code ",
-            String(wt), " ", Filename( tmpdir, "cwsc.txt" ),"::code"));  
- if IsReadableFile( Filename( tmpdir, "cwsc.txt" )) then
-      inV := Filename( tmpdir, "cwsc.txt" );  
-      Exec(Filename(DirectoriesPackagePrograms("guava"), "leonconv"), 
-            Concatenation("-c ",inV," ",infile));  
-  else  
-      Error("\n Sorry, no codes words of weight ",wt,"\n");
- fi;
- Read(infile);
- RemoveFiles(incode,inV,infile);
- Els := [];
- for i in AsSSortedList(LeftActingDomain(C)){[2..Size(LeftActingDomain(C))]} do
-        Append(Els, i * GUAVA_TEMP_VAR);
- od;
- if Els <> [] then
-        D := ElementsCode(Els, Concatenation( "code with codewords of weight ",
-                String(wt)), LeftActingDomain(C) );
-        D!.lowerBoundMinimumDistance := LowerBoundMinimumDistance(C);
-        D!.history := History(C);
-        return D;
-    else
-        Error("no words of weight ",wt);
-        Print("\n no words of weight ",wt);
- fi;
-fi; ## end if-then-else
+      Print("the C code programs are not compiled, so using GAP code...\n");
+      F:=LeftActingDomain(C);
+      S:=[];
+      for c in Elements(C) do
+         if WeightCodeword(c)=a then
+            S:=Concatenation([c],S); 
+         fi;
+      od;
+      CWS:=ElementsCode(S,"constant weight subcode",F);
+      CWS!.lowerBoundMinimumDistance:=a;
+      CWS!.upperBoundMinimumDistance:=a;
+      return CWS;
+   else 
+      Print("the C code programs are compiled, so using Leon's binary....\n");
+      incode := TmpNameAllArchs();
+      PrintTo( incode, "\n" );
+      # inV := TmpName(); 
+      # PrintTo( inV, "\n" );
+      infile := TmpNameAllArchs();
+      cwsc := TmpNameAllArchs();
+      PrintTo( infile, "\n" );
+      GuavaToLeon(C, incode);
+      #Exec(Filename(DirectoriesPackagePrograms("guava"), "wtdist"), 
+      #           Concatenation("-q ",incode,"::code ",
+      #           String(wt), " ", Filename( tmpdir, "cwsc.txt" ),"::code"));  
+      Process(DirectoryCurrent(),
+         Filename(DirectoriesPackagePrograms("guava"), "wtdist"), 
+	 InputTextUser(),
+	 OutputTextUser(),
+	 ["-q",  Concatenation(incode,"::code"), wt, 
+	  Concatenation(cwsc,"::code")]
+      );  
+      if IsReadableFile( cwsc ) then
+         #Exec(Filename(DirectoriesPackagePrograms("guava"), "leonconv"), 
+         #      Concatenation("-c ",inV," ",infile));  
+         Process(DirectoryCurrent(),
+              Filename(DirectoriesPackagePrograms("guava"), "leonconv"), 
+              InputTextUser(),
+              OutputTextUser(),
+              ["-c", cwsc, infile]
+         );  
+      else  
+         Error("\n Sorry, no codes words of weight ",wt,"\n");
+      fi;
+      Read(infile);
+      RemoveFiles(incode,cwsc,infile);
+      Els := [];
+      for i in AsSSortedList(LeftActingDomain(C)){[2..Size(LeftActingDomain(C))]} do
+         Append(Els, i * GUAVA_TEMP_VAR);
+      od;
+      if Els <> [] then
+         D := ElementsCode(Els, Concatenation( "code with codewords of weight ",
+                 String(wt)), LeftActingDomain(C) 
+         );
+         D!.lowerBoundMinimumDistance := LowerBoundMinimumDistance(C);
+         D!.history := History(C);
+         return D;
+      else
+         Error("no words of weight ",wt);
+         Print("\n no words of weight ",wt);
+      fi;
+   fi; ## end if-then-else
 end);
 
 InstallOtherMethod(ConstantWeightSubcode, "method for linear code", true, 
