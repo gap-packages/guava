@@ -2795,6 +2795,7 @@ function(C)
 				Add(param,  1);
 			fi;
 		else
+		        Add(param, "--mod");
 		        Add(param, 2);
                 fi;
 	elif LeftActingDomain(C) = GF(3) then
@@ -2804,6 +2805,7 @@ function(C)
 		fi;
 	fi;
 	Add(param, tmpFile);
+        Print(param, "\n");
 	## Now call the external program
         Process(DirectoryCurrent(),
             Filename(path, "minimum-weight"),
