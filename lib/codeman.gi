@@ -2304,3 +2304,14 @@ function( O, I )
 
 	return C;
 end);
+
+#############################################################################
+##
+#F  HullCode( <C> ) . . . . . . . . . . . . . . . . . . . .  hull of <C>
+##
+
+InstallMethod(HullCode, "generic method for codes", true, [IsLinearCode], 0, 
+function(C) 
+  return IntersectionCode(C,DualCode(C));
+end);
+

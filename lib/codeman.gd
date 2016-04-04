@@ -229,3 +229,9 @@ DeclareOperation("BZCode", [IsList, IsList]);
 
 DeclareOperation("BZCodeNC", [IsList, IsList]);
 
+#############################################################################
+##
+#F  HullCode( <C> ) . . . . . . . . . . . . . . . . . . . .  hull of <C>
+##
+DeclareOperation("HullCode", [IsCode]); 
+
