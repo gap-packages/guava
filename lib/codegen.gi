@@ -1337,7 +1337,8 @@ function(bds)
 		bds := BoundsMinimumDistance(bds.n, bds.k, bds.q); 
 	fi;
     if bds.construction = false then 
-        Error("code not yet in library");
+        Print("Code not yet in library\n");
+        return fail;
     else
         C := MakeCode(bds.construction);
         if LowerBoundMinimumDistance(C) > bds.lowerBound then
