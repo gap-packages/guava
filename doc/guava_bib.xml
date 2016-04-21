@@ -1,14 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE file SYSTEM "bibxmlext.dtd">
 <file>
+<string key="camup" value="Cambridge University Press"/>
+<string key="elsevier" value="Elsevier"/>
+<string key="eurmathsoc" value="European Mathematical Society"/>
+<string key="nholland" value="North-Holland"/>
+<string key="springer" value="Springer"/>
+<string key="appae" value="Appl. Algebra Engrg. Comm. Comput."/>
+<string key="grapc" value="Graphs Combin."/>
+<string key="ieetit" value="IEEE Trans. Inform. Theory"/>
+<string key="iretit" value="IRE Trans. Inf. Theor."/>
+<string key="jsymc" value="J. Symbolic Comput."/>
+<string key="emstmath" value="EMS Textbooks in Mathematics"/>
+<string key="gtm" value="Graduate Texts in Mathematics"/>
+<string key="nhml" value="North-Holland Mathematical Library"/>
 <entry id="BM03"><article>
   <author>
     <name><first>L.</first><last>Bazzi</last></name>
     <name><first>S. K.</first><last>Mitter</last></name>
   </author>  
-  <title>Some constructions of codes from group actions</title>
-  <journal>preprint</journal>
-  <year>March 2003 (submitted)</year>
+  <title>Some Randomized Code Constructions From Group Actions</title>
+  <journal><value key="ieetit"/></journal>
+  <year>2006</year>
+  <volume>52</volume>
+  <number>7</number>
+  <pages>3210–3219</pages>
 </article></entry>
 <entry id="GDT91"><article>
   <author>
@@ -18,30 +34,36 @@
   </author>  
   <title>Linear codes with covering radius 2 and other new covering
       codes</title>
-  <journal>IEEE Trans. Inform. Theory</journal>
+  <journal><value key="ieetit"/></journal>
   <year>1991</year>
   <volume>37</volume>
   <number>1</number>
   <pages>219–224</pages>
 </article></entry>
-<entry id="Gao03"><article>
+<entry id="Gao03"><incollection>
   <author>
     <name><first>S.</first><last>Gao</last></name>
   </author>  
-  <title>A new algorithm for decoding Reed-Solomon codes</title>
-  <journal>Communications, Information and Network Security (V. Bhargava, H.
-      V. Poor, V. Tarokh and S. Yoon, Eds.)</journal>
+  <title>A New Algorithm for Decoding <C>R</C>eed-<C>S</C>olomon Codes</title>
+  <booktitle>Communications, Information and Network Security</booktitle>
+  <publisher><value key="springer"/></publisher>
   <year>2003</year>
+  <editor>
+    <name><first>V.</first><last>Bhargava</last></name>
+    <name><first>H. V.</first><last>Poor</last></name>
+    <name><first>V.</first><last>Tarokh</last></name>
+    <name><first>S.</first><last>Yoon</last></name>
+  </editor>  
   <pages>55–68</pages>
-  <other type="publisher">Kluwer Academic Publishers</other>
-</article></entry>
+  <address>Boston, MA</address>
+</incollection></entry>
 <entry id="GG03"><book>
   <author>
     <name><first>J.</first><last>von zur Gathen</last></name>
     <name><first>J.</first><last>Gerhard</last></name>
   </author>  
   <title>Modern computer algebra</title>
-  <publisher>Cambridge Univ. Press</publisher>
+  <publisher><value key="camup"/></publisher>
   <year>2003</year>
 </book></entry>
 <entry id="GS85"><article>
@@ -49,31 +71,39 @@
     <name><first>R.</first><last>Graham</last></name>
     <name><first>N.</first><last>Sloane</last></name>
   </author>  
-  <title>On the covering radius of codes</title>
-  <journal>IEEE Trans. Inform. Theory</journal>
+  <title>On the Covering Radius of Codes</title>
+  <journal><value key="ieetit"/></journal>
   <year>1985</year>
   <volume>31</volume>
-  <number>1</number>
+  <number>3</number>
   <pages>385–401</pages>
 </article></entry>
-<entry id="Han99"><article>
+<entry id="Han99"><incollection>
   <author>
     <name><first>J. P.</first><last>Hansen</last></name>
   </author>  
-  <title>Toric surfaces and error-correcting codes</title>
-  <journal>Coding theory, cryptography, and related areas (ed., Bachmann et
-      al)</journal>
-  <year>1999</year>
-  <other type="publisher">Springer-Verlag</other>
-</article></entry>
+  <title>Toric Surfaces and Error-correcting Codes</title>
+  <booktitle>Coding Theory, Cryptography and Related Areas</booktitle>
+  <publisher><value key="springer"/></publisher>
+  <year>2000</year>
+  <editor>
+    <name><first>J.</first><last>Buchmann</last></name>
+    <name><first>T.</first><last>Høholdt</last></name>
+    <name><first>H.</first><last>Stichtenoth</last></name>
+    <name><first>H.</first><last>Tapia-Recillas</last></name>
+  </editor>  
+  <pages>132–142</pages>
+  <address>Berlin Heidelberg</address>
+</incollection></entry>
 <entry id="He72"><article>
   <author>
     <name><first>H. J.</first><last>Helgert</last></name>
   </author>  
-  <title>Srivastava codes</title>
-  <journal>IEEE Trans. Inform. Theory</journal>
+  <title>Srivastava Codes</title>
+  <journal><value key="ieetit"/></journal>
   <year>1972</year>
   <volume>18</volume>
+  <number>2</number>
   <pages>292–297</pages>
   <month>March</month>
 </article></entry>
@@ -83,7 +113,7 @@
     <name><first>V.</first><last>Pless</last></name>
   </author>  
   <title>Fundamentals of error-correcting codes</title>
-  <publisher>Cambridge Univ. Press</publisher>
+  <publisher><value key="camup"/></publisher>
   <year>2003</year>
 </book></entry>
 <entry id="Jo04"><article>
@@ -91,29 +121,31 @@
     <name><first>D.</first><last>Joyner</last></name>
   </author>  
   <title>Toric codes over finite fields</title>
-  <journal>Applicable Algebra in Engineering, Communication and
-      Computing</journal>
+  <journal><value key="appae"/></journal>
   <year>2004</year>
   <volume>15</volume>
+  <number>1</number>
   <pages>63–79</pages>
 </article></entry>
 <entry id="JH04"><book>
   <author>
     <name><first>J.</first><last>Justesen</last></name>
-    <name><first>T.</first><last>Hoholdt</last></name>
+    <name><first>T.</first><last>Høholdt</last></name>
   </author>  
-  <title>A course in error-correcting codes</title>
-  <publisher>European Mathematical Society</publisher>
+  <title>A course in Error-Correcting Codes</title>
+  <publisher><value key="eurmathsoc"/></publisher>
   <year>2004</year>
+  <series><value key="emstmath"/></series>
 </book></entry>
 <entry id="Leon82"><article>
   <author>
     <name><first>J. S.</first><last>Leon</last></name>
   </author>  
   <title>Computing automorphism groups of error-correcting codes</title>
-  <journal>IEEE Trans. Inform. Theory</journal>
+  <journal><value key="ieetit"/></journal>
   <year>1982</year>
   <volume>28</volume>
+  <number>3</number>
   <pages>496–511</pages>
   <month>May</month>
 </article></entry>
@@ -123,9 +155,10 @@
   </author>  
   <title>A probabilistic algorithm for computing minimum weights of large
       error-correcting codes</title>
-  <journal>IEEE Trans. Inform. Theory</journal>
+  <journal><value key="ieetit"/></journal>
   <year>1988</year>
   <volume>34</volume>
+  <number>5</number>
   <pages>1354–1359</pages>
   <month>September</month>
 </article></entry>
@@ -133,11 +166,12 @@
   <author>
     <name><first>J. S.</first><last>Leon</last></name>
   </author>  
-  <title>Permutation group algorithms based on partitions, <C>I</C>: theory
+  <title>Permutation group algorithms based on partitions, <C>I</C>: Theory
       and algorithms</title>
-  <journal>J. Symbolic Comput.</journal>
+  <journal><value key="jsymc"/></journal>
   <year>1991</year>
   <volume>12</volume>
+  <number>4–5</number>
   <pages>533–583</pages>
 </article></entry>
 <entry id="MS83"><book>
@@ -146,24 +180,29 @@
     <name><first>N. J. A.</first><last>Sloane</last></name>
   </author>  
   <title>The theory of error-correcting codes</title>
-  <publisher>Amsterdam: North-Holland</publisher>
+  <publisher><value key="nholland"/></publisher>
   <year>1983</year>
+  <volume>16</volume>
+  <series><value key="nhml"/></series>
+  <address>Amsterdam</address>
 </book></entry>
 <entry id="St93"><book>
   <author>
     <name><first>H.</first><last>Stichtenoth</last></name>
   </author>  
-  <title>Algebraic function fields and codes</title>
-  <publisher>Springer-Verlag</publisher>
+  <title>Algebraic Function Fields and Codes</title>
+  <publisher><value key="springer"/></publisher>
   <year>1993</year>
+  <volume>254</volume>
+  <series><value key="gtm"/></series>
 </book></entry>
 <entry id="Br"><misc>
   <author>
     <name><first>A. E.</first><last>Brouwer</last></name>
   </author>  
   <title>Bounds on the minimum distance of linear codes</title>
-  <howpublished>\href{http://www.win.tue.nl/~aeb/voorlincod.html}{http://www.win.tue.nl/~aeb/voorlincod.html}</howpublished>
-  <year>1997-2006</year>
+  <howpublished><URL>http://www.codetables.de/</URL></howpublished>
+  <year>1997–2006</year>
 </misc></entry>
 <entry id="HHKK07"><article>
   <author>
@@ -174,7 +213,7 @@
   </author>  
   <title>Extremal Ternary Self-Dual Codes Constructed from Negacirculant
       Matrices</title>
-  <journal>Graphs and Combinatorics</journal>
+  <journal><value key="grapc"/></journal>
   <year>2007</year>
   <volume>23</volume>
   <number>4</number>
@@ -187,20 +226,22 @@
     <name><first>C.</first><last>Chen</last></name>
   </author>  
   <title>New binary codes</title>
-  <journal>IEEE Trans. Inform. Theory</journal>
+  <journal><value key="ieetit"/></journal>
   <year>1972</year>
   <volume>18</volume>
+  <number>4</number>
   <pages>503–510</pages>
-  <month>Jul</month>
+  <month>July</month>
 </article></entry>
 <entry id="Alltop84"><article>
   <author>
     <name><first>W. O.</first><last>Alltop</last></name>
   </author>  
   <title>A method for extending binary linear codes</title>
-  <journal>IEEE Trans. Inform. Theory</journal>
+  <journal><value key="ieetit"/></journal>
   <year>1984</year>
   <volume>30</volume>
+  <number>6</number>
   <pages>871–872</pages>
 </article></entry>
 <entry id="Brouwer98"><incollection>
@@ -209,13 +250,14 @@
   </author>  
   <title>Bounds on the Size of Linear Codes</title>
   <booktitle>Handbook of Coding Theory</booktitle>
-  <publisher>{Elsevier, North Holland}</publisher>
+  <publisher><value key="elsevier"/></publisher>
   <year>1998</year>
   <editor>
     <name><first>V. S.</first><last>Pless</last></name>
     <name><first>W. C.</first><last>Huffman</last></name>
   </editor>  
-  <pages>295–461</pages>
+  <pages>295-461</pages>
+  <address>Amsterdam</address>
 </incollection></entry>
 <entry id="Chen69"><phdthesis>
   <author>
@@ -223,17 +265,17 @@
   </author>  
   <title>Some Results on Algebraically Structured Error-Correcting
       Codes</title>
-  <school>{University of Hawaii}</school>
+  <school>University of Hawaii</school>
   <year>1969</year>
-  <type>Ph.{D} Dissertation</type>
-  <address>USA</address>
+  <type>Doctoral Dissertation</type>
+  <address>Honolulu, USA</address>
 </phdthesis></entry>
 <entry id="Zimmermann96"><techreport>
   <author>
     <name><first>K. H.</first><last>Zimmermann</last></name>
   </author>  
-  <title>Integral Hecke Modules, Integral Generalized <C>Reed-Muller</C>
-      Codes, and Linear Codes</title>
+  <title>Integral <C>H</C>ecke Modules, Integral Generalized
+      <C>R</C>eed-<C>M</C>uller Codes, and Linear Codes</title>
   <institution>Technische Universität Hamburg-Harburg</institution>
   <year>1996</year>
   <number>3–96</number>
@@ -244,11 +286,11 @@
     <name><first>R.</first><last>Gallager</last></name>
   </author>  
   <title>Low-Density Parity-Check Codes</title>
-  <journal>IRE Trans. Inform. Theory</journal>
+  <journal><value key="iretit"/></journal>
   <year>1962</year>
   <volume>IT-8</volume>
   <pages>21–28</pages>
-  <month>Jan</month>
+  <month>January</month>
 </article></entry>
 <entry id="TSSFC04"><article>
   <author>
@@ -260,11 +302,11 @@
   </author>  
   <title><C>LDPC</C> Block and Convolutional Codes Based on Circulant
       Matrices</title>
-  <journal>IEEE Trans. Inform. Theory</journal>
+  <journal><value key="ieetit"/></journal>
   <year>2004</year>
   <volume>50</volume>
   <number>12</number>
   <pages>2966–2984</pages>
-  <month>Dec</month>
+  <month>December</month>
 </article></entry>
 </file>
