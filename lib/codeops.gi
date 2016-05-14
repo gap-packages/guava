@@ -1736,7 +1736,7 @@ return PermutationGroup(C);
     #Exec(Filename(DirectoriesPackagePrograms("guava"), "leonconv"), 
     #        Concatenation("-a ",outgroup," ", infile));
     Read(infile);
-    RemoveFiles(incode,inV,outgroup,infile);
+    #RemoveFiles(incode,inV,outgroup,infile);
     return GUAVA_TEMP_VAR;
 end);
 
