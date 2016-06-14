@@ -166,6 +166,12 @@ SetPackageInfo( rec(
   PackageInfoURL := 
     Concatenation( ~.PackageWWWHome, "PackageInfo.g" ),
 
+SourceRepository := rec( 
+  Type := "git", 
+  URL := "https://github.com/osj1961/guava"
+),
+IssueTrackerURL := Concatenation( ~.SourceRepository.URL, "/issues" ),
+
 ##  Here you  must provide a short abstract explaining the package content 
 ##  in HTML format (used on the package overview Web page) and an URL 
 ##  for a Webpage with more detailed information about the package
