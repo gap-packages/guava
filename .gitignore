@@ -64,3 +64,7 @@ src/leonconv
 src/leon/autom4te.cache/requests
 *.exe
 Makefile-default32
+
+.DS_Store
+
+*/.DS_Store
