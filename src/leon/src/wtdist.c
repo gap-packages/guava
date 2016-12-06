@@ -174,13 +174,14 @@ int main( int argc, char *argv[])
               argv[optionCountPlus1][0] == '-' ; ++optionCountPlus1 )
       ;
 
-   if ( argc - optionCountPlus1 < 1 && argc - optionCountPlus1 > 3 ) {
+   if ( argc - optionCountPlus1 == 1 || argc - optionCountPlus1 == 3) {
+      saveCodeWords = (argc - optionCountPlus1 == 3)
+   } else {
       ERROR( "main (wtdist)",
-             "1, 2 or 3 non-option parameters are required.");
+             "1 or 3 non-option parameters are required.");
       exit(ERROR_RETURN_CODE);
    }
-   saveCodeWords = (argc - optionCountPlus1 == 3);
-
+   
    /* Process options. */
    prefix[0] = '\0';
    suffix[0] = '\0';
