@@ -11,7 +11,7 @@ SUBDIRS = leon ctjhai
 .PHONY: all $(SUBDIRS)
 
 all :	$(FILES)
-	cd leon make
+	cd leon; $(MAKE)
 
 leonconv: leonconv.c
 	$(CC) $(CPPFLAGS) $(CFLAGS) $(LDFLAGS) -o leonconv leonconv.c

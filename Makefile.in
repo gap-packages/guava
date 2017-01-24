@@ -22,7 +22,7 @@ minimum-weight: $(CJSRCDIR)/minimum-weight.o $(CJSRCDIR)/minimum-weight-gf2.o $(
 $(CJSRCDIR)/minimum-weight.o $(CJSRCDIR)/minimum-weight-gf2.o \
 $(CJSRCDIR)/minimum-weight-gf3.o $(CJSRCDIR)/popcount.o -lm
 
-leonconv: 
+leonconv: desauto
 	cd ./src; $(MAKE) CC="$(CC)" CPPFLAGS="$(CPPFLAGS)" CFLAGS="$(CFLAGS)" LDFLAGS="$(LDFLAGS)";
 
 desauto: 
@@ -41,7 +41,7 @@ popcount.o: $(CJSRCDIR)/popcount.c $(CJSRCDIR)/popcount.h $(CJSRCDIR)/config.h $
 	$(CC) -c -O3 -Wall -I $(CJSRCDIR) $(CJSRCDIR)/popcount.c
 
 
-install:
+install: leonconv minimum-weight
 	( cp ./src/leonconv $(BINDIR) )
 	( cp $(SRCDIR)/desauto $(BINDIR) )
 	( cp $(CJSRCDIR)/minimum-weight $(BINDIR) )
