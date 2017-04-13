@@ -87,7 +87,7 @@ SetPackageInfo( rec(
       IsAuthor      := true,
       IsMaintainer  := false,
       Email         := "wdjoyner@gmail.com",
-      WWWHome       := "https://www.usna.edu/Users/math/wdj/",
+      WWWHome       := "https://sites.google.com/site/wdjoyner/",
       PostalAddress := Concatenation( [
                          "W. David Joyner\n",
                          "Mathematics Department\n",
