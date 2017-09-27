@@ -1139,7 +1139,7 @@
   [29X[2XQQRCode[102X( [3Xp[103X ) [32X function
   
   [33X[0;0Y[10XQQRCode[110X  returns  a  quasi-quadratic residue code, as defined by Proposition
-  2.2  in  Bazzi-Mittel [BMd)]. The parameter [3Xp[103X must be a prime. Its generator
+  2.2  in  Bazzi-Mittel [BM06]. The parameter [3Xp[103X must be a prime. Its generator
   matrix has the block form [22XG=(Q,N)[122X. Here [22XQ[122X is a [22Xp×[122X circulant matrix whose top
   row  is  [22X(0,x_1,...,x_p-1)[122X,  where  [22Xx_i=1[122X  if  and  only if [22Xi[122X is a quadratic
   residue   mod  [22Xp[122X,  and  [22XN[122X  is  a  [22Xp×[122X  circulant  matrix  whose  top  row  is
@@ -1603,7 +1603,7 @@
   [29X[2XToricCode[102X( [3XL[103X, [3XF[103X ) [32X function
   
   [33X[0;0YThis  function  returns the toric codes as in D. Joyner [Joy04] (see also J.
-  P. Hansen [Han99]). This is a truncated (generalized) Reed-Muller code. Here
+  P. Hansen [Han00]). This is a truncated (generalized) Reed-Muller code. Here
   [3XL[103X  is  a  list  of integral vectors and [3XF[103X is the finite field. The size of [3XF[103X
   must be different from [22X2[122X.[133X
   

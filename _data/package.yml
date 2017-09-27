@@ -1,0 +1,45 @@
+name: GUAVA
+version: 3.13
+date: 31/01/2016
+description: |
+    a GAP package for computing with error-correcting codes
+
+authors:
+    - name: Reinald Baart
+    - name: Tom Boothby
+    - name: Jasper Cramwinckel
+    - name: Joe Fields
+      url: http://giam.southernct.edu/
+    - name: David Joyner
+      url: https://sites.google.com/site/wdjoyner/
+    - name: Robert Miller
+    - name: Eric Minkes
+    - name: Erik Roijackers
+    - name: Lea Ruscio
+    - name: Cen Tjhai
+
+maintainers:
+    - name: Joe Fields
+      url: http://giam.southernct.edu/
+
+GAP: ">= 4.8.0"
+
+suggested-pkgs:
+    - name: "SONATA"
+      version: ">= 2.3"
+      url: "http://www.algebra.uni-linz.ac.at/Sonata/"
+
+www: https://gap-packages.github.io/guava/
+readme: README.guava
+packageinfo: https://gap-packages.github.io/guava/PackageInfo.g
+
+downloads:
+    - name: .tar.gz
+      url: https://gap-packages.github.io/guava/archives/guava-3.13.tar.gz
+
+abstract: |
+    <span class="pkgname">GUAVA</span> is a <span class="pkgname">GAP</span> package for computing with codes. <span class="pkgname">GUAVA</span> can construct unrestricted (non-linear), linear and cyclic codes; transform one code into another (for example by puncturing); construct a new code from two other codes (using direct sums for example); perform decoding/error-correction; and can calculate important data of codes (such as the minumim distance or covering radius) quickly. Limited ability to compute algebraic geometric codes.
+
+status: accepted
+doc-html: doc/chap0.html
+doc-pdf: doc/manual.pdf

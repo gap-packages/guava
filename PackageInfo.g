@@ -4,8 +4,6 @@
 #W                                                               Frank Lübeck
 #W                                                               David Joyner
 #W                                                               Joe Fields
-##
-#H  @(#)$Id: PackageInfo.g,v 1.2 2003/02/14 02:39:41 gap Exp $
 
 SetPackageInfo( rec(
 
@@ -13,7 +11,7 @@ SetPackageInfo( rec(
   Subtitle := "a GAP package for computing with error-correcting codes",
   Version := "3.13",
   Date    := "31/01/2016",
-  PackageWWWHome := Concatenation( "http://osj1961.github.io/",
+  PackageWWWHome := Concatenation( "https://gap-packages.github.io/",
       LowercaseString( ~.PackageName ), "/" ),
   ArchiveURL := Concatenation( ~.PackageWWWHome, "archives/guava-", ~.Version ),
   ArchiveFormats 
@@ -89,7 +87,7 @@ SetPackageInfo( rec(
       IsAuthor      := true,
       IsMaintainer  := false,
       Email         := "wdjoyner@gmail.com",
-      WWWHome       := "http://wdjoyner.org/",
+      WWWHome       := "https://sites.google.com/site/wdjoyner/",
       PostalAddress := Concatenation( [
                          "W. David Joyner\n",
                          "Mathematics Department\n",
@@ -167,6 +165,12 @@ SetPackageInfo( rec(
     Concatenation( ~.PackageWWWHome, "README.guava" ),
   PackageInfoURL := 
     Concatenation( ~.PackageWWWHome, "PackageInfo.g" ),
+
+SourceRepository := rec( 
+  Type := "git", 
+  URL := "https://github.com/osj1961/guava"
+),
+IssueTrackerURL := Concatenation( ~.SourceRepository.URL, "/issues" ),
 
 ##  Here you  must provide a short abstract explaining the package content 
 ##  in HTML format (used on the package overview Web page) and an URL 
