@@ -6,7 +6,7 @@ layout: default
 
 {{site.data.package.abstract}}
 
-The current version of this package is version {{site.data.package.version}}.
+The current version of this package is version {{site.data.package.version}}, released on {{site.data.package.date}}.
 For more information, please refer to [the package manual]({{site.data.package.doc-html}}).
 There is also a [README](README.html) file and the former [webpage](oldindex.html)
 used for releases up to GUAVA 3.13 inclusive.
@@ -39,7 +39,7 @@ The following additional GAP packages are not required, but suggested:
 {% if site.data.package.contributors and site.data.package.contributors.size > 0 %}
 ## Contributor{% if site.data.package.contributors.size != 1 %}s{% endif %}
  {% for person in site.data.package.contributors %}
-  {% if person.url %}{{ person.name }}{% else %}{{ person.name }}{% endif %}
+  {% if person.url %}<a href="{{ person.url }}">{{ person.name }}</a>{% else %}{{ person.name }}{% endif %}
   {%- if forloop.last -%}.{% else %}, {%- endif -%}
  {% endfor %}
 {% endif %}

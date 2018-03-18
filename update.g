@@ -1,7 +1,7 @@
 #
 # GitHubPagesForGAP - a template for using GitHub Pages within GAP packages
 #
-# Copyright (c) 2013-2014 Max Horn
+# Copyright (c) 2013-2018 Max Horn
 #
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
@@ -46,15 +46,51 @@ PrintPackageList := function(stream, pkgs)
     AppendTo(stream, "\n");
 end;
 
+# verify date is of the form YYYY-MM-DD
+IsValidISO8601Date := function(date)
+    local day, month, year;
+    if Length(date) <> 10 then return false; fi;
+    if date[5] <> '-' or date[8] <> '-' then return false; fi;
+    if not ForAll(date{[1,2,3,4,6,7,9,10]}, IsDigitChar) then
+        return false;
+    fi;
+    date := List(SplitString(date, "-"), Int);
+    day := date[3];
+    month := date[2];
+    year := date[1];
+    return month in [1..12] and day in [1..DaysInMonth(month, year)];
+end;
+
 GeneratePackageYML:=function(pkg)
-    local stream, authors, maintainers, contributors, formats, f, tmp;
+    local stream, date, authors, maintainers, contributors, formats, f, tmp;
 
     stream := OutputTextFile("_data/package.yml", false);
     SetPrintFormattingStatus(stream, false);
     
     AppendTo(stream, "name: ", pkg.PackageName, "\n");
     AppendTo(stream, "version: ", pkg.Version, "\n");
-    AppendTo(stream, "date: ", pkg.Date, "\n"); # TODO: convert to ISO 8601?
+
+    # convert date from DD/MM/YYYY to ISO 8601, i.e. YYYY-MM-DD
+    #
+    # in the future, GAP might support ISO 8601 dates in PackageInfo.g,
+    # so be prepared to accept that
+    date := pkg.Date;
+    tmp := SplitString(pkg.Date, "/");
+    if Length(tmp) = 3 then
+        # pad month and date if necessary
+        if Length(tmp[1]) = 1 then
+          tmp[1] := Concatenation("0", tmp[1]);
+        fi;
+        if Length(tmp[2]) = 1 then
+          tmp[2] := Concatenation("0", tmp[2]);
+        fi;
+        date := Concatenation(tmp[3], "-", tmp[2], "-", tmp[1]);
+    fi;
+    if not IsValidISO8601Date(date) then
+        Error("malformed release date ", pkg.Date);
+    fi;
+
+    AppendTo(stream, "date: ", date, "\n");
     AppendTo(stream, "description: |\n");
     AppendTo(stream, "    ", pkg.Subtitle, "\n");
     AppendTo(stream, "\n");
@@ -114,13 +150,24 @@ GeneratePackageYML:=function(pkg)
     fi;
 
     AppendTo(stream, "abstract: |\n");
-    AppendTo(stream, "    ", pkg.AbstractHTML, "\n\n");
+    for tmp in SplitString(pkg.AbstractHTML,"\n") do
+        AppendTo(stream, "    ", tmp, "\n");
+    od;
+    AppendTo(stream, "\n");
 
     AppendTo(stream, "status: ", pkg.Status, "\n");
-    AppendTo(stream, "doc-html: ", pkg.PackageDoc.HTMLStart, "\n");
-    AppendTo(stream, "doc-pdf: ", pkg.PackageDoc.PDFFile, "\n");
+    if IsRecord(pkg.PackageDoc) then
+        AppendTo(stream, "doc-html: ", pkg.PackageDoc.HTMLStart, "\n");
+        AppendTo(stream, "doc-pdf: ", pkg.PackageDoc.PDFFile, "\n");
+    else
+        Assert(0, IsList(pkg.PackageDoc));
+        AppendTo(stream, "doc-html: ", pkg.PackageDoc[1].HTMLStart, "\n");
+        AppendTo(stream, "doc-pdf: ", pkg.PackageDoc[1].PDFFile, "\n");
+        if Length(pkg.PackageDoc) > 1 then
+            Print("Warning, this package has more than one help book!\n");
+        fi;
+    fi;
 
-    # TODO: use AbstractHTML?
     # TODO: use Keywords?
 
     CloseStream(stream);
