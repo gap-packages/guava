@@ -1,10 +1,12 @@
 In this file we record the changes since the first GAP 4 release of
 the GUAVA package.
 
-Version 3.14 (4-2016):
+Version 3.14 (4-2018):
    o The external binaries from J. S. Leon and Cen Tjhai can now be used on all 
      architectures (Unix/Linux, MacOS, and Windows) 
    o The bug fix for MinimumWeight() from 3.13 was not sufficiently well tested...
+   o The decoding method for cyclic codes fails in certain situations.  We are leaving this as
+     a known bug for the moment.
    o A bug fix for MinimumDistanceLeon() from Alex K. 
    o Lots of clean up of the lib files -- removing old comments, obsolete version strings, 
      leftovers from CVS, etc.
