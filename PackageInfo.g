@@ -22,8 +22,8 @@ SetPackageInfo( rec(
   README_URL      := Concatenation( ~.PackageWWWHome, "/", "README.guava" ),
   PackageInfoURL  := Concatenation( ~.PackageWWWHome, "/PackageInfo.g" ),
   ArchiveURL := Concatenation( ~.SourceRepository.URL,
-                                 "/releases/download/v", ~.Version,
-                                 "/", ~.PackageName, "-", ~.Version ),
+                      "/releases/download/v", ~.Version,
+                      "/", LowercaseString(~.PackageName), "-", ~.Version ),
   ArchiveFormats 
           := ".tar.gz",
   BannerString:=Concatenation(["\n   ____                          |\n",
