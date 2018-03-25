@@ -175,7 +175,7 @@ int main( int argc, char *argv[])
       ;
 
    if ( argc - optionCountPlus1 == 1 || argc - optionCountPlus1 == 3) {
-      saveCodeWords = (argc - optionCountPlus1 == 3)
+      saveCodeWords = (argc - optionCountPlus1 == 3);
    } else {
       ERROR( "main (wtdist)",
              "1 or 3 non-option parameters are required.");
