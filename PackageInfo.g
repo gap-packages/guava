@@ -1,4 +1,4 @@
-﻿#############################################################################
+﻿############################################################################
 ##
 #W  PackageInfo.g                GUAVA Package                   Greg Gamble
 #W                                                               Frank Lübeck
@@ -6,7 +6,6 @@
 #W                                                               Joe Fields
 
 SetPackageInfo( rec(
-
   PackageName := "GUAVA",
   Subtitle := "a GAP package for computing with error-correcting codes",
   Version := "3.14",
@@ -19,7 +18,7 @@ SetPackageInfo( rec(
   BannerString:=Concatenation(["\n   ____                          |\n",
     "  /            \\           /   --+--  Version ", ~.Version, "\n",
     " /      |    | |\\\\        //|    |\n",
-    "|    _  |    | | \\\\      // |     GUAVA Group\n",
+    "|    _  |    | | \\\\      // |     the GUAVA Group\n",
     "|     \\ |    | |--\\\\    //--|     \n",
     " \\     ||    | |   \\\\  //   |     \n",
     "  \\___/  \\___/ |    \\\\//    |      \n",
