@@ -19,7 +19,7 @@ SetPackageInfo( rec(
   ),
   IssueTrackerURL := Concatenation( ~.SourceRepository.URL, "/issues" ),
   PackageWWWHome  := Concatenation( "https://gap-packages.github.io/", LowercaseString( ~.PackageName ) ),
-  README_URL      := Concatenation( ~.PackageWWWHome, "/README" ),
+  README_URL      := Concatenation( ~.PackageWWWHome, "/", "README.guava" ),
   PackageInfoURL  := Concatenation( ~.PackageWWWHome, "/PackageInfo.g" ),
   ArchiveURL := Concatenation( ~.SourceRepository.URL,
                                  "/releases/download/v", ~.Version,
