@@ -16,7 +16,7 @@
        &nbsp;
     </Subtitle>
 
-    <Version>Version 3.13</Version>     <!-- OPTIONAL -->
+    <Version>Version 3.14</Version>     <!-- OPTIONAL -->
 <Author>
 Jasper Cramwinckel
 </Author>
@@ -62,9 +62,9 @@ Joe Fields (Maintainer)
          06515 USA.
     </Address>
     <Email>fieldsj1@southernct.edu</Email> 
-    <Homepage>http://osj1961.github.io/guava/</Homepage>
+    <Homepage>http://giam.southernct.edu/</Homepage>
 </Author> 
-<Date>January 31, 2016</Date>    <!-- OPTIONAL -->
+<Date>March 25, 2018</Date>    <!-- OPTIONAL -->
 <Copyright>     <!-- OPTIONAL -->
 <Package>GUAVA</Package>: &copyright; The GUAVA Group: 1992-2003
 Jasper Cramwinckel, Erik Roijackers,Reinald Baart, Eric Minkes,
@@ -72,7 +72,7 @@ Lea Ruscio (for the tex version), Jeffrey Leon
 &copyright; 2004 David Joyner, Cen Tjhai, Jasper Cramwinckel, Erik Roijackers,
 Reinald Baart, Eric Minkes, Lea Ruscio.
 &copyright; 2007 Robert L Miller, Tom Boothby
-&copyright; 2009, 2012, 2016 Joe Fields
+&copyright; 2009, 2012, 2016, 2018 Joe Fields
 
 <P/>
 <Package>GUAVA</Package> is released under the 
@@ -247,7 +247,7 @@ and also Huffman and Pless <Cite Key="HP03"/>.
   <Heading>Installing <Package>GUAVA</Package></Heading>
 <Label Name="Installing GUAVA"/>
 
-The most recent version of GAP (4.7) comes complete with
+The most recent version of GAP (4.8) comes complete with
 all of the packages -- including <Package>GUAVA</Package>.
 Thus the following instructions are not usually applicable
 but may be needed in certain circumstances.
