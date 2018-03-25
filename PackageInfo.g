@@ -19,7 +19,7 @@ SetPackageInfo( rec(
   BannerString:=Concatenation(["\n   ____                          |\n",
     "  /            \\           /   --+--  Version ", ~.Version, "\n",
     " /      |    | |\\\\        //|    |\n",
-    "|    _  |    | | \\\\      // |     GUAVA Group\n",
+    "|    _  |    | | \\\\      // |     the GUAVA Group\n",
     "|     \\ |    | |--\\\\    //--|     \n",
     " \\     ||    | |   \\\\  //   |     \n",
     "  \\___/  \\___/ |    \\\\//    |      \n",
