@@ -1,6 +1,6 @@
 name: GUAVA
-version: 3.13
-date: 2016-01-31
+version: 3.14
+date: 2018-03-24
 description: |
     a GAP package for computing with error-correcting codes
 
@@ -29,13 +29,13 @@ suggested-pkgs:
       version: ">= 2.3"
       url: "http://www.algebra.uni-linz.ac.at/Sonata/"
 
-www: https://gap-packages.github.io/guava/
-readme: README.guava
-packageinfo: https://gap-packages.github.io/guava/PackageInfo.g
+www: https://gap-packages.github.io/guava
+readme: guavaREADME.guava
+packageinfo: https://gap-packages.github.io/guavaPackageInfo.g
 
 downloads:
     - name: .tar.gz
-      url: https://gap-packages.github.io/guava/archives/guava-3.13.tar.gz
+      url: https://github.com/gap-packages/guava/releases/download/v3.14/guava-3.14.tar.gz
 
 abstract: |
     <span class="pkgname">GUAVA</span> is a <span class="pkgname">GAP</span> package for computing with codes. <span class="pkgname">GUAVA</span> can construct unrestricted (non-linear), linear and cyclic codes; transform one code into another (for example by puncturing); construct a new code from two other codes (using direct sums for example); perform decoding/error-correction; and can calculate important data of codes (such as the minumim distance or covering radius) quickly. Limited ability to compute algebraic geometric codes.
