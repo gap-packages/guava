@@ -1,6 +1,18 @@
 In this file we record the changes since the first GAP 4 release of
 the GUAVA package.
 
+Version 3.14 (4-2018):
+   o The external binaries from J. S. Leon and Cen Tjhai can now be used on all 
+     architectures (Unix/Linux, MacOS, and Windows) 
+   o The bug fix for MinimumWeight() from 3.13 was not sufficiently well tested...
+   o The decoding method for cyclic codes fails in certain situations.  We are leaving this as
+     a known bug for the moment.
+   o A bug fix for MinimumDistanceLeon() from Alex K. 
+   o Lots of clean up of the lib files -- removing old comments, obsolete version strings, 
+     leftovers from CVS, etc.
+   o Constructions were added for several of the optimal codes in the bounds tables that 
+     were referenced in the now defunct online table by Brouwer and Verhoeff.
+
 Version 3.13 (2-2016):
    o Incorporated fixes by Dima Pasechnik. 
    o Incorporated fixes by Jerome Benoit.
@@ -8,7 +20,7 @@ Version 3.13 (2-2016):
    o The infix "in" operator was not working for the case of a codeword 
      in a code, when the code was defined by a generator polynomial.  
    o Fixed BCH decoding 
-   o Changes to the test suite:  moved test files to a seperate "tst" 
+   o Changes to the test suite:  moved test files to a separate "tst" 
      subdirectory,  added "decoding.tst" file which includes thorough tests 
      of decoding algorithms, modified "guava.tst" so that randomization of 
      input values does not effect output. Added "hadamard.tst" for testing the 
@@ -33,15 +45,15 @@ Version 3.12 (5-2012):
    o More work on configure/make.  Switched "configure" script to that 
      written by Frank Lubeck for Browse. EDIM, etc.
    o Revamped init.g and read.g and the AvailabilityTest function in 
-     PackageInfo.g for GAP 4.5 compatability.
+     PackageInfo.g for GAP 4.5 compatibility.
    o Some fixes to guava.tst.  There are now exactly 4 known errors. 
    o Switched bibliography database in /doc to an xml format and repaired
-     many LaTeX warnings due to innapropriate Label attributes in 
+     many LaTeX warnings due to inappropriate Label attributes in 
      <ManSection> tags.
 
 Version 3.11 (1-2012):
    o General editing and improvements to the documentation.
-   o Various modifications for compatability with GAP 4.5.
+   o Various modifications for compatibility with GAP 4.5.
    o Rework of configure/make process for compiling binaries of subsystems
      written by Leon and Tjhai.
    o Revamped the "guava.tst" file.
@@ -59,7 +71,7 @@ Version 3.9 (12-2008):
      Perez Chamorro
 
 Version 3.8 (11-2008):
-   o Fix for C code computing minimum distance written by CJ Tjhal
+   o Fix for C code computing minimum distance written by CJ Tjhai
 
 Version 3.7 (08-2008):
    o Fix to leonconv.c reported by Klaus Lux.
@@ -272,4 +284,4 @@ Version 1.3:
    Last GAP3 version.
 
   - Joe Fields (fieldsj1@southernct.edu)
-    July 14, 2011
+    March 2018

@@ -1,4 +1,4 @@
-#############################################################################
+############################################################################
 ##
 #W  PackageInfo.g                GUAVA Package                   Greg Gamble
 #W                                                               Frank Lübeck
@@ -6,11 +6,10 @@
 #W                                                               Joe Fields
 
 SetPackageInfo( rec(
-
   PackageName := "GUAVA",
   Subtitle := "a GAP package for computing with error-correcting codes",
-  Version := "3.13",
-  Date    := "31/01/2016",
+  Version := "3.14",
+  Date    := "24/03/2018",
   PackageWWWHome := Concatenation( "https://gap-packages.github.io/",
       LowercaseString( ~.PackageName ), "/" ),
   ArchiveURL := Concatenation( ~.PackageWWWHome, "archives/guava-", ~.Version ),
@@ -168,7 +167,7 @@ SetPackageInfo( rec(
 
 SourceRepository := rec( 
   Type := "git", 
-  URL := "https://github.com/osj1961/guava"
+  URL := "https://github.com/gap-packages/guava"
 ),
 IssueTrackerURL := Concatenation( ~.SourceRepository.URL, "/issues" ),
 
