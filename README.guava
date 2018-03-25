@@ -84,7 +84,7 @@ at the gap prompt.
 Additionally, you may wish to test the installation by reading in the 
 Guava test file:
 
-  gap> ReadTest("full-path-to-guava/tst/guava.tst");
+  gap> Test(Filename(DirectoriesPackageLibrary("guava", "tst"), "guava.tst"));
 
                               Bug reports
                               -----------
@@ -92,7 +92,7 @@ Guava test file:
 The preferred method for bug reports and feature requests is to raise an 
 issue at the GUAVA GitHub repository:
 
-https://github.com/osj1961/guava/issues
+https://github.com/gap-packages/guava/issues
 
 Alternatively, you are welcome to send bug reports and other requests via email
 to support@gap-system.org.  Remember we will need to be able to reproduce the 
