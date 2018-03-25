@@ -39,7 +39,7 @@
   
   [1X1.2 [33X[0;0YInstalling [5XGUAVA[105X[101X[1X[133X[101X
   
-  [33X[0;0YThe most recent version of GAP (4.7) comes complete with all of the packages
+  [33X[0;0YThe most recent version of GAP (4.8) comes complete with all of the packages
   --  including  [5XGUAVA[105X.  Thus  the  following  instructions  are  not  usually
   applicable but may be needed in certain circumstances.[133X
   

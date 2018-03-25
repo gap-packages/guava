@@ -40,7 +40,7 @@
   
   [1X5.1-1 ElementsCode[101X
   
-  [29X[2XElementsCode[102X( [3XL[103X[, [3Xname[103X], [3XF[103X ) [32X function
+  [33X[1;0Y[29X[2XElementsCode[102X( [3XL[103X[, [3Xname[103X], [3XF[103X ) [32X function[133X
   
   [33X[0;0Y[10XElementsCode[110X  creates an unrestricted code of the list of elements [3XL[103X, in the
   field  [3XF[103X.  [3XL[103X  must  be a list of vectors, strings, polynomials or codewords.
@@ -61,7 +61,7 @@
   
   [1X5.1-2 HadamardCode[101X
   
-  [29X[2XHadamardCode[102X( [3XH[103X[, [3Xt[103X] ) [32X function
+  [33X[1;0Y[29X[2XHadamardCode[102X( [3XH[103X[, [3Xt[103X] ) [32X function[133X
   
   [33X[0;0YThe four forms this command can take are [10XHadamardCode(H,t)[110X, [10XHadamardCode(H)[110X,
   [10XHadamardCode(n,t)[110X, and [10XHadamardCode(n)[110X.[133X
@@ -110,7 +110,7 @@
   
   [1X5.1-3 ConferenceCode[101X
   
-  [29X[2XConferenceCode[102X( [3XH[103X ) [32X function
+  [33X[1;0Y[29X[2XConferenceCode[102X( [3XH[103X ) [32X function[133X
   
   [33X[0;0Y[10XConferenceCode[110X  returns  a  code  of length [22Xn-1[122X constructed from a symmetric
   'conference  matrix' [3XH[103X. A [13Xconference matrix[113X [3XH[103X is a symmetric matrix of order
@@ -139,7 +139,7 @@
   
   [1X5.1-4 MOLSCode[101X
   
-  [29X[2XMOLSCode[102X( [[3Xn[103X, ][3Xq[103X ) [32X function
+  [33X[1;0Y[29X[2XMOLSCode[102X( [[3Xn[103X, ][3Xq[103X ) [32X function[133X
   
   [33X[0;0Y[10XMOLSCode[110X  returns an [22X(n, q^2, n-1)[122X code over [22XGF(q)[122X. The code is created from
   [22Xn-2[122X  'Mutually  Orthogonal  Latin Squares' (MOLS) of size [22Xq × q[122X. The default
@@ -172,7 +172,7 @@
   
   [1X5.1-5 RandomCode[101X
   
-  [29X[2XRandomCode[102X( [3Xn[103X, [3XM[103X, [3XF[103X ) [32X function
+  [33X[1;0Y[29X[2XRandomCode[102X( [3Xn[103X, [3XM[103X, [3XF[103X ) [32X function[133X
   
   [33X[0;0Y[10XRandomCode[110X  returns  a random unrestricted code of size [3XM[103X with word length [3Xn[103X
   over  [3XF[103X. [3XM[103X must be less than or equal to the number of elements in the space
@@ -194,7 +194,7 @@
   
   [1X5.1-6 NordstromRobinsonCode[101X
   
-  [29X[2XNordstromRobinsonCode[102X(  ) [32X function
+  [33X[1;0Y[29X[2XNordstromRobinsonCode[102X(  ) [32X function[133X
   
   [33X[0;0Y[10XNordstromRobinsonCode[110X  returns a Nordstrom-Robinson code, the best code with
   word  length  [22Xn=16[122X and minimum distance [22Xd=6[122X over [22XGF(2)[122X. This is a non-linear
@@ -209,7 +209,7 @@
   
   [1X5.1-7 GreedyCode[101X
   
-  [29X[2XGreedyCode[102X( [3XL[103X, [3Xd[103X, [3XF[103X ) [32X function
+  [33X[1;0Y[29X[2XGreedyCode[102X( [3XL[103X, [3Xd[103X, [3XF[103X ) [32X function[133X
   
   [33X[0;0Y[10XGreedyCode[110X  returns  a  Greedy  code  with design distance [3Xd[103X over the finite
   field  [3XF[103X.  The code is constructed using the greedy algorithm on the list of
@@ -234,7 +234,7 @@
   
   [1X5.1-8 LexiCode[101X
   
-  [29X[2XLexiCode[102X( [3Xn[103X, [3Xd[103X, [3XF[103X ) [32X function
+  [33X[1;0Y[29X[2XLexiCode[102X( [3Xn[103X, [3Xd[103X, [3XF[103X ) [32X function[133X
   
   [33X[0;0YIn  this  format,  [10XLexicode[110X  returns  a  lexicode with word length [3Xn[103X, design
   distance [3Xd[103X over [3XF[103X. The code is constructed using the greedy algorithm on the
@@ -287,7 +287,7 @@
   
   [1X5.2-1 GeneratorMatCode[101X
   
-  [29X[2XGeneratorMatCode[102X( [3XG[103X[, [3Xname[103X], [3XF[103X ) [32X function
+  [33X[1;0Y[29X[2XGeneratorMatCode[102X( [3XG[103X[, [3Xname[103X], [3XF[103X ) [32X function[133X
   
   [33X[0;0Y[10XGeneratorMatCode[110X  returns a linear code with generator matrix [3XG[103X. [3XG[103X must be a
   matrix  over  finite  field  [3XF[103X.  [3Xname[103X can contain a short description of the
@@ -314,14 +314,14 @@
   
   [1X5.2-2 CheckMatCodeMutable[101X
   
-  [29X[2XCheckMatCodeMutable[102X( [3XH[103X[, [3Xname[103X], [3XF[103X ) [32X function
+  [33X[1;0Y[29X[2XCheckMatCodeMutable[102X( [3XH[103X[, [3Xname[103X], [3XF[103X ) [32X function[133X
   
   [33X[0;0Y[10XCheckMatCodeMutable[110X is the same as [10XCheckMatCode[110X except that the check matrix
   and generator matrix are mutable.[133X
   
   [1X5.2-3 CheckMatCode[101X
   
-  [29X[2XCheckMatCode[102X( [3XH[103X[, [3Xname[103X], [3XF[103X ) [32X function
+  [33X[1;0Y[29X[2XCheckMatCode[102X( [3XH[103X[, [3Xname[103X], [3XF[103X ) [32X function[133X
   
   [33X[0;0Y[10XCheckMatCode[110X  returns  a linear code with check matrix [3XH[103X. [3XH[103X must be a matrix
   over Galois field [3XF[103X. [3X[name.[103X can contain a short description of the code. The
@@ -349,7 +349,7 @@
   
   [1X5.2-4 HammingCode[101X
   
-  [29X[2XHammingCode[102X( [3Xr[103X, [3XF[103X ) [32X function
+  [33X[1;0Y[29X[2XHammingCode[102X( [3Xr[103X, [3XF[103X ) [32X function[133X
   
   [33X[0;0Y[10XHammingCode[110X  returns a Hamming code with redundancy [3Xr[103X over [3XF[103X. A Hamming code
   is a single-error-correcting code. The parity check matrix of a Hamming code
@@ -369,7 +369,7 @@
   
   [1X5.2-5 ReedMullerCode[101X
   
-  [29X[2XReedMullerCode[102X( [3Xr[103X, [3Xk[103X ) [32X function
+  [33X[1;0Y[29X[2XReedMullerCode[102X( [3Xr[103X, [3Xk[103X ) [32X function[133X
   
   [33X[0;0Y[10XReedMullerCode[110X  returns a binary 'Reed-Muller code' [3XR(r, k)[103X with dimension [3Xk[103X
   and  order [3Xr[103X. This is a code with length [22X2^k[122X and minimum distance [22X2^k-r[122X (see
@@ -386,7 +386,7 @@
   
   [1X5.2-6 AlternantCode[101X
   
-  [29X[2XAlternantCode[102X( [3Xr[103X, [3XY[103X[, [3Xalpha[103X], [3XF[103X ) [32X function
+  [33X[1;0Y[29X[2XAlternantCode[102X( [3Xr[103X, [3XY[103X[, [3Xalpha[103X], [3XF[103X ) [32X function[133X
   
   [33X[0;0Y[10XAlternantCode[110X  returns  an  'alternant code', with parameters [3Xr[103X, [3XY[103X and [3Xalpha[103X
   (optional).  [3XF[103X  denotes  the  (finite)  base  field.  Here,  [3Xr[103X is the design
@@ -406,7 +406,7 @@
   
   [1X5.2-7 GoppaCode[101X
   
-  [29X[2XGoppaCode[102X( [3XG[103X, [3XL[103X ) [32X function
+  [33X[1;0Y[29X[2XGoppaCode[102X( [3XG[103X, [3XL[103X ) [32X function[133X
   
   [33X[0;0Y[10XGoppaCode[110X   returns   a  Goppa  code  [3XC[103X  from  Goppa  polynomial  [3Xg[103X,  having
   coefficients in a Galois Field [22XGF(q)[122X. [3XL[103X must be a list of elements in [22XGF(q)[122X,
@@ -449,7 +449,7 @@
   
   [1X5.2-8 GeneralizedSrivastavaCode[101X
   
-  [29X[2XGeneralizedSrivastavaCode[102X( [3Xa[103X, [3Xw[103X, [3Xz[103X[, [3Xt[103X], [3XF[103X ) [32X function
+  [33X[1;0Y[29X[2XGeneralizedSrivastavaCode[102X( [3Xa[103X, [3Xw[103X, [3Xz[103X[, [3Xt[103X], [3XF[103X ) [32X function[133X
   
   [33X[0;0Y[10XGeneralizedSrivastavaCode[110X   returns   a  generalized  Srivastava  code  with
   parameters [3Xa[103X, [3Xw[103X, [3Xz[103X, [3Xt[103X. [22Xa ={ a_1, ..., a_n}[122X and [22Xw ={ w_1, ..., w_s}[122X are lists
@@ -458,8 +458,9 @@
   st + 1[122X. The check matrix of this code is the form[133X
   
   
-        [33X[1;6Y[24X[33X[0;0YH=([\frac{z_i}{(a_i - w_j)^k}]),[133X [124X[133X
+  [24X[33X[0;6YH=([\frac{z_i}{(a_i - w_j)^k}]),[133X
   
+  [124X
   
   [33X[0;0Y[22X1≤  k≤  t[122X,  where  [22X[...][122X is as in [2XVerticalConversionFieldMat[102X ([14X7.3-9[114X). We use
   this  definition  of  [22XH[122X  to  define  the  code.  The default for [3Xt[103X is 1. The
@@ -475,7 +476,7 @@
   
   [1X5.2-9 SrivastavaCode[101X
   
-  [29X[2XSrivastavaCode[102X( [3Xa[103X, [3Xw[103X[, [3Xmu[103X], [3XF[103X ) [32X function
+  [33X[1;0Y[29X[2XSrivastavaCode[102X( [3Xa[103X, [3Xw[103X[, [3Xmu[103X], [3XF[103X ) [32X function[133X
   
   [33X[0;0Y[22XSrivastavaCode[122X   returns  a  Srivastava  code  with  parameters  [3Xa[103X,  [3Xw[103X  (and
   optionally [3Xmu[103X). [22Xa ={ a_1, ..., a_n}[122X and [22Xw ={ w_1, ..., w_s}[122X are lists of [22Xn+s[122X
@@ -499,7 +500,7 @@
   
   [1X5.2-10 CordaroWagnerCode[101X
   
-  [29X[2XCordaroWagnerCode[102X( [3Xn[103X ) [32X function
+  [33X[1;0Y[29X[2XCordaroWagnerCode[102X( [3Xn[103X ) [32X function[133X
   
   [33X[0;0Y[10XCordaroWagnerCode[110X  returns  a  binary Cordaro-Wagner code. This is a code of
   length  [3Xn[103X  and dimension [22X2[122X having the best possible minimum distance [22Xd[122X. This
@@ -516,7 +517,7 @@
   
   [1X5.2-11 FerreroDesignCode[101X
   
-  [29X[2XFerreroDesignCode[102X( [3XP[103X, [3Xm[103X ) [32X function
+  [33X[1;0Y[29X[2XFerreroDesignCode[102X( [3XP[103X, [3Xm[103X ) [32X function[133X
   
   [33X[0;0Y[13XRequires the GAP package SONATA[113X[133X
   
@@ -575,7 +576,7 @@
   
   [1X5.2-12 RandomLinearCode[101X
   
-  [29X[2XRandomLinearCode[102X( [3Xn[103X, [3Xk[103X, [3XF[103X ) [32X function
+  [33X[1;0Y[29X[2XRandomLinearCode[102X( [3Xn[103X, [3Xk[103X, [3XF[103X ) [32X function[133X
   
   [33X[0;0Y[10XRandomLinearCode[110X  returns a random linear code with word length [3Xn[103X, dimension
   [3Xk[103X  over  field [3XF[103X. The method used is to first construct a [22Xk× n[122X matrix of the
@@ -603,7 +604,7 @@
   
   [1X5.2-13 OptimalityCode[101X
   
-  [29X[2XOptimalityCode[102X( [3XC[103X ) [32X function
+  [33X[1;0Y[29X[2XOptimalityCode[102X( [3XC[103X ) [32X function[133X
   
   [33X[0;0Y[10XOptimalityCode[110X returns the difference between the smallest known upper bound
   and  the  actual  size  of  the  code.  Note  that the value of the function
@@ -614,7 +615,7 @@
   
   [1X5.2-14 BestKnownLinearCode[101X
   
-  [29X[2XBestKnownLinearCode[102X( [3Xn[103X, [3Xk[103X, [3XF[103X ) [32X function
+  [33X[1;0Y[29X[2XBestKnownLinearCode[102X( [3Xn[103X, [3Xk[103X, [3XF[103X ) [32X function[133X
   
   [33X[0;0Y[10XBestKnownLinearCode[110X  returns  the best known (as of 11 May 2006) linear code
   of  length  [3Xn[103X,  dimension  [3Xk[103X  over  field  [3XF[103X.  The  function uses the tables
@@ -712,14 +713,14 @@
   
   [1X5.3-1 GabidulinCode[101X
   
-  [29X[2XGabidulinCode[102X( [3Xm[103X, [3Xw1[103X, [3Xw2[103X ) [32X function
+  [33X[1;0Y[29X[2XGabidulinCode[102X( [3Xm[103X, [3Xw1[103X, [3Xw2[103X ) [32X function[133X
   
   [33X[0;0Y[10XGabidulinCode[110X  yields a code of length [22X5[122X . [22X2^m-2-1[122X, redundancy [22X2m-1[122X, minimum
   distance [22X3[122X and covering radius [22X2[122X. [3Xw1[103X and [3Xw2[103X should be elements of [22XGF(2^m-2)[122X.[133X
   
   [1X5.3-2 EnlargedGabidulinCode[101X
   
-  [29X[2XEnlargedGabidulinCode[102X( [3Xm[103X, [3Xw1[103X, [3Xw2[103X, [3Xe[103X ) [32X function
+  [33X[1;0Y[29X[2XEnlargedGabidulinCode[102X( [3Xm[103X, [3Xw1[103X, [3Xw2[103X, [3Xe[103X ) [32X function[133X
   
   [33X[0;0Y[10XEnlargedGabidulinCode[110X  yields  a  code  of length [22X7[122X. [22X2^m-2-2[122X, redundancy [22X2m[122X,
   minimum  distance  [22X3[122X  and  covering  radius  [22X2[122X.  [3Xw1[103X  and  [3Xw2[103X are elements of
@@ -727,7 +728,7 @@
   
   [1X5.3-3 DavydovCode[101X
   
-  [29X[2XDavydovCode[102X( [3Xr[103X, [3Xv[103X, [3Xei[103X, [3Xej[103X ) [32X function
+  [33X[1;0Y[29X[2XDavydovCode[102X( [3Xr[103X, [3Xv[103X, [3Xei[103X, [3Xej[103X ) [32X function[133X
   
   [33X[0;0Y[10XDavydovCode[110X  yields  a code of length [22X2^v + 2^r-v - 3[122X, redundancy [3Xr[103X, minimum
   distance  [22X4[122X and covering radius [22X2[122X. [3Xv[103X is an integer between [22X2[122X and [22Xr-2[122X. [3Xei[103X and
@@ -735,7 +736,7 @@
   
   [1X5.3-4 TombakCode[101X
   
-  [29X[2XTombakCode[102X( [3Xm[103X, [3Xe[103X, [3Xbeta[103X, [3Xgamma[103X, [3Xw1[103X, [3Xw2[103X ) [32X function
+  [33X[1;0Y[29X[2XTombakCode[102X( [3Xm[103X, [3Xe[103X, [3Xbeta[103X, [3Xgamma[103X, [3Xw1[103X, [3Xw2[103X ) [32X function[133X
   
   [33X[0;0Y[10XTombakCode[110X  yields  a  code of length [22X15 ⋅ 2^m-3 - 3[122X, redundancy [22X2m[122X, minimum
   distance [22X4[122X and covering radius [22X2[122X. [3Xe[103X is an element of [22XGF(2^m)[122X. [3Xbeta[103X and [3Xgamma[103X
@@ -743,7 +744,7 @@
   
   [1X5.3-5 EnlargedTombakCode[101X
   
-  [29X[2XEnlargedTombakCode[102X( [3Xm[103X, [3Xe[103X, [3Xbeta[103X, [3Xgamma[103X, [3Xw1[103X, [3Xw2[103X, [3Xu[103X ) [32X function
+  [33X[1;0Y[29X[2XEnlargedTombakCode[102X( [3Xm[103X, [3Xe[103X, [3Xbeta[103X, [3Xgamma[103X, [3Xw1[103X, [3Xw2[103X, [3Xu[103X ) [32X function[133X
   
   [33X[0;0Y[10XEnlargedTombakCode[110X  yields a code of length [22X23 ⋅ 2^m-4 - 3[122X, redundancy [22X2m-1[122X,
   minimum  distance [22X4[122X and covering radius [22X2[122X. The parameters [3Xm[103X, [3Xe[103X, [3Xbeta[103X, [3Xgamma[103X,
@@ -774,7 +775,7 @@
   
   [1X5.4-1 BinaryGolayCode[101X
   
-  [29X[2XBinaryGolayCode[102X(  ) [32X function
+  [33X[1;0Y[29X[2XBinaryGolayCode[102X(  ) [32X function[133X
   
   [33X[0;0Y[10XBinaryGolayCode[110X  returns  a  binary  Golay code. This is a perfect [22X[23,12,7][122X
   code.    It    is    also    cyclic,    and    has    generator   polynomial
@@ -795,7 +796,7 @@
   
   [1X5.4-2 ExtendedBinaryGolayCode[101X
   
-  [29X[2XExtendedBinaryGolayCode[102X(  ) [32X function
+  [33X[1;0Y[29X[2XExtendedBinaryGolayCode[102X(  ) [32X function[133X
   
   [33X[0;0Y[10XExtendedBinaryGolayCode[110X  returns  an  extended  binary Golay code. This is a
   [22X[24,12,8][122X  code. Puncturing in the last position results in a perfect binary
@@ -817,7 +818,7 @@
   
   [1X5.4-3 TernaryGolayCode[101X
   
-  [29X[2XTernaryGolayCode[102X(  ) [32X function
+  [33X[1;0Y[29X[2XTernaryGolayCode[102X(  ) [32X function[133X
   
   [33X[0;0Y[10XTernaryGolayCode[110X  returns  a  ternary Golay code. This is a perfect [22X[11,6,5][122X
   code.    It    is    also    cyclic,    and    has    generator   polynomial
@@ -836,7 +837,7 @@
   
   [1X5.4-4 ExtendedTernaryGolayCode[101X
   
-  [29X[2XExtendedTernaryGolayCode[102X(  ) [32X function
+  [33X[1;0Y[29X[2XExtendedTernaryGolayCode[102X(  ) [32X function[133X
   
   [33X[0;0Y[10XExtendedTernaryGolayCode[110X  returns  an extended ternary Golay code. This is a
   [22X[12,6,6][122X  code. Puncturing this code results in a perfect ternary Golay code
@@ -869,8 +870,9 @@
   it is also a divisor of [22Xx^n-1[122X. The check polynomial has the property that[133X
   
   
-        [33X[1;6Y[24X[33X[0;0Yc(x)h(x) \equiv 0 \pmod{x^n-1},[133X [124X[133X
+  [24X[33X[0;6Yc(x)h(x) \equiv 0 \pmod{x^n-1},[133X
   
+  [124X
   
   [33X[0;0Yfor every codeword [22Xc(x)∈ C[122X.[133X
   
@@ -906,7 +908,7 @@
   
   [1X5.5-1 GeneratorPolCode[101X
   
-  [29X[2XGeneratorPolCode[102X( [3Xg[103X, [3Xn[103X[, [3Xname[103X], [3XF[103X ) [32X function
+  [33X[1;0Y[29X[2XGeneratorPolCode[102X( [3Xg[103X, [3Xn[103X[, [3Xname[103X], [3XF[103X ) [32X function[133X
   
   [33X[0;0Y[10XGeneratorPolCode[110X  creates  a cyclic code with a generator polynomial [3Xg[103X, word
   length [3Xn[103X, over [3XF[103X. [3Xname[103X can contain a short description of the code.[133X
@@ -931,7 +933,7 @@
   
   [1X5.5-2 CheckPolCode[101X
   
-  [29X[2XCheckPolCode[102X( [3Xh[103X, [3Xn[103X[, [3Xname[103X], [3XF[103X ) [32X function
+  [33X[1;0Y[29X[2XCheckPolCode[102X( [3Xh[103X, [3Xn[103X[, [3Xname[103X], [3XF[103X ) [32X function[133X
   
   [33X[0;0Y[10XCheckPolCode[110X creates a cyclic code with a check polynomial [3Xh[103X, word length [3Xn[103X,
   over [3XF[103X. [3Xname[103X can contain a short description of the code (as a string).[133X
@@ -954,7 +956,7 @@
   
   [1X5.5-3 RootsCode[101X
   
-  [29X[2XRootsCode[102X( [3Xn[103X, [3Xlist[103X ) [32X function
+  [33X[1;0Y[29X[2XRootsCode[102X( [3Xn[103X, [3Xlist[103X ) [32X function[133X
   
   [33X[0;0YThis  is  the  generalization of the BCH, Reed-Solomon and quadratic residue
   codes (see [2XBCHCode[102X ([14X5.5-4[114X), [2XReedSolomonCode[102X ([14X5.5-5[114X) and [2XQRCode[102X ([14X5.5-7[114X)). The
@@ -994,15 +996,16 @@
   
   [1X5.5-4 BCHCode[101X
   
-  [29X[2XBCHCode[102X( [3Xn[103X[, [3Xb[103X], [3Xdelta[103X, [3XF[103X ) [32X function
+  [33X[1;0Y[29X[2XBCHCode[102X( [3Xn[103X[, [3Xb[103X], [3Xdelta[103X, [3XF[103X ) [32X function[133X
   
   [33X[0;0YThe function [10XBCHCode[110X returns a 'Bose-Chaudhuri-Hockenghem code' (or [13XBCH code[113X
   for  short). This is the largest possible cyclic code of length [3Xn[103X over field
   [3XF[103X, whose generator polynomial has zeros[133X
   
   
-        [33X[1;6Y[24X[33X[0;0Ya^{b},a^{b+1}, ..., a^{b+delta-2},[133X [124X[133X
+  [24X[33X[0;6Ya^{b},a^{b+1}, ..., a^{b+delta-2},[133X
   
+  [124X
   
   [33X[0;0Ywhere  [22Xa[122X is a primitive [22Xn^th[122X root of unity in the splitting field [22XGF(q^m)[122X, [3Xb[103X
   is  an integer [22X0≤ b≤ n-delta+1[122X and [22Xm[122X is the multiplicative order of [22Xq[122X modulo
@@ -1013,15 +1016,17 @@
   of[133X
   
   
-        [33X[1;6Y[24X[33X[0;0Ya^{b}, a^{b+1}, ..., a^{b+delta-2}.[133X [124X[133X
+  [24X[33X[0;6Ya^{b}, a^{b+1}, ..., a^{b+delta-2}.[133X
   
+  [124X
   
   [33X[0;0YThe  set  of zeroes of the generator polynomial is equal to the union of the
   sets[133X
   
   
-        [33X[1;6Y[24X[33X[0;0Y\{a^x\ |\ x \in C_k\},[133X [124X[133X
+  [24X[33X[0;6Y\{a^x\ |\ x \in C_k\},[133X
   
+  [124X
   
   [33X[0;0Ywhere  [22XC_k[122X  is  the  [22Xk^th[122X cyclotomic coset of [22Xq[122X modulo [22Xn[122X and [22Xb≤ k≤ b+delta-2[122X
   (see [2XCyclotomicCosets[102X ([14X7.5-12[114X)).[133X
@@ -1056,7 +1061,7 @@
   
   [1X5.5-5 ReedSolomonCode[101X
   
-  [29X[2XReedSolomonCode[102X( [3Xn[103X, [3Xd[103X ) [32X function
+  [33X[1;0Y[29X[2XReedSolomonCode[102X( [3Xn[103X, [3Xd[103X ) [32X function[133X
   
   [33X[0;0Y[10XReedSolomonCode[110X returns a 'Reed-Solomon code' of length [3Xn[103X, designed distance
   [3Xd[103X.  This  code  is  a  primitive narrow-sense BCH code over the field [22XGF(q)[122X,
@@ -1082,7 +1087,7 @@
   
   [1X5.5-6 ExtendedReedSolomonCode[101X
   
-  [29X[2XExtendedReedSolomonCode[102X( [3Xn[103X, [3Xd[103X ) [32X function
+  [33X[1;0Y[29X[2XExtendedReedSolomonCode[102X( [3Xn[103X, [3Xd[103X ) [32X function[133X
   
   [33X[0;0Y[10XExtendedReedSolomonCode[110X  creates  a  Reed-Solomon  code  of  length [22Xn-1[122X with
   designed  distance [22Xd-1[122X and then returns the code which is extended by adding
@@ -1099,7 +1104,7 @@
   
   [1X5.5-7 QRCode[101X
   
-  [29X[2XQRCode[102X( [3Xn[103X, [3XF[103X ) [32X function
+  [33X[1;0Y[29X[2XQRCode[102X( [3Xn[103X, [3XF[103X ) [32X function[133X
   
   [33X[0;0Y[10XQRCode[110X  returns a quadratic residue code. If [3XF[103X is a field [22XGF(q)[122X, then [22Xq[122X must
   be  a  quadratic  residue modulo [3Xn[103X. That is, an [22Xx[122X exists with [22Xx^2 ≡ q mod n[122X.
@@ -1129,14 +1134,14 @@
   
   [1X5.5-8 QQRCodeNC[101X
   
-  [29X[2XQQRCodeNC[102X( [3Xp[103X ) [32X function
+  [33X[1;0Y[29X[2XQQRCodeNC[102X( [3Xp[103X ) [32X function[133X
   
   [33X[0;0Y[10XQQRCodeNC[110X  is  the  same  as [10XQQRCode[110X, except that it uses [10XGeneratorMatCodeNC[110X
   instead of [10XGeneratorMatCode[110X.[133X
   
   [1X5.5-9 QQRCode[101X
   
-  [29X[2XQQRCode[102X( [3Xp[103X ) [32X function
+  [33X[1;0Y[29X[2XQQRCode[102X( [3Xp[103X ) [32X function[133X
   
   [33X[0;0Y[10XQQRCode[110X  returns  a  quasi-quadratic residue code, as defined by Proposition
   2.2  in  Bazzi-Mittel [BM06]. The parameter [3Xp[103X must be a prime. Its generator
@@ -1178,7 +1183,7 @@
   
   [1X5.5-10 FireCode[101X
   
-  [29X[2XFireCode[102X( [3Xg[103X, [3Xb[103X ) [32X function
+  [33X[1;0Y[29X[2XFireCode[102X( [3Xg[103X, [3Xb[103X ) [32X function[133X
   
   [33X[0;0Y[10XFireCode[110X  constructs  a  (binary)  Fire code. [3Xg[103X is a primitive polynomial of
   degree  [22Xm[122X, and a factor of [22Xx^r-1[122X. [3Xb[103X an integer [22X0 ≤ b ≤ m[122X not divisible by [22Xr[122X,
@@ -1210,7 +1215,7 @@
   
   [1X5.5-11 WholeSpaceCode[101X
   
-  [29X[2XWholeSpaceCode[102X( [3Xn[103X, [3XF[103X ) [32X function
+  [33X[1;0Y[29X[2XWholeSpaceCode[102X( [3Xn[103X, [3XF[103X ) [32X function[133X
   
   [33X[0;0Y[10XWholeSpaceCode[110X  returns the cyclic whole space code of length [3Xn[103X over [3XF[103X. This
   code  consists  of all polynomials of degree less than [3Xn[103X and coefficients in
@@ -1223,7 +1228,7 @@
   
   [1X5.5-12 NullCode[101X
   
-  [29X[2XNullCode[102X( [3Xn[103X, [3XF[103X ) [32X function
+  [33X[1;0Y[29X[2XNullCode[102X( [3Xn[103X, [3XF[103X ) [32X function[133X
   
   [33X[0;0Y[10XNullCode[110X  returns  the  zero-dimensional nullcode with length [3Xn[103X over [3XF[103X. This
   code has only one word: the all zero word. It is cyclic though![133X
@@ -1237,7 +1242,7 @@
   
   [1X5.5-13 RepetitionCode[101X
   
-  [29X[2XRepetitionCode[102X( [3Xn[103X, [3XF[103X ) [32X function
+  [33X[1;0Y[29X[2XRepetitionCode[102X( [3Xn[103X, [3XF[103X ) [32X function[133X
   
   [33X[0;0Y[10XRepetitionCode[110X  returns  the  cyclic repetition code of length [3Xn[103X over [3XF[103X. The
   code  has  as  many  elements  as  [3XF[103X,  because  each  codeword consists of a
@@ -1256,7 +1261,7 @@
   
   [1X5.5-14 CyclicCodes[101X
   
-  [29X[2XCyclicCodes[102X( [3Xn[103X, [3XF[103X ) [32X function
+  [33X[1;0Y[29X[2XCyclicCodes[102X( [3Xn[103X, [3XF[103X ) [32X function[133X
   
   [33X[0;0Y[10XCyclicCodes[110X  returns  a  list  of  all  cyclic  codes of length [3Xn[103X over [3XF[103X. It
   constructs  all  possible  generator  polynomials from the factors of [22Xx^n-1[122X.
@@ -1273,7 +1278,7 @@
   
   [1X5.5-15 NrCyclicCodes[101X
   
-  [29X[2XNrCyclicCodes[102X( [3Xn[103X, [3XF[103X ) [32X function
+  [33X[1;0Y[29X[2XNrCyclicCodes[102X( [3Xn[103X, [3XF[103X ) [32X function[133X
   
   [33X[0;0YThe function [10XNrCyclicCodes[110X calculates the number of cyclic codes of length [3Xn[103X
   over field [3XF[103X.[133X
@@ -1300,7 +1305,7 @@
   
   [1X5.5-16 QuasiCyclicCode[101X
   
-  [29X[2XQuasiCyclicCode[102X( [3XG[103X, [3Xs[103X, [3XF[103X ) [32X function
+  [33X[1;0Y[29X[2XQuasiCyclicCode[102X( [3XG[103X, [3Xs[103X, [3XF[103X ) [32X function[133X
   
   [33X[0;0Y[10XQuasiCyclicCode( G, k, F )[110X generates a rate [22X1/m[122X quasi-cyclic code over field
   [3XF[103X.  The input [3XG[103X is a list of univariate polynomials and [22Xm[122X is the cardinality
@@ -1366,7 +1371,7 @@
   
   [1X5.5-17 CyclicMDSCode[101X
   
-  [29X[2XCyclicMDSCode[102X( [3Xq[103X, [3Xm[103X, [3Xk[103X ) [32X function
+  [33X[1;0Y[29X[2XCyclicMDSCode[102X( [3Xq[103X, [3Xm[103X, [3Xk[103X ) [32X function[133X
   
   [33X[0;0YGiven  the input parameters [3Xq[103X, [3Xm[103X and [3Xk[103X, this function returns a [22X[q^m + 1, k,
   q^m  -  k  + 2][122X cyclic MDS code over GF([22Xq^m[122X). If [22Xq^m[122X is even, any value of [22Xk[122X
@@ -1390,7 +1395,7 @@
   
   [1X5.5-18 FourNegacirculantSelfDualCode[101X
   
-  [29X[2XFourNegacirculantSelfDualCode[102X( [3Xax[103X, [3Xbx[103X, [3Xk[103X ) [32X function
+  [33X[1;0Y[29X[2XFourNegacirculantSelfDualCode[102X( [3Xax[103X, [3Xbx[103X, [3Xk[103X ) [32X function[133X
   
   [33X[0;0YA  four-negacirculant  self-dual  code  has  a generator matrix [22XG[122X of the the
   following form[133X
@@ -1450,7 +1455,7 @@
   
   [1X5.5-19 FourNegacirculantSelfDualCodeNC[101X
   
-  [29X[2XFourNegacirculantSelfDualCodeNC[102X( [3Xax[103X, [3Xbx[103X, [3Xk[103X ) [32X function
+  [33X[1;0Y[29X[2XFourNegacirculantSelfDualCodeNC[102X( [3Xax[103X, [3Xbx[103X, [3Xk[103X ) [32X function[133X
   
   [33X[0;0YThis  function  is  the  same  as [10XFourNegacirculantSelfDualCode[110X, except this
   version  is faster as it does not estimate the minimum distance and covering
@@ -1461,7 +1466,7 @@
   
   [1X5.6-1 EvaluationCode[101X
   
-  [29X[2XEvaluationCode[102X( [3XP[103X, [3XL[103X, [3XR[103X ) [32X function
+  [33X[1;0Y[29X[2XEvaluationCode[102X( [3XP[103X, [3XL[103X, [3XR[103X ) [32X function[133X
   
   [33X[0;0YInput:  [3XF[103X  is  a  finite  field,  [3XL[103X  is  a  list  of  rational  functions in
   [22XR=F[x_1,...,x_r][122X,  [3XP[103X  is  a  list  of  [22Xn[122X  points  in [22XF^r[122X at which all of the
@@ -1469,8 +1474,9 @@
   [33X[0;0YOutput: The 'evaluation code' [22XC[122X, which is the image of the evalation map[133X
   
   
-        [33X[1;6Y[24X[33X[0;0YEval_P:span(L)\rightarrow F^n,[133X [124X[133X
+  [24X[33X[0;6YEval_P:span(L)\rightarrow F^n,[133X
   
+  [124X
   
   [33X[0;0Ygiven  by  [22Xflongmapsto (f(p_1),...,f(p_n))[122X, where [22XP={p_1,...,p_n}[122X and [22Xf ∈ L[122X.
   The generator matrix of [22XC[122X is [22XG=(f_i(p_j))_f_i∈ L,p_j∈ P[122X.[133X
@@ -1500,15 +1506,16 @@
   
   [1X5.6-2 GeneralizedReedSolomonCode[101X
   
-  [29X[2XGeneralizedReedSolomonCode[102X( [3XP[103X, [3Xk[103X, [3XR[103X ) [32X function
+  [33X[1;0Y[29X[2XGeneralizedReedSolomonCode[102X( [3XP[103X, [3Xk[103X, [3XR[103X ) [32X function[133X
   
   [33X[0;0YInput:  R=F[x],  where  [3XF[103X is a finite field, [3Xk[103X is a positive integer, [3XP[103X is a
   list of [22Xn[122X points in [22XF[122X.[133X
   [33X[0;0YOutput: The [22XC[122X which is the image of the evaluation map[133X
   
   
-        [33X[1;6Y[24X[33X[0;0YEval_P:F[x]_k\rightarrow F^n,[133X [124X[133X
+  [24X[33X[0;6YEval_P:F[x]_k\rightarrow F^n,[133X
   
+  [124X
   
   [33X[0;0Ygiven  by  [22Xflongmapsto  (f(p_1),...,f(p_n))[122X,  where [22XP={p_1,...,p_n}⊂ F[122X and [22Xf[122X
   ranges over the space [22XF[x]_k[122X of all polynomials of degree less than [22Xk[122X.[133X
@@ -1554,7 +1561,7 @@
   
   [1X5.6-3 GeneralizedReedMullerCode[101X
   
-  [29X[2XGeneralizedReedMullerCode[102X( [3XPts[103X, [3Xr[103X, [3XF[103X ) [32X function
+  [33X[1;0Y[29X[2XGeneralizedReedMullerCode[102X( [3XPts[103X, [3Xr[103X, [3XF[103X ) [32X function[133X
   
   [33X[0;0Y[10XGeneralizedReedMullerCode[110X  returns  a 'Reed-Muller code' [22XC[122X with length [22X|Pts|[122X
   and  order  [22Xr[122X.  One  considers (a) a basis of monomials for the vector space
@@ -1585,7 +1592,7 @@
   
   [1X5.6-4 ToricPoints[101X
   
-  [29X[2XToricPoints[102X( [3Xn[103X, [3XF[103X ) [32X function
+  [33X[1;0Y[29X[2XToricPoints[102X( [3Xn[103X, [3XF[103X ) [32X function[133X
   
   [33X[0;0Y[10XToricPoints(n,F)[110X returns the points in [22X(F^×)^n[122X.[133X
   
@@ -1600,7 +1607,7 @@
   
   [1X5.6-5 ToricCode[101X
   
-  [29X[2XToricCode[102X( [3XL[103X, [3XF[103X ) [32X function
+  [33X[1;0Y[29X[2XToricCode[102X( [3XL[103X, [3XF[103X ) [32X function[133X
   
   [33X[0;0YThis  function  returns the toric codes as in D. Joyner [Joy04] (see also J.
   P. Hansen [Han00]). This is a truncated (generalized) Reed-Muller code. Here
@@ -1629,7 +1636,7 @@
   
   [1X5.7-1 AffineCurve[101X
   
-  [29X[2XAffineCurve[102X( [3Xpoly[103X, [3Xring[103X ) [32X function
+  [33X[1;0Y[29X[2XAffineCurve[102X( [3Xpoly[103X, [3Xring[103X ) [32X function[133X
   
   [33X[0;0YThis function simply defines the data structure of an affine plane curve. In
   [5XGUAVA[105X,  an  affine curve is a record [3Xcrv[103X having two components: a polynomial
@@ -1684,7 +1691,7 @@
   
   [1X5.7-2 AffinePointsOnCurve[101X
   
-  [29X[2XAffinePointsOnCurve[102X( [3Xf[103X, [3XR[103X, [3XE[103X ) [32X function
+  [33X[1;0Y[29X[2XAffinePointsOnCurve[102X( [3Xf[103X, [3XR[103X, [3XE[103X ) [32X function[133X
   
   [33X[0;0Y[10XAffinePointsOnCurve(f,R,E)[110X   returns   the  points  [22X(x,y)  ∈  E^2[122X  satisying
   [22Xf(x,y)=0[122X, where [3Xf[103X is an element of [22XR=F[x,y][122X.[133X
@@ -1704,7 +1711,7 @@
   
   [1X5.7-3 GenusCurve[101X
   
-  [29X[2XGenusCurve[102X( [3Xcrv[103X ) [32X function
+  [33X[1;0Y[29X[2XGenusCurve[102X( [3Xcrv[103X ) [32X function[133X
   
   [33X[0;0YIf  [3Xcrv[103X  represents [22Xf(x,y)=0[122X, where [22Xf[122X is a polynomial of degree [22Xd[122X, then this
   function  simply returns [22X(d-1)(d-2)/2[122X. At the present, the function does not
@@ -1729,7 +1736,7 @@
   
   [1X5.7-4 GOrbitPoint [101X
   
-  [29X[2XGOrbitPoint [102X( [3XG[103X, [3XP[103X ) [32X function
+  [33X[1;0Y[29X[2XGOrbitPoint [102X( [3XG[103X, [3XP[103X ) [32X function[133X
   
   [33X[0;0Y[3XP[103X must be a point in projective space [22XP^n(F)[122X, [3XG[103X must be a finite subgroup of
   [22XGL(n+1,F)[122X,  This function returns all (representatives of projective) points
@@ -1801,7 +1808,7 @@
   
   [1X5.7-5 DivisorOnAffineCurve[101X
   
-  [29X[2XDivisorOnAffineCurve[102X( [3Xcdiv[103X, [3Xsdiv[103X, [3Xcrv[103X ) [32X function
+  [33X[1;0Y[29X[2XDivisorOnAffineCurve[102X( [3Xcdiv[103X, [3Xsdiv[103X, [3Xcrv[103X ) [32X function[133X
   
   [33X[0;0YThis  is the command you use to define a divisor in [5XGUAVA[105X. Of course, [3Xcrv[103X is
   the  curve  on which the divisor lives, [3Xcdiv[103X is the list of coefficients (or
@@ -1835,38 +1842,38 @@
   
   [1X5.7-6 DivisorAddition [101X
   
-  [29X[2XDivisorAddition [102X( [3XD1[103X, [3XD2[103X ) [32X function
+  [33X[1;0Y[29X[2XDivisorAddition [102X( [3XD1[103X, [3XD2[103X ) [32X function[133X
   
   [33X[0;0YIf   [22XD_1=m_1P_1+...+m_kP_k[122X   and  [22XD_2=n_1P_1+...+n_kP_k[122X  are  divisors  then
   [22XD_1+D_2=(m_1+n_1)P_1+...+(m_k+n_k)P_k[122X.[133X
   
   [1X5.7-7 DivisorDegree [101X
   
-  [29X[2XDivisorDegree [102X( [3XD[103X ) [32X function
+  [33X[1;0Y[29X[2XDivisorDegree [102X( [3XD[103X ) [32X function[133X
   
   [33X[0;0YIf [22XD=m_1P_1+...+m_kP_k[122X is a divisor then the [13Xdegree[113X is [22Xm_1+...+m_k[122X.[133X
   
   [1X5.7-8 DivisorNegate [101X
   
-  [29X[2XDivisorNegate [102X( [3XD[103X ) [32X function
+  [33X[1;0Y[29X[2XDivisorNegate [102X( [3XD[103X ) [32X function[133X
   
   [33X[0;0YSelf-explanatory.[133X
   
   [1X5.7-9 DivisorIsZero [101X
   
-  [29X[2XDivisorIsZero [102X( [3XD[103X ) [32X function
+  [33X[1;0Y[29X[2XDivisorIsZero [102X( [3XD[103X ) [32X function[133X
   
   [33X[0;0YSelf-explanatory.[133X
   
   [1X5.7-10 DivisorsEqual [101X
   
-  [29X[2XDivisorsEqual [102X( [3XD1[103X, [3XD2[103X ) [32X function
+  [33X[1;0Y[29X[2XDivisorsEqual [102X( [3XD1[103X, [3XD2[103X ) [32X function[133X
   
   [33X[0;0YSelf-explanatory.[133X
   
   [1X5.7-11 DivisorGCD [101X
   
-  [29X[2XDivisorGCD [102X( [3XD1[103X, [3XD2[103X ) [32X function
+  [33X[1;0Y[29X[2XDivisorGCD [102X( [3XD1[103X, [3XD2[103X ) [32X function[133X
   
   [33X[0;0YIf  [22Xm=p_1^e_1...p_k^e_k[122X  and [22Xn=p_1^f_1...p_k^f_k[122X are two integers then their
   greatest  common  divisor is [22XGCD(m,n)=p_1^min(e_1,f_1)...p_k^min(e_k,f_k)[122X. A
@@ -1878,7 +1885,7 @@
   
   [1X5.7-12 DivisorLCM [101X
   
-  [29X[2XDivisorLCM [102X( [3XD1[103X, [3XD2[103X ) [32X function
+  [33X[1;0Y[29X[2XDivisorLCM [102X( [3XD1[103X, [3XD2[103X ) [32X function[133X
   
   [33X[0;0YIf  [22Xm=p_1^e_1...p_k^e_k[122X  and [22Xn=p_1^f_1...p_k^f_k[122X are two integers then their
   least  common  multiple  is  [22XLCM(m,n)=p_1^max(e_1,f_1)...p_k^max(e_k,f_k)[122X. A
@@ -1959,14 +1966,14 @@
   
   [1X5.7-13 RiemannRochSpaceBasisFunctionP1 [101X
   
-  [29X[2XRiemannRochSpaceBasisFunctionP1 [102X( [3XP[103X, [3Xk[103X, [3XR2[103X ) [32X function
+  [33X[1;0Y[29X[2XRiemannRochSpaceBasisFunctionP1 [102X( [3XP[103X, [3Xk[103X, [3XR2[103X ) [32X function[133X
   
   [33X[0;0YInput: [3XR2[103X is a polynomial ring in two variables, say [22XF[x,y][122X; [3XP[103X is an element
   of the base field, say [22XF[122X; [3Xk[103X is an integer. Output: [22X1/(x-P)^k[122X[133X
   
   [1X5.7-14 DivisorOfRationalFunctionP1 [101X
   
-  [29X[2XDivisorOfRationalFunctionP1 [102X( [3Xf[103X, [3XR[103X ) [32X function
+  [33X[1;0Y[29X[2XDivisorOfRationalFunctionP1 [102X( [3Xf[103X, [3XR[103X ) [32X function[133X
   
   [33X[0;0YHere  [22XR  =  F[x,y][122X  is  a  polynomial  ring  in the variables [22Xx,y[122X and [22Xf[122X is a
   rational  function  of  [22Xx[122X.  Simply  returns  the  principal  divisor on [22XP}^1[122X
@@ -2014,7 +2021,7 @@
   
   [1X5.7-15 RiemannRochSpaceBasisP1 [101X
   
-  [29X[2XRiemannRochSpaceBasisP1 [102X( [3XD[103X ) [32X function
+  [33X[1;0Y[29X[2XRiemannRochSpaceBasisP1 [102X( [3XD[103X ) [32X function[133X
   
   [33X[0;0YThis  returns  the  basis  of  the Riemann-Roch space [22XL(D)[122X associated to the
   divisor [3XD[103X on the projective line [22XP}^1[122X.[133X
@@ -2070,7 +2077,7 @@
   
   [1X5.7-16 MoebiusTransformation [101X
   
-  [29X[2XMoebiusTransformation [102X( [3XA[103X, [3XR[103X ) [32X function
+  [33X[1;0Y[29X[2XMoebiusTransformation [102X( [3XA[103X, [3XR[103X ) [32X function[133X
   
   [33X[0;0YThe arguments are a [22X2× 2[122X matrix [22XA[122X with entries in a field [22XF[122X and a polynomial
   ring [3XR[103Xof one variable, say [22XF[x][122X. This function returns the linear fractional
@@ -2079,7 +2086,7 @@
   
   [1X5.7-17 ActionMoebiusTransformationOnFunction [101X
   
-  [29X[2XActionMoebiusTransformationOnFunction [102X( [3XA[103X, [3Xf[103X, [3XR2[103X ) [32X function
+  [33X[1;0Y[29X[2XActionMoebiusTransformationOnFunction [102X( [3XA[103X, [3Xf[103X, [3XR2[103X ) [32X function[133X
   
   [33X[0;0YThe  arguments  are  a  [22X2×  2[122X matrix [22XA[122X with entries in a field [22XF[122X, a rational
   function  [3Xf[103X  of  one  variable,  say  in [22XF(x)[122X, and a polynomial ring [3XR2[103X, say
@@ -2088,7 +2095,7 @@
   
   [1X5.7-18 ActionMoebiusTransformationOnDivisorP1 [101X
   
-  [29X[2XActionMoebiusTransformationOnDivisorP1 [102X( [3XA[103X, [3XD[103X ) [32X function
+  [33X[1;0Y[29X[2XActionMoebiusTransformationOnDivisorP1 [102X( [3XA[103X, [3XD[103X ) [32X function[133X
   
   [33X[0;0YA Möbius transformation may be regarded as an automorphism of the projective
   line  [22XP^1[122X. This function simply returns the image of the divisor [3XD[103X under the
@@ -2097,7 +2104,7 @@
   
   [1X5.7-19 IsActionMoebiusTransformationOnDivisorDefinedP1 [101X
   
-  [29X[2XIsActionMoebiusTransformationOnDivisorDefinedP1 [102X( [3XA[103X, [3XD[103X ) [32X function
+  [33X[1;0Y[29X[2XIsActionMoebiusTransformationOnDivisorDefinedP1 [102X( [3XA[103X, [3XD[103X ) [32X function[133X
   
   [33X[0;0YReturns  true  of  none of the points in the support of the divisor [3XD[103X is the
   pole of the Möbius transformation.[133X
@@ -2140,7 +2147,7 @@
   
   [1X5.7-20 DivisorAutomorphismGroupP1 [101X
   
-  [29X[2XDivisorAutomorphismGroupP1 [102X( [3XD[103X ) [32X function
+  [33X[1;0Y[29X[2XDivisorAutomorphismGroupP1 [102X( [3XD[103X ) [32X function[133X
   
   [33X[0;0YInput:  A divisor [3XD[103X on [22XP^1(F)[122X, where [22XF[122X is a finite field. Output: A subgroup
   [22XAut(D)⊂ Aut(P^1)[122X preserving [3XD[103X.[133X
@@ -2173,7 +2180,7 @@
   
   [1X5.7-21 MatrixRepresentationOnRiemannRochSpaceP1 [101X
   
-  [29X[2XMatrixRepresentationOnRiemannRochSpaceP1 [102X( [3Xg[103X, [3XD[103X ) [32X function
+  [33X[1;0Y[29X[2XMatrixRepresentationOnRiemannRochSpaceP1 [102X( [3Xg[103X, [3XD[103X ) [32X function[133X
   
   [33X[0;0YInput: An element [3Xg[103X in [22XG[122X, a subgroup of [22XAut(D)⊂ Aut(P^1)[122X, and a divisor [3XD[103X on
   [22XP^1(F)[122X,  where  [22XF[122X  is  a  finite field. Output: a [22Xd× d[122X matrix, where [22Xd = dim
@@ -2233,7 +2240,7 @@
   
   [1X5.7-22 GoppaCodeClassical[101X
   
-  [29X[2XGoppaCodeClassical[102X( [3Xdiv[103X, [3Xpts[103X ) [32X function
+  [33X[1;0Y[29X[2XGoppaCodeClassical[102X( [3Xdiv[103X, [3Xpts[103X ) [32X function[133X
   
   [33X[0;0YInput:  A  divisor  [3Xdiv[103X on the projective line [22XP}^1(F)[122X over a finite field [22XF[122X
   and a list [3Xpts[103X of points [22X{P_1,...,P_n}⊂ F[122X disjoint from the support of [3Xdiv[103X.[133X
@@ -2241,8 +2248,9 @@
   is the code[133X
   
   
-        [33X[1;6Y[24X[33X[0;0YC=\{(f(P_1),...,f(P_n))\ |\ f\in L(D)_F\}.[133X [124X[133X
+  [24X[33X[0;6YC=\{(f(P_1),...,f(P_n))\ |\ f\in L(D)_F\}.[133X
   
+  [124X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XF:=GF(11);;[127X[104X
@@ -2268,7 +2276,7 @@
   
   [1X5.7-23 EvaluationBivariateCode[101X
   
-  [29X[2XEvaluationBivariateCode[102X( [3Xpts[103X, [3XL[103X, [3Xcrv[103X ) [32X function
+  [33X[1;0Y[29X[2XEvaluationBivariateCode[102X( [3Xpts[103X, [3XL[103X, [3Xcrv[103X ) [32X function[133X
   
   [33X[0;0YInput:  [10Xpts[110X  is  a  set  of  affine  points  on [10Xcrv[110X, [10XL[110X is a list of rational
   functions on [10Xcrv[110X.[133X
@@ -2283,7 +2291,7 @@
   
   [1X5.7-24 EvaluationBivariateCodeNC[101X
   
-  [29X[2XEvaluationBivariateCodeNC[102X( [3Xpts[103X, [3XL[103X, [3Xcrv[103X ) [32X function
+  [33X[1;0Y[29X[2XEvaluationBivariateCodeNC[102X( [3Xpts[103X, [3XL[103X, [3Xcrv[103X ) [32X function[133X
   
   [33X[0;0YAs in [10XEvaluationBivariateCode[110X but does not check if the points are ``bad''.[133X
   
@@ -2331,7 +2339,7 @@
   
   [1X5.7-25 OnePointAGCode[101X
   
-  [29X[2XOnePointAGCode[102X( [3Xf[103X, [3XP[103X, [3Xm[103X, [3XR[103X ) [32X function
+  [33X[1;0Y[29X[2XOnePointAGCode[102X( [3Xf[103X, [3XP[103X, [3Xm[103X, [3XR[103X ) [32X function[133X
   
   [33X[0;0YInput:  [3Xf[103X  is  a  polynomial  in R=F[x,y], where [3XF[103X is a finite field, [3Xm[103X is a
   positive integer (the multiplicity of the `point at infinity' [22X∞[122X on the curve
@@ -2339,8 +2347,9 @@
   [33X[0;0YOutput: The [22XC[122X which is the image of the evaluation map[133X
   
   
-        [33X[1;6Y[24X[33X[0;0YEval_P:L(m \cdot \infty)\rightarrow F^n,[133X [124X[133X
+  [24X[33X[0;6YEval_P:L(m \cdot \infty)\rightarrow F^n,[133X
   
+  [124X
   
   [33X[0;0Ygiven  by  [22Xflongmapsto  (f(p_1),...,f(p_n))[122X,  where  [22Xp_i  ∈ P[122X. Here [22XL(m ⋅ ∞)[122X
   denotes the Riemann-Roch space of the divisor [22Xm ⋅ ∞[122X on the curve. This has a
@@ -2412,7 +2421,7 @@
   
   [1X5.8-1 QCLDPCCodeFromGroup[101X
   
-  [29X[2XQCLDPCCodeFromGroup[102X( [3Xm[103X, [3Xj[103X, [3Xk[103X ) [32X function
+  [33X[1;0Y[29X[2XQCLDPCCodeFromGroup[102X( [3Xm[103X, [3Xj[103X, [3Xk[103X ) [32X function[133X
   
   [33X[0;0Y[10XQCLDCCodeFromGroup[110X  produces  an [22X(n,j,k)[122X regular quasi-cyclic LDPC code over
   GF(2)  of  block length [22Xn = mk[122X. The term quasi-cyclic in the context of LDPC
@@ -2456,12 +2465,13 @@
   [33X[0;0YThe code rate [22XR[122X of the constructed code is given by[133X
   
   
-        [33X[1;6Y[24X[33X[0;0YR \geq 1 - \frac{j}{k}[133X [124X[133X
+  [24X[33X[0;6YR \geq 1 - \frac{j}{k}[133X
   
+  [124X
   
   [33X[0;0Ywhere  the  sign  [22X≥[122X  is  due  to the possible existence of some non linearly
   independent  rows in [22XH[122X. For more details, refer to the paper by Tanner et al
-  [TSSFJ04].[133X
+  [TSS+04].[133X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XC := QCLDPCCodeFromGroup(7,2,3);[127X[104X

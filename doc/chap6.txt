@@ -33,7 +33,7 @@
   
   [1X6.1-1 ExtendedCode[101X
   
-  [29X[2XExtendedCode[102X( [3XC[103X[, [3Xi[103X] ) [32X function
+  [33X[1;0Y[29X[2XExtendedCode[102X( [3XC[103X[, [3Xi[103X] ) [32X function[133X
   
   [33X[0;0Y[10XExtendedCode[110X  extends  the code [3XC[103X [3Xi[103X times and returns the result. [3Xi[103X is equal
   to  [22X1[122X  by  default. Extending is done by adding a parity check bit after the
@@ -65,7 +65,7 @@
   
   [1X6.1-2 PuncturedCode[101X
   
-  [29X[2XPuncturedCode[102X( [3XC[103X ) [32X function
+  [33X[1;0Y[29X[2XPuncturedCode[102X( [3XC[103X ) [32X function[133X
   
   [33X[0;0Y[10XPuncturedCode[110X  punctures  [3XC[103X  in  the  last  column,  and returns the result.
   Puncturing is done simply by cutting off the last column from each codeword.
@@ -100,7 +100,7 @@
   
   [1X6.1-3 EvenWeightSubcode[101X
   
-  [29X[2XEvenWeightSubcode[102X( [3XC[103X ) [32X function
+  [33X[1;0Y[29X[2XEvenWeightSubcode[102X( [3XC[103X ) [32X function[133X
   
   [33X[0;0Y[10XEvenWeightSubcode[110X  returns  the  even weight subcode of [3XC[103X, consisting of all
   codewords of [3XC[103X with even weight. If [3XC[103X is a linear code and contains words of
@@ -129,7 +129,7 @@
   
   [1X6.1-4 PermutedCode[101X
   
-  [29X[2XPermutedCode[102X( [3XC[103X, [3XL[103X ) [32X function
+  [33X[1;0Y[29X[2XPermutedCode[102X( [3XC[103X, [3XL[103X ) [32X function[133X
   
   [33X[0;0Y[10XPermutedCode[110X  returns  [3XC[103X after column permutations. [3XL[103X (in GAP disjoint cycle
   notation)  is  the  permutation  to be executed on the columns of [3XC[103X. If [3XC[103X is
@@ -155,7 +155,7 @@
   
   [1X6.1-5 ExpurgatedCode[101X
   
-  [29X[2XExpurgatedCode[102X( [3XC[103X, [3XL[103X ) [32X function
+  [33X[1;0Y[29X[2XExpurgatedCode[102X( [3XC[103X, [3XL[103X ) [32X function[133X
   
   [33X[0;0Y[10XExpurgatedCode[110X  expurgates the code [3XC[103X> by throwing away codewords in list [3XL[103X.
   [3XC[103X  must  be a linear code. [3XL[103X must be a list of codeword input. The generator
@@ -180,7 +180,7 @@
   
   [1X6.1-6 AugmentedCode[101X
   
-  [29X[2XAugmentedCode[102X( [3XC[103X, [3XL[103X ) [32X function
+  [33X[1;0Y[29X[2XAugmentedCode[102X( [3XC[103X, [3XL[103X ) [32X function[133X
   
   [33X[0;0Y[10XAugmentedCode[110X returns [3XC[103X after augmenting. [3XC[103X must be a linear code, [3XL[103X must be
   a  list  of codeword inputs. The generator matrix of the new code is a basis
@@ -218,7 +218,7 @@
   
   [1X6.1-7 RemovedElementsCode[101X
   
-  [29X[2XRemovedElementsCode[102X( [3XC[103X, [3XL[103X ) [32X function
+  [33X[1;0Y[29X[2XRemovedElementsCode[102X( [3XC[103X, [3XL[103X ) [32X function[133X
   
   [33X[0;0Y[10XRemovedElementsCode[110X returns code [3XC[103X after removing a list of codewords [3XL[103X from
   its  elements.  [3XL[103X  must  be  a  list  of  codeword  input.  The result is an
@@ -243,7 +243,7 @@
   
   [1X6.1-8 AddedElementsCode[101X
   
-  [29X[2XAddedElementsCode[102X( [3XC[103X, [3XL[103X ) [32X function
+  [33X[1;0Y[29X[2XAddedElementsCode[102X( [3XC[103X, [3XL[103X ) [32X function[133X
   
   [33X[0;0Y[10XAddedElementsCode[110X  returns  code [3XC[103X after adding a list of codewords [3XL[103X to its
   elements.  [3XL[103X must be a list of codeword input. The result is an unrestricted
@@ -268,7 +268,7 @@
   
   [1X6.1-9 ShortenedCode[101X
   
-  [29X[2XShortenedCode[102X( [3XC[103X[, [3XL[103X] ) [32X function
+  [33X[1;0Y[29X[2XShortenedCode[102X( [3XC[103X[, [3XL[103X] ) [32X function[133X
   
   [33X[0;0Y[10XShortenedCode(  C  )[110X returns the code [3XC[103X shortened by taking a cross section.
   If  [3XC[103X  is  a  linear code, this is done by removing all codewords that start
@@ -317,7 +317,7 @@
   
   [1X6.1-10 LengthenedCode[101X
   
-  [29X[2XLengthenedCode[102X( [3XC[103X[, [3Xi[103X] ) [32X function
+  [33X[1;0Y[29X[2XLengthenedCode[102X( [3XC[103X[, [3Xi[103X] ) [32X function[133X
   
   [33X[0;0Y[10XLengthenedCode(  C )[110X returns the code [3XC[103X lengthened. [3XC[103X must be a linear code.
   First,   the   all-ones  vector  is  added  to  the  generator  matrix  (see
@@ -338,7 +338,7 @@
   
   [1X6.1-11 SubCode[101X
   
-  [29X[2XSubCode[102X( [3XC[103X[, [3Xs[103X] ) [32X function
+  [33X[1;0Y[29X[2XSubCode[102X( [3XC[103X[, [3Xs[103X] ) [32X function[133X
   
   [33X[0;0YThis  function [10XSubCode[110X returns a subcode of [3XC[103X by taking the first [22Xk - s[122X rows
   of  the generator matrix of [3XC[103X, where [22Xk[122X is the dimension of [3XC[103X. The interger [3Xs[103X
@@ -364,7 +364,7 @@
   
   [1X6.1-12 ResidueCode[101X
   
-  [29X[2XResidueCode[102X( [3XC[103X[, [3Xc[103X] ) [32X function
+  [33X[1;0Y[29X[2XResidueCode[102X( [3XC[103X[, [3Xc[103X] ) [32X function[133X
   
   [33X[0;0YThe  function  [10XResidueCode[110X  takes  a  codeword  [3Xc[103X  of  [3XC[103X (if [3Xc[103X is omitted, a
   codeword of minimal weight is used). It removes this word and all its linear
@@ -385,7 +385,7 @@
   
   [1X6.1-13 ConstructionBCode[101X
   
-  [29X[2XConstructionBCode[102X( [3XC[103X ) [32X function
+  [33X[1;0Y[29X[2XConstructionBCode[102X( [3XC[103X ) [32X function[133X
   
   [33X[0;0YThe  function  [10XConstructionBCode[110X takes a binary linear code [3XC[103X and calculates
   the  minimum  distance  of  the  dual  of [3XC[103X (see [2XDualCode[102X ([14X6.1-14[114X)). It then
@@ -418,7 +418,7 @@
   
   [1X6.1-14 DualCode[101X
   
-  [29X[2XDualCode[102X( [3XC[103X ) [32X function
+  [33X[1;0Y[29X[2XDualCode[102X( [3XC[103X ) [32X function[133X
   
   [33X[0;0Y[10XDualCode[110X returns the dual code of [3XC[103X. The dual code consists of all codewords
   that  are  orthogonal  to  the  codewords  of  [3XC[103X. If [3XC[103X is a linear code with
@@ -447,7 +447,7 @@
   
   [1X6.1-15 ConversionFieldCode[101X
   
-  [29X[2XConversionFieldCode[102X( [3XC[103X ) [32X function
+  [33X[1;0Y[29X[2XConversionFieldCode[102X( [3XC[103X ) [32X function[133X
   
   [33X[0;0Y[10XConversionFieldCode[110X  returns  the  code obtained from [3XC[103X after converting its
   field. If the field of [3XC[103X is [22XGF(q^m)[122X, the returned code has field [22XGF(q)[122X. Each
@@ -473,7 +473,7 @@
   
   [1X6.1-16 TraceCode[101X
   
-  [29X[2XTraceCode[102X( [3XC[103X ) [32X function
+  [33X[1;0Y[29X[2XTraceCode[102X( [3XC[103X ) [32X function[133X
   
   [33X[0;0YInput:  [3XC[103X is a linear code defined over an extension [22XE[122X of [3XF[103X ([3XF[103X is the ``base
   field'')[133X
@@ -498,7 +498,7 @@
   
   [1X6.1-17 CosetCode[101X
   
-  [29X[2XCosetCode[102X( [3XC[103X, [3Xw[103X ) [32X function
+  [33X[1;0Y[29X[2XCosetCode[102X( [3XC[103X, [3Xw[103X ) [32X function[133X
   
   [33X[0;0Y[10XCosetCode[110X returns the coset of a code [3XC[103X with respect to word [3Xw[103X. [3Xw[103X must be of
   the  codeword  type.  Then,  [3Xw[103X  is added to each codeword of [3XC[103X, yielding the
@@ -524,7 +524,7 @@
   
   [1X6.1-18 ConstantWeightSubcode[101X
   
-  [29X[2XConstantWeightSubcode[102X( [3XC[103X, [3Xw[103X ) [32X function
+  [33X[1;0Y[29X[2XConstantWeightSubcode[102X( [3XC[103X, [3Xw[103X ) [32X function[133X
   
   [33X[0;0Y[10XConstantWeightSubcode[110X  returns  the  subcode of [3XC[103X that only has codewords of
   weight  [3Xw[103X.  The  resulting  code  is  a non-linear code, because it does not
@@ -557,7 +557,7 @@
   
   [1X6.1-19 StandardFormCode[101X
   
-  [29X[2XStandardFormCode[102X( [3XC[103X ) [32X function
+  [33X[1;0Y[29X[2XStandardFormCode[102X( [3XC[103X ) [32X function[133X
   
   [33X[0;0Y[10XStandardFormCode[110X  returns  [3XC[103X  after  putting  it in standard form. If [3XC[103X is a
   non-linear code, this means the elements are organized using lexicographical
@@ -591,7 +591,7 @@
   
   [1X6.1-20 PiecewiseConstantCode[101X
   
-  [29X[2XPiecewiseConstantCode[102X( [3Xpart[103X, [3Xwts[103X[, [3XF[103X] ) [32X function
+  [33X[1;0Y[29X[2XPiecewiseConstantCode[102X( [3Xpart[103X, [3Xwts[103X[, [3XF[103X] ) [32X function[133X
   
   [33X[0;0Y[10XPiecewiseConstantCode[110X  returns  a  code  with length [22Xn = ∑ n_i[122X, where [3Xpart[103X=[22X[
   n_1,  dots,  n_k  ][122X.  [3Xwts[103X  is a list of [3Xconstraints[103X [22Xw=(w_1,...,w_k)[122X, each of
@@ -627,7 +627,7 @@
   
   [1X6.2-1 DirectSumCode[101X
   
-  [29X[2XDirectSumCode[102X( [3XC1[103X, [3XC2[103X ) [32X function
+  [33X[1;0Y[29X[2XDirectSumCode[102X( [3XC1[103X, [3XC2[103X ) [32X function[133X
   
   [33X[0;0Y[10XDirectSumCode[110X returns the direct sum of codes [3XC1[103X and [3XC2[103X. The direct sum code
   consists  of  every  codeword  of  [3XC1[103X  concatenated by every codeword of [3XC2[103X.
@@ -654,7 +654,7 @@
   
   [1X6.2-2 UUVCode[101X
   
-  [29X[2XUUVCode[102X( [3XC1[103X, [3XC2[103X ) [32X function
+  [33X[1;0Y[29X[2XUUVCode[102X( [3XC1[103X, [3XC2[103X ) [32X function[133X
   
   [33X[0;0Y[10XUUVCode[110X returns the so-called [22X(u|u+v)[122X construction applied to [3XC1[103X and [3XC2[103X. The
   resulting code consists of every codeword [22Xu[122X of [3XC1[103X concatenated by the sum of
@@ -683,7 +683,7 @@
   
   [1X6.2-3 DirectProductCode[101X
   
-  [29X[2XDirectProductCode[102X( [3XC1[103X, [3XC2[103X ) [32X function
+  [33X[1;0Y[29X[2XDirectProductCode[102X( [3XC1[103X, [3XC2[103X ) [32X function[133X
   
   [33X[0;0Y[10XDirectProductCode[110X  returns  the direct product of codes [3XC1[103X and [3XC2[103X. Both must
   be  linear codes. Suppose [3XCi[103X has generator matrix [22XG_i[122X. The direct product of
@@ -704,7 +704,7 @@
   
   [1X6.2-4 IntersectionCode[101X
   
-  [29X[2XIntersectionCode[102X( [3XC1[103X, [3XC2[103X ) [32X function
+  [33X[1;0Y[29X[2XIntersectionCode[102X( [3XC1[103X, [3XC2[103X ) [32X function[133X
   
   [33X[0;0Y[10XIntersectionCode[110X  returns  the  intersection  of  codes [3XC1[103X and [3XC2[103X. This code
   consists  of  all  codewords  that  are both in [3XC1[103X and [3XC2[103X. If both codes are
@@ -730,7 +730,7 @@
   
   [1X6.2-5 UnionCode[101X
   
-  [29X[2XUnionCode[102X( [3XC1[103X, [3XC2[103X ) [32X function
+  [33X[1;0Y[29X[2XUnionCode[102X( [3XC1[103X, [3XC2[103X ) [32X function[133X
   
   [33X[0;0Y[10XUnionCode[110X  returns  the  union of codes [3XC1[103X and [3XC2[103X. This code consists of the
   union  of  all codewords of [3XC1[103X and [3XC2[103X and all linear combinations. Therefore
@@ -756,7 +756,7 @@
   
   [1X6.2-6 ExtendedDirectSumCode[101X
   
-  [29X[2XExtendedDirectSumCode[102X( [3XL[103X, [3XB[103X, [3Xm[103X ) [32X function
+  [33X[1;0Y[29X[2XExtendedDirectSumCode[102X( [3XL[103X, [3XB[103X, [3Xm[103X ) [32X function[133X
   
   [33X[0;0YThe extended direct sum construction is described in section V of Graham and
   Sloane  [GS85].  The  resulting  code consists of [3Xm[103X copies of [3XL[103X, extended by
@@ -769,9 +769,10 @@
   Ψ( L, B ) ⌋[122X, with[133X
   
   
-        [33X[1;6Y[24X[33X[0;0Y\Psi( L, B ) = \max_{u \in F_2^{n_L}} \frac{1}{2^{k_B}} \sum_{v \in B}
-        {\rm d}( L, v + u ).[133X [124X[133X
+  [24X[33X[0;6Y\Psi(  L, B ) = \max_{u \in F_2^{n_L}} \frac{1}{2^{k_B}} \sum_{v \in B} {\rm
+  d}( L, v + u ).[133X
   
+  [124X
   
   [33X[0;0YHowever,  this  computation will not be executed, because it may be too time
   consuming for large codes.[133X
@@ -790,7 +791,7 @@
   
   [1X6.2-7 AmalgamatedDirectSumCode[101X
   
-  [29X[2XAmalgamatedDirectSumCode[102X( [3Xc1[103X, [3Xc2[103X[, [3Xcheck[103X] ) [32X function
+  [33X[1;0Y[29X[2XAmalgamatedDirectSumCode[102X( [3Xc1[103X, [3Xc2[103X[, [3Xcheck[103X] ) [32X function[133X
   
   [33X[0;0Y[10XAmalgamatedDirectSumCode[110X  returns the amalgamated direct sum of the codes [3Xc1[103X
   and  [3Xc2[103X.  The  amalgamated  direct sum code consists of all codewords of the
@@ -829,7 +830,7 @@
   
   [1X6.2-8 BlockwiseDirectSumCode[101X
   
-  [29X[2XBlockwiseDirectSumCode[102X( [3XC1[103X, [3XL1[103X, [3XC2[103X, [3XL2[103X ) [32X function
+  [33X[1;0Y[29X[2XBlockwiseDirectSumCode[102X( [3XC1[103X, [3XL1[103X, [3XC2[103X, [3XL2[103X ) [32X function[133X
   
   [33X[0;0Y[10XBlockwiseDirectSumCode[110X returns a subcode of the direct sum of [3XC1[103X and [3XC2[103X. The
   fields  of  [3XC1[103X and [3XC2[103X must be same. The lists [3XL1[103X and [3XL2[103X are two equally long
@@ -840,17 +841,19 @@
   [33X[0;0YIn the first case, the blockwise direct sum code is defined as[133X
   
   
-        [33X[1;6Y[24X[33X[0;0Ybds = \bigcup_{1 \leq i \leq \ell} ( C_1 + (L_1)_i ) \oplus ( C_2 +
-        (L_2)_i ),[133X [124X[133X
+  [24X[33X[0;6Ybds  = \bigcup_{1 \leq i \leq \ell} ( C_1 + (L_1)_i ) \oplus ( C_2 + (L_2)_i
+  ),[133X
   
+  [124X
   
   [33X[0;0Ywhere [22Xℓ[122X is the length of [3XL1[103X and [3XL2[103X, and [22X⊕[122X is the direct sum.[133X
   
   [33X[0;0YIn the second case, it is defined as[133X
   
   
-        [33X[1;6Y[24X[33X[0;0Ybds = \bigcup_{1 \leq i \leq \ell} ( (L_1)_i \oplus (L_2)_i ).[133X [124X[133X
+  [24X[33X[0;6Ybds = \bigcup_{1 \leq i \leq \ell} ( (L_1)_i \oplus (L_2)_i ).[133X
   
+  [124X
   
   [33X[0;0YThe length of the new code is [22Xn = n_1 + n_2[122X.[133X
   
@@ -864,7 +867,7 @@
   
   [1X6.2-9 ConstructionXCode[101X
   
-  [29X[2XConstructionXCode[102X( [3XC[103X, [3XA[103X ) [32X function
+  [33X[1;0Y[29X[2XConstructionXCode[102X( [3XC[103X, [3XA[103X ) [32X function[133X
   
   [33X[0;0YConsider  a  list of [22Xj[122X linear codes of the same length [22XN[122X over the same field
   [22XF[122X,  [22XC = { C_1, C_2, ..., C_j }[122X, where the parameter of the [22Xi[122Xth code is [22XC_i =
@@ -913,7 +916,7 @@
   
   [1X6.2-10 ConstructionXXCode[101X
   
-  [29X[2XConstructionXXCode[102X( [3XC1[103X, [3XC2[103X, [3XC3[103X, [3XA1[103X, [3XA2[103X ) [32X function
+  [33X[1;0Y[29X[2XConstructionXXCode[102X( [3XC1[103X, [3XC2[103X, [3XC3[103X, [3XA1[103X, [3XA2[103X ) [32X function[133X
   
   [33X[0;0YConsider  a  set of linear codes over field [22XF[122X of the same length, [22Xn[122X, [22XC_1=[n,
   k_1,  d_1][122X, [22XC_2=[n, k_2, d_2][122X and [22XC_3=[n, k_3, d_3][122X such that [22XC_2 ⊂ C_1[122X, [22XC_3
@@ -972,7 +975,7 @@
   
   [1X6.2-11 BZCode[101X
   
-  [29X[2XBZCode[102X( [3XO[103X, [3XI[103X ) [32X function
+  [33X[1;0Y[29X[2XBZCode[102X( [3XO[103X, [3XI[103X ) [32X function[133X
   
   [33X[0;0YGiven  a  set  of  outer  codes  of the same length [22XO_i = [N, K_i, D_i][122X over
   GF([22Xq^e_i[122X), where [22Xi=1,2,...,t[122X and a set of inner codes of the same length [22XI_i
@@ -991,7 +994,7 @@
   
   [1X6.2-12 BZCodeNC[101X
   
-  [29X[2XBZCodeNC[102X( [3XO[103X, [3XI[103X ) [32X function
+  [33X[1;0Y[29X[2XBZCodeNC[102X( [3XO[103X, [3XI[103X ) [32X function[133X
   
   [33X[0;0YThis  function  is  the  same as [10XBZCode[110X, except this version is faster as it
   does  not  estimate the covering radius of the code. Users are encouraged to

@@ -44,7 +44,7 @@
   
   [1X7.1-1 UpperBoundSingleton[101X
   
-  [29X[2XUpperBoundSingleton[102X( [3Xn[103X, [3Xd[103X, [3Xq[103X ) [32X function
+  [33X[1;0Y[29X[2XUpperBoundSingleton[102X( [3Xn[103X, [3Xd[103X, [3Xq[103X ) [32X function[133X
   
   [33X[0;0Y[10XUpperBoundSingleton[110X  returns  the  Singleton  bound  for a code of length [3Xn[103X,
   minimum  distance  [3Xd[103X  over  a  field  of  size [3Xq[103X. This bound is based on the
@@ -52,8 +52,9 @@
   [22X(n-d+1,M,1)[122X code results, with [22XM ≤ q^n-d+1[122X (see [2XShortenedCode[102X ([14X6.1-9[114X)). Thus[133X
   
   
-        [33X[1;6Y[24X[33X[0;0YM \leq q^{n-d+1}.[133X [124X[133X
+  [24X[33X[0;6YM \leq q^{n-d+1}.[133X
   
+  [124X
   
   [33X[0;0YCodes  that  meet  this  bound  are  called  [13Xmaximum distance separable[113X (see
   [2XIsMDSCode[102X ([14X4.3-7[114X)).[133X
@@ -69,7 +70,7 @@
   
   [1X7.1-2 UpperBoundHamming[101X
   
-  [29X[2XUpperBoundHamming[102X( [3Xn[103X, [3Xd[103X, [3Xq[103X ) [32X function
+  [33X[1;0Y[29X[2XUpperBoundHamming[102X( [3Xn[103X, [3Xd[103X, [3Xq[103X ) [32X function[133X
   
   [33X[0;0YThe  Hamming bound (also known as the [13Xsphere packing bound[113X) returns an upper
   bound on the size of a code of length [3Xn[103X, minimum distance [3Xd[103X, over a field of
@@ -79,8 +80,9 @@
   space.[133X
   
   
-        [33X[1;6Y[24X[33X[0;0YM \leq {q^n \over V(n,e)},[133X [124X[133X
+  [24X[33X[0;6YM \leq {q^n \over V(n,e)},[133X
   
+  [124X
   
   [33X[0;0Ywhere  [22XM[122X  is  the  maxmimum  number  of codewords and [22XV(n,e)[122X is equal to the
   contents  of  a  ball of radius [22Xe[122X (see [2XSphereContent[102X ([14X7.5-5[114X)). This bound is
@@ -98,7 +100,7 @@
   
   [1X7.1-3 UpperBoundJohnson[101X
   
-  [29X[2XUpperBoundJohnson[102X( [3Xn[103X, [3Xd[103X ) [32X function
+  [33X[1;0Y[29X[2XUpperBoundJohnson[102X( [3Xn[103X, [3Xd[103X ) [32X function[133X
   
   [33X[0;0YThe  Johnson  bound  is  an  improved  version  of  the  Hamming  bound (see
   [2XUpperBoundHamming[102X  ([14X7.1-2[114X)). In addition to the Hamming bound, it takes into
@@ -114,7 +116,7 @@
   
   [1X7.1-4 UpperBoundPlotkin[101X
   
-  [29X[2XUpperBoundPlotkin[102X( [3Xn[103X, [3Xd[103X, [3Xq[103X ) [32X function
+  [33X[1;0Y[29X[2XUpperBoundPlotkin[102X( [3Xn[103X, [3Xd[103X, [3Xq[103X ) [32X function[133X
   
   [33X[0;0YThe  function  [10XUpperBoundPlotkin[110X  calculates the sum of the distances of all
   ordered  pairs  of  different  codewords.  It  is based on the fact that the
@@ -122,8 +124,9 @@
   bound if the weights of the codewords do not differ much. It results in:[133X
   
   
-        [33X[1;6Y[24X[33X[0;0YM \leq {d \over {d-(1-1/q)n}},[133X [124X[133X
+  [24X[33X[0;6YM \leq {d \over {d-(1-1/q)n}},[133X
   
+  [124X
   
   [33X[0;0Ywhere  [22XM[122X  is the maximum number of codewords. In this case, [3Xd[103X must be larger
   than [22X(1-1/q)n[122X, but by shortening the code, the case [22Xd ⟨ (1-1/q)n[122X is covered.[133X
@@ -141,7 +144,7 @@
   
   [1X7.1-5 UpperBoundElias[101X
   
-  [29X[2XUpperBoundElias[102X( [3Xn[103X, [3Xd[103X, [3Xq[103X ) [32X function
+  [33X[1;0Y[29X[2XUpperBoundElias[102X( [3Xn[103X, [3Xd[103X, [3Xq[103X ) [32X function[133X
   
   [33X[0;0YThe   Elias   bound   is   an   improvement   of   the  Plotkin  bound  (see
   [2XUpperBoundPlotkin[102X  ([14X7.1-4[114X))  for  large codes. Subcodes are used to decrease
@@ -160,7 +163,7 @@
   
   [1X7.1-6 UpperBoundGriesmer[101X
   
-  [29X[2XUpperBoundGriesmer[102X( [3Xn[103X, [3Xd[103X, [3Xq[103X ) [32X function
+  [33X[1;0Y[29X[2XUpperBoundGriesmer[102X( [3Xn[103X, [3Xd[103X, [3Xq[103X ) [32X function[133X
   
   [33X[0;0YThe  Griesmer  bound  is  valid  only  for  linear  codes. It is obtained by
   counting  the number of equal symbols in each row of the generator matrix of
@@ -179,14 +182,15 @@
   
   [1X7.1-7 IsGriesmerCode[101X
   
-  [29X[2XIsGriesmerCode[102X( [3XC[103X ) [32X function
+  [33X[1;0Y[29X[2XIsGriesmerCode[102X( [3XC[103X ) [32X function[133X
   
   [33X[0;0Y[10XIsGriesmerCode[110X  returns  `true'  if  a linear code [3XC[103X is a Griesmer code, and
   `false' otherwise. A code is called [13XGriesmer[113X if its length satisfies[133X
   
   
-        [33X[1;6Y[24X[33X[0;0Yn = g[k,d] = \sum_{i=0}^{k-1} \lceil \frac{d}{q^i} \rceil.[133X [124X[133X
+  [24X[33X[0;6Yn = g[k,d] = \sum_{i=0}^{k-1} \lceil \frac{d}{q^i} \rceil.[133X
   
+  [124X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XIsGriesmerCode( HammingCode( 3, GF(2) ) );[127X[104X
@@ -197,7 +201,7 @@
   
   [1X7.1-8 UpperBound[101X
   
-  [29X[2XUpperBound[102X( [3Xn[103X, [3Xd[103X, [3Xq[103X ) [32X function
+  [33X[1;0Y[29X[2XUpperBound[102X( [3Xn[103X, [3Xd[103X, [3Xq[103X ) [32X function[133X
   
   [33X[0;0Y[10XUpperBound[110X  returns the best known upper bound [22XA(n,d)[122X for the size of a code
   of  length  [3Xn[103X,  minimum  distance  [3Xd[103X  over  a  field of size [3Xq[103X. The function
@@ -219,7 +223,7 @@
   
   [1X7.1-9 LowerBoundMinimumDistance[101X
   
-  [29X[2XLowerBoundMinimumDistance[102X( [3XC[103X ) [32X function
+  [33X[1;0Y[29X[2XLowerBoundMinimumDistance[102X( [3XC[103X ) [32X function[133X
   
   [33X[0;0YIn  this  form,  [10XLowerBoundMinimumDistance[110X  returns  a  lower  bound for the
   minimum distance of code [3XC[103X.[133X
@@ -240,7 +244,7 @@
   
   [1X7.1-10 LowerBoundGilbertVarshamov[101X
   
-  [29X[2XLowerBoundGilbertVarshamov[102X( [3Xn[103X, [3Xd[103X, [3Xq[103X ) [32X function
+  [33X[1;0Y[29X[2XLowerBoundGilbertVarshamov[102X( [3Xn[103X, [3Xd[103X, [3Xq[103X ) [32X function[133X
   
   [33X[0;0YThis  is the lower bound on the size of a linear code due (independently) to
   Gilbert  and Varshamov. It says that for each [3Xn[103X and [3Xd[103X, there exists a linear
@@ -264,7 +268,7 @@
   
   [1X7.1-11 LowerBoundSpherePacking[101X
   
-  [29X[2XLowerBoundSpherePacking[102X( [3Xn[103X, [3Xd[103X, [3Xq[103X ) [32X function
+  [33X[1;0Y[29X[2XLowerBoundSpherePacking[102X( [3Xn[103X, [3Xd[103X, [3Xq[103X ) [32X function[133X
   
   [33X[0;0YThis  is  the  (weaker) Gilbert-Varshamov bound valid for unrestricted codes
   over  an  alphabet  of  size [3Xq[103X (where [3Xq[103X is an integer > 1). It says that for
@@ -280,7 +284,7 @@
   
   [1X7.1-12 UpperBoundMinimumDistance[101X
   
-  [29X[2XUpperBoundMinimumDistance[102X( [3XC[103X ) [32X function
+  [33X[1;0Y[29X[2XUpperBoundMinimumDistance[102X( [3XC[103X ) [32X function[133X
   
   [33X[0;0YIn  this  form,  [10XUpperBoundMinimumDistance[110X  returns  an  upper bound for the
   minimum distance of code [3XC[103X. For unrestricted codes, it just returns the word
@@ -303,7 +307,7 @@
   
   [1X7.1-13 BoundsMinimumDistance[101X
   
-  [29X[2XBoundsMinimumDistance[102X( [3Xn[103X, [3Xk[103X, [3XF[103X ) [32X function
+  [33X[1;0Y[29X[2XBoundsMinimumDistance[102X( [3Xn[103X, [3Xk[103X, [3XF[103X ) [32X function[133X
   
   [33X[0;0YThe  function  [10XBoundsMinimumDistance[110X  calculates a lower and upper bound for
   the minimum distance of an optimal linear code with word length [3Xn[103X, dimension
@@ -347,7 +351,7 @@
   
   [1X7.2-1 BoundsCoveringRadius[101X
   
-  [29X[2XBoundsCoveringRadius[102X( [3XC[103X ) [32X function
+  [33X[1;0Y[29X[2XBoundsCoveringRadius[102X( [3XC[103X ) [32X function[133X
   
   [33X[0;0Y[10XBoundsCoveringRadius[110X  returns  a  list  of integers. The first entry of this
   list  is  the maximum of some lower bounds for the covering radius of [3XC[103X, the
@@ -366,7 +370,7 @@
   
   [1X7.2-2 IncreaseCoveringRadiusLowerBound[101X
   
-  [29X[2XIncreaseCoveringRadiusLowerBound[102X( [3XC[103X[, [3Xstopdist[103X][, [3Xstartword[103X] ) [32X function
+  [33X[1;0Y[29X[2XIncreaseCoveringRadiusLowerBound[102X( [3XC[103X[, [3Xstopdist[103X][, [3Xstartword[103X] ) [32X function[133X
   
   [33X[0;0Y[10XIncreaseCoveringRadiusLowerBound[110X  tries  to  increase the lower bound of the
   covering  radius  of  [3XC[103X. It does this by means of a probabilistic algorithm.
@@ -447,7 +451,7 @@
   
   [1X7.2-3 ExhaustiveSearchCoveringRadius[101X
   
-  [29X[2XExhaustiveSearchCoveringRadius[102X( [3XC[103X ) [32X function
+  [33X[1;0Y[29X[2XExhaustiveSearchCoveringRadius[102X( [3XC[103X ) [32X function[133X
   
   [33X[0;0Y[10XExhaustiveSearchCoveringRadius[110X   does  an  exhaustive  search  to  find  the
   covering  radius of [3XC[103X. Every time a coset leader of a coset with weight [22Xw[122X is
@@ -469,7 +473,7 @@
   
   [1X7.2-4 GeneralLowerBoundCoveringRadius[101X
   
-  [29X[2XGeneralLowerBoundCoveringRadius[102X( [3XC[103X ) [32X function
+  [33X[1;0Y[29X[2XGeneralLowerBoundCoveringRadius[102X( [3XC[103X ) [32X function[133X
   
   [33X[0;0Y[10XGeneralLowerBoundCoveringRadius[110X returns a lower bound on the covering radius
   of    [3XC[103X.    It   uses   as   many   functions   which   names   start   with
@@ -489,7 +493,7 @@
   
   [1X7.2-5 GeneralUpperBoundCoveringRadius[101X
   
-  [29X[2XGeneralUpperBoundCoveringRadius[102X( [3XC[103X ) [32X function
+  [33X[1;0Y[29X[2XGeneralUpperBoundCoveringRadius[102X( [3XC[103X ) [32X function[133X
   
   [33X[0;0Y[10XGeneralUpperBoundCoveringRadius[110X  returns  an  upper  bound  on  the covering
   radius   of   [3XC[103X.   It   uses  as  many  functions  which  names  start  with
@@ -508,7 +512,7 @@
   
   [1X7.2-6 LowerBoundCoveringRadiusSphereCovering[101X
   
-  [29X[2XLowerBoundCoveringRadiusSphereCovering[102X( [3Xn[103X, [3XM[103X[, [3XF[103X], [3Xfalse[103X ) [32X function
+  [33X[1;0Y[29X[2XLowerBoundCoveringRadiusSphereCovering[102X( [3Xn[103X, [3XM[103X[, [3XF[103X], [3Xfalse[103X ) [32X function[133X
   
   [33X[0;0YThis     command     can     also     be    called    using    the    syntax
   [10XLowerBoundCoveringRadiusSphereCovering(  n,  r,  [F,]  true  )[110X.  If the last
@@ -522,8 +526,9 @@
   sphere covering bound:[133X
   
   
-        [33X[1;6Y[24X[33X[0;0YM \cdot V_q(n,r) \geq q^n[133X [124X[133X
+  [24X[33X[0;6YM \cdot V_q(n,r) \geq q^n[133X
   
+  [124X
   
   [33X[0;0Ywhere [22XV_q(n,r)[122X is the size of a sphere of radius [22Xr[122X in [22XGF(q)^n[122X.[133X
   
@@ -543,7 +548,7 @@
   
   [1X7.2-7 LowerBoundCoveringRadiusVanWee1[101X
   
-  [29X[2XLowerBoundCoveringRadiusVanWee1[102X( [3Xn[103X, [3XM[103X[, [3XF[103X], [3Xfalse[103X ) [32X function
+  [33X[1;0Y[29X[2XLowerBoundCoveringRadiusVanWee1[102X( [3Xn[103X, [3XM[103X[, [3XF[103X], [3Xfalse[103X ) [32X function[133X
   
   [33X[0;0YThis     command     can     also     be    called    using    the    syntax
   [10XLowerBoundCoveringRadiusVanWee1(  n, r, [F,] true )[110X. If the last argument of
@@ -557,11 +562,11 @@
   [33X[0;0YThe Van Wee bound is an improvement of the sphere covering bound:[133X
   
   
-        [33X[1;6Y[24X[33X[0;0YM \cdot \left\{ V_q(n,r) - \frac{{n \choose
-        r}}{\lceil\frac{n-r}{r+1}\rceil}
-        \left(\left\lceil\frac{n+1}{r+1}\right\rceil - \frac{n+1}{r+1}\right)
-        \right\} \geq q^n[133X [124X[133X
+  [24X[33X[0;6YM \cdot \left\{ V_q(n,r) - \frac{{n \choose r}}{\lceil\frac{n-r}{r+1}\rceil}
+  \left(\left\lceil\frac{n+1}{r+1}\right\rceil     -    \frac{n+1}{r+1}\right)
+  \right\} \geq q^n[133X
   
+  [124X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XC:=RandomLinearCode(10,5,GF(2));[127X[104X
@@ -579,7 +584,7 @@
   
   [1X7.2-8 LowerBoundCoveringRadiusVanWee2[101X
   
-  [29X[2XLowerBoundCoveringRadiusVanWee2[102X( [3Xn[103X, [3XM[103X, [3Xfalse[103X ) [32X function
+  [33X[1;0Y[29X[2XLowerBoundCoveringRadiusVanWee2[102X( [3Xn[103X, [3XM[103X, [3Xfalse[103X ) [32X function[133X
   
   [33X[0;0YThis     command     can     also     be    called    using    the    syntax
   [10XLowerBoundCoveringRadiusVanWee2(  n,  r  [,true]  )[110X. If the last argument of
@@ -591,17 +596,19 @@
   inequality:[133X
   
   
-        [33X[1;6Y[24X[33X[0;0YM \cdot \frac{\left( \left( V_2(n,2) - \frac{1}{2}(r+2)(r-1) \right)
-        V_2(n,r) + \varepsilon V_2(n,r-2) \right)} {(V_2(n,2) -
-        \frac{1}{2}(r+2)(r-1) + \varepsilon)} \geq 2^n,[133X [124X[133X
+  [24X[33X[0;6YM   \cdot  \frac{\left(  \left(  V_2(n,2)  -  \frac{1}{2}(r+2)(r-1)  \right)
+  V_2(n,r)     +     \varepsilon     V_2(n,r-2)    \right)}    {(V_2(n,2)    -
+  \frac{1}{2}(r+2)(r-1) + \varepsilon)} \geq 2^n,[133X
   
+  [124X
   
   [33X[0;0Ywhere[133X
   
   
-        [33X[1;6Y[24X[33X[0;0Y\varepsilon = {r+2 \choose 2} \left\lceil {n-r+1 \choose 2} / {r+2
-        \choose 2} \right\rceil - {n-r+1 \choose 2}.[133X [124X[133X
+  [24X[33X[0;6Y\varepsilon  =  {r+2 \choose 2} \left\lceil {n-r+1 \choose 2} / {r+2 \choose
+  2} \right\rceil - {n-r+1 \choose 2}.[133X
   
+  [124X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XC:=RandomLinearCode(10,5,GF(2));[127X[104X
@@ -619,7 +626,7 @@
   
   [1X7.2-9 LowerBoundCoveringRadiusCountingExcess[101X
   
-  [29X[2XLowerBoundCoveringRadiusCountingExcess[102X( [3Xn[103X, [3XM[103X, [3Xfalse[103X ) [32X function
+  [33X[1;0Y[29X[2XLowerBoundCoveringRadiusCountingExcess[102X( [3Xn[103X, [3XM[103X, [3Xfalse[103X ) [32X function[133X
   
   [33X[0;0YThis command can also be called with [10XLowerBoundCoveringRadiusCountingExcess(
   n,      r      [,true]      )[110X.      If      the     last     argument     of
@@ -632,22 +639,25 @@
   inequality:[133X
   
   
-        [33X[1;6Y[24X[33X[0;0YM \cdot \left( \rho V_2(n,r) + \varepsilon V_2(n,r-1) \right) \geq
-        (\rho + \varepsilon) 2^n,[133X [124X[133X
+  [24X[33X[0;6YM  \cdot  \left( \rho V_2(n,r) + \varepsilon V_2(n,r-1) \right) \geq (\rho +
+  \varepsilon) 2^n,[133X
   
+  [124X
   
   [33X[0;0Ywhere[133X
   
   
-        [33X[1;6Y[24X[33X[0;0Y\varepsilon = (r+1) \left\lceil\frac{n+1}{r+1}\right\rceil - (n+1)[133X [124X[133X
+  [24X[33X[0;6Y\varepsilon = (r+1) \left\lceil\frac{n+1}{r+1}\right\rceil - (n+1)[133X
   
+  [124X
   
   [33X[0;0Yand[133X
   
   
-        [33X[1;6Y[24X[33X[0;0Y\rho = \left\{ \begin{array}{l} n-3+\frac{2}{n}, \ \ \ \ \ \ {\rm if}\
-        r = 2\\ n-r-1 , \ \ \ \ \ \ {\rm if}\ r \geq 3 . \end{array} \right.[133X [124X[133X
+  [24X[33X[0;6Y\rho  =  \left\{ \begin{array}{l} n-3+\frac{2}{n}, \ \ \ \ \ \ {\rm if}\ r =
+  2\\ n-r-1 , \ \ \ \ \ \ {\rm if}\ r \geq 3 . \end{array} \right.[133X
   
+  [124X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XC:=RandomLinearCode(10,5,GF(2));[127X[104X
@@ -665,7 +675,7 @@
   
   [1X7.2-10 LowerBoundCoveringRadiusEmbedded1[101X
   
-  [29X[2XLowerBoundCoveringRadiusEmbedded1[102X( [3Xn[103X, [3XM[103X, [3Xfalse[103X ) [32X function
+  [33X[1;0Y[29X[2XLowerBoundCoveringRadiusEmbedded1[102X( [3Xn[103X, [3XM[103X, [3Xfalse[103X ) [32X function[133X
   
   [33X[0;0YThis command can also be called with [10XLowerBoundCoveringRadiusEmbedded1( n, r
   [,true]  )[110X.  If  the  last  argument of [10XLowerBoundCoveringRadiusEmbedded1[110X is
@@ -677,9 +687,10 @@
   inequality:[133X
   
   
-        [33X[1;6Y[24X[33X[0;0YM \cdot \left( V_2(n,r) - {2r \choose r} \right) \geq 2^n - A( n, 2r+1
-        ) {2r \choose r},[133X [124X[133X
+  [24X[33X[0;6YM \cdot \left( V_2(n,r) - {2r \choose r} \right) \geq 2^n - A( n, 2r+1 ) {2r
+  \choose r},[133X
   
+  [124X
   
   [33X[0;0Ywhere  [22XA(n,d)[122X denotes the maximal cardinality of a (binary) code of length [22Xn[122X
   and  minimum  distance  [22Xd[122X.  The  function [10XUpperBound[110X is used to compute this
@@ -704,7 +715,7 @@
   
   [1X7.2-11 LowerBoundCoveringRadiusEmbedded2[101X
   
-  [29X[2XLowerBoundCoveringRadiusEmbedded2[102X( [3Xn[103X, [3XM[103X, [3Xfalse[103X ) [32X function
+  [33X[1;0Y[29X[2XLowerBoundCoveringRadiusEmbedded2[102X( [3Xn[103X, [3XM[103X, [3Xfalse[103X ) [32X function[133X
   
   [33X[0;0YThis command can also be called with [10XLowerBoundCoveringRadiusEmbedded2( n, r
   [,true]  )[110X.  If  the  last  argument of [10XLowerBoundCoveringRadiusEmbedded2[110X is
@@ -716,9 +727,10 @@
   inequality:[133X
   
   
-        [33X[1;6Y[24X[33X[0;0YM \cdot \left( V_2(n,r) - \frac{3}{2} {2r \choose r} \right) \geq 2^n
-        - 2A( n, 2r+1 ) {2r \choose r},[133X [124X[133X
+  [24X[33X[0;6YM  \cdot \left( V_2(n,r) - \frac{3}{2} {2r \choose r} \right) \geq 2^n - 2A(
+  n, 2r+1 ) {2r \choose r},[133X
   
+  [124X
   
   [33X[0;0Ywhere  [22XA(n,d)[122X denotes the maximal cardinality of a (binary) code of length [22Xn[122X
   and  minimum  distance  [22Xd[122X.  The  function [10XUpperBound[110X is used to compute this
@@ -743,7 +755,7 @@
   
   [1X7.2-12 LowerBoundCoveringRadiusInduction[101X
   
-  [29X[2XLowerBoundCoveringRadiusInduction[102X( [3Xn[103X, [3Xr[103X ) [32X function
+  [33X[1;0Y[29X[2XLowerBoundCoveringRadiusInduction[102X( [3Xn[103X, [3Xr[103X ) [32X function[133X
   
   [33X[0;0Y[10XLowerBoundCoveringRadiusInduction[110X  returns  a  lower bound for the size of a
   code with length [3Xn[103X and covering radius [3Xr[103X.[133X
@@ -768,7 +780,7 @@
   
   [1X7.2-13 UpperBoundCoveringRadiusRedundancy[101X
   
-  [29X[2XUpperBoundCoveringRadiusRedundancy[102X( [3XC[103X ) [32X function
+  [33X[1;0Y[29X[2XUpperBoundCoveringRadiusRedundancy[102X( [3XC[103X ) [32X function[133X
   
   [33X[0;0Y[10XUpperBoundCoveringRadiusRedundancy[110X  returns  the redundancy of [3XC[103X as an upper
   bound for the covering radius of [3XC[103X. [3XC[103X must be a linear code.[133X
@@ -785,7 +797,7 @@
   
   [1X7.2-14 UpperBoundCoveringRadiusDelsarte[101X
   
-  [29X[2XUpperBoundCoveringRadiusDelsarte[102X( [3XC[103X ) [32X function
+  [33X[1;0Y[29X[2XUpperBoundCoveringRadiusDelsarte[102X( [3XC[103X ) [32X function[133X
   
   [33X[0;0Y[10XUpperBoundCoveringRadiusDelsarte[110X  returns  an  upper  bound for the covering
   radius  of  [3XC[103X. This upper bound is equal to the external distance of [3XC[103X, this
@@ -804,7 +816,7 @@
   
   [1X7.2-15 UpperBoundCoveringRadiusStrength[101X
   
-  [29X[2XUpperBoundCoveringRadiusStrength[102X( [3XC[103X ) [32X function
+  [33X[1;0Y[29X[2XUpperBoundCoveringRadiusStrength[102X( [3XC[103X ) [32X function[133X
   
   [33X[0;0Y[10XUpperBoundCoveringRadiusStrength[110X  returns  an  upper  bound for the covering
   radius of [3XC[103X.[133X
@@ -827,14 +839,15 @@
   
   [1X7.2-16 UpperBoundCoveringRadiusGriesmerLike[101X
   
-  [29X[2XUpperBoundCoveringRadiusGriesmerLike[102X( [3XC[103X ) [32X function
+  [33X[1;0Y[29X[2XUpperBoundCoveringRadiusGriesmerLike[102X( [3XC[103X ) [32X function[133X
   
   [33X[0;0YThis  function  returns  an  upper bound for the covering radius of [3XC[103X, which
   must be linear, in a Griesmer-like fashion. It returns[133X
   
   
-        [33X[1;6Y[24X[33X[0;0Yn - \sum_{i=1}^k \left\lceil \frac{d}{q^i} \right\rceil[133X [124X[133X
+  [24X[33X[0;6Yn - \sum_{i=1}^k \left\lceil \frac{d}{q^i} \right\rceil[133X
   
+  [124X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XC:=RandomLinearCode(15,5,GF(2));[127X[104X
@@ -848,14 +861,15 @@
   
   [1X7.2-17 UpperBoundCoveringRadiusCyclicCode[101X
   
-  [29X[2XUpperBoundCoveringRadiusCyclicCode[102X( [3XC[103X ) [32X function
+  [33X[1;0Y[29X[2XUpperBoundCoveringRadiusCyclicCode[102X( [3XC[103X ) [32X function[133X
   
   [33X[0;0YThis  function  returns  an  upper bound for the covering radius of [3XC[103X, which
   must be a cyclic code. It returns[133X
   
   
-        [33X[1;6Y[24X[33X[0;0Yn - k + 1 - \left\lceil \frac{w(g(x))}{2} \right\rceil,[133X [124X[133X
+  [24X[33X[0;6Yn - k + 1 - \left\lceil \frac{w(g(x))}{2} \right\rceil,[133X
   
+  [124X
   
   [33X[0;0Ywhere [22Xg(x)[122X is the generator polynomial of [3XC[103X.[133X
   
@@ -891,7 +905,7 @@
   
   [1X7.3-1 KrawtchoukMat[101X
   
-  [29X[2XKrawtchoukMat[102X( [3Xn[103X, [3Xq[103X ) [32X function
+  [33X[1;0Y[29X[2XKrawtchoukMat[102X( [3Xn[103X, [3Xq[103X ) [32X function[133X
   
   [33X[0;0Y[10XKrawtchoukMat[110X  returns the [22Xn+1[122X by [22Xn+1[122X matrix [22XK=(k_ij)[122X defined by [22Xk_ij=K_i(j)[122X
   for [22Xi,j=0,...,n[122X. [22XK_i(j)[122X is the Krawtchouk number (see [2XKrawtchouk[102X ([14X7.5-6[114X)). [3Xn[103X
@@ -919,7 +933,7 @@
   
   [1X7.3-2 GrayMat[101X
   
-  [29X[2XGrayMat[102X( [3Xn[103X, [3XF[103X ) [32X function
+  [33X[1;0Y[29X[2XGrayMat[102X( [3Xn[103X, [3XF[103X ) [32X function[133X
   
   [33X[0;0Y[10XGrayMat[110X  returns a list of all different vectors (see GAP's [10XVectors[110X command)
   of  length  [3Xn[103X  over  the  field [3XF[103X, using Gray ordering. [3Xn[103X must be a positive
@@ -941,7 +955,7 @@
   
   [1X7.3-3 SylvesterMat[101X
   
-  [29X[2XSylvesterMat[102X( [3Xn[103X ) [32X function
+  [33X[1;0Y[29X[2XSylvesterMat[102X( [3Xn[103X ) [32X function[133X
   
   [33X[0;0Y[10XSylvesterMat[110X returns the [22Xn× n[122X Sylvester matrix of order [3Xn[103X. This is a special
   case   of   the  Hadamard  matrices  (see  [2XHadamardMat[102X  ([14X7.3-4[114X)).  For  this
@@ -961,7 +975,7 @@
   
   [1X7.3-4 HadamardMat[101X
   
-  [29X[2XHadamardMat[102X( [3Xn[103X ) [32X function
+  [33X[1;0Y[29X[2XHadamardMat[102X( [3Xn[103X ) [32X function[133X
   
   [33X[0;0Y[10XHadamardMat[110X  returns  a  Hadamard  matrix of order [3Xn[103X. This is an [22Xn× n[122X matrix
   with  the  property  that  the  matrix multiplied by its transpose returns [3Xn[103X
@@ -992,7 +1006,7 @@
   
   [1X7.3-5 VandermondeMat[101X
   
-  [29X[2XVandermondeMat[102X( [3XX[103X, [3Xa[103X ) [32X function
+  [33X[1;0Y[29X[2XVandermondeMat[102X( [3XX[103X, [3Xa[103X ) [32X function[133X
   
   [33X[0;0YThe  function  [10XVandermondeMat[110X  returns  the  [22X(a+1)× n[122X matrix of powers [22Xx_i^j[122X
   where  [3XX[103X  is  a  list  of  elements of a field, [22XX={ x_1,...,x_n}[122X, and [3Xa[103X is a
@@ -1011,7 +1025,7 @@
   
   [1X7.3-6 PutStandardForm[101X
   
-  [29X[2XPutStandardForm[102X( [3XM[103X[, [3Xidleft[103X] ) [32X function
+  [33X[1;0Y[29X[2XPutStandardForm[102X( [3XM[103X[, [3Xidleft[103X] ) [32X function[133X
   
   [33X[0;0YWe  say  that  a [22Xk× n[122X matrix is in [13Xstandard form[113X if it is equal to the block
   matrix  [22X(I | A)[122X, for some [22Xk× (n-k)[122X matrix [22XA[122X and where [22XI[122X is the [22Xk× k[122X identity
@@ -1065,7 +1079,7 @@
   
   [1X7.3-7 IsInStandardForm[101X
   
-  [29X[2XIsInStandardForm[102X( [3XM[103X[, [3Xidleft[103X] ) [32X function
+  [33X[1;0Y[29X[2XIsInStandardForm[102X( [3XM[103X[, [3Xidleft[103X] ) [32X function[133X
   
   [33X[0;0Y[10XIsInStandardForm[110X  determines  if  [3XM[103X is in standard form. [3Xidleft[103X is a boolean
   that   indicates   the   position  of  the  identity  matrix  in  [3XM[103X,  as  in
@@ -1086,7 +1100,7 @@
   
   [1X7.3-8 PermutedCols[101X
   
-  [29X[2XPermutedCols[102X( [3XM[103X, [3XP[103X ) [32X function
+  [33X[1;0Y[29X[2XPermutedCols[102X( [3XM[103X, [3XP[103X ) [32X function[133X
   
   [33X[0;0Y[10XPermutedCols[110X returns a matrix [3XM[103X with a permutation [3XP[103X applied to its columns.[133X
   
@@ -1101,7 +1115,7 @@
   
   [1X7.3-9 VerticalConversionFieldMat[101X
   
-  [29X[2XVerticalConversionFieldMat[102X( [3XM[103X, [3XF[103X ) [32X function
+  [33X[1;0Y[29X[2XVerticalConversionFieldMat[102X( [3XM[103X, [3XF[103X ) [32X function[133X
   
   [33X[0;0Y[10XVerticalConversionFieldMat[110X  returns the matrix [3XM[103X with its elements converted
   from  a field [22XF=GF(q^m)[122X, [22Xq[122X prime, to a field [22XGF(q)[122X. Each element is replaced
@@ -1109,8 +1123,9 @@
   matrix, using the [22XGF(p)[122X-vector space isomorphism[133X
   
   
-        [33X[1;6Y[24X[33X[0;0Y[...] : GF(q)\rightarrow GF(p)^m,[133X [124X[133X
+  [24X[33X[0;6Y[...] : GF(q)\rightarrow GF(p)^m,[133X
   
+  [124X
   
   [33X[0;0Ywith [22Xq=p^m[122X.[133X
   
@@ -1137,7 +1152,7 @@
   
   [1X7.3-10 HorizontalConversionFieldMat[101X
   
-  [29X[2XHorizontalConversionFieldMat[102X( [3XM[103X, [3XF[103X ) [32X function
+  [33X[1;0Y[29X[2XHorizontalConversionFieldMat[102X( [3XM[103X, [3XF[103X ) [32X function[133X
   
   [33X[0;0Y[10XHorizontalConversionFieldMat[110X   returns   the  matrix  [3XM[103X  with  its  elements
   converted from a field [22XF=GF(q^m)[122X, [22Xq[122X prime, to a field [22XGF(q)[122X. Each element is
@@ -1173,7 +1188,7 @@
   
   [1X7.3-11 MOLS[101X
   
-  [29X[2XMOLS[102X( [3Xq[103X[, [3Xn[103X] ) [32X function
+  [33X[1;0Y[29X[2XMOLS[102X( [3Xq[103X[, [3Xn[103X] ) [32X function[133X
   
   [33X[0;0Y[10XMOLS[110X  returns  a list of [3Xn[103X [13XMutually Orthogonal Latin Squares[113X (MOLS). A [13XLatin
   square[113X  of  order  [3Xq[103X  is a [22Xq× q[122X matrix whose entries are from a set [22XF_q[122X of [3Xq[103X
@@ -1214,7 +1229,7 @@
   
   [1X7.3-12 IsLatinSquare[101X
   
-  [29X[2XIsLatinSquare[102X( [3XM[103X ) [32X function
+  [33X[1;0Y[29X[2XIsLatinSquare[102X( [3XM[103X ) [32X function[133X
   
   [33X[0;0Y[10XIsLatinSquare[110X determines if a matrix [3XM[103X is a Latin square. For a Latin square
   of  size  [22Xn×  n[122X, each row and each column contains all the integers [22X1,dots,n[122X
@@ -1229,7 +1244,7 @@
   
   [1X7.3-13 AreMOLS[101X
   
-  [29X[2XAreMOLS[102X( [3XL[103X ) [32X function
+  [33X[1;0Y[29X[2XAreMOLS[102X( [3XL[103X ) [32X function[133X
   
   [33X[0;0Y[10XAreMOLS[110X  determines  if  [3XL[103X  is  a  list of mutually orthogonal Latin squares
   (MOLS).  For each pair of Latin squares in this list, the function checks if
@@ -1255,15 +1270,16 @@
   
   [1X7.4-1 CoordinateNorm[101X
   
-  [29X[2XCoordinateNorm[102X( [3XC[103X, [3Xcoord[103X ) [32X function
+  [33X[1;0Y[29X[2XCoordinateNorm[102X( [3XC[103X, [3Xcoord[103X ) [32X function[133X
   
   [33X[0;0Y[10XCoordinateNorm[110X  returns  the  norm of [3XC[103X with respect to coordinate [3Xcoord[103X. If
   [22XC_a  =  { c ∈ C | c_coord = a }[122X, then the norm of [3XC[103X with respect to [3Xcoord[103X is
   defined as[133X
   
   
-        [33X[1;6Y[24X[33X[0;0Y\max_{v \in GF(q)^n} \sum_{a=1}^q d(x,C_a),[133X [124X[133X
+  [24X[33X[0;6Y\max_{v \in GF(q)^n} \sum_{a=1}^q d(x,C_a),[133X
   
+  [124X
   
   [33X[0;0Ywith the convention that [22Xd(x,C_a) = n[122X if [22XC_a[122X is empty.[133X
   
@@ -1274,7 +1290,7 @@
   
   [1X7.4-2 CodeNorm[101X
   
-  [29X[2XCodeNorm[102X( [3XC[103X ) [32X function
+  [33X[1;0Y[29X[2XCodeNorm[102X( [3XC[103X ) [32X function[133X
   
   [33X[0;0Y[10XCodeNorm[110X returns the norm of [3XC[103X. The [13Xnorm[113X of a code is defined as the minimum
   of the norms for the respective coordinates of the code. In effect, for each
@@ -1288,7 +1304,7 @@
   
   [1X7.4-3 IsCoordinateAcceptable[101X
   
-  [29X[2XIsCoordinateAcceptable[102X( [3XC[103X, [3Xcoord[103X ) [32X function
+  [33X[1;0Y[29X[2XIsCoordinateAcceptable[102X( [3XC[103X, [3Xcoord[103X ) [32X function[133X
   
   [33X[0;0Y[10XIsCoordinateAcceptable[110X   returns   `true'   if  coordinate  [3Xcoord[103X  of  [3XC[103X  is
   acceptable.  A  coordinate is called [13Xacceptable[113X if the norm of the code with
@@ -1302,7 +1318,7 @@
   
   [1X7.4-4 GeneralizedCodeNorm[101X
   
-  [29X[2XGeneralizedCodeNorm[102X( [3XC[103X, [3Xsubcode1[103X, [3Xsubscode2[103X, [3X...[103X, [3Xsubcodek[103X ) [32X function
+  [33X[1;0Y[29X[2XGeneralizedCodeNorm[102X( [3XC[103X, [3Xsubcode1[103X, [3Xsubscode2[103X, [3X...[103X, [3Xsubcodek[103X ) [32X function[133X
   
   [33X[0;0Y[10XGeneralizedCodeNorm[110X returns the [3Xk[103X-norm of [3XC[103X with respect to [3Xk[103X subcodes.[133X
   
@@ -1317,7 +1333,7 @@
   
   [1X7.4-5 IsNormalCode[101X
   
-  [29X[2XIsNormalCode[102X( [3XC[103X ) [32X function
+  [33X[1;0Y[29X[2XIsNormalCode[102X( [3XC[103X ) [32X function[133X
   
   [33X[0;0Y[10XIsNormalCode[110X  returns  `true' if [3XC[103X is normal. A code is called [13Xnormal[113X if the
   norm  of the code is not more than two times the covering radius of the code
@@ -1346,13 +1362,14 @@
   
   [1X7.5-1 CodeWeightEnumerator[101X
   
-  [29X[2XCodeWeightEnumerator[102X( [3XC[103X ) [32X function
+  [33X[1;0Y[29X[2XCodeWeightEnumerator[102X( [3XC[103X ) [32X function[133X
   
   [33X[0;0Y[10XCodeWeightEnumerator[110X returns a polynomial of the following form:[133X
   
   
-        [33X[1;6Y[24X[33X[0;0Yf(x) = \sum_{i=0}^{n} A_i x^i,[133X [124X[133X
+  [24X[33X[0;6Yf(x) = \sum_{i=0}^{n} A_i x^i,[133X
   
+  [124X
   
   [33X[0;0Ywhere [22XA_i[122X is the number of codewords in [3XC[103X with weight [22Xi[122X.[133X
   
@@ -1366,13 +1383,14 @@
   
   [1X7.5-2 CodeDistanceEnumerator[101X
   
-  [29X[2XCodeDistanceEnumerator[102X( [3XC[103X, [3Xw[103X ) [32X function
+  [33X[1;0Y[29X[2XCodeDistanceEnumerator[102X( [3XC[103X, [3Xw[103X ) [32X function[133X
   
   [33X[0;0Y[10XCodeDistanceEnumerator[110X returns a polynomial of the following form:[133X
   
   
-        [33X[1;6Y[24X[33X[0;0Yf(x) = \sum_{i=0}^{n} B_i x^i,[133X [124X[133X
+  [24X[33X[0;6Yf(x) = \sum_{i=0}^{n} B_i x^i,[133X
   
+  [124X
   
   [33X[0;0Ywhere [22XB_i[122X is the number of codewords with distance [22Xi[122X to [3Xw[103X.[133X
   
@@ -1388,13 +1406,14 @@
   
   [1X7.5-3 CodeMacWilliamsTransform[101X
   
-  [29X[2XCodeMacWilliamsTransform[102X( [3XC[103X ) [32X function
+  [33X[1;0Y[29X[2XCodeMacWilliamsTransform[102X( [3XC[103X ) [32X function[133X
   
   [33X[0;0Y[10XCodeMacWilliamsTransform[110X returns a polynomial of the following form:[133X
   
   
-        [33X[1;6Y[24X[33X[0;0Yf(x) = \sum_{i=0}^{n} C_i x^i,[133X [124X[133X
+  [24X[33X[0;6Yf(x) = \sum_{i=0}^{n} C_i x^i,[133X
   
+  [124X
   
   [33X[0;0Ywhere [22XC_i[122X is the number of codewords with weight [22Xi[122X in the [13Xdual[113X code of [3XC[103X.[133X
   
@@ -1405,13 +1424,14 @@
   
   [1X7.5-4 CodeDensity[101X
   
-  [29X[2XCodeDensity[102X( [3XC[103X ) [32X function
+  [33X[1;0Y[29X[2XCodeDensity[102X( [3XC[103X ) [32X function[133X
   
   [33X[0;0Y[10XCodeDensity[110X returns the [13Xdensity[113X of [3XC[103X. The density of a code is defined as[133X
   
   
-        [33X[1;6Y[24X[33X[0;0Y\frac{M \cdot V_q(n,t)}{q^n},[133X [124X[133X
+  [24X[33X[0;6Y\frac{M \cdot V_q(n,t)}{q^n},[133X
   
+  [124X
   
   [33X[0;0Ywhere  [22XM[122X is the size of the code, [22XV_q(n,t)[122X is the size of a sphere of radius
   [22Xt[122X  in [22XGF(q^n)[122X (which may be computed using [10XSphereContent[110X), [22Xt[122X is the covering
@@ -1426,7 +1446,7 @@
   
   [1X7.5-5 SphereContent[101X
   
-  [29X[2XSphereContent[102X( [3Xn[103X, [3Xt[103X, [3XF[103X ) [32X function
+  [33X[1;0Y[29X[2XSphereContent[102X( [3Xn[103X, [3Xt[103X, [3XF[103X ) [32X function[133X
   
   [33X[0;0Y[10XSphereContent[110X  returns the content of a ball of radius [3Xt[103X around an arbitrary
   element  of  the  vectorspace [22XF^n[122X. This is the cardinality of the set of all
@@ -1452,7 +1472,7 @@
   
   [1X7.5-6 Krawtchouk[101X
   
-  [29X[2XKrawtchouk[102X( [3Xk[103X, [3Xi[103X, [3Xn[103X, [3Xq[103X ) [32X function
+  [33X[1;0Y[29X[2XKrawtchouk[102X( [3Xk[103X, [3Xi[103X, [3Xn[103X, [3Xq[103X ) [32X function[133X
   
   [33X[0;0Y[10XKrawtchouk[110X  returns the Krawtchouk number [22XK_k(i)[122X. [3Xq[103X must be a prime power, [3Xn[103X
   must  be  a  positive integer, [3Xk[103X must be a non-negative integer less then or
@@ -1460,8 +1480,9 @@
   number is the value at [22Xx=i[122X of the polynomial[133X
   
   
-        [33X[1;6Y[24X[33X[0;0YK_k^{n,q}(x) =\sum_{j=0}^n (-1)^j(q-1)^{k-j}b(x,j)b(n-x,k-j),[133X [124X[133X
+  [24X[33X[0;6YK_k^{n,q}(x) =\sum_{j=0}^n (-1)^j(q-1)^{k-j}b(x,j)b(n-x,k-j),[133X
   
+  [124X
   
   [33X[0;0Ywhere  $b(v,u)=u!/(v!(v-u)!)$  is  the  binomial  coefficient  if  $u,v$ are
   integers. For more properties of these polynomials, see [MS83].[133X
@@ -1473,7 +1494,7 @@
   
   [1X7.5-7 PrimitiveUnityRoot[101X
   
-  [29X[2XPrimitiveUnityRoot[102X( [3XF[103X, [3Xn[103X ) [32X function
+  [33X[1;0Y[29X[2XPrimitiveUnityRoot[102X( [3XF[103X, [3Xn[103X ) [32X function[133X
   
   [33X[0;0Y[10XPrimitiveUnityRoot[110X  returns  a  primitive [3Xn[103X-th root of unity in an extension
   field  of  [3XF[103X. This is a finite field element [22Xa[122X with the property [22Xa^n=1[122X in [3XF[103X,
@@ -1490,7 +1511,7 @@
   
   [1X7.5-8 PrimitivePolynomialsNr[101X
   
-  [29X[2XPrimitivePolynomialsNr[102X( [3Xn[103X, [3XF[103X ) [32X function
+  [33X[1;0Y[29X[2XPrimitivePolynomialsNr[102X( [3Xn[103X, [3XF[103X ) [32X function[133X
   
   [33X[0;0Y[10XPrimitivePolynomialsNr[110X  returns  the  number of irreducible polynomials over
   [22XF=GF(q)[122X  of degree [3Xn[103X with (maximum) period [22Xq^n-1[122X. (According to a theorem of
@@ -1507,7 +1528,7 @@
   
   [1X7.5-9 IrreduciblePolynomialsNr[101X
   
-  [29X[2XIrreduciblePolynomialsNr[102X( [3Xn[103X, [3XF[103X ) [32X function
+  [33X[1;0Y[29X[2XIrreduciblePolynomialsNr[102X( [3Xn[103X, [3XF[103X ) [32X function[133X
   
   [33X[0;0Y[10XPrimitivePolynomialsNr[110X  returns  the  number of irreducible polynomials over
   [22XF=GF(q)[122X of degree [3Xn[103X.[133X
@@ -1520,7 +1541,7 @@
   
   [1X7.5-10 MatrixRepresentationOfElement[101X
   
-  [29X[2XMatrixRepresentationOfElement[102X( [3Xa[103X, [3XF[103X ) [32X function
+  [33X[1;0Y[29X[2XMatrixRepresentationOfElement[102X( [3Xa[103X, [3XF[103X ) [32X function[133X
   
   [33X[0;0YHere  [3XF[103X  is  either a finite extension of the ``base field'' [22XGF(p)[122X or of the
   rationals  [22XQ}[122X, and [22Xa∈ F[122X. The command [10XMatrixRepresentationOfElement[110X returns a
@@ -1545,7 +1566,7 @@
   
   [1X7.5-11 ReciprocalPolynomial[101X
   
-  [29X[2XReciprocalPolynomial[102X( [3XP[103X ) [32X function
+  [33X[1;0Y[29X[2XReciprocalPolynomial[102X( [3XP[103X ) [32X function[133X
   
   [33X[0;0Y[10XReciprocalPolynomial[110X  returns  the  [13Xreciprocal[113X  of  polynomial  [3XP[103X. This is a
   polynomial  with coefficients of [3XP[103X in the reverse order. So if [22XP=a_0 + a_1 X
@@ -1572,7 +1593,7 @@
   
   [1X7.5-12 CyclotomicCosets[101X
   
-  [29X[2XCyclotomicCosets[102X( [3Xq[103X, [3Xn[103X ) [32X function
+  [33X[1;0Y[29X[2XCyclotomicCosets[102X( [3Xq[103X, [3Xn[103X ) [32X function[133X
   
   [33X[0;0Y[10XCyclotomicCosets[110X  returns  the cyclotomic cosets of [22Xq mod n[122X. [3Xq[103X and [3Xn[103X must be
   relatively  prime.  Each  of  the elements of the returned list is a list of
@@ -1593,7 +1614,7 @@
   
   [1X7.5-13 WeightHistogram[101X
   
-  [29X[2XWeightHistogram[102X( [3XC[103X[, [3Xh[103X] ) [32X function
+  [33X[1;0Y[29X[2XWeightHistogram[102X( [3XC[103X[, [3Xh[103X] ) [32X function[133X
   
   [33X[0;0YThe  function  [10XWeightHistogram[110X  plots  a histogram of weights in code [3XC[103X. The
   maximum  length  of a column is [3Xh[103X. Default value for [3Xh[103X is [22X1/3[122X of the size of
@@ -1621,7 +1642,7 @@
   
   [1X7.5-14 MultiplicityInList[101X
   
-  [29X[2XMultiplicityInList[102X( [3XL[103X, [3Xa[103X ) [32X function
+  [33X[1;0Y[29X[2XMultiplicityInList[102X( [3XL[103X, [3Xa[103X ) [32X function[133X
   
   [33X[0;0YThis  is a very simple list command which returns how many times a occurs in
   L.  It returns 0 if a is not in L. (The GAP command [10XCollected[110X does not quite
@@ -1637,7 +1658,7 @@
   
   [1X7.5-15 MostCommonInList[101X
   
-  [29X[2XMostCommonInList[102X( [3XL[103X ) [32X function
+  [33X[1;0Y[29X[2XMostCommonInList[102X( [3XL[103X ) [32X function[133X
   
   [33X[0;0YInput: a list L[133X
   
@@ -1651,7 +1672,7 @@
   
   [1X7.5-16 RotateList[101X
   
-  [29X[2XRotateList[102X( [3XL[103X ) [32X function
+  [33X[1;0Y[29X[2XRotateList[102X( [3XL[103X ) [32X function[133X
   
   [33X[0;0YInput: a list L[133X
   
@@ -1665,7 +1686,7 @@
   
   [1X7.5-17 CirculantMatrix[101X
   
-  [29X[2XCirculantMatrix[102X( [3Xk[103X, [3XL[103X ) [32X function
+  [33X[1;0Y[29X[2XCirculantMatrix[102X( [3Xk[103X, [3XL[103X ) [32X function[133X
   
   [33X[0;0YInput: integer k, a list L of length n[133X
   
@@ -1685,7 +1706,7 @@
   
   [1X7.6-1 MatrixTransformationOnMultivariatePolynomial [101X
   
-  [29X[2XMatrixTransformationOnMultivariatePolynomial [102X( [3XA[103X, [3Xf[103X, [3XR[103X ) [32X function
+  [33X[1;0Y[29X[2XMatrixTransformationOnMultivariatePolynomial [102X( [3XA[103X, [3Xf[103X, [3XR[103X ) [32X function[133X
   
   [33X[0;0Y[3XA[103X  is  an [22Xn× n[122X matrix with entries in a field [22XF[122X, [3XR[103X is a polynomial ring of [22Xn[122X
   variables,  say  [22XF[x_1,...,x_n][122X,  and  [3Xf[103X  is  a polynomial in [3XR[103X. Returns the
@@ -1693,7 +1714,7 @@
   
   [1X7.6-2 DegreeMultivariatePolynomial[101X
   
-  [29X[2XDegreeMultivariatePolynomial[102X( [3Xf[103X, [3XR[103X ) [32X function
+  [33X[1;0Y[29X[2XDegreeMultivariatePolynomial[102X( [3Xf[103X, [3XR[103X ) [32X function[133X
   
   [33X[0;0YThis  command  takes  two  arguments,  [3Xf[103X, a multivariate polynomial, and [3XR[103X a
   polynomial  ring  over a field [22XF[122X containing [3Xf[103X, say [22XR=F[x_1,x_2,...,x_n][122X. The
@@ -1715,7 +1736,7 @@
   
   [1X7.6-3 DegreesMultivariatePolynomial[101X
   
-  [29X[2XDegreesMultivariatePolynomial[102X( [3Xf[103X, [3XR[103X ) [32X function
+  [33X[1;0Y[29X[2XDegreesMultivariatePolynomial[102X( [3Xf[103X, [3XR[103X ) [32X function[133X
   
   [33X[0;0YReturns  a list of information about the multivariate polynomial [3Xf[103X. Nice for
   other programs but mostly unreadable by GAP users.[133X
@@ -1736,7 +1757,7 @@
   
   [1X7.6-4 CoefficientMultivariatePolynomial[101X
   
-  [29X[2XCoefficientMultivariatePolynomial[102X( [3Xf[103X, [3Xvar[103X, [3Xpower[103X, [3XR[103X ) [32X function
+  [33X[1;0Y[29X[2XCoefficientMultivariatePolynomial[102X( [3Xf[103X, [3Xvar[103X, [3Xpower[103X, [3XR[103X ) [32X function[133X
   
   [33X[0;0YThe   command  [10XCoefficientMultivariatePolynomial[110X  takes  four  arguments:  a
   multivariant  polynomial  [3Xf[103X,  a  variable  name [3Xvar[103X, an integer [3Xpower[103X, and a
@@ -1778,7 +1799,7 @@
   
   [1X7.6-5 SolveLinearSystem[101X
   
-  [29X[2XSolveLinearSystem[102X( [3XL[103X, [3Xvars[103X ) [32X function
+  [33X[1;0Y[29X[2XSolveLinearSystem[102X( [3XL[103X, [3Xvars[103X ) [32X function[133X
   
   [33X[0;0YInput: [3XL[103X is a list of linear forms in the variables [3Xvars[103X.[133X
   
@@ -1807,7 +1828,7 @@
   
   [1X7.6-6 GuavaVersion[101X
   
-  [29X[2XGuavaVersion[102X(  ) [32X function
+  [33X[1;0Y[29X[2XGuavaVersion[102X(  ) [32X function[133X
   
   [33X[0;0YReturns the current version of Guava. Same as [10Xguava\_version()[110X.[133X
   
@@ -1819,7 +1840,7 @@
   
   [1X7.6-7 ZechLog[101X
   
-  [29X[2XZechLog[102X( [3Xx[103X, [3Xb[103X, [3XF[103X ) [32X function
+  [33X[1;0Y[29X[2XZechLog[102X( [3Xx[103X, [3Xb[103X, [3XF[103X ) [32X function[133X
   
   [33X[0;0YReturns  the  Zech  log  of  x  to  base b, ie the i such that $x+1=b^i$, so
   $y+z=y(1+z/y)=b^k$,   where   k=Log(y,b)+ZechLog(z/y,b)  and  b  must  be  a
@@ -1837,7 +1858,7 @@
   
   [1X7.6-8 CoefficientToPolynomial[101X
   
-  [29X[2XCoefficientToPolynomial[102X( [3Xcoeffs[103X, [3XR[103X ) [32X function
+  [33X[1;0Y[29X[2XCoefficientToPolynomial[102X( [3Xcoeffs[103X, [3XR[103X ) [32X function[133X
   
   [33X[0;0YThe  function  [10XCoefficientToPolynomial[110X  returns  the  degree  [22Xd-1[122X polynomial
   [22Xc_0+c_1x+...+c_d-1x^d-1[122X,  where  [3Xcoeffs[103X  is  a  list of elements of a field,
@@ -1856,7 +1877,7 @@
   
   [1X7.6-9 DegreesMonomialTerm[101X
   
-  [29X[2XDegreesMonomialTerm[102X( [3Xm[103X, [3XR[103X ) [32X function
+  [33X[1;0Y[29X[2XDegreesMonomialTerm[102X( [3Xm[103X, [3XR[103X ) [32X function[133X
   
   [33X[0;0YThe  function  [10XDegreesMonomialTerm[110X returns the list of degrees to which each
   variable  in  the  multivariate  polynomial ring [3XR[103X occurs in the monomial [3Xm[103X,
@@ -1887,12 +1908,12 @@
   
   [1X7.6-10 DivisorsMultivariatePolynomial[101X
   
-  [29X[2XDivisorsMultivariatePolynomial[102X( [3Xf[103X, [3XR[103X ) [32X function
+  [33X[1;0Y[29X[2XDivisorsMultivariatePolynomial[102X( [3Xf[103X, [3XR[103X ) [32X function[133X
   
   [33X[0;0YThe  function  [10XDivisorsMultivariatePolynomial[110X returns the list of polynomial
   divisors  of  [3Xf[103X in the multivariate polynomial ring [3XR[103X with coefficients in a
   field.  This  program  uses a simple but slow algorithm (see Joachim von zur
-  Gathen,  Jürgen  Gerhard,  [GG03],  exercise 16.10) which first converts the
+  Gathen,  Jürgen  Gerhard, [vzGG03], exercise 16.10) which first converts the
   multivariate  polynomial  [3Xf[103X to an associated univariate polynomial [22Xf^*[122X, then
   [10XFactors[110X  [22Xf^*[122X,  and  finally  converts these univariate factors back into the
   multivariate  polynomial  factors  of [3Xf[103X. Since [10XFactors[110X is non-deterministic,

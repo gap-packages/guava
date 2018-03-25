@@ -69,7 +69,7 @@
   
   [1X3.1-1 Codeword[101X
   
-  [29X[2XCodeword[102X( [3Xobj[103X[, [3Xn[103X][, [3XF[103X] ) [32X function
+  [33X[1;0Y[29X[2XCodeword[102X( [3Xobj[103X[, [3Xn[103X][, [3XF[103X] ) [32X function[133X
   
   [33X[0;0Y[10XCodeword[110X returns a codeword or a list of codewords constructed from [3Xobj[103X. The
   object  [3Xobj[103X  can  be  a vector, a string, a polynomial or a codeword. It may
@@ -153,7 +153,7 @@
   
   [1X3.1-2 CodewordNr[101X
   
-  [29X[2XCodewordNr[102X( [3XC[103X, [3Xlist[103X ) [32X function
+  [33X[1;0Y[29X[2XCodewordNr[102X( [3XC[103X, [3Xlist[103X ) [32X function[133X
   
   [33X[0;0Y[10XCodewordNr[110X  returns a list of codewords of [3XC[103X. [3Xlist[103X may be a list of integers
   or a single integer. For each integer of [3Xlist[103X, the corresponding codeword of
@@ -183,7 +183,7 @@
   
   [1X3.1-3 IsCodeword[101X
   
-  [29X[2XIsCodeword[102X( [3Xobj[103X ) [32X function
+  [33X[1;0Y[29X[2XIsCodeword[102X( [3Xobj[103X ) [32X function[133X
   
   [33X[0;0Y[10XIsCodeword[110X  returns `true' if [3Xobj[103X, which can be an object of arbitrary type,
   is  of  the codeword type and `false' otherwise. The function will signal an
@@ -205,7 +205,7 @@
   
   [1X3.2-1 \=[101X
   
-  [29X[2X\=[102X( [3Xc1[103X, [3Xc2[103X ) [32X method
+  [33X[1;0Y[29X[2X\=[102X( [3Xc1[103X, [3Xc2[103X ) [32X method[133X
   
   [33X[0;0YThe equality operator [10Xc1 = c2[110X evaluates to `true' if the codewords [3Xc1[103X and [3Xc2[103X
   are  equal,  and  to `false' otherwise. Note that codewords are equal if and
@@ -251,7 +251,7 @@
   
   [1X3.3-1 \+[101X
   
-  [29X[2X\+[102X( [3Xc1[103X, [3Xc2[103X ) [32X method
+  [33X[1;0Y[29X[2X\+[102X( [3Xc1[103X, [3Xc2[103X ) [32X method[133X
   
   [33X[0;0YThe  following  operations  are always available for codewords. The operands
   must  have  a  common base field, and must have the same length. No implicit
@@ -274,14 +274,14 @@
   
   [1X3.3-2 \-[101X
   
-  [29X[2X\-[102X( [3Xc1[103X, [3Xc2[103X ) [32X method
+  [33X[1;0Y[29X[2X\-[102X( [3Xc1[103X, [3Xc2[103X ) [32X method[133X
   
   [33X[0;0YSimilar  to  addition:  the  operator  [10X-[110X  evaluates to the difference of the
   codewords [3Xc1[103X and [3Xc2[103X.[133X
   
   [1X3.3-3 \+[101X
   
-  [29X[2X\+[102X( [3Xv[103X, [3XC[103X ) [32X method
+  [33X[1;0Y[29X[2X\+[102X( [3Xv[103X, [3XC[103X ) [32X method[133X
   
   [33X[0;0YThe  operator  [10Xv+C[110X  evaluates  to  the  coset  code of code [3XC[103X after adding a
   `codeword'  [3Xv[103X  to all codewords in [3XC[103X. Note that if [22Xc ∈ C[122X then mathematically
@@ -334,7 +334,7 @@
   
   [1X3.4-1 VectorCodeword[101X
   
-  [29X[2XVectorCodeword[102X( [3Xobj[103X ) [32X function
+  [33X[1;0Y[29X[2XVectorCodeword[102X( [3Xobj[103X ) [32X function[133X
   
   [33X[0;0YHere  [3Xobj[103X  can be a code word or a list of code words. This function returns
   the corresponding vectors over a finite field.[133X
@@ -347,7 +347,7 @@
   
   [1X3.4-2 PolyCodeword[101X
   
-  [29X[2XPolyCodeword[102X( [3Xobj[103X ) [32X function
+  [33X[1;0Y[29X[2XPolyCodeword[102X( [3Xobj[103X ) [32X function[133X
   
   [33X[0;0Y[10XPolyCodeword[110X  returns  a  polynomial  or a list of polynomials over a Galois
   field,  converted  from  [3Xobj[103X. The object [3Xobj[103X can be a codeword, or a list of
@@ -364,7 +364,7 @@
   
   [1X3.5-1 TreatAsVector[101X
   
-  [29X[2XTreatAsVector[102X( [3Xobj[103X ) [32X function
+  [33X[1;0Y[29X[2XTreatAsVector[102X( [3Xobj[103X ) [32X function[133X
   
   [33X[0;0Y[10XTreatAsVector[110X  adapts  the codewords in [3Xobj[103X to make sure they are printed as
   vectors.  [3Xobj[103X may be a codeword or a list of codewords. Elements of [3Xobj[103X that
@@ -388,7 +388,7 @@
   
   [1X3.5-2 TreatAsPoly[101X
   
-  [29X[2XTreatAsPoly[102X( [3Xobj[103X ) [32X function
+  [33X[1;0Y[29X[2XTreatAsPoly[102X( [3Xobj[103X ) [32X function[133X
   
   [33X[0;0Y[10XTreatAsPoly[110X  adapts  the  codewords  in [3Xobj[103X to make sure they are printed as
   polynomials.  [3Xobj[103X  may be a codeword or a list of codewords. Elements of [3Xobj[103X
@@ -419,7 +419,7 @@
   
   [1X3.6-1 NullWord[101X
   
-  [29X[2XNullWord[102X( [3Xn[103X, [3XF[103X ) [32X function
+  [33X[1;0Y[29X[2XNullWord[102X( [3Xn[103X, [3XF[103X ) [32X function[133X
   
   [33X[0;0YOther  uses:  [10XNullWord(  n  )[110X  (default [22XF=GF(2)[122X) and [10XNullWord( C )[110X. [10XNullWord[110X
   returns a codeword of length [3Xn[103X over the field [3XF[103X of only zeros. The integer [3Xn[103X
@@ -439,7 +439,7 @@
   
   [1X3.6-2 DistanceCodeword[101X
   
-  [29X[2XDistanceCodeword[102X( [3Xc1[103X, [3Xc2[103X ) [32X function
+  [33X[1;0Y[29X[2XDistanceCodeword[102X( [3Xc1[103X, [3Xc2[103X ) [32X function[133X
   
   [33X[0;0Y[10XDistanceCodeword[110X  returns the Hamming distance from [3Xc1[103X to [3Xc2[103X. Both variables
   must  be  codewords  with  equal word length over the same Galois field. The
@@ -459,7 +459,7 @@
   
   [1X3.6-3 Support[101X
   
-  [29X[2XSupport[102X( [3Xc[103X ) [32X function
+  [33X[1;0Y[29X[2XSupport[102X( [3Xc[103X ) [32X function[133X
   
   [33X[0;0Y[10XSupport[110X  returns  a set of integers indicating the positions of the non-zero
   entries in a codeword [3Xc[103X.[133X
@@ -485,7 +485,7 @@
   
   [1X3.6-4 WeightCodeword[101X
   
-  [29X[2XWeightCodeword[102X( [3Xc[103X ) [32X function
+  [33X[1;0Y[29X[2XWeightCodeword[102X( [3Xc[103X ) [32X function[133X
   
   [33X[0;0Y[10XWeightCodeword[110X  returns  the  weight of a codeword [22Xc[122X, the number of non-zero
   entries  in [3Xc[103X. As a result, [10XWeightCodeword[110X always returns an integer between

@@ -32,14 +32,14 @@
 <div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap3.html#X8253374284B475B6">3.2 <span class="Heading">Comparisons of Codewords</span></a>
 </span>
 <div class="ContSSBlock">
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X82D4BC7380741DAE">3.2-1 \=</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X82D4BC7380741DAE"><code>3.2-1 \=</code></a></span>
 </div></div>
 <div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap3.html#X7ADE7E95867A14E1">3.3 <span class="Heading">Arithmetic Operations for Codewords</span></a>
 </span>
 <div class="ContSSBlock">
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X84BD38C87F3956FB">3.3-1 \+</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X8692958781AF6CA8">3.3-2 \-</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X86DC36217EC11723">3.3-3 \+</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X84BD38C87F3956FB"><code>3.3-1 \+</code></a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X8692958781AF6CA8"><code>3.3-2 \-</code></a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X86DC36217EC11723"><code>3.3-3 \+</code></a></span>
 </div></div>
 <div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap3.html#X7BBA5DCD7A8BD60D">3.4 <span class="Heading">
 Functions that Convert Codewords to Vectors or Polynomials
@@ -113,7 +113,7 @@ Other Codeword Functions
 
 <h5>3.1-1 Codeword</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Codeword</code>( <var class="Arg">obj</var>[, <var class="Arg">n</var>][, <var class="Arg">F</var>] )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Codeword</code>( <var class="Arg">obj</var>[, <var class="Arg">n</var>][, <var class="Arg">F</var>] )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">Codeword</code> returns a codeword or a list of codewords constructed from <var class="Arg">obj</var>. The object <var class="Arg">obj</var> can be a vector, a string, a polynomial or a codeword. It may also be a list of those (even a mixed list).</p>
 
 <p>If a number <var class="Arg">n</var> is specified, all constructed codewords have length <var class="Arg">n</var>. This is the only way to make sure that all elements of <var class="Arg">obj</var> are converted to codewords of the same length. Elements of <var class="Arg">obj</var> that are longer than <var class="Arg">n</var> are reduced in length by cutting of the last positions. Elements of <var class="Arg">obj</var> that are shorter than <var class="Arg">n</var> are lengthened by adding zeros at the end. If no <var class="Arg">n</var> is specified, each constructed codeword is handled individually.</p>
@@ -170,7 +170,7 @@ a linear [10,5,1..3]3..5 random linear code over GF(3)
 
 <h5>3.1-2 CodewordNr</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; CodewordNr</code>( <var class="Arg">C</var>, <var class="Arg">list</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; CodewordNr</code>( <var class="Arg">C</var>, <var class="Arg">list</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">CodewordNr</code> returns a list of codewords of <var class="Arg">C</var>. <var class="Arg">list</var> may be a list of integers or a single integer. For each integer of <var class="Arg">list</var>, the corresponding codeword of <var class="Arg">C</var> is returned. The correspondence of a number <span class="SimpleMath">i</span> with a codeword is determined as follows: if a list of elements of <var class="Arg">C</var> is available, the <span class="SimpleMath">i^th</span> element is taken. Otherwise, it is calculated by multiplication of the <span class="SimpleMath">i^th</span> information vector by the generator matrix or generator polynomial, where the information vectors are ordered lexicographically. In particular, the returned codeword(s) could be a vector or a polynomial. So <code class="code">CodewordNr(C, i)</code> is equal to <code class="code">AsSSortedList(C)[i]</code>, described in the next chapter. The latter function first calculates the set of all the elements of <span class="SimpleMath">C</span> and then returns the <span class="SimpleMath">i^th</span> element of that set, whereas the former only calculates the <span class="SimpleMath">i^th</span> codeword.</p>
 
 
@@ -191,7 +191,7 @@ a cyclic [2,1,2]1 Reed-Solomon code over GF(3)
 
 <h5>3.1-3 IsCodeword</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsCodeword</code>( <var class="Arg">obj</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsCodeword</code>( <var class="Arg">obj</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">IsCodeword</code> returns `true' if <var class="Arg">obj</var>, which can be an object of arbitrary type, is of the codeword type and `false' otherwise. The function will signal an error if <var class="Arg">obj</var> is an unbound variable.</p>
 
 
@@ -212,9 +212,9 @@ true
 
 <p><a id="X82D4BC7380741DAE" name="X82D4BC7380741DAE"></a></p>
 
-<h5>3.2-1 \=</h5>
+<h5><code>3.2-1 \=</code></h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; \=</code>( <var class="Arg">c1</var>, <var class="Arg">c2</var> )</td><td class="tdright">( method )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; \=</code>( <var class="Arg">c1</var>, <var class="Arg">c2</var> )</td><td class="tdright">(&nbsp;method&nbsp;)</td></tr></table></div>
 <p>The equality operator <code class="code">c1 = c2</code> evaluates to `true' if the codewords <var class="Arg">c1</var> and <var class="Arg">c2</var> are equal, and to `false' otherwise. Note that codewords are equal if and only if their base vectors are equal. Whether they are represented as a vector or polynomial has nothing to do with the comparison.</p>
 
 <p>Comparing codewords with objects of other types is not recommended, although it is possible. If <var class="Arg">c2</var> is the codeword, the other object <var class="Arg">c1</var> is first converted to a codeword, after which comparison is possible. This way, a codeword can be compared with a vector, polynomial, or string. If <var class="Arg">c1</var> is the codeword, then problems may arise if <var class="Arg">c2</var> is a polynomial. In that case, the comparison always yields a `false', because the polynomial comparison is called.</p>
@@ -251,9 +251,9 @@ true
 
 <p><a id="X84BD38C87F3956FB" name="X84BD38C87F3956FB"></a></p>
 
-<h5>3.3-1 \+</h5>
+<h5><code>3.3-1 \+</code></h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; \+</code>( <var class="Arg">c1</var>, <var class="Arg">c2</var> )</td><td class="tdright">( method )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; \+</code>( <var class="Arg">c1</var>, <var class="Arg">c2</var> )</td><td class="tdright">(&nbsp;method&nbsp;)</td></tr></table></div>
 <p>The following operations are always available for codewords. The operands must have a common base field, and must have the same length. No implicit conversions are performed.</p>
 
 <p>The operator <code class="code">+</code> evaluates to the sum of the codewords <var class="Arg">c1</var> and <var class="Arg">c2</var>.</p>
@@ -273,16 +273,16 @@ a linear [10,5,1..3]3..5 random linear code over GF(3)
 
 <p><a id="X8692958781AF6CA8" name="X8692958781AF6CA8"></a></p>
 
-<h5>3.3-2 \-</h5>
+<h5><code>3.3-2 \-</code></h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; \-</code>( <var class="Arg">c1</var>, <var class="Arg">c2</var> )</td><td class="tdright">( method )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; \-</code>( <var class="Arg">c1</var>, <var class="Arg">c2</var> )</td><td class="tdright">(&nbsp;method&nbsp;)</td></tr></table></div>
 <p>Similar to addition: the operator <code class="code">-</code> evaluates to the difference of the codewords <var class="Arg">c1</var> and <var class="Arg">c2</var>.</p>
 
 <p><a id="X86DC36217EC11723" name="X86DC36217EC11723"></a></p>
 
-<h5>3.3-3 \+</h5>
+<h5><code>3.3-3 \+</code></h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; \+</code>( <var class="Arg">v</var>, <var class="Arg">C</var> )</td><td class="tdright">( method )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; \+</code>( <var class="Arg">v</var>, <var class="Arg">C</var> )</td><td class="tdright">(&nbsp;method&nbsp;)</td></tr></table></div>
 <p>The operator <code class="code">v+C</code> evaluates to the coset code of code <var class="Arg">C</var> after adding a `codeword' <var class="Arg">v</var> to all codewords in <var class="Arg">C</var>. Note that if <span class="SimpleMath">c ∈ C</span> then mathematically <span class="SimpleMath">c+C=C</span> but <strong class="pkg">GUAVA</strong> only sees them equal as <em>sets</em>. See <code class="func">CosetCode</code> (<a href="chap6.html#X8799F4BF81B0842B"><span class="RefLink">6.1-17</span></a>).</p>
 
 <p>Note that the command <code class="code">C+v</code> returns the same output as the command <code class="code">v+C</code>.</p>
@@ -331,7 +331,7 @@ Functions that Convert Codewords to Vectors or Polynomials
 
 <h5>3.4-1 VectorCodeword</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; VectorCodeword</code>( <var class="Arg">obj</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; VectorCodeword</code>( <var class="Arg">obj</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Here <var class="Arg">obj</var> can be a code word or a list of code words. This function returns the corresponding vectors over a finite field.</p>
 
 
@@ -345,7 +345,7 @@ Functions that Convert Codewords to Vectors or Polynomials
 
 <h5>3.4-2 PolyCodeword</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PolyCodeword</code>( <var class="Arg">obj</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PolyCodeword</code>( <var class="Arg">obj</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">PolyCodeword</code> returns a polynomial or a list of polynomials over a Galois field, converted from <var class="Arg">obj</var>. The object <var class="Arg">obj</var> can be a codeword, or a list of codewords.</p>
 
 
@@ -365,7 +365,7 @@ Functions that Change the Display Form of a Codeword
 
 <h5>3.5-1 TreatAsVector</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; TreatAsVector</code>( <var class="Arg">obj</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; TreatAsVector</code>( <var class="Arg">obj</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">TreatAsVector</code> adapts the codewords in <var class="Arg">obj</var> to make sure they are printed as vectors. <var class="Arg">obj</var> may be a codeword or a list of codewords. Elements of <var class="Arg">obj</var> that are not codewords are ignored. After this function is called, the codewords will be treated as vectors. The vector representation is obtained by using the coefficient list of the polynomial.</p>
 
 <p>Note that this <em>only</em> changes the way a codeword is <em>printed</em>. <code class="code">TreatAsVector</code> returns nothing, it is called only for its side effect. The function <code class="code">VectorCodeword</code> converts codewords to vectors (see <code class="func">VectorCodeword</code> (<a href="chap3.html#X87C8B0B178496F6A"><span class="RefLink">3.4-1</span></a>)).</p>
@@ -385,7 +385,7 @@ x^22 + x^20 + x^17 + x^14 + x^13 + x^12 + x^11 + x^10
 
 <h5>3.5-2 TreatAsPoly</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; TreatAsPoly</code>( <var class="Arg">obj</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; TreatAsPoly</code>( <var class="Arg">obj</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">TreatAsPoly</code> adapts the codewords in <var class="Arg">obj</var> to make sure they are printed as polynomials. <var class="Arg">obj</var> may be a codeword or a list of codewords. Elements of <var class="Arg">obj</var> that are not codewords are ignored. After this function is called, the codewords will be treated as polynomials. The finite field vector that defines the codeword is used as a coefficient list of the polynomial representation, where the first element of the vector is the coefficient of degree zero, the second element is the coefficient of degree one, etc, until the last element, which is the coefficient of highest degree.</p>
 
 <p>Note that this <em>only</em> changes the way a codeword is <em>printed</em>. <code class="code">TreatAsPoly</code> returns nothing, it is called only for its side effect. The function <code class="code">PolyCodeword</code> converts codewords to polynomials (see <code class="func">PolyCodeword</code> (<a href="chap3.html#X822465E884D0F484"><span class="RefLink">3.4-2</span></a>)).</p>
@@ -412,7 +412,7 @@ Other Codeword Functions
 
 <h5>3.6-1 NullWord</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; NullWord</code>( <var class="Arg">n</var>, <var class="Arg">F</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; NullWord</code>( <var class="Arg">n</var>, <var class="Arg">F</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Other uses: <code class="code">NullWord( n )</code> (default <span class="SimpleMath">F=GF(2)</span>) and <code class="code">NullWord( C )</code>. <code class="code">NullWord</code> returns a codeword of length <var class="Arg">n</var> over the field <var class="Arg">F</var> of only zeros. The integer <var class="Arg">n</var> must be greater then zero. If only a code <var class="Arg">C</var> is specified, <code class="code">NullWord</code> will return a null word with both the word length and the Galois field of <var class="Arg">C</var>.</p>
 
 
@@ -431,7 +431,7 @@ true
 
 <h5>3.6-2 DistanceCodeword</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DistanceCodeword</code>( <var class="Arg">c1</var>, <var class="Arg">c2</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DistanceCodeword</code>( <var class="Arg">c1</var>, <var class="Arg">c2</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">DistanceCodeword</code> returns the Hamming distance from <var class="Arg">c1</var> to <var class="Arg">c2</var>. Both variables must be codewords with equal word length over the same Galois field. The Hamming distance between two words is the number of places in which they differ. As a result, <code class="code">DistanceCodeword</code> always returns an integer between zero and the word length of the codewords.</p>
 
 
@@ -449,7 +449,7 @@ true
 
 <h5>3.6-3 Support</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Support</code>( <var class="Arg">c</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Support</code>( <var class="Arg">c</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">Support</code> returns a set of integers indicating the positions of the non-zero entries in a codeword <var class="Arg">c</var>.</p>
 
 
@@ -475,7 +475,7 @@ true
 
 <h5>3.6-4 WeightCodeword</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; WeightCodeword</code>( <var class="Arg">c</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; WeightCodeword</code>( <var class="Arg">c</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">WeightCodeword</code> returns the weight of a codeword <span class="SimpleMath">c</span>, the number of non-zero entries in <var class="Arg">c</var>. As a result, <code class="code">WeightCodeword</code> always returns an integer between zero and the word length of the codeword.</p>
 
 

@@ -25,16 +25,16 @@
 <div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap4.html#X7ECE60E1873B49A6">4.1 <span class="Heading">Comparisons of Codes</span></a>
 </span>
 <div class="ContSSBlock">
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4.html#X8686D5FA839F1A3D">4.1-1 \=</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4.html#X8686D5FA839F1A3D"><code>4.1-1 \=</code></a></span>
 </div></div>
 <div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap4.html#X832DA51986A3882C">4.2 <span class="Heading">
 Operations for Codes
 </span></a>
 </span>
 <div class="ContSSBlock">
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4.html#X82E2E5127CD25168">4.2-1 \+</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4.html#X7EFA08EE7BA22261">4.2-2 \*</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4.html#X84D8B18F7C494A58">4.2-3 \*</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4.html#X82E2E5127CD25168"><code>4.2-1 \+</code></a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4.html#X7EFA08EE7BA22261"><code>4.2-2 \*</code></a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4.html#X84D8B18F7C494A58"><code>4.2-3 \*</code></a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4.html#X8744BA5E78BCF3F9">4.2-4 InformationWord</a></span>
 </div></div>
 <div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap4.html#X864091AA7D4AFE86">4.3 <span class="Heading">
@@ -243,9 +243,9 @@ a linear [8,4,4]2 Reed-Muller (1,3) code over GF(2)
 
 <p><a id="X8686D5FA839F1A3D" name="X8686D5FA839F1A3D"></a></p>
 
-<h5>4.1-1 \=</h5>
+<h5><code>4.1-1 \=</code></h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; \=</code>( <var class="Arg">C1</var>, <var class="Arg">C2</var> )</td><td class="tdright">( method )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; \=</code>( <var class="Arg">C1</var>, <var class="Arg">C2</var> )</td><td class="tdright">(&nbsp;method&nbsp;)</td></tr></table></div>
 <p>The equality operator <code class="code">C1 = C2</code> evaluates to `true' if the codes <var class="Arg">C1</var> and <var class="Arg">C2</var> are equal, and to `false' otherwise.</p>
 
 <p>The equality operator is also denoted <code class="code">EQ</code>, and <code class="code">Eq(C1,C2)</code> is the same as <code class="code">C1 = C2</code>. There is also an inequality operator, &lt; &gt;, or <code class="code">not EQ</code>.</p>
@@ -279,9 +279,9 @@ Operations for Codes
 
 <p><a id="X82E2E5127CD25168" name="X82E2E5127CD25168"></a></p>
 
-<h5>4.2-1 \+</h5>
+<h5><code>4.2-1 \+</code></h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; \+</code>( <var class="Arg">C1</var>, <var class="Arg">C2</var> )</td><td class="tdright">( method )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; \+</code>( <var class="Arg">C1</var>, <var class="Arg">C2</var> )</td><td class="tdright">(&nbsp;method&nbsp;)</td></tr></table></div>
 <p>The operator `+' evaluates to the direct sum of the codes <var class="Arg">C1</var> and <var class="Arg">C2</var>. See <code class="func">DirectSumCode</code> (<a href="chap6.html#X79E00D3A8367D65A"><span class="RefLink">6.2-1</span></a>).</p>
 
 
@@ -296,9 +296,9 @@ a linear [10,9,1]0..10 unknown linear code over GF(2)
 
 <p><a id="X7EFA08EE7BA22261" name="X7EFA08EE7BA22261"></a></p>
 
-<h5>4.2-2 \*</h5>
+<h5><code>4.2-2 \*</code></h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; \*</code>( <var class="Arg">C1</var>, <var class="Arg">C2</var> )</td><td class="tdright">( method )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; \*</code>( <var class="Arg">C1</var>, <var class="Arg">C2</var> )</td><td class="tdright">(&nbsp;method&nbsp;)</td></tr></table></div>
 <p>The operator `*' evaluates to the direct product of the codes <var class="Arg">C1</var> and <var class="Arg">C2</var>. See <code class="func">DirectProductCode</code> (<a href="chap6.html#X7BFBBA5784C293C1"><span class="RefLink">6.2-3</span></a>).</p>
 
 
@@ -313,9 +313,9 @@ a linear [16,4,1]4..12 direct product code
 
 <p><a id="X84D8B18F7C494A58" name="X84D8B18F7C494A58"></a></p>
 
-<h5>4.2-3 \*</h5>
+<h5><code>4.2-3 \*</code></h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; \*</code>( <var class="Arg">m</var>, <var class="Arg">C</var> )</td><td class="tdright">( method )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; \*</code>( <var class="Arg">m</var>, <var class="Arg">C</var> )</td><td class="tdright">(&nbsp;method&nbsp;)</td></tr></table></div>
 <p>The operator <code class="code">m*C</code> evaluates to the element of <var class="Arg">C</var> belonging to information word ('message') <var class="Arg">m</var>. Here <var class="Arg">m</var> may be a vector, polynomial, string or codeword or a list of those. This is the way to do encoding in <strong class="pkg">GUAVA</strong>. <var class="Arg">C</var> must be linear, because in <strong class="pkg">GUAVA</strong>, encoding by multiplication is only defined for linear codes. If <var class="Arg">C</var> is a cyclic code, this multiplication is the same as multiplying an information polynomial <var class="Arg">m</var> by the generator polynomial of <var class="Arg">C</var>. If <var class="Arg">C</var> is a linear code, it is equal to the multiplication of an information vector <var class="Arg">m</var> by a generator matrix of <var class="Arg">C</var>.</p>
 
 <p>To invert this, use the function <code class="code">InformationWord</code> (see <code class="func">InformationWord</code> (<a href="chap4.html#X8744BA5E78BCF3F9"><span class="RefLink">4.2-4</span></a>), which simply calls the function <code class="code">Decode</code>).</p>
@@ -334,7 +334,7 @@ a linear [4,2,1]1 code defined by generator matrix over GF(2)
 
 <h5>4.2-4 InformationWord</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; InformationWord</code>( <var class="Arg">C</var>, <var class="Arg">c</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; InformationWord</code>( <var class="Arg">C</var>, <var class="Arg">c</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Here <var class="Arg">C</var> is a linear code and <var class="Arg">c</var> is a codeword in it. The command <code class="code">InformationWord</code> returns the message word (or 'information digits') <span class="SimpleMath">m</span> satisfying <code class="code">c=m*C</code>. This command simply calls <code class="code">Decode</code>, provided <code class="code">c in C</code> is true. Otherwise, it returns an error.</p>
 
 <p>To invert this, use the encoding function <code class="code">*</code> (see <code class="func">\*</code> (<a href="chap4.html#X84D8B18F7C494A58"><span class="RefLink">4.2-3</span></a>)).</p>
@@ -369,7 +369,7 @@ Boolean Functions for Codes
 
 <h5>4.3-1 in</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; in</code>( <var class="Arg">c</var>, <var class="Arg">C</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; in</code>( <var class="Arg">c</var>, <var class="Arg">C</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>The command <code class="code">c in C</code> evaluates to `true' if <var class="Arg">C</var> contains the codeword or list of codewords specified by <var class="Arg">c</var>. Of course, <var class="Arg">c</var> and <var class="Arg">C</var> must have the same word lengths and base fields.</p>
 
 
@@ -386,7 +386,7 @@ false
 
 <h5>4.3-2 IsSubset</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsSubset</code>( <var class="Arg">C1</var>, <var class="Arg">C2</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsSubset</code>( <var class="Arg">C1</var>, <var class="Arg">C2</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>The command <code class="code">IsSubset(C1,C2)</code> returns `true' if <var class="Arg">C2</var> is a subcode of <var class="Arg">C1</var>, i.e. if <var class="Arg">C1</var> contains all the elements of <var class="Arg">C2</var>.</p>
 
 
@@ -403,7 +403,7 @@ true
 
 <h5>4.3-3 IsCode</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsCode</code>( <var class="Arg">obj</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsCode</code>( <var class="Arg">obj</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">IsCode</code> returns `true' if <var class="Arg">obj</var>, which can be an object of arbitrary type, is a code and `false' otherwise. Will cause an error if <var class="Arg">obj</var> is an unbound variable.</p>
 
 
@@ -418,7 +418,7 @@ true
 
 <h5>4.3-4 IsLinearCode</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsLinearCode</code>( <var class="Arg">obj</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsLinearCode</code>( <var class="Arg">obj</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">IsLinearCode</code> checks if object <var class="Arg">obj</var> (not necessarily a code) is a linear code. If a code has already been marked as linear or cyclic, the function automatically returns `true'. Otherwise, the function checks if a basis <span class="SimpleMath">G</span> of the elements of <var class="Arg">obj</var> exists that generates the elements of <var class="Arg">obj</var>. If so, <span class="SimpleMath">G</span> is recorded as a generator matrix of <var class="Arg">obj</var> and the function returns `true'. If not, the function returns `false'.</p>
 
 
@@ -437,7 +437,7 @@ false
 
 <h5>4.3-5 IsCyclicCode</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsCyclicCode</code>( <var class="Arg">obj</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsCyclicCode</code>( <var class="Arg">obj</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">IsCyclicCode</code> checks if the object <var class="Arg">obj</var> is a cyclic code. If a code has already been marked as cyclic, the function automatically returns `true'. Otherwise, the function checks if a polynomial <span class="SimpleMath">g</span> exists that generates the elements of <var class="Arg">obj</var>. If so, <span class="SimpleMath">g</span> is recorded as a generator polynomial of <var class="Arg">obj</var> and the function returns `true'. If not, the function returns `false'.</p>
 
 
@@ -457,7 +457,7 @@ false
 
 <h5>4.3-6 IsPerfectCode</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsPerfectCode</code>( <var class="Arg">C</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsPerfectCode</code>( <var class="Arg">C</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">IsPerfectCode(C)</code> returns `true' if <var class="Arg">C</var> is a perfect code. If <span class="SimpleMath">C⊂ GF(q)^n</span> then, by definition, this means that for some positive integer <span class="SimpleMath">t</span>, the space <span class="SimpleMath">GF(q)^n</span> is covered by non-overlapping spheres of (Hamming) radius <span class="SimpleMath">t</span> centered at the codewords in <var class="Arg">C</var>. For a code with odd minimum distance <span class="SimpleMath">d = 2t+1</span>, this is the case when every word of the vector space of <var class="Arg">C</var> is at distance at most <span class="SimpleMath">t</span> from exactly one element of <var class="Arg">C</var>. Codes with even minimum distance are never perfect.</p>
 
 <p>In fact, a code that is not "trivially perfect" (the binary repetition codes of odd length, the codes consisting of one word, and the codes consisting of the whole vector space), and does not have the parameters of a Hamming or Golay code, cannot be perfect (see section 1.12 in <a href="chapBib.html#biBHP03">[HP03]</a>).</p>
@@ -480,7 +480,7 @@ true
 
 <h5>4.3-7 IsMDSCode</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsMDSCode</code>( <var class="Arg">C</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsMDSCode</code>( <var class="Arg">C</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">IsMDSCode(C)</code> returns true if <var class="Arg">C</var> is a maximum distance separable (MDS) code. A linear <span class="SimpleMath">[n, k, d]</span>-code of length <span class="SimpleMath">n</span>, dimension <span class="SimpleMath">k</span> and minimum distance <span class="SimpleMath">d</span> is an MDS code if <span class="SimpleMath">k=n-d+1</span>, in other words if <var class="Arg">C</var> meets the Singleton bound (see <code class="func">UpperBoundSingleton</code> (<a href="chap7.html#X8673277C7F6C04C3"><span class="RefLink">7.1-1</span></a>)). An unrestricted <span class="SimpleMath">(n, M, d)</span> code is called <em>MDS</em> if <span class="SimpleMath">k=n-d+1</span>, with <span class="SimpleMath">k</span> equal to the largest integer less than or equal to the logarithm of <span class="SimpleMath">M</span> with base <span class="SimpleMath">q</span>, the size of the base field of <var class="Arg">C</var>.</p>
 
 <p>Well-known MDS codes include the repetition codes, the whole space codes, the even weight codes (these are the only <em>binary</em> MDS codes) and the Reed-Solomon codes.</p>
@@ -499,7 +499,7 @@ false
 
 <h5>4.3-8 IsSelfDualCode</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsSelfDualCode</code>( <var class="Arg">C</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsSelfDualCode</code>( <var class="Arg">C</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">IsSelfDualCode(C)</code> returns `true' if <var class="Arg">C</var> is self-dual, i.e. when <var class="Arg">C</var> is equal to its dual code (see also <code class="func">DualCode</code> (<a href="chap6.html#X799B12F085ACB609"><span class="RefLink">6.1-14</span></a>)). A code is self-dual if it contains all vectors that its elements are orthogonal to. If a code is self-dual, it automatically is self-orthogonal (see <code class="func">IsSelfOrthogonalCode</code> (<a href="chap4.html#X7B2A0CC481D2366F"><span class="RefLink">4.3-9</span></a>)).</p>
 
 <p>If <var class="Arg">C</var> is a non-linear code, it cannot be self-dual (the dual code is always linear), so `false' is returned. A linear code can only be self-dual when its dimension <span class="SimpleMath">k</span> is equal to the redundancy <span class="SimpleMath">r</span>.</p>
@@ -518,7 +518,7 @@ true
 
 <h5>4.3-9 IsSelfOrthogonalCode</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsSelfOrthogonalCode</code>( <var class="Arg">C</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsSelfOrthogonalCode</code>( <var class="Arg">C</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">IsSelfOrthogonalCode(C)</code> returns `true' if <var class="Arg">C</var> is self-orthogonal. A code is <em>self-orthogonal</em> if every element of <var class="Arg">C</var> is orthogonal to all elements of <var class="Arg">C</var>, including itself. (In the linear case, this simply means that the generator matrix of <var class="Arg">C</var> multiplied with its transpose yields a null matrix.)</p>
 
 
@@ -535,7 +535,7 @@ false
 
 <h5>4.3-10 IsDoublyEvenCode</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsDoublyEvenCode</code>( <var class="Arg">C</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsDoublyEvenCode</code>( <var class="Arg">C</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">IsDoublyEvenCode(C)</code> returns `true' if <var class="Arg">C</var> is a binary linear code which has codewords of weight divisible by 4 only. According to <a href="chapBib.html#biBHP03">[HP03]</a>, a doubly-even code is self-orthogonal and every row in its generator matrix has weight that is divisible by 4.</p>
 
 
@@ -558,7 +558,7 @@ true
 
 <h5>4.3-11 IsSinglyEvenCode</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsSinglyEvenCode</code>( <var class="Arg">C</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsSinglyEvenCode</code>( <var class="Arg">C</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">IsSinglyEvenCode(C)</code> returns `true' if <var class="Arg">C</var> is a binary self-orthogonal linear code which is not doubly-even. In other words, <var class="Arg">C</var> is a binary self-orthogonal code which has codewords of even weight.</p>
 
 
@@ -579,7 +579,7 @@ true
 
 <h5>4.3-12 IsEvenCode</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsEvenCode</code>( <var class="Arg">C</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsEvenCode</code>( <var class="Arg">C</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">IsEvenCode(C)</code> returns `true' if <var class="Arg">C</var> is a binary linear code which has codewords of even weight--regardless whether or not it is self-orthogonal.</p>
 
 
@@ -608,7 +608,7 @@ true
 
 <h5>4.3-13 IsSelfComplementaryCode</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsSelfComplementaryCode</code>( <var class="Arg">C</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsSelfComplementaryCode</code>( <var class="Arg">C</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">IsSelfComplementaryCode</code> returns `true' if</p>
 
 <p class="pcenter">
@@ -630,7 +630,7 @@ false
 
 <h5>4.3-14 IsAffineCode</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsAffineCode</code>( <var class="Arg">C</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsAffineCode</code>( <var class="Arg">C</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">IsAffineCode</code> returns `true' if <var class="Arg">C</var> is an affine code. A code is called <em>affine</em> if it is an affine space. In other words, a code is affine if it is a coset of a linear code.</p>
 
 
@@ -648,7 +648,7 @@ false
 
 <h5>4.3-15 IsAlmostAffineCode</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsAlmostAffineCode</code>( <var class="Arg">C</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsAlmostAffineCode</code>( <var class="Arg">C</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">IsAlmostAffineCode</code> returns `true' if <var class="Arg">C</var> is an almost affine code. A code is called <em>almost affine</em> if the size of any punctured code of <var class="Arg">C</var> is <span class="SimpleMath">q^r</span> for some <span class="SimpleMath">r</span>, where <span class="SimpleMath">q</span> is the size of the alphabet of the code. Every affine code is also almost affine, and every code over <span class="SimpleMath">GF(2)</span> and <span class="SimpleMath">GF(3)</span> that is almost affine is also affine.</p>
 
 
@@ -674,7 +674,7 @@ Equivalence and Isomorphism of Codes
 
 <h5>4.4-1 IsEquivalent</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsEquivalent</code>( <var class="Arg">C1</var>, <var class="Arg">C2</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsEquivalent</code>( <var class="Arg">C1</var>, <var class="Arg">C2</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>We say that <var class="Arg">C1</var> is <em>permutation equivalent</em> to <var class="Arg">C2</var> if <var class="Arg">C1</var> can be obtained from <var class="Arg">C2</var> by carrying out column permutations. <code class="code">IsEquivalent</code> returns true if <var class="Arg">C1</var> and <var class="Arg">C2</var> are equivalent codes. At this time, <code class="code">IsEquivalent</code> only handles <em>binary</em> codes. (The external unix/linux program <strong class="button">desauto</strong> from J. S. Leon is called by <code class="code">IsEquivalent</code>.) Of course, if <var class="Arg">C1</var> and <var class="Arg">C2</var> are equal, they are also equivalent.</p>
 
 <p>Note that the algorithm is <em>very slow</em> for non-linear codes.</p>
@@ -699,7 +699,7 @@ true                        # H is equivalent to a Hamming code
 
 <h5>4.4-2 CodeIsomorphism</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; CodeIsomorphism</code>( <var class="Arg">C1</var>, <var class="Arg">C2</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; CodeIsomorphism</code>( <var class="Arg">C1</var>, <var class="Arg">C2</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>If the two codes <var class="Arg">C1</var> and <var class="Arg">C2</var> are permutation equivalent codes (see <code class="func">IsEquivalent</code> (<a href="chap4.html#X843034687D9C75B0"><span class="RefLink">4.4-1</span></a>)), <code class="code">CodeIsomorphism</code> returns the permutation that transforms <var class="Arg">C1</var> into <var class="Arg">C2</var>. If the codes are not equivalent, it returns `false'.</p>
 
 <p>At this time, <code class="code">IsEquivalent</code> only computes isomorphisms between <em>binary</em> codes on a linux/unix computer (since it calls Leon's C program <strong class="button">desauto</strong>).</p>
@@ -720,7 +720,7 @@ true
 
 <h5>4.4-3 AutomorphismGroup</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AutomorphismGroup</code>( <var class="Arg">C</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AutomorphismGroup</code>( <var class="Arg">C</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">AutomorphismGroup</code> returns the automorphism group of a linear code <var class="Arg">C</var>. For a binary code, the automorphism group is the largest permutation group of degree <span class="SimpleMath">n</span> such that each permutation applied to the columns of <var class="Arg">C</var> again yields <var class="Arg">C</var>. <strong class="pkg">GUAVA</strong> calls the external program <strong class="button">desauto</strong> written by J. S. Leon, if it exists, to compute the automorphism group. If Leon's program is not compiled on the system (and in the default directory) then it calls instead the much slower program <code class="code">PermutationAutomorphismGroup</code>.</p>
 
 <p>See Leon <a href="chapBib.html#biBLeon82">[Leo82]</a> for a more precise description of the method, and the <code class="file">guava/src/leon/doc</code> subdirectory for for details about Leon's C programs.</p>
@@ -752,7 +752,7 @@ true
 
 <h5>4.4-4 PermutationAutomorphismGroup</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PermutationAutomorphismGroup</code>( <var class="Arg">C</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PermutationAutomorphismGroup</code>( <var class="Arg">C</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">PermutationAutomorphismGroup</code> returns the permutation automorphism group of a linear code <var class="Arg">C</var>. This is the largest permutation group of degree <span class="SimpleMath">n</span> such that each permutation applied to the columns of <var class="Arg">C</var> again yields <var class="Arg">C</var>. It is written in GAP, so is much slower than <code class="code">AutomorphismGroup</code>.</p>
 
 <p>When <var class="Arg">C</var> is binary <code class="code">PermutationAutomorphismGroup</code> does <em>not</em> call <code class="code">AutomorphismGroup</code>, even though they agree mathematically in that case. This way <code class="code">PermutationAutomorphismGroup</code> can be called on any platform which runs GAP.</p>
@@ -781,7 +781,7 @@ Domain Functions for Codes
 
 <h5>4.5-1 IsFinite</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsFinite</code>( <var class="Arg">C</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsFinite</code>( <var class="Arg">C</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">IsFinite</code> is an implementation of the GAP domain function <code class="code">IsFinite</code>. It returns true for a code <var class="Arg">C</var>.</p>
 
 
@@ -794,7 +794,7 @@ true
 
 <h5>4.5-2 Size</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Size</code>( <var class="Arg">C</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Size</code>( <var class="Arg">C</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">Size</code> returns the size of <var class="Arg">C</var>, the number of elements of the code. If the code is linear, the size of the code is equal to <span class="SimpleMath">q^k</span>, where <span class="SimpleMath">q</span> is the size of the base field of <var class="Arg">C</var> and <span class="SimpleMath">k</span> is the dimension.</p>
 
 
@@ -809,7 +809,7 @@ true
 
 <h5>4.5-3 LeftActingDomain</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; LeftActingDomain</code>( <var class="Arg">C</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; LeftActingDomain</code>( <var class="Arg">C</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">LeftActingDomain</code> returns the base field of a code <var class="Arg">C</var>. Each element of <var class="Arg">C</var> consists of elements of this base field. If the base field is <span class="SimpleMath">F</span>, and the word length of the code is <span class="SimpleMath">n</span>, then the codewords are elements of <span class="SimpleMath">F^n</span>. If <var class="Arg">C</var> is a cyclic code, its elements are interpreted as polynomials with coefficients over <span class="SimpleMath">F</span>.</p>
 
 
@@ -826,7 +826,7 @@ GF(3^2)
 
 <h5>4.5-4 Dimension</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Dimension</code>( <var class="Arg">C</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Dimension</code>( <var class="Arg">C</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">Dimension</code> returns the parameter <span class="SimpleMath">k</span> of <var class="Arg">C</var>, the dimension of the code, or the number of information symbols in each codeword. The dimension is not defined for non-linear codes; <code class="code">Dimension</code> then returns an error.</p>
 
 
@@ -845,7 +845,7 @@ true
 
 <h5>4.5-5 AsSSortedList</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AsSSortedList</code>( <var class="Arg">C</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AsSSortedList</code>( <var class="Arg">C</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">AsSSortedList</code> (as strictly sorted list) returns an immutable, duplicate free list of the elements of <var class="Arg">C</var>. For a finite field <span class="SimpleMath">GF(q)</span> generated by powers of <span class="SimpleMath">Z(q)</span>, the ordering on</p>
 
 <p class="pcenter">
@@ -876,7 +876,7 @@ Printing and Displaying Codes
 
 <h5>4.6-1 Print</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Print</code>( <var class="Arg">C</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Print</code>( <var class="Arg">C</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">Print</code> prints information about <var class="Arg">C</var>. This is the same as typing the identifier <var class="Arg">C</var> at the GAP-prompt.</p>
 
 <p>If the argument is an unrestricted code, information in the form</p>
@@ -926,7 +926,7 @@ This is a (16,256,6)4 Nordstrom-Robinson code over GF(2).
 
 <h5>4.6-2 String</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; String</code>( <var class="Arg">C</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; String</code>( <var class="Arg">C</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">String</code> returns information about <var class="Arg">C</var> in a string. This function is used by <code class="code">Print</code>.</p>
 
 
@@ -945,7 +945,7 @@ a cyclic [8,6,1..2]1..2 code defined by generator polynomial over GF(3)
 
 <h5>4.6-3 Display</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Display</code>( <var class="Arg">C</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Display</code>( <var class="Arg">C</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">Display</code> prints the method of construction of code <var class="Arg">C</var>. With this history, in most cases an equal or equivalent code can be reconstructed. If <var class="Arg">C</var> is an unmanipulated code, the result is equal to output of the function <code class="code">Print</code> (see <code class="func">Print</code> (<a href="chap4.html#X7AFA64D97A1F39A3"><span class="RefLink">4.6-1</span></a>)).</p>
 
 
@@ -967,7 +967,7 @@ V: a linear [7,7,1]0 punctured code of
 
 <h5>4.6-4 DisplayBoundsInfo</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DisplayBoundsInfo</code>( <var class="Arg">bds</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DisplayBoundsInfo</code>( <var class="Arg">bds</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">DisplayBoundsInfo</code> prints the method of construction of the code <span class="SimpleMath">C</span> indicated in <code class="code">bds:= BoundsMinimumDistance( n, k, GF(q) )</code>.</p>
 
 
@@ -1001,7 +1001,7 @@ Generating (Check) Matrices and Polynomials
 
 <h5>4.7-1 GeneratorMat</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; GeneratorMat</code>( <var class="Arg">C</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; GeneratorMat</code>( <var class="Arg">C</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">GeneratorMat</code> returns a generator matrix of <var class="Arg">C</var>. The code consists of all linear combinations of the rows of this matrix.</p>
 
 <p>If until now no generator matrix of <var class="Arg">C</var> was determined, it is computed from either the parity check matrix, the generator polynomial, the check polynomial or the elements (if possible), whichever is available.</p>
@@ -1030,7 +1030,7 @@ Generating (Check) Matrices and Polynomials
 
 <h5>4.7-2 CheckMat</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; CheckMat</code>( <var class="Arg">C</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; CheckMat</code>( <var class="Arg">C</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">CheckMat</code> returns a parity check matrix of <var class="Arg">C</var>. The code consists of all words orthogonal to each of the rows of this matrix. The transpose of the matrix is a right inverse of the generator matrix. The parity check matrix is computed from either the generator matrix, the generator polynomial, the check polynomial or the elements of <var class="Arg">C</var> (if possible), whichever is available.</p>
 
 <p>If <var class="Arg">C</var> is a non-linear code, the function returns an error.</p>
@@ -1058,7 +1058,7 @@ Generating (Check) Matrices and Polynomials
 
 <h5>4.7-3 GeneratorPol</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; GeneratorPol</code>( <var class="Arg">C</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; GeneratorPol</code>( <var class="Arg">C</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">GeneratorPol</code> returns the generator polynomial of <var class="Arg">C</var>. The code consists of all multiples of the generator polynomial modulo <span class="SimpleMath">x^n-1</span>, where <span class="SimpleMath">n</span> is the word length of <var class="Arg">C</var>. The generator polynomial is determined from either the check polynomial, the generator or check matrix or the elements of <var class="Arg">C</var> (if possible), whichever is available.</p>
 
 <p>If <var class="Arg">C</var> is not a cyclic code, the function returns `false'.</p>
@@ -1077,7 +1077,7 @@ Z(2)^0
 
 <h5>4.7-4 CheckPol</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; CheckPol</code>( <var class="Arg">C</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; CheckPol</code>( <var class="Arg">C</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">CheckPol</code> returns the check polynomial of <var class="Arg">C</var>. The code consists of all polynomials <span class="SimpleMath">f</span> with</p>
 
 <p class="pcenter">
@@ -1102,7 +1102,7 @@ Z(3)^0
 
 <h5>4.7-5 RootsOfCode</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; RootsOfCode</code>( <var class="Arg">C</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; RootsOfCode</code>( <var class="Arg">C</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">RootsOfCode</code> returns a list of all zeros of the generator polynomial of a cyclic code <var class="Arg">C</var>. These are finite field elements in the splitting field of the generator polynomial, <span class="SimpleMath">GF(q^m)</span>, <span class="SimpleMath">m</span> is the multiplicative order of the size of the base field of the code, modulo the word length.</p>
 
 <p>The reverse process, constructing a code from a set of roots, can be carried out by the function <code class="code">RootsCode</code> (see <code class="func">RootsCode</code> (<a href="chap5.html#X818F0E6583E01D4B"><span class="RefLink">5.5-3</span></a>)).</p>
@@ -1129,7 +1129,7 @@ Parameters of Codes
 
 <h5>4.8-1 WordLength</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; WordLength</code>( <var class="Arg">C</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; WordLength</code>( <var class="Arg">C</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">WordLength</code> returns the parameter <span class="SimpleMath">n</span> of <var class="Arg">C</var>, the word length of the elements. Elements of cyclic codes are polynomials of maximum degree <span class="SimpleMath">n-1</span>, as calculations are carried out modulo <span class="SimpleMath">x^n-1</span>.</p>
 
 
@@ -1146,7 +1146,7 @@ Parameters of Codes
 
 <h5>4.8-2 Redundancy</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Redundancy</code>( <var class="Arg">C</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Redundancy</code>( <var class="Arg">C</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">Redundancy</code> returns the redundancy <span class="SimpleMath">r</span> of <var class="Arg">C</var>, which is equal to the number of check symbols in each element. If <var class="Arg">C</var> is not a linear code the redundancy is not defined and <code class="code">Redundancy</code> returns an error.</p>
 
 <p>If a linear code <var class="Arg">C</var> has dimension <span class="SimpleMath">k</span> and word length <span class="SimpleMath">n</span>, it has redundancy <span class="SimpleMath">r=n-k</span>.</p>
@@ -1165,7 +1165,7 @@ a cyclic [11,6,5]2 ternary Golay code over GF(3)
 
 <h5>4.8-3 MinimumDistance</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; MinimumDistance</code>( <var class="Arg">C</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; MinimumDistance</code>( <var class="Arg">C</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">MinimumDistance</code> returns the minimum distance of <var class="Arg">C</var>, the largest integer <span class="SimpleMath">d</span> with the property that every element of <var class="Arg">C</var> has at least a Hamming distance <span class="SimpleMath">d</span> (see <code class="func">DistanceCodeword</code> (<a href="chap3.html#X7CDA1B547D55E6FB"><span class="RefLink">3.6-2</span></a>)) to any other element of <var class="Arg">C</var>. For linear codes, the minimum distance is equal to the minimum weight. This means that <span class="SimpleMath">d</span> is also the smallest positive value with <span class="SimpleMath">w[d+1] ≠ 0</span>, where <span class="SimpleMath">w=(w[1],w[2],...,w[n])</span> is the weight distribution of <var class="Arg">C</var> (see <code class="func">WeightDistribution</code> (<a href="chap4.html#X8728BCC9842A6E5D"><span class="RefLink">4.9-2</span></a>)). For unrestricted codes, <span class="SimpleMath">d</span> is the smallest positive value with <span class="SimpleMath">w[d+1] ≠ 0</span>, where <span class="SimpleMath">w</span> is the inner distribution of <var class="Arg">C</var> (see <code class="func">InnerDistribution</code> (<a href="chap4.html#X871FD301820717A4"><span class="RefLink">4.9-3</span></a>)).</p>
 
 <p>For codes with only one element, the minimum distance is defined to be equal to the word length.</p>
@@ -1204,7 +1204,7 @@ a cyclic [11,6,5]2 ternary Golay code over GF(3)
 
 <h5>4.8-4 MinimumDistanceLeon</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; MinimumDistanceLeon</code>( <var class="Arg">C</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; MinimumDistanceLeon</code>( <var class="Arg">C</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">MinimumDistanceLeon</code> returns the ``probable'' minimum distance <span class="SimpleMath">d_Leon</span> of a linear binary code <var class="Arg">C</var>, using an implementation of Leon's probabilistic polynomial time algorithm. Briefly: Let <var class="Arg">C</var> be a linear code of dimension <span class="SimpleMath">k</span> over <span class="SimpleMath">GF(q)</span> as above. The algorithm has input parameters <span class="SimpleMath">s</span> and <span class="SimpleMath">ρ</span>, where <span class="SimpleMath">s</span> is an integer between <span class="SimpleMath">2</span> and <span class="SimpleMath">n-k</span>, and <span class="SimpleMath">ρ</span> is an integer between <span class="SimpleMath">2</span> and <span class="SimpleMath">k</span>.</p>
 
 
@@ -1249,7 +1249,7 @@ a  [50,22,?] randomly generated code over GF(2)
 
 <h5>4.8-5 MinimumWeight</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; MinimumWeight</code>( <var class="Arg">C</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; MinimumWeight</code>( <var class="Arg">C</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">MinimumWeight</code> returns the minimum Hamming weight of a linear code <var class="Arg">C</var>. At the moment, this function works for binary and ternary codes only. The <code class="code">MinimumWeight</code> function relies on an external executable program which is written in C language. As a consequence, the execution time of <code class="code">MinimumWeight</code> function is faster than that of <code class="func">MinimumDistance</code> (<a href="chap4.html#X7B31613D8538BD29"><span class="RefLink">4.8-3</span></a>) function.</p>
 
 <p>The <code class="code">MinimumWeight</code> function implements Chen's <a href="chapBib.html#biBChen69">[Che69]</a> algorithm if <var class="Arg">C</var> is cyclic, and Zimmermann's <a href="chapBib.html#biBZimmermann96">[Zim96]</a> algorithm if <var class="Arg">C</var> is a general linear code. This function has a built-in check on the constraints of the minimum weight codewords. For example, for a self-orthogonal code over GF(3), the minimum weight codewords have weight that is divisible by 3, i.e. 0 mod 3 congruence. Similary, self-orthogonal codes over GF(2) have codeword weights that are divisible by 4 and even codes over GF(2) have codewords weights that are divisible by 2. By taking these constraints into account, in many cases, the execution time may be significantly reduced. Consider the minimum Hamming weight enumeration of the <span class="SimpleMath">[151,45]</span> binary cyclic code (second example below). This cyclic code is self-orthogonal, so the weight of all codewords is divisible by 4. Without considering this constraint, the computation will finish at information weight <span class="SimpleMath">10</span>, rather than <span class="SimpleMath">9</span>. We can see that, this 0 mod 4 constraint on the codeword weights, has allowed us to avoid enumeration of <span class="SimpleMath">b(45,10) = 3,190,187,286</span> additional codewords, where <span class="SimpleMath">b(n,k)=n!/((n-k)!k!)</span> is the binomial coefficient of integers <span class="SimpleMath">n</span> and <span class="SimpleMath">k</span>.</p>
@@ -1364,7 +1364,7 @@ Minimum weight: 36
 
 <h5>4.8-6 DecreaseMinimumDistanceUpperBound</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DecreaseMinimumDistanceUpperBound</code>( <var class="Arg">C</var>, <var class="Arg">t</var>, <var class="Arg">m</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DecreaseMinimumDistanceUpperBound</code>( <var class="Arg">C</var>, <var class="Arg">t</var>, <var class="Arg">m</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">DecreaseMinimumDistanceUpperBound</code> is an implementation of the algorithm for the minimum distance of a linear binary code <var class="Arg">C</var> by Leon <a href="chapBib.html#biBLeon88">[Leo88]</a>. This algorithm tries to find codewords with small minimum weights. The parameter <var class="Arg">t</var> is at least <span class="SimpleMath">1</span> and less than the dimension of <var class="Arg">C</var>. The best results are obtained if it is close to the dimension of the code. The parameter <var class="Arg">m</var> gives the number of runs that the algorithm will perform.</p>
 
 <p>The result returned is a record with two fields; the first, <code class="code">mindist</code>, gives the lowest weight found, and <code class="code">word</code> gives the corresponding codeword. (This was implemented before <code class="code">MinimumDistanceLeon</code> but independently. The older manual had given the command incorrectly, so the command was only found after reading all the <em>*.gi</em> files in the <strong class="pkg">GUAVA</strong> library. Though both <code class="code">MinimumDistance</code> and <code class="code">MinimumDistanceLeon</code> often run much faster than <code class="code">DecreaseMinimumDistanceUpperBound</code>, <code class="code">DecreaseMinimumDistanceUpperBound</code> appears to be more accurate than <code class="code">MinimumDistanceLeon</code>.)</p>
@@ -1390,7 +1390,7 @@ rec( mindist := 2,
 
 <h5>4.8-7 MinimumDistanceRandom</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; MinimumDistanceRandom</code>( <var class="Arg">C</var>, <var class="Arg">num</var>, <var class="Arg">s</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; MinimumDistanceRandom</code>( <var class="Arg">C</var>, <var class="Arg">num</var>, <var class="Arg">s</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">MinimumDistanceRandom</code> returns an upper bound for the minimum distance <span class="SimpleMath">d_random</span> of a linear binary code <var class="Arg">C</var>, using a probabilistic polynomial time algorithm. Briefly: Let <var class="Arg">C</var> be a linear code of dimension <span class="SimpleMath">k</span> over <span class="SimpleMath">GF(q)</span> as above. The algorithm has input parameters <span class="SimpleMath">num</span> and <span class="SimpleMath">s</span>, where <span class="SimpleMath">s</span> is an integer between <span class="SimpleMath">2</span> and <span class="SimpleMath">n-1</span>, and <span class="SimpleMath">num</span> is an integer greater than or equal to <span class="SimpleMath">1</span>.</p>
 
 
@@ -1474,7 +1474,7 @@ Code must be binary. Quitting.
 
 <h5>4.8-8 CoveringRadius</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; CoveringRadius</code>( <var class="Arg">C</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; CoveringRadius</code>( <var class="Arg">C</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">CoveringRadius</code> returns the <em>covering radius</em> of a linear code <var class="Arg">C</var>. This is the smallest number <span class="SimpleMath">r</span> with the property that each element <span class="SimpleMath">v</span> of the ambient vector space of <var class="Arg">C</var> has at most a distance <span class="SimpleMath">r</span> to the code <var class="Arg">C</var>. So for each vector <span class="SimpleMath">v</span> there must be an element <span class="SimpleMath">c</span> of <var class="Arg">C</var> with <span class="SimpleMath">d(v,c) ≤ r</span>. The smallest covering radius of any <span class="SimpleMath">[n,k]</span> binary linear code is denoted <span class="SimpleMath">t(n,k)</span>. A binary linear code with reasonable small covering radius is called a <em>covering code</em>.</p>
 
 <p>If <var class="Arg">C</var> is a perfect code (see <code class="func">IsPerfectCode</code> (<a href="chap4.html#X85E3BD26856424F7"><span class="RefLink">4.3-6</span></a>)), the covering radius is equal to <span class="SimpleMath">t</span>, the number of errors the code can correct, where <span class="SimpleMath">d = 2t+1</span>, with <span class="SimpleMath">d</span> the minimum distance of <var class="Arg">C</var> (see <code class="func">MinimumDistance</code> (<a href="chap4.html#X7B31613D8538BD29"><span class="RefLink">4.8-3</span></a>)).</p>
@@ -1535,7 +1535,7 @@ The covering radius of code lies in the interval:
 
 <h5>4.8-9 SetCoveringRadius</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SetCoveringRadius</code>( <var class="Arg">C</var>, <var class="Arg">intlist</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SetCoveringRadius</code>( <var class="Arg">C</var>, <var class="Arg">intlist</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">SetCoveringRadius</code> enables the user to set the covering radius herself, instead of letting <strong class="pkg">GUAVA</strong> compute it. If <var class="Arg">intlist</var> is an integer, <strong class="pkg">GUAVA</strong> will simply put it in the `boundsCoveringRadius' field. If it is a list of integers, however, it will intersect this list with the `boundsCoveringRadius' field, thus taking the best of both lists. If this would leave an empty list, the field is set to <var class="Arg">intlist</var>. Because some other computations use the covering radius of the code, it is important that the entered value is not wrong, otherwise new results may be invalid.</p>
 
 
@@ -1558,7 +1558,7 @@ Distributions
 
 <h5>4.9-1 MinimumWeightWords</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; MinimumWeightWords</code>( <var class="Arg">C</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; MinimumWeightWords</code>( <var class="Arg">C</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">MinimumWeightWords</code> returns the list of minimum weight codewords of <var class="Arg">C</var>.</p>
 
 <p>This algorithm is written in GAP is slow, so is only suitable for small codes.</p>
@@ -1579,7 +1579,7 @@ a linear [7,4,3]1 Hamming (3,2) code over GF(2)
 
 <h5>4.9-2 WeightDistribution</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; WeightDistribution</code>( <var class="Arg">C</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; WeightDistribution</code>( <var class="Arg">C</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">WeightDistribution</code> returns the weight distribution of <var class="Arg">C</var>, as a vector. The <span class="SimpleMath">i^th</span> element of this vector contains the number of elements of <var class="Arg">C</var> with weight <span class="SimpleMath">i-1</span>. For linear codes, the weight distribution is equal to the inner distribution (see <code class="func">InnerDistribution</code> (<a href="chap4.html#X871FD301820717A4"><span class="RefLink">4.9-3</span></a>)). If <span class="SimpleMath">w</span> is the weight distribution of a linear code <var class="Arg">C</var>, it must have the zero codeword, so <span class="SimpleMath">w[1] = 1</span> (one word of weight 0).</p>
 
 <p>Some codes, such as the Hamming codes, have precomputed weight distributions. For others, the program WeightDistribution calls the GAP program <code class="code">DistancesDistributionMatFFEVecFFE</code>, which is written in C. See also <code class="code">CodeWeightEnumerator</code>.</p>
@@ -1598,7 +1598,7 @@ a linear [7,4,3]1 Hamming (3,2) code over GF(2)
 
 <h5>4.9-3 InnerDistribution</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; InnerDistribution</code>( <var class="Arg">C</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; InnerDistribution</code>( <var class="Arg">C</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">InnerDistribution</code> returns the inner distribution of <var class="Arg">C</var>. The <span class="SimpleMath">i^th</span> element of the vector contains the average number of elements of <var class="Arg">C</var> at distance <span class="SimpleMath">i-1</span> to an element of <var class="Arg">C</var>. For linear codes, the inner distribution is equal to the weight distribution (see <code class="func">WeightDistribution</code> (<a href="chap4.html#X8728BCC9842A6E5D"><span class="RefLink">4.9-2</span></a>)).</p>
 
 <p>Suppose <span class="SimpleMath">w</span> is the inner distribution of <var class="Arg">C</var>. Then <span class="SimpleMath">w[1] = 1</span>, because each element of <var class="Arg">C</var> has exactly one element at distance zero (the element itself). The minimum distance of <var class="Arg">C</var> is the smallest value <span class="SimpleMath">d &gt; 0</span> with <span class="SimpleMath">w[d+1] ≠ 0</span>, because a distance between zero and <span class="SimpleMath">d</span> never occurs. See <code class="func">MinimumDistance</code> (<a href="chap4.html#X7B31613D8538BD29"><span class="RefLink">4.8-3</span></a>).</p>
@@ -1615,7 +1615,7 @@ a linear [7,4,3]1 Hamming (3,2) code over GF(2)
 
 <h5>4.9-4 DistancesDistribution</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DistancesDistribution</code>( <var class="Arg">C</var>, <var class="Arg">w</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DistancesDistribution</code>( <var class="Arg">C</var>, <var class="Arg">w</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">DistancesDistribution</code> returns the distribution of the distances of all elements of <var class="Arg">C</var> to a codeword <var class="Arg">w</var> in the same vector space. The <span class="SimpleMath">i^th</span> element of the distance distribution is the number of codewords of <var class="Arg">C</var> that have distance <span class="SimpleMath">i-1</span> to <var class="Arg">w</var>. The smallest value <span class="SimpleMath">d</span> with <span class="SimpleMath">w[d+1] ≠ 0</span>, is defined as the <em>distance to</em> <var class="Arg">C</var> (see <code class="func">MinimumDistance</code> (<a href="chap4.html#X7B31613D8538BD29"><span class="RefLink">4.8-3</span></a>)).</p>
 
 
@@ -1634,7 +1634,7 @@ a (20,40,10)6..8 Hadamard code of order 20 over GF(2)
 
 <h5>4.9-5 OuterDistribution</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; OuterDistribution</code>( <var class="Arg">C</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; OuterDistribution</code>( <var class="Arg">C</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>The function <code class="code">OuterDistribution</code> returns a list of length <span class="SimpleMath">q^n</span>, where <span class="SimpleMath">q</span> is the size of the base field of <var class="Arg">C</var> and <span class="SimpleMath">n</span> is the word length. The elements of the list consist of pairs, the first coordinate being an element of <span class="SimpleMath">GF(q)^n</span> (this is a codeword type) and the second coordinate being a distribution of distances to the code (a list of integers). This table is <em>very</em> large, and for <span class="SimpleMath">n &gt; 20</span> it will not fit in the memory of most computers. The function <code class="code">DistancesDistribution</code> (see <code class="func">DistancesDistribution</code> (<a href="chap4.html#X87AD54F87C5EE77E"><span class="RefLink">4.9-4</span></a>)) can be used to calculate one entry of the list.</p>
 
 
@@ -1662,7 +1662,7 @@ Decoding Functions
 
 <h5>4.10-1 Decode</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Decode</code>( <var class="Arg">C</var>, <var class="Arg">r</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Decode</code>( <var class="Arg">C</var>, <var class="Arg">r</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">Decode</code> decodes <var class="Arg">r</var> (a 'received word') with respect to code <var class="Arg">C</var> and returns the `message word' (i.e., the information digits associated to the codeword <span class="SimpleMath">c ∈ C</span> closest to <var class="Arg">r</var>). Here <var class="Arg">r</var> can be a <strong class="pkg">GUAVA</strong> codeword or a list of codewords. First, possible errors in <var class="Arg">r</var> are corrected, then the codeword is decoded to an <em>information codeword</em> <span class="SimpleMath">m</span> (and not an element of <var class="Arg">C</var>). If the code record has a field `specialDecoder', this special algorithm is used to decode the vector. Hamming codes, cyclic codes, and generalized Reed-Solomon have such a special algorithm. (The algorithm used for BCH codes is the Sugiyama algorithm described, for example, in section 5.4.3 of <a href="chapBib.html#biBHP03">[HP03]</a>. A special decoder has also being written for the generalized Reed-Solomon code using the interpolation algorithm. For cyclic codes, the error-trapping algorithm is used.) If <var class="Arg">C</var> is linear and no special decoder field has been set then syndrome decoding is used. Otherwise (when <var class="Arg">C</var> is non-linear), the nearest neighbor decoding algorithm is used (which is very slow).</p>
 
 <p>A special decoder can be created by defining a function</p>
@@ -1700,7 +1700,7 @@ function ( C, c ) ... end
 
 <h5>4.10-2 Decodeword</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Decodeword</code>( <var class="Arg">C</var>, <var class="Arg">r</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Decodeword</code>( <var class="Arg">C</var>, <var class="Arg">r</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">Decodeword</code> decodes <var class="Arg">r</var> (a 'received word') with respect to code <var class="Arg">C</var> and returns the codeword <span class="SimpleMath">c ∈ C</span> closest to <var class="Arg">r</var>. Here <var class="Arg">r</var> can be a <strong class="pkg">GUAVA</strong> codeword or a list of codewords. If the code record has a field `specialDecoder', this special algorithm is used to decode the vector. Hamming codes, generalized Reed-Solomon codes, and BCH codes have such a special algorithm. (The algorithm used for BCH codes is the Sugiyama algorithm described, for example, in section 5.4.3 of <a href="chapBib.html#biBHP03">[HP03]</a>. The algorithm used for generalized Reed-Solomon codes is the ``interpolation algorithm'' described for example in chapter 5 of <a href="chapBib.html#biBJH04">[JH04]</a>.) If <var class="Arg">C</var> is linear and no special decoder field has been set then syndrome decoding is used. Otherwise, when <var class="Arg">C</var> is non-linear, the nearest neighbor algorithm has been implemented (which should only be used for small-sized codes).</p>
 
 
@@ -1742,7 +1742,7 @@ a linear [5,3,1..3]2 code defined by generator matrix over GF(11)
 
 <h5>4.10-3 GeneralizedReedSolomonDecoderGao</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; GeneralizedReedSolomonDecoderGao</code>( <var class="Arg">C</var>, <var class="Arg">r</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; GeneralizedReedSolomonDecoderGao</code>( <var class="Arg">C</var>, <var class="Arg">r</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">GeneralizedReedSolomonDecoderGao</code> decodes <var class="Arg">r</var> (a 'received word') to a codeword <span class="SimpleMath">c ∈ C</span> in a generalized Reed-Solomon code <var class="Arg">C</var> (see <code class="func">GeneralizedReedSolomonCode</code> (<a href="chap5.html#X810AB3DB844FFCE9"><span class="RefLink">5.6-2</span></a>)), closest to <var class="Arg">r</var>. Here <var class="Arg">r</var> must be a <strong class="pkg">GUAVA</strong> codeword. If the code record does not have name `generalized Reed-Solomon code' then an error is returned. Otherwise, the Gao decoder <a href="chapBib.html#biBGao03">[Gao03]</a> is used to compute <span class="SimpleMath">c</span>.</p>
 
 <p>For long codes, this method is faster in practice than the interpolation method used in <code class="code">Decodeword</code>.</p>
@@ -1769,7 +1769,7 @@ a linear [5,3,1..3]2  generalized Reed-Solomon code over GF(11)
 
 <h5>4.10-4 GeneralizedReedSolomonListDecoder</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; GeneralizedReedSolomonListDecoder</code>( <var class="Arg">C</var>, <var class="Arg">r</var>, <var class="Arg">tau</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; GeneralizedReedSolomonListDecoder</code>( <var class="Arg">C</var>, <var class="Arg">r</var>, <var class="Arg">tau</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">GeneralizedReedSolomonListDecoder</code> implements Sudans list-decoding algorithm (see section 12.1 of <a href="chapBib.html#biBJH04">[JH04]</a>) for ``low rate'' Reed-Solomon codes. It returns the list of all codewords in C which are a distance of at most <var class="Arg">tau</var> from <var class="Arg">r</var> (a 'received word'). <var class="Arg">C</var> must be a generalized Reed-Solomon code <var class="Arg">C</var> (see <code class="func">GeneralizedReedSolomonCode</code> (<a href="chap5.html#X810AB3DB844FFCE9"><span class="RefLink">5.6-2</span></a>)) and <var class="Arg">r</var> must be a <strong class="pkg">GUAVA</strong> codeword.</p>
 
 
@@ -1815,7 +1815,7 @@ true
 
 <h5>4.10-5 BitFlipDecoder</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; BitFlipDecoder</code>( <var class="Arg">C</var>, <var class="Arg">r</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; BitFlipDecoder</code>( <var class="Arg">C</var>, <var class="Arg">r</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>The iterative decoding method <code class="code">BitFlipDecoder</code> must only be applied to LDPC codes. For more information on LDPC codes, refer to Section <a href="chap5.html#X84F3673D7BBF5956"><span class="RefLink">5.8</span></a>. For these codes, <code class="code">BitFlipDecoder</code> decodes very quickly. (Warning: it can give wildly wrong results for arbitrary binary linear codes.) The bit flipping algorithm is described for example in Chapter 13 of <a href="chapBib.html#biBJH04">[JH04]</a>.</p>
 
 
@@ -1841,7 +1841,7 @@ Z(2)^0
 
 <h5>4.10-6 NearestNeighborGRSDecodewords</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; NearestNeighborGRSDecodewords</code>( <var class="Arg">C</var>, <var class="Arg">v</var>, <var class="Arg">dist</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; NearestNeighborGRSDecodewords</code>( <var class="Arg">C</var>, <var class="Arg">v</var>, <var class="Arg">dist</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">NearestNeighborGRSDecodewords</code> finds all generalized Reed-Solomon codewords within distance <var class="Arg">dist</var> from <var class="Arg">v</var> <em>and</em> the associated polynomial, using ``brute force''. Input: <var class="Arg">v</var> is a received vector (a <strong class="pkg">GUAVA</strong> codeword), <var class="Arg">C</var> is a GRS code, <var class="Arg">dist</var> &gt; 0 is the distance from <var class="Arg">v</var> to search in <var class="Arg">C</var>. Output: a list of pairs <span class="SimpleMath">[c,f(x)]</span>, where <span class="SimpleMath">wt(c-v)≤ dist-1</span> and <span class="SimpleMath">c = (f(x_1),...,f(x_n))</span>.</p>
 
 
@@ -1878,7 +1878,7 @@ a linear [15,3,1..13]10..12  generalized Reed-Solomon code over GF(16)
 
 <h5>4.10-7 NearestNeighborDecodewords</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; NearestNeighborDecodewords</code>( <var class="Arg">C</var>, <var class="Arg">v</var>, <var class="Arg">dist</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; NearestNeighborDecodewords</code>( <var class="Arg">C</var>, <var class="Arg">v</var>, <var class="Arg">dist</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">NearestNeighborDecodewords</code> finds all codewords in a linear code <var class="Arg">C</var> within distance <var class="Arg">dist</var> from <var class="Arg">v</var>, using ``brute force''. Input: <var class="Arg">v</var> is a received vector (a <strong class="pkg">GUAVA</strong> codeword), <var class="Arg">C</var> is a linear code, <var class="Arg">dist</var> &gt; 0 is the distance from <var class="Arg">v</var> to search in <var class="Arg">C</var>. Output: a list of <span class="SimpleMath">c ∈ C</span>, where <span class="SimpleMath">wt(c-v)≤ dist-1</span>.</p>
 
 
@@ -1916,7 +1916,7 @@ a linear [15,3,1..13]10..12  generalized Reed-Solomon code over GF(16)
 
 <h5>4.10-8 Syndrome</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Syndrome</code>( <var class="Arg">C</var>, <var class="Arg">v</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Syndrome</code>( <var class="Arg">C</var>, <var class="Arg">v</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">Syndrome</code> returns the syndrome of word <var class="Arg">v</var> with respect to a linear code <var class="Arg">C</var>. <var class="Arg">v</var> is a codeword in the ambient vector space of <var class="Arg">C</var>. If <var class="Arg">v</var> is an element of <var class="Arg">C</var>, the syndrome is a zero vector. The syndrome can be used for looking up an error vector in the syndrome table (see <code class="func">SyndromeTable</code> (<a href="chap4.html#X7B9E71987E4294A7"><span class="RefLink">4.10-9</span></a>)) that is needed to correct an error in <span class="SimpleMath">v</span>.</p>
 
 <p>A syndrome is not defined for non-linear codes. <code class="code">Syndrome</code> then returns an error.</p>
@@ -1940,7 +1940,7 @@ a linear [15,11,3]1 Hamming (4,2) code over GF(2)
 
 <h5>4.10-9 SyndromeTable</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SyndromeTable</code>( <var class="Arg">C</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SyndromeTable</code>( <var class="Arg">C</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">SyndromeTable</code> returns a <em>syndrome table</em> of a linear code <var class="Arg">C</var>, consisting of two columns. The first column consists of the error vectors that correspond to the syndrome vectors in the second column. These vectors both are of the codeword type. After calculating the syndrome of a word <var class="Arg">v</var> with <code class="code">Syndrome</code> (see <code class="func">Syndrome</code> (<a href="chap4.html#X7D02E0FE8735D3E6"><span class="RefLink">4.10-8</span></a>)), the error vector needed to correct <var class="Arg">v</var> can be found in the syndrome table. Subtracting this vector from <var class="Arg">v</var> yields an element of <var class="Arg">C</var>. To make the search for the syndrome as fast as possible, the syndrome table is sorted according to the syndrome vectors.</p>
 
 
@@ -1967,7 +1967,7 @@ true           # so the corrected codeword is
 
 <h5>4.10-10 StandardArray</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; StandardArray</code>( <var class="Arg">C</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; StandardArray</code>( <var class="Arg">C</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">StandardArray</code> returns the standard array of a code <var class="Arg">C</var>. This is a matrix with elements of the codeword type. It has <span class="SimpleMath">q^r</span> rows and <span class="SimpleMath">q^k</span> columns, where <span class="SimpleMath">q</span> is the size of the base field of <var class="Arg">C</var>, <span class="SimpleMath">r=n-k</span> is the redundancy of <var class="Arg">C</var>, and <span class="SimpleMath">k</span> is the dimension of <var class="Arg">C</var>. The first row contains all the elements of <var class="Arg">C</var>. Each other row contains words that do not belong to the code, with in the first column their syndrome vector (see <code class="func">Syndrome</code> (<a href="chap4.html#X7D02E0FE8735D3E6"><span class="RefLink">4.10-8</span></a>)).</p>
 
 <p>A non-linear code does not have a standard array. <code class="code">StandardArray</code> then returns an error.</p>
@@ -1985,7 +1985,7 @@ true           # so the corrected codeword is
 
 <h5>4.10-11 PermutationDecode</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PermutationDecode</code>( <var class="Arg">C</var>, <var class="Arg">v</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PermutationDecode</code>( <var class="Arg">C</var>, <var class="Arg">v</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">PermutationDecode</code> performs permutation decoding when possible and returns original vector and prints 'fail' when not possible.</p>
 
 <p>This uses <code class="code">AutomorphismGroup</code> in the binary case, and (the slower) <code class="code">PermutationAutomorphismGroup</code> otherwise, to compute the permutation automorphism group <span class="SimpleMath">P</span> of <var class="Arg">C</var>. The algorithm runs through the elements <span class="SimpleMath">p</span> of <span class="SimpleMath">P</span> checking if the weight of <span class="SimpleMath">H(p⋅ v)</span> is less than <span class="SimpleMath">(d-1)/2</span>. If it is then the vector <span class="SimpleMath">p⋅ v</span> is used to decode <span class="SimpleMath">v</span>: assuming <var class="Arg">C</var> is in standard form then <span class="SimpleMath">c=p^-1Em</span> is the decoded word, where <span class="SimpleMath">m</span> is the information digits part of <span class="SimpleMath">p⋅ v</span>. If no such <span class="SimpleMath">p</span> exists then ``fail'' is returned. See, for example, section 10.2 of Huffman and Pless <a href="chapBib.html#biBHP03">[HP03]</a> for more details.</p>
@@ -2025,7 +2025,7 @@ true
 
 <h5>4.10-12 PermutationDecodeNC</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PermutationDecodeNC</code>( <var class="Arg">C</var>, <var class="Arg">v</var>, <var class="Arg">P</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PermutationDecodeNC</code>( <var class="Arg">C</var>, <var class="Arg">v</var>, <var class="Arg">P</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Same as <code class="code">PermutationDecode</code> except that one may enter the permutation automorphism group <var class="Arg">P</var> in as an argument, saving time. Here <var class="Arg">P</var> is a subgroup of the symmetric group on <span class="SimpleMath">n</span> letters, where <span class="SimpleMath">n</span> is the word length of <var class="Arg">C</var>.</p>
 
 

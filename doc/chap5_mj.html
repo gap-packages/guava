@@ -6,7 +6,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
 <script type="text/javascript"
-  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  src="http://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
 <title>GAP (guava) - Chapter 5: Generating Codes</title>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
@@ -192,7 +192,7 @@ Generating Unrestricted Codes
 
 <h5>5.1-1 ElementsCode</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ElementsCode</code>( <var class="Arg">L</var>[, <var class="Arg">name</var>], <var class="Arg">F</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ElementsCode</code>( <var class="Arg">L</var>[, <var class="Arg">name</var>], <var class="Arg">F</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">ElementsCode</code> creates an unrestricted code of the list of elements <var class="Arg">L</var>, in the field <var class="Arg">F</var>. <var class="Arg">L</var> must be a list of vectors, strings, polynomials or codewords. <var class="Arg">name</var> can contain a short description of the code.</p>
 
 <p>If <var class="Arg">L</var> contains a codeword more than once, it is removed from the list and a GAP set is returned.</p>
@@ -212,7 +212,7 @@ a (4,3,1..4)2 example code over GF(3)
 
 <h5>5.1-2 HadamardCode</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; HadamardCode</code>( <var class="Arg">H</var>[, <var class="Arg">t</var>] )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; HadamardCode</code>( <var class="Arg">H</var>[, <var class="Arg">t</var>] )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>The four forms this command can take are <code class="code">HadamardCode(H,t)</code>, <code class="code">HadamardCode(H)</code>, <code class="code">HadamardCode(n,t)</code>, and <code class="code">HadamardCode(n)</code>.</p>
 
 <p>In the case when the arguments <var class="Arg">H</var> and <var class="Arg">t</var> are both given, <code class="code">HadamardCode</code> returns a Hadamard code of the <span class="SimpleMath">\(t^{th}\)</span> kind from the Hadamard matrix <var class="Arg">H</var> In case only <var class="Arg">H</var> is given, <span class="SimpleMath">\(t = 3\)</span> is used.</p>
@@ -247,7 +247,7 @@ true
 
 <h5>5.1-3 ConferenceCode</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ConferenceCode</code>( <var class="Arg">H</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ConferenceCode</code>( <var class="Arg">H</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">ConferenceCode</code> returns a code of length <span class="SimpleMath">\(n-1\)</span> constructed from a symmetric 'conference matrix' <var class="Arg">H</var>. A <em>conference matrix</em> <var class="Arg">H</var> is a symmetric matrix of order <span class="SimpleMath">\(n\)</span>, which satisfies <span class="SimpleMath">\(H\cdot H^T = ((n-1)\cdot I\)</span>, with <span class="SimpleMath">\(n \equiv 2 \pmod 4\)</span>. The rows of <span class="SimpleMath">\(\frac{1}{2}(H+I+J)\)</span>, <span class="SimpleMath">\(\frac{1}{2}(-H+I+J)\)</span>, plus the zero and all-ones vectors form the elements of a binary non-linear <span class="SimpleMath">\((n-1, 2n, (n-2)/2)\)</span> code.</p>
 
 <p><strong class="pkg">GUAVA</strong> constructs a symmetric conference matrix of order <span class="SimpleMath">\(n+1\)</span> (<span class="SimpleMath">\(n\equiv 1 \pmod 4\)</span>) and uses the rows of that matrix, plus the zero and all-ones vectors, to construct a binary non-linear <span class="SimpleMath">\((n, 2(n+1), (n-1)/2)\)</span>-code.</p>
@@ -272,7 +272,7 @@ a (5,12,2)1..4 conference code over GF(2)
 
 <h5>5.1-4 MOLSCode</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; MOLSCode</code>( [<var class="Arg">n</var>, ]<var class="Arg">q</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; MOLSCode</code>( [<var class="Arg">n</var>, ]<var class="Arg">q</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">MOLSCode</code> returns an <span class="SimpleMath">\((n, q^2, n-1)\)</span> code over <span class="SimpleMath">\(GF(q)\)</span>. The code is created from <span class="SimpleMath">\(n-2\)</span> 'Mutually Orthogonal Latin Squares' (MOLS) of size <span class="SimpleMath">\(q \times q\)</span>. The default for <var class="Arg">n</var> is <span class="SimpleMath">\(4\)</span>. <strong class="pkg">GUAVA</strong> can construct a MOLS code for <span class="SimpleMath">\(n-2 \leq q\)</span>. Here <var class="Arg">q</var> must be a prime power, <span class="SimpleMath">\(q &gt; 2\)</span>. If there are no <span class="SimpleMath">\(n-2\)</span> MOLS, an error is signalled.</p>
 
 <p>Since each of the <span class="SimpleMath">\(n-2\)</span> MOLS is a <span class="SimpleMath">\(q\times q\)</span> matrix, we can create a code of size <span class="SimpleMath">\(q^2\)</span> by listing in each code element the entries that are in the same position in each of the MOLS. We precede each of these lists with the two coordinates that specify this position, making the word length become <span class="SimpleMath">\(n\)</span>.</p>
@@ -301,7 +301,7 @@ a (4,121,3)2 code generated by 2 MOLS of order 11 over GF(11)
 
 <h5>5.1-5 RandomCode</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; RandomCode</code>( <var class="Arg">n</var>, <var class="Arg">M</var>, <var class="Arg">F</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; RandomCode</code>( <var class="Arg">n</var>, <var class="Arg">M</var>, <var class="Arg">F</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">RandomCode</code> returns a random unrestricted code of size <var class="Arg">M</var> with word length <var class="Arg">n</var> over <var class="Arg">F</var>. <var class="Arg">M</var> must be less than or equal to the number of elements in the space <span class="SimpleMath">\(GF(q)^n\)</span>.</p>
 
 <p>The function <code class="code">RandomLinearCode</code> returns a random linear code (see <code class="func">RandomLinearCode</code> (<a href="chap5_mj.html#X7BCA10CE8660357F"><span class="RefLink">5.2-12</span></a>)).</p>
@@ -322,7 +322,7 @@ false
 
 <h5>5.1-6 NordstromRobinsonCode</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; NordstromRobinsonCode</code>(  )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; NordstromRobinsonCode</code>(  )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">NordstromRobinsonCode</code> returns a Nordstrom-Robinson code, the best code with word length <span class="SimpleMath">\(n=16\)</span> and minimum distance <span class="SimpleMath">\(d=6\)</span> over <span class="SimpleMath">\(GF(2)\)</span>. This is a non-linear <span class="SimpleMath">\((16, 256, 6)\)</span> code.</p>
 
 
@@ -337,7 +337,7 @@ a (16,256,6)4 Nordstrom-Robinson code over GF(2)
 
 <h5>5.1-7 GreedyCode</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; GreedyCode</code>( <var class="Arg">L</var>, <var class="Arg">d</var>, <var class="Arg">F</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; GreedyCode</code>( <var class="Arg">L</var>, <var class="Arg">d</var>, <var class="Arg">F</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">GreedyCode</code> returns a Greedy code with design distance <var class="Arg">d</var> over the finite field <var class="Arg">F</var>. The code is constructed using the greedy algorithm on the list of vectors <var class="Arg">L</var>. (The greedy algorithm checks each vector in <var class="Arg">L</var> and adds it to the code if its distance to the current code is greater than or equal to <var class="Arg">d</var>. It is obvious that the resulting code has a minimum distance of at least <var class="Arg">d</var>.</p>
 
 <p>Greedy codes are often linear codes.</p>
@@ -359,7 +359,7 @@ false
 
 <h5>5.1-8 LexiCode</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; LexiCode</code>( <var class="Arg">n</var>, <var class="Arg">d</var>, <var class="Arg">F</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; LexiCode</code>( <var class="Arg">n</var>, <var class="Arg">d</var>, <var class="Arg">F</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>In this format, <code class="code">Lexicode</code> returns a lexicode with word length <var class="Arg">n</var>, design distance <var class="Arg">d</var> over <var class="Arg">F</var>. The code is constructed using the greedy algorithm on the lexicographically ordered list of all vectors of length <var class="Arg">n</var> over <var class="Arg">F</var>. Every time a vector is found that has a distance to the current code of at least <var class="Arg">d</var>, it is added to the code. This results, obviously, in a code with minimum distance greater than or equal to <var class="Arg">d</var>.</p>
 
 <p>Another syntax which one can use is <code class="code">LexiCode( B, d, F )</code>. When called in this format, <code class="code">LexiCode</code> uses the basis <var class="Arg">B</var> instead of the standard basis. <var class="Arg">B</var> is a matrix of vectors over <var class="Arg">F</var>. The code is constructed using the greedy algorithm on the list of vectors spanned by <var class="Arg">B</var>, ordered lexicographically with respect to <var class="Arg">B</var>.</p>
@@ -397,7 +397,7 @@ Generating Linear Codes
 
 <h5>5.2-1 GeneratorMatCode</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; GeneratorMatCode</code>( <var class="Arg">G</var>[, <var class="Arg">name</var>], <var class="Arg">F</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; GeneratorMatCode</code>( <var class="Arg">G</var>[, <var class="Arg">name</var>], <var class="Arg">F</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">GeneratorMatCode</code> returns a linear code with generator matrix <var class="Arg">G</var>. <var class="Arg">G</var> must be a matrix over finite field <var class="Arg">F</var>. <var class="Arg">name</var> can contain a short description of the code. The generator matrix is the basis of the elements of the code. The resulting code has word length <span class="SimpleMath">\(n\)</span>, dimension <span class="SimpleMath">\(k\)</span> if <var class="Arg">G</var> is a <span class="SimpleMath">\(k \times n\)</span>-matrix. If <span class="SimpleMath">\(GF(q)\)</span> is the field of the code, the size of the code will be <span class="SimpleMath">\(q^k\)</span>.</p>
 
 <p>If the generator matrix does not have full row rank, the linearly dependent rows are removed. This is done by the GAP function <code class="code">BaseMat</code> and results in an equal code. The generator matrix can be retrieved with the function <code class="code">GeneratorMat</code> (see <code class="func">GeneratorMat</code> (<a href="chap4_mj.html#X817224657C9829C4"><span class="RefLink">4.7-1</span></a>)).</p>
@@ -419,14 +419,14 @@ a linear [16,11,1..4]2 code defined by generator matrix over GF(2)
 
 <h5>5.2-2 CheckMatCodeMutable</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; CheckMatCodeMutable</code>( <var class="Arg">H</var>[, <var class="Arg">name</var>], <var class="Arg">F</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; CheckMatCodeMutable</code>( <var class="Arg">H</var>[, <var class="Arg">name</var>], <var class="Arg">F</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">CheckMatCodeMutable</code> is the same as <code class="code">CheckMatCode</code> except that the check matrix and generator matrix are mutable.</p>
 
 <p><a id="X848D3F7B805DEB66" name="X848D3F7B805DEB66"></a></p>
 
 <h5>5.2-3 CheckMatCode</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; CheckMatCode</code>( <var class="Arg">H</var>[, <var class="Arg">name</var>], <var class="Arg">F</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; CheckMatCode</code>( <var class="Arg">H</var>[, <var class="Arg">name</var>], <var class="Arg">F</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">CheckMatCode</code> returns a linear code with check matrix <var class="Arg">H</var>. <var class="Arg">H</var> must be a matrix over Galois field <var class="Arg">F</var>. <var class="Arg">[name.</var> can contain a short description of the code. The parity check matrix is the transposed of the nullmatrix of the generator matrix of the code. Therefore, <span class="SimpleMath">\(c\cdot H^T = 0\)</span> where <span class="SimpleMath">\(c\)</span> is an element of the code. If <var class="Arg">H</var> is a <span class="SimpleMath">\(r\times n\)</span>-matrix, the code has word length <span class="SimpleMath">\(n\)</span>, redundancy <span class="SimpleMath">\(r\)</span> and dimension <span class="SimpleMath">\(n-r\)</span>.</p>
 
 <p>If the check matrix does not have full row rank, the linearly dependent rows are removed. This is done by the GAP function <code class="code">BaseMat</code>. and results in an equal code. The check matrix can be retrieved with the function <code class="code">CheckMat</code> (see <code class="func">CheckMat</code> (<a href="chap4_mj.html#X85D4B26E7FB38D57"><span class="RefLink">4.7-2</span></a>)).</p>
@@ -448,7 +448,7 @@ a cyclic [5,0,5]5 code defined by check matrix over GF(2)
 
 <h5>5.2-4 HammingCode</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; HammingCode</code>( <var class="Arg">r</var>, <var class="Arg">F</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; HammingCode</code>( <var class="Arg">r</var>, <var class="Arg">F</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">HammingCode</code> returns a Hamming code with redundancy <var class="Arg">r</var> over <var class="Arg">F</var>. A Hamming code is a single-error-correcting code. The parity check matrix of a Hamming code has all nonzero vectors of length <var class="Arg">r</var> in its columns, except for a multiplication factor. The decoding algorithm of the Hamming code (see <code class="func">Decode</code> (<a href="chap4_mj.html#X7A42FF7D87FC34AC"><span class="RefLink">4.10-1</span></a>)) makes use of this property.</p>
 
 <p>If <span class="SimpleMath">\(q\)</span> is the size of its field <var class="Arg">F</var>, the returned Hamming code is a linear <span class="SimpleMath">\([(q^r-1)/(q-1), (q^r-1)/(q-1) - r, 3]\)</span> code.</p>
@@ -465,7 +465,7 @@ a linear [91,88,3]1 Hamming (3,9) code over GF(9)
 
 <h5>5.2-5 ReedMullerCode</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ReedMullerCode</code>( <var class="Arg">r</var>, <var class="Arg">k</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ReedMullerCode</code>( <var class="Arg">r</var>, <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">ReedMullerCode</code> returns a binary 'Reed-Muller code' <var class="Arg">R(r, k)</var> with dimension <var class="Arg">k</var> and order <var class="Arg">r</var>. This is a code with length <span class="SimpleMath">\(2^k\)</span> and minimum distance <span class="SimpleMath">\(2^{k-r}\)</span> (see for example, section 1.10 in <a href="chapBib_mj.html#biBHP03">[HP03]</a>). By definition, the <span class="SimpleMath">\(r^{th}\)</span> order binary Reed-Muller code of length <span class="SimpleMath">\(n=2^m\)</span>, for <span class="SimpleMath">\(0 \leq r \leq m\)</span>, is the set of all vectors <span class="SimpleMath">\(f\)</span>, where <span class="SimpleMath">\(f\)</span> is a Boolean function which is a polynomial of degree at most <span class="SimpleMath">\(r\)</span>.</p>
 
 
@@ -480,7 +480,7 @@ a linear [8,4,4]2 Reed-Muller (1,3) code over GF(2)
 
 <h5>5.2-6 AlternantCode</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AlternantCode</code>( <var class="Arg">r</var>, <var class="Arg">Y</var>[, <var class="Arg">alpha</var>], <var class="Arg">F</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AlternantCode</code>( <var class="Arg">r</var>, <var class="Arg">Y</var>[, <var class="Arg">alpha</var>], <var class="Arg">F</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">AlternantCode</code> returns an 'alternant code', with parameters <var class="Arg">r</var>, <var class="Arg">Y</var> and <var class="Arg">alpha</var> (optional). <var class="Arg">F</var> denotes the (finite) base field. Here, <var class="Arg">r</var> is the design redundancy of the code. <var class="Arg">Y</var> and <var class="Arg">alpha</var> are both vectors of length <var class="Arg">n</var> from which the parity check matrix is constructed. The check matrix has the form <span class="SimpleMath">\(H=([a_i^j y_i])\)</span>, where <span class="SimpleMath">\(0 \leq j\leq r-1\)</span>, <span class="SimpleMath">\(1 \leq i\leq n\)</span>, and where <span class="SimpleMath">\([...]\)</span> is as in <code class="func">VerticalConversionFieldMat</code> (<a href="chap7_mj.html#X7B68119F85E9EC6D"><span class="RefLink">7.3-9</span></a>)). If no <var class="Arg">alpha</var> is specified, the vector <span class="SimpleMath">\([1, a, a^2, .., a^{n-1}]\)</span> is used, where <span class="SimpleMath">\(a\)</span> is a primitive element of a Galois field <var class="Arg">F</var>.</p>
 
 
@@ -495,7 +495,7 @@ a linear [7,3,3..4]3..4 alternant code over GF(8)
 
 <h5>5.2-7 GoppaCode</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; GoppaCode</code>( <var class="Arg">G</var>, <var class="Arg">L</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; GoppaCode</code>( <var class="Arg">G</var>, <var class="Arg">L</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">GoppaCode</code> returns a Goppa code <var class="Arg">C</var> from Goppa polynomial <var class="Arg">g</var>, having coefficients in a Galois Field <span class="SimpleMath">\(GF(q)\)</span>. <var class="Arg">L</var> must be a list of elements in <span class="SimpleMath">\(GF(q)\)</span>, that are not roots of <var class="Arg">g</var>. The word length of the code is equal to the length of <var class="Arg">L</var>. The parity check matrix has the form <span class="SimpleMath">\(H=([a_i^j / G(a_i)])_{0 \leq j \leq deg(g)-1,\ a_i \in L}\)</span>, where <span class="SimpleMath">\(a_i\in L\)</span> and <span class="SimpleMath">\([...]\)</span> is as in <code class="func">VerticalConversionFieldMat</code> (<a href="chap7_mj.html#X7B68119F85E9EC6D"><span class="RefLink">7.3-9</span></a>), so <span class="SimpleMath">\(H\)</span> has entries in <span class="SimpleMath">\(GF(q)\)</span>, <span class="SimpleMath">\(q=p^m\)</span>. It is known that <span class="SimpleMath">\(d(C)\geq deg(g)+1\)</span>, with a better bound in the binary case provided <span class="SimpleMath">\(g\)</span> has no multiple roots. See Huffman and Pless <a href="chapBib_mj.html#biBHP03">[HP03]</a> section 13.2.2, and MacWilliams and Sloane <a href="chapBib_mj.html#biBMS83">[MS83]</a> section 12.3, for more details.</p>
 
 <p>One can also call <code class="code">GoppaCode</code> using the syntax <code class="code">GoppaCode(g,n)</code>. When called with parameter <var class="Arg">n</var>, <strong class="pkg">GUAVA</strong> constructs a list <span class="SimpleMath">\(L\)</span> of length <var class="Arg">n</var>, such that no element of <var class="Arg">L</var> is a root of <var class="Arg">g</var>.</p>
@@ -530,7 +530,7 @@ true
 
 <h5>5.2-8 GeneralizedSrivastavaCode</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; GeneralizedSrivastavaCode</code>( <var class="Arg">a</var>, <var class="Arg">w</var>, <var class="Arg">z</var>[, <var class="Arg">t</var>], <var class="Arg">F</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; GeneralizedSrivastavaCode</code>( <var class="Arg">a</var>, <var class="Arg">w</var>, <var class="Arg">z</var>[, <var class="Arg">t</var>], <var class="Arg">F</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">GeneralizedSrivastavaCode</code> returns a generalized Srivastava code with parameters <var class="Arg">a</var>, <var class="Arg">w</var>, <var class="Arg">z</var>, <var class="Arg">t</var>. <span class="SimpleMath">\(a =\{ a_1, ..., a_n\}\)</span> and <span class="SimpleMath">\(w =\{ w_1, ..., w_s\}\)</span> are lists of <span class="SimpleMath">\(n+s\)</span> distinct elements of <span class="SimpleMath">\(F=GF(q^m)\)</span>, <span class="SimpleMath">\(z\)</span> is a list of length <span class="SimpleMath">\(n\)</span> of nonzero elements of <span class="SimpleMath">\(GF(q^m)\)</span>. The parameter <var class="Arg">t</var> determines the designed distance: <span class="SimpleMath">\(d \geq st + 1\)</span>. The check matrix of this code is the form</p>
 
 <p class="center">\[
@@ -551,7 +551,7 @@ a linear [8,2,2..5]3..4 generalized Srivastava code over GF(2)
 
 <h5>5.2-9 SrivastavaCode</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SrivastavaCode</code>( <var class="Arg">a</var>, <var class="Arg">w</var>[, <var class="Arg">mu</var>], <var class="Arg">F</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SrivastavaCode</code>( <var class="Arg">a</var>, <var class="Arg">w</var>[, <var class="Arg">mu</var>], <var class="Arg">F</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><span class="SimpleMath">\(SrivastavaCode\)</span> returns a Srivastava code with parameters <var class="Arg">a</var>, <var class="Arg">w</var> (and optionally <var class="Arg">mu</var>). <span class="SimpleMath">\(a =\{ a_1, ..., a_n\}\)</span> and <span class="SimpleMath">\(w =\{ w_1, ..., w_s\}\)</span> are lists of <span class="SimpleMath">\(n+s\)</span> distinct elements of <span class="SimpleMath">\(F=GF(q^m)\)</span>. The default for <var class="Arg">mu</var> is 1. The Srivastava code is a generalized Srivastava code, in which <span class="SimpleMath">\(z_i = a_i^{mu}\)</span> for some <var class="Arg">mu</var> and <span class="SimpleMath">\(t=1\)</span>.</p>
 
 <p>J. N. Srivastava introduced this code in 1967, though his work was not published. See Helgert <a href="chapBib_mj.html#biBHe72">[Hel72]</a> for more details on the properties of this code. Related reference: G. Roelofsen, <strong class="button">On Goppa and Generalized Srivastava Codes</strong> PhD thesis, Dept. Math. and Comp. Sci., Eindhoven Univ. of Technology, the Netherlands, 1982.</p>
@@ -570,7 +570,7 @@ true    # Always true if F is a prime field
 
 <h5>5.2-10 CordaroWagnerCode</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; CordaroWagnerCode</code>( <var class="Arg">n</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; CordaroWagnerCode</code>( <var class="Arg">n</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">CordaroWagnerCode</code> returns a binary Cordaro-Wagner code. This is a code of length <var class="Arg">n</var> and dimension <span class="SimpleMath">\(2\)</span> having the best possible minimum distance <span class="SimpleMath">\(d\)</span>. This code is just a little bit less trivial than <code class="code">RepetitionCode</code> (see <code class="func">RepetitionCode</code> (<a href="chap5_mj.html#X83C5F8FE7827EAA7"><span class="RefLink">5.5-13</span></a>)).</p>
 
 
@@ -586,7 +586,7 @@ a linear [11,2,7]5 Cordaro-Wagner code over GF(2)
 
 <h5>5.2-11 FerreroDesignCode</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FerreroDesignCode</code>( <var class="Arg">P</var>, <var class="Arg">m</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FerreroDesignCode</code>( <var class="Arg">P</var>, <var class="Arg">m</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><em>Requires the GAP package SONATA</em></p>
 
 <p>A group <span class="SimpleMath">\(K\)</span> together with a group of automorphism <span class="SimpleMath">\(H\)</span> of <span class="SimpleMath">\(K\)</span> such that the semidirect product <span class="SimpleMath">\(KH\)</span> is a Frobenius group with complement <span class="SimpleMath">\(H\)</span> is called a Ferrero pair <span class="SimpleMath">\((K, H)\)</span> in SONATA. Take a Frobenius <span class="SimpleMath">\((G,+)\)</span> group with kernel <span class="SimpleMath">\(K\)</span> and complement <span class="SimpleMath">\(H\)</span>. Consider the design <span class="SimpleMath">\(D\)</span> with point set <span class="SimpleMath">\(K\)</span> and block set <span class="SimpleMath">\(\{ a^H + b\ |\ a, b \in K, a \not= 0 \}\)</span>. Here <span class="SimpleMath">\(a^H\)</span> denotes the orbit of a under conjugation by elements of <span class="SimpleMath">\(H\)</span>. Every planar near-ring design of type "*" can be obtained in this way from groups. These designs (from a Frobenius kernel of order <span class="SimpleMath">\(v\)</span> and a Frobenius complement of order <span class="SimpleMath">\(k\)</span>) have <span class="SimpleMath">\(v(v-1)/k\)</span> distinct blocks and they are all of size <span class="SimpleMath">\(k\)</span>. Moreover each of the <span class="SimpleMath">\(v\)</span> points occurs in exactly <span class="SimpleMath">\(v-1\)</span> distinct blocks. Hence the rows and the columns of the incidence matrix <span class="SimpleMath">\(M\)</span> of the design are always of constant weight.</p>
@@ -628,7 +628,7 @@ true
 
 <h5>5.2-12 RandomLinearCode</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; RandomLinearCode</code>( <var class="Arg">n</var>, <var class="Arg">k</var>, <var class="Arg">F</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; RandomLinearCode</code>( <var class="Arg">n</var>, <var class="Arg">k</var>, <var class="Arg">F</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">RandomLinearCode</code> returns a random linear code with word length <var class="Arg">n</var>, dimension <var class="Arg">k</var> over field <var class="Arg">F</var>. The method used is to first construct a <span class="SimpleMath">\(k\times n\)</span> matrix of the block form <span class="SimpleMath">\((I,A)\)</span>, where <span class="SimpleMath">\(I\)</span> is a <span class="SimpleMath">\(k\times k\)</span> identity matrix and <span class="SimpleMath">\(A\)</span> is a <span class="SimpleMath">\(k\times (n-k)\)</span> matrix constructed using <code class="code">Random(F)</code> repeatedly. Then the columns are permuted using a randomly selected element of <code class="code">SymmetricGroup(n)</code>.</p>
 
 <p>To create a random unrestricted code, use <code class="code">RandomCode</code> (see <code class="func">RandomCode</code> (<a href="chap5_mj.html#X7D87DD6380B2CE69"><span class="RefLink">5.1-5</span></a>)).</p>
@@ -647,7 +647,7 @@ a linear [15,4,1..6]6..10 random linear code over GF(3)
 
 <h5>5.2-13 OptimalityCode</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; OptimalityCode</code>( <var class="Arg">C</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; OptimalityCode</code>( <var class="Arg">C</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">OptimalityCode</code> returns the difference between the smallest known upper bound and the actual size of the code. Note that the value of the function <code class="code">UpperBound</code> is not always equal to the actual upper bound <span class="SimpleMath">\(A(n,d)\)</span> thus the result may not be equal to <span class="SimpleMath">\(0\)</span> even if the code is optimal!</p>
 
 <p><code class="code">OptimalityLinearCode</code> is similar but applies only to linear codes.</p>
@@ -656,7 +656,7 @@ a linear [15,4,1..6]6..10 random linear code over GF(3)
 
 <h5>5.2-14 BestKnownLinearCode</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; BestKnownLinearCode</code>( <var class="Arg">n</var>, <var class="Arg">k</var>, <var class="Arg">F</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; BestKnownLinearCode</code>( <var class="Arg">n</var>, <var class="Arg">k</var>, <var class="Arg">F</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">BestKnownLinearCode</code> returns the best known (as of 11 May 2006) linear code of length <var class="Arg">n</var>, dimension <var class="Arg">k</var> over field <var class="Arg">F</var>. The function uses the tables described in section <code class="func">BoundsMinimumDistance</code> (<a href="chap7_mj.html#X7B3858B27A9E509A"><span class="RefLink">7.1-13</span></a>) to construct this code.</p>
 
 <p>This command can also be called using the syntax <code class="code">BestKnownLinearCode( rec )</code>, where <var class="Arg">rec</var> must be a record containing the fields `lowerBound', `upperBound' and `construction'. It uses the information in this field to construct a code. This form is meant to be used together with the function <code class="code">BoundsMinimumDistance</code> (see <code class="func">BoundsMinimumDistance</code> (<a href="chap7_mj.html#X7B3858B27A9E509A"><span class="RefLink">7.1-13</span></a>)), if the bounds are already calculated.</p>
@@ -746,35 +746,35 @@ Gabidulin Codes
 
 <h5>5.3-1 GabidulinCode</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; GabidulinCode</code>( <var class="Arg">m</var>, <var class="Arg">w1</var>, <var class="Arg">w2</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; GabidulinCode</code>( <var class="Arg">m</var>, <var class="Arg">w1</var>, <var class="Arg">w2</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">GabidulinCode</code> yields a code of length <span class="SimpleMath">\(5\)</span> . <span class="SimpleMath">\(2^{m-2}-1\)</span>, redundancy <span class="SimpleMath">\(2m-1\)</span>, minimum distance <span class="SimpleMath">\(3\)</span> and covering radius <span class="SimpleMath">\(2\)</span>. <var class="Arg">w1</var> and <var class="Arg">w2</var> should be elements of <span class="SimpleMath">\(GF(2^{m-2})\)</span>.</p>
 
 <p><a id="X873950F67D4A9184" name="X873950F67D4A9184"></a></p>
 
 <h5>5.3-2 EnlargedGabidulinCode</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; EnlargedGabidulinCode</code>( <var class="Arg">m</var>, <var class="Arg">w1</var>, <var class="Arg">w2</var>, <var class="Arg">e</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; EnlargedGabidulinCode</code>( <var class="Arg">m</var>, <var class="Arg">w1</var>, <var class="Arg">w2</var>, <var class="Arg">e</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">EnlargedGabidulinCode</code> yields a code of length <span class="SimpleMath">\(7\)</span>. <span class="SimpleMath">\(2^{m-2}-2\)</span>, redundancy <span class="SimpleMath">\(2m\)</span>, minimum distance <span class="SimpleMath">\(3\)</span> and covering radius <span class="SimpleMath">\(2\)</span>. <var class="Arg">w1</var> and <var class="Arg">w2</var> are elements of <span class="SimpleMath">\(GF(2^{m-2})\)</span>. <var class="Arg">e</var> is an element of <span class="SimpleMath">\(GF(2^m)\)</span>.</p>
 
 <p><a id="X7F5BE77B7F343182" name="X7F5BE77B7F343182"></a></p>
 
 <h5>5.3-3 DavydovCode</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DavydovCode</code>( <var class="Arg">r</var>, <var class="Arg">v</var>, <var class="Arg">ei</var>, <var class="Arg">ej</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DavydovCode</code>( <var class="Arg">r</var>, <var class="Arg">v</var>, <var class="Arg">ei</var>, <var class="Arg">ej</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">DavydovCode</code> yields a code of length <span class="SimpleMath">\(2^v + 2^{r-v} - 3\)</span>, redundancy <var class="Arg">r</var>, minimum distance <span class="SimpleMath">\(4\)</span> and covering radius <span class="SimpleMath">\(2\)</span>. <var class="Arg">v</var> is an integer between <span class="SimpleMath">\(2\)</span> and <span class="SimpleMath">\(r-2\)</span>. <var class="Arg">ei</var> and <var class="Arg">ej</var> are elements of <span class="SimpleMath">\(GF(2^v)\)</span> and <span class="SimpleMath">\(GF(2^{r-v})\)</span>, respectively.</p>
 
 <p><a id="X845B4DBE83288D2D" name="X845B4DBE83288D2D"></a></p>
 
 <h5>5.3-4 TombakCode</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; TombakCode</code>( <var class="Arg">m</var>, <var class="Arg">e</var>, <var class="Arg">beta</var>, <var class="Arg">gamma</var>, <var class="Arg">w1</var>, <var class="Arg">w2</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; TombakCode</code>( <var class="Arg">m</var>, <var class="Arg">e</var>, <var class="Arg">beta</var>, <var class="Arg">gamma</var>, <var class="Arg">w1</var>, <var class="Arg">w2</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">TombakCode</code> yields a code of length <span class="SimpleMath">\(15 \cdot 2^{m-3} - 3\)</span>, redundancy <span class="SimpleMath">\(2m\)</span>, minimum distance <span class="SimpleMath">\(4\)</span> and covering radius <span class="SimpleMath">\(2\)</span>. <var class="Arg">e</var> is an element of <span class="SimpleMath">\(GF(2^m)\)</span>. <var class="Arg">beta</var> and <var class="Arg">gamma</var> are elements of <span class="SimpleMath">\(GF(2^{m-1})\)</span>. <var class="Arg">w1</var> and <var class="Arg">w2</var> are elements of <span class="SimpleMath">\(GF(2^{m-3})\)</span>.</p>
 
 <p><a id="X7D6583347C0D4292" name="X7D6583347C0D4292"></a></p>
 
 <h5>5.3-5 EnlargedTombakCode</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; EnlargedTombakCode</code>( <var class="Arg">m</var>, <var class="Arg">e</var>, <var class="Arg">beta</var>, <var class="Arg">gamma</var>, <var class="Arg">w1</var>, <var class="Arg">w2</var>, <var class="Arg">u</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; EnlargedTombakCode</code>( <var class="Arg">m</var>, <var class="Arg">e</var>, <var class="Arg">beta</var>, <var class="Arg">gamma</var>, <var class="Arg">w1</var>, <var class="Arg">w2</var>, <var class="Arg">u</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">EnlargedTombakCode</code> yields a code of length <span class="SimpleMath">\(23 \cdot 2^{m-4} - 3\)</span>, redundancy <span class="SimpleMath">\(2m-1\)</span>, minimum distance <span class="SimpleMath">\(4\)</span> and covering radius <span class="SimpleMath">\(2\)</span>. The parameters <var class="Arg">m</var>, <var class="Arg">e</var>, <var class="Arg">beta</var>, <var class="Arg">gamma</var>, <var class="Arg">w1</var> and <var class="Arg">w2</var> are defined as in <code class="code">TombakCode</code>. <var class="Arg">u</var> is an element of <span class="SimpleMath">\(GF(2^{m-1})\)</span>.</p>
 
 
@@ -804,7 +804,7 @@ Golay Codes
 
 <h5>5.4-1 BinaryGolayCode</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; BinaryGolayCode</code>(  )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; BinaryGolayCode</code>(  )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">BinaryGolayCode</code> returns a binary Golay code. This is a perfect <span class="SimpleMath">\([23,12,7]\)</span> code. It is also cyclic, and has generator polynomial <span class="SimpleMath">\(g(x)=1+x^2+x^4+x^5+x^6+x^{10}+x^{11}\)</span>. Extending it results in an extended Golay code (see <code class="func">ExtendedBinaryGolayCode</code> (<a href="chap5_mj.html#X84520C7983538806"><span class="RefLink">5.4-2</span></a>)). There's also the ternary Golay code (see <code class="func">TernaryGolayCode</code> (<a href="chap5_mj.html#X7E0CCCD7866ADB94"><span class="RefLink">5.4-3</span></a>)).</p>
 
 
@@ -823,7 +823,7 @@ true
 
 <h5>5.4-2 ExtendedBinaryGolayCode</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ExtendedBinaryGolayCode</code>(  )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ExtendedBinaryGolayCode</code>(  )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">ExtendedBinaryGolayCode</code> returns an extended binary Golay code. This is a <span class="SimpleMath">\([24,12,8]\)</span> code. Puncturing in the last position results in a perfect binary Golay code (see <code class="func">BinaryGolayCode</code> (<a href="chap5_mj.html#X80ED89C079CD0D09"><span class="RefLink">5.4-1</span></a>)). The code is self-dual.</p>
 
 
@@ -845,7 +845,7 @@ false
 
 <h5>5.4-3 TernaryGolayCode</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; TernaryGolayCode</code>(  )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; TernaryGolayCode</code>(  )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">TernaryGolayCode</code> returns a ternary Golay code. This is a perfect <span class="SimpleMath">\([11,6,5]\)</span> code. It is also cyclic, and has generator polynomial <span class="SimpleMath">\(g(x)=2+x^2+2x^3+x^4+x^5\)</span>. Extending it results in an extended Golay code (see <code class="func">ExtendedTernaryGolayCode</code> (<a href="chap5_mj.html#X81088A66816BCAE4"><span class="RefLink">5.4-4</span></a>)). There's also the binary Golay code (see <code class="func">BinaryGolayCode</code> (<a href="chap5_mj.html#X80ED89C079CD0D09"><span class="RefLink">5.4-1</span></a>)).</p>
 
 
@@ -862,7 +862,7 @@ true
 
 <h5>5.4-4 ExtendedTernaryGolayCode</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ExtendedTernaryGolayCode</code>(  )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ExtendedTernaryGolayCode</code>(  )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">ExtendedTernaryGolayCode</code> returns an extended ternary Golay code. This is a <span class="SimpleMath">\([12,6,6]\)</span> code. Puncturing this code results in a perfect ternary Golay code (see <code class="func">TernaryGolayCode</code> (<a href="chap5_mj.html#X7E0CCCD7866ADB94"><span class="RefLink">5.4-3</span></a>)). The code is self-dual.</p>
 
 
@@ -921,7 +921,7 @@ x_1^11+x_1^10+x_1^6+x_1^5+x_1^4+x_1^2+Z(2)^0
 
 <h5>5.5-1 GeneratorPolCode</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; GeneratorPolCode</code>( <var class="Arg">g</var>, <var class="Arg">n</var>[, <var class="Arg">name</var>], <var class="Arg">F</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; GeneratorPolCode</code>( <var class="Arg">g</var>, <var class="Arg">n</var>[, <var class="Arg">name</var>], <var class="Arg">F</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">GeneratorPolCode</code> creates a cyclic code with a generator polynomial <var class="Arg">g</var>, word length <var class="Arg">n</var>, over <var class="Arg">F</var>. <var class="Arg">name</var> can contain a short description of the code.</p>
 
 <p>If <var class="Arg">g</var> is not a divisor of <span class="SimpleMath">\(x^n-1\)</span>, it cannot be a generator polynomial. In that case, a code is created with generator polynomial <span class="SimpleMath">\(gcd( g, x^n-1 )\)</span>, i.e. the greatest common divisor of <var class="Arg">g</var> and <span class="SimpleMath">\(x^n-1\)</span>. This is a valid generator polynomial that generates the ideal <span class="SimpleMath">\((g)\)</span>. See <code class="func">Generating Cyclic Codes</code> (<a href="chap5_mj.html#X8366CC3685F0BC85"><span class="RefLink">5.5</span></a>).</p>
@@ -944,7 +944,7 @@ Z(2)^0+x
 
 <h5>5.5-2 CheckPolCode</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; CheckPolCode</code>( <var class="Arg">h</var>, <var class="Arg">n</var>[, <var class="Arg">name</var>], <var class="Arg">F</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; CheckPolCode</code>( <var class="Arg">h</var>, <var class="Arg">n</var>[, <var class="Arg">name</var>], <var class="Arg">F</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">CheckPolCode</code> creates a cyclic code with a check polynomial <var class="Arg">h</var>, word length <var class="Arg">n</var>, over <var class="Arg">F</var>. <var class="Arg">name</var> can contain a short description of the code (as a string).</p>
 
 <p>If <var class="Arg">h</var> is not a divisor of <span class="SimpleMath">\(x^n-1\)</span>, it cannot be a check polynomial. In that case, a code is created with check polynomial <span class="SimpleMath">\(gcd( h, x^n-1 )\)</span>, i.e. the greatest common divisor of <var class="Arg">h</var> and <span class="SimpleMath">\(x^n-1\)</span>. This is a valid check polynomial that yields the same elements as the ideal <span class="SimpleMath">\((h)\)</span>. See <a href="chap5_mj.html#X8366CC3685F0BC85"><span class="RefLink">5.5</span></a>.</p>
@@ -965,7 +965,7 @@ a cyclic [7,1,7]4 code defined by check polynomial over GF(3)
 
 <h5>5.5-3 RootsCode</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; RootsCode</code>( <var class="Arg">n</var>, <var class="Arg">list</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; RootsCode</code>( <var class="Arg">n</var>, <var class="Arg">list</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>This is the generalization of the BCH, Reed-Solomon and quadratic residue codes (see <code class="func">BCHCode</code> (<a href="chap5_mj.html#X7C6BB07C87853C00"><span class="RefLink">5.5-4</span></a>), <code class="func">ReedSolomonCode</code> (<a href="chap5_mj.html#X838F3CB3872CEF95"><span class="RefLink">5.5-5</span></a>) and <code class="func">QRCode</code> (<a href="chap5_mj.html#X825F42F68179D2AB"><span class="RefLink">5.5-7</span></a>)). The user can give a length of the code <var class="Arg">n</var> and a prescribed set of zeros. The argument <var class="Arg">list</var> must be a valid list of <span class="SimpleMath">\(n^{th}\)</span> roots of unity in a splitting field <span class="SimpleMath">\(GF(q^m)\)</span>. The resulting code will be over the field <span class="SimpleMath">\(GF(q)\)</span>. The function will return the largest possible cyclic code for which the list <var class="Arg">list</var> is a subset of the roots of the code. From this list, <strong class="pkg">GUAVA</strong> calculates the entire set of roots.</p>
 
 <p>This command can also be called with the syntax <code class="code">RootsCode( n, list, q )</code>. In this second form, the second argument is a list of integers, ranging from <span class="SimpleMath">\(0\)</span> to <span class="SimpleMath">\(n-1\)</span>. The resulting code will be over a field <span class="SimpleMath">\(GF(q)\)</span>. <strong class="pkg">GUAVA</strong> calculates a primitive <span class="SimpleMath">\(n^{th}\)</span> root of unity, <span class="SimpleMath">\(\alpha\)</span>, in the extension field of <span class="SimpleMath">\(GF(q)\)</span>. It uses the set of the powers of <span class="SimpleMath">\(\alpha\)</span> in the list as a prescribed set of zeros.</p>
@@ -996,7 +996,7 @@ true
 
 <h5>5.5-4 BCHCode</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; BCHCode</code>( <var class="Arg">n</var>[, <var class="Arg">b</var>], <var class="Arg">delta</var>, <var class="Arg">F</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; BCHCode</code>( <var class="Arg">n</var>[, <var class="Arg">b</var>], <var class="Arg">delta</var>, <var class="Arg">F</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>The function <code class="code">BCHCode</code> returns a 'Bose-Chaudhuri-Hockenghem code' (or <em>BCH code</em> for short). This is the largest possible cyclic code of length <var class="Arg">n</var> over field <var class="Arg">F</var>, whose generator polynomial has zeros</p>
 
 <p class="center">\[
@@ -1043,7 +1043,7 @@ a cyclic [23,12,5..7]3 BCH code, delta=5, b=1 over GF(2)
 
 <h5>5.5-5 ReedSolomonCode</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ReedSolomonCode</code>( <var class="Arg">n</var>, <var class="Arg">d</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ReedSolomonCode</code>( <var class="Arg">n</var>, <var class="Arg">d</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">ReedSolomonCode</code> returns a 'Reed-Solomon code' of length <var class="Arg">n</var>, designed distance <var class="Arg">d</var>. This code is a primitive narrow-sense BCH code over the field <span class="SimpleMath">\(GF(q)\)</span>, where <span class="SimpleMath">\(q=n+1\)</span>. The dimension of an RS code is <span class="SimpleMath">\(n-d+1\)</span>. According to the Singleton bound (see <code class="func">UpperBoundSingleton</code> (<a href="chap7_mj.html#X8673277C7F6C04C3"><span class="RefLink">7.1-1</span></a>)) the dimension cannot be greater than this, so the true minimum distance of an RS code is equal to <var class="Arg">d</var> and the code is maximum distance separable (see <code class="func">IsMDSCode</code> (<a href="chap4_mj.html#X789380D28018EC3F"><span class="RefLink">4.3-7</span></a>)).</p>
 
 
@@ -1066,7 +1066,7 @@ true
 
 <h5>5.5-6 ExtendedReedSolomonCode</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ExtendedReedSolomonCode</code>( <var class="Arg">n</var>, <var class="Arg">d</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ExtendedReedSolomonCode</code>( <var class="Arg">n</var>, <var class="Arg">d</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">ExtendedReedSolomonCode</code> creates a Reed-Solomon code of length <span class="SimpleMath">\(n-1\)</span> with designed distance <span class="SimpleMath">\(d-1\)</span> and then returns the code which is extended by adding an overall parity-check symbol. The motivation for creating this function is calling <code class="func">ExtendedCode</code> (<a href="chap6_mj.html#X794679BE7F9EB5C1"><span class="RefLink">6.1-1</span></a>) function over a Reed-Solomon code will take considerably long time.</p>
 
 
@@ -1081,7 +1081,7 @@ true
 
 <h5>5.5-7 QRCode</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; QRCode</code>( <var class="Arg">n</var>, <var class="Arg">F</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; QRCode</code>( <var class="Arg">n</var>, <var class="Arg">F</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">QRCode</code> returns a quadratic residue code. If <var class="Arg">F</var> is a field <span class="SimpleMath">\(GF(q)\)</span>, then <span class="SimpleMath">\(q\)</span> must be a quadratic residue modulo <var class="Arg">n</var>. That is, an <span class="SimpleMath">\(x\)</span> exists with <span class="SimpleMath">\(x^2 \equiv q \pmod n\)</span>. Both <var class="Arg">n</var> and <span class="SimpleMath">\(q\)</span> must be primes. Its generator polynomial is the product of the polynomials <span class="SimpleMath">\(x-a^i\)</span>. <span class="SimpleMath">\(a\)</span> is a primitive <span class="SimpleMath">\(n^{th}\)</span> root of unity, and <span class="SimpleMath">\(i\)</span> is an integer in the set of quadratic residues modulo <var class="Arg">n</var>.</p>
 
 
@@ -1109,14 +1109,14 @@ Group([ (1,2)(5,7), (2,3)(4,7), (2,4)(5,6), (3,5)(6,7), (3,7)(5,6) ])
 
 <h5>5.5-8 QQRCodeNC</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; QQRCodeNC</code>( <var class="Arg">p</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; QQRCodeNC</code>( <var class="Arg">p</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">QQRCodeNC</code> is the same as <code class="code">QQRCode</code>, except that it uses <code class="code">GeneratorMatCodeNC</code> instead of <code class="code">GeneratorMatCode</code>.</p>
 
 <p><a id="X7F4C3AD2795A8D7A" name="X7F4C3AD2795A8D7A"></a></p>
 
 <h5>5.5-9 QQRCode</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; QQRCode</code>( <var class="Arg">p</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; QQRCode</code>( <var class="Arg">p</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">QQRCode</code> returns a quasi-quadratic residue code, as defined by Proposition 2.2 in Bazzi-Mittel <a href="chapBib_mj.html#biBBM03">[BM06]</a>. The parameter <var class="Arg">p</var> must be a prime. Its generator matrix has the block form <span class="SimpleMath">\(G=(Q,N)\)</span>. Here <span class="SimpleMath">\(Q\)</span> is a <span class="SimpleMath">\(p\times \)</span> circulant matrix whose top row is <span class="SimpleMath">\((0,x_1,...,x_{p-1})\)</span>, where <span class="SimpleMath">\(x_i=1\)</span> if and only if <span class="SimpleMath">\(i\)</span> is a quadratic residue mod <span class="SimpleMath">\(p\)</span>, and <span class="SimpleMath">\(N\)</span> is a <span class="SimpleMath">\(p\times \)</span> circulant matrix whose top row is <span class="SimpleMath">\((0,y_1,...,y_{p-1})\)</span>, where <span class="SimpleMath">\(x_i+y_i=1\)</span> for all <span class="SimpleMath">\(i\)</span>. (In fact, this matrix can be recovered as the component <code class="code">DoublyCirculant</code> of the code.)</p>
 
 
@@ -1154,7 +1154,7 @@ a linear [58,28,1..14]8..29 code defined by generator matrix over GF(2)
 
 <h5>5.5-10 FireCode</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FireCode</code>( <var class="Arg">g</var>, <var class="Arg">b</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FireCode</code>( <var class="Arg">g</var>, <var class="Arg">b</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">FireCode</code> constructs a (binary) Fire code. <var class="Arg">g</var> is a primitive polynomial of degree <span class="SimpleMath">\(m\)</span>, and a factor of <span class="SimpleMath">\(x^r-1\)</span>. <var class="Arg">b</var> an integer <span class="SimpleMath">\(0 \leq b \leq m\)</span> not divisible by <span class="SimpleMath">\(r\)</span>, that determines the burst length of a single error burst that can be corrected. The argument <var class="Arg">g</var> can be a polynomial with base ring <span class="SimpleMath">\(GF(2)\)</span>, or a list of coefficients in <span class="SimpleMath">\(GF(2)\)</span>. The generator polynomial of the code is defined as the product of <var class="Arg">g</var> and <span class="SimpleMath">\(x^{2b-1}+1\)</span>.</p>
 
 <p>Here is the general definition of 'Fire code', named after P. Fire, who introduced these codes in 1959 in order to correct burst errors. First, a definition. If <span class="SimpleMath">\(F=GF(q)\)</span> and <span class="SimpleMath">\(f\in F[x]\)</span> then we say <span class="SimpleMath">\(f\)</span> has <em>order</em> <span class="SimpleMath">\(e\)</span> if <span class="SimpleMath">\(f(x)|(x^e-1)\)</span>. A <em>Fire code</em> is a cyclic code over <span class="SimpleMath">\(F\)</span> with generator polynomial <span class="SimpleMath">\(g(x)= (x^{2t-1}-1)p(x)\)</span>, where <span class="SimpleMath">\(p(x)\)</span> does not divide <span class="SimpleMath">\(x^{2t-1}-1\)</span> and satisfies <span class="SimpleMath">\(deg(p(x))\geq t\)</span>. The length of such a code is the order of <span class="SimpleMath">\(g(x)\)</span>. Non-binary Fire codes have not been implemented.</p>
@@ -1177,7 +1177,7 @@ a cyclic [35,27,1..4]2..6 3 burst error correcting fire code over GF(2)
 
 <h5>5.5-11 WholeSpaceCode</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; WholeSpaceCode</code>( <var class="Arg">n</var>, <var class="Arg">F</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; WholeSpaceCode</code>( <var class="Arg">n</var>, <var class="Arg">F</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">WholeSpaceCode</code> returns the cyclic whole space code of length <var class="Arg">n</var> over <var class="Arg">F</var>. This code consists of all polynomials of degree less than <var class="Arg">n</var> and coefficients in <var class="Arg">F</var>.</p>
 
 
@@ -1190,7 +1190,7 @@ a cyclic [5,5,1]0 whole space code over GF(3)
 
 <h5>5.5-12 NullCode</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; NullCode</code>( <var class="Arg">n</var>, <var class="Arg">F</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; NullCode</code>( <var class="Arg">n</var>, <var class="Arg">F</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">NullCode</code> returns the zero-dimensional nullcode with length <var class="Arg">n</var> over <var class="Arg">F</var>. This code has only one word: the all zero word. It is cyclic though!</p>
 
 
@@ -1205,7 +1205,7 @@ a cyclic [5,0,5]5 nullcode over GF(3)
 
 <h5>5.5-13 RepetitionCode</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; RepetitionCode</code>( <var class="Arg">n</var>, <var class="Arg">F</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; RepetitionCode</code>( <var class="Arg">n</var>, <var class="Arg">F</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">RepetitionCode</code> returns the cyclic repetition code of length <var class="Arg">n</var> over <var class="Arg">F</var>. The code has as many elements as <var class="Arg">F</var>, because each codeword consists of a repetition of one of these elements.</p>
 
 
@@ -1224,7 +1224,7 @@ true
 
 <h5>5.5-14 CyclicCodes</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; CyclicCodes</code>( <var class="Arg">n</var>, <var class="Arg">F</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; CyclicCodes</code>( <var class="Arg">n</var>, <var class="Arg">F</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">CyclicCodes</code> returns a list of all cyclic codes of length <var class="Arg">n</var> over <var class="Arg">F</var>. It constructs all possible generator polynomials from the factors of <span class="SimpleMath">\(x^n-1\)</span>. Each combination of these factors yields a generator polynomial after multiplication.</p>
 
 
@@ -1240,7 +1240,7 @@ a cyclic [3,0,3]3 enumerated code over GF(3) ]
 
 <h5>5.5-15 NrCyclicCodes</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; NrCyclicCodes</code>( <var class="Arg">n</var>, <var class="Arg">F</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; NrCyclicCodes</code>( <var class="Arg">n</var>, <var class="Arg">F</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>The function <code class="code">NrCyclicCodes</code> calculates the number of cyclic codes of length <var class="Arg">n</var> over field <var class="Arg">F</var>.</p>
 
 
@@ -1268,7 +1268,7 @@ false    # This code is not cyclic
 
 <h5>5.5-16 QuasiCyclicCode</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; QuasiCyclicCode</code>( <var class="Arg">G</var>, <var class="Arg">s</var>, <var class="Arg">F</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; QuasiCyclicCode</code>( <var class="Arg">G</var>, <var class="Arg">s</var>, <var class="Arg">F</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">QuasiCyclicCode( G, k, F )</code> generates a rate <span class="SimpleMath">\(1/m\)</span> quasi-cyclic code over field <var class="Arg">F</var>. The input <var class="Arg">G</var> is a list of univariate polynomials and <span class="SimpleMath">\(m\)</span> is the cardinality of this list. Note that <span class="SimpleMath">\(m\)</span> must be at least <span class="SimpleMath">\(2\)</span>. The input <var class="Arg">s</var> is the size of each circulant and it may not necessarily be the same as the code dimension <span class="SimpleMath">\(k\)</span>, i.e. <span class="SimpleMath">\(k \le s\)</span>.</p>
 
 <p>There also exists another version, <code class="code">QuasiCyclicCode( G, s )</code> which produces quasi-cyclic codes over <span class="SimpleMath">\(F_2\)</span> only. Here the parameter <var class="Arg">s</var> holds the same definition and the input <var class="Arg">G</var> is a list of integers, where each integer is an octal representation of a binary univariate polynomial.</p>
@@ -1329,7 +1329,7 @@ a linear [28,7,12]8..14 quasi-cyclic code over GF(2)
 
 <h5>5.5-17 CyclicMDSCode</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; CyclicMDSCode</code>( <var class="Arg">q</var>, <var class="Arg">m</var>, <var class="Arg">k</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; CyclicMDSCode</code>( <var class="Arg">q</var>, <var class="Arg">m</var>, <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Given the input parameters <var class="Arg">q</var>, <var class="Arg">m</var> and <var class="Arg">k</var>, this function returns a <span class="SimpleMath">\([q^m + 1, k, q^m - k + 2]\)</span> cyclic MDS code over GF(<span class="SimpleMath">\(q^m\)</span>). If <span class="SimpleMath">\(q^m\)</span> is even, any value of <span class="SimpleMath">\(k\)</span> can be used, otherwise only odd value of <span class="SimpleMath">\(k\)</span> is accepted.</p>
 
 
@@ -1353,7 +1353,7 @@ gap&gt;
 
 <h5>5.5-18 FourNegacirculantSelfDualCode</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FourNegacirculantSelfDualCode</code>( <var class="Arg">ax</var>, <var class="Arg">bx</var>, <var class="Arg">k</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FourNegacirculantSelfDualCode</code>( <var class="Arg">ax</var>, <var class="Arg">bx</var>, <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>A four-negacirculant self-dual code has a generator matrix <span class="SimpleMath">\(G\)</span> of the the following form</p>
 
 
@@ -1413,7 +1413,7 @@ true
 
 <h5>5.5-19 FourNegacirculantSelfDualCodeNC</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FourNegacirculantSelfDualCodeNC</code>( <var class="Arg">ax</var>, <var class="Arg">bx</var>, <var class="Arg">k</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FourNegacirculantSelfDualCodeNC</code>( <var class="Arg">ax</var>, <var class="Arg">bx</var>, <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>This function is the same as <code class="code">FourNegacirculantSelfDualCode</code>, except this version is faster as it does not estimate the minimum distance and covering radius of the code.</p>
 
 <p><a id="X850A28C579137220" name="X850A28C579137220"></a></p>
@@ -1426,7 +1426,7 @@ Evaluation Codes
 
 <h5>5.6-1 EvaluationCode</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; EvaluationCode</code>( <var class="Arg">P</var>, <var class="Arg">L</var>, <var class="Arg">R</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; EvaluationCode</code>( <var class="Arg">P</var>, <var class="Arg">L</var>, <var class="Arg">R</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Input: <var class="Arg">F</var> is a finite field, <var class="Arg">L</var> is a list of rational functions in <span class="SimpleMath">\(R=F[x_1,...,x_r]\)</span>, <var class="Arg">P</var> is a list of <span class="SimpleMath">\(n\)</span> points in <span class="SimpleMath">\(F^r\)</span> at which all of the functions in <var class="Arg">L</var> are defined. <br /> Output: The 'evaluation code' <span class="SimpleMath">\(C\)</span>, which is the image of the evalation map</p>
 
 <p class="center">\[
@@ -1460,7 +1460,7 @@ a linear [11,8,1..3]2..3  evaluation code over GF(11)
 
 <h5>5.6-2 GeneralizedReedSolomonCode</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; GeneralizedReedSolomonCode</code>( <var class="Arg">P</var>, <var class="Arg">k</var>, <var class="Arg">R</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; GeneralizedReedSolomonCode</code>( <var class="Arg">P</var>, <var class="Arg">k</var>, <var class="Arg">R</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Input: R=F[x], where <var class="Arg">F</var> is a finite field, <var class="Arg">k</var> is a positive integer, <var class="Arg">P</var> is a list of <span class="SimpleMath">\(n\)</span> points in <span class="SimpleMath">\(F\)</span>. <br /> Output: The <span class="SimpleMath">\(C\)</span> which is the image of the evaluation map</p>
 
 <p class="center">\[
@@ -1501,7 +1501,7 @@ a linear [5,3,1..3]2  weighted generalized Reed-Solomon code over GF(11)
 
 <h5>5.6-3 GeneralizedReedMullerCode</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; GeneralizedReedMullerCode</code>( <var class="Arg">Pts</var>, <var class="Arg">r</var>, <var class="Arg">F</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; GeneralizedReedMullerCode</code>( <var class="Arg">Pts</var>, <var class="Arg">r</var>, <var class="Arg">F</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">GeneralizedReedMullerCode</code> returns a 'Reed-Muller code' <span class="SimpleMath">\(C\)</span> with length <span class="SimpleMath">\(|Pts|\)</span> and order <span class="SimpleMath">\(r\)</span>. One considers (a) a basis of monomials for the vector space over <span class="SimpleMath">\(F=GF(q)\)</span> of all polynomials in <span class="SimpleMath">\(F[x_1,...,x_d]\)</span> of degree at most <span class="SimpleMath">\(r\)</span>, and (b) a set <span class="SimpleMath">\(Pts\)</span> of points in <span class="SimpleMath">\(F^d\)</span>. The generator matrix of the associated <em>Reed-Muller code</em> <span class="SimpleMath">\(C\)</span> is <span class="SimpleMath">\(G=(f(p))_{f\in B,p \in Pts}\)</span>. This code <span class="SimpleMath">\(C\)</span> is constructed using the command <code class="code">GeneralizedReedMullerCode(Pts,r,F)</code>. When <span class="SimpleMath">\(Pts\)</span> is the set of all <span class="SimpleMath">\(q^d\)</span> points in <span class="SimpleMath">\(F^d\)</span> then the command <code class="code">GeneralizedReedMuller(d,r,F)</code> yields the code. When <span class="SimpleMath">\(Pts\)</span> is the set of all <span class="SimpleMath">\((q-1)^d\)</span> points with no coordinate equal to <span class="SimpleMath">\(0\)</span> then this is can be constructed using the <code class="code">ToricCode</code> command (as a special case).</p>
 
 <p>This command returns a "record" object <code class="code">C</code> with several extra components (type <code class="code">NamesOfComponents(C)</code> to see them all): <code class="code">C!.points</code> (namely <var class="Arg">Pts</var>) and <code class="code">C!.degree</code> (namely <var class="Arg">r</var>).</p>
@@ -1523,7 +1523,7 @@ a linear [16,6,1..11]6..10  generalized Reed-Muller code over GF(5)
 
 <h5>5.6-4 ToricPoints</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ToricPoints</code>( <var class="Arg">n</var>, <var class="Arg">F</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ToricPoints</code>( <var class="Arg">n</var>, <var class="Arg">F</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">ToricPoints(n,F)</code> returns the points in <span class="SimpleMath">\((F^{\times})^n\)</span>.</p>
 
 
@@ -1540,7 +1540,7 @@ a linear [16,6,1..11]6..10  generalized Reed-Muller code over GF(5)
 
 <h5>5.6-5 ToricCode</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ToricCode</code>( <var class="Arg">L</var>, <var class="Arg">F</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ToricCode</code>( <var class="Arg">L</var>, <var class="Arg">F</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>This function returns the toric codes as in D. Joyner <a href="chapBib_mj.html#biBJo04">[Joy04]</a> (see also J. P. Hansen <a href="chapBib_mj.html#biBHan99">[Han00]</a>). This is a truncated (generalized) Reed-Muller code. Here <var class="Arg">L</var> is a list of integral vectors and <var class="Arg">F</var> is the finite field. The size of <var class="Arg">F</var> must be different from <span class="SimpleMath">\(2\)</span>.</p>
 
 <p>This command returns a record object <code class="code">C</code> with an extra component (type <code class="code">NamesOfComponents(C)</code> to see them all): <code class="code">C!.exponents</code> (namely <var class="Arg">L</var>).</p>
@@ -1569,7 +1569,7 @@ Algebraic geometric codes
 
 <h5>5.7-1 AffineCurve</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AffineCurve</code>( <var class="Arg">poly</var>, <var class="Arg">ring</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AffineCurve</code>( <var class="Arg">poly</var>, <var class="Arg">ring</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>This function simply defines the data structure of an affine plane curve. In <strong class="pkg">GUAVA</strong>, an affine curve is a record <var class="Arg">crv</var> having two components: a polynomial <var class="Arg">poly</var>, accessed in <strong class="pkg">GUAVA</strong> by <var class="Arg">crv.polynomial</var>, and a polynomial ring over a field <span class="SimpleMath">\(F\)</span> in two variables <var class="Arg">ring</var>, accessed in <strong class="pkg">GUAVA</strong> by <var class="Arg">crv.ring</var>, containing <var class="Arg">poly</var>. You use this function to define a curve in <strong class="pkg">GUAVA</strong>.</p>
 
 <p>For example, for the ring, one could take <span class="SimpleMath">\({\mathbb{Q}}[x,y]\)</span>, and for the polynomial one could take <span class="SimpleMath">\(f(x,y)=x^2+y^2-1\)</span>. For the affine line, simply taking <span class="SimpleMath">\({\mathbb{Q}}[x,y]\)</span> for the ring and <span class="SimpleMath">\(f(x,y)=y\)</span> for the polynomial.</p>
@@ -1618,7 +1618,7 @@ gap&gt;
 
 <h5>5.7-2 AffinePointsOnCurve</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AffinePointsOnCurve</code>( <var class="Arg">f</var>, <var class="Arg">R</var>, <var class="Arg">E</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AffinePointsOnCurve</code>( <var class="Arg">f</var>, <var class="Arg">R</var>, <var class="Arg">E</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">AffinePointsOnCurve(f,R,E)</code> returns the points <span class="SimpleMath">\((x,y) \in E^2\)</span> satisying <span class="SimpleMath">\(f(x,y)=0\)</span>, where <var class="Arg">f</var> is an element of <span class="SimpleMath">\(R=F[x,y]\)</span>.</p>
 
 
@@ -1639,7 +1639,7 @@ PolynomialRing(..., [ x, y ])
 
 <h5>5.7-3 GenusCurve</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; GenusCurve</code>( <var class="Arg">crv</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; GenusCurve</code>( <var class="Arg">crv</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>If <var class="Arg">crv</var> represents <span class="SimpleMath">\(f(x,y)=0\)</span>, where <span class="SimpleMath">\(f\)</span> is a polynomial of degree <span class="SimpleMath">\(d\)</span>, then this function simply returns <span class="SimpleMath">\((d-1)(d-2)/2\)</span>. At the present, the function does not check if the curve is singular (in which case the result may be false).</p>
 
 
@@ -1664,7 +1664,7 @@ rec( ring := PolynomialRing(..., [ x_1, x_1 ]), polynomial := x_1^5+x_1^4+x_1 )
 
 <h5>5.7-4 GOrbitPoint </h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; GOrbitPoint </code>( <var class="Arg">G</var>, <var class="Arg">P</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; GOrbitPoint </code>( <var class="Arg">G</var>, <var class="Arg">P</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><var class="Arg">P</var> must be a point in projective space <span class="SimpleMath">\(\mathbb{P}^n(F)\)</span>, <var class="Arg">G</var> must be a finite subgroup of <span class="SimpleMath">\(GL(n+1,F)\)</span>, This function returns all (representatives of projective) points in the orbit <span class="SimpleMath">\(G\cdot P\)</span>.</p>
 
 <p>The example below computes the orbit of the automorphism group on the Klein quartic over the field <span class="SimpleMath">\(GF(43)\)</span> on the ``point at infinity''.</p>
@@ -1733,7 +1733,7 @@ Z(43)
 
 <h5>5.7-5 DivisorOnAffineCurve</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DivisorOnAffineCurve</code>( <var class="Arg">cdiv</var>, <var class="Arg">sdiv</var>, <var class="Arg">crv</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DivisorOnAffineCurve</code>( <var class="Arg">cdiv</var>, <var class="Arg">sdiv</var>, <var class="Arg">crv</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>This is the command you use to define a divisor in <strong class="pkg">GUAVA</strong>. Of course, <var class="Arg">crv</var> is the curve on which the divisor lives, <var class="Arg">cdiv</var> is the list of coefficients (or ``multiplicities''), <var class="Arg">sdiv</var> is the list of points on <var class="Arg">crv</var> in the support.</p>
 
 
@@ -1767,49 +1767,49 @@ rec( coeffs := [ 1, -1 ],
 
 <h5>5.7-6 DivisorAddition </h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DivisorAddition </code>( <var class="Arg">D1</var>, <var class="Arg">D2</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DivisorAddition </code>( <var class="Arg">D1</var>, <var class="Arg">D2</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>If <span class="SimpleMath">\(D_1=m_1P_1+...+m_kP_k\)</span> and <span class="SimpleMath">\(D_2=n_1P_1+...+n_kP_k\)</span> are divisors then <span class="SimpleMath">\(D_1+D_2=(m_1+n_1)P_1+...+(m_k+n_k)P_k\)</span>.</p>
 
 <p><a id="X865FE28D828C1EAD" name="X865FE28D828C1EAD"></a></p>
 
 <h5>5.7-7 DivisorDegree </h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DivisorDegree </code>( <var class="Arg">D</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DivisorDegree </code>( <var class="Arg">D</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>If <span class="SimpleMath">\(D=m_1P_1+...+m_kP_k\)</span> is a divisor then the <em>degree</em> is <span class="SimpleMath">\(m_1+...+m_k\)</span>.</p>
 
 <p><a id="X789DC358819A8F54" name="X789DC358819A8F54"></a></p>
 
 <h5>5.7-8 DivisorNegate </h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DivisorNegate </code>( <var class="Arg">D</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DivisorNegate </code>( <var class="Arg">D</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Self-explanatory.</p>
 
 <p><a id="X8688C0E187B5C7DB" name="X8688C0E187B5C7DB"></a></p>
 
 <h5>5.7-9 DivisorIsZero </h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DivisorIsZero </code>( <var class="Arg">D</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DivisorIsZero </code>( <var class="Arg">D</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Self-explanatory.</p>
 
 <p><a id="X816A07997D9A7075" name="X816A07997D9A7075"></a></p>
 
 <h5>5.7-10 DivisorsEqual </h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DivisorsEqual </code>( <var class="Arg">D1</var>, <var class="Arg">D2</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DivisorsEqual </code>( <var class="Arg">D1</var>, <var class="Arg">D2</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Self-explanatory.</p>
 
 <p><a id="X857B89847A649A26" name="X857B89847A649A26"></a></p>
 
 <h5>5.7-11 DivisorGCD </h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DivisorGCD </code>( <var class="Arg">D1</var>, <var class="Arg">D2</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DivisorGCD </code>( <var class="Arg">D1</var>, <var class="Arg">D2</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>If <span class="SimpleMath">\(m=p_1^{e_1}...p_k^{e_k}\)</span> and <span class="SimpleMath">\(n=p_1^{f_1}...p_k^{f_k}\)</span> are two integers then their greatest common divisor is <span class="SimpleMath">\(GCD(m,n)=p_1^{min(e_1,f_1)}...p_k^{min(e_k,f_k)}\)</span>. A similar definition works for two divisors on a curve. If <span class="SimpleMath">\(D_1=e_1P_1+...+e_kP_k\)</span> and <span class="SimpleMath">\(D_2n=f_1P_1+...+f_kP_k\)</span> are two divisors on a curve then their <em>greatest common divisor</em> is <span class="SimpleMath">\(GCD(m,n)=min(e_1,f_1)P_1+...+min(e_k,f_k)P_k\)</span>. This function computes this quantity.</p>
 
 <p><a id="X82231CF08073695F" name="X82231CF08073695F"></a></p>
 
 <h5>5.7-12 DivisorLCM </h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DivisorLCM </code>( <var class="Arg">D1</var>, <var class="Arg">D2</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DivisorLCM </code>( <var class="Arg">D1</var>, <var class="Arg">D2</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>If <span class="SimpleMath">\(m=p_1^{e_1}...p_k^{e_k}\)</span> and <span class="SimpleMath">\(n=p_1^{f_1}...p_k^{f_k}\)</span> are two integers then their least common multiple is <span class="SimpleMath">\(LCM(m,n)=p_1^{max(e_1,f_1)}...p_k^{max(e_k,f_k)}\)</span>. A similar definition works for two divisors on a curve. If <span class="SimpleMath">\(D_1=e_1P_1+...+e_kP_k\)</span> and <span class="SimpleMath">\(D_2=f_1P_1+...+f_kP_k\)</span> are two divisors on a curve then their <em>least common multiple</em> is <span class="SimpleMath">\(LCM(m,n)=max(e_1,f_1)P_1+...+max(e_k,f_k)P_k\)</span>. This function computes this quantity.</p>
 
 
@@ -1882,14 +1882,14 @@ true
 
 <h5>5.7-13 RiemannRochSpaceBasisFunctionP1 </h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; RiemannRochSpaceBasisFunctionP1 </code>( <var class="Arg">P</var>, <var class="Arg">k</var>, <var class="Arg">R2</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; RiemannRochSpaceBasisFunctionP1 </code>( <var class="Arg">P</var>, <var class="Arg">k</var>, <var class="Arg">R2</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Input: <var class="Arg">R2</var> is a polynomial ring in two variables, say <span class="SimpleMath">\(F[x,y]\)</span>; <var class="Arg">P</var> is an element of the base field, say <span class="SimpleMath">\(F\)</span>; <var class="Arg">k</var> is an integer. Output: <span class="SimpleMath">\(1/(x-P)^k\)</span></p>
 
 <p><a id="X856DDA207EDDF256" name="X856DDA207EDDF256"></a></p>
 
 <h5>5.7-14 DivisorOfRationalFunctionP1 </h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DivisorOfRationalFunctionP1 </code>( <var class="Arg">f</var>, <var class="Arg">R</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DivisorOfRationalFunctionP1 </code>( <var class="Arg">f</var>, <var class="Arg">R</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Here <span class="SimpleMath">\(R = F[x,y]\)</span> is a polynomial ring in the variables <span class="SimpleMath">\(x,y\)</span> and <span class="SimpleMath">\(f\)</span> is a rational function of <span class="SimpleMath">\(x\)</span>. Simply returns the principal divisor on <span class="SimpleMath">\({\mathbb{P}}^1\)</span> associated to <span class="SimpleMath">\(f\)</span>.</p>
 
 
@@ -1937,7 +1937,7 @@ a^4+Z(11)^6*a^3-a^2+Z(11)^7*a+Z(11)^0
 
 <h5>5.7-15 RiemannRochSpaceBasisP1 </h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; RiemannRochSpaceBasisP1 </code>( <var class="Arg">D</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; RiemannRochSpaceBasisP1 </code>( <var class="Arg">D</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>This returns the basis of the Riemann-Roch space <span class="SimpleMath">\(L(D)\)</span> associated to the divisor <var class="Arg">D</var> on the projective line <span class="SimpleMath">\({\mathbb{P}}^1\)</span>.</p>
 
 
@@ -1994,28 +1994,28 @@ rec( coeffs := [ 1, 2, 3, 4 ],
 
 <h5>5.7-16 MoebiusTransformation </h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; MoebiusTransformation </code>( <var class="Arg">A</var>, <var class="Arg">R</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; MoebiusTransformation </code>( <var class="Arg">A</var>, <var class="Arg">R</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>The arguments are a <span class="SimpleMath">\(2\times 2\)</span> matrix <span class="SimpleMath">\(A\)</span> with entries in a field <span class="SimpleMath">\(F\)</span> and a polynomial ring <var class="Arg">R</var>of one variable, say <span class="SimpleMath">\(F[x]\)</span>. This function returns the linear fractional transformatio associated to <var class="Arg">A</var>. These transformations can be composed with each other using GAP's <code class="code">Value</code> command.</p>
 
 <p><a id="X85A0419580ED0391" name="X85A0419580ED0391"></a></p>
 
 <h5>5.7-17 ActionMoebiusTransformationOnFunction </h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ActionMoebiusTransformationOnFunction </code>( <var class="Arg">A</var>, <var class="Arg">f</var>, <var class="Arg">R2</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ActionMoebiusTransformationOnFunction </code>( <var class="Arg">A</var>, <var class="Arg">f</var>, <var class="Arg">R2</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>The arguments are a <span class="SimpleMath">\(2\times 2\)</span> matrix <span class="SimpleMath">\(A\)</span> with entries in a field <span class="SimpleMath">\(F\)</span>, a rational function <var class="Arg">f</var> of one variable, say in <span class="SimpleMath">\(F(x)\)</span>, and a polynomial ring <var class="Arg">R2</var>, say <span class="SimpleMath">\(F[x,y]\)</span>. This function simply returns the composition of the function <var class="Arg">f</var> with the Möbius transformation of <var class="Arg">A</var>.</p>
 
 <p><a id="X7E48F9C67E7FB7B5" name="X7E48F9C67E7FB7B5"></a></p>
 
 <h5>5.7-18 ActionMoebiusTransformationOnDivisorP1 </h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ActionMoebiusTransformationOnDivisorP1 </code>( <var class="Arg">A</var>, <var class="Arg">D</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ActionMoebiusTransformationOnDivisorP1 </code>( <var class="Arg">A</var>, <var class="Arg">D</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>A Möbius transformation may be regarded as an automorphism of the projective line <span class="SimpleMath">\(\mathbb{P}^1\)</span>. This function simply returns the image of the divisor <var class="Arg">D</var> under the Möbius transformation defined by <var class="Arg">A</var>, provided that <code class="code">IsActionMoebiusTransformationOnDivisorDefinedP1(A,D)</code> returns true.</p>
 
 <p><a id="X79FD980E7B24DB9C" name="X79FD980E7B24DB9C"></a></p>
 
 <h5>5.7-19 IsActionMoebiusTransformationOnDivisorDefinedP1 </h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsActionMoebiusTransformationOnDivisorDefinedP1 </code>( <var class="Arg">A</var>, <var class="Arg">D</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsActionMoebiusTransformationOnDivisorDefinedP1 </code>( <var class="Arg">A</var>, <var class="Arg">D</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns true of none of the points in the support of the divisor <var class="Arg">D</var> is the pole of the Möbius transformation.</p>
 
 
@@ -2059,7 +2059,7 @@ rec( coeffs := [ 1, 2, 3, 4 ],
 
 <h5>5.7-20 DivisorAutomorphismGroupP1 </h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DivisorAutomorphismGroupP1 </code>( <var class="Arg">D</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DivisorAutomorphismGroupP1 </code>( <var class="Arg">D</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Input: A divisor <var class="Arg">D</var> on <span class="SimpleMath">\(\mathbb{P}^1(F)\)</span>, where <span class="SimpleMath">\(F\)</span> is a finite field. Output: A subgroup <span class="SimpleMath">\(Aut(D)\subset Aut(\mathbb{P}^1)\)</span> preserving <var class="Arg">D</var>.</p>
 
 <p>Very slow.</p>
@@ -2093,7 +2093,7 @@ rec( coeffs := [ 1, 2, 3, 4 ],
 
 <h5>5.7-21 MatrixRepresentationOnRiemannRochSpaceP1 </h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; MatrixRepresentationOnRiemannRochSpaceP1 </code>( <var class="Arg">g</var>, <var class="Arg">D</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; MatrixRepresentationOnRiemannRochSpaceP1 </code>( <var class="Arg">g</var>, <var class="Arg">D</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Input: An element <var class="Arg">g</var> in <span class="SimpleMath">\(G\)</span>, a subgroup of <span class="SimpleMath">\(Aut(D)\subset Aut(\mathbb{P}^1)\)</span>, and a divisor <var class="Arg">D</var> on <span class="SimpleMath">\(\mathbb{P}^1(F)\)</span>, where <span class="SimpleMath">\(F\)</span> is a finite field. Output: a <span class="SimpleMath">\(d\times d\)</span> matrix, where <span class="SimpleMath">\(d = dim\, L(D)\)</span>, representing the action of <var class="Arg">g</var> on <span class="SimpleMath">\(L(D)\)</span>.</p>
 
 <p>Note: <var class="Arg">g</var> sends <span class="SimpleMath">\(L(D)\)</span> to <span class="SimpleMath">\(r\cdot L(D)\)</span>, where <span class="SimpleMath">\(r\)</span> is a polynomial of degree <span class="SimpleMath">\(1\)</span> depending on <var class="Arg">g</var> and <var class="Arg">D</var>.</p>
@@ -2151,7 +2151,7 @@ rec( coeffs := [ 1, 1, 1, 4 ],
 
 <h5>5.7-22 GoppaCodeClassical</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; GoppaCodeClassical</code>( <var class="Arg">div</var>, <var class="Arg">pts</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; GoppaCodeClassical</code>( <var class="Arg">div</var>, <var class="Arg">pts</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Input: A divisor <var class="Arg">div</var> on the projective line <span class="SimpleMath">\({\mathbb{P}}^1(F)\)</span> over a finite field <span class="SimpleMath">\(F\)</span> and a list <var class="Arg">pts</var> of points <span class="SimpleMath">\(\{P_1,...,P_n\}\subset F\)</span> disjoint from the support of <var class="Arg">div</var>. <br /> Output: The classical (evaluation) Goppa code associated to this data. This is the code</p>
 
 <p class="center">\[
@@ -2185,7 +2185,7 @@ a linear [7,2,1..6]4..5 code defined by generator matrix over GF(11)
 
 <h5>5.7-23 EvaluationBivariateCode</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; EvaluationBivariateCode</code>( <var class="Arg">pts</var>, <var class="Arg">L</var>, <var class="Arg">crv</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; EvaluationBivariateCode</code>( <var class="Arg">pts</var>, <var class="Arg">L</var>, <var class="Arg">crv</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Input: <code class="code">pts</code> is a set of affine points on <code class="code">crv</code>, <code class="code">L</code> is a list of rational functions on <code class="code">crv</code>. <br /> Output: The evaluation code associated to the points in <code class="code">pts</code> and functions in <code class="code">L</code>, but specifically for affine plane curves and this function checks if points are "bad" (if so removes them from the list <code class="code">pts</code> automatically). A point is ``bad'' if either it does not lie on the set of non-singular <span class="SimpleMath">\(F\)</span>-rational points (places of degree 1) on the curve.</p>
 
 <p>Very similar to <code class="code">EvaluationCode</code> (see <code class="func">EvaluationCode</code> (<a href="chap5_mj.html#X78E078567D19D433"><span class="RefLink">5.6-1</span></a>) for a more general construction).</p>
@@ -2194,7 +2194,7 @@ a linear [7,2,1..6]4..5 code defined by generator matrix over GF(11)
 
 <h5>5.7-24 EvaluationBivariateCodeNC</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; EvaluationBivariateCodeNC</code>( <var class="Arg">pts</var>, <var class="Arg">L</var>, <var class="Arg">crv</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; EvaluationBivariateCodeNC</code>( <var class="Arg">pts</var>, <var class="Arg">L</var>, <var class="Arg">crv</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>As in <code class="code">EvaluationBivariateCode</code> but does not check if the points are ``bad''.</p>
 
 <p>Input: <code class="code">pts</code> is a set of affine points on <code class="code">crv</code>, <code class="code">L</code> is a list of rational functions on <code class="code">crv</code>. <br /> Output: The evaluation code associated to the points in <code class="code">pts</code> and functions in <code class="code">L</code>.</p>
@@ -2241,7 +2241,7 @@ gap&gt;
 
 <h5>5.7-25 OnePointAGCode</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; OnePointAGCode</code>( <var class="Arg">f</var>, <var class="Arg">P</var>, <var class="Arg">m</var>, <var class="Arg">R</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; OnePointAGCode</code>( <var class="Arg">f</var>, <var class="Arg">P</var>, <var class="Arg">m</var>, <var class="Arg">R</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Input: <var class="Arg">f</var> is a polynomial in R=F[x,y], where <var class="Arg">F</var> is a finite field, <var class="Arg">m</var> is a positive integer (the multiplicity of the `point at infinity' <span class="SimpleMath">\(\infty\)</span> on the curve <span class="SimpleMath">\(f(x,y)=0\)</span>), <var class="Arg">P</var> is a list of <span class="SimpleMath">\(n\)</span> points on the curve over <span class="SimpleMath">\(F\)</span>. <br /> Output: The <span class="SimpleMath">\(C\)</span> which is the image of the evaluation map</p>
 
 <p class="center">\[
@@ -2304,7 +2304,7 @@ Low-Density Parity-Check Codes
 
 <h5>5.8-1 QCLDPCCodeFromGroup</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; QCLDPCCodeFromGroup</code>( <var class="Arg">m</var>, <var class="Arg">j</var>, <var class="Arg">k</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; QCLDPCCodeFromGroup</code>( <var class="Arg">m</var>, <var class="Arg">j</var>, <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">QCLDCCodeFromGroup</code> produces an <span class="SimpleMath">\((n,j,k)\)</span> regular quasi-cyclic LDPC code over GF(2) of block length <span class="SimpleMath">\(n = mk\)</span>. The term quasi-cyclic in the context of LDPC codes typically refers to LDPC codes whose parity-check matrix <span class="SimpleMath">\(H\)</span> has the following form</p>
 
 
@@ -2345,7 +2345,7 @@ P = |    .    |    .     |   .   |        .       |.
 		R \geq 1 - \frac{j}{k}
 	\]</p>
 
-<p>where the sign <span class="SimpleMath">\(\geq\)</span> is due to the possible existence of some non linearly independent rows in <span class="SimpleMath">\(H\)</span>. For more details, refer to the paper by Tanner et al <a href="chapBib_mj.html#biBTSSFC04">[TSSFJ04]</a>.</p>
+<p>where the sign <span class="SimpleMath">\(\geq\)</span> is due to the possible existence of some non linearly independent rows in <span class="SimpleMath">\(H\)</span>. For more details, refer to the paper by Tanner et al <a href="chapBib_mj.html#biBTSSFC04">[TSS+04]</a>.</p>
 
 
 <div class="example"><pre>
