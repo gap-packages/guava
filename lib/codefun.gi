@@ -15,33 +15,18 @@
 ##  by Leon's programs.
 ##
 
-InstallMethod(GuavaToLeon, "method for unrestricted code, filename", 
-	true, [IsCode, IsString], 0, 
+InstallMethod(GuavaToLeon, "method for unrestricted code, filename",
+  true, [IsCode, IsString], 0,
 function (C, file)
     local w, vector, G, coord, n, k, TheMat, IR1SAVE, IR2SAVE;
     G := GeneratorMat(C);
     k := Dimension(C);
     n := WordLength(C);
     PrintTo(file, "LIBRARY code;\n");
-    
-    # using "String" here causes problems when this function
-    # is run before the string library is loaded *and* InfoRead1
-    # and/or InfoRead2 is set to "Print".
 
-	##LR - is this still needed? 
-    # ugly hack: temporarily disable InfoRead1 and InfoRead2
-    
-    IR1SAVE := InfoRead1; InfoRead1 := Ignore;
-    IR2SAVE := InfoRead2; InfoRead2 := Ignore;
-    
     AppendTo(file,"code=seq(",String(Size(LeftActingDomain(C))),",",String(k),
             ",",String(n),",seq(\n");
-    
-    InfoRead1 := IR1SAVE;
-    InfoRead2 := IR2SAVE;
-    
-    # end of ugly hack.
-    
+
     for vector in [1..k] do
         for coord in [1..n-1] do
             AppendTo(file,IntFFE(G[vector][coord]),",");
@@ -53,8 +38,8 @@ function (C, file)
     od;
     AppendTo(file, "\n));\nFINISH;");
 end);
-  
-  
+
+
 #############################################################################
 ##
 #F  WeightHistogram ( <C> [, <height>] )  . . . . .  plots the weights of <C>
