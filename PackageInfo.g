@@ -12,7 +12,18 @@ SetPackageInfo( rec(
   Date    := "24/03/2018",
   PackageWWWHome := Concatenation( "https://gap-packages.github.io/",
       LowercaseString( ~.PackageName ), "/" ),
-  ArchiveURL := Concatenation( ~.PackageWWWHome, "archives/guava-", ~.Version ),
+  SourceRepository := rec(
+    Type := "git",
+    URL := Concatenation( 
+       "https://github.com/gap-packages/", LowercaseString(~.PackageName) ),
+  ),
+  IssueTrackerURL := Concatenation( ~.SourceRepository.URL, "/issues" ),
+  PackageWWWHome  := Concatenation( "https://gap-packages.github.io/", LowercaseString( ~.PackageName ) ),
+  README_URL      := Concatenation( ~.PackageWWWHome, "/", "README.guava" ),
+  PackageInfoURL  := Concatenation( ~.PackageWWWHome, "/PackageInfo.g" ),
+  ArchiveURL := Concatenation( ~.SourceRepository.URL,
+                      "/releases/download/v", ~.Version,
+                      "/", LowercaseString(~.PackageName), "-", ~.Version ),
   ArchiveFormats 
           := ".tar.gz",
   BannerString:=Concatenation(["\n   ____                          |\n",
