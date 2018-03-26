@@ -170,16 +170,19 @@ SetPackageInfo( rec(
 ##  and updating of the package in the GAP distribution.
 ##  
 
-  README_URL := 
-    Concatenation( ~.PackageWWWHome, "README.guava" ),
-  PackageInfoURL := 
-    Concatenation( ~.PackageWWWHome, "PackageInfo.g" ),
-
-SourceRepository := rec( 
-  Type := "git", 
-  URL := "https://github.com/gap-packages/guava"
-),
-IssueTrackerURL := Concatenation( ~.SourceRepository.URL, "/issues" ),
+############################
+## THIS STUFF IS ALL SET-UP IN THE TOP OF THE FILE !!!
+############################
+##README_URL := 
+##    Concatenation( ~.PackageWWWHome, "README.guava" ),
+## PackageInfoURL := 
+##    Concatenation( ~.PackageWWWHome, "PackageInfo.g" ),
+##
+##SourceRepository := rec( 
+##  Type := "git", 
+##  URL := "https://github.com/gap-packages/guava"
+##),
+##IssueTrackerURL := Concatenation( ~.SourceRepository.URL, "/issues" ),
 
 ##  Here you  must provide a short abstract explaining the package content 
 ##  in HTML format (used on the package overview Web page) and an URL 
