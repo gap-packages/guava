@@ -30,8 +30,8 @@ suggested-pkgs:
       url: "http://www.algebra.uni-linz.ac.at/Sonata/"
 
 www: https://gap-packages.github.io/guava
-readme: guavaREADME.guava
-packageinfo: https://gap-packages.github.io/guavaPackageInfo.g
+readme: README.guava
+packageinfo: https://gap-packages.github.io/guava/PackageInfo.g
 
 downloads:
     - name: .tar.gz
