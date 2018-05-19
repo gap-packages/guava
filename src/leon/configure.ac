@@ -1,6 +1,5 @@
 AC_INIT(leon,1.0)
 AC_CONFIG_SRCDIR(src/group.h)
-AM_INIT_AUTOMAKE
 AC_CONFIG_HEADERS([src/leon_config.h])
 AC_CHECK_SIZEOF(int)
 
