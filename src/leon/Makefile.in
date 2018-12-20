@@ -1,4 +1,4 @@
-COMPILE = gcc
+COMPILE = $(CC)
 CFLAGS  += -O2
 SRCDIR  = ./src
 COMPOPT = $(CPPFLAGS) $(CFLAGS) -c
