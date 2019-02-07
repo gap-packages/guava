@@ -8,7 +8,7 @@
 FILES = leonconv
 SUBDIRS = leon ctjhai
 
-.PHONY: all $(SUBDIRS)
+.PHONY: all install clean distclean $(SUBDIRS)
 
 all :	$(FILES)
 	cd leon; $(MAKE)

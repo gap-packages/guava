@@ -10,11 +10,7 @@ BINDIR = bin/$(GAPARCH)
 
 targets: default
 
-default: bindir minimum-weight leonconv desauto install
-
-# this target creates a bin-directory
-bindir:
-	if test ! -d $(BINDIR);  then mkdir -p $(BINDIR);  fi
+default: minimum-weight leonconv desauto install
 
 minimum-weight: $(CJSRCDIR)/minimum-weight.o $(CJSRCDIR)/minimum-weight-gf2.o $(CJSRCDIR)/minimum-weight-gf3.o $(CJSRCDIR)/popcount.o
 	$(CC) $(LDFLAGS) -o $(CJSRCDIR)/minimum-weight \
@@ -41,21 +37,22 @@ popcount.o: $(CJSRCDIR)/popcount.c $(CJSRCDIR)/popcount.h $(CJSRCDIR)/config.h $
 
 
 install: leonconv minimum-weight
-	( cp ./src/leonconv $(BINDIR) )
-	( cp $(SRCDIR)/desauto $(BINDIR) )
-	( cp $(CJSRCDIR)/minimum-weight $(BINDIR) )
-	( cp $(SRCDIR)/wtdist $(BINDIR) )
+	mkdir -p $(BINDIR)
+	cp ./src/leonconv $(BINDIR)
+	cp $(SRCDIR)/desauto $(BINDIR)
+	cp $(CJSRCDIR)/minimum-weight $(BINDIR)
+	cp $(SRCDIR)/wtdist $(BINDIR)
 
 clean:
-	-( cd $(BINDIR); rm -f *.o )
+	-rm -f $(BINDIR)/*.o
 	-( cd src && make clean )
 	-( cd $(CJSRCDIR) && rm -f minimum-weight *.o)
 	-( cd $(SRCDIR) && make clean )
 
 distclean: clean
-	( rm -rf bin )
-	( mkdir bin )
-	( rm -f Makefile Makefile-*)
+	rm -rf bin
+	mkdir bin
+	rm -f Makefile Makefile-*
 	-( cd src && make distclean )
 	-( cd src/leon && make distclean )
 	-( cd doc && rm -f *.aux *.log *.dvi *.ps)

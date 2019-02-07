@@ -1,46 +1,23 @@
 #!/bin/sh
 # (C) Frank Lübeck 2011
 # configure script for Browse, EDIM and other packages
-# usage: ./configure [GAPPATH] [CONFIGNAME=myconf]
+# usage: ./configure [GAPPATH]
 # this script creates a "Makefile-myconf" from "Makefile.in" with
 # a link to "Makefile"
 
-# read arguments
-while [ x"$1" != "x" ]; do
-  if [ ${1#CONFIGNAME=} = ${1} ]; then
-    GAPPATH=$1
-  else
-    eval $1
-  fi
-  shift
-done
-
-if [ x"$GAPPATH" = "x" ]; then
-    GAPPATH=../..
-    echo "Using ../.. as default GAPPATH"
-fi
-
-if [ x"$CONFIGNAME" = "x" ]; then
-  CONFIGNAME="default64"
-  if [ ! -e $GAPPATH/sysinfo.gap-$CONFIGNAME ]; then
-    CONFIGNAME="default32"
-		if [ ! -e $GAPPATH/sysinfo.gap-$CONFIGNAME ]; then
-			CONFIGNAME="UNKNOWN"
-		fi
-  fi
-fi
-
-if [ x"$CONFIGNAME" != "xUNKNOWN" ]; then
-	CONFIGSUFFIX="-$CONFIGNAME"
+# GAP path
+if [ $# = 0 ]; then
+  GAPPATH="../../"
 else
-	CONFIGSUFFIX=""
+  GAPPATH=$1
 fi
+echo "Using $GAPPATH as GAP build directory."
 
-if [ ! -e $GAPPATH/sysinfo.gap$CONFIGSUFFIX ]; then
+if [ ! -e $GAPPATH/sysinfo.gap ]; then
     echo
-    echo "No file $GAPPATH/sysinfo.gap$CONFIGSUFFIX found."
+    echo "No file $GAPPATH/sysinfo.gap found."
     echo
-    echo "Usage: ./configure [GAPPATH] [CONFIGNAME=confnam]"
+    echo "Usage: ./configure [GAPPATH]"
     echo "       where GAPPATH is a path to your GAP installation"
     echo "       and confnam is the name of the GAP configuration to use."
     echo "       (The default for GAPPATH is \"../..\" and default confignam"
@@ -54,17 +31,11 @@ if [ ! -e $GAPPATH/sysinfo.gap$CONFIGSUFFIX ]; then
     exit 1
 fi
 
-echo "Using config in $GAPPATH/sysinfo.gap$CONFIGSUFFIX"
+echo "Using config in $GAPPATH/sysinfo.gap"
 
-rm -f Makefile Makefile$CONFIGSUFFIX
-. $GAPPATH/sysinfo.gap$CONFIGSUFFIX
+rm -f Makefile
+. $GAPPATH/sysinfo.gap
 sed \
     -e 's|@GAPPATH@|'$GAPPATH'|g' \
     -e 's/@GAPARCH@/'$GAParch'/g' \
-  Makefile.in > Makefile$CONFIGSUFFIX
-
-if [ x"$CONFIGNAME" != "xUNKNOWN" ]; then
-    ln -s Makefile$CONFIGSUFFIX Makefile
-    echo "Created ./Makefile$CONFIGSUFFIX with link from ./Makefile"
-fi
-
+  Makefile.in > Makefile
