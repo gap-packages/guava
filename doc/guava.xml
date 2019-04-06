@@ -93,7 +93,7 @@ GNU General Public License (GPL).
     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 <P/>
 For more details, see 
-<URL>http://www.fsf.org/licenses/gpl.html</URL>. 
+<URL>https://www.fsf.org/licenses/gpl.html</URL>. 
 <P/>
 For many years
 <Package>GUAVA</Package> has been released along with the 
@@ -149,7 +149,7 @@ starting with version 3.10, <Package>GUAVA</Package> has been maintained
 by Joe Fields.
 For further details, see the CHANGES file in the
 <Package>GUAVA</Package> directory, also available at 
-<URL>http://osj1961.github.io/guava/CHANGES.guava</URL>.
+<URL>https://osj1961.github.io/guava/CHANGES.guava</URL>.
    <P/>
 <P/>This documentation was prepared with the 
 <Package>GAPDoc</Package> package of Frank L&#xfc;beck and Max Neunh&#xf6;ffer. 
@@ -161,10 +161,10 @@ Please send bug reports, suggestions and other comments about
 <Email>support@gap-system.org</Email>. Currently known bugs and 
 suggested <Package>GUAVA</Package> projects are listed on the
 bugs and projects web page
-<URL>http://osj1961.github.io/guava/guava2do.html</URL>.
+<URL>https://osj1961.github.io/guava/guava2do.html</URL>.
 Older releases and further history can be found on the 
 <Package>GUAVA</Package> web page
-<URL>http://osj1961.github.io/guava/</URL>.
+<URL>https://osj1961.github.io/guava/</URL>.
 <P/>
 <E>Contributors</E>: Other than the authors listed on the title page,
 the following people have contributed code to the <Package>GUAVA</Package> 
@@ -283,7 +283,7 @@ make
 to compile the binaries and install them in the appropriate place.
 
 (For a Windows machine with CYGWIN installed -
-see <URL>http://www.cygwin.com/</URL> - instructions for 
+see <URL>https://www.cygwin.com/</URL> - instructions for 
 compiling Leon's binaries are likely to be similar to those above.
 On a 64-bit SUSE linux computer, instead of the configure command above
 - which will only compile the 32-bit binary - type
@@ -10440,7 +10440,7 @@ and upper bounds for <M>q=2 (n \leq 257), <!--3, 4 (n \leq 130)</M>.
 3 (n \leq 243), 4 (n \leq 256)</M>. (Current as of 11 May 2006.)
 These tables were derived from the table of Brouwer. 
 (See <Cite Key="Br"/>,
-<URL>http://www.win.tue.nl/~aeb/voorlincod.html</URL> for the most
+<URL>https://www.codetables.de</URL> for the most
 recent data.)
 For codes over other fields and for larger
 word lengths, trivial bounds are used.
@@ -12954,7 +12954,7 @@ Other functions
 
 We basically repeat, with minor variation, the material
 in the GAP manual or from Frank Luebeck's website
-<URL>http://www.math.rwth-aachen.de:8001/~Frank.Luebeck/data/ConwayPol</URL> 
+<URL>http://www.math.rwth-aachen.de/~Frank.Luebeck/data/ConwayPol</URL> 
 on Conway polynomials.
 
 <Index><M>GF(p)</M></Index>
@@ -13427,7 +13427,7 @@ The Free Software Foundation may publish new, revised versions
 of the GNU Free Documentation License from time to time.  Such new
 versions will be similar in spirit to the present version, but may
 differ in detail to address new problems or concerns.  See
-http://www.gnu.org/copyleft/.
+https://www.gnu.org/copyleft/.
 <P/>
 Each version of the License is given a distinguishing version number.
 If the Document specifies that a particular numbered version of this
