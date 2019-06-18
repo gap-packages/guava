@@ -280,27 +280,16 @@ local d, g, wpol, s, ds, cpol, cc, c, i, m, e, x, n, ccc, r;
  g:=GeneratorPol(C);
  x:=IndeterminateOfUnivariateRationalFunction(g);
  wpol:=PolyCodeword(w);
- s:=wpol mod g;
- ds:=DegreeOfLaurentPolynomial(s);
- if ds<=Int((d-1)/2) then
-   cpol:=wpol-s;
-   cc:=CoefficientsOfUnivariatePolynomial(cpol);
-   r:=Length(cc);
-   ccc:=Concatenation(cc,List([1..(n-r)],k->0*cc[1]));
-   c:=Codeword(ccc);
-   #return InformationWord( C, c );
-   return c;
- fi;
- for i in [1..(n-1)] do
+ for i in [0..(n-1)] do
    s:=x^i*wpol mod g;
    ds:=DegreeOfLaurentPolynomial(s);
-   if ds<=Int((d-1)/2) then
+   if ds<Int((d-1)/2) then
      m:=i;
      e:=x^(n-m)*s mod (x^n-1);
      cpol:=wpol-e;
      cc:=CoefficientsOfUnivariatePolynomial(cpol);
      r:=Length(cc);
-     ccc:=Concatenation(cc,List([1..(n-r)],k->0*cc[1]));
+     ccc:=Concatenation(cc,List([1..(n-r)],k-> Zero(LeftActingDomain(C)) ));
      c:=Codeword(ccc);
      #return InformationWord( C, c );
      return c;
