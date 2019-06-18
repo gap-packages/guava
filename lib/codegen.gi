@@ -41,7 +41,6 @@ DeclareRepresentation( "IsCodeDefaultRep",
 
 DeclareHandlingByNiceBasis( "IsLinearCodeRep", "for linear codes" );
 
-InstallTrueMethod( IsCodeDefaultRep, IsLinearCodeRep );
 InstallTrueMethod( IsLinearCode, IsLinearCodeRep );
 
 #T The following is of course a hack, as is much of the
@@ -115,7 +114,7 @@ LinearCodeByGenerators := function(F, gens)
     local V;
     V:= Objectify( NewType( FamilyObj( gens ),
                             IsLeftModule and 
-			    IsLinearCodeRep ),
+			    IsLinearCodeRep and IsCodeDefaultRep ),
                    rec() );
     SetLeftActingDomain( V, F );
     SetGeneratorsOfLeftModule( V, AsList( One(F)*gens ) );
