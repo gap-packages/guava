@@ -24,7 +24,7 @@
   <year>2006</year>
   <volume>52</volume>
   <number>7</number>
-  <pages>3210–3219</pages>
+  <pages>3210-3219</pages>
 </article></entry>
 <entry id="GDT91"><article>
   <author>
@@ -38,7 +38,7 @@
   <year>1991</year>
   <volume>37</volume>
   <number>1</number>
-  <pages>219–224</pages>
+  <pages>219-224</pages>
 </article></entry>
 <entry id="Gao03"><incollection>
   <author>
@@ -54,7 +54,7 @@
     <name><first>V.</first><last>Tarokh</last></name>
     <name><first>S.</first><last>Yoon</last></name>
   </editor>  
-  <pages>55–68</pages>
+  <pages>55-68</pages>
   <address>Boston, MA</address>
 </incollection></entry>
 <entry id="GG03"><book>
@@ -76,7 +76,7 @@
   <year>1985</year>
   <volume>31</volume>
   <number>3</number>
-  <pages>385–401</pages>
+  <pages>385-401</pages>
 </article></entry>
 <entry id="Han99"><incollection>
   <author>
@@ -92,7 +92,7 @@
     <name><first>H.</first><last>Stichtenoth</last></name>
     <name><first>H.</first><last>Tapia-Recillas</last></name>
   </editor>  
-  <pages>132–142</pages>
+  <pages>132-142</pages>
   <address>Berlin Heidelberg</address>
 </incollection></entry>
 <entry id="He72"><article>
@@ -104,7 +104,7 @@
   <year>1972</year>
   <volume>18</volume>
   <number>2</number>
-  <pages>292–297</pages>
+  <pages>292-297</pages>
   <month>March</month>
 </article></entry>
 <entry id="HP03"><book>
@@ -125,7 +125,7 @@
   <year>2004</year>
   <volume>15</volume>
   <number>1</number>
-  <pages>63–79</pages>
+  <pages>63-79</pages>
 </article></entry>
 <entry id="JH04"><book>
   <author>
@@ -146,7 +146,7 @@
   <year>1982</year>
   <volume>28</volume>
   <number>3</number>
-  <pages>496–511</pages>
+  <pages>496-511</pages>
   <month>May</month>
 </article></entry>
 <entry id="Leon88"><article>
@@ -159,7 +159,7 @@
   <year>1988</year>
   <volume>34</volume>
   <number>5</number>
-  <pages>1354–1359</pages>
+  <pages>1354-1359</pages>
   <month>September</month>
 </article></entry>
 <entry id="Leon91"><article>
@@ -171,8 +171,8 @@
   <journal><value key="jsymc"/></journal>
   <year>1991</year>
   <volume>12</volume>
-  <number>4–5</number>
-  <pages>533–583</pages>
+  <number>4-5</number>
+  <pages>533-583</pages>
 </article></entry>
 <entry id="MS83"><book>
   <author>
@@ -202,7 +202,7 @@
   </author>  
   <title>Bounds on the minimum distance of linear codes</title>
   <howpublished><URL>https://www.codetables.de/</URL></howpublished>
-  <year>1997–2006</year>
+  <year>1997-2006</year>
 </misc></entry>
 <entry id="HHKK07"><article>
   <author>
@@ -217,7 +217,7 @@
   <year>2007</year>
   <volume>23</volume>
   <number>4</number>
-  <pages>401–417</pages>
+  <pages>401-417</pages>
 </article></entry>
 <entry id="Sloane72"><article>
   <author>
@@ -230,7 +230,7 @@
   <year>1972</year>
   <volume>18</volume>
   <number>4</number>
-  <pages>503–510</pages>
+  <pages>503-510</pages>
   <month>July</month>
 </article></entry>
 <entry id="Alltop84"><article>
@@ -242,7 +242,7 @@
   <year>1984</year>
   <volume>30</volume>
   <number>6</number>
-  <pages>871–872</pages>
+  <pages>871-872</pages>
 </article></entry>
 <entry id="Brouwer98"><incollection>
   <author>
@@ -278,7 +278,7 @@
       <C>R</C>eed-<C>M</C>uller Codes, and Linear Codes</title>
   <institution>Technische Universität Hamburg-Harburg</institution>
   <year>1996</year>
-  <number>3–96</number>
+  <number>3-96</number>
   <address>Hamburg, Germany</address>
 </techreport></entry>
 <entry id="Gallager.1962"><article>
@@ -289,7 +289,7 @@
   <journal><value key="iretit"/></journal>
   <year>1962</year>
   <volume>IT-8</volume>
-  <pages>21–28</pages>
+  <pages>21-28</pages>
   <month>January</month>
 </article></entry>
 <entry id="TSSFC04"><article>
@@ -306,7 +306,7 @@
   <year>2004</year>
   <volume>50</volume>
   <number>12</number>
-  <pages>2966–2984</pages>
+  <pages>2966-2984</pages>
   <month>December</month>
 </article></entry>
 </file>
