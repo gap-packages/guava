@@ -149,7 +149,7 @@ starting with version 3.10, <Package>GUAVA</Package> has been maintained
 by Joe Fields.
 For further details, see the CHANGES file in the
 <Package>GUAVA</Package> directory, also available at 
-<URL>https://osj1961.github.io/guava/CHANGES.guava</URL>.
+<URL>https://gap-packages.github.io/guava/CHANGES.guava</URL>.
    <P/>
 <P/>This documentation was prepared with the 
 <Package>GAPDoc</Package> package of Frank L&#xfc;beck and Max Neunh&#xf6;ffer. 
@@ -161,10 +161,10 @@ Please send bug reports, suggestions and other comments about
 <Email>support@gap-system.org</Email>. Currently known bugs and 
 suggested <Package>GUAVA</Package> projects are listed on the
 bugs and projects web page
-<URL>https://osj1961.github.io/guava/guava2do.html</URL>.
+<URL>https://gap-packages.github.io/guava/guava2do.html</URL>.
 Older releases and further history can be found on the 
 <Package>GUAVA</Package> web page
-<URL>https://osj1961.github.io/guava/</URL>.
+<URL>https://gap-packages.github.io/guava/</URL>.
 <P/>
 <E>Contributors</E>: Other than the authors listed on the title page,
 the following people have contributed code to the <Package>GUAVA</Package> 
