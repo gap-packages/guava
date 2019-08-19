@@ -365,6 +365,7 @@ function (C, r)
     else
         pol := Derivative(sigma);
         Fp := One(F)*(x^n-1);
+	Print(ErrorLocator, "\n");
         ErrorEvaluator := List(ErrorLocator,i->
                               Value(rnew,a^-i)/Value(pol, a^-i));
         pol := Sum(List([1..Length(ErrorLocator)], i->
