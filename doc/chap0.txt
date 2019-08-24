@@ -68,7 +68,7 @@
   [5XGUAVA[105X; if not, write to the Free Software Foundation, Inc., 59 Temple Place,
   Suite 330, Boston, MA 02111-1307 USA[133X
   
-  [33X[0;0YFor more details, see [7Xhttp://www.fsf.org/licenses/gpl.html[107X.[133X
+  [33X[0;0YFor more details, see [7Xhttps://www.fsf.org/licenses/gpl.html[107X.[133X
   
   [33X[0;0YFor  many  years  [5XGUAVA[105X  has been released along with the ``backtracking'' C
   programs of J. Leon. In one of his *.c files the following statements occur:
@@ -109,7 +109,7 @@
   binary codes have been updated. From 2009, starting with version 3.10, [5XGUAVA[105X
   has been maintained by Joe Fields. For further details, see the CHANGES file
   in       the       [5XGUAVA[105X       directory,       also       available      at
-  [7Xhttp://osj1961.github.io/guava/CHANGES.guava[107X.[133X
+  [7Xhttps://gap-packages.github.io/guava/CHANGES.guava[107X.[133X
   
   [33X[0;0YThis  documentation was prepared with the [5XGAPDoc[105X package of Frank Lübeck and
   Max  Neunhöffer.  The  conversion from TeX to [5XGAPDoc[105X's XML was done by David
@@ -118,8 +118,9 @@
   [33X[0;0YPlease  send  bug  reports,  suggestions  and  other comments about [5XGUAVA[105X to
   [7Xmailto:support@gap-system.org[107X.  Currently  known  bugs  and  suggested [5XGUAVA[105X
   projects    are    listed    on    the    bugs   and   projects   web   page
-  [7Xhttp://osj1961.github.io/guava/guava2do.html[107X.  Older  releases  and  further
-  history can be found on the [5XGUAVA[105X web page [7Xhttp://osj1961.github.io/guava/[107X.[133X
+  [7Xhttps://gap-packages.github.io/guava/guava2do.html[107X.   Older   releases   and
+  further    history    can    be    found    on    the    [5XGUAVA[105X    web   page
+  [7Xhttps://gap-packages.github.io/guava/[107X.[133X
   
   [33X[0;0Y[13XContributors[113X: Other than the authors listed on the title page, the following
   people  have  contributed code to the [5XGUAVA[105X project: Alexander Hulpke, Steve

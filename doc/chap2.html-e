@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<title>GAP (guava) - Chapter 2: A First Tutorial in GUAVA</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<meta name="generator" content="GAPDoc2HTML" />
+<link rel="stylesheet" type="text/css" href="manual.css" />
+<script src="manual.js" type="text/javascript"></script>
+<script type="text/javascript">overwriteStyle();</script>
+</head>
+<body class="chap2"  onload="jscontent()">
+
+
+<div class="chlinktop"><span class="chlink1">Goto Chapter: </span><a href="chap0.html">Top</a>  <a href="chap1.html">1</a>  <a href="chap2.html">2</a>  <a href="chap3.html">3</a>  <a href="chap4.html">4</a>  <a href="chap5.html">5</a>  <a href="chap6.html">6</a>  <a href="chap7.html">7</a>  <a href="chap8.html">8</a>  <a href="chap9.html">9</a>  <a href="chapBib.html">Bib</a>  <a href="chapInd.html">Ind</a>  </div>
+
+<div class="chlinkprevnexttop">&nbsp;<a href="chap0.html">[Top of Book]</a>&nbsp;  <a href="chap0.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap1.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap3.html">[Next Chapter]</a>&nbsp;  </div>
+
+<p id="mathjaxlink" class="pcenter"><a href="chap2_mj.html">[MathJax on]</a></p>
+<p><a id="X81904A7583751067" name="X81904A7583751067"></a></p>
+<div class="ChapSects"><a href="chap2.html#X81904A7583751067">2 <span class="Heading">A First Tutorial in <strong class="pkg">GUAVA</strong></span></a>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap2.html#X7B4C487180E9CBCD">2.1 <span class="Heading">Working with codewords</span></a>
+</span>
+</div>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap2.html#X7DEC2B677A1F2B03">2.2 <span class="Heading">Calculations with codes</span></a>
+</span>
+</div>
+</div>
+
+<h3>2 <span class="Heading">A First Tutorial in <strong class="pkg">GUAVA</strong></span></h3>
+
+<p>An error-correcting code is essentially just a subset of the set of all possible messages of a given length over some finite "alphabet."</p>
+
+<p>In algebraic coding theory, the "alphabet" is usually some finite field (very often GF(2)) and frequently the error-correcting code is chosen to be a vector subspace of the space of all row vectors of some fixed length <span class="SimpleMath">n</span>. Such codes are known as <em>Linear Codes</em>, but, however a code is defined the point is to have a collection of "codewords" that are said to be "in the code" and any other word (row vectors that are <em>not</em> "in the code") will be assumed to be a codeword that has been mangled by the addition of noise.</p>
+
+<p>When a message is received that is not a codeword, we ask ourselves the question "Which codeword is closest to this message I've received?" In other words we make the presumption that the received message is actually a codeword that has been changed in a relatively small number of positions -- and <em>we put them back the way they were supposed to be!</em></p>
+
+<p>That process is called "decoding." Developing codes that have efficient decoding algorithms is one of the central problems of algebraic coding theory.</p>
+
+<p><a id="X7B4C487180E9CBCD" name="X7B4C487180E9CBCD"></a></p>
+
+<h4>2.1 <span class="Heading">Working with codewords</span></h4>
+
+<p>So let's play around a bit.</p>
+
+<p>Start <strong class="pkg">GAP</strong> in a terminal window, then issue the command</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LoadPackage("guava");</span>
+</pre></div>
+
+<p><strong class="pkg">GUAVA</strong> can construct codewords in a variety of ways. One of the most typical cases is for a codeword to consist of binary digits. In that case we say that "the code is over GF(2)" and codewords can be constructed as follows:</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">c1:=Codeword("101010101");</span>
+[ 1 0 1 0 1 0 1 0 1 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">v:=Z(2)*[1,1,1,1,1,1,1,1,1];</span>
+[ Z(2)^0, Z(2)^0, Z(2)^0, Z(2)^0, Z(2)^0, Z(2)^0, Z(2)^0, Z(2)^0, Z(2)^0 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">c2:=Codeword(v);</span>
+[ 1 1 1 1 1 1 1 1 1 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">c3:=c1+c2;</span>
+[ 0 1 0 1 0 1 0 1 0 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Weight(c1);</span>
+5
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Weight(c2);</span>
+9
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Weight(c3);</span>
+4
+</pre></div>
+
+<p>The previous excerpt from a <strong class="pkg">GAP</strong> session shows that codewords can be constructed from quoted strings or from vectors whose entries lie in a finite field. We also see that codewords can be added together and that there is a function called <code class="file">Weight</code> which (if it isn't obvious) tells us how many entries in a codeword are non-zero.</p>
+
+<p>The <em>Hamming distance</em> is used extensively in coding theory. It tells us in how many positions two codewords differ. In <strong class="pkg">GUAVA</strong> the Hamming distance is implemented by a function called <code class="file">DistanceCodeword</code>.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">DistanceCodeword(c1, c2);</span>
+4
+</pre></div>
+
+<p>Note that the Hamming distance between <code class="code">c1</code> and <code class="code">c2</code> happens to give the same value as the weight of their sum. This is no coincidence and has to do with the curious fact that in GF(2) adding and subtracting are the same thing.</p>
+
+<p>A codeword can also be constructed using a polynomial. Indeed, the internal representation of a codeword requires either a polynomial or a vector. There are <strong class="pkg">GUAVA</strong> functions that allow one to switch back and forth between the two representations.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">x:=Indeterminate(GF(2));</span>
+x_1
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">c4:=Codeword(x^7+x^2+x+1);</span>
+x^7 + x^2 + x + 1
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">VectorCodeword(c4);</span>
+&lt;an immutable GF2 vector of length 8&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display(last);</span>
+[ Z(2)^0, Z(2)^0, Z(2)^0, 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), Z(2)^0 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">c5:=Codeword([1,0,0,0,0,0,1]);</span>
+[ 1 0 0 0 0 0 1 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PolyCodeword(c5);</span>
+x_1^6+Z(2)^0
+</pre></div>
+
+<p><a id="X7DEC2B677A1F2B03" name="X7DEC2B677A1F2B03"></a></p>
+
+<h4>2.2 <span class="Heading">Calculations with codes</span></h4>
+
+<p>A code is fundamentally just a collection of codewords. Sometimes a code is merely a <em>set</em> of codewords. Other times a code will be the vector space generated by some small set of codewords.</p>
+
+<p>First let's build a code that is merely a set:</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">l:=["111000", "011100", "001110", "000111", "100011", "110001", "000000",$</span>
+[ "111000", "011100", "001110", "000111", "100011", "110001", "000000", 
+  "111111" ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m:=Codeword(l,6,GF(2));    </span>
+[ [ 1 1 1 0 0 0 ], [ 0 1 1 1 0 0 ], [ 0 0 1 1 1 0 ], [ 0 0 0 1 1 1 ], 
+  [ 1 0 0 0 1 1 ], [ 1 1 0 0 0 1 ], [ 0 0 0 0 0 0 ], [ 1 1 1 1 1 1 ] ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C1:=ElementsCode(m, GF(2));</span>
+a (6,8,1..6)2..3 user defined unrestricted code over GF(2)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsLinearCode(C1);</span>
+false
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">WeightDistribution(C1);</span>
+[ 1, 0, 0, 6, 0, 0, 1 ]
+</pre></div>
+
+<p>In this example we first wrote out a list of strings, then converted them into codewords over GF(2). The call to <code class="file">ElementsCode</code> constructs a code from a list of elements. It is possible that the set of codewords we used actually is a vector space, but the call to <code class="file">IsLinearCode</code> says no. Finally the last function tells us that there are 6 codewords of weight 3, and one each of weights 0 and 6 in this code.</p>
+
+<p>A very useful feature of <strong class="pkg">GUAVA</strong> is the ability to construct random codes:</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C:= RandomLinearCode(12,5,GF(2));</span>
+a  [12,5,?] randomly generated code over GF(2)
+</pre></div>
+
+<p>An error-correcting code's properties are fairly well captured by three numbers which traditionally are referred to using the letters <span class="SimpleMath">n</span>, <span class="SimpleMath">k</span> and <span class="SimpleMath">d</span>. We ask for a random code by specifying <span class="SimpleMath">n</span> (the wordlength), and <span class="SimpleMath">k</span> (the code's dimension) as well as the field which serves as the alphabet for the code.</p>
+
+<p>One of the most salient features of a code (a feature that determines how good it will be at correcting errors) is its minimum weight, <span class="SimpleMath">d</span>. This is the smallest weight of any nonzero word in the code. If we wish to correct <span class="SimpleMath">m</span> errors we will need to have a minimum weight of at least <span class="SimpleMath">2m+1</span>.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">MinimumWeight(C);</span>
+3
+</pre></div>
+
+<p>This particular code would be capable of correcting single bit errors.</p>
+
+<p>Finally, one might be interested in the entire distribution of the weights of the words in a code. The weight distribution is a vector that tells us how many words there are in a code with each possible weight between <span class="SimpleMath">0</span> and <span class="SimpleMath">n</span>.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">WeightDistribution(C);</span>
+[ 1, 0, 0, 2, 3, 6, 7, 6, 4, 2, 1, 0, 0 ]
+</pre></div>
+
+
+<div class="chlinkprevnextbot">&nbsp;<a href="chap0.html">[Top of Book]</a>&nbsp;  <a href="chap0.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap1.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap3.html">[Next Chapter]</a>&nbsp;  </div>
+
+
+<div class="chlinkbot"><span class="chlink1">Goto Chapter: </span><a href="chap0.html">Top</a>  <a href="chap1.html">1</a>  <a href="chap2.html">2</a>  <a href="chap3.html">3</a>  <a href="chap4.html">4</a>  <a href="chap5.html">5</a>  <a href="chap6.html">6</a>  <a href="chap7.html">7</a>  <a href="chap8.html">8</a>  <a href="chap9.html">9</a>  <a href="chapBib.html">Bib</a>  <a href="chapInd.html">Ind</a>  </div>
+
+<hr />
+<p class="foot">generated by <a href="http://www.math.rwth-aachen.de/~Frank.Luebeck/GAPDoc">GAPDoc2HTML</a></p>
+</body>
+</html>

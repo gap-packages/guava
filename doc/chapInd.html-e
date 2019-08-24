@@ -1,0 +1,434 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<title>GAP (guava) - Index</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<meta name="generator" content="GAPDoc2HTML" />
+<link rel="stylesheet" type="text/css" href="manual.css" />
+<script src="manual.js" type="text/javascript"></script>
+<script type="text/javascript">overwriteStyle();</script>
+</head>
+<body class="chapInd"  onload="jscontent()">
+
+
+<div class="chlinktop"><span class="chlink1">Goto Chapter: </span><a href="chap0.html">Top</a>  <a href="chap1.html">1</a>  <a href="chap2.html">2</a>  <a href="chap3.html">3</a>  <a href="chap4.html">4</a>  <a href="chap5.html">5</a>  <a href="chap6.html">6</a>  <a href="chap7.html">7</a>  <a href="chap8.html">8</a>  <a href="chap9.html">9</a>  <a href="chapBib.html">Bib</a>  <a href="chapInd.html">Ind</a>  </div>
+
+<div class="chlinkprevnexttop">&nbsp;<a href="chap0.html">[Top of Book]</a>&nbsp;  <a href="chap0.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chapBib.html">[Previous Chapter]</a>&nbsp;  </div>
+
+<p id="mathjaxlink" class="pcenter"><a href="chapInd_mj.html">[MathJax on]</a></p>
+<p><a id="X83A0356F839C696F" name="X83A0356F839C696F"></a></p>
+
+<div class="index">
+<h3>Index</h3>
+
+&lt; &gt;  <a href="chap3.html#X82D4BC7380741DAE">3.2-1</a>    <a href="chap4.html#X8686D5FA839F1A3D">4.1-1</a>  <br />
+<span class="SimpleMath">A(n,d)</span>  <a href="chap7.html#X8301FA9F7C6C7445">7.1-7</a>  <br />
+<span class="SimpleMath">GF(p)</span>  <a href="chap8.html#X87C3D1B984960984">8.2</a>  <br />
+<span class="SimpleMath">GF(q)</span>  <a href="chap8.html#X87C3D1B984960984">8.2</a>  <br />
+<span class="SimpleMath">t(n,k)</span>  <a href="chap4.html#X7A679B0A7816B030">4.8-7</a>  <br />
+<code class="func">\*</code>, for codes  <a href="chap4.html#X7EFA08EE7BA22261">4.2-2</a>  <br />
+&nbsp;&nbsp;&nbsp;&nbsp;for message and code  <a href="chap4.html#X84D8B18F7C494A58">4.2-3</a>  <br />
+<code class="func">\+</code>, for codes  <a href="chap4.html#X82E2E5127CD25168">4.2-1</a>  <br />
+&nbsp;&nbsp;&nbsp;&nbsp;for codeword and code  <a href="chap3.html#X86DC36217EC11723">3.3-3</a>  <br />
+&nbsp;&nbsp;&nbsp;&nbsp;for codewords  <a href="chap3.html#X84BD38C87F3956FB">3.3-1</a>  <br />
+<code class="func">\-</code>, for codewords  <a href="chap3.html#X8692958781AF6CA8">3.3-2</a>  <br />
+<code class="func">\=</code>, for codes  <a href="chap4.html#X8686D5FA839F1A3D">4.1-1</a>  <br />
+&nbsp;&nbsp;&nbsp;&nbsp;for codewords  <a href="chap3.html#X82D4BC7380741DAE">3.2-1</a>  <br />
+acceptable coordinate  <a href="chap7.html#X7ED2EF368203AF47">7.4-2</a>    <a href="chap7.html#X7D24F8BF7F9A7BF1">7.4-3</a>  <br />
+<code class="func">AClosestVectorComb..MatFFEVecFFECoords</code>  <a href="chap8.html#X870DE258833C5AA0">8.1-2</a>  <br />
+<code class="func">AClosestVectorCombinationsMatFFEVecFFE</code>  <a href="chap8.html#X82E5987E81487D18">8.1-1</a>  <br />
+<code class="func">ActionMoebiusTransformationOnDivisorP1 </code>  <a href="chap5.html#X7E48F9C67E7FB7B5">5.7-18</a>  <br />
+<code class="func">ActionMoebiusTransformationOnFunction </code>  <a href="chap5.html#X85A0419580ED0391">5.7-17</a>  <br />
+<code class="func">AddedElementsCode</code>  <a href="chap6.html#X784E1255874FCA8A">6.1-8</a>  <br />
+affine code  <a href="chap4.html#X7B6DB8CC84FCAC1C">4.3-13</a>  <br />
+<code class="func">AffineCurve</code>  <a href="chap5.html#X802DD9FB79A9ACA7">5.7-1</a>  <br />
+<code class="func">AffinePointsOnCurve</code>  <a href="chap5.html#X857EFE567C05C981">5.7-2</a>  <br />
+<code class="func">AlternantCode</code>  <a href="chap5.html#X851592C7811D3D2A">5.2-6</a>  <br />
+<code class="func">AmalgamatedDirectSumCode</code>  <a href="chap6.html#X7E17107686A845DB">6.2-7</a>  <br />
+<code class="func">AreMOLS</code>  <a href="chap7.html#X81B9B40B7B2D97D5">7.3-13</a>  <br />
+<code class="func">AsSSortedList</code>  <a href="chap4.html#X856D927378C33548">4.5-5</a>  <br />
+<code class="func">AugmentedCode</code>  <a href="chap6.html#X8134BE2B8478BE8A">6.1-6</a>  <br />
+<code class="func">AutomorphismGroup</code>  <a href="chap4.html#X87677B0787B4461A">4.4-3</a>  <br />
+<code class="func">BCHCode</code>  <a href="chap5.html#X7C6BB07C87853C00">5.5-4</a>  <br />
+<code class="func">BestKnownLinearCode</code>  <a href="chap5.html#X871508567CB34D96">5.2-14</a>  <br />
+<code class="func">BinaryGolayCode</code>  <a href="chap5.html#X80ED89C079CD0D09">5.4-1</a>  <br />
+<code class="func">BitFlipDecoder</code>  <a href="chap4.html#X80E17FA27DCAB676">4.10-5</a>  <br />
+<code class="func">BlockwiseDirectSumCode</code>  <a href="chap6.html#X7D8981AF7DFE9814">6.2-8</a>  <br />
+Bose distance  <a href="chap5.html#X7C6BB07C87853C00">5.5-4</a>  <br />
+bound, Gilbert-Varshamov lower  <a href="chap7.html#X7FDF54BA81115D88">7.1-9</a>  <br />
+bound, sphere packing lower  <a href="chap7.html#X7CF15D2084499869">7.1-10</a>  <br />
+bounds, Elias  <a href="chap7.html#X7A26E2537DFF4409">7.1-4</a>  <br />
+bounds, Griesmer  <a href="chap7.html#X86A5A7C67F625A40">7.1-5</a>  <br />
+bounds, Hamming  <a href="chap7.html#X8673277C7F6C04C3">7.1-1</a>  <br />
+bounds, Johnson  <a href="chap7.html#X828095537C91FDFA">7.1-2</a>  <br />
+bounds, Plotkin  <a href="chap7.html#X82EBFAAB7F5BFD4A">7.1-3</a>  <br />
+bounds, Singleton  <a href="chap7.html#X87C753EB840C34D3">7.1</a>  <br />
+bounds, sphere packing bound  <a href="chap7.html#X8673277C7F6C04C3">7.1-1</a>  <br />
+<code class="func">BoundsCoveringRadius</code>  <a href="chap7.html#X8320D1C180A1AAAD">7.2-1</a>  <br />
+<code class="func">BoundsMinimumDistance</code>  <a href="chap7.html#X7B3858B27A9E509A">7.1-13</a>  <br />
+<code class="func">BZCode</code>  <a href="chap6.html#X790C614985BFAE16">6.2-11</a>  <br />
+<code class="func">BZCodeNC</code>  <a href="chap6.html#X820327D6854A50B5">6.2-12</a>  <br />
+check polynomial  <a href="chap4.html#X85FDDF0B7B7D87FB">4.</a>    <a href="chap5.html#X8366CC3685F0BC85">5.5</a>  <br />
+<code class="func">CheckMat</code>  <a href="chap4.html#X85D4B26E7FB38D57">4.7-2</a>  <br />
+<code class="func">CheckMatCode</code>  <a href="chap5.html#X848D3F7B805DEB66">5.2-3</a>  <br />
+<code class="func">CheckMatCodeMutable</code>  <a href="chap5.html#X7CDDDFE47A10A008">5.2-2</a>  <br />
+<code class="func">CheckPol</code>  <a href="chap4.html#X7C45AA317BB1195F">4.7-4</a>  <br />
+<code class="func">CheckPolCode</code>  <a href="chap5.html#X82440B78845F7F6E">5.5-2</a>  <br />
+<code class="func">CirculantMatrix</code>  <a href="chap7.html#X85E526367878F72A">7.5-17</a>  <br />
+code  <a href="chap4.html#X85FDDF0B7B7D87FB">4.</a>  <br />
+code, <span class="SimpleMath">(n,M,d)</span>  <a href="chap4.html#X85FDDF0B7B7D87FB">4.</a>  <br />
+code, <span class="SimpleMath">[n, k, d]r</span>  <a href="chap4.html#X85FDDF0B7B7D87FB">4.</a>  <br />
+code, AG  <a href="chap5.html#X7AE2B2CD7C647990">5.7</a>  <br />
+code, alternant  <a href="chap5.html#X801C88D578DA6ACA">5.2-5</a>  <br />
+code, Bose-Chaudhuri-Hockenghem  <a href="chap5.html#X818F0E6583E01D4B">5.5-3</a>  <br />
+code, conference  <a href="chap5.html#X86755AAC83A0AF4B">5.1-2</a>  <br />
+code, Cordaro-Wagner  <a href="chap5.html#X7A38EB3178961F3E">5.2-9</a>  <br />
+code, cyclic  <a href="chap4.html#X85FDDF0B7B7D87FB">4.</a>  <br />
+code, Davydov  <a href="chap5.html#X873950F67D4A9184">5.3-2</a>  <br />
+code, doubly-even  <a href="chap4.html#X8358D43981EBE970">4.3-10</a>  <br />
+code, element test  <a href="chap4.html#X87BDB89B7AAFE8AD">4.3-1</a>  <br />
+code, elements of  <a href="chap4.html#X85FDDF0B7B7D87FB">4.</a>  <br />
+code, evaluation  <a href="chap5.html#X850A28C579137220">5.6</a>  <br />
+code, even  <a href="chap4.html#X7CE150ED7C3DC455">4.3-12</a>  <br />
+code, Fire  <a href="chap5.html#X7F4C3AD2795A8D7A">5.5-9</a>  <br />
+code, Gabidulin  <a href="chap5.html#X858721967BE44000">5.3</a>  <br />
+code, Golay (binary)  <a href="chap5.html#X81F6E4A785F368B0">5.4</a>  <br />
+code, Golay (ternary)  <a href="chap5.html#X84520C7983538806">5.4-2</a>  <br />
+code, Goppa (classical)  <a href="chap5.html#X851592C7811D3D2A">5.2-6</a>  <br />
+code, greedy  <a href="chap5.html#X816353397F25B62E">5.1-6</a>  <br />
+code, Hadamard  <a href="chap5.html#X81AACBDD86E89D7D">5.1-1</a>  <br />
+code, Hamming  <a href="chap5.html#X848D3F7B805DEB66">5.2-3</a>  <br />
+code, linear  <a href="chap4.html#X85FDDF0B7B7D87FB">4.</a>  <br />
+code, maximum distance separable  <a href="chap4.html#X789380D28018EC3F">4.3-7</a>  <br />
+code, Nordstrom-Robinson  <a href="chap5.html#X7D87DD6380B2CE69">5.1-5</a>  <br />
+code, perfect  <a href="chap4.html#X85E3BD26856424F7">4.3-6</a>  <br />
+code, Reed-Muller  <a href="chap5.html#X7DECB0A57C798583">5.2-4</a>  <br />
+code, Reed-Solomon  <a href="chap5.html#X7C6BB07C87853C00">5.5-4</a>  <br />
+code, self-dual  <a href="chap4.html#X80166D8D837FEB58">4.3-8</a>  <br />
+code, self-orthogonal  <a href="chap4.html#X7B2A0CC481D2366F">4.3-9</a>  <br />
+code, singly-even  <a href="chap4.html#X79ACAEF5865414A0">4.3-11</a>  <br />
+code, Srivastava  <a href="chap5.html#X7EE808BB7D1E487A">5.2-7</a>  <br />
+code, subcode  <a href="chap4.html#X79CA175481F8105F">4.3-2</a>  <br />
+code, Tombak  <a href="chap5.html#X7F5BE77B7F343182">5.3-3</a>  <br />
+code, toric  <a href="chap5.html#X7EE68B58872D7E82">5.6-4</a>  <br />
+code, unrestricted  <a href="chap4.html#X85FDDF0B7B7D87FB">4.</a>  <br />
+<code class="func">CodeDensity</code>  <a href="chap7.html#X7903286078F8051B">7.5-4</a>  <br />
+<code class="func">CodeDistanceEnumerator</code>  <a href="chap7.html#X84DA928083B103A0">7.5-2</a>  <br />
+<code class="func">CodeIsomorphism</code>  <a href="chap4.html#X874DED8E86BC180B">4.4-2</a>  <br />
+<code class="func">CodeMacWilliamsTransform</code>  <a href="chap7.html#X84B2BE66780EFBF9">7.5-3</a>  <br />
+<code class="func">CodeNorm</code>  <a href="chap7.html#X7ED2EF368203AF47">7.4-2</a>  <br />
+codes, addition  <a href="chap4.html#X82E2E5127CD25168">4.2-1</a>  <br />
+codes, decoding  <a href="chap4.html#X8744BA5E78BCF3F9">4.2-4</a>  <br />
+codes, direct sum  <a href="chap4.html#X82E2E5127CD25168">4.2-1</a>  <br />
+codes, encoding  <a href="chap4.html#X84D8B18F7C494A58">4.2-3</a>  <br />
+codes, product  <a href="chap4.html#X7EFA08EE7BA22261">4.2-2</a>  <br />
+<code class="func">CodeWeightEnumerator</code>  <a href="chap7.html#X871286437DE7A6A4">7.5-1</a>  <br />
+<code class="func">Codeword</code>  <a href="chap3.html#X7B9E353D852851AA">3.1-1</a>  <br />
+<code class="func">CodewordNr</code>  <a href="chap3.html#X7E7ED91C79BF3EF3">3.1-2</a>  <br />
+codewords, addition  <a href="chap3.html#X84BD38C87F3956FB">3.3-1</a>  <br />
+codewords, cosets  <a href="chap3.html#X86DC36217EC11723">3.3-3</a>  <br />
+codewords, subtraction  <a href="chap3.html#X8692958781AF6CA8">3.3-2</a>  <br />
+<code class="func">CoefficientMultivariatePolynomial</code>  <a href="chap7.html#X7E9021697A61A60F">7.6-4</a>  <br />
+<code class="func">CoefficientToPolynomial</code>  <a href="chap7.html#X7C8C1E6A7E3497F0">7.6-8</a>  <br />
+conference matrix  <a href="chap5.html#X8122BA417F705997">5.1-3</a>  <br />
+<code class="func">ConferenceCode</code>  <a href="chap5.html#X8122BA417F705997">5.1-3</a>  <br />
+<code class="func">ConstantWeightSubcode</code>  <a href="chap6.html#X873EA5EE85699832">6.1-18</a>  <br />
+<code class="func">ConstructionBCode</code>  <a href="chap6.html#X7E92DC9581F96594">6.1-13</a>  <br />
+<code class="func">ConstructionXCode</code>  <a href="chap6.html#X7C37D467791CE99B">6.2-9</a>  <br />
+<code class="func">ConstructionXXCode</code>  <a href="chap6.html#X7B50943B8014134F">6.2-10</a>  <br />
+<code class="func">ConversionFieldCode</code>  <a href="chap6.html#X81FE1F387DFCCB22">6.1-15</a>  <br />
+<code class="func">ConwayPolynomial</code>  <a href="chap8.html#X7C2425A786F09054">8.2-1</a>  <br />
+<code class="func">CoordinateNorm</code>  <a href="chap7.html#X8032E53078264ABB">7.4-1</a>  <br />
+<code class="func">CordaroWagnerCode</code>  <a href="chap5.html#X87F7CB8B7A8BE624">5.2-10</a>  <br />
+coset  <a href="chap3.html#X86DC36217EC11723">3.3-3</a>  <br />
+<code class="func">CosetCode</code>  <a href="chap6.html#X8799F4BF81B0842B">6.1-17</a>  <br />
+covering code  <a href="chap4.html#X7A679B0A7816B030">4.8-7</a>  <br />
+<code class="func">CoveringRadius</code>  <a href="chap4.html#X7A195E317D2AB7CE">4.8-8</a>  <br />
+cyclic  <a href="chap5.html#X7BFEDA52835A601D">5.5-17</a>  <br />
+<code class="func">CyclicCodes</code>  <a href="chap5.html#X82FA9F65854D98A6">5.5-14</a>  <br />
+<code class="func">CyclicMDSCode</code>  <a href="chap5.html#X7BFEDA52835A601D">5.5-17</a>  <br />
+<code class="func">CyclotomicCosets</code>  <a href="chap7.html#X7AEA9F807E6FFEFF">7.5-12</a>  <br />
+<code class="func">DavydovCode</code>  <a href="chap5.html#X7F5BE77B7F343182">5.3-3</a>  <br />
+<code class="func">Decode</code>  <a href="chap4.html#X7A42FF7D87FC34AC">4.10-1</a>  <br />
+<code class="func">Decodeword</code>  <a href="chap4.html#X7D870C9387C47D9F">4.10-2</a>  <br />
+<code class="func">DecreaseMinimumDistanceUpperBound</code>  <a href="chap4.html#X823B9A797EE42F6D">4.8-6</a>  <br />
+defining polynomial  <a href="chap8.html#X87C3D1B984960984">8.2</a>  <br />
+degree  <a href="chap5.html#X865FE28D828C1EAD">5.7-7</a>  <br />
+<code class="func">DegreeMultivariatePolynomial</code>  <a href="chap7.html#X80433A4B792880EF">7.6-2</a>  <br />
+<code class="func">DegreesMonomialTerm</code>  <a href="chap7.html#X8431985183B63BB7">7.6-9</a>  <br />
+<code class="func">DegreesMultivariatePolynomial</code>  <a href="chap7.html#X83F44E397C56F2E0">7.6-3</a>  <br />
+density of a code  <a href="chap7.html#X84B2BE66780EFBF9">7.5-3</a>  <br />
+<code class="func">Dimension</code>  <a href="chap4.html#X7E6926C6850E7C4E">4.5-4</a>  <br />
+<code class="func">DirectProductCode</code>  <a href="chap6.html#X7BFBBA5784C293C1">6.2-3</a>  <br />
+<code class="func">DirectSumCode</code>  <a href="chap6.html#X79E00D3A8367D65A">6.2-1</a>  <br />
+<code class="func">Display</code>  <a href="chap4.html#X83A5C59278E13248">4.6-3</a>  <br />
+<code class="func">DisplayBoundsInfo</code>  <a href="chap4.html#X7CD08C8C780543C4">4.6-4</a>  <br />
+distance  <a href="chap4.html#X871FD301820717A4">4.9-3</a>  <br />
+<code class="func">DistanceCodeword</code>  <a href="chap3.html#X7CDA1B547D55E6FB">3.6-2</a>  <br />
+<code class="func">DistancesDistribution</code>  <a href="chap4.html#X87AD54F87C5EE77E">4.9-4</a>  <br />
+<code class="func">DistancesDistributionMatFFEVecFFE</code>  <a href="chap8.html#X85135CEB86E61D49">8.1-3</a>  <br />
+<code class="func">DistancesDistributionVecFFEsVecFFE</code>  <a href="chap8.html#X7F2F630984A9D3D6">8.1-4</a>  <br />
+<code class="func">DistanceVecFFE</code>  <a href="chap8.html#X85AA5C6587559C1C">8.1-6</a>  <br />
+divisor  <a href="chap5.html#X8572A3037DA66F88">5.7-4</a>  <br />
+<code class="func">DivisorAddition </code>  <a href="chap5.html#X8626E2B57D01F2DC">5.7-6</a>  <br />
+<code class="func">DivisorAutomorphismGroupP1 </code>  <a href="chap5.html#X823386037F450B0E">5.7-20</a>  <br />
+<code class="func">DivisorDegree </code>  <a href="chap5.html#X865FE28D828C1EAD">5.7-7</a>  <br />
+<code class="func">DivisorGCD </code>  <a href="chap5.html#X857B89847A649A26">5.7-11</a>  <br />
+<code class="func">DivisorIsZero </code>  <a href="chap5.html#X8688C0E187B5C7DB">5.7-9</a>  <br />
+<code class="func">DivisorLCM </code>  <a href="chap5.html#X82231CF08073695F">5.7-12</a>  <br />
+<code class="func">DivisorNegate </code>  <a href="chap5.html#X789DC358819A8F54">5.7-8</a>  <br />
+<code class="func">DivisorOfRationalFunctionP1 </code>  <a href="chap5.html#X856DDA207EDDF256">5.7-14</a>  <br />
+<code class="func">DivisorOnAffineCurve</code>  <a href="chap5.html#X79742B7183051D99">5.7-5</a>  <br />
+<code class="func">DivisorsEqual </code>  <a href="chap5.html#X816A07997D9A7075">5.7-10</a>  <br />
+<code class="func">DivisorsMultivariatePolynomial</code>  <a href="chap7.html#X860EF39B841380A1">7.6-10</a>  <br />
+doubly-even  <a href="chap4.html#X7B2A0CC481D2366F">4.3-9</a>  <br />
+<code class="func">DualCode</code>  <a href="chap6.html#X799B12F085ACB609">6.1-14</a>  <br />
+<code class="func">ElementsCode</code>  <a href="chap5.html#X81AACBDD86E89D7D">5.1-1</a>  <br />
+encoder map  <a href="chap4.html#X84D8B18F7C494A58">4.2-3</a>  <br />
+<code class="func">EnlargedGabidulinCode</code>  <a href="chap5.html#X873950F67D4A9184">5.3-2</a>  <br />
+<code class="func">EnlargedTombakCode</code>  <a href="chap5.html#X7D6583347C0D4292">5.3-5</a>  <br />
+equivalent codes  <a href="chap4.html#X86442DCD7A0B2146">4.4</a>  <br />
+<code class="func">EvaluationBivariateCode</code>  <a href="chap5.html#X8422A310854C09B0">5.7-23</a>  <br />
+<code class="func">EvaluationBivariateCodeNC</code>  <a href="chap5.html#X7B6C2BED8319C811">5.7-24</a>  <br />
+<code class="func">EvaluationCode</code>  <a href="chap5.html#X78E078567D19D433">5.6-1</a>  <br />
+even  <a href="chap4.html#X79ACAEF5865414A0">4.3-11</a>  <br />
+<code class="func">EvenWeightSubcode</code>  <a href="chap6.html#X87691AB67FF5621B">6.1-3</a>  <br />
+<code class="func">ExhaustiveSearchCoveringRadius</code>  <a href="chap7.html#X7AD9F1D27C52BC0F">7.2-3</a>  <br />
+<code class="func">ExpurgatedCode</code>  <a href="chap6.html#X87E5849784BC60D2">6.1-5</a>  <br />
+<code class="func">ExtendedBinaryGolayCode</code>  <a href="chap5.html#X84520C7983538806">5.4-2</a>  <br />
+<code class="func">ExtendedCode</code>  <a href="chap6.html#X794679BE7F9EB5C1">6.1-1</a>  <br />
+<code class="func">ExtendedDirectSumCode</code>  <a href="chap6.html#X7A85F8AF8154D387">6.2-6</a>  <br />
+<code class="func">ExtendedReedSolomonCode</code>  <a href="chap5.html#X8730B90A862A3B3E">5.5-6</a>  <br />
+<code class="func">ExtendedTernaryGolayCode</code>  <a href="chap5.html#X81088A66816BCAE4">5.4-4</a>  <br />
+external distance  <a href="chap7.html#X80F8DFAD7D67CBEC">7.2-13</a>  <br />
+<code class="func">FerreroDesignCode</code>  <a href="chap5.html#X865534267C8E902A">5.2-11</a>  <br />
+<code class="func">FireCode</code>  <a href="chap5.html#X7F3B8CC8831DA0E4">5.5-10</a>  <br />
+<code class="func">FourNegacirculantSelfDualCode</code>  <a href="chap5.html#X7F40AF3B81C252DC">5.5-18</a>  <br />
+<code class="func">FourNegacirculantSelfDualCodeNC</code>  <a href="chap5.html#X87137A257E761291">5.5-19</a>  <br />
+<code class="func">GabidulinCode</code>  <a href="chap5.html#X79BE5D497CB2E59E">5.3-1</a>  <br />
+Gary code  <a href="chap7.html#X82899B64802A4BCE">7.3-1</a>  <br />
+<code class="func">GeneralizedCodeNorm</code>  <a href="chap7.html#X87039FD179AD3009">7.4-4</a>  <br />
+<code class="func">GeneralizedReedMullerCode</code>  <a href="chap5.html#X85B8699680B9D786">5.6-3</a>  <br />
+<code class="func">GeneralizedReedSolomonCode</code>  <a href="chap5.html#X810AB3DB844FFCE9">5.6-2</a>  <br />
+<code class="func">GeneralizedReedSolomonDecoderGao</code>  <a href="chap4.html#X7D48DE2A84474C6A">4.10-3</a>  <br />
+<code class="func">GeneralizedReedSolomonListDecoder</code>  <a href="chap4.html#X7CFF98D483502053">4.10-4</a>  <br />
+<code class="func">GeneralizedSrivastavaCode</code>  <a href="chap5.html#X7F9C0A727EE075B7">5.2-8</a>  <br />
+<code class="func">GeneralLowerBoundCoveringRadius</code>  <a href="chap7.html#X85D671F4824B4B0C">7.2-4</a>  <br />
+<code class="func">GeneralUpperBoundCoveringRadius</code>  <a href="chap7.html#X8638F5A67D6E50C1">7.2-5</a>  <br />
+generator polynomial  <a href="chap4.html#X85FDDF0B7B7D87FB">4.</a>    <a href="chap5.html#X8366CC3685F0BC85">5.5</a>  <br />
+<code class="func">GeneratorMat</code>  <a href="chap4.html#X817224657C9829C4">4.7-1</a>  <br />
+<code class="func">GeneratorMatCode</code>  <a href="chap5.html#X83F400A681CFC0D6">5.2-1</a>  <br />
+<code class="func">GeneratorPol</code>  <a href="chap4.html#X78E33C3A843B0261">4.7-3</a>  <br />
+<code class="func">GeneratorPolCode</code>  <a href="chap5.html#X853D34A5796CEB73">5.5-1</a>  <br />
+<code class="func">GenusCurve</code>  <a href="chap5.html#X857E36ED814A40B8">5.7-3</a>  <br />
+<code class="func">GoppaCode</code>  <a href="chap5.html#X7EE808BB7D1E487A">5.2-7</a>  <br />
+<code class="func">GoppaCodeClassical</code>  <a href="chap5.html#X8777388C7885E335">5.7-22</a>  <br />
+<code class="func">GOrbitPoint </code>  <a href="chap5.html#X8572A3037DA66F88">5.7-4</a>  <br />
+<code class="func">GrayMat</code>  <a href="chap7.html#X87AFE2C078031CE4">7.3-2</a>  <br />
+greatest common divisor  <a href="chap5.html#X857B89847A649A26">5.7-11</a>  <br />
+<code class="func">GreedyCode</code>  <a href="chap5.html#X7880D34485C60BAF">5.1-7</a>  <br />
+Griesmer code  <a href="chap7.html#X82366C277E218130">7.1-6</a>  <br />
+<code class="func">GuavaVersion</code>  <a href="chap7.html#X80171AA687FFDC70">7.6-6</a>  <br />
+Hadamard matrix  <a href="chap5.html#X86755AAC83A0AF4B">5.1-2</a>    <a href="chap7.html#X7E1E7C5287919CDB">7.3-3</a>  <br />
+<code class="func">HadamardCode</code>  <a href="chap5.html#X86755AAC83A0AF4B">5.1-2</a>  <br />
+<code class="func">HadamardMat</code>  <a href="chap7.html#X8014A1F181ECD8AA">7.3-4</a>  <br />
+Hamming metric  <a href="chap8.html#X7C9F4D657F9BA5A1">8.1-5</a>  <br />
+<code class="func">HammingCode</code>  <a href="chap5.html#X7DECB0A57C798583">5.2-4</a>  <br />
+<code class="func">HorizontalConversionFieldMat</code>  <a href="chap7.html#X8033E9A67BA155C8">7.3-10</a>  <br />
+hull  <a href="chap6.html#X78F0B1BC81FB109C">6.2-4</a>  <br />
+<code class="func">in</code>  <a href="chap4.html#X87BDB89B7AAFE8AD">4.3-1</a>  <br />
+<code class="func">IncreaseCoveringRadiusLowerBound</code>  <a href="chap7.html#X7881E03E812140F4">7.2-2</a>  <br />
+information bits  <a href="chap4.html#X8744BA5E78BCF3F9">4.2-4</a>  <br />
+<code class="func">InformationWord</code>  <a href="chap4.html#X8744BA5E78BCF3F9">4.2-4</a>  <br />
+<code class="func">InnerDistribution</code>  <a href="chap4.html#X871FD301820717A4">4.9-3</a>  <br />
+<code class="func">IntersectionCode</code>  <a href="chap6.html#X78F0B1BC81FB109C">6.2-4</a>  <br />
+<code class="func">IrreduciblePolynomialsNr</code>  <a href="chap7.html#X7A2B54EF868AA752">7.5-9</a>  <br />
+<code class="func">IsActionMoebiusTransformationOnDivisorDefinedP1 </code>  <a href="chap5.html#X79FD980E7B24DB9C">5.7-19</a>  <br />
+<code class="func">IsAffineCode</code>  <a href="chap4.html#X7AFD3844859B20BF">4.3-14</a>  <br />
+<code class="func">IsAlmostAffineCode</code>  <a href="chap4.html#X861D32FB81EF0D77">4.3-15</a>  <br />
+IsCheapConwayPolynomial  <a href="chap8.html#X7C2425A786F09054">8.2-1</a>  <br />
+<code class="func">IsCode</code>  <a href="chap4.html#X7F71186281DEA83A">4.3-3</a>  <br />
+<code class="func">IsCodeword</code>  <a href="chap3.html#X7F25479781E6E109">3.1-3</a>  <br />
+<code class="func">IsCoordinateAcceptable</code>  <a href="chap7.html#X7D24F8BF7F9A7BF1">7.4-3</a>  <br />
+<code class="func">IsCyclicCode</code>  <a href="chap4.html#X850C23D07C9A9B19">4.3-5</a>  <br />
+<code class="func">IsDoublyEvenCode</code>  <a href="chap4.html#X8358D43981EBE970">4.3-10</a>  <br />
+<code class="func">IsEquivalent</code>  <a href="chap4.html#X843034687D9C75B0">4.4-1</a>  <br />
+<code class="func">IsEvenCode</code>  <a href="chap4.html#X7CE150ED7C3DC455">4.3-12</a>  <br />
+<code class="func">IsFinite</code>  <a href="chap4.html#X808A4061809A6E67">4.5-1</a>  <br />
+<code class="func">IsGriesmerCode</code>  <a href="chap7.html#X8301FA9F7C6C7445">7.1-7</a>  <br />
+<code class="func">IsInStandardForm</code>  <a href="chap7.html#X7D4EDA0A854EBFEF">7.3-7</a>  <br />
+<code class="func">IsLatinSquare</code>  <a href="chap7.html#X7F34306B81DC2776">7.3-12</a>  <br />
+<code class="func">IsLinearCode</code>  <a href="chap4.html#X7B24748A7CE8D4B9">4.3-4</a>  <br />
+<code class="func">IsMDSCode</code>  <a href="chap4.html#X789380D28018EC3F">4.3-7</a>  <br />
+<code class="func">IsNormalCode</code>  <a href="chap7.html#X80283A2F7C8101BD">7.4-5</a>  <br />
+<code class="func">IsPerfectCode</code>  <a href="chap4.html#X85E3BD26856424F7">4.3-6</a>  <br />
+IsPrimitivePolynomial  <a href="chap8.html#X7ECC593583E68A6C">8.2-2</a>  <br />
+<code class="func">IsSelfComplementaryCode</code>  <a href="chap4.html#X7B6DB8CC84FCAC1C">4.3-13</a>  <br />
+<code class="func">IsSelfDualCode</code>  <a href="chap4.html#X80166D8D837FEB58">4.3-8</a>  <br />
+<code class="func">IsSelfOrthogonalCode</code>  <a href="chap4.html#X7B2A0CC481D2366F">4.3-9</a>  <br />
+<code class="func">IsSinglyEvenCode</code>  <a href="chap4.html#X79ACAEF5865414A0">4.3-11</a>  <br />
+<code class="func">IsSubset</code>  <a href="chap4.html#X79CA175481F8105F">4.3-2</a>  <br />
+<code class="func">Krawtchouk</code>  <a href="chap7.html#X7ACDC5377CD17451">7.5-6</a>  <br />
+<code class="func">KrawtchoukMat</code>  <a href="chap7.html#X82899B64802A4BCE">7.3-1</a>  <br />
+Latin square  <a href="chap7.html#X8033E9A67BA155C8">7.3-10</a>  <br />
+LDPC  <a href="chap5.html#X84F3673D7BBF5956">5.8</a>  <br />
+least common multiple  <a href="chap5.html#X82231CF08073695F">5.7-12</a>  <br />
+<code class="func">LeftActingDomain</code>  <a href="chap4.html#X86F070E0807DC34E">4.5-3</a>  <br />
+length  <a href="chap4.html#X85FDDF0B7B7D87FB">4.</a>  <br />
+<code class="func">LengthenedCode</code>  <a href="chap6.html#X7A5D5419846FC867">6.1-10</a>  <br />
+<code class="func">LexiCode</code>  <a href="chap5.html#X7C1B374583AFB923">5.1-8</a>  <br />
+linear code  <a href="chap3.html#X836BAA9A7EBD08B1">3.</a>  <br />
+<code class="func">LowerBoundCoveringRadiusCountingExcess</code>  <a href="chap7.html#X7F95362485759ACB">7.2-9</a>  <br />
+<code class="func">LowerBoundCoveringRadiusEmbedded1</code>  <a href="chap7.html#X829C14A383B5BF59">7.2-10</a>  <br />
+<code class="func">LowerBoundCoveringRadiusEmbedded2</code>  <a href="chap7.html#X7B0C81B88604C448">7.2-11</a>  <br />
+<code class="func">LowerBoundCoveringRadiusInduction</code>  <a href="chap7.html#X7D27F6E27B9A0D35">7.2-12</a>  <br />
+<code class="func">LowerBoundCoveringRadiusSphereCovering</code>  <a href="chap7.html#X7E7FBCC87D5562AB">7.2-6</a>  <br />
+<code class="func">LowerBoundCoveringRadiusVanWee1</code>  <a href="chap7.html#X85E20C518360AB70">7.2-7</a>  <br />
+<code class="func">LowerBoundCoveringRadiusVanWee2</code>  <a href="chap7.html#X7C72994A825228E7">7.2-8</a>  <br />
+<code class="func">LowerBoundGilbertVarshamov</code>  <a href="chap7.html#X7CF15D2084499869">7.1-10</a>  <br />
+<code class="func">LowerBoundMinimumDistance</code>  <a href="chap7.html#X7FDF54BA81115D88">7.1-9</a>  <br />
+<code class="func">LowerBoundSpherePacking</code>  <a href="chap7.html#X8217D830871286D8">7.1-11</a>  <br />
+MacWilliams transform  <a href="chap7.html#X84DA928083B103A0">7.5-2</a>  <br />
+<code class="func">MatrixRepresentationOfElement</code>  <a href="chap7.html#X7B50D3417F6FD7C6">7.5-10</a>  <br />
+<code class="func">MatrixRepresentationOnRiemannRochSpaceP1 </code>  <a href="chap5.html#X80EDF3D682E7EF3F">5.7-21</a>  <br />
+<code class="func">MatrixTransformationOnMultivariatePolynomial </code>  <a href="chap7.html#X84D51EBB784E7C5D">7.6-1</a>  <br />
+maximum distance separable  <a href="chap7.html#X8673277C7F6C04C3">7.1-1</a>  <br />
+MDS  <a href="chap4.html#X789380D28018EC3F">4.3-7</a>    <a href="chap5.html#X7BFEDA52835A601D">5.5-17</a>  <br />
+minimum distance  <a href="chap4.html#X85FDDF0B7B7D87FB">4.</a>  <br />
+<code class="func">MinimumDistance</code>  <a href="chap4.html#X7B31613D8538BD29">4.8-3</a>  <br />
+<code class="func">MinimumDistanceLeon</code>  <a href="chap4.html#X813F226F855590EE">4.8-4</a>  <br />
+<code class="func">MinimumDistanceRandom</code>  <a href="chap4.html#X7A679B0A7816B030">4.8-7</a>  <br />
+<code class="func">MinimumWeight</code>  <a href="chap4.html#X84EDF67B86B4154C">4.8-5</a>  <br />
+<code class="func">MinimumWeightWords</code>  <a href="chap4.html#X7AEE64467FB1E0B9">4.9-1</a>  <br />
+<code class="func">MoebiusTransformation </code>  <a href="chap5.html#X807C52E67A440DEB">5.7-16</a>  <br />
+<code class="func">MOLS</code>  <a href="chap7.html#X804AAFF2867080F7">7.3-11</a>  <br />
+<code class="func">MOLSCode</code>  <a href="chap5.html#X81B7EE4279398F67">5.1-4</a>  <br />
+<code class="func">MostCommonInList</code>  <a href="chap7.html#X8072B0DA78FBE562">7.5-15</a>  <br />
+<code class="func">MultiplicityInList</code>  <a href="chap7.html#X805DF25C84585FD6">7.5-14</a>  <br />
+mutually orthogonal Latin squares  <a href="chap7.html#X8033E9A67BA155C8">7.3-10</a>  <br />
+<code class="func">NearestNeighborDecodewords</code>  <a href="chap4.html#X825E35757D778787">4.10-7</a>  <br />
+<code class="func">NearestNeighborGRSDecodewords</code>  <a href="chap4.html#X7B88DEB37F28404A">4.10-6</a>  <br />
+<code class="func">NordstromRobinsonCode</code>  <a href="chap5.html#X816353397F25B62E">5.1-6</a>  <br />
+norm of a code  <a href="chap7.html#X8032E53078264ABB">7.4-1</a>  <br />
+normal code  <a href="chap7.html#X87039FD179AD3009">7.4-4</a>  <br />
+not =  <a href="chap3.html#X82D4BC7380741DAE">3.2-1</a>    <a href="chap4.html#X8686D5FA839F1A3D">4.1-1</a>  <br />
+<code class="func">NrCyclicCodes</code>  <a href="chap5.html#X8263CE4A790D294A">5.5-15</a>  <br />
+<code class="func">NullCode</code>  <a href="chap5.html#X7B4EF2017B2C61AD">5.5-12</a>  <br />
+<code class="func">NullWord</code>  <a href="chap3.html#X8000B6597EF0282F">3.6-1</a>  <br />
+<code class="func">OnePointAGCode</code>  <a href="chap5.html#X842E227E8785168E">5.7-25</a>  <br />
+<code class="func">OptimalityCode</code>  <a href="chap5.html#X839CFE4C7A567D4D">5.2-13</a>  <br />
+order of polynomial  <a href="chap5.html#X7F3B8CC8831DA0E4">5.5-10</a>  <br />
+<code class="func">OuterDistribution</code>  <a href="chap4.html#X8495870687195324">4.9-5</a>  <br />
+Parity check  <a href="chap6.html#X8271A4697FDA97B2">6.1</a>  <br />
+parity check matrix  <a href="chap4.html#X85FDDF0B7B7D87FB">4.</a>  <br />
+perfect  <a href="chap7.html#X8673277C7F6C04C3">7.1-1</a>  <br />
+perfect code  <a href="chap7.html#X7903286078F8051B">7.5-4</a>  <br />
+permutation equivalent codes  <a href="chap4.html#X86442DCD7A0B2146">4.4</a>  <br />
+PermutationAutomorphismGroup  <a href="chap4.html#X87677B0787B4461A">4.4-3</a>  <br />
+<code class="func">PermutationAutomorphismGroup</code>  <a href="chap4.html#X79F3261F86C29F6D">4.4-4</a>  <br />
+<code class="func">PermutationDecode</code>  <a href="chap4.html#X83231E717CCB0247">4.10-11</a>  <br />
+<code class="func">PermutationDecodeNC</code>  <a href="chap4.html#X85B692177E2A745D">4.10-12</a>  <br />
+<code class="func">PermutedCode</code>  <a href="chap6.html#X79577EB27BE8524B">6.1-4</a>  <br />
+<code class="func">PermutedCols</code>  <a href="chap7.html#X7A97AD477E7638DE">7.3-8</a>  <br />
+<code class="func">PiecewiseConstantCode</code>  <a href="chap6.html#X7EF49A257D6DB53B">6.1-20</a>  <br />
+point  <a href="chap5.html#X802DD9FB79A9ACA7">5.7-1</a>  <br />
+<code class="func">PolyCodeword</code>  <a href="chap3.html#X822465E884D0F484">3.4-2</a>  <br />
+primitive element  <a href="chap8.html#X87C3D1B984960984">8.2</a>  <br />
+<code class="func">PrimitivePolynomialsNr</code>  <a href="chap7.html#X78AEA40F7AD9D541">7.5-8</a>  <br />
+<code class="func">PrimitiveUnityRoot</code>  <a href="chap7.html#X827E39957A87EB51">7.5-7</a>  <br />
+<code class="func">Print</code>  <a href="chap4.html#X7AFA64D97A1F39A3">4.6-1</a>  <br />
+<code class="func">PuncturedCode</code>  <a href="chap6.html#X7E6E4DDA79574FDB">6.1-2</a>  <br />
+<code class="func">PutStandardForm</code>  <a href="chap7.html#X7B47D82485B66F1D">7.3-6</a>  <br />
+<code class="func">QCLDPCCodeFromGroup</code>  <a href="chap5.html#X8020A9357AD0BA92">5.8-1</a>  <br />
+<code class="func">QQRCode</code>  <a href="chap5.html#X7F4C3AD2795A8D7A">5.5-9</a>  <br />
+<code class="func">QQRCodeNC</code>  <a href="chap5.html#X8764ABCF854C695E">5.5-8</a>  <br />
+<code class="func">QRCode</code>  <a href="chap5.html#X825F42F68179D2AB">5.5-7</a>  <br />
+<code class="func">QuasiCyclicCode</code>  <a href="chap5.html#X79826B16785E8BD3">5.5-16</a>  <br />
+<code class="func">RandomCode</code>  <a href="chap5.html#X7D87DD6380B2CE69">5.1-5</a>  <br />
+<code class="func">RandomLinearCode</code>  <a href="chap5.html#X7BCA10CE8660357F">5.2-12</a>  <br />
+<code class="func">RandomPrimitivePolynomial</code>  <a href="chap8.html#X7ECC593583E68A6C">8.2-2</a>  <br />
+reciprocal polynomial  <a href="chap7.html#X7B50D3417F6FD7C6">7.5-10</a>  <br />
+<code class="func">ReciprocalPolynomial</code>  <a href="chap7.html#X7805D2BB7CE4D455">7.5-11</a>  <br />
+<code class="func">Redundancy</code>  <a href="chap4.html#X7E33FD56792DBF3D">4.8-2</a>  <br />
+<code class="func">ReedMullerCode</code>  <a href="chap5.html#X801C88D578DA6ACA">5.2-5</a>  <br />
+<code class="func">ReedSolomonCode</code>  <a href="chap5.html#X838F3CB3872CEF95">5.5-5</a>  <br />
+<code class="func">RemovedElementsCode</code>  <a href="chap6.html#X7B0A6E1F82686B43">6.1-7</a>  <br />
+<code class="func">RepetitionCode</code>  <a href="chap5.html#X83C5F8FE7827EAA7">5.5-13</a>  <br />
+<code class="func">ResidueCode</code>  <a href="chap6.html#X809376187C1525AA">6.1-12</a>  <br />
+<code class="func">RiemannRochSpaceBasisFunctionP1 </code>  <a href="chap5.html#X79C878697F99A10F">5.7-13</a>  <br />
+<code class="func">RiemannRochSpaceBasisP1 </code>  <a href="chap5.html#X878970A17E580224">5.7-15</a>  <br />
+<code class="func">RootsCode</code>  <a href="chap5.html#X818F0E6583E01D4B">5.5-3</a>  <br />
+<code class="func">RootsOfCode</code>  <a href="chap4.html#X7F4CB9DB7CD97178">4.7-5</a>  <br />
+<code class="func">RotateList</code>  <a href="chap7.html#X7C5407EF87849857">7.5-16</a>  <br />
+self complementary code  <a href="chap4.html#X7CE150ED7C3DC455">4.3-12</a>  <br />
+self-dual  <a href="chap5.html#X7F40AF3B81C252DC">5.5-18</a>    <a href="chap6.html#X799B12F085ACB609">6.1-14</a>  <br />
+self-orthogonal  <a href="chap4.html#X80166D8D837FEB58">4.3-8</a>  <br />
+<code class="func">SetCoveringRadius</code>  <a href="chap4.html#X81004B007EC5DF58">4.8-9</a>  <br />
+<code class="func">ShortenedCode</code>  <a href="chap6.html#X81CBEAFF7B9DE6EF">6.1-9</a>  <br />
+singly-even  <a href="chap4.html#X8358D43981EBE970">4.3-10</a>  <br />
+size  <a href="chap4.html#X85FDDF0B7B7D87FB">4.</a>  <br />
+<code class="func">Size</code>  <a href="chap4.html#X858ADA3B7A684421">4.5-2</a>  <br />
+<code class="func">SolveLinearSystem</code>  <a href="chap7.html#X79E76B6F7D177E27">7.6-5</a>  <br />
+<code class="func">SphereContent</code>  <a href="chap7.html#X85303BAE7BD46D81">7.5-5</a>  <br />
+<code class="func">SrivastavaCode</code>  <a href="chap5.html#X7A38EB3178961F3E">5.2-9</a>  <br />
+standard form  <a href="chap7.html#X797F43607AD8660D">7.3-5</a>  <br />
+<code class="func">StandardArray</code>  <a href="chap4.html#X8642D0BD789DA9B5">4.10-10</a>  <br />
+<code class="func">StandardFormCode</code>  <a href="chap6.html#X7AA203A380BC4C79">6.1-19</a>  <br />
+strength  <a href="chap7.html#X86F10D9E79AB8796">7.2-15</a>  <br />
+<code class="func">String</code>  <a href="chap4.html#X81FB5BE27903EC32">4.6-2</a>  <br />
+<code class="func">SubCode</code>  <a href="chap6.html#X7982D699803ECD0F">6.1-11</a>  <br />
+<code class="func">Support</code>  <a href="chap3.html#X7B689C0284AC4296">3.6-3</a>  <br />
+support  <a href="chap5.html#X8572A3037DA66F88">5.7-4</a>  <br />
+<code class="func">SylvesterMat</code>  <a href="chap7.html#X7E1E7C5287919CDB">7.3-3</a>  <br />
+<code class="func">Syndrome</code>  <a href="chap4.html#X7D02E0FE8735D3E6">4.10-8</a>  <br />
+syndrome table  <a href="chap4.html#X7B9E71987E4294A7">4.10-9</a>  <br />
+<code class="func">SyndromeTable</code>  <a href="chap4.html#X7B9E71987E4294A7">4.10-9</a>  <br />
+<code class="func">TernaryGolayCode</code>  <a href="chap5.html#X7E0CCCD7866ADB94">5.4-3</a>  <br />
+<code class="func">TombakCode</code>  <a href="chap5.html#X845B4DBE83288D2D">5.3-4</a>  <br />
+<code class="func">ToricCode</code>  <a href="chap5.html#X7B24BE418010F596">5.6-5</a>  <br />
+<code class="func">ToricPoints</code>  <a href="chap5.html#X7EE68B58872D7E82">5.6-4</a>  <br />
+<code class="func">TraceCode</code>  <a href="chap6.html#X82D18907800FE3D9">6.1-16</a>  <br />
+<code class="func">TreatAsPoly</code>  <a href="chap3.html#X7A6828148490BD2E">3.5-2</a>  <br />
+<code class="func">TreatAsVector</code>  <a href="chap3.html#X7E3E174B7954AA6B">3.5-1</a>  <br />
+<code class="func">UnionCode</code>  <a href="chap6.html#X8228A1F57A29B8F4">6.2-5</a>  <br />
+<code class="func">UpperBound</code>  <a href="chap7.html#X7A5CB74485184FEE">7.1-8</a>  <br />
+<code class="func">UpperBoundCoveringRadiusCyclicCode</code>  <a href="chap7.html#X82A38F5F858CF3FC">7.2-17</a>  <br />
+<code class="func">UpperBoundCoveringRadiusDelsarte</code>  <a href="chap7.html#X832847A17FD0D142">7.2-14</a>  <br />
+<code class="func">UpperBoundCoveringRadiusGriesmerLike</code>  <a href="chap7.html#X8585C6A982489FC3">7.2-16</a>  <br />
+<code class="func">UpperBoundCoveringRadiusRedundancy</code>  <a href="chap7.html#X80F8DFAD7D67CBEC">7.2-13</a>  <br />
+<code class="func">UpperBoundCoveringRadiusStrength</code>  <a href="chap7.html#X86F10D9E79AB8796">7.2-15</a>  <br />
+<code class="func">UpperBoundElias</code>  <a href="chap7.html#X86A5A7C67F625A40">7.1-5</a>  <br />
+<code class="func">UpperBoundGriesmer</code>  <a href="chap7.html#X82366C277E218130">7.1-6</a>  <br />
+<code class="func">UpperBoundHamming</code>  <a href="chap7.html#X828095537C91FDFA">7.1-2</a>  <br />
+<code class="func">UpperBoundJohnson</code>  <a href="chap7.html#X82EBFAAB7F5BFD4A">7.1-3</a>  <br />
+<code class="func">UpperBoundMinimumDistance</code>  <a href="chap7.html#X7C6A58327BD6B685">7.1-12</a>  <br />
+<code class="func">UpperBoundPlotkin</code>  <a href="chap7.html#X7A26E2537DFF4409">7.1-4</a>  <br />
+<code class="func">UpperBoundSingleton</code>  <a href="chap7.html#X8673277C7F6C04C3">7.1-1</a>  <br />
+<code class="func">UUVCode</code>  <a href="chap6.html#X86E9D6DE7F1A07E6">6.2-2</a>  <br />
+<code class="func">VandermondeMat</code>  <a href="chap7.html#X797F43607AD8660D">7.3-5</a>  <br />
+<code class="func">VectorCodeword</code>  <a href="chap3.html#X87C8B0B178496F6A">3.4-1</a>  <br />
+<code class="func">VerticalConversionFieldMat</code>  <a href="chap7.html#X7B68119F85E9EC6D">7.3-9</a>  <br />
+weight enumerator polynomial  <a href="chap7.html#X8308D685809A4E2F">7.5</a>  <br />
+<code class="func">WeightCodeword</code>  <a href="chap3.html#X7AD61C237D8D3849">3.6-4</a>  <br />
+<code class="func">WeightDistribution</code>  <a href="chap4.html#X8728BCC9842A6E5D">4.9-2</a>  <br />
+<code class="func">WeightHistogram</code>  <a href="chap7.html#X7A4EA98D794CF410">7.5-13</a>  <br />
+<code class="func">WeightVecFFE</code>  <a href="chap8.html#X7C9F4D657F9BA5A1">8.1-5</a>  <br />
+<code class="func">WholeSpaceCode</code>  <a href="chap5.html#X7BC245E37EB7B23F">5.5-11</a>  <br />
+<code class="func">WordLength</code>  <a href="chap4.html#X7A36C3C67B0062E8">4.8-1</a>  <br />
+<code class="func">ZechLog</code>  <a href="chap7.html#X7EBBE86D85CC90C0">7.6-7</a>  <br />
+<p> </p>
+</div>
+
+<div class="chlinkprevnextbot">&nbsp;<a href="chap0.html">[Top of Book]</a>&nbsp;  <a href="chap0.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chapBib.html">[Previous Chapter]</a>&nbsp;  </div>
+
+
+<div class="chlinkbot"><span class="chlink1">Goto Chapter: </span><a href="chap0.html">Top</a>  <a href="chap1.html">1</a>  <a href="chap2.html">2</a>  <a href="chap3.html">3</a>  <a href="chap4.html">4</a>  <a href="chap5.html">5</a>  <a href="chap6.html">6</a>  <a href="chap7.html">7</a>  <a href="chap8.html">8</a>  <a href="chap9.html">9</a>  <a href="chapBib.html">Bib</a>  <a href="chapInd.html">Ind</a>  </div>
+
+<hr />
+<p class="foot">generated by <a href="http://www.math.rwth-aachen.de/~Frank.Luebeck/GAPDoc">GAPDoc2HTML</a></p>
+</body>
+</html>

@@ -318,9 +318,9 @@
   [33X[0;0YThe  values  for  the lower and upper bound are obtained from a table. [5XGUAVA[105X
   has tables containing lower and upper bounds for [22Xq=2 (n ≤ 257), 3 (n ≤ 243),
   4 (n ≤ 256)[122X. (Current as of 11 May 2006.) These tables were derived from the
-  table  of  Brouwer. (See [Bro06], [7Xhttp://www.win.tue.nl/~aeb/voorlincod.html[107X
-  for  the  most recent data.) For codes over other fields and for larger word
-  lengths, trivial bounds are used.[133X
+  table  of  Brouwer.  (See  [Bro06],  [7Xhttps://www.codetables.de[107X  for the most
+  recent  data.)  For  codes  over  other  fields and for larger word lengths,
+  trivial bounds are used.[133X
   
   [33X[0;0YThe  resulting  record  can be used in the function [10XBestKnownLinearCode[110X (see
   [2XBestKnownLinearCode[102X  ([14X5.2-14[114X))  to  construct  a  code with minimum distance

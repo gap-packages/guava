@@ -8,8 +8,8 @@
 SetPackageInfo( rec(
   PackageName := "GUAVA",
   Subtitle := "a GAP package for computing with error-correcting codes",
-  Version := "3.14",
-  Date    := "24/03/2018",
+  Version := "3.15",
+  Date    := "13/04/2019",
   SourceRepository := rec(
     Type := "git",
     URL := Concatenation( 

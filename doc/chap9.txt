@@ -343,7 +343,7 @@
   [33X[0;0YThe  Free  Software  Foundation may publish new, revised versions of the GNU
   Free  Documentation  License  from  time  to time. Such new versions will be
   similar  in  spirit  to  the  present  version,  but may differ in detail to
-  address new problems or concerns. See http://www.gnu.org/copyleft/.[133X
+  address new problems or concerns. See https://www.gnu.org/copyleft/.[133X
   
   [33X[0;0YEach version of the License is given a distinguishing version number. If the
   Document  specifies  that  a particular numbered version of this License "or

@@ -171,7 +171,7 @@
   
   [33X[0;0YWe basically repeat, with minor variation, the material in the GAP manual or
   from                 Frank                 Luebeck's                 website
-  [7Xhttp://www.math.rwth-aachen.de:8001/~Frank.Luebeck/data/ConwayPol[107X  on Conway
+  [7Xhttp://www.math.rwth-aachen.de/~Frank.Luebeck/data/ConwayPol[107X    on    Conway
   polynomials.  The  [12Xprime  fields[112X:  If [22Xp≥ 2[122X is a prime then [22XGF(p)[122X denotes the
   field [22XZ}/pZ}[122X, with addition and multiplication performed mod [22Xp[122X.[133X
   
