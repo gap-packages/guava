@@ -115,6 +115,8 @@
 #include "groupio.h"
 #include "enum.h"
 #include "storage.h"
+#include "chbase.h"
+#include "inform.h"
 
 #ifdef ALT_TIME_HEADER
 #include "cputime.h"
