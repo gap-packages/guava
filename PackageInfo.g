@@ -10,6 +10,7 @@ SetPackageInfo( rec(
   Subtitle := "a GAP package for computing with error-correcting codes",
   Version := "3.15",
   Date    := "13/04/2019",
+  License := "GPL-2.0-or-later",
   SourceRepository := rec(
     Type := "git",
     URL := Concatenation( 
