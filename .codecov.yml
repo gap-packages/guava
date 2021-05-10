@@ -16,5 +16,4 @@ ignore:
   - "PackageInfo.g"
   - "init.g"
   - "read.g"
-  - "tst/*"     # ignore test harness code
-  - "tst/**/*"  # ignore test harness code
+  - "tst/**"  # ignore test harness code
