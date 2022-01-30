@@ -354,7 +354,7 @@ local M,i,rL;
  rL:=L; 
  M:=[L];
  for i in [1..(k-1)] do
-  rL:=RotateList(rL);
+  rL:=RightRotateList(rL);
   M:=Concatenation(M,[rL]);
  od;
  return M;
