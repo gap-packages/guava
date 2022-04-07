@@ -637,7 +637,7 @@ InstallOtherMethod(PutStandardForm, "method for matrix and Field", true,
 function(mat, F) 
 local perm, k, i, j, d ;
  d := Length(mat[1]);
- mat:=TriangulizedMat(mat);
+ mat:=TriangulizeMat(mat); #this was TriangulizedMat which seems to be an error
  perm := ();
  k := Length(mat[1]);
  for i in [1..Length(mat)] do
