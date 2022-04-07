@@ -1,6 +1,11 @@
 In this file we record the changes since the first GAP 4 release of
 the GUAVA package.
 
+Version 3.16 (4-2022)
+   o CirculantMatrixi() now circulates to the right.
+   o Build of the automorphism group subsystem by Jeff Leon was failing on Macs : fixed
+   
+    
 Version 3.15 (8-2019):
    o Fixed decoding of cyclic codes
    o Several updates to build system
