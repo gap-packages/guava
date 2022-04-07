@@ -39,6 +39,9 @@ Makefile
 
 /src/ctjhai/minimum-weight
 /src/leon/autom4te.cache/
+/src/leon/configure
+/src/leon/install-sh
+
 /src/leon/cent
 /src/leon/cjrndper
 /src/leon/commut
