@@ -16,7 +16,7 @@
        &nbsp;
     </Subtitle>
 
-    <Version>Version 3.14</Version>     <!-- OPTIONAL -->
+    <Version>Version 3.16</Version>     <!-- OPTIONAL -->
 <Author>
 Jasper Cramwinckel
 </Author>
@@ -64,7 +64,7 @@ Joe Fields (Maintainer)
     <Email>fieldsj1@southernct.edu</Email> 
     <Homepage>http://giam.southernct.edu/</Homepage>
 </Author> 
-<Date>March 25, 2018</Date>    <!-- OPTIONAL -->
+<Date>April, 2022</Date>    <!-- OPTIONAL -->
 <Copyright>     <!-- OPTIONAL -->
 <Package>GUAVA</Package>: &copyright; The GUAVA Group: 1992-2003
 Jasper Cramwinckel, Erik Roijackers,Reinald Baart, Eric Minkes,
@@ -72,7 +72,7 @@ Lea Ruscio (for the tex version), Jeffrey Leon
 &copyright; 2004 David Joyner, Cen Tjhai, Jasper Cramwinckel, Erik Roijackers,
 Reinald Baart, Eric Minkes, Lea Ruscio.
 &copyright; 2007 Robert L Miller, Tom Boothby
-&copyright; 2009, 2012, 2016, 2018 Joe Fields
+&copyright; 2009, 2012, 2016, 2018, 2022 Joe Fields
 
 <P/>
 <Package>GUAVA</Package> is released under the 
