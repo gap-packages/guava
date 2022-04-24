@@ -1311,7 +1311,7 @@
   [3XF[103X.  The input [3XG[103X is a list of univariate polynomials and [22Xm[122X is the cardinality
   of  this  list.  Note  that [22Xm[122X must be at least [22X2[122X. The input [3Xs[103X is the size of
   each  circulant and it may not necessarily be the same as the code dimension
-  [22Xk[122X, i.e. [22Xk le s[122X.[133X
+  [22Xk[122X, i.e. [22Xk ≤ s[122X.[133X
   
   [33X[0;0YThere  also  exists  another version, [10XQuasiCyclicCode( G, s )[110X which produces
   quasi-cyclic  codes  over  [22XF_2[122X  only.  Here  the  parameter [3Xs[103X holds the same

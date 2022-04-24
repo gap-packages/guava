@@ -6,10 +6,10 @@
           [1X A [5XGAP[105X4 Package for computing with error-correcting codes   [101X
   
   
-                                  Version 3.14
+                                  Version 3.16
   
   
-                                 March 25, 2018
+                                  April, 2022
   
   
                                Jasper Cramwinckel
@@ -50,7 +50,7 @@
   Roijackers,Reinald  Baart,  Eric  Minkes,  Lea Ruscio (for the tex version),
   Jeffrey  Leon  ©  2004  David  Joyner,  Cen  Tjhai, Jasper Cramwinckel, Erik
   Roijackers,  Reinald Baart, Eric Minkes, Lea Ruscio. © 2007 Robert L Miller,
-  Tom Boothby © 2009, 2012, 2016, 2018 Joe Fields[133X
+  Tom Boothby © 2009, 2012, 2016, 2018, 2022 Joe Fields[133X
   
   [33X[0;0Y[5XGUAVA[105X is released under the GNU General Public License (GPL).[133X
   
