@@ -147,7 +147,12 @@ int generator_matrix(char *fname, MATRIX *M) {
 	if ( fscanf(fptr, "%d %d %d\n", &M->rows, &M->cols, &M->q) < 0 ) {
 		fprintf(stderr, "Error reading header of %s\n", fname);
 	}
-	M->m = (unsigned int **)malloc(M->rows * sizeof(unsigned int *));
+	if (M->rows < 32768) {
+		M->m = (unsigned int **)malloc(M->rows * sizeof(unsigned int *));
+	} else {
+		fprintf(stderr, "Error: max number of cols exceeded.\n");
+		return -1;
+	}
 	for (i=0; i<M->rows; i++) 
 		M->m[i] = (unsigned int *)malloc(M->cols * sizeof(unsigned int));
 	for (i=0; i<M->rows; i++) {
