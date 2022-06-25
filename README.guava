@@ -119,8 +119,7 @@ so please include:
 
  * The version of GAP you are using; either look at  the  header  when
    you start up GAP, or at the gap> prompt type: GAPInfo.Version;
- * The operating system you are using e.g. Linux, SunOS 5.8 =  Solaris
-   2.8, IRIX 6.5, MacOS, Windows, ...
+ * The operating system you are using e.g. Linux, macOS, Windows, ...
  * The compiler (if any) you used to compile the binaries and the options  
    you used. Type: gcc -v or: cc -version.
  * A script that demonstrates the bug, along with a description of why
