@@ -220,7 +220,7 @@ SetPackageInfo( rec(
     BookName  := "GUAVA",
     ArchiveURLSubset := ["doc"],
     # format/extension can be one of .zoo, .tar.gz, .tar.bz2, -win.zip
-    HTMLStart := "doc/chap0.html",
+    HTMLStart := "doc/chap0_mj.html",
     PDFFile   := "doc/manual.pdf",
     # the path to the .six file used by GAP's help system
     SixFile   := "doc/manual.six",
