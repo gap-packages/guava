@@ -19,7 +19,7 @@ SetPackageInfo( rec(
   IssueTrackerURL := Concatenation( ~.SourceRepository.URL, "/issues" ),
   PackageWWWHome  := Concatenation( "https://gap-packages.github.io/", 
                          LowercaseString( ~.PackageName ) ),
-  README_URL      := Concatenation( ~.PackageWWWHome, "/", "README.guava" ),
+  README_URL      := Concatenation( ~.PackageWWWHome, "/", "README.md" ),
   PackageInfoURL  := Concatenation( ~.PackageWWWHome, "/", "PackageInfo.g" ),
   ArchiveURL := Concatenation( ~.SourceRepository.URL,
                       "/releases/download/v", ~.Version,
@@ -159,31 +159,6 @@ SetPackageInfo( rec(
           := "Charles Wright (Eugene)",
   AcceptDate 
           := "02/2003",
-
-##  For a central overview of all packages and a collection of all package
-##  archives it is necessary to have two files accessible which should be
-##  contained in each package:
-##     - A README file, containing a short abstract about the package
-##       content and installation instructions.
-##     - The file you are currently reading or editing!
-##  You must specify URLs for these two files, these allow to automate 
-##  the updating of package information on the GAP Website, and inclusion
-##  and updating of the package in the GAP distribution.
-##  
-
-############################
-## THIS STUFF IS ALL SET-UP IN THE TOP OF THE FILE !!!
-############################
-##README_URL := 
-##    Concatenation( ~.PackageWWWHome, "README.guava" ),
-## PackageInfoURL := 
-##    Concatenation( ~.PackageWWWHome, "PackageInfo.g" ),
-##
-##SourceRepository := rec( 
-##  Type := "git", 
-##  URL := "https://github.com/gap-packages/guava"
-##),
-##IssueTrackerURL := Concatenation( ~.SourceRepository.URL, "/issues" ),
 
 ##  Here you  must provide a short abstract explaining the package content 
 ##  in HTML format (used on the package overview Web page) and an URL 
