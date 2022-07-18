@@ -14,12 +14,11 @@ and an external program from J.S. Leon for dealing with
 automorphism  groups of codes and isomorphism testing
 functions.  Several algorithms that need the speed are
 integrated in the GAP kernel. Please send your bug reports
-and feature requests to support@gap-system.org. You can
-also create an "issue" at the GUAVA github repository.
-See the section "Bug reports" below.
+and feature requests to the issue tracker at the GUAVA Github
+repository. For details, see the section "Bug reports" below.
 
 For an overview of the history of the GUAVA project see the
-file "HISTORY" in the main GUAVA package directory.
+file `HISTORY` in the main GUAVA package directory.
 
 Installing GUAVA
 ----------------
@@ -30,7 +29,7 @@ something like /usr/lib/gap4r7/pkg on unix machines.)  The
 backtrack programs which compute code automorphism groups
 may need to be compiled (see below).
 
-If GUAVA is not present (a call to LoadPackage("guava")
+If GUAVA is not present (a call to `LoadPackage("guava")`
 fails at a GAP prompt.)  You may need to install GUAVA (as
 a GAP4 Package) as a separate step.  Unpack the archive
 file in a directory in the `pkg` hierarchy of your version
@@ -83,24 +82,24 @@ Loading GUAVA
 After starting up GAP, the GUAVA package needs to be
 loaded.  Load GUAVA by typing at the GAP prompt:
 
-  gap> LoadPackage( "guava" );
+    gap> LoadPackage( "guava" );
 
 If GUAVA isn't already in memory, it is loaded and its
 beautiful banner is displayed.
 
 If you  are a frequent user of  GUAVA, you might consider
 putting this line in your `gaprc` file, or add GUAVA to the
-"PackagesToLoad" preference in your gap.ini file (the
+"PackagesToLoad" preference in your `gap.ini` file (the
 location of the ini file can be determined by typing
 
-  gap> GAPInfo.UserGapRoot;
+    gap> GAPInfo.UserGapRoot;
 
 at the gap prompt.
 
 Additionally, you may wish to test the installation by
 reading in the Guava test file:
 
-  gap> Test(Filename(DirectoriesPackageLibrary("guava", "tst"), "guava.tst"));
+    gap> Test(Filename(DirectoriesPackageLibrary("guava", "tst"), "guava.tst"));
 
 Bug reports
 -----------
