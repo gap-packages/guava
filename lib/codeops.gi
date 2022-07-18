@@ -2805,7 +2805,7 @@ function(C)
 		fi;
 	fi;
 	Add(param, tmpFile);
-        Print(param, "\n");
+
 	## Now call the external program
         Process(DirectoryCurrent(),
             Filename(path, "minimum-weight"),
