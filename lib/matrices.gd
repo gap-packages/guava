@@ -11,7 +11,7 @@
 ##
 #F  KrawtchoukMat( <n> [, <q>] )  . . . . . . .  matrix of Krawtchouk numbers
 ##
-DeclareOperation("KrawtchoukMat", [IsInt, IsInt]); 
+DeclareOperation("KrawtchoukMat", [IsInt, IsInt]);
 
 #############################################################################
 ##
@@ -20,19 +20,19 @@ DeclareOperation("KrawtchoukMat", [IsInt, IsInt]);
 ##  GrayMat(n [, F]) returns a matrix in which rows a(i) have the property
 ##  d( a(i), a(i+1) ) = 1 and a(1) = 0.
 ##
-DeclareOperation("GrayMat", [IsInt, IsField]); 
+DeclareOperation("GrayMat", [IsInt, IsField]);
 
 #############################################################################
 ##
 #F  SylvesterMat( <n> ) . . . . . . . . . . . . Sylvester matrix of order <n>
 ##
-DeclareOperation("SylvesterMat", [IsInt]); 
+DeclareOperation("SylvesterMat", [IsInt]);
 
 #############################################################################
 ##
 #F  HadamardMat( <n> )  . . . . . . . . . . . .  Hadamard matrix of order <n>
 ##
-DeclareOperation("HadamardMat", [IsInt]); 
+DeclareOperation("HadamardMat", [IsInt]);
 
 #############################################################################
 ##
@@ -42,7 +42,7 @@ DeclareOperation("HadamardMat", [IsInt]);
 ##  entries are from a set of q distinct symbols such that each row and each
 ##  column of the array contains each symbol exactly once
 ##
-DeclareOperation("IsLatinSquare", [IsMatrix]); 
+DeclareOperation("IsLatinSquare", [IsMatrix]);
 
 #############################################################################
 ##
@@ -51,7 +51,7 @@ DeclareOperation("IsLatinSquare", [IsMatrix]);
 ##  AreMOLS(M1, M2, ...) determines if the arguments are mutually orthogonal
 ##  latin squares.
 ##
-DeclareGlobalFunction("AreMOLS"); 
+DeclareGlobalFunction("AreMOLS");
 
 #############################################################################
 ##
@@ -62,7 +62,7 @@ DeclareGlobalFunction("AreMOLS");
 ##  of two MOLS. If it is not possible to return n MOLS of size q,
 ##  MOLS will return a boolean false.
 ##
-DeclareOperation("MOLS", [IsInt, IsInt]); 
+DeclareOperation("MOLS", [IsInt, IsInt]);
 
 #############################################################################
 ##
@@ -71,8 +71,8 @@ DeclareOperation("MOLS", [IsInt, IsInt]);
 ##  VerticalConversionFieldMat (M) converts a matrix over GF(q^m) to a matrix
 ##  over GF(q) with vertical orientation of the tuples
 ##
-DeclareOperation("VerticalConversionFieldMat", 
-											[IsMatrix, IsField]); 
+DeclareOperation("VerticalConversionFieldMat",
+    										[IsMatrix, IsField]);
 
 #############################################################################
 ##
@@ -81,8 +81,8 @@ DeclareOperation("VerticalConversionFieldMat",
 ##  HorizontalConversionFieldMat (M, F) converts a matrix over GF(q^m) to a
 ##  matrix over GF(q) with horizontal orientation of the tuples
 ##
-DeclareOperation("HorizontalConversionFieldMat", 
-												[IsMatrix, IsField]);  
+DeclareOperation("HorizontalConversionFieldMat",
+												[IsMatrix, IsField]);
 
 #############################################################################
 ##
@@ -92,7 +92,7 @@ DeclareOperation("HorizontalConversionFieldMat",
 ##  if identityleft = false, the identitymatrix must be at the right side
 ##  of M; otherwise at the left side.
 ##
-DeclareOperation("IsInStandardForm", [IsMatrix, IsBool]);  
+DeclareOperation("IsInStandardForm", [IsMatrix, IsBool]);
 
 #############################################################################
 ##
@@ -102,6 +102,6 @@ DeclareOperation("IsInStandardForm", [IsMatrix, IsBool]);
 ##  the size of Mat being (n x m). If idleft is true or is omitted, the
 ##  the identity matrix is put left, else right. The permutation is returned.
 ##
-DeclareOperation("PutStandardForm", 
-								[IsMatrix, IsBool, IsField]); 
+DeclareOperation("PutStandardForm",
+								[IsMatrix, IsBool, IsField]);
 

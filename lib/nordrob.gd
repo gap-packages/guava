@@ -11,6 +11,4 @@
 ##
 #F  NordstromRobinsonCode( )  . . . . . . . . . . . . Nordstrom-Robinson code
 ##
-DeclareOperation("NordstromRobinsonCode", []); 
-
-
+DeclareOperation("NordstromRobinsonCode", []);

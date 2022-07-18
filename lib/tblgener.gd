@@ -12,5 +12,5 @@
 ##
 #F  CreateBoundsTable( <Sz>, <q> [, <info> ] ) . . constructs table of bounds
 ##
-DeclareOperation("CreateBoundsTable", [IsInt, IsInt, IsBool]); 
+DeclareOperation("CreateBoundsTable", [IsInt, IsInt, IsBool]);
 

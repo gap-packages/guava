@@ -11,7 +11,7 @@
 
 #############################################################################
 ##
-#F  LowerBoundGilbertVarshamov( <n>, <r>, <q> )  . . . Gilbert-Varshamov lower 
+#F  LowerBoundGilbertVarshamov( <n>, <r>, <q> )  . . . Gilbert-Varshamov lower
 ##                                              bound for linear codes
 ##
 ## added 9-2004 by wdj; debugged 2009 by Jack Schmidt
@@ -26,8 +26,8 @@ end);
 ##                                                 for unrestricted codes
 ##
 ## added 11-2004 by wdj
-InstallMethod(LowerBoundSpherePacking, "n, d, q", true, [IsInt, IsInt, IsInt], 0, 
-function(n, d, q) 
+InstallMethod(LowerBoundSpherePacking, "n, d, q", true, [IsInt, IsInt, IsInt], 0,
+function(n, d, q)
     return Int((q^(n))/(SphereContent(n,d-1,GF(q))));
 end);
 
@@ -35,8 +35,8 @@ end);
 ##
 #F  UpperBoundHamming( <n>, <d>, <q> )  . . . . . . . . . . . . Hamming bound
 ##
-InstallMethod(UpperBoundHamming, "n, d, q", true, [IsInt, IsInt, IsInt], 0, 
-function(n, d, q) 
+InstallMethod(UpperBoundHamming, "n, d, q", true, [IsInt, IsInt, IsInt], 0,
+function(n, d, q)
     return Int((q^n)/(SphereContent(n,QuoInt(d-1,2),q)));
 end);
 
@@ -44,7 +44,7 @@ end);
 ##
 #F  UpperBoundSingleton( <n>, <d>, <q> )  . . . . . . . . . . Singleton bound
 ##
-InstallMethod(UpperBoundSingleton, "n, d, q", true, [IsInt, IsInt, IsInt], 0, 
+InstallMethod(UpperBoundSingleton, "n, d, q", true, [IsInt, IsInt, IsInt], 0,
 function (n,d,q)
     return q^(n - d + 1);
 end);
@@ -53,7 +53,7 @@ end);
 ##
 #F  UpperBoundPlotkin( <n>, <d>, <q> )  . . . . . . . . . . . . Plotkin bound
 ##
-InstallMethod(UpperBoundPlotkin, "n, d, q", true, [IsInt, IsInt, IsInt], 0, 
+InstallMethod(UpperBoundPlotkin, "n, d, q", true, [IsInt, IsInt, IsInt], 0,
 function (n,d,q)
     local t, fact;
     t := 1 - 1/q;
@@ -76,7 +76,7 @@ end);
 ##
 #F  UpperBoundGriesmer( <n>, <d>, <q> ) . . . . . . . . . . .  Griesmer bound
 ##
-InstallMethod(UpperBoundGriesmer, "n, d, q", true, [IsInt, IsInt, IsInt], 0, 
+InstallMethod(UpperBoundGriesmer, "n, d, q", true, [IsInt, IsInt, IsInt], 0,
 function (n,d,q)
     local s, den, k, add;
     den := 1;
@@ -101,22 +101,24 @@ end);
 ## bug found + corrected 2-2004
 ## code added 8-2004
 ##
-InstallMethod(UpperBoundElias, "n, d, q", true, [IsInt, IsInt, IsInt], 0, 
+InstallMethod(UpperBoundElias, "n, d, q", true, [IsInt, IsInt, IsInt], 0,
 function (n,d,q)
     local r, i, I, w, bnd, ff, get_list;
     ff:=function(n,d,w,q)
-          local r;
-	  r:=1-1/q;
-	  return r*n*d*q^n/((w^2-2*r*n*w+r*n*d)*SphereContent(n,w,q));
-    end; 
+        local r;
+        r:=1-1/q;
+        return r*n*d*q^n/((w^2-2*r*n*w+r*n*d)*SphereContent(n,w,q));
+    end;
     get_list:=function(n,d,q)
-     local r,i,I;
-      I:=[];
-       r:=1-1/q;
+        local r,i,I;
+        I:=[];
+        r:=1-1/q;
         for i in [1..Int(r*n)] do
-	  if IsPosRat(i^2-2*r*n*i+r*n*d) then Append(I,[i]); fi;
-	   od;
-	    return I;
+            if IsPosRat(i^2-2*r*n*i+r*n*d) then
+                Append(I,[i]);
+            fi;
+        od;
+        return I;
     end;
     I:=get_list(n,d,q);
     bnd:= Minimum(List(I, w -> ff(n,d,w,q)));
@@ -127,7 +129,7 @@ end);
 ##
 #F  UpperBoundJohnson( <n>, <d> ) . . . . . . . . . . Johnson bound for <q>=2
 ##
-InstallMethod(UpperBoundJohnson, "n, d", true, [IsInt, IsInt], 0, 
+InstallMethod(UpperBoundJohnson, "n, d", true, [IsInt, IsInt], 0,
 function (n,d)
     local UBConsWgt, e, num, den;
     UBConsWgt := function (n1,d1)
@@ -153,8 +155,8 @@ end);
 ##  least d over an alphabet Q of size q, using the minimum of the Hamming,
 ##  Plotkin and Singleton bound.
 ##
-InstallMethod(UpperBound, "n, d, fieldsize", true, [IsInt, IsInt, IsInt], 0, 
-function(n, d, q) 
+InstallMethod(UpperBound, "n, d, fieldsize", true, [IsInt, IsInt, IsInt], 0,
+function(n, d, q)
     local MinBound, l;
 
     MinBound := function (n1,d1,q1)
@@ -187,43 +189,43 @@ function(n, d, q)
     fi;
 end);
 
-InstallOtherMethod(UpperBound, "n, d, field", true, [IsInt, IsInt, IsField], 0, 
-function(n, d, F) 
-	return UpperBound(n, d, Size(F)); 
-end); 
+InstallOtherMethod(UpperBound, "n, d, field", true, [IsInt, IsInt, IsField], 0,
+function(n, d, F)
+    return UpperBound(n, d, Size(F));
+end);
 
-InstallOtherMethod(UpperBound, "n, d", true, [IsInt, IsInt], 0, 
-function(n, d) 
-	return UpperBound(n, d, 2); 
-end); 
+InstallOtherMethod(UpperBound, "n, d", true, [IsInt, IsInt], 0,
+function(n, d)
+    return UpperBound(n, d, 2);
+end);
 
 
 #############################################################################
 ##
 #F  IsPerfectCode( <C> )  . . . . . .  determines whether C is a perfect code
 ##
-InstallMethod(IsPerfectCode, "method for unrestricted codes", true, 
-	[IsCode], 0, 
-function(C) 
+InstallMethod(IsPerfectCode, "method for unrestricted codes", true,
+    [IsCode], 0,
+function(C)
     local n, q, dist, d, t, isperfect, IsTrivialPerfect, ArePerfectParameters;
 
     IsTrivialPerfect := function(C)
         # Checks if C has only one or zero codewords, or is the whole
         # space, or is a repetition code of odd length over GF(2).
         # These are 'trivial' perfect codes.
-        return ((Size(C) <= 1) or 
+        return ((Size(C) <= 1) or
                 (Size(C) = Size(LeftActingDomain(C))^WordLength(C)) or
                 ((LeftActingDomain(C) = GF(2)) and (Size(C) = 2) and
                  ((WordLength(C) mod 2) <> 0) and (IsCyclicCode(C))));
     end;
 
-    ArePerfectParameters := function(q, n, M, dvec) 
+    ArePerfectParameters := function(q, n, M, dvec)
         local k, r;
         # Can the parameters be of a perfect code? If they don't belong
         # to a trivial perfect code, they should be the same as a Golay
         # or Hamming code.
         k := LogInt(M, q);
-        if M <> q^k then 
+        if M <> q^k then
             return false; #nothing wrong here
         elif (q = 2) and (n = 23) then
             return (k = 12) and (7 in [dvec[1]..dvec[2]]);
@@ -231,7 +233,7 @@ function(C)
             return (k = 6) and (5 in [dvec[1]..dvec[2]]);
         else
             r := n-k;
-            return (n = ((q^r-1)/(q-1))) and 
+            return (n = ((q^r-1)/(q-1))) and
                    (3 in [dvec[1]..dvec[2]]);
         fi;
     end;
@@ -244,33 +246,33 @@ function(C)
             SetCoveringRadius(C, Int(MinimumDistance(C)/2));
         else
             SetCoveringRadius(C, n);
-        fi; 
-		return true; 
+        fi;
+        return true;
     elif not ArePerfectParameters(q, n, Size(C), dist) then
         return false;
     else
         t := List(dist, d->QuoInt(d-1, 2));
-        if t[1] = t[2] then 
+        if t[1] = t[2] then
             d := t[1]*2 +1;
         else
             d := MinimumDistance(C);
         fi;
-        isperfect := (d mod 2 = 1) and 
+        isperfect := (d mod 2 = 1) and
                      ArePerfectParameters(q, n, Size(C), [d,d]);
         if isperfect then
             C!.lowerBoundMinimumDistance := d;
             C!.upperBoundMinimumDistance := d;
             SetCoveringRadius(C, Int(d/2));
         fi;
-    	return isperfect; 
-	fi;
+        return isperfect;
+    fi;
 end);
 
 #############################################################################
 ##
 #F  IsMDSCode( <C> )  . . .  checks if C is a Maximum Distance Separable Code
 ##
-InstallMethod(IsMDSCode, "method for unrestricted code", true, [IsCode], 0, 
+InstallMethod(IsMDSCode, "method for unrestricted code", true, [IsCode], 0,
 function(C)
     local wd, w, n, d, q;
     q:= Size(LeftActingDomain(C));
@@ -282,7 +284,7 @@ function(C)
             wd[1] := 1;
             for w in [d..n] do
                 # The weight distribution of MDS codes is exactly known
-                wd[w+1] := Binomial(n,w)*Sum(List([0..w-d],j -> 
+                wd[w+1] := Binomial(n,w)*Sum(List([0..w-d],j ->
                                    (-1)^j * Binomial(w,j) *(q^(w-d+1-j)-1)));
             od;
             SetWeightDistribution(C, wd);
@@ -302,12 +304,12 @@ end);
 ##  function UpperBound is not allways equal to the actual upperbound A(n,d)
 ##  thus the result may not be equal to 0 for all optimal codes!
 ##
-InstallMethod(OptimalityCode, "method for unrestricted code", true, 
-	[IsCode], 0, 
+InstallMethod(OptimalityCode, "method for unrestricted code", true,
+    [IsCode], 0,
 function(C)
-    return UpperBound(WordLength(C), MinimumDistance(C), 
-						Size(LeftActingDomain(C))) - 
-			Size(C);
+    return UpperBound(WordLength(C), MinimumDistance(C),
+                      Size(LeftActingDomain(C))) -
+            Size(C);
 end);
 
 #############################################################################
@@ -318,15 +320,15 @@ end);
 ##  upperbound on the size of a linear code and the actual size.
 ##
 
-InstallMethod(OptimalityLinearCode, "method for unrestricted code", 
-	true, [IsCode], 0, 
-function(C) 
-	local q, ub; 
-	if not IsLinearCode(C) then 
-		Print("Warning: OptimalityLinearCode called with non-linear ", 
-		      "code as argument\n"); 
-		##LR do we want to raise an error here? 
-	fi; 
+InstallMethod(OptimalityLinearCode, "method for unrestricted code",
+    true, [IsCode], 0,
+function(C)
+    local q, ub;
+    if not IsLinearCode(C) then
+        Print("Warning: OptimalityLinearCode called with non-linear ",
+              "code as argument\n");
+        ##LR do we want to raise an error here?
+    fi;
     q := Size(LeftActingDomain(C));
     ub := Minimum(UpperBound(WordLength(C), MinimumDistance(C), q),
                   UpperBoundGriesmer(WordLength(C), MinimumDistance(C), q));
@@ -341,7 +343,7 @@ end);
 ##  LowerBoundMinimumDistance uses (n, k, q, true)
 ##  UpperBoundMinimumDistance uses (n, k, q, false)
 
-InstallGlobalFunction(BoundsMinimumDistance, 
+InstallGlobalFunction(BoundsMinimumDistance,
 function(arg)
     local n, k, q, RecurseBound, res, InfoLine, GLOBAL_ALERT,
           DoTheTrick, kind, obj;
@@ -384,7 +386,7 @@ function(arg)
             obj.cons := [CordaroWagnerCode,[n]];
             return obj;
         elif k = n-1 then  # Dual of the repetition code
-            return rec( d :=2, 
+            return rec( d :=2,
                         expl := [InfoLine(n, k, 2,
                            "dual of the repetition code", spaces, prefix) ],
                         cons := [DualCode,[[RepetitionCode, [n, q]]]]);
@@ -396,7 +398,7 @@ function(arg)
                         cons := [WholeSpaceCode, [n, q]]);
         elif not IsBound(GUAVA_BOUNDS_TABLE[kind][q][n][k]) then
             if kind = 1 then  # trivial for lower bounds
-                obj := rec(d :=2, 
+                obj := rec(d :=2,
                            expl := [InfoLine(n, k, 2,
                                    "expurgated dual of repetition code",
                                    spaces, prefix) ],
@@ -407,7 +409,7 @@ function(arg)
                 return obj;
 #            else  # Griesmer for upper bounds
 #                obj := rec( d := 2);
-#                while Sum([0..k-1], i -> 
+#                while Sum([0..k-1], i ->
 #                        QuoInt(obj.d, q^i) + SignInt(obj.d mod q^i)) <= n do
 #                    obj.d := obj.d + 1;
 #                od;
@@ -417,25 +419,25 @@ function(arg)
 #                return obj;
 # begin CJ, 27 April 2006
              else  # upper-bounds
-				 obj := rec(d := 2);
-                 if (k = 1 or n = k) then		# this is trivial
+                 obj := rec(d := 2);
+                 if (k = 1 or n = k) then   # this is trivial
                      if (n = k) then obj.d := 1;
-					 else obj.d := n;
+                     else obj.d := n;
                      fi;
-				     obj.expl := [InfoLine(n, k, obj.d, "trivial", spaces, prefix)];
-                 else							# Singleton bound
-					 if (IsEvenInt(q) and n = q+2) then
+                     obj.expl := [InfoLine(n, k, obj.d, "trivial", spaces, prefix)];
+                 else       # Singleton bound
+                     if (IsEvenInt(q) and n = q+2) then
                         if (k = q-1) then obj.d := 4;
                         else Error("Invalid Singleton bound");
                         fi;
                      elif (IsPrimeInt(q) and n = q+1) then
                         obj.d := q - k + 2;
-                     else 
+                     else
                         obj.d := n - k + 1;
                      fi;
                      obj.expl := [InfoLine(n, k, obj.d, "by the Singleton bound", spaces, prefix)];
                  fi;
-				 return obj;
+                 return obj;
 # end CJ
              fi;
                        #Look up construction in table
@@ -517,7 +519,7 @@ function(arg)
                                spaces, prefix)], cons := false );
                 if kind = 1 and not GLOBAL_ALERT then
                     GUAVA_TEMP_VAR := [n, k];
-                    ReadPackage( "guava",  
+                    ReadPackage( "guava",
                             Concatenation( "tbl/codes", String(q), ".g" ) );
                     if GUAVA_TEMP_VAR = false then
                         GLOBAL_ALERT := true;
@@ -541,11 +543,11 @@ function(arg)
             elif i[1] = 5 then  # u | u+v construction
                 obj := RecurseBound(n/2, i[2], spaces + 4, "C1: ");
                 obj2 :=RecurseBound(n/2, k-i[2], spaces + 4, "C2: ");
-				d1 := obj.d;
+                d1 := obj.d;
                 obj.cons := [UUVCode,[obj.cons, obj2.cons]];
                 obj.d := Minimum( 2 * obj.d, obj2.d );
                 obj.expl := Concatenation(obj2.expl, obj.expl);
-                Add(obj.expl, InfoLine(n, k, obj.d, 
+                Add(obj.expl, InfoLine(n, k, obj.d,
                         Concatenation("by the u|u+v construction applied to C1 [",
                         String(n/2), ",", String(i[2]), ",",
                         String(d1), "] and C2 [", String(n/2),
@@ -558,13 +560,13 @@ function(arg)
                 obj := RecurseBound(n/3, i[2], spaces + 4, "C1: "); d1 := obj.d;
                 obj2 :=RecurseBound(n/3, i[3], spaces + 4, "C2: "); d2 := obj2.d;
                 obj3 :=RecurseBound(n/3, k-i[2]-i[3], spaces + 4, "C2: "); d3 := obj3.d;
-                obj.cons := false;	# [UUAVUVWCode,[obj.cons, obj2.cons, obj3.cons]];
+                obj.cons := false;  # [UUAVUVWCode,[obj.cons, obj2.cons, obj3.cons]];
                 obj.d := n;
                 if (i[2] > 0) then obj.d := Minimum( obj.d, 3*d1 ); fi;
                 if (i[3] > 0) then obj.d := Minimum( obj.d, 2*d2 ); fi;
                 if (k-(i[2]+i[3]) > 0) then obj.d := Minimum( obj.d, d3 ); fi;
                 obj.expl := Concatenation(obj3.expl, obj2.expl, obj.expl);
-                Add(obj.expl, InfoLine(n, k, obj.d, 
+                Add(obj.expl, InfoLine(n, k, obj.d,
                         Concatenation("by the u|u+av|u+v+w construction applied to C1 [",
                         String(n/3), ",", String(i[2]), ",",
                         String(d1), "] and C2 [", String(n/3),
@@ -580,7 +582,7 @@ function(arg)
                 obj.cons := [ConcatenationCode,[obj.cons, obj2.cons]];
                 obj.d := obj.d + obj2.d;
                 obj.expl := Concatenation(obj2.expl, obj.expl);
-                Add(obj.expl, InfoLine(n, k, obj.d, 
+                Add(obj.expl, InfoLine(n, k, obj.d,
                         Concatenation("by concatenation of C1 [",
                         String(n-i[2]), ",", String(k), ",",
                         String(d1), "] and C2 [", String(i[2]), ",",
@@ -594,8 +596,8 @@ function(arg)
 # The current Brouwer's table contains some 'MYSTERY' codes, these codes are
 # resulted from Construction A.
                 if ((q = 2 and i[2] > 257) or (q = 3 and i[2] > 243) or (q = 4 and i[2] > 256)) then
-                	   d1 := QuoInt((i[2]-n), q) + SignInt((i[2]-n) mod q);
-                	   obj := rec( d := d1, expl := [InfoLine(n, k, d1,
+                       d1 := QuoInt((i[2]-n), q) + SignInt((i[2]-n) mod q);
+                       obj := rec( d := d1, expl := [InfoLine(n, k, d1,
                                Concatenation("by construction A (taking residue) of a [",
                                String(i[2]), ",", String(k+1), ",", String(i[2]-n), "]",
                                " MYSTERY code, contact A.E. Brouwer (aeb@cwi.nl)"),
@@ -620,7 +622,7 @@ function(arg)
                 Unbind(obj.lastman);
                 return obj;
 # begin CJ, 25 April 2006
-            elif i[1] = 15 then	# the Griesmer bound (non recursive)
+            elif i[1] = 15 then # the Griesmer bound (non recursive)
                 obj := rec( d:=i[2], expl := [InfoLine(n, k, i[2],
                             "by the Griesmer bound", spaces, prefix)], cons:=false );
                 Unbind(obj.lastman);
@@ -632,10 +634,10 @@ function(arg)
                         "by a one-step Griesmer bound from:", spaces, prefix) );
                 Unbind(obj.lastman);
                 return obj;
-            elif i[1] = 21 then	# Construction B2
+            elif i[1] = 21 then # Construction B2
                 obj := RecurseBound(n+i[2], k+i[2]-(2*i[3])-1, spaces, "");
                 obj.cons := [ConstructionB2Code, [obj.cons]];
-                obj.d := obj.d - (2*i[3]); 
+                obj.d := obj.d - (2*i[3]);
                 Add(obj.expl, InfoLine(n, k, obj.d, Concatenation(
                     "by applying construction B2 to a [", String(n+i[2]), ",",
                     String(k+i[2]-(2*i[3])-1), ",", String(obj.d+(2*i[3])),
@@ -649,9 +651,9 @@ function(arg)
         fi;
     end;
 #F              Function body
-    
-	
-	if Length(arg) < 2 or Length(arg) > 4 then
+
+
+    if Length(arg) < 2 or Length(arg) > 4 then
         Error("usage: OptimalLinearCode( <n>, <k> [, <F>] )");
     fi;
     n := arg[1];
@@ -675,7 +677,7 @@ function(arg)
                k := k,
                q := q,
                references := rec(),
-               construction := false); 
+               construction := false);
     if not ( IsBound(GUAVA_BOUNDS_TABLE[1][q]) and
              IsBound(GUAVA_BOUNDS_TABLE[2][q]) ) and
        q > 4 then
@@ -720,23 +722,23 @@ function(arg)
     fi;
     return res;
 end);
- 
- 
+
+
 #############################################################################
 ##
 #F  StringFromBoundsInfo . . . . . . .  functions for bounds record
-##  PrintBoundsInfo  . . . . . . . . .  
-##  DisplayBoundsInfo  . . . . . . . .  
-## 
+##  PrintBoundsInfo  . . . . . . . . .
+##  DisplayBoundsInfo  . . . . . . . .
+##
 
-##  These functions are not automatically called.  The user must 
-##  specifically call them if desired.  They are intended for use 
-##  with the Bounds Info record returned by the BoundsMinimumDistance 
-##  function only.  They replace the BoundsOps functions of the GAP3 
-##  version of GUAVA and provide a way to neatly print and display 
-##  the information returned by BoundsMinimumDistance.  
-##  Ex: PrintBoundsInfo(BoundsMinimumDistance(13,5,3)); 
-## 
+##  These functions are not automatically called.  The user must
+##  specifically call them if desired.  They are intended for use
+##  with the Bounds Info record returned by the BoundsMinimumDistance
+##  function only.  They replace the BoundsOps functions of the GAP3
+##  version of GUAVA and provide a way to neatly print and display
+##  the information returned by BoundsMinimumDistance.
+##  Ex: PrintBoundsInfo(BoundsMinimumDistance(13,5,3));
+##
 
 StringFromBoundsInfo := function(R)
     local line;

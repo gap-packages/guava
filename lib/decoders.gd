@@ -22,7 +22,7 @@
 ##
 ##  v can be a codeword or a list of codewords
 ##
-DeclareOperation("Decode", [IsCode, IsCodeword]); 
+DeclareOperation("Decode", [IsCode, IsCodeword]);
 
 #############################################################################
 ##
@@ -32,7 +32,7 @@ DeclareOperation("Decode", [IsCode, IsCodeword]);
 ##
 ##  v can be a codeword or a list of codewords
 ##
-DeclareOperation("Decodeword", [IsCode, IsCodeword]); 
+DeclareOperation("Decodeword", [IsCode, IsCodeword]);
 
 #############################################################################
 ##
@@ -40,21 +40,21 @@ DeclareOperation("Decodeword", [IsCode, IsCodeword]);
 ##
 ##  v is a vector (ie, a list)
 ##
-DeclareOperation("PermutationDecode", [IsLinearCode, IsList]); 
+DeclareOperation("PermutationDecode", [IsLinearCode, IsList]);
 
 #############################################################################
 ##
-#F  PermutationDecodeNC( <C>, <v>, <P> )    decodes the vector <v> to <C>, 
+#F  PermutationDecodeNC( <C>, <v>, <P> )    decodes the vector <v> to <C>,
 ##
 ##  v is a vector (ie, a list), P subset Aut(C) is a finite permutation aut gp
 ##
-DeclareOperation("PermutationDecodeNC", [IsLinearCode,IsCodeword,IsGroup]); 
+DeclareOperation("PermutationDecodeNC", [IsLinearCode,IsCodeword,IsGroup]);
 
 ########################################################################
 ##
 #F  SpecialDecoder( <code> )
 ##
-##  Special function to decode 
+##  Special function to decode
 ##
 DeclareAttribute("SpecialDecoder", IsCode, "mutable");
 
@@ -62,29 +62,29 @@ DeclareAttribute("SpecialDecoder", IsCode, "mutable");
 ##
 #F  BCHDecoder( <C>, <r> )  . . . . . . . . . . . . . . . . decodes BCH codes
 ##
-DeclareOperation("BCHDecoder", [IsCode, IsCodeword]); 
+DeclareOperation("BCHDecoder", [IsCode, IsCodeword]);
 
 #############################################################################
 ##
 #F  CyclicDecoder( <C>, <r> )  . . . . . . . . . . . . . decodes cyclic codes
 ##
-DeclareOperation("CyclicDecoder", [IsCode, IsCodeword]); 
+DeclareOperation("CyclicDecoder", [IsCode, IsCodeword]);
 
 #############################################################################
 ##
 #F  HammingDecoder( <C>, <r> )  . . . . . . . . . . . . decodes Hamming codes
 ##
 ##  Generator matrix must have all unit columns
-DeclareOperation("HammingDecoder", [IsCode, IsCodeword]); 
+DeclareOperation("HammingDecoder", [IsCode, IsCodeword]);
 
- 
+
 #############################################################################
 ##
-#F  GeneralizedReedSolomonDecoderGao( <C>, <v> )   . . decodes 
+#F  GeneralizedReedSolomonDecoderGao( <C>, <v> )   . . decodes
 ##                                           generalized Reed-Solomon codes
 ##                                           using S. Gao's method
 ##
-DeclareOperation("GeneralizedReedSolomonDecoderGao", [IsCode, IsCodeword]); 
+DeclareOperation("GeneralizedReedSolomonDecoderGao", [IsCode, IsCodeword]);
 
 ##########################################################
 ##
@@ -94,30 +94,30 @@ DeclareOperation("GeneralizedReedSolomonDecoderGao", [IsCode, IsCodeword]);
 ##       r=[r1,...,rn] is received vector
 ## Output: Computes matrix described in Algor. 12.1.1 in [JH]
 ##
-## needed for both GeneralizedReedSolomonDecoder 
+## needed for both GeneralizedReedSolomonDecoder
 ##             and GeneralizedReedSolomonListDecoder
 
 ##############################################################
 ##
 ##  GRSErrorLocatorCoeffs( <r> , <Pts> , <L> )
 ##
-## Input: Pts=[x1,..,xn], 
+## Input: Pts=[x1,..,xn],
 ##        L=[h_1,...,h_ell] is list of powers
 ##        r=[r1,...,rn] is received vector
 ##
-## Output: the lists of coefficients of the polynomial Q(x,y) in alg 12.1.1.  
+## Output: the lists of coefficients of the polynomial Q(x,y) in alg 12.1.1.
 ##
 
 #######################################################
 ##
 ##  GRSErrorLocatorPolynomials( <r> , <Pts> , <L> , <R> )
 ##
-## Input: List L of ell_j, 
+## Input: List L of ell_j,
 ##        R = F[x],
-##        Pts=[x1,..,xn], 
+##        Pts=[x1,..,xn],
 ##        r=[r1,...,rn] is received vector
 ## Output: list of polynomials Qi as in Algor. 12.1.1 in [JH]
-## 
+##
 
 ##########################################################
 ##
@@ -125,30 +125,30 @@ DeclareOperation("GeneralizedReedSolomonDecoderGao", [IsCode, IsCodeword]);
 ##
 ## Input: List L of ell_j
 ##        R = F[x]
-##        Pts=[x1,..,xn], 
+##        Pts=[x1,..,xn],
 ##        r=[r1,...,rn] is received vector
 ## Output: interpolating polynomial Q as in Algor. 12.1.1 in [JH]
-## 
+##
 
 #############################################################################
 ##
-#F  GeneralizedReedSolomonDecoder( <C>, <v> )   . . decodes 
+#F  GeneralizedReedSolomonDecoder( <C>, <v> )   . . decodes
 ##                                           generalized Reed-Solomon codes
 ##                                           using the interpolation algorithm
 ##
-DeclareOperation("GeneralizedReedSolomonDecoder", [IsCode, IsCodeword]); 
+DeclareOperation("GeneralizedReedSolomonDecoder", [IsCode, IsCodeword]);
 
 #############################################################################
 ##
-#F  GeneralizedReedSolomonListDecoder( <C>, <v> , <ell> )   . . ell-list decodes 
+#F  GeneralizedReedSolomonListDecoder( <C>, <v> , <ell> )   . . ell-list decodes
 ##                                           generalized Reed-Solomon codes
 ##                                           using M. Sudan's algorithm
-## 
-DeclareOperation("GeneralizedReedSolomonListDecoder",[IsCode, IsCodeword, IsInt]); 
+##
+DeclareOperation("GeneralizedReedSolomonListDecoder",[IsCode, IsCodeword, IsInt]);
 
 #############################################################################
 ##
-#F  NearestNeighborGRSDecodewords( <C>, <v> , <dist> )   . . . finds all 
+#F  NearestNeighborGRSDecodewords( <C>, <v> , <dist> )   . . . finds all
 ##                                           generalized Reed-Solomon codewords
 ##                                           within distance <dist> from v
 ##                                           *and* the associated polynomial,
@@ -166,8 +166,8 @@ DeclareOperation("NearestNeighborGRSDecodewords",[IsCode, IsCodeword, IsInt]);
 
 #############################################################################
 ##
-#F  NearestNeighborDecodewords( <C>, <v> , <dist> )   . . . finds all 
-##                                           codewords in a linear code C 
+#F  NearestNeighborDecodewords( <C>, <v> , <dist> )   . . . finds all
+##                                           codewords in a linear code C
 ##                                           within distance <dist> from v
 ##                                           using "brute force"
 ##

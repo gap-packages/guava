@@ -17,8 +17,8 @@
 ##  If no elements have an <element> in position <i>, return false.
 ##
 
-InstallMethod(CoordinateSubCode, "method for unrestricted code, position, FFE", 
-	true, [IsCode, IsInt, IsFFE], 0, 
+InstallMethod(CoordinateSubCode, "method for unrestricted code, position, FFE",
+    true, [IsCode, IsInt, IsFFE], 0,
 function ( code, i, element )
     local els;
 
@@ -36,8 +36,8 @@ function ( code, i, element )
     if Length( els ) = 0 then
         return false;
     else
-        return ElementsCode( els, "subcoordinate code", 
-								LeftActingDomain( code )  );
+        return ElementsCode( els, "subcoordinate code",
+                                LeftActingDomain( code )  );
     fi;
 end);
 
@@ -45,21 +45,21 @@ end);
 ########################################################################
 ##
 #F  CoordinateNorm( <code>, <i> )
-##  
+##
 ##  Returns the norm of code with respect to coordinate i.
 ##
 
-InstallMethod(CoordinateNorm, "attribute method for unrestricted code", 
-	true, [IsCode], 0, 
-function( code ) 
-	# This is a mutable attribute.  Initial value is all -1, updated as 
-	# other method of CoordinateNorm is called. 
-	return List( [ 1 .. WordLength( code ) ], x -> -1 ); 
-end); 
+InstallMethod(CoordinateNorm, "attribute method for unrestricted code",
+    true, [IsCode], 0,
+function( code )
+    # This is a mutable attribute.  Initial value is all -1, updated as
+    # other method of CoordinateNorm is called.
+    return List( [ 1 .. WordLength( code ) ], x -> -1 );
+end);
 
 
-InstallOtherMethod(CoordinateNorm, "method for unrestricted code, coordinate", 
-	true, [IsCode, IsInt], 0, 
+InstallOtherMethod(CoordinateNorm, "method for unrestricted code, coordinate",
+    true, [IsCode, IsInt], 0,
 function ( code, i )
 
     local max, els, subcode, f, j, w, n, c;
@@ -90,8 +90,8 @@ function ( code, i )
                 max := n;
             fi;
         od;
-        c := CoordinateNorm( code ); 
-		c[ i ] := max;
+        c := CoordinateNorm( code );
+        c[ i ] := max;
     fi;
     return CoordinateNorm(code)[i];
 end);
@@ -106,11 +106,11 @@ end);
 ##  of code with respect to i = 1, ..., n.
 ##
 
-InstallMethod(CodeNorm, "method for unrestricted code", true, 
-	[IsCode], 0, 
-function( code ) 
+InstallMethod(CodeNorm, "method for unrestricted code", true,
+    [IsCode], 0,
+function( code )
 
-	return Minimum( List( [ 1 .. WordLength( code ) ],
+    return Minimum( List( [ 1 .. WordLength( code ) ],
                            x -> CoordinateNorm( code, x ) ) );
 end);
 
@@ -121,15 +121,15 @@ end);
 ##
 ##  Test whether coordinate i of <code> is acceptable.
 ##  (a coordinate is acceptable if the norm of code with respect to
-##   that coordinate is less than or equal to one plus two times the 
+##   that coordinate is less than or equal to one plus two times the
 ##   covering radius of code).
 
-InstallMethod(IsCoordinateAcceptable, "method for unrestricted code, position", 
-	true, [IsCode, IsInt], 0, 
+InstallMethod(IsCoordinateAcceptable, "method for unrestricted code, position",
+    true, [IsCode, IsInt], 0,
 function ( code, i )
-    
+
     local cr;
-    
+
     cr := CoveringRadius( code );
     if IsInt( cr ) then
         if CoordinateNorm( code, i ) <= 2 * cr + 1 then
@@ -141,7 +141,7 @@ function ( code, i )
         Error( "IsCoordinateAcceptable: Sorry, the covering radius is ",
                "not known and not easy to compute." );
     fi;
-    
+
 end);
 
 
@@ -154,10 +154,10 @@ end);
 ##  equal to two times its covering radius + one.
 ##
 
-InstallMethod(IsNormalCode, "method for unrestricted code", true, 
-	[IsCode], 0, 
-function( code ) 
-	local n, k, d, r, i, isnormal;  
+InstallMethod(IsNormalCode, "method for unrestricted code", true,
+    [IsCode], 0,
+function( code )
+    local n, k, d, r, i, isnormal;
 
     if LeftActingDomain( code ) <> GF(2) then
         Error( "IsNormalCode: <code> must be a binary code" );
@@ -194,15 +194,15 @@ function( code )
     fi;
 end);
 
-InstallMethod(IsNormalCode, "method for linear code", true, 
-	[IsLinearCode], 0, 
-function( code ) 
+InstallMethod(IsNormalCode, "method for linear code", true,
+    [IsLinearCode], 0,
+function( code )
     local n, k, d, r, i, isnormal;
-	if LeftActingDomain( code ) <> GF(2) then 
-		Error("IsNormalCode: <code> must be a binary code");  
-	fi; 
-    
-	n := WordLength( code );
+    if LeftActingDomain( code ) <> GF(2) then
+        Error("IsNormalCode: <code> must be a binary code");
+    fi;
+
+    n := WordLength( code );
     k := Dimension( code );
     d := MinimumDistance( code );
     r := CoveringRadius( code );
@@ -243,15 +243,15 @@ end);
 ########################################################################
 ##
 #F  GeneralizedCodeNorm( <code>, <code1>, <code2>, ... , <codek> )
-## 
+##
 ##  Compute the k-norm of code with respect to the k subcode
 ##  code1, code2, ... , codek.
 ##
 
-InstallGlobalFunction(GeneralizedCodeNorm, 
+InstallGlobalFunction(GeneralizedCodeNorm,
 function ( arg )
     local i, mindist, min, max, globalmax, x, union,word;
-    
+
     if Length( arg ) < 2 then
         Error( "GeneralizedCodeNorm: no subcodes are specified" );
     fi;

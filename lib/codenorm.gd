@@ -16,7 +16,7 @@
 ##  with an <element> in coordinate position <i>.
 ##  If no elements have an <element> in position <i>, return false.
 ##
-DeclareOperation("CoordinateSubCode", [IsCode, IsInt, IsFFE]); 
+DeclareOperation("CoordinateSubCode", [IsCode, IsInt, IsFFE]);
 
 ########################################################################
 ##
@@ -42,10 +42,9 @@ DeclareAttribute("CodeNorm", IsCode);
 ##
 ##  Test whether coordinate i of <code> is acceptable.
 ##  (a coordinate is acceptable if the norm of code with respect to
-##   that coordinate is less than or equal to one plus two times the 
+##   that coordinate is less than or equal to one plus two times the
 ##   covering radius of code).
-DeclareOperation("IsCoordinateAcceptable", 
-										[IsCode, IsInt]); 
+DeclareOperation("IsCoordinateAcceptable", [IsCode, IsInt]);
 ########################################################################
 ##
 #F  IsNormalCode( <code> )
@@ -59,9 +58,9 @@ DeclareProperty("IsNormalCode", IsCode);
 ########################################################################
 ##
 #F  GeneralizedCodeNorm( <code>, <code1>, <code2>, ... , <codek> )
-## 
+##
 ##  Compute the k-norm of code with respect to the k subcode
 ##  code1, code2, ... , codek.
 ##
-DeclareGlobalFunction("GeneralizedCodeNorm"); 
+DeclareGlobalFunction("GeneralizedCodeNorm");
 

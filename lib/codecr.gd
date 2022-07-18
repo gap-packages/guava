@@ -21,16 +21,16 @@
 ##  That's why I changed it, see the manual for more details
 ##  -- eric minkes.
 ##
-DeclareAttribute("CoveringRadius", IsCode); 
+DeclareAttribute("CoveringRadius", IsCode);
 
 ########################################################################
 ##
 #F  SpecialCoveringRadius( <code> )
 ##
-##  Special function to calculate the covering radius of a code 
-##  None implemented yet. 
+##  Special function to calculate the covering radius of a code
+##  None implemented yet.
 ##
-DeclareAttribute("SpecialCoveringRadius", IsCode); 
+DeclareAttribute("SpecialCoveringRadius", IsCode);
 
 ########################################################################
 ##
@@ -38,7 +38,7 @@ DeclareAttribute("SpecialCoveringRadius", IsCode);
 ##
 ##  Find a lower and an upper bound for the covering radius of code.
 ##
-DeclareOperation("BoundsCoveringRadius", [IsCode]); 
+DeclareOperation("BoundsCoveringRadius", [IsCode]);
 
 ########################################################################
 ##
@@ -46,17 +46,17 @@ DeclareOperation("BoundsCoveringRadius", [IsCode]);
 ##  SetBoundsCoveringRadius( <code>, <interval> )
 ##
 ##  Enable the user to set the covering radius (or bounds) him/herself.
-##  Was SetCoveringRadius in GAP3 version of GUAVA. 
-## 
-DeclareOperation("SetBoundsCoveringRadius", [IsCode, IsVector]);  
+##  Was SetCoveringRadius in GAP3 version of GUAVA.
+##
+DeclareOperation("SetBoundsCoveringRadius", [IsCode, IsVector]);
 
 ########################################################################
 ##
 #F  IncreaseCoveringRadiusLowerBound(
 ##      <code> [, <stopdistance> ] [, <startword> ] )
 ##
-DeclareOperation("IncreaseCoveringRadiusLowerBound", 
-					[IsCode, IsInt, IsVector]); 
+DeclareOperation("IncreaseCoveringRadiusLowerBound",
+                    [IsCode, IsInt, IsVector]);
 
 ########################################################################
 ##
@@ -66,7 +66,7 @@ DeclareOperation("IncreaseCoveringRadiusLowerBound",
 ##  leaders, but increment the lower bound as soon as a coset leader
 ##  is found.
 ##
-DeclareOperation("ExhaustiveSearchCoveringRadius", [IsCode, IsBool]); 
+DeclareOperation("ExhaustiveSearchCoveringRadius", [IsCode, IsBool]);
 
 ########################################################################
 ##
@@ -79,61 +79,61 @@ DeclareOperation("ExhaustiveSearchCoveringRadius", [IsCode, IsBool]);
 #F  GeneralLowerBoundCoveringRadius( <n>, <size> [, <F> ] )
 ##  GeneralLowerBoundCoveringRadius( <code> )
 ##
-DeclareOperation("GeneralLowerBoundCoveringRadius", [IsCode]); 
+DeclareOperation("GeneralLowerBoundCoveringRadius", [IsCode]);
 
 ########################################################################
 ##
 #F  LowerBoundCoveringRadiusSphereCovering( <n>, <r> [, <F> ] [, true ] )
 ##
-DeclareOperation("LowerBoundCoveringRadiusSphereCovering", 
-						[IsInt, IsInt, IsInt, IsBool]); 
+DeclareOperation("LowerBoundCoveringRadiusSphereCovering",
+                        [IsInt, IsInt, IsInt, IsBool]);
 
 ########################################################################
 ##
 #F  LowerBoundCoveringRadiusVanWee1( ... )
 ##
-DeclareOperation("LowerBoundCoveringRadiusVanWee1", 
-						[IsInt, IsInt, IsInt, IsBool]); 
+DeclareOperation("LowerBoundCoveringRadiusVanWee1",
+                        [IsInt, IsInt, IsInt, IsBool]);
 
 #############################################################################
 ##
 #F  LowerBoundCoveringRadiusVanWee2( <n>, <r> ) Counting Excess bound
 ##
-DeclareOperation("LowerBoundCoveringRadiusVanWee2", 
-						[IsInt, IsInt, IsBool]); 
+DeclareOperation("LowerBoundCoveringRadiusVanWee2",
+                        [IsInt, IsInt, IsBool]);
 
 #############################################################################
 ##
 #F  LowerBoundCoveringRadiusCountingExcess( <n>, <r> )
 ##
-DeclareOperation("LowerBoundCoveringRadiusCountingExcess", 
-						[IsInt, IsInt, IsBool]); 
+DeclareOperation("LowerBoundCoveringRadiusCountingExcess",
+                        [IsInt, IsInt, IsBool]);
 
 ########################################################################
 ##
 #F  LowerBoundCoveringRadiusEmbedded1( <n>, <r> [, <givesize> ] )
 ##
-DeclareOperation("LowerBoundCoveringRadiusEmbedded1", 
-						[IsInt, IsInt, IsInt, IsBool]); 
+DeclareOperation("LowerBoundCoveringRadiusEmbedded1",
+                        [IsInt, IsInt, IsInt, IsBool]);
 
 ########################################################################
 ##
 #F  LowerBoundCoveringRadiusEmbedded2( <n>, <r> [, <givesize> ] )
 ##
-DeclareOperation("LowerBoundCoveringRadiusEmbedded2", 
-						[IsInt, IsInt, IsInt, IsBool]); 
+DeclareOperation("LowerBoundCoveringRadiusEmbedded2",
+                        [IsInt, IsInt, IsInt, IsBool]);
 
 #############################################################################
 ##
 #F  LowerBoundCoveringRadiusInduction( <n>, <r> ) Induction bound
 ##
-DeclareOperation("LowerBoundCoveringRadiusInduction", [IsInt, IsInt]);  
+DeclareOperation("LowerBoundCoveringRadiusInduction", [IsInt, IsInt]);
 
 ########################################################################
 ##
 #F  GeneralUpperBoundCoveringRadius( <code> )
 ##
-DeclareOperation("GeneralUpperBoundCoveringRadius", [IsCode]); 
+DeclareOperation("GeneralUpperBoundCoveringRadius", [IsCode]);
 
 ########################################################################
 ##
@@ -144,13 +144,13 @@ DeclareOperation("GeneralUpperBoundCoveringRadius", [IsCode]);
 ##
 ##  Only for linear codes.
 ##
-DeclareOperation("UpperBoundCoveringRadiusRedundancy", [IsCode]); 
+DeclareOperation("UpperBoundCoveringRadiusRedundancy", [IsCode]);
 
 ########################################################################
 ##
 #F  UpperBoundCoveringRadiusDelsarte( <code> )
 ##
-DeclareOperation("UpperBoundCoveringRadiusDelsarte", [IsCode]); 
+DeclareOperation("UpperBoundCoveringRadiusDelsarte", [IsCode]);
 
 ########################################################################
 ##
@@ -160,19 +160,19 @@ DeclareOperation("UpperBoundCoveringRadiusDelsarte", [IsCode]);
 ##  has strength 1 (i.e. every coordinate contains each element
 ##  of the field the same number of times).
 ##
-DeclareOperation("UpperBoundCoveringRadiusStrength", [IsCode]); 
+DeclareOperation("UpperBoundCoveringRadiusStrength", [IsCode]);
 
 ########################################################################
 ##
 #F  UpperBoundCoveringRadiusGriesmerLike( <code> )
 ##
-DeclareOperation("UpperBoundCoveringRadiusGriesmerLike", [IsCode]);  
+DeclareOperation("UpperBoundCoveringRadiusGriesmerLike", [IsCode]);
 
 ########################################################################
 ##
 #F  UpperBoundCoveringRadiusCyclicCode( <code> )
 ##
-DeclareOperation("UpperBoundCoveringRadiusCyclicCode", [IsCode]);  
+DeclareOperation("UpperBoundCoveringRadiusCyclicCode", [IsCode]);
 
 
 

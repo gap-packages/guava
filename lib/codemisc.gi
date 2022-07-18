@@ -12,19 +12,19 @@
 ##
 #F  CodeWeightEnumerator( <code> )
 ##
-##  Returns a polynomial over the rationals 
+##  Returns a polynomial over the rationals
 ##  with degree not greater than the length of the code.
 ##  The coefficient of x^i equals
 ##  the number of codewords of weight i.
 ##
 
-InstallMethod(CodeWeightEnumerator, "unrestricted code", true, [IsCode], 0, 
-function( code ) 
-    
-    return LaurentPolynomialByCoefficients( 
-				ElementsFamily(FamilyObj(Rationals)), 
-				WeightDistribution( code ),  0  );
-    
+InstallMethod(CodeWeightEnumerator, "unrestricted code", true, [IsCode], 0,
+function( code )
+
+    return LaurentPolynomialByCoefficients(
+                ElementsFamily(FamilyObj(Rationals)),
+                WeightDistribution( code ),  0  );
+
 end);
 
 
@@ -34,19 +34,19 @@ end);
 ##
 ##  Returns a polynomial over the rationals
 ##  with degree not greater than the length of the code.
-##  The coefficient of x^i equals 
+##  The coefficient of x^i equals
 ##  the number of codewords with distance i to <word>.
 
-InstallMethod(CodeDistanceEnumerator, "unrestricted code, codeword", true, 
-	[IsCode, IsCodeword], 0, 
-function( code, word ) 
-    
+InstallMethod(CodeDistanceEnumerator, "unrestricted code, codeword", true,
+    [IsCode, IsCodeword], 0,
+function( code, word )
+
     word := Codeword( word, code );
-    
-    return LaurentPolynomialByCoefficients( 
-		ElementsFamily(FamilyObj( Rationals )), 
-		DistancesDistribution( code, word ),  0  );
-    
+
+    return LaurentPolynomialByCoefficients(
+        ElementsFamily(FamilyObj( Rationals )),
+        DistancesDistribution( code, word ),  0  );
+
 end);
 
 
@@ -59,14 +59,14 @@ end);
 ##  coefficients.
 ##
 
-InstallMethod(CodeMacWilliamsTransform, "unrestricted code", 
-	true, [IsCode], 0, 
-function( code ) 
+InstallMethod(CodeMacWilliamsTransform, "unrestricted code",
+    true, [IsCode], 0,
+function( code )
     local weightdist, transform, size, n, x, i, j, tmp;
-    
+
     n := WordLength( code );
-    
-    # if dimension < n/2, or if non-linear code, 
+
+    # if dimension < n/2, or if non-linear code,
     # use weightdistribution of code,
     # else use weightdistribution of dual code
     if not IsLinearCode( code ) or Dimension( code ) < n / 2 then
@@ -84,9 +84,9 @@ function( code )
         transform := WeightDistribution( DualCode( code ) );
     fi;
 
-    return LaurentPolynomialByCoefficients( 
-				ElementsFamily(FamilyObj( Rationals )), 
-				transform,  0  );
+    return LaurentPolynomialByCoefficients(
+                ElementsFamily(FamilyObj( Rationals )),
+                transform,  0  );
 end);
 
 
@@ -96,23 +96,23 @@ end);
 ##
 ##  Returns the number of non-zeroes in a vector.
 
-InstallMethod(WeightVector, "method for vector", true, [IsVector], 0, 
-function( vector ) 
+InstallMethod(WeightVector, "method for vector", true, [IsVector], 0,
+function( vector )
     local pos, number, fieldzero;
-    
+
     number := 0;
-    fieldzero := Zero( Field( vector ) );  
-    
+    fieldzero := Zero( Field( vector ) );
+
     for pos in [ 1 .. Length( vector ) ] do
-        
+
         if vector[ pos ] <> fieldzero then
             number := number + 1;
         fi;
-        
+
     od;
-    
+
     return number;
-    
+
 end);
 
 
@@ -121,20 +121,20 @@ end);
 #F  RandomVector( <len> [, <weight> [, <field> ] ] )
 ##
 
-InstallMethod(RandomVector, "length, weight, field", true, 
-	[IsInt, IsInt, IsField], 0, 
-function(len, wt, field) 
+InstallMethod(RandomVector, "length, weight, field", true,
+    [IsInt, IsInt, IsField], 0,
+function(len, wt, field)
     local  vec, coord, coordlist, elslist, i;
-    
-    if len <= 0 then 
+
+    if len <= 0 then
         Error( "RandomVector: length must be a positive integer" );
     fi;
-	if wt < -1 or wt > len then
-		Error( "RandomVector: <weight> must be an integer in the range",
-			   " -1 .. ", len );
-	fi;
-    
-    
+    if wt < -1 or wt > len then
+        Error( "RandomVector: <weight> must be an integer in the range",
+               " -1 .. ", len );
+    fi;
+
+
     vec := NullVector( len, field );
     if wt > 0 then
         coordlist := [ 1 .. len ];
@@ -159,26 +159,26 @@ function(len, wt, field)
     return vec;
 end);
 
-InstallOtherMethod(RandomVector, "length, weight, fieldsize", true, 
-	[IsInt, IsInt, IsInt], 0, 
-function(len, wt, q) 
-	return RandomVector(len, wt, GF(q)); 
-end); 
+InstallOtherMethod(RandomVector, "length, weight, fieldsize", true,
+    [IsInt, IsInt, IsInt], 0,
+function(len, wt, q)
+    return RandomVector(len, wt, GF(q));
+end);
 
-InstallOtherMethod(RandomVector, "length, weight", true, [IsInt, IsInt], 0,  
-function(len, wt) 
-	return RandomVector(len, wt, GF(2)); 
-end); 
+InstallOtherMethod(RandomVector, "length, weight", true, [IsInt, IsInt], 0,
+function(len, wt)
+    return RandomVector(len, wt, GF(2));
+end);
 
-InstallOtherMethod(RandomVector, "length, field", true, [IsInt, IsField], 0, 
-function(len, field) 
-	return RandomVector(len, -1, field); 
-end); 
+InstallOtherMethod(RandomVector, "length, field", true, [IsInt, IsField], 0,
+function(len, field)
+    return RandomVector(len, -1, field);
+end);
 
-InstallOtherMethod(RandomVector, "length", true, [IsInt], 0, 
-function(len) 
-	return RandomVector(len, -1, GF(2)); 
-end); 
+InstallOtherMethod(RandomVector, "length", true, [IsInt], 0,
+function(len)
+    return RandomVector(len, -1, GF(2));
+end);
 
 
 ########################################################################
@@ -190,12 +190,12 @@ end);
 ##  also 1 - v \in <code> (where 1 is the all-one word).
 ##
 
-InstallMethod(IsSelfComplementaryCode, "method for unrestricted code", 
-	true, [IsCode], 0, 
+InstallMethod(IsSelfComplementaryCode, "method for unrestricted code",
+    true, [IsCode], 0,
 function ( code )
-    local size, els, selfcompl, alloneword, newword; 
-   	if LeftActingDomain( code ) <> GF(2) then 
-		Error("IsSelfComplementaryCode: <code> is not a binary code" ); 	
+    local size, els, selfcompl, alloneword, newword;
+    if LeftActingDomain( code ) <> GF(2) then
+        Error("IsSelfComplementaryCode: <code> is not a binary code" );
     elif IsLinearCode( code ) then
         return IsSelfComplementaryCode( code );
     else
@@ -217,14 +217,14 @@ function ( code )
     fi;
 end);
 
-InstallMethod(IsSelfComplementaryCode, "method for linear code", 
-	true, [IsLinearCode], 0, 
+InstallMethod(IsSelfComplementaryCode, "method for linear code",
+    true, [IsLinearCode], 0,
 function ( code )
-	if LeftActingDomain( code ) <> GF(2) then 
-		Error("IsSelfComplementaryCode: <code> is not a binary code" ); 
-	else 
-    	return( AllOneCodeword( WordLength( code ), GF(2) ) in code );
-	fi;
+    if LeftActingDomain( code ) <> GF(2) then
+        Error("IsSelfComplementaryCode: <code> is not a binary code" );
+    else
+        return( AllOneCodeword( WordLength( code ), GF(2) ) in code );
+    fi;
 end);
 
 
@@ -236,12 +236,12 @@ end);
 ##  a coset of a linear code, false otherwise.
 ##
 
-InstallMethod(IsAffineCode, "method for unrestricted code", 
-	true, [IsCode], 0, 
+InstallMethod(IsAffineCode, "method for unrestricted code",
+    true, [IsCode], 0,
 function ( code )
-    
+
     if IsLinearCode( code ) then
-        return IsAffineCode( code );   
+        return IsAffineCode( code );
     elif NullWord( code ) in code then
         # code cannot be a coset code of a linear code
         return false;
@@ -253,14 +253,14 @@ function ( code )
         # subtract the first codeword from all codewords.
         # if the resulting code is linear, then the
         # original code is affine.
-        return IsLinearCode( 
-                       CosetCode( code, NullWord( code  ) 
+        return IsLinearCode(
+                       CosetCode( code, NullWord( code  )
                                - CodewordNr( code, 1 ) ) );
     fi;
-    
+
 end);
 
-InstallTrueMethod(IsAffineCode, IsLinearCode); 
+InstallTrueMethod(IsAffineCode, IsLinearCode);
 
 
 ########################################################################
@@ -273,29 +273,29 @@ InstallTrueMethod(IsAffineCode, IsLinearCode);
 ##  size of the alphabet of the code.
 ##
 
-InstallMethod(IsAlmostAffineCode, "method for unrestricted code", 
-	true, [IsCode], 0, 
+InstallMethod(IsAlmostAffineCode, "method for unrestricted code",
+    true, [IsCode], 0,
 function( code )
-    
+
     local F, n, i, j, subcode, sizelist, coordlist, almostaffine;
-    
+
         if IsAffineCode( code ) then
             # every affine code is also almost affine
             almostaffine := true;
         else
             # not affine
             almostaffine := true;
-           	
-			F := LeftActingDomain( code ); 
+
+            F := LeftActingDomain( code );
 
             # however, any code over GF(2) or GF(3) is affine
             # if it is almost affine.
             # so non-affine codes with q=2,3 are also not almost affine
-            if Size( F ) = 2 
+            if Size( F ) = 2
                or Size( F ) = 3 then
                 almostaffine := false;
             fi;
-            
+
             n := WordLength( code );
             sizelist := List( [ 0 .. n ], x -> Characteristic( F ) ^ x );
 
@@ -306,10 +306,10 @@ function( code )
                 # now check for all possible puncturings
                 i := 1;
                 while almostaffine and i < n do
-                    coordlist := List( Tuples( [ 1 .. n ], i ), 
+                    coordlist := List( Tuples( [ 1 .. n ], i ),
                                        x -> Difference( [ 1 .. n ], x ) );
                     j := 1;
-                    while almostaffine 
+                    while almostaffine
                       and j < Length( coordlist ) do
                         subcode := PuncturedCode( code, coordlist[ j ] );
                         # one fault is enough !
@@ -325,7 +325,7 @@ function( code )
     return almostaffine;
 end);
 
-InstallTrueMethod(IsAlmostAffineCode, IsAffineCode); 
+InstallTrueMethod(IsAlmostAffineCode, IsAffineCode);
 
 
 ########################################################################
@@ -336,23 +336,23 @@ InstallTrueMethod(IsAlmostAffineCode, IsAffineCode);
 ##  n = \sum_{i=0}^{k-1} d/(q^i), false otherwise.
 ##
 
-InstallMethod(IsGriesmerCode, "method for unrestricted code", 
-	true, [IsCode], 0, 
+InstallMethod(IsGriesmerCode, "method for unrestricted code",
+    true, [IsCode], 0,
 function( code )
-    
+
     if IsLinearCode( code ) then
-        return IsGriesmerCode( code ); 
-	else 
-		Error( "IsGriesmerCode: <code> must be a linear code" );
+        return IsGriesmerCode( code );
+    else
+        Error( "IsGriesmerCode: <code> must be a linear code" );
     fi;
 
-end); 
+end);
 
-InstallMethod(IsGriesmerCode, "method for linear code", true, 
-	[IsLinearCode], 0, 
-function( code ) 
-	
-	local n, k, d, q; 
+InstallMethod(IsGriesmerCode, "method for linear code", true,
+    [IsLinearCode], 0,
+function( code )
+
+    local n, k, d, q;
 
     n := WordLength( code );
     k := Dimension( code );
@@ -369,26 +369,26 @@ end);
 ##  Return the density of <code>, i.e. M*V_q(n,r)/(q^n).
 ##
 
-InstallMethod(CodeDensity, "method for unrestricted code", true, 
-	[IsCode], 0, 
+InstallMethod(CodeDensity, "method for unrestricted code", true,
+    [IsCode], 0,
 function ( code )
-    
+
     local n, q, cr;
 
     cr := CoveringRadius( code );
 
-	# Linear codes with redundancy >= 20 can return an interval 
-	# for the Covering Radius, so this test is necessary. 
-	if not IsInt( cr ) then
+    # Linear codes with redundancy >= 20 can return an interval
+    # for the Covering Radius, so this test is necessary.
+    if not IsInt( cr ) then
         Error( "CodeDensity: the covering radius of <code> is unknown" );
     fi;
-    
+
     n := WordLength( code  );
     q := Size( LeftActingDomain( code ) );
     return Size( code )
            * SphereContent( n, CoveringRadius( code ), q )
            / q^n;
-    
+
 end);
 
 
@@ -400,32 +400,32 @@ end);
 ##  The algorithm is Leon's, see for more
 ##  information his article.
 
-InstallMethod(DecreaseMinimumDistanceUpperBound, 
-	"method for unrestricted code, s, iteration", 
-	true, [IsCode, IsInt, IsInt], 0, 
-function(C, s, iteration) 
-	if IsLinearCode(C) then 
-		return DecreaseMinimumDistanceUpperBound(C, s, iteration); 
-	else 
-		Error("DecreaseMinimumDIstanceUB: <C> must be a linear code"); 
-	fi; 
-end); 
+InstallMethod(DecreaseMinimumDistanceUpperBound,
+    "method for unrestricted code, s, iteration",
+    true, [IsCode, IsInt, IsInt], 0,
+function(C, s, iteration)
+    if IsLinearCode(C) then
+        return DecreaseMinimumDistanceUpperBound(C, s, iteration);
+    else
+        Error("DecreaseMinimumDIstanceUB: <C> must be a linear code");
+    fi;
+end);
 
-InstallMethod(DecreaseMinimumDistanceUpperBound, 
-	"method for linear code, s, iteration", 
-	true, [IsLinearCode, IsInt, IsInt], 0, 
-function ( C, s, iteration ) 
-	# <C> is the code to compute the min. dist. for
+InstallMethod(DecreaseMinimumDistanceUpperBound,
+    "method for linear code, s, iteration",
+    true, [IsLinearCode, IsInt, IsInt], 0,
+function ( C, s, iteration )
+    # <C> is the code to compute the min. dist. for
     # <s> is the parameter to help find words with
-	# small weight
-	# <iteration> is number of iterations to perform
+    # small weight
+    # <iteration> is number of iterations to perform
 
-	local           
+    local
           trials,    # the number of trials so far
           n, k,      # some parameters of the code C
           genmat,    # the generator matrix of C
           d,         # the minimum distance so far
-          cont,      # have we computed enough trials ?      
+          cont,      # have we computed enough trials ?
           N,         # the set { 1, ..., n }
           S,         # a random s-subset of N
           h, i, j,   # some counters
@@ -455,14 +455,14 @@ function ( C, s, iteration )
           sups,      # the supports of the elements of B
           found;     # becomes true if a better minimum distance is
                      # found
-    
-    
+
+
     # check the arguments
     if s < 1 or s > Dimension( C ) then
         Error( "DecreaseMinimumDistanceUB: <s> must lie between 1 and the ",
                "dimension of <C>." );
     fi;
-    if iteration < 1 then 
+    if iteration < 1 then
         Error( "DecreaseMinimumDistanceLB: <iteration> must be at least zero." );
     fi;
 
@@ -491,7 +491,7 @@ function ( C, s, iteration )
         k := Length(mat);     # number of rows: dimension
         n := Length(mat[1]);  # number of columns: wordlength
 
-        zero := Zero(GF(2)); 
+        zero := Zero(GF(2));
         stop := false;
         e := 0;
         tau := ( );
@@ -557,19 +557,19 @@ function ( C, s, iteration )
     n := WordLength( C );
     k := Dimension( C );
     genmat := GeneratorMat( C );
-    
+
     # step 1. initialisation
     trials := 0;
     d := n;
-    cont := true; 
+    cont := true;
     found := false;
 
     while cont do
-        
-        # step 2. 
+
+        # step 2.
         trials := trials + 1;
         InfoMinimumDistance( "Trial nr. ", trials, "   distance: ", d, "\n" );
-        
+
         # step 3.  choose a random s-elements subset of N
         N := [ 1 .. WordLength( C ) ];
         S := [ ];
@@ -579,18 +579,18 @@ function ( C, s, iteration )
         od;
         Sort( S );                  # not really necessary, but
                                     # it doesn't hurt either
-        
+
         # step 4.  choose a permutation sigma of N,
         #          mapping S onto { 1, ..., s }
         Append( S, N );
         sigma := PermList( S ) ^ (-1);
-        
+
         # step 5.  Emat := genmat^sigma (genmat is the generator matrix C)
         Emat := [ ];
         for i in [ 1 .. k ] do
             Emat[ i ] := Permuted( genmat[ i ], sigma );
         od;
-        
+
         # step 6.  apply elementary row operations to E
         #          and perhaps a permutation tau so that
         #          we get the following form:
@@ -599,26 +599,26 @@ function ( C, s, iteration )
         #          where I is the e * e identity matrix,
         #          e is the rank of the k * s left submatrix of E
         #          the permutation tau leaves { s+1, ..., n } fixed
-        
+
         InfoMinimumDistance( "Gaussian elimination of E ... \n");
-        
+
         res := PutSemiStandardForm( Emat, s );
         e := res[ 1 ];    # rank (in most cases equal to s)
-        tau := res[ 2 ];  # permutation of { 1, ..., s } 
-        
+        tau := res[ 2 ];  # permutation of { 1, ..., s }
+
         # append null-row to Emat (at front)
         nullrow := NullMat( 1, n, GF(2) );
         Append( nullrow, Emat );
         Emat := nullrow;
-        
+
         InfoMinimumDistance( "Gaussian elimination of E ... done. \n" );
-        
+
         # retrieve Dmat from Emat
         Dmat := [ ];
         for i in [ e + 1 .. k ] do
             Dmat[ i - e ] := List( [ s+1 .. n ], x -> Emat[ i+1 ][ x ] );
         od;
-        
+
         # retrieve Bmat from Emat
         # we only need the support of the differences of the
         # rows of B
@@ -627,10 +627,10 @@ function ( C, s, iteration )
         for j in [ 2 .. e+1 ] do
             Bmat[ j ] := List( [ s+1 .. n ], x -> Emat[ j ][ x ] );
         od;
-        
+
         InfoMinimumDistance( "Computing supports of B  ... \n" );
         sups := List( [ 1 .. e+1 ], x -> Support( Codeword( Bmat[ x ] ) ) );
-        
+
         # compute supports of differences of rows of Bmat
         # and the weights of these supports
         # do this once every trial, instead of for each codeword,
@@ -642,7 +642,7 @@ function ( C, s, iteration )
 #            Bsupp[ i ] := List( [ i + 1 - KroneckerDelta( i, 1 ) .. e+1 ],
 #                                x -> Difference( Union( sup1, sups[ x ] ),
 #                                        Intersection( sup1, sups[ x ] ) ) );
-            
+
             for j in [ i + 1 - KroneckerDelta( i, 1 ) .. e+1 ] do
                 sup2 := sups[ j ];
                 Bsupp[ i ][ j ] := Difference( Union( sup1, sup2 ),
@@ -651,14 +651,14 @@ function ( C, s, iteration )
             od;
         od;
         InfoMinimumDistance( "Computing supports of B  ... done. \n" );
-        
+
         # retrieve Zmat from Emat
         # in this case we only need the weights of the supports of
         # the differences of the rows of Zmat
         # because we don't have to add them to codewords
-        
+
         if e < s then
-            
+
             InfoMinimumDistance( "Computing weights of Z   ... \n" );
             Znonempty := true;
             Zmat := List( [ 1 .. e ], x -> [ ] );
@@ -669,49 +669,49 @@ function ( C, s, iteration )
             Zweight := List( [ 1 ..e ], x -> [ ] );
             for i in [ 1 .. e ] do
                 for j in [ i + 1 - KroneckerDelta( i, 1 ) .. e+1 ] do
-                    Zweight[ i ][ j ] := 
+                    Zweight[ i ][ j ] :=
                       WeightCodeword( Codeword( Zmat[ i ] + Zmat[ j ] ) );
                 od;
             od;
             InfoMinimumDistance( "Computing weights of Z   ... done. \n" );
-            
+
         else
             Znonempty := false;
         fi;
-              
+
         # step 7.  for each w in (n-s, k-e) code spanned by D
         for w in AsSSortedList( GeneratorMatCode( Dmat, GF(2) ) ) do
             wsupp := Support( w );
-            
+
             # step 8.
             for i in [ 1 .. e ] do
-                
+
                 # step 9.
                 for j in [ i + 1 - KroneckerDelta( i, 1 ) .. e+1 ] do
-                    
+
                     ij1 := KroneckerDelta( i, 1 ) + KroneckerDelta( j, 1 );
-                    
+
                     # step 10.
                     if Znonempty then
                         t := Zweight[ i ][ j ];
                     else
                         t := 0;
                     fi;
-                    
+
                     # step 11.
                     if t <= ij1 then
-                        
+
                         # step 12.
-                        t := t  
+                        t := t
                              + Bweight[ i ][ j ]
-                             + Length( wsupp ) 
+                             + Length( wsupp )
                              - 2 * Length( Intersection(
                                      Bsupp[ i ][ j ], wsupp ) );
                         t := t + ( 2 - ij1 );
                         if 0 < t and t < d then
-                            
+
                             found := true;
-                            
+
                             # step 13.
                             d := t;
                             C!.upperBoundMinimumDistance :=

@@ -12,13 +12,13 @@
 ##
 #F  CreateBoundsTable( <Sz>, <q> [, <info> ] ) . . constructs table of bounds
 ##
-InstallMethod(CreateBoundsTable, "Sz, fieldsize, info", true, 
-	[IsInt, IsInt, IsBool], 0, 
-function(Sz, q, info) 
+InstallMethod(CreateBoundsTable, "Sz, fieldsize, info", true,
+    [IsInt, IsInt, IsBool], 0,
+function(Sz, q, info)
     local RulesList, LBT, UBT, FillPoints, NumberUnchanged, RuleNumber, file,
           WriteToStream, InitialTable, help, temp, stream;
 
-    help := 
+    help :=
       Concatenation("\n##\n",
               "##  Each entry [n][k] of one of the tables below contains\n",
               "##  a bound (the first table contains lowerbounds, the   \n",
@@ -88,17 +88,17 @@ function(Sz, q, info)
         od;
         return BT;
     end;
-    
+
     FillPoints := function( BT, lb )
         local dir, initialfile, pt;
         GUAVA_TEMP_VAR := [false];
         dir := DirectoriesPackageLibrary("guava", "tbl");
         if lb then
             initialfile := Filename( dir,
-	                          Concatenation("codes",String(q),".g") );
+                              Concatenation("codes",String(q),".g") );
         else
             initialfile := Filename( dir,
-	                         Concatenation("upperbd",String(q),".g") );
+                             Concatenation("upperbd",String(q),".g") );
         fi;
         if initialfile = fail then
             Error("no table around for GF(",String(q),")");
@@ -115,7 +115,7 @@ function(Sz, q, info)
         od;
         return BT;
     end;
-        
+
     WriteToStream := function(s, BT)
         local list, k, n;
         PrintTo(s, Concatenation( "][", String(q), "] := [\n#V   n = 1\n[  ]" ) );
@@ -129,7 +129,7 @@ function(Sz, q, info)
             PrintTo(s, Concatenation(",\n#V   n = ",String(n),"\n"), list);
         od;
         PrintTo(s, "];");
-    end; 
+    end;
 #F              begin of rules for lowerbound
 
     RulesList := [];
@@ -160,7 +160,7 @@ function(Sz, q, info)
         if info then Print(number," changes with Extending\n" ); fi;
         return number > 0;
     end);
-    
+
     # UUV Construction
     Add(RulesList, function()
         local n, k1, k2, d, d1, number;
@@ -181,7 +181,7 @@ function(Sz, q, info)
         if info then Print(number," changes with UUV\n" ); fi;
         return (number > 0);
     end);
-    
+
     # Concatenation
     Add(RulesList, function()
         local n1, n2, k, d, number;
@@ -200,9 +200,9 @@ function(Sz, q, info)
         if info then Print(number," changes with Concatenation\n" ); fi;
         return number > 0;
     end);
-    
+
     # Puncturing
-    Add( RulesList, 
+    Add( RulesList,
          function()
         local n, k, number;
         number := 0;
@@ -217,7 +217,7 @@ function(Sz, q, info)
         if info then Print(number," changes with Puncturing\n" ); fi;
         return (number > 0);
     end);
-    
+
     # Shortening
     Add(RulesList,
         function()
@@ -234,7 +234,7 @@ function(Sz, q, info)
         if info then Print(number," changes with Shortening\n" ); fi;
         return (number > 0);
     end);
-        
+
     # Taking the residue
     Add(RulesList, function()
         local n, k, temp, d, dnew, number;
@@ -253,7 +253,7 @@ function(Sz, q, info)
         if info then Print(number," changes with Residue\n" ); fi;
         return number > 0;
     end);
-    
+
     # Construction B: M&S, Ch. 18, P. 9, Pg. 592
     Add(RulesList, function()
         local n, k, dd, number;
@@ -328,7 +328,7 @@ function(Sz, q, info)
         if info then Print(number," changes with Construction B\n" ); fi;
         return number > 0;
     end);
-    
+
     # Extending
     Add(RulesList, function()
         local n, k, number;
@@ -384,7 +384,7 @@ function(Sz, q, info)
 #        od;
 #    end);
 #F              begin of body
-    
+
     LBT := InitialTable( Sz,  true  );
     LBT := FillPoints  ( LBT, true  );
     UBT := InitialTable( Sz,  false );
@@ -407,10 +407,10 @@ function(Sz, q, info)
 
     # This way of saving the tables to a file make use of a nasty trick,
     # used to speed up things heavily
-    
-	##LR - This trick is not yet working in GAP4.  Until it does, 
-        ##  the tables will not be printed to the file.  
-	if info then Print("\nSaving the bound tables...\n"); fi;
+
+    ##LR - This trick is not yet working in GAP4.  Until it does,
+        ##  the tables will not be printed to the file.
+    if info then Print("\nSaving the bound tables...\n"); fi;
     file := Filename( DirectoriesPackageLibrary("guava", "tbl"),
                          Concatenation("bdtable",String(q),".g") );
     stream := OutputTextFile( file, true );
@@ -425,21 +425,21 @@ function(Sz, q, info)
 end);
 
 
-InstallOtherMethod(CreateBoundsTable, "Sz, fieldsize", true, 
-	[IsInt, IsInt], 0, 
-function(Sz, q) 
-	return CreateBoundsTable(Sz, q, false); 
-end); 
+InstallOtherMethod(CreateBoundsTable, "Sz, fieldsize", true,
+    [IsInt, IsInt], 0,
+function(Sz, q)
+    return CreateBoundsTable(Sz, q, false);
+end);
 
-InstallOtherMethod(CreateBoundsTable, "Sz, field, info", true, 
-	[IsInt, IsField, IsBool], 0, 
-function(Sz, F, info) 
-	return CreateBoundsTable(Sz, Size(F), info); 
-end); 
+InstallOtherMethod(CreateBoundsTable, "Sz, field, info", true,
+    [IsInt, IsField, IsBool], 0,
+function(Sz, F, info)
+    return CreateBoundsTable(Sz, Size(F), info);
+end);
 
-InstallOtherMethod(CreateBoundsTable, "Sz, field", true, 
-	[IsInt, IsField], 0, 
-function(Sz, F) 
-	return CreateBoundsTable(Sz, Size(F), false); 
-end); 
+InstallOtherMethod(CreateBoundsTable, "Sz, field", true,
+    [IsInt, IsField], 0,
+function(Sz, F)
+    return CreateBoundsTable(Sz, Size(F), false);
+end);
 

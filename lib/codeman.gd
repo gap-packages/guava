@@ -11,37 +11,37 @@
 ##
 #F  DualCode( <C> ) . . . . . . . . . . . . . . . . . . . .  dual code of <C>
 ##
-DeclareOperation("DualCode", [IsCode]); 
+DeclareOperation("DualCode", [IsCode]);
 
 #############################################################################
 ##
 #F  AugmentedCode( <C> [, <L>] )  . . .  add words to generator matrix of <C>
 ##
-DeclareOperation("AugmentedCode", [IsCode, IsObject]); 
+DeclareOperation("AugmentedCode", [IsCode, IsObject]);
 
 #############################################################################
 ##
 #F  EvenWeightSubcode( <C> )  . . .  code of all even-weight codewords of <C>
 ##
-DeclareOperation("EvenWeightSubcode", [IsCode]); 
+DeclareOperation("EvenWeightSubcode", [IsCode]);
 
 #############################################################################
 ##
 #F  ConstantWeightSubcode( <C> [, <w>] )  .  all words of <C> with weight <w>
 ##
-DeclareOperation("ConstantWeightSubcode", [IsCode, IsInt]);  
+DeclareOperation("ConstantWeightSubcode", [IsCode, IsInt]);
 
 #############################################################################
 ##
 #F  ExtendedCode( <C> [, <i>] ) . . . . . code with added parity check symbol
 ##
-DeclareOperation("ExtendedCode", [IsCode, IsInt]); 
+DeclareOperation("ExtendedCode", [IsCode, IsInt]);
 
 #############################################################################
 ##
 #F  ShortenedCode( <C> [, <L>] )  . . . . . . . . . . . . . .  shortened code
 ##
-DeclareOperation("ShortenedCode", [IsCode, IsList]);  
+DeclareOperation("ShortenedCode", [IsCode, IsList]);
 
 #############################################################################
 ##
@@ -51,7 +51,7 @@ DeclareOperation("ShortenedCode", [IsCode, IsList]);
 ##  coordinates given in list remlist. If remlist is omitted, then
 ##  the last coordinate will be removed.
 ##
-DeclareOperation("PuncturedCode", [IsCode, IsList]); 
+DeclareOperation("PuncturedCode", [IsCode, IsList]);
 
 #############################################################################
 ##
@@ -59,25 +59,25 @@ DeclareOperation("PuncturedCode", [IsCode, IsList]);
 ##
 ##  The usual way of expurgating a code is removing all words of odd weight.
 ##
-DeclareOperation("ExpurgatedCode", [IsCode, IsList]); 
+DeclareOperation("ExpurgatedCode", [IsCode, IsList]);
 
 #############################################################################
 ##
 #F  AddedElementsCode( <C>, <L> ) . . . . . . . . . .  adds words in list <L>
 ##
-DeclareOperation("AddedElementsCode", [IsCode, IsList]); 
+DeclareOperation("AddedElementsCode", [IsCode, IsList]);
 
 #############################################################################
 ##
 #F  RemovedElementsCode( <C>, <L> ) . . . . . . . . removes words in list <L>
 ##
-DeclareOperation("RemovedElementsCode", [IsCode, IsList]);  
+DeclareOperation("RemovedElementsCode", [IsCode, IsList]);
 
 #############################################################################
 ##
 #F  LengthenedCode( <C> [, <i>] ) . . . . . . . . . . . . . .  lengthens code
 ##
-DeclareOperation("LengthenedCode", [IsCode, IsInt]); 
+DeclareOperation("LengthenedCode", [IsCode, IsInt]);
 
 #############################################################################
 ##
@@ -85,7 +85,7 @@ DeclareOperation("LengthenedCode", [IsCode, IsInt]);
 ##
 ##  If w is omitted, a word from C of minimal weight is used
 ##
-DeclareOperation("ResidueCode", [IsCode, IsCodeword]); 
+DeclareOperation("ResidueCode", [IsCode, IsCodeword]);
 
 #############################################################################
 ##
@@ -96,7 +96,7 @@ DeclareOperation("ResidueCode", [IsCode, IsCodeword]);
 ##  check matrix equal to this matrix, but with columns removed where the
 ##  first row is 1.
 ##
-DeclareOperation("ConstructionBCode", [IsCode]); 
+DeclareOperation("ConstructionBCode", [IsCode]);
 
 #############################################################################
 ##
@@ -105,7 +105,7 @@ DeclareOperation("ConstructionBCode", [IsCode]);
 ##  Construction B2 is mixtures of shortening and puncturing. Given an
 ##  [n,k,d] code which has dual code of minimum distance s, we obtain
 ##  an [n-s, k-s+2j+1, d-2j] code for each j with 2j+1 < s.
-##  
+##
 ##  For more details, see A. Brouwer (1998), "Bounds on the size of linear
 ##  codes,", in Handbook of Coding Theory, V. S. Pless and W. C. Huffmann
 ##  ed., pp. 311
@@ -128,25 +128,25 @@ DeclareOperation("SubCode", [IsCode, IsInt]);
 ##
 #F  PermutedCode( <C>, <P> )  . . . . . . . permutes coordinates of codewords
 ##
-DeclareOperation("PermutedCode", [IsCode, IsPerm]); 
+DeclareOperation("PermutedCode", [IsCode, IsPerm]);
 
 #############################################################################
 ##
 #F  StandardFormCode( <C> ) . . . . . . . . . . . . standard form of code <C>
 ##
-DeclareOperation("StandardFormCode", [IsCode]); 
+DeclareOperation("StandardFormCode", [IsCode]);
 
 #############################################################################
 ##
 #F  ConversionFieldCode( <C> )  . . . . . converts code from GF(q^m) to GF(q)
 ##
-DeclareOperation("ConversionFieldCode", [IsCode]); 
+DeclareOperation("ConversionFieldCode", [IsCode]);
 
 #############################################################################
 ##
 #F  CosetCode( <C>, <f> ) . . . . . . . . . . . . . . . . . . .  coset of <C>
 ##
-DeclareOperation("CosetCode", [IsCode, IsCodeword]); 
+DeclareOperation("CosetCode", [IsCode, IsCodeword]);
 
 #############################################################################
 ##
@@ -156,13 +156,13 @@ DeclareOperation("CosetCode", [IsCode, IsCodeword]);
 ##  by adding each codeword of the second code to all the codewords of the
 ##  first code.
 ##
-DeclareOperation("DirectSumCode", [IsCode, IsCode]); 
+DeclareOperation("DirectSumCode", [IsCode, IsCode]);
 
 #############################################################################
 ##
 #F  ConcatenationCode( <C1>, <C2> ) . . . . .  concatenation of <C1> and <C2>
 ##
-DeclareOperation("ConcatenationCode", [IsCode, IsCode]); 
+DeclareOperation("ConcatenationCode", [IsCode, IsCode]);
 
 #############################################################################
 ##
@@ -171,7 +171,7 @@ DeclareOperation("ConcatenationCode", [IsCode, IsCode]);
 ##  DirectProductCode constructs a new code from the direct product of two
 ##  codes by taking the Kronecker product of the two generator matrices
 ##
-DeclareOperation("DirectProductCode", [IsCode, IsCode]); 
+DeclareOperation("DirectProductCode", [IsCode, IsCode]);
 
 #############################################################################
 ##
@@ -180,19 +180,19 @@ DeclareOperation("DirectProductCode", [IsCode, IsCode]);
 ##  Uuvcode(C1, C2) # creates a ( 2n , M1 M2 , d = min{2 d1 , d2} ) code
 ##  with codewords  (u | u + v) for all u in C1 and v in C2
 ##
-DeclareOperation("UUVCode", [IsCode, IsCode]);  
+DeclareOperation("UUVCode", [IsCode, IsCode]);
 
 #############################################################################
 ##
 #F  UnionCode( <C1>, <C2> ) . . . . . . . . . . . . .  union of <C1> and <C2>
 ##
-DeclareOperation("UnionCode", [IsCode, IsCode]); 
+DeclareOperation("UnionCode", [IsCode, IsCode]);
 
 #############################################################################
 ##
 #F  IntersectionCode( <C1>, <C2> )  . . . . . . intersection of <C1> and <C2>
-## 
-DeclareOperation("IntersectionCode", [IsCode, IsCode]); 
+##
+DeclareOperation("IntersectionCode", [IsCode, IsCode]);
 
 #############################################################################
 ##
@@ -233,5 +233,5 @@ DeclareOperation("BZCodeNC", [IsList, IsList]);
 ##
 #F  HullCode( <C> ) . . . . . . . . . . . . . . . . . . . .  hull of <C>
 ##
-DeclareOperation("HullCode", [IsCode]); 
+DeclareOperation("HullCode", [IsCode]);
 
