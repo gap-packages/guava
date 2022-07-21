@@ -187,10 +187,10 @@ int main( int argc, char *argv[])
    /* Compute file and library names. */
    parseLibraryName( argv[optionCountPlus1], prefix, suffix,
                      permGroupFileName, permGroupLibraryName);
-   if ( permOutputName )
+   if ( *permOutputName )
       parseLibraryName( permOutputName, "", "",
                         permOutputFileName, permOutputLibraryName);
-   if ( groupOutputName )
+   if ( *groupOutputName )
       parseLibraryName( groupOutputName, "", "",
                            groupOutputFileName, groupOutputLibraryName);
 
