@@ -362,7 +362,8 @@ void deleteRPriorityQueue(
 
 Word *newTrivialWord( void)
 {
-   ERROR( "newTrivialWord", "Procedure not yet implemented.");
+   ERROR( "newTrivialWord", "Procedure not yet implemented.")
+   return 0; /* silence compiler warning */
 }
 
 

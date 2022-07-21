@@ -195,6 +195,9 @@ int main(
                ERROR( "main (randobj command)", "Cell sizes do not sum to degree.")
          }
          break;
+      default:
+         /* can not actually reach here, silence a compiler warning */
+         break;
    }
 
    /* Compute file and library names for output object. */
@@ -291,6 +294,10 @@ int main(
          freeIntArrayDegree( pi->pointList);
          freeIntArrayDegree( pi->startCell);
          freePartition( pi);
+         break;
+
+      default:
+         /* can not actually reach here, silence a compiler warning */
          break;
    }
 

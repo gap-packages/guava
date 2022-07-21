@@ -439,6 +439,7 @@ static int comparePartition(
    const Partition *const partn2)
 {
    ERROR( "comparePartition", "Comparison of partitions not yet implemented")
+   return 0; /* silence compiler warning */
 }
 
 

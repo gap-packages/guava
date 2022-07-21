@@ -208,8 +208,8 @@ void constructBasicOrbit(
 
       case find:
          gensUsed = NULL;
-         while ( newEssentialGen = genExpandingBasicOrbit( &firstGen, found,
-                                                          orbit, svec) ) {
+         while ( ( newEssentialGen = genExpandingBasicOrbit( &firstGen, found,
+                                                          orbit, svec) ) ) {
             newEssentialGen->xNext = gensUsed;
             gensUsed = newEssentialGen;
 

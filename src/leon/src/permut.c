@@ -83,6 +83,7 @@ Unsigned pointMovedBy(
          return pt;
    ERROR( "pointMovedBy", "Attempt to find a point moved by identity "
           "permutation");
+   return 0; /* silence compiler warning */
 }
 
 
