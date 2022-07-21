@@ -2796,15 +2796,17 @@ function(C)
                 Add(param, "--mod");
                 Add(param, 2);
                 fi;
-    elif LeftActingDomain(C) = GF(3) then
-        if IsSelfOrthogonalCode(C) then
-            Add(param, "--mod");
-            Add(param, 5);
-        fi;
-    fi;
-    Add(param, tmpFile);
-        Print(param, "\n");
-    ## Now call the external program
+
+	elif LeftActingDomain(C) = GF(3) then
+		if IsSelfOrthogonalCode(C) then
+			Add(param, "--mod");
+			Add(param, 5);
+		fi;
+	fi;
+	Add(param, tmpFile);
+
+	## Now call the external program
+
         Process(DirectoryCurrent(),
             Filename(path, "minimum-weight"),
             InputTextUser(),
