@@ -26,14 +26,18 @@ SetPackageInfo( rec(
                       "/", LowercaseString(~.PackageName), "-", ~.Version ),
   ArchiveFormats 
           := ".tar.gz",
-  BannerString:=Concatenation(["\n   ____                          |\n",
-    "  /            \\           /   --+--  Version ", ~.Version, "\n",
-    " /      |    | |\\\\        //|    |\n",
-    "|    _  |    | | \\\\      // |     the GUAVA Group\n",
-    "|     \\ |    | |--\\\\    //--|     \n",
-    " \\     ||    | |   \\\\  //   |     \n",
-    "  \\___/  \\___/ |    \\\\//    |      \n",
-    "                                  \n\n"]),
+  BannerString:=Concatenation("""
+   ____                          |
+  /            \           /   --+--  Version """, ~.Version, """
+ /      |    | |\\        //|    |
+|    _  |    | | \\      // |     the GUAVA Group
+|     \ |    | |--\\    //--|
+ \     ||    | |   \\  //   |
+  \___/  \___/ |    \\//    |
+
+ Homepage: https://gap-packages.github.io/guava
+ Report issues at https://github.com/gap-packages/guava/issues
+"""),
 
 ##    - if no 'TextFiles' or 'BinaryFiles' are given and a .zoo archive is
 ##      provided, then the files in that archive with a "!TEXT!" comment are
