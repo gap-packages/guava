@@ -376,11 +376,12 @@ static Matrix_01 *xRead01Matrix(
          for ( j = 1 ; j <= nCols ; ++j ) {
             while ( (symbol = getc(libFile)) == ' ' || symbol == ','  || symbol == '\n' )
                ;
-            if ( symbol < '0' && symbol > maxSymbol )
+            if ( symbol < '0' && symbol > maxSymbol ) {
                if ( symbol == EOF )
                   ERROR( "xRead01Matrix", "Premature end of file.")
                else
                   ERROR( "xRead01Matrix", "Invalid symbol in matrix entries.")
+            }
             matrix->entry[i][j] = symbol - '0';
          }
    else
@@ -388,11 +389,12 @@ static Matrix_01 *xRead01Matrix(
          for ( j = 1 ; j <= nRows ; ++j ) {
             while ( (symbol = getc(libFile)) == ' ' || symbol == ',' || symbol == '\n' )
                ;
-            if ( symbol < '0' && symbol > maxSymbol )
+            if ( symbol < '0' && symbol > maxSymbol ) {
                if ( symbol == EOF )
                   ERROR( "xRead01Matrix", "Premature end of file.")
                else
                   ERROR( "xRead01Matrix", "Invalid symbol in matrix entries.")
+            }
             matrix->entry[j][i] = symbol - '0';
          }
 

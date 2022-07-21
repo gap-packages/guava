@@ -650,6 +650,9 @@ int main( int argc, char *argv[])
                            C->name);
                   options.groupOrderMessage = "Code automorphism group";
                   break;
+               default:
+                  /* can not actually reach here, silence a compiler warning */
+                  break;
             }
             if ( L )
                printf( "\nKnown Subgroup: %s\n", L->name);
@@ -719,6 +722,9 @@ int main( int argc, char *argv[])
                      "The codes are isomorphic.  An isomorphism is:";
                   options.noCosetRepMessage = 
                      "The codes are not isomorphic.";
+                  break;
+               default:
+                  /* can not actually reach here, silence a compiler warning */
                   break;
             }
             if ( L_L )

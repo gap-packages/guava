@@ -220,7 +220,7 @@ int main( int argc, char *argv[])
    }
 
    /* If second group is omitted, check if first group is the identity. */
-   if ( !group2 )
+   if ( !group2 ) {
       if ( group1->order->noOfFactors == 0 ) {
          if ( options.inform )
             printf( "\n  %s is the identity.\n", group1->name);
@@ -231,13 +231,14 @@ int main( int argc, char *argv[])
             printf( "\n  %s is not the identity.\n", group1->name);
          return 1;
       }
+   }
 
    /* Check containment. */
-   if ( isSubgroupOf(group1,group2) )
+   if ( isSubgroupOf(group1,group2) ) {
       if ( isSubgroupOf(group2,group1) ) {
          if ( options.inform )
             printf( "\n  %s and %s are equal.\n", group1->name, group2->name);
-         if ( centralizeFlag )
+         if ( centralizeFlag ) {
             if ( isCentralizedBy(group1,group2) ) {
                printf( "  %s and %s centralize each other.\n",
                        group1->name, group2->name);
@@ -246,13 +247,14 @@ int main( int argc, char *argv[])
             else
                printf( "  %s and %s do not centralize each other.\n",
                        group1->name, group2->name);
+         }
          returnCode = 0;
       }
       else {
          if ( options.inform )
             printf( "\n  %s is properly contained in %s.\n", group1->name,
                                                         group2->name);
-         if ( centralizeFlag )
+         if ( centralizeFlag ) {
             if ( isCentralizedBy(group1,group2) ) {
                printf( "  %s and %s centralize each other.\n",
                        group1->name, group2->name);
@@ -261,21 +263,24 @@ int main( int argc, char *argv[])
             else
                printf( "  %s and %s do not centralize each other.\n",
                        group1->name, group2->name);
-         if ( normalizeFlag && !skipNormalize )
+         }
+         if ( normalizeFlag && !skipNormalize ) {
             if ( isNormalizedBy(group1,group2) )
                printf( "  %s is normal in %s.\n", group1->name,
                                                     group2->name);
             else
                printf( "  %s is not normal in %s.\n", group1->name,
                                                     group2->name);
+         }
          returnCode = 1;
       }
-   else
+   }
+   else {
       if ( isSubgroupOf(group2,group1) ) {
          if ( options.inform )
             printf( "\n  %s is properly contained in %s.\n", group2->name,
                                                         group1->name);
-         if ( centralizeFlag )
+         if ( centralizeFlag ) {
             if ( isCentralizedBy(group1,group2) ) {
                printf( "  %s and %s centralize each other.\n",
                        group1->name, group2->name);
@@ -284,20 +289,22 @@ int main( int argc, char *argv[])
             else
                printf( "  %s and %s do not centralize each other.\n",
                        group1->name, group2->name);
-         if ( normalizeFlag && !skipNormalize )
+         }
+         if ( normalizeFlag && !skipNormalize ) {
             if ( isNormalizedBy( group2, group1) )
                printf( "  %s is normal in %s.\n", group2->name,
                                                     group1->name);
             else
                printf( "  %s is not normal in %s.\n", group2->name,
                                                     group1->name);
+         }
          returnCode = 2;
       }
       else {
          if ( options.inform )    
             printf( "\n  Neither of %s or %s is contained in the other.\n",
                                           group1->name, group2->name);
-         if ( centralizeFlag )
+         if ( centralizeFlag ) {
             if ( isCentralizedBy(group1,group2) ) {
                printf( "  %s and %s centralize each other.\n",
                        group1->name, group2->name);
@@ -306,6 +313,7 @@ int main( int argc, char *argv[])
             else
                printf( "  %s and %s do not centralize each other.\n",
                        group1->name, group2->name);
+         }
          if ( normalizeFlag && !skipNormalize ) {
             if ( isNormalizedBy( group1, group2) )
                printf( "  %s is normalized by %s.\n", group1->name,
@@ -322,6 +330,7 @@ int main( int argc, char *argv[])
          }
          returnCode = 3;
       }
+   }
 
    return returnCode;
 }
@@ -430,6 +439,7 @@ static int comparePartition(
    const Partition *const partn2)
 {
    ERROR( "comparePartition", "Comparison of partitions not yet implemented")
+   return 0; /* silence compiler warning */
 }
 
 

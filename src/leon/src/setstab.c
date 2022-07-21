@@ -516,6 +516,9 @@ int main( int argc, char *argv[])
                     "The stabilizer in permutation group %s of unordered partition %s.",
                     G->name, PLambda->name);
                break;
+            default:
+               /* can not actually reach here, silence a compiler warning */
+               break;
          }
          strcpy( G_pP->name, outputObjectName);
          G_pP->printFormat = (imageFormatFlag ? imageFormat : cycleFormat);
@@ -581,6 +584,9 @@ int main( int argc, char *argv[])
             sprintf( comment,
                "A permutation in group %s mapping unordered partition %s to unordered partition %s.",
                      G->name, PLambda->name, PXi->name);
+               break;
+            default:
+               /* can not actually reach here, silence a compiler warning */
                break;
          }
          if ( y ) {

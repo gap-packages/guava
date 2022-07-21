@@ -985,7 +985,7 @@ unsigned long prodOrderBounded(
             imagePt = perm2->image[perm1->image[imagePt]];
             found[imagePt] = TRUE;
          } while ( imagePt != basePt );
-         if (order % orbLen != 0)
+         if (order % orbLen != 0) {
             if ( order <= ULONG_MAX / (multiplier = orbLen / gcd(order,orbLen)) ) {
                order *= multiplier;
                if ( order > bound ) {
@@ -997,6 +997,7 @@ unsigned long prodOrderBounded(
                freeBooleanArrayDegree( found);
                return 0;
             }
+         }
       }
 
    freeBooleanArrayDegree( found);

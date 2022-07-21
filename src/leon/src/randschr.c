@@ -281,11 +281,12 @@ BOOLEAN randomSchreier(
       rOptions.minWordLengthIncrement = 7;
    if ( rOptions.maxWordLengthIncrement == UNKNOWN )
       rOptions.maxWordLengthIncrement = 23;
-   if ( rOptions.stopAfter == UNKNOWN )
+   if ( rOptions.stopAfter == UNKNOWN ) {
       if ( G->order )
          rOptions.stopAfter = 10000;
       else
          rOptions.stopAfter = 40;
+   }
    if ( rOptions.reduceGenOrder == UNKNOWN )
       rOptions.reduceGenOrder = TRUE;
    if ( rOptions.rejectNonInvols == UNKNOWN )

@@ -125,7 +125,7 @@ FactoredInt factorize(
 
    if ( primeList[i] == 0 )
       ERROR( "factorize", "Prime number list overflow.")
-   else if ( n > 1)
+   else if ( n > 1) {
       if ( n == lastPrime )
          ++nFactored.exponent[nFactored.noOfFactors-1];
       else if ( nFactored.noOfFactors < MAX_PRIME_FACTORS ) {
@@ -135,6 +135,7 @@ FactoredInt factorize(
       else
          ERROR1i( "factorize", "Number of prime factors exceeded "
                   "maximum of ", MAX_PRIME_FACTORS, ".")
+   }
 
    return nFactored;
 }

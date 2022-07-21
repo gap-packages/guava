@@ -309,6 +309,9 @@ int main(
             degree = C->length;
          initializeStorageManager( degree);
          break;
+      case INVALID_OBJECT:
+         ERROR("main (cjrndper command)", "invalid object")
+         break;
    }
 
    /* Initialize random number generator. */
@@ -528,6 +531,9 @@ int main(
                               C->name);
          strcpy( CConjugated->name, outputObjectName);
          writeCode( outputFileName, outputLibraryName, CConjugated, comment);
+         break;
+      case INVALID_OBJECT:
+         ERROR("main (cjrndper command)", "invalid object")
          break;
    }
 

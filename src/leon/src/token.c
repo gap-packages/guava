@@ -138,11 +138,12 @@ Token readToken( void)
          strcpy( token.value.keyValue, buffer);
       else
          strcpy( token.value.identValue, buffer);
-      if ( token.type == identifier)
+      if ( token.type == identifier) {
          if ( ch != EOF )
             ungetc( ch, inFile);
          else
             endOfFileReached = TRUE;
+      }
    }
 
    /* This code handles integer tokens. */
@@ -241,11 +242,12 @@ Token sReadToken( void)
          strcpy( token.value.keyValue, sBuffer);
       else
          strcpy( token.value.identValue, sBuffer);
-      if ( token.type == identifier)
+      if ( token.type == identifier) {
          if ( ch != '\0' )
             --stringPosition;
          else
             endOfStringReached = TRUE;
+      }
    }
 
    /* This code handles integer tokens. */

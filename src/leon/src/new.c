@@ -348,11 +348,12 @@ RPriorityQueue *newRPriorityQueue(
 void deleteRPriorityQueue(
    RPriorityQueue *oldRPriorityQueue)
 {
-   if ( oldRPriorityQueue->pointList )
-   if ( oldRPriorityQueue->maxSize > oldRPriorityQueue->degree / 2 )
-      freeIntArrayDegree( oldRPriorityQueue->pointList);
-   else
-      free( oldRPriorityQueue->pointList );
+   if ( oldRPriorityQueue->pointList ) {
+       if ( oldRPriorityQueue->maxSize > oldRPriorityQueue->degree / 2 )
+          freeIntArrayDegree( oldRPriorityQueue->pointList);
+       else
+          free( oldRPriorityQueue->pointList );
+   }
    freeRPriorityQueue( oldRPriorityQueue);
 }
 
@@ -361,7 +362,8 @@ void deleteRPriorityQueue(
 
 Word *newTrivialWord( void)
 {
-   ERROR( "newTrivialWord", "Procedure not yet implemented.");
+   ERROR( "newTrivialWord", "Procedure not yet implemented.")
+   return 0; /* silence compiler warning */
 }
 
 
