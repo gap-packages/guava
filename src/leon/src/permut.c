@@ -138,20 +138,22 @@ void leftMultiply(
       s->image[pt] = oldImage[t->image[pt]];
    freeIntArrayDegree( oldImage);
 
-   if ( s->invImage )
-      if ( isInvolution( s) )
+   if ( s->invImage ) {
+      if ( isInvolution( s) ) {
          if ( s->invImage != s->image ) {
             freeIntArrayDegree( s->invImage);
             s->invImage = s->image;
          }
          else
             ;
+      }
       else {
          if ( s->invImage == s->image )
             s->invImage = allocIntArrayDegree();
          for ( pt = 1 ; pt <= s->degree ; ++pt )
             s->invImage[s->image[pt]] = pt;
       }
+   }
 }
 
 
@@ -169,20 +171,22 @@ void rightMultiply(
    UnsignedS *temp1, *temp2, *temp3, *temp4;
 
    REPLACE_BY_IMAGE( s->image, t, s->degree, temp1, temp2, temp3, temp4)
-   if ( s->invImage )
-      if ( isInvolution( s) )
+   if ( s->invImage ) {
+      if ( isInvolution( s) ) {
          if ( s->invImage != s->image ) {
             freeIntArrayDegree( s->invImage);
             s->invImage = s->image;
          }
          else
             ;
+      }
       else {
          if ( s->invImage == s->image )
             s->invImage = allocIntArrayDegree();
          SET_TO_INVERSE( s->image, s->invImage, s->degree,
                          temp1, temp2, uTemp1, uTemp2, uTemp3)
       }
+   }
 }
 
 
@@ -204,20 +208,22 @@ void rightMultiplyInv(
                                  "available.");
 
    REPLACE_BY_INV_IMAGE( s->image, t, s->degree, temp1, temp2, temp3, temp4)
-   if ( s->invImage )
-      if ( isInvolution( s) )
+   if ( s->invImage ) {
+      if ( isInvolution( s) ) {
          if ( s->invImage != s->image ) {
             freeIntArrayDegree( s->invImage);
             s->invImage = s->image;
          }
          else
             ;
+      }
       else {
          if ( s->invImage == s->image )
             s->invImage = allocIntArrayDegree();
          SET_TO_INVERSE( s->image, s->invImage, s->degree,
                          temp1, temp2, uTemp1, uTemp2, uTemp3)
       }
+   }
 }
 
 
@@ -246,13 +252,14 @@ unsigned long permOrder(
             imagePt = perm->image[imagePt];
             found[imagePt] = TRUE;
          } while ( imagePt != basePt );
-         if (order % orbLen != 0)
+         if (order % orbLen != 0) {
             if ( order <= ULONG_MAX / (multiplier = orbLen / gcd(order,orbLen)) )
                order *= multiplier;
             else {
                freeBooleanArrayDegree( found);
                return 0;
             }
+         }
       }
 
    freeBooleanArrayDegree( found);

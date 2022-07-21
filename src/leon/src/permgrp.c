@@ -291,7 +291,7 @@ void adjoinInverseGen(
 {
    Permutation *invGen;
 
-   if ( !gen->invPermutation )
+   if ( !gen->invPermutation ) {
       if ( gen->image == gen->invImage )
          gen->invPermutation = gen;
       else {
@@ -309,6 +309,7 @@ void adjoinInverseGen(
          G->generator->last = invGen;
          G->generator = invGen;
       }
+   }
 }
 
 
