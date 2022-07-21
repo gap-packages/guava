@@ -461,7 +461,7 @@ static BOOLEAN checkStabilizer(
                        (wh.word.length + symmetricWordLength(&wh.word));
             if ( relatorPriority > selectionPriority ) {
                newRel = addRelatorSortedFromWord( G, &wh.word, TRUE, TRUE);
-               selectionPriority += relatorSelection[4];
+               selectionPriority += relatorSelection[3];
                ++numberSelected;
                totalSelectedLength += newRel->length;
                numberAdded = addOccurencesForRelator( newRel,
@@ -470,7 +470,7 @@ static BOOLEAN checkStabilizer(
                traceNewRelator( G, level, deductionQueue, newRel);
             }
             else
-               selectionPriority -= relatorSelection[5];
+               selectionPriority -= relatorSelection[4];
             ++numberOfRelators;
             totalRelatorLength += wh.word.length;
             maxRelatorLength = MAX ( maxRelatorLength, wh.word.length);
@@ -640,7 +640,7 @@ static BOOLEAN xCheckStabilizer(
                               ((*wPtr)->length + symmetricWordLength(*wPtr));
                if ( relatorPriority > selectionPriority ) {
                   newRel = addRelatorSortedFromWord( G, *wPtr, TRUE, TRUE);
-                  selectionPriority += relatorSelection[4];
+                  selectionPriority += relatorSelection[3];
                   ++numberSelected;
                   totalSelectedLength += newRel->length;
                   numberAdded = addOccurencesForRelator( newRel,
@@ -649,7 +649,7 @@ static BOOLEAN xCheckStabilizer(
                   traceNewRelator( G, level, deductionQueue, newRel);
                }
                else
-                  selectionPriority -= relatorSelection[5];
+                  selectionPriority -= relatorSelection[4];
                ++numberOfRelators;
                totalRelatorLength += (*wPtr)->length;
                maxRelatorLength = MAX ( maxRelatorLength, (*wPtr)->length);
