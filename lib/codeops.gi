@@ -1709,8 +1709,8 @@ function(C)
     GuavaToLeon(Ccalc, incode);
     Process(DirectoryCurrent(),
             Filename(path, "wtdist"),
-            InputTextUser(),
-            OutputTextUser(),
+            InputTextNone(),
+            OutputTextNone(),
             ["-q", Concatenation(incode,"::code"), MinimumDistance(Ccalc), Concatenation(inV, "::code")]
     );
     #Exec(Filename(DirectoriesPackagePrograms("guava"), "wtdist"),
@@ -1718,8 +1718,8 @@ function(C)
     #        String(MinimumDistance(Ccalc))," ",inV,"::code"));
     Process(DirectoryCurrent(),
             Filename(path, "desauto"),
-            InputTextUser(),
-            OutputTextUser(),
+            InputTextNone(),
+            OutputTextNone(),
             ["-code", "-q", Concatenation(incode,"::code"), Concatenation(inV, "::code"), outgroup]
     );
     #Exec(Filename(DirectoriesPackagePrograms("guava"), "desauto"),
@@ -1727,8 +1727,8 @@ function(C)
     #        incode,"::code ",inV,"::code ",outgroup));
     Process(DirectoryCurrent(),
             Filename(path, "leonconv"),
-            InputTextUser(),
-            OutputTextUser(),
+            InputTextNone(),
+            OutputTextNone(),
             ["-a", outgroup, infile]
     );
     #Exec(Filename(DirectoriesPackagePrograms("guava"), "leonconv"),
@@ -2016,8 +2016,8 @@ function(C1, C2)
     #        String(MinimumDistance(C1))," ",cwcode1,"::code"));
     Process(DirectoryCurrent(),
             Filename(DirectoriesPackagePrograms("guava"), "wtdist"),
-            InputTextUser(),
-            OutputTextUser(),
+            InputTextNone(),
+            OutputTextNone(),
             ["-q", Concatenation(code1,"::code"),
              MinimumDistance(C1), Concatenation(cwcode1, "::code")]
     );
@@ -2026,8 +2026,8 @@ function(C1, C2)
     #        String(MinimumDistance(C2))," ",cwcode2,"::code"));
     Process(DirectoryCurrent(),
             Filename(DirectoriesPackagePrograms("guava"), "wtdist"),
-            InputTextUser(),
-            OutputTextUser(),
+            InputTextNone(),
+            OutputTextNone(),
             ["-q", Concatenation(code2,"::code"),
              MinimumDistance(C2), Concatenation(cwcode2, "::code")]
     );
@@ -2037,8 +2037,8 @@ function(C1, C2)
     #        cwcode2,"::code ",output));
     Process(DirectoryCurrent(),
             Filename(DirectoriesPackagePrograms("guava"), "desauto"),
-            InputTextUser(),
-            OutputTextUser(),
+            InputTextNone(),
+            OutputTextNone(),
             ["-iso", "-code", "-q",
              Concatenation(code1,"::code"),
              Concatenation(code2,"::code"),
@@ -2051,8 +2051,8 @@ function(C1, C2)
     #        infile));
     Process(DirectoryCurrent(),
             Filename(DirectoriesPackagePrograms("guava"), "leonconv"),
-            InputTextUser(),
-            OutputTextUser(),
+            InputTextNone(),
+            OutputTextNone(),
             ["-e", output, infile]
     );
     Read(infile);
@@ -2809,8 +2809,8 @@ function(C)
 
         Process(DirectoryCurrent(),
             Filename(path, "minimum-weight"),
-            InputTextUser(),
-            OutputTextUser(),
+            InputTextNone(),
+            OutputTextNone(),
             param
         );
     Read(tmpOutFile);

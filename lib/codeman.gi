@@ -406,16 +406,16 @@ function(C, wt)
       GuavaToLeon(C, incode);
       Process(DirectoryCurrent(),
          Filename(DirectoriesPackagePrograms("guava"), "wtdist"),
-	 InputTextUser(),
-	 OutputTextUser(),
+	 InputTextNone(),
+	 OutputTextNone(),
 	 ["-q",  Concatenation(incode,"::code"), wt,
 	  Concatenation(cwsc,"::code")]
       );
       if IsReadableFile( cwsc ) then
          Process(DirectoryCurrent(),
               Filename(DirectoriesPackagePrograms("guava"), "leonconv"),
-              InputTextUser(),
-              OutputTextUser(),
+              InputTextNone(),
+              OutputTextNone(),
               ["-c", cwsc, infile]
          );
       else
