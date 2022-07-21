@@ -2727,3 +2727,75 @@ function(ax, bx, k)
     return C;
 end);
 
+###########################################################################
+##
+#F QCLDPCCodeFromGroup( <m>, <j>, <k> ) . . Regular quasi-cyclic LDPC code
+##
+## Construct a regular (j,k) quasi-cyclic low-density parity-check (LDPC)
+## code over GF(2) based on the multiplicative group of integer modulo m.
+## If m is a prime, the size of the group is equal to Phi(m) = m - 1,
+## otherwise it is equal to Phi(m). For details, refer to the paper by:
+##
+##   R. Tanner, D. Sridhara, A. Sridharan, T. Fuja and D. Costello,
+##   "LDPC block and convolutional codes based on circulant matrices",
+##   IEEE Trans. Inform. Theory, vol. 50, no. 12, pp. 2966--2984, 2004
+##
+## NOTE that j and k must divide Phi(m).
+##
+InstallMethod(QCLDPCCodeFromGroup, "method for binary linear code", true,
+	[IsInt, IsInt, IsInt], 0,
+function(m, j, k)
+    local r, c, a, b, p, P, H, M, C, PermutationMatrix;
+
+    ##
+    ##----------------- start of private functions ---------------------
+    ##
+    ## PermutationMatrix - a private function for QCLDPCCodeFromGroup
+    PermutationMatrix := function(m, i)
+        local s, P, L;
+        if i = 0 or i > m then
+            Error("invalid value of i, 1 \\le i \\le ", m, "\n");
+        fi;
+        P := [];
+        L := List([1..m], i->Zero(GF(2))); L[i] := One(GF(2));
+        Append(P, [ L ]);
+        for s in [2..m] do;
+            L := RightRotateList(L);
+            Append(P, [ L ]);
+        od;
+        return P;
+    end;
+    ##
+    ##------------------ end of private functions ----------------------
+    ##
+
+    p := Phi(m);
+    if (p mod j <> 0) then
+        Error(j, " does not divide ", p, "=Phi(", m, ")\n");
+    fi;
+    if (p mod k <> 0) then
+        Error(k, " does not divide ", p, "=Phi(", m, ")\n");
+    fi;
+
+    a := Position( List([1..m-1], i->OrderMod(i, m) ), k );
+    b := Position( List([1..m-1], i->OrderMod(i, m) ), j );
+
+    P := [];
+    for r in [0..j-1] do;
+        Append(P, [ List([0..k-1], i->a^i*b^r mod m) ]);
+    od;
+
+    H := [];
+    for r in [1..j] do;
+        M := [];
+        for c in [1..k] do;
+            M := TransposedMat( Concatenation( TransposedMat(M), TransposedMat( PermutationMatrix(m, P[r][c]) ) ) );
+        od;
+        Append(H, M);
+    od;
+    C := CheckMatCode( H, GF(2) );
+    C!.CheckMat := H;
+    C!.name := "low-density parity-check code";
+    C!.upperBoundMinimumDistance := Factorial(j+1);
+    return C;
+end);

@@ -8303,7 +8303,7 @@ codes may be categorised into two classes:
 <Func Name="QCLDPCCodeFromGroup" Arg=" m j k "/>
 
 <Description>
-	<C>QCLDCCodeFromGroup</C> produces an <M>(n,j,k)</M> regular
+	<C>QCLDPCCodeFromGroup</C> produces an <M>(n,j,k)</M> regular
 	quasi-cyclic LDPC code over GF(2) of block length <M>n = mk</M>.
 	The term quasi-cyclic in the context of LDPC codes typically
 	refers to LDPC codes whose parity-check matrix <M>H</M> has
