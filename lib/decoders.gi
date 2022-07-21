@@ -16,7 +16,7 @@
 ## added PermutationDecodeNC, CyclicDecoder 5-2005
 ## revisions to Decodeword, 11-2005 (fixed bug spotted by Cayanne McFarlane)
 ## 1-2006: added bit flip decoder
-## 7-2007: Fixed several bugs in CyclicDecoder found by 
+## 7-2007: Fixed several bugs in CyclicDecoder found by
 ##             Punarbasu Purkayastha <ppurka@umd.edu>
 ## 2009-3: Bugfix for Decodeword (J. Fields and wdj)
 ##
@@ -27,44 +27,44 @@
 #F  Decode( <C>, <v> )  . . . . . . . . .  decodes the vector(s) v from <C>
 ##
 ##  v can be a "codeword" or a list of "codeword"s
-## 
+##
 
-InstallMethod(Decode, "method for unrestricted code, codeword", true, 
-	[IsCode, IsCodeword], 0, 
-function(C, v) 
-        local c;
-        if v in C then
-            return Codeword(v, C);
-        fi;
-	c := Codeword(v, C); 
-	if HasSpecialDecoder(C) then
-		return InformationWord(C, SpecialDecoder(C)(C, c) );
-	elif IsCyclicCode(C) or IsLinearCode(C) then 
-		return Decode(C, c);
-	else
-		Error("no decoder present");
-	fi;
+InstallMethod(Decode, "method for unrestricted code, codeword", true,
+    [IsCode, IsCodeword], 0,
+function(C, v)
+    local c;
+    if v in C then
+        return Codeword(v, C);
+    fi;
+    c := Codeword(v, C);
+    if HasSpecialDecoder(C) then
+        return InformationWord(C, SpecialDecoder(C)(C, c) );
+    elif IsCyclicCode(C) or IsLinearCode(C) then
+        return Decode(C, c);
+    else
+        Error("no decoder present");
+    fi;
 end);
 
-InstallOtherMethod(Decode, 
-	"method for unrestricted code, list of codewords", 
-	true, [IsCode, IsList], 0, 
-function(C, L) 
-        local i;
-	return List(L, i->Decode(C, i)); 
-end); 
+InstallOtherMethod(Decode,
+    "method for unrestricted code, list of codewords",
+    true, [IsCode, IsList], 0,
+function(C, L)
+    local i;
+    return List(L, i->Decode(C, i));
+end);
 
-InstallMethod(Decode, "method for linear code, codeword", true, 
-	[IsLinearCode, IsCodeword], 0, 
-function(C, v) 
+InstallMethod(Decode, "method for linear code, codeword", true,
+    [IsLinearCode, IsCodeword], 0,
+function(C, v)
     local ok, c, S, syn, index, corr, Gt, i, x, F;
     if v in C then
         return InformationWord(C,v);
     fi;
-    c := Codeword(v, C); 
-    if HasSpecialDecoder(C) then 
-	return InformationWord(C, SpecialDecoder(C)(C, c) ); 
-    fi; 
+    c := Codeword(v, C);
+    if HasSpecialDecoder(C) then
+        return InformationWord(C, SpecialDecoder(C)(C, c) );
+    fi;
     F := LeftActingDomain(C);
     S := SyndromeTable(C);
     syn := Syndrome(C, c);
@@ -82,10 +82,10 @@ function(C, v)
 #and rather than trying to understand the method selection process, I'm brute-
 #forcing things...
 
-#    corr := VectorCodeword(c - S[index][1]);	     # correct codeword
-    corr := VectorCodeword(c) - VectorCodeword(S[index][1]); 
+#    corr := VectorCodeword(c - S[index][1]);   # correct codeword
+    corr := VectorCodeword(c) - VectorCodeword(S[index][1]);
     x := SolutionMat(GeneratorMat(C), corr);
-    return Codeword(x,LeftActingDomain(C));	     # correct "message"
+    return Codeword(x,LeftActingDomain(C));     # correct "message"
 end);
 
 
@@ -95,63 +95,64 @@ end);
 #F  Decodeword( <C>, <v> )  . . . . . . .  decodes the vector(s) v from <C>
 ##
 ##  v can be a "codeword" or a list of "codeword"s
-## 
+##
 
 #nearest neighbor
-InstallMethod(Decodeword, "method for unrestricted code, codeword", true, 
-	[IsCode, IsCodeword], 0, 
-function(C, v) 
-        local r, c, Cwords, NearbyWords, dist;
-        if v in C then
-            return v;
+InstallMethod(Decodeword, "method for unrestricted code, codeword", true,
+    [IsCode, IsCodeword], 0,
+function(C, v)
+    local r, c, Cwords, NearbyWords, dist;
+    if v in C then
+        return v;
+    fi;
+    r := Codeword(v, C);
+    if r in C then
+        return r;
+    fi;
+    if HasSpecialDecoder(C) then
+        return SpecialDecoder(C)(C, r);
+    elif IsCyclicCode(C) or IsLinearCode(C) then
+        return Decodeword(C, r);
+    fi;
+    dist:=Int((MinimumDistance(C)-1)/2);
+    Cwords:=Elements(C);
+    NearbyWords:=[];
+    for c in Cwords do
+        if WeightCodeword(r-c) <= dist then
+            NearbyWords:=Concatenation(NearbyWords,[r]);
         fi;
-	r := Codeword(v, C); 
-        if r in C then return r; fi;
-	if HasSpecialDecoder(C) then
-		return SpecialDecoder(C)(C, r);
-	elif IsCyclicCode(C) or IsLinearCode(C) then 
-		return Decodeword(C, r);
-	else
-	     dist:=Int((MinimumDistance(C)-1)/2);
-             Cwords:=Elements(C);
-             NearbyWords:=[];
-             for c in Cwords do
-               if WeightCodeword(r-c) <= dist then
-                   NearbyWords:=Concatenation(NearbyWords,[r]); 
-               fi;
-             od;
-             return NearbyWords;	
-	fi;
+    od;
+    return NearbyWords;
 end);
 
 
-InstallOtherMethod(Decodeword, 
-	"method for unrestricted code, list of codewords", 
-	true, [IsCode, IsList], 0, 
-function(C, L) 
-        local i;
-	return List(L, i->Decodeword(C, i)); 
-end); 
+InstallOtherMethod(Decodeword,
+    "method for unrestricted code, list of codewords",
+    true, [IsCode, IsList], 0,
+function(C, L)
+    local i;
+    return List(L, i->Decodeword(C, i));
+end);
 
 #syndrome decoding
-InstallMethod(Decodeword, "method for linear code, codeword", true, 
-	[IsLinearCode, IsCodeword], 0, 
-function(C, v) 
+InstallMethod(Decodeword, "method for linear code, codeword", true,
+    [IsLinearCode, IsCodeword], 0,
+function(C, v)
     local ok, c, c0, S, syn, index, corr, Gt, i, x, F;
     if v in C then
         return v;
     fi;
-    c := Codeword(v, C); 
-    if HasSpecialDecoder(C) then 
-                c0:=SpecialDecoder(C)(C, c); 
-		if Size(c0) = Dimension(C) then
-                    return Codeword(c0*C);
-                fi;
-		if Size(c0) = Size(c) then
-                    return Codeword(c0);
-                fi;
-                return c0;
-    fi; 
+    c := Codeword(v, C);
+    if HasSpecialDecoder(C) then
+        c0:=SpecialDecoder(C)(C, c);
+        if Size(c0) = Dimension(C) then
+            return Codeword(c0*C);
+        fi;
+        if Size(c0) = Size(c) then
+            return Codeword(c0);
+        fi;
+        return c0;
+    fi;
     F := LeftActingDomain(C);
     S := SyndromeTable(C);
     syn := Syndrome(C, c);
@@ -165,7 +166,7 @@ function(C, v)
     if not ok then  # this should never happen!
        Error("In Decodeword: index not found");
     fi;
-    corr := VectorCodeword(c - S[index][1]);	     # correct codeword
+    corr := VectorCodeword(c - S[index][1]);    # correct codeword
     return Codeword(corr,F);
 end);
 
@@ -180,8 +181,8 @@ end);
 ##   Returns original vector and prints "fail" when not possible.
 ##
 
-InstallMethod(PermutationDecode, "attribute method for linear codes", true, 
-	[IsLinearCode,IsList], 0, 
+InstallMethod(PermutationDecode, "attribute method for linear codes", true,
+    [IsLinearCode,IsList], 0,
 function(C,v)
  #C is a linear [n,k,d] code,
  #v is a vector with <=(d-1)/2 errors
@@ -195,7 +196,7 @@ local M,G,perm,F,P,t,p0,p,pc,i,k,pv,c,H,d,G0,H0;
  H0 := List(H, ShallowCopy);
  PutStandardForm(H0,false);
  F:=LeftActingDomain(C);
- if F=GF(2) then 
+ if F=GF(2) then
    P:=AutomorphismGroup(C);
   else
    P:=PermutationAutomorphismGroup(C);
@@ -205,9 +206,9 @@ local M,G,perm,F,P,t,p0,p,pc,i,k,pv,c,H,d,G0,H0;
  if WeightCodeword(H0*v)=0 then return(v); fi;
  for p in P do
   pv:=Permuted(v,p);
-  if WeightCodeword(Codeword(H0*pv))<=t then 
-	p0:=p; 
-	break; 
+  if WeightCodeword(Codeword(H0*pv))<=t then
+    p0:=p;
+    break;
   fi;
  od;
  if p0=0 then Print("fail \n"); return(v); fi;
@@ -220,19 +221,19 @@ end);
 ##################################################################
 ##
 ##
-##  PermutationDecodeNC( <C>, <v>, <P> ) -  decodes the 
+##  PermutationDecodeNC( <C>, <v>, <P> ) -  decodes the
 ##                                vector v  to <C>
 ##
 ##   Performs permutation decoding when possible.
 ##   Returns original vector and prints "fail" when not possible.
 ##   NC version does Not Compute the aut gp so one must
-##   input the permutation automorphism group  
+##   input the permutation automorphism group
 ##   <P> subset SymmGp(n), n=wordlength(<C>)
 ##
 ####  wdj,2-7-2005
 
-InstallMethod(PermutationDecodeNC, "attribute method for linear codes", true, 
-	[IsLinearCode,IsCodeword,IsGroup], 0, 
+InstallMethod(PermutationDecodeNC, "attribute method for linear codes", true,
+    [IsLinearCode,IsCodeword,IsGroup], 0,
 function(C,v,P)
  #C is a linear [n,k,d] code,
  #v is a vector with <=(d-1)/2 errors
@@ -251,10 +252,10 @@ local M,G,G0, perm,F,t,p0,p,pc,i,k,pv,c,H,H0, d;
  if WeightCodeword(H0*v)=0 then return(v); fi;
  for p in P do
   pv:=Permuted(v,p);
-  if WeightCodeword(Codeword(H0*pv))<=t then 
-	p0:=p; 
-#	Print(p0," = p0 \n",pv,"\n",H*pv,"\n"); 
-	break; 
+  if WeightCodeword(Codeword(H0*pv))<=t then
+    p0:=p;
+#   Print(p0," = p0 \n",pv,"\n",H*pv,"\n");
+    break;
   fi;
  od;
  if p0=0 then Print("fail \n"); return(v); fi;
@@ -267,8 +268,8 @@ end);
 ##
 #F  CyclicDecoder( <C>, <w> )  . . . . . . . . . . . . decodes cyclic codes
 ##
-InstallMethod(CyclicDecoder, "method for cyclic code, codeword", true, 
-	[IsCode, IsCodeword], 0, 
+InstallMethod(CyclicDecoder, "method for cyclic code, codeword", true,
+    [IsCode, IsCodeword], 0,
 function(C,w)
 local d, g, wpol, s, ds, cpol, cc, c, i, m, e, x, n, ccc, r;
  if not(IsCyclicCode(C)) then
@@ -302,8 +303,8 @@ end);
 ##
 #F  BCHDecoder( <C>, <r> )  . . . . . . . . . . . . . . . . decodes BCH codes
 ##
-InstallMethod(BCHDecoder, "method for code, codeword", true, 
-	[IsCode, IsCodeword], 0, 
+InstallMethod(BCHDecoder, "method for code, codeword", true,
+    [IsCode, IsCodeword], 0,
 function (C, r)
     local F, q, n, m, ExtF, x, a, t, ri_1, ri, rnew, si_1, si, snew,
           ti_1, ti, qi, sigma, i, cc, cl, mp, ErrorLocator, zero,
@@ -316,10 +317,10 @@ function (C, r)
     ExtF := GF(q^m);
     x := Indeterminate(ExtF);
     a := PrimitiveUnityRoot(q,n);
-    zero := Zero(ExtF); 
+    zero := Zero(ExtF);
     r := PolyCodeword(Codeword(r, n, F));
     if Value(GeneratorPol(C), a) <> zero then
-        return Decode(C, r);  ##LR - inf loop !!! 
+        return Decode(C, r);  ##LR - inf loop !!!
     fi;
     # Calculate syndrome: this simple line is faster than using minimal pols.
     Syndromes :=  List([1..2*QuoInt(DesignedDistance(C) - 1,2)],
@@ -328,11 +329,11 @@ function (C, r)
         return Codeword(r mod (x^n-1), C);
     fi;
     # Use Euclidean algorithm:
-    ri_1 := x^(2*t); 
-	ri := LaurentPolynomialByCoefficients( 
-			ElementsFamily(FamilyObj(ExtF)), 
-			Syndromes, 0); 
-	rnew := ShallowCopy(ri);
+    ri_1 := x^(2*t);
+    ri := LaurentPolynomialByCoefficients(
+            ElementsFamily(FamilyObj(ExtF)),
+            Syndromes, 0);
+    rnew := ShallowCopy(ri);
     si_1 := x^0; si := 0*x; snew := 0*x;
     ti_1 := 0*x; ti := x^0; sigma := x^0;
     while Degree(rnew) >= t do
@@ -345,7 +346,7 @@ function (C, r)
         ti_1 := ti; ti := sigma;
     od;
     # Chien search for the zeros of error locator polynomial:
-    ErrorLocator := []; 
+    ErrorLocator := [];
     null := a^0;
     ExtSize := q^m-1;
     for i in [0..ExtSize-1] do
@@ -365,7 +366,7 @@ function (C, r)
     else
         pol := Derivative(sigma);
         Fp := One(F)*(x^n-1);
-	#Print(ErrorLocator, "\n");
+        #Print(ErrorLocator, "\n");
         ErrorEvaluator := List(ErrorLocator,i->
                               Value(rnew,a^-i)/Value(pol, a^-i));
         pol := Sum(List([1..Length(ErrorLocator)], i->
@@ -379,19 +380,19 @@ end);
 #F  HammingDecoder( <C>, <r> )  . . . . . . . . . . . . decodes Hamming codes
 ##
 ##  Generator matrix must have all unit columns
-## 
-InstallMethod(HammingDecoder, "method for code, codeword", true, 
-	[IsCode, IsCodeword], 0, 
-function(C, r) 
+##
+InstallMethod(HammingDecoder, "method for code, codeword", true,
+    [IsCode, IsCodeword], 0,
+function(C, r)
     local H, S,p, F, fac, e,z,x,ind, i,Sf;
     S := VectorCodeword(Syndrome(C,r));
     r := ShallowCopy(VectorCodeword(r));
     F := LeftActingDomain(C);
-    p := PositionProperty(S, s->s<>Zero(F)); 
+    p := PositionProperty(S, s->s<>Zero(F));
     if p <> fail then
         z := Z(Characteristic(S[p]))^0;
         if z = S[p] then
-            fac := One(F); 
+            fac := One(F);
         else
             fac := S[p]/z;
         fi;
@@ -407,18 +408,18 @@ function(C, r)
     #x := SolutionMat(GeneratorMat(C), r);
     #return Codeword(x);
     return Codeword(r, C);
-end);	
+end);
 
 #############################################################################
 ##
-#F  GeneralizedReedSolomonDecoderGao( <C>, <v> )   . . decodes 
+#F  GeneralizedReedSolomonDecoderGao( <C>, <v> )   . . decodes
 ##                                           generalized Reed-Solomon codes
 ##                                           using S. Gao's method
-## 
-InstallMethod(GeneralizedReedSolomonDecoderGao,"method for code, codeword", true, 
-	[IsCode, IsCodeword], 0, 
+##
+InstallMethod(GeneralizedReedSolomonDecoderGao,"method for code, codeword", true,
+    [IsCode, IsCodeword], 0,
 function(C,vec)
- local vars,a,b,n,i,g0,g1,geea,u,q,v,r,g,f,F,R,x,k,GcdExtEuclideanUntilBound; 
+ local vars,a,b,n,i,g0,g1,geea,u,q,v,r,g,f,F,R,x,k,GcdExtEuclideanUntilBound;
  if C!.name<>" generalized Reed-Solomon code" then
    Error("\N This method only applies to GRS codes.\n");
  fi;
@@ -455,19 +456,19 @@ end;
  vars:=IndeterminatesOfPolynomialRing(R);
  x:=vars[1]; # define local x
  n:=Length(a);
- if Size(Set(a)) < n then    
-   Error("`Points in 1st vector must be distinct.`\n\n");  
+ if Size(Set(a)) < n then
+   Error("`Points in 1st vector must be distinct.`\n\n");
  fi;
  g0:=One(F)*Product([1..n],i->x-a[i]);
  g1:=InterpolatedPolynomial(F,a,b);
  geea:=GcdExtEuclideanUntilBound(F,g1,g0,(n+k)/2,R);
  u:=geea[2]; v:=geea[3]; g:=geea[1];
- if v=Zero(F) then return("fail"); fi;   
- if v=One(F) then 
-     q:=g; 
-     r:=Zero(F); 
-   else 
-     q:=EuclideanQuotient(R,g,v);  
+ if v=Zero(F) then return("fail"); fi;
+ if v=One(F) then
+     q:=g;
+     r:=Zero(F);
+   else
+     q:=EuclideanQuotient(R,g,v);
      r:=EuclideanRemainder(R,g,v);
  fi;
  if ((r=Zero(F) or LeadingCoefficient(r)=Zero(F)) and (Degree(q) < k)) then
@@ -491,7 +492,7 @@ GRSLocatorMat:=function(r,Pts,L)
   local a,j,b,ell,DiagonalPower,add_col_mat,add_row_mat,block_matrix;
 
  add_col_mat:=function(M,N) ## "AddColumnsToMatrix"
-  #N is a matrix with same rowdim as M 
+  #N is a matrix with same rowdim as M
   #the fcn adjoins N to the end of M
   local i,j,S,col,NT;
   col:=MutableTransposedMat(M);  #preserves M
@@ -503,7 +504,7 @@ GRSLocatorMat:=function(r,Pts,L)
  end;
 
  add_row_mat:=function(M,N) ## "AddRowsToMatrix"
-  #N is a matrix with same coldim as M 
+  #N is a matrix with same coldim as M
   #the fcn adjoins N to the bottom of M
   local i,j,S,row;
   row:=ShallowCopy(M);#to preserve M;
@@ -516,7 +517,7 @@ GRSLocatorMat:=function(r,Pts,L)
  block_matrix:=function(L) ## slightly simpler syntax IMHO than "BlockMatrix"
   # L is an array of matrices of the form
   # [[M1,...,Ma],[N1,...,Na],...,[P1,...,Pa]]
-  # returns the associated block matrix 
+  # returns the associated block matrix
   local A,B,i,j,m,n;
   n:=Length(L[1]);
   m:=Length(L);
@@ -554,23 +555,23 @@ GRSLocatorMat:=function(r,Pts,L)
   ell:=Length(L);
   a:=List([1..ell],j->DiagonalPower(r,(j-1))*VandermondeMat(Pts,L[j]));
   b:=List([1..ell],j->[1,j,a[j]]);
-  return (block_matrix([a]));  
-end; 
+  return (block_matrix([a]));
+end;
 
 ##############################################################
 #
 #
-# Input: Pts=[x1,..,xn], 
+# Input: Pts=[x1,..,xn],
 #       L=[h_1,...,h_ell] is list of powers
 #       r=[r1,...,rn] is received vector
 #
 # Compute kernel of matrix in alg 12.1.1 in [JH].
-# Choose a basis vector in kernel.  
-# Output: the lists of coefficients of the polynomial Q(x,y) in alg 12.1.1.  
+# Choose a basis vector in kernel.
+# Output: the lists of coefficients of the polynomial Q(x,y) in alg 12.1.1.
 #
 GRSErrorLocatorCoeffs:=function(r,Pts,L)
   local a,j,b,vec,e,QC,i,lengths,ker,ell;
-  ell:=Length(L); 
+  ell:=Length(L);
   e:=GRSLocatorMat(r,Pts,L);
   ker:=TriangulizedNullspaceMat(TransposedMat(e));
   if ker=[] then Print("Decoding fails.\n"); return []; fi;
@@ -588,16 +589,16 @@ end;
 #######################################################
 #
 # Input: List L of coefficients ell, R = F[x]
-#        Pts=[x1,..,xn], 
+#        Pts=[x1,..,xn],
 # Output: list of polynomials Qi as in Algor. 12.1.1 in [JH]
-# 
+#
 GRSErrorLocatorPolynomials:=function(r,Pts,L,R)
   local q,p,i,ell;
   ell:=Length(L)+1; ##  ?? Length(L) instead ??
   q:=GRSErrorLocatorCoeffs(r,Pts,L);
   if q=[] then Print("Decoding fails.\n"); return []; fi;
   p:=[];
-  for i in [1..Length(q)] do 
+  for i in [1..Length(q)] do
      p:=Concatenation(p,[CoefficientToPolynomial(q[i],R)]);
   od;
   return p;
@@ -606,9 +607,9 @@ end;
 ##########################################################
 #
 # Input: List L of coefficients ell, R = F[x]
-#       Pts=[x1,..,xn], 
+#       Pts=[x1,..,xn],
 # Output: interpolating polynomial Q as in Algor. 12.1.1 in [JH]
-# 
+#
 GRSInterpolatingPolynomial:=function(r,Pts,L,R)
   local poly,i,Ry,F,y,Q,ell;
   ell:=Length(L)+1; ##  ?? Length(L) instead ??  ##### not used ???
@@ -624,12 +625,12 @@ end;
 
 #############################################################################
 ##
-#F  GeneralizedReedSolomonDecoder( <C>, <v> )   . . decodes 
+#F  GeneralizedReedSolomonDecoder( <C>, <v> )   . . decodes
 ##                                           generalized Reed-Solomon codes
 ##                                           using the interpolation algorithm
-## 
-InstallMethod(GeneralizedReedSolomonDecoder,"method for code, codeword", true, 
-	[IsCode, IsCodeword], 0, 
+##
+InstallMethod(GeneralizedReedSolomonDecoder,"method for code, codeword", true,
+    [IsCode, IsCodeword], 0,
 function(C,vec)
 local v,R,k,P,z,F,f,s,t,L,n,Qpolys,vars,x,c,y;
 
@@ -653,10 +654,10 @@ end);
 
 #############################################################################
 ##
-#F  GeneralizedReedSolomonListDecoder( <C>, <v> , <ell> )   . . ell-list decodes 
+#F  GeneralizedReedSolomonListDecoder( <C>, <v> , <ell> )   . . ell-list decodes
 ##                                           generalized Reed-Solomon codes
 ##                                           using M. Sudan's algorithm
-## 
+##
 ##
 ## Input: v is a received vector (a GUAVA codeword)
 ##        C is a GRS code
@@ -664,24 +665,24 @@ end);
 ##                  2 to beat GeneralizedReedSolomonDecoder
 ##                  or Decoder with the special method of interpolation decoding)
 ##
-InstallMethod(GeneralizedReedSolomonListDecoder,"method for code, codeword, integer", 
-    true, [IsCode, IsCodeword, IsInt], 0, 
+InstallMethod(GeneralizedReedSolomonListDecoder,"method for code, codeword, integer",
+    true, [IsCode, IsCodeword, IsInt], 0,
 function(C,v,ell)
 local f,h,g,x,R,R2,L,F,t,i,c,Pts,k,n,tau,Q,divisorsf,div,
       CodewordList,p,vars,y,degy, divisorsdeg1;
  R:=C!.ring;
  F:=CoefficientsRing(R);
  vars:=IndeterminatesOfPolynomialRing(R);
- x:=vars[1]; 
+ x:=vars[1];
  Pts:=C!.points;
  n:=Length(Pts);
- k:=C!.degree; 
+ k:=C!.degree;
  tau:=Int((n-k)/2);
  L:=List([0..ell],i->n-tau-1-i*(k-1));
  y:=X(F,vars);;
  R2:=PolynomialRing(F,[x,y]);
  vars:=IndeterminatesOfPolynomialRing(R2);
- Q:=GRSInterpolatingPolynomial(v,Pts,L,R2); 
+ Q:=GRSInterpolatingPolynomial(v,Pts,L,R2);
  divisorsf:=DivisorsMultivariatePolynomial(Q,R2);
  divisorsdeg1:=[];
  CodewordList:=[];
@@ -707,7 +708,7 @@ end);
 
 #############################################################################
 ##
-#F  NearestNeighborGRSDecodewords( <C>, <v> , <dist> )   . . . finds all 
+#F  NearestNeighborGRSDecodewords( <C>, <v> , <dist> )   . . . finds all
 ##                                           generalized Reed-Solomon codewords
 ##                                           within distance <dist> from v
 ##                                           *and* the associated polynomial,
@@ -721,8 +722,8 @@ end);
 ##
 ## ****** very slow*****
 ##
-InstallMethod(NearestNeighborGRSDecodewords,"method for code, codeword, integer", 
-    true, [IsCode, IsCodeword, IsInt], 0, 
+InstallMethod(NearestNeighborGRSDecodewords,"method for code, codeword, integer",
+    true, [IsCode, IsCodeword, IsInt], 0,
 function(C,r,dist)
 # "brute force" decoder
 local k,F,Pts,v,p,x,f,NearbyWords,c,a;
@@ -731,12 +732,12 @@ local k,F,Pts,v,p,x,f,NearbyWords,c,a;
  F:=LeftActingDomain(C);
  NearbyWords:=[];
  for v in F^k do
-   a := Codeword(v); 
+   a := Codeword(v);
    f:=PolyCodeword(a);
    x:=IndeterminateOfLaurentPolynomial(f);
    c:=Codeword(List(Pts,p->Value(f,[x],[p])));
    if WeightCodeword(r-c) <= dist then
-   NearbyWords:=Concatenation(NearbyWords,[[c,f]]); 
+   NearbyWords:=Concatenation(NearbyWords,[[c,f]]);
  fi;
 od;
 return NearbyWords;
@@ -744,8 +745,8 @@ end);
 
 #############################################################################
 ##
-#F  NearestNeighborDecodewords( <C>, <v> , <dist> )   . . . finds all 
-##                                           codewords in a linear code C 
+#F  NearestNeighborDecodewords( <C>, <v> , <dist> )   . . . finds all
+##                                           codewords in a linear code C
 ##                                           within distance <dist> from v
 ##                                           using "brute force"
 ##
@@ -756,17 +757,17 @@ end);
 ##
 ## ****** very slow*****
 ##
-InstallMethod(NearestNeighborDecodewords,"method for code, codeword, integer", 
-    true, [IsCode, IsCodeword, IsInt], 0, 
+InstallMethod(NearestNeighborDecodewords,"method for code, codeword, integer",
+    true, [IsCode, IsCodeword, IsInt], 0,
 function(C,r,dist)
 # "brute force" decoder
 local k,F,Pts,v,p,x,f,NearbyWords,c,a;
  F:=LeftActingDomain(C);
  NearbyWords:=[];
  for v in C do
-   c := Codeword(v); 
+   c := Codeword(v);
    if WeightCodeword(r-c) <= dist then
-   NearbyWords:=Concatenation(NearbyWords,[c]); 
+   NearbyWords:=Concatenation(NearbyWords,[c]);
  fi;
 od;
 return NearbyWords;
@@ -790,10 +791,10 @@ checksetJ:=function(H,w)
  I:=[];
  n:=Length(H[1]);
  for i in [1..n] do
-		if H[w][i]<>0*Z(2) then 
-		I:=Concatenation(I,[i]);
-		fi;
-	od;
+    if H[w][i]<>0*Z(2) then
+        I:=Concatenation(I,[i]);
+    fi;
+ od;
  return I;
 end;
 
@@ -827,8 +828,8 @@ bit_flip:=function(H,v)
  return Codeword(q);
 end;
 
-InstallMethod(BitFlipDecoder,"method for code, codeword, integer", 
-    true, [IsCode, IsCodeword], 0, 
+InstallMethod(BitFlipDecoder,"method for code, codeword, integer",
+    true, [IsCode, IsCodeword], 0,
 function(C,v)
  local H,r,qnew,q;
  H:=CheckMat(C);

@@ -5,16 +5,16 @@
 #A                                                           &Erik Roijackers
 ##                                                              &David Joyner
 ##
-##  All the code operations 
+##  All the code operations
 ##
 ## changes 2003-2004 to MinimumDistance by David Joyner, Aron Foster
 ## bug in MinimumDistance corrected 9-29-2004 by wdj
 ## moved Decode and PermutationDecode to decoders.gi on 10-2004
 ## added HasGeneratorMat to GeneratorMat function 11-2-2004
-## another bug in MinimumDistance (discovered by Jason McGowan) 
+## another bug in MinimumDistance (discovered by Jason McGowan)
 ##                             corrected 11-9-2004 by wdj
 ## slight changes to MinimumWeightWords (11-26-2005)
-## wdj (9-14-2007): bug fix to MinimumDistance 
+## wdj (9-14-2007): bug fix to MinimumDistance
 ##                              added MinimumDistanceCodeword
 ## 20 Dec 07 14:24 (CJ) added IsDoublyEvenCode, IsSinglyEvenCode
 ##                      and IsEvenCode functions
@@ -33,12 +33,12 @@ function(C)
     return  WordLength(AsSSortedList(C)[1]) ;
 end);
 
-# This comment from GAP3 version. 
+# This comment from GAP3 version.
 #In a linear code, the wordlength must always be included
 #because the wordlength cannot always be calculated (NullCode)
 #
-#InstallOtherMethod(WordLength, "method for linear codes", true, 
-#	[IsLinearCode], 0, 
+#InstallOtherMethod(WordLength, "method for linear codes", true,
+#   [IsLinearCode], 0,
 #function(C)
 #    if HasGeneratorMat(C) then
 #        return Length( GeneratorMat(C)[1] );
@@ -55,14 +55,14 @@ end);
 ## If so, the record fields will be adjusted to the linear type
 ##
 
-InstallMethod(IsLinearCode, "method for unrestricted codes", true, [IsCode], 0, 
-function(C) 
+InstallMethod(IsLinearCode, "method for unrestricted codes", true, [IsCode], 0,
+function(C)
     local gen, k, F, q;
     F := LeftActingDomain(C);
     q := Size(F);
     k := LogInt(Size(C),q);
     # first the trivial cases:
-    if ( HasWeightDistribution(C) and 
+    if ( HasWeightDistribution(C) and
          HasInnerDistribution(C)
          and (WeightDistribution(C) <> InnerDistribution(C)) )
        or ( q^k <> Size(C) )
@@ -72,46 +72,46 @@ function(C)
         gen:=BaseMat(VectorCodeword(AsSSortedList(C)));
         if Length(gen) <> k then
             return false; # is cool as ice
-        else    
-           	SetFilterObj(C, IsLinearCodeRep);  
-			SetGeneratorMat(C, gen);
-            if Length(gen) = 0 then  # special case for Nullcode 
-				SetGeneratorsOfLeftModule(C, [AsSSortedList(C)[1]]); 
-			else 
-				SetGeneratorsOfLeftModule(C, AsList(Codeword(gen,F)));  
-			fi; 
-			if HasInnerDistribution(C) then
+        else
+            SetFilterObj(C, IsLinearCodeRep);
+            SetGeneratorMat(C, gen);
+            if Length(gen) = 0 then  # special case for Nullcode
+                SetGeneratorsOfLeftModule(C, [AsSSortedList(C)[1]]);
+            else
+                SetGeneratorsOfLeftModule(C, AsList(Codeword(gen,F)));
+            fi;
+            if HasInnerDistribution(C) then
                 SetWeightDistribution(C, InnerDistribution(C));
             fi;
             return true;
-        fi;        
+        fi;
     fi;
 end);
 
-InstallOtherMethod(IsLinearCode, "method for generic object", true, 
-	[IsObject], 0, 
-function(obj) 
-	return IsCode(obj) and IsLinearCode(obj); 
-end); 
+InstallOtherMethod(IsLinearCode, "method for generic object", true,
+    [IsObject], 0,
+function(obj)
+    return IsCode(obj) and IsLinearCode(obj);
+end);
 
 
 #############################################################################
 ##
-#F  IsFinite( <C> ) . . . . . . . . . . . . . . . . . . . . . . . . . . . .  
+#F  IsFinite( <C> ) . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 ##
 ##
 
-InstallTrueMethod(IsFinite, IsCode); 
+InstallTrueMethod(IsFinite, IsCode);
 
 
 #############################################################################
 ##
-#F  Dimension( <C> )  . . . . . . . . . . . . . . . . . . . . . . . . . . .  
+#F  Dimension( <C> )  . . . . . . . . . . . . . . . . . . . . . . . . . . .
 ##
 ##
 
-InstallOtherMethod(Dimension, "method for unrestricted codes", true, 
-	[IsCode], 0, 
+InstallOtherMethod(Dimension, "method for unrestricted codes", true,
+    [IsCode], 0,
 function(C)
     if IsLinearCode(C) then
         return Dimension(C);
@@ -126,14 +126,14 @@ function(C)
         return Length(GeneratorMat(C));
 end);
 
-InstallOtherMethod(Dimension, "method for cyclic codes", true, 
-	[IsCyclicCode], 0, 
-function(C) 
+InstallOtherMethod(Dimension, "method for cyclic codes", true,
+    [IsCyclicCode], 0,
+function(C)
     if HasGeneratorPol(C) then
         return WordLength(C) - DegreeOfLaurentPolynomial( GeneratorPol(C) );
     elif HasCheckPol(C) then
         return DegreeOfLaurentPolynomial( CheckPol(C) );
-    else 
+    else
         Error("Attempting to find the dim of a cyclic code with neither a gen. poly. nor a check poly...\n");
     fi;
 end);
@@ -145,7 +145,7 @@ end);
 ##
 ##
 
-InstallMethod(Size, "method for unrestricted codes", true, [IsCode], 0, 
+InstallMethod(Size, "method for unrestricted codes", true, [IsCode], 0,
 function(C)
     return Length(AsSSortedList(C));
 end);
@@ -154,26 +154,26 @@ end);
 #############################################################################
 ##
 #F  AsSSortedList( <C> ) . . . . . . . .  returns the list of codewords of <C>
-##  AsList( <C> ) 
+##  AsList( <C> )
 ##
-##  Codes created with ElementsCode must have AsSSortedList set.  
-##  Linear codes use the vector space / FLM method to calculate.  
-##  AsList defaults to AsSSortedList. 
+##  Codes created with ElementsCode must have AsSSortedList set.
+##  Linear codes use the vector space / FLM method to calculate.
+##  AsList defaults to AsSSortedList.
 
-InstallMethod(AsList, "method for unrestricted codes", true, [IsCode], 0, 
-function(C) 
-	return AsSSortedList(C); 
-end);  
+InstallMethod(AsList, "method for unrestricted codes", true, [IsCode], 0,
+function(C)
+    return AsSSortedList(C);
+end);
 
 
 #############################################################################
 ##
-#F  Redundancy( <C> ) . . . . . . . . . . . . . . . . . . . . . . . . . . .  
+#F  Redundancy( <C> ) . . . . . . . . . . . . . . . . . . . . . . . . . . .
 ##
 ##
 
-InstallMethod(Redundancy, "method for unrestricted codes", true, [IsCode], 0, 
-function(C) 
+InstallMethod(Redundancy, "method for unrestricted codes", true, [IsCode], 0,
+function(C)
     if IsLinearCode(C) then
         return Redundancy(C);
     else
@@ -181,8 +181,8 @@ function(C)
     fi;
 end);
 
-InstallMethod(Redundancy, "method for linear codes", true, [IsLinearCode], 0, 
-function(C) 
+InstallMethod(Redundancy, "method for linear codes", true, [IsLinearCode], 0,
+function(C)
     return WordLength(C) - Dimension(C);
 end);
 
@@ -194,54 +194,54 @@ end);
 ##  Pre: C should contain a generator or check matrix
 ##
 
-InstallMethod(GeneratorMat, "method for unrestricted code", true, [IsCode], 0, 
-function(C) 
-	if IsLinearCode(C) then 
-		return GeneratorMat(C); 
-	else 
+InstallMethod(GeneratorMat, "method for unrestricted code", true, [IsCode], 0,
+function(C)
+    if IsLinearCode(C) then
+        return GeneratorMat(C);
+    else
         Error("non-linear codes don't have a generator matrix");
     fi;
 end);
 
-InstallMethod(GeneratorMat, "method for linear code", true, [IsLinearCode], 0, 
-function(C) 
+InstallMethod(GeneratorMat, "method for linear code", true, [IsLinearCode], 0,
+function(C)
     local G;
 
     if HasGeneratorMat(C) then return C!.GeneratorMat; fi;
     if not HasCheckMat( C ) then
         return List( BasisVectors( Basis( C ) ), x -> VectorCodeword( x ) );
     fi;
-    
-    if CheckMat(C) = [] then  
-        G := IdentityMat(Dimension(C), LeftActingDomain(C)); 
-    elif IsInStandardForm(CheckMat(C), false) then      
+
+    if CheckMat(C) = [] then
+        G := IdentityMat(Dimension(C), LeftActingDomain(C));
+    elif IsInStandardForm(CheckMat(C), false) then
         G := TransposedMat(Concatenation(IdentityMat(
                      Dimension(C), LeftActingDomain(C) ),
                      List(-CheckMat(C), x->x{[1..Dimension(C) ]})));
-    else 
+    else
         G := NullspaceMat(TransposedMat(CheckMat(C)));
     fi;
     return ShallowCopy(G);
 end);
 
-InstallMethod(GeneratorMat, "method for cyclic code", true, [IsCyclicCode], 0, 
-function(C) 
+InstallMethod(GeneratorMat, "method for cyclic code", true, [IsCyclicCode], 0,
+function(C)
     local F, G, p, n, i, R, zero, coeffs;
 
     if HasGeneratorMat(C) then return C!.GeneratorMat; fi;
     #To be inspected:
     #if HasCheckMat(C) and IsInStandardForm(CheckMat(C), false) then
-    #    G := TransposedMat(Concatenation(IdentityMat(Dimension(C), 
+    #    G := TransposedMat(Concatenation(IdentityMat(Dimension(C),
     #          LeftActingDomain(C)),
     #          List(-CheckMat(C), x->x{[1..Dimension(C)]})));
     #else
         F := LeftActingDomain(C);
         p := GeneratorPol(C);
         n := WordLength(C);
-		G := [];
-        zero := Zero(F);  
-		coeffs := CoefficientsOfLaurentPolynomial(p); 
-		coeffs := ShiftedCoeffs(coeffs[1], coeffs[2]);  
+        G := [];
+        zero := Zero(F);
+        coeffs := CoefficientsOfLaurentPolynomial(p);
+        coeffs := ShiftedCoeffs(coeffs[1], coeffs[2]);
         for i in [1..Dimension(C)] do
             R := NullVector(i-1, F);
             Append(R, coeffs);
@@ -259,8 +259,8 @@ end);
 ##  Pre: <C> should be a linear code
 ##
 
-InstallMethod(CheckMat, "method for unrestricted codes", true, [IsCode], 0, 
-function(C) 
+InstallMethod(CheckMat, "method for unrestricted codes", true, [IsCode], 0,
+function(C)
     if IsLinearCode(C) then
         return CheckMat(C);
     else
@@ -268,8 +268,8 @@ function(C)
     fi;
 end);
 
-InstallMethod(CheckMat, "method for linear code", true, [IsLinearCode], 0, 
-function(C) 
+InstallMethod(CheckMat, "method for linear code", true, [IsLinearCode], 0,
+function(C)
     local H;
     if GeneratorMat(C) = [] then
         H := IdentityMat(WordLength(C), LeftActingDomain(C));
@@ -283,11 +283,11 @@ function(C)
     return ShallowCopy(H);
 end);
 
-InstallMethod(CheckMat, "method for cyclic code", true, [IsCyclicCode], 0, 
-function(C) 
+InstallMethod(CheckMat, "method for cyclic code", true, [IsCyclicCode], 0,
+function(C)
     local F, H, p, n, i, R, zero, coeffs;
     #if HasGeneratorMat(C) and IsInStandardForm(GeneratorMat(C), true) then
-    #    H := TransposedMat(Concatenation(List(-GeneratorMat(C), x-> 
+    #    H := TransposedMat(Concatenation(List(-GeneratorMat(C), x->
     #                 x{[Dimension(C)+1..WordLength(C)]}),
     #                 IdentityMat(Redundancy(C), LeftActingDomain(C))));
     #else
@@ -296,9 +296,9 @@ function(C)
         p := CheckPol(C);
         p := Indeterminate(F)^Dimension(C)*Value(p,Indeterminate(F)^-1);
         n := WordLength(C);
-        zero := Zero(F); 
-		coeffs := CoefficientsOfLaurentPolynomial(p); 
-		coeffs := ShiftedCoeffs(coeffs[1], coeffs[2]); 
+        zero := Zero(F);
+        coeffs := CoefficientsOfLaurentPolynomial(p);
+        coeffs := ShiftedCoeffs(coeffs[1], coeffs[2]);
         for i in [1..Redundancy(C)] do
             R := NullVector(i-1, F);
             Append(R, coeffs);
@@ -311,12 +311,12 @@ end);
 
 #############################################################################
 ##
-#F  IsCyclicCode( <C> ) . . . . . . . . . . . . . . . . . . . . . . . . . .  
+#F  IsCyclicCode( <C> ) . . . . . . . . . . . . . . . . . . . . . . . . . .
 ##
 
-InstallOtherMethod(IsCyclicCode, "method for unrestricted codes", 
-	true, [IsCode], 0, 
-function(C) 
+InstallOtherMethod(IsCyclicCode, "method for unrestricted codes",
+    true, [IsCode], 0,
+function(C)
     if IsLinearCode(C) then
         return IsCyclicCode(C);
     else
@@ -324,13 +324,13 @@ function(C)
     fi;
 end);
 
-InstallMethod(IsCyclicCode, "method for linear codes", true, [IsLinearCode], 0, 
-function(C) 
+InstallMethod(IsCyclicCode, "method for linear codes", true, [IsLinearCode], 0,
+function(C)
     local C1, F, L, Gp;
     F := LeftActingDomain(C);
-    L := List(GeneratorMat(C), 
-	        g->LaurentPolynomialByCoefficients(
-		    ElementsFamily(FamilyObj(F)),One(F)*g, 0 ));
+    L := List(GeneratorMat(C),
+            g->LaurentPolynomialByCoefficients(
+            ElementsFamily(FamilyObj(F)),One(F)*g, 0 ));
     Add(L, Indeterminate(F)^WordLength(C) - One(F));
     Gp := Gcd(L);
     if Redundancy(C) = DegreeOfLaurentPolynomial(Gp) then
@@ -341,11 +341,11 @@ function(C)
     fi;
 end);
 
-InstallOtherMethod(IsCyclicCode, "method for generic objects", true, 
-	[IsObject], 0, 
-function(obj) 
-	return IsCode(obj) and IsLinearCode(obj) and IsCyclicCode(obj); 
-end); 
+InstallOtherMethod(IsCyclicCode, "method for generic objects", true,
+    [IsObject], 0,
+function(obj)
+    return IsCode(obj) and IsLinearCode(obj) and IsCyclicCode(obj);
+end);
 
 
 #############################################################################
@@ -355,8 +355,8 @@ end);
 ##  Pre: C must have a generator or check polynomial
 ##
 
-InstallMethod(GeneratorPol, "method for unrestricted codes", true, [IsCode], 0, 
-function(C) 
+InstallMethod(GeneratorPol, "method for unrestricted codes", true, [IsCode], 0,
+function(C)
     if IsCyclicCode(C) then
         return GeneratorPol(C);
     else
@@ -364,12 +364,12 @@ function(C)
     fi;
 end);
 
-InstallMethod(GeneratorPol, "method for cyclic codes", true, [IsCyclicCode], 0, 
-function(C) 
+InstallMethod(GeneratorPol, "method for cyclic codes", true, [IsCyclicCode], 0,
+function(C)
     local F, n;
     F := LeftActingDomain(C);
-    n := WordLength(C); 
-	return EuclideanQuotient(One(F)*(Indeterminate(F)^n-1),CheckPol(C));
+    n := WordLength(C);
+    return EuclideanQuotient(One(F)*(Indeterminate(F)^n-1),CheckPol(C));
 end);
 
 
@@ -377,11 +377,11 @@ end);
 ##
 #F  CheckPol( <C> ) . . . . . . . .  returns the parity check polynomial of C
 ##
-##  Pre: C must have a generator or check polynomial 
+##  Pre: C must have a generator or check polynomial
 ##
 
-InstallMethod(CheckPol, "method for unrestricted codes", true, [IsCode], 0, 
-function(C) 
+InstallMethod(CheckPol, "method for unrestricted codes", true, [IsCode], 0,
+function(C)
     if IsCyclicCode(C) then
         return CheckPol(C);
     else
@@ -389,8 +389,8 @@ function(C)
     fi;
 end);
 
-InstallMethod(CheckPol, "method for cyclic codes", true, [IsCyclicCode], 0, 
-function(C) 
+InstallMethod(CheckPol, "method for cyclic codes", true, [IsCyclicCode], 0,
+function(C)
     local F, n;
     F := LeftActingDomain(C);
     n := WordLength(C);
@@ -400,162 +400,160 @@ end);
 #############################################################################
 ##
 #F  MinimumDistanceCodeword( <C> [, <w>] )  . . . .  determines a codeword
-##                                         having  minimum distance to w 
+##                                         having  minimum distance to w
 ##                                         (w= zero vector is the default)
 ##
 ##wdj,9-14-2007
 
-InstallMethod(MinimumDistanceCodeword, "attribute method for linear codes", true, 
-	[IsLinearCode], 0, 
-function(C) 
-
-	local  k, i, j, G, F, zero, AClosestVec, minwt, num, n, closestvec;
-        F := LeftActingDomain(C);
-        n := WordLength(C);
-        zero := Zero(F)*NullVector(n); 
-	G := GeneratorMat(C);
-        minwt:=n;
-        closestvec := zero;
-	for i in [1..Length(G)] do
-	  AClosestVec:=AClosestVectorCombinationsMatFFEVecFFE(G, F, zero, i, 1);
-	  if WeightVecFFE(AClosestVec)<minwt then
-	      minwt := WeightVecFFE(AClosestVec);
+InstallMethod(MinimumDistanceCodeword, "attribute method for linear codes", true,
+    [IsLinearCode], 0,
+function(C)
+    local  k, i, j, G, F, zero, AClosestVec, minwt, num, n, closestvec;
+    F := LeftActingDomain(C);
+    n := WordLength(C);
+    zero := Zero(F)*NullVector(n);
+    G := GeneratorMat(C);
+    minwt:=n;
+    closestvec := zero;
+    for i in [1..Length(G)] do
+      AClosestVec:=AClosestVectorCombinationsMatFFEVecFFE(G, F, zero, i, 1);
+      if WeightVecFFE(AClosestVec)<minwt then
+          minwt := WeightVecFFE(AClosestVec);
               closestvec := AClosestVec;
-	  fi;
-	od;
+      fi;
+    od;
 
-return(closestvec);
+    return(closestvec);
 end);
 
-#    
+#
 # This _was_ an InstallOtherMethod for MinimumDistance but the methods
 # for that (including one with the same filter list as this) are encoded
-# further down in this file.  On close inspection notice that it is 
+# further down in this file.  On close inspection notice that it is
 # returning a codeword -- it _should_ have been an InstallOtherMethod
 # for MinimumDistanceCodeword -- JEF 6/22/11
 #
-InstallOtherMethod(MinimumDistanceCodeword, "linear code, word", true, 
-	[IsLinearCode, IsCodeword], 0, 
-function(C, word)  
+InstallOtherMethod(MinimumDistanceCodeword, "linear code, word", true,
+    [IsLinearCode, IsCodeword], 0,
+function(C, word)
 
-	local  k, i, j, G, F, zero, AClosestVec, minwt, num, n, closestvec;
+    local  k, i, j, G, F, zero, AClosestVec, minwt, num, n, closestvec;
 Print("linear code, vector (first in file) \n");
-        F := LeftActingDomain(C);
-        n := WordLength(C);
-        zero := Zero(F)*NullVector(n); 
-        G := GeneratorMat(C);
-        minwt:=n;
-        closestvec := word;
-        for i in [1..Length(G)] do
-          AClosestVec:=AClosestVectorCombinationsMatFFEVecFFE(G, F, word, i, 1);
-          if WeightVecFFE(AClosestVec)<minwt then
-            minwt := WeightVecFFE(AClosestVec);
-            closestvec := AClosestVec;
-          fi;
-        od;
+    F := LeftActingDomain(C);
+    n := WordLength(C);
+    zero := Zero(F)*NullVector(n);
+    G := GeneratorMat(C);
+    minwt:=n;
+    closestvec := word;
+    for i in [1..Length(G)] do
+      AClosestVec:=AClosestVectorCombinationsMatFFEVecFFE(G, F, word, i, 1);
+      if WeightVecFFE(AClosestVec)<minwt then
+        minwt := WeightVecFFE(AClosestVec);
+        closestvec := AClosestVec;
+      fi;
+    od;
 
-return(closestvec);
+    return(closestvec);
 end);
 
 #############################################################################
 ##
-#F  MinimumDistance( <C> [, <w>] )  . . . .  determines the minimum distance 
+#F  MinimumDistance( <C> [, <w>] )  . . . .  determines the minimum distance
 ##
 ##  MinimumDistance( <C> ) determines the minimum distance of <C>
 ##  MinimumDistance( <C>, <w> ) determines the minimum distance to a word <w>
 ##
 
-InstallMethod(MinimumDistance, "attribute method for unrestricted codes", true, 
-	[IsCode], 0, 
-function(C) 
-	local W, El, F, n, zero, d, DD, w;  
+InstallMethod(MinimumDistance, "attribute method for unrestricted codes", true,
+    [IsCode], 0,
+function(C)
+    local W, El, F, n, zero, d, DD, w;
 #Print("unrestricted code\n");
-	if IsBound(C!.upperBoundMinimumDistance) and 
-	   IsBound(C!.lowerBoundMinimumDistance) and 
-	   C!.upperBoundMinimumDistance = C!.lowerBoundMinimumDistance then 
-		return C!.lowerBoundMinimumDistance;   
-	elif IsCyclicCode(C) or IsLinearCode(C) then 
-		return MinimumDistance(C); 
-	fi;
-	W := VectorCodeword(AsSSortedList(C));
-	El := W;  # so not a copy!
+    if IsBound(C!.upperBoundMinimumDistance) and
+       IsBound(C!.lowerBoundMinimumDistance) and
+       C!.upperBoundMinimumDistance = C!.lowerBoundMinimumDistance then
+        return C!.lowerBoundMinimumDistance;
+    elif IsCyclicCode(C) or IsLinearCode(C) then
+        return MinimumDistance(C);
+    fi;
+    W := VectorCodeword(AsSSortedList(C));
+    El := W;  # so not a copy!
     F := LeftActingDomain(C);
     n := WordLength(C);
-    zero := Zero(F);  
+    zero := Zero(F);
     d := n;
     DD := NullVector(n+1);
     for w in W do
         DD := DD + DistancesDistributionVecFFEsVecFFE(El, w);
     od;
     d := PositionProperty([2..n+1], i->DD[i] <> 0);
-    C!.lowerBoundMinimumDistance := d; 
-	C!.upperBoundMinimumDistance := d; 
-	return d;
+    C!.lowerBoundMinimumDistance := d;
+    C!.upperBoundMinimumDistance := d;
+    return d;
 end);
 
-InstallMethod(MinimumDistance, "attribute method for linear codes", true, 
-	[IsLinearCode], 0, 
-function(C) 
+InstallMethod(MinimumDistance, "attribute method for linear codes", true,
+    [IsLinearCode], 0,
+function(C)
+    local  k, i, j, G, F, zero, AClosestVec, minwt, num, n;
+    if IsBound(C!.upperBoundMinimumDistance) and
+       IsBound(C!.lowerBoundMinimumDistance) and
+       C!.upperBoundMinimumDistance = C!.lowerBoundMinimumDistance then
+        return C!.lowerBoundMinimumDistance;
+    fi;
+    F := LeftActingDomain(C);
+    n := WordLength(C);
+    zero := Zero(F)*NullVector(n);
+    G := GeneratorMat(C);
+    minwt:=n;
+    for i in [1..Length(G)] do
+      AClosestVec:=AClosestVectorCombinationsMatFFEVecFFE(G, F, zero, i, 1);
+      if WeightVecFFE(AClosestVec)<minwt then
+          minwt := WeightVecFFE(AClosestVec);
+      fi;
+    od;
 
-	local  k, i, j, G, F, zero, AClosestVec, minwt, num, n;
-	if IsBound(C!.upperBoundMinimumDistance) and 
-	   IsBound(C!.lowerBoundMinimumDistance) and 
-	   C!.upperBoundMinimumDistance = C!.lowerBoundMinimumDistance then 
-		return C!.lowerBoundMinimumDistance;   
-        fi;
-        F := LeftActingDomain(C);
-        n := WordLength(C);
-        zero := Zero(F)*NullVector(n); 
-	G := GeneratorMat(C);
-        minwt:=n;
-	for i in [1..Length(G)] do
-	  AClosestVec:=AClosestVectorCombinationsMatFFEVecFFE(G, F, zero, i, 1);
-	  if WeightVecFFE(AClosestVec)<minwt then
-	      minwt := WeightVecFFE(AClosestVec);
-	  fi;
-	od;
-
-    C!.lowerBoundMinimumDistance := minwt; 
+    C!.lowerBoundMinimumDistance := minwt;
     C!.upperBoundMinimumDistance := minwt;
-return(minwt);
-end);
-    
-InstallMethod(MinimumDistance, "attribute method for cyclic code", true, 
-	[IsCyclicCode], 0, 
-function(C) 
-	local md; 
-#Print("cyclic code\n");
-	if IsBound(C!.lowerBoundMinimumDistance) and 
-	   IsBound(C!.upperBoundMinimumDistance) and 
-	   C!.lowerBoundMinimumDistance = C!.upperBoundMinimumDistance then 
-		return C!.lowerBoundMinimumDistance; 
-	else 
-		md := MinimumDistance( PuncturedCode( C ) ) + 1;
-		C!.lowerBoundMinimumDistance := md; 
-		C!.upperBoundMinimumDistance := md; 
-		return md; 
-	fi; 
+    return(minwt);
 end);
 
-## Should be a better way to set up the Other methods, given 
-## how much overlap there is with attribute methods.  For now, though, 
-## this works.  
-InstallOtherMethod(MinimumDistance, "unrestricted code, word", true, 
-	[IsCode, IsCodeword], 0, 
-function(C, word) 
+InstallMethod(MinimumDistance, "attribute method for cyclic code", true,
+    [IsCyclicCode], 0,
+function(C)
+    local md;
+#Print("cyclic code\n");
+    if IsBound(C!.lowerBoundMinimumDistance) and
+       IsBound(C!.upperBoundMinimumDistance) and
+       C!.lowerBoundMinimumDistance = C!.upperBoundMinimumDistance then
+        return C!.lowerBoundMinimumDistance;
+    else
+        md := MinimumDistance( PuncturedCode( C ) ) + 1;
+        C!.lowerBoundMinimumDistance := md;
+        C!.upperBoundMinimumDistance := md;
+        return md;
+    fi;
+end);
+
+## Should be a better way to set up the Other methods, given
+## how much overlap there is with attribute methods.  For now, though,
+## this works.
+InstallOtherMethod(MinimumDistance, "unrestricted code, word", true,
+    [IsCode, IsCodeword], 0,
+function(C, word)
     local W, El, F, n, zero, d, w, DD;
 #Print("unrestricted code, vector\n");
     if IsLinearCode(C) then
-        return MinimumDistance(C, word); 
-    fi; 
-	if word in C then
-		return 0;
-	fi;
-	W := [VectorCodeword(Codeword(word, C))];
-	El := VectorCodeword(AsSSortedList(C));
-    F := LeftActingDomain(C);  
+        return MinimumDistance(C, word);
+    fi;
+    if word in C then
+        return 0;
+    fi;
+    W := [VectorCodeword(Codeword(word, C))];
+    El := VectorCodeword(AsSSortedList(C));
+    F := LeftActingDomain(C);
     n := WordLength(C);
-    zero := Zero(F); 
+    zero := Zero(F);
     d := n;
     DD := NullVector(n+1);
     for w in W do
@@ -565,9 +563,9 @@ function(C, word)
     return d;
 end);
 
-InstallOtherMethod(MinimumDistance, "linear code, word", true, 
-	[IsLinearCode, IsCodeword], 0, 
-function(C, word)  
+InstallOtherMethod(MinimumDistance, "linear code, word", true,
+    [IsLinearCode, IsCodeword], 0,
+function(C, word)
     local Mat, n, k, zero, UP, G, W, multiple, weight,
           ThisGIsDone,  #is true as the latest matrix is converted
           Icount,       #number of corrected generatormatrices
@@ -575,39 +573,39 @@ function(C, word)
           l,            #columnnumber which could be used
           IdentityColumns,
           j, CurW, UMD, w, q, tmp, F;
-    
+
 # Print("linear code, vector (second in file) \n");
     k := Dimension(C);
     n := WordLength(C);
-    zero := Zero(LeftActingDomain(C)); 
-    q := Size(LeftActingDomain(C)); 
-	F := LeftActingDomain(C); 
-	w := VectorCodeword(word);
-	if w in C then
-		return 0;
-	elif k = 0 then
-		return Weight(Codeword(w));
-	elif HasSyndromeTable(C) then
-		j := 1;
-		w := VectorCodeword( Syndrome(C, w) );
-		for i in [ 0 .. k - 1 ] do
-			if w[ k - i ] <> zero then
-				j := j + q^i * ( LogFFE( w[ k - i ] ) + 1 );
-			fi;
-		od;
-		return Weight(SyndromeTable(C)[j][1]);
-	fi;
-	UMD := Weight(Codeword(w));
-			   #this must be so, because the kernel function
-			   #can not find this distance
-	CurW := 0; 
+    zero := Zero(LeftActingDomain(C));
+    q := Size(LeftActingDomain(C));
+    F := LeftActingDomain(C);
+    w := VectorCodeword(word);
+    if w in C then
+        return 0;
+    elif k = 0 then
+        return Weight(Codeword(w));
+    elif HasSyndromeTable(C) then
+        j := 1;
+        w := VectorCodeword( Syndrome(C, w) );
+        for i in [ 0 .. k - 1 ] do
+            if w[ k - i ] <> zero then
+                j := j + q^i * ( LogFFE( w[ k - i ] ) + 1 );
+            fi;
+        od;
+        return Weight(SyndromeTable(C)[j][1]);
+    fi;
+    UMD := Weight(Codeword(w));
+               #this must be so, because the kernel function
+               #can not find this distance
+    CurW := 0;
     Mat := ShallowCopy(GeneratorMat(C));
     i := 1;
 ##  The next lines could go etwas faster for cyclic codes by weighting the
 ##  generator polynomial, but a copy of this function must be made in the
-##  CycCodeOps, which makes it harder to make changes. 
+##  CycCodeOps, which makes it harder to make changes.
     if q = 2 then
-		multiple := 2;
+        multiple := 2;
         repeat
             weight := 0;
             for j in Mat[i] do
@@ -626,7 +624,7 @@ function(C, word)
     G := [];
     W := [];
     Icount := 0;
-    
+
     repeat
         ThisGIsDone := false;
         i := 1;                   # i is the row of the identitymatrix it
@@ -634,8 +632,8 @@ function(C, word)
         IdentityColumns := [];
         while not ThisGIsDone and (l <= n) do
             if not UP[l] then     # try this column if it is not already used
-                j := i;      
-                while (j <= k) and (Mat[j][l] = zero) do 
+                j := i;
+                while (j <= k) and (Mat[j][l] = zero) do
                     j := j + 1;   # go down in the matrix until a nonzero
                 od;               # entry is found
                 if j <= k then
@@ -655,7 +653,7 @@ function(C, word)
                     i := i + 1;
                     ThisGIsDone := ( i > k );
                 fi;
-            fi; 
+            fi;
             l := l + 1;
         od;
         if ThisGIsDone then
@@ -663,7 +661,7 @@ function(C, word)
             Add( G, Mat{[1..k]}{Difference([1..n],IdentityColumns)} );
             w := w-w{IdentityColumns}*Mat;
             Add(W,w{Difference([1..n], IdentityColumns)} );
-			UMD := Minimum( UMD, WeightCodeword( Codeword( w ) ) );
+            UMD := Minimum( UMD, WeightCodeword( Codeword( w ) ) );
 ## G_i is generator matrix i
 ## W_i has zeros in IdentityColumns,
 ## but has same distance to code because
@@ -684,282 +682,282 @@ function(C, word)
     od;
     return UMD;
 end);
-           
-InstallMethod(MinimumDistanceLeon, "attribute method for linear codes", true, 
-	[IsLinearCode], 0, 
-function(C) 
-	local majority,G0, Gp, Gpt, Gt, L, k, i, j, dimMat, Grstr, J, d1, arrayd1, Combo, rows, row, rowSum, G, F, zero, AClosestVec, s, p, num;
-	G := GeneratorMat(C);
-	if (IsInStandardForm(G)=false) then
-		PutStandardForm(G);		
-	fi;
-	F:=LeftActingDomain(C);
-	if F<>GF(2) then Print("Code must be binary. Quitting. \n"); return(0); fi;
-	p:=5; #these seem to be optimal values
-	num:=8; #these seem to be optimal values
-	dimMat := DimensionsMat(G);
-	s := dimMat[2]-dimMat[1];
-	arrayd1:=[];
 
-for k in [1..num] do
-##Permute the columns randomly
-	Gt := TransposedMat(G);
-	Gp := NullMat(dimMat[2],dimMat[1]);
-	L := SymmetricGroup(dimMat[2]);
-	L := Random(L);
-	L:=List([1..dimMat[2]],i->OnPoints(i,L));
-	for i in [1..dimMat[2]] do 
-		Gp[i] := Gt[L[i]];
-	od;
-	Gp := TransposedMat(Gp);
-	Gp := ShallowCopy(Gp);
+InstallMethod(MinimumDistanceLeon, "attribute method for linear codes", true,
+    [IsLinearCode], 0,
+function(C)
+    local majority,G0, Gp, Gpt, Gt, L, k, i, j, dimMat, Grstr, J, d1, arrayd1, Combo, rows, row, rowSum, G, F, zero, AClosestVec, s, p, num;
+    G := GeneratorMat(C);
+    if (IsInStandardForm(G)=false) then
+        PutStandardForm(G);
+    fi;
+    F:=LeftActingDomain(C);
+    if F<>GF(2) then Print("Code must be binary. Quitting. \n"); return(0); fi;
+    p:=5; #these seem to be optimal values
+    num:=8; #these seem to be optimal values
+    dimMat := DimensionsMat(G);
+    s := dimMat[2]-dimMat[1];
+    arrayd1:=[];
 
-##Use gaussian elimination on the new matrix
-	TriangulizeMat(Gp);
+    for k in [1..num] do
+    ##Permute the columns randomly
+        Gt := TransposedMat(G);
+        Gp := NullMat(dimMat[2],dimMat[1]);
+        L := SymmetricGroup(dimMat[2]);
+        L := Random(L);
+        L:=List([1..dimMat[2]],i->OnPoints(i,L));
+        for i in [1..dimMat[2]] do
+            Gp[i] := Gt[L[i]];
+        od;
+        Gp := TransposedMat(Gp);
+        Gp := ShallowCopy(Gp);
 
-##generate the restricted code (I|Z) from Gp=(I|Z|B)
-	Gpt := TransposedMat(Gp);
-	Grstr := NullMat(s,dimMat[1]);
-	for i in [dimMat[1]+1..dimMat[1]+s] do
-		Grstr[i-dimMat[1]] := Gpt[i];
-	od;
-	Grstr := TransposedMat(Grstr);
-	zero := Zero(F)*Grstr[1];
+    ##Use gaussian elimination on the new matrix
+        TriangulizeMat(Gp);
 
-##search for all rows of weight p
+    ##generate the restricted code (I|Z) from Gp=(I|Z|B)
+        Gpt := TransposedMat(Gp);
+        Grstr := NullMat(s,dimMat[1]);
+        for i in [dimMat[1]+1..dimMat[1]+s] do
+            Grstr[i-dimMat[1]] := Gpt[i];
+        od;
+        Grstr := TransposedMat(Grstr);
+        zero := Zero(F)*Grstr[1];
 
-	J := []; #col number of codewords to compute the length of
-	
-	for i in [1..p] do
-	AClosestVec:=AClosestVectorCombinationsMatFFEVecFFE(Grstr, F, zero, i, 1);
-	if WeightVecFFE(AClosestVec) > 0 then
-		Add(J, [AClosestVec,i]);
-	fi;
-	od;
+    ##search for all rows of weight p
 
-	d1:=dimMat[2];
-	for rows in J do
-	  d1:=Minimum(WeightVecFFE(rows[1])+rows[2],d1);
-	od;
-	arrayd1[k]:=d1;
-od;
-if AbsoluteValue(Sum(arrayd1)/Length(arrayd1)-Int(Sum(arrayd1)/Length(arrayd1)))<1/2 then 
-  majority:=Int(Sum(arrayd1)/Length(arrayd1)); 
- else
-  majority:=Int(Sum(arrayd1)/Length(arrayd1))+1;
-fi;
-return(majority);
+        J := []; #col number of codewords to compute the length of
+
+        for i in [1..p] do
+        AClosestVec:=AClosestVectorCombinationsMatFFEVecFFE(Grstr, F, zero, i, 1);
+        if WeightVecFFE(AClosestVec) > 0 then
+            Add(J, [AClosestVec,i]);
+        fi;
+        od;
+
+        d1:=dimMat[2];
+        for rows in J do
+          d1:=Minimum(WeightVecFFE(rows[1])+rows[2],d1);
+        od;
+        arrayd1[k]:=d1;
+    od;
+    if AbsoluteValue(Sum(arrayd1)/Length(arrayd1)-Int(Sum(arrayd1)/Length(arrayd1)))<1/2 then
+        majority:=Int(Sum(arrayd1)/Length(arrayd1));
+    else
+        majority:=Int(Sum(arrayd1)/Length(arrayd1))+1;
+    fi;
+    return(majority);
 end);
 
-InstallOtherMethod(MinimumDistanceLeon, "attribute method for linear codes, integer, integer", true, 
-	[IsLinearCode, IsInt, IsInt], 0, 
-function(C,p,num) 
-	# p = 5 seems to be optimal
-	# num = 8 seems to be optimal
-	local majority,G0, Gp, Gpt, Gt, L, k, i, j, dimMat, Grstr, J, d1, arrayd1, Combo, rows, row, rowSum, G, F, zero, AClosestVec, s;
-	G := GeneratorMat(C);
-	if (IsInStandardForm(G)=false) then
-		PutStandardForm(G);		
-	fi;
-	F:=LeftActingDomain(C);
-	if F<>GF(2) then Print("Code must be binary. Quitting. \n"); return(0); fi;
-	dimMat := DimensionsMat(G);
-	s := dimMat[2]-dimMat[1];
-	arrayd1:=[];
+InstallOtherMethod(MinimumDistanceLeon, "attribute method for linear codes, integer, integer", true,
+    [IsLinearCode, IsInt, IsInt], 0,
+function(C,p,num)
+    # p = 5 seems to be optimal
+    # num = 8 seems to be optimal
+    local majority,G0, Gp, Gpt, Gt, L, k, i, j, dimMat, Grstr, J, d1, arrayd1, Combo, rows, row, rowSum, G, F, zero, AClosestVec, s;
+    G := GeneratorMat(C);
+    if (IsInStandardForm(G)=false) then
+        PutStandardForm(G);
+    fi;
+    F:=LeftActingDomain(C);
+    if F<>GF(2) then Print("Code must be binary. Quitting. \n"); return(0); fi;
+    dimMat := DimensionsMat(G);
+    s := dimMat[2]-dimMat[1];
+    arrayd1:=[];
 
-for k in [1..num] do
-##Permute the columns randomly
-	Gt := TransposedMat(G);
-	Gp := NullMat(dimMat[2],dimMat[1]);
-	L := SymmetricGroup(dimMat[2]);
-	L := Random(L);
-	L:=List([1..dimMat[2]],i->OnPoints(i,L));
-	for i in [1..dimMat[2]] do 
-		Gp[i] := Gt[L[i]];
-	od;
-	Gp := TransposedMat(Gp);
-	Gp := ShallowCopy(Gp);
+    for k in [1..num] do
+    ##Permute the columns randomly
+        Gt := TransposedMat(G);
+        Gp := NullMat(dimMat[2],dimMat[1]);
+        L := SymmetricGroup(dimMat[2]);
+        L := Random(L);
+        L:=List([1..dimMat[2]],i->OnPoints(i,L));
+        for i in [1..dimMat[2]] do
+            Gp[i] := Gt[L[i]];
+        od;
+        Gp := TransposedMat(Gp);
+        Gp := ShallowCopy(Gp);
 
-##Use gaussian elimination on the new matrix
-	TriangulizeMat(Gp);
+    ##Use gaussian elimination on the new matrix
+        TriangulizeMat(Gp);
 
-##generate the restricted code (I|Z) from Gp=(I|Z|B)
-	Gpt := TransposedMat(Gp);
-	Grstr := NullMat(s,dimMat[1]);
-	for i in [dimMat[1]+1..dimMat[1]+s] do
-		Grstr[i-dimMat[1]] := Gpt[i];
-	od;
-	Grstr := TransposedMat(Grstr);
-	zero := Zero(F)*Grstr[1];
+    ##generate the restricted code (I|Z) from Gp=(I|Z|B)
+        Gpt := TransposedMat(Gp);
+        Grstr := NullMat(s,dimMat[1]);
+        for i in [dimMat[1]+1..dimMat[1]+s] do
+            Grstr[i-dimMat[1]] := Gpt[i];
+        od;
+        Grstr := TransposedMat(Grstr);
+        zero := Zero(F)*Grstr[1];
 
-##search for all rows of weight p
+    ##search for all rows of weight p
 
-	J := []; #col number of codewords to compute the length of
-	
-	for i in [1..p] do
-	AClosestVec:=AClosestVectorCombinationsMatFFEVecFFE(Grstr, F, zero, i, 1);
-	if WeightVecFFE(AClosestVec) > 0 then
-		Add(J, [AClosestVec,i]);
-	fi;
-	od;
+        J := []; #col number of codewords to compute the length of
 
-	d1:=dimMat[2];
-	for rows in J do
-	  d1:=Minimum(WeightVecFFE(rows[1])+rows[2],d1);
-	od;
-	arrayd1[k]:=d1;
-od;
-if AbsoluteValue(Sum(arrayd1)/Length(arrayd1)-Int(Sum(arrayd1)/Length(arrayd1)))<1/2 then 
-  majority:=Int(Sum(arrayd1)/Length(arrayd1)); 
- else
-  majority:=Int(Sum(arrayd1)/Length(arrayd1))+1;
-fi;
-return(majority);
+        for i in [1..p] do
+        AClosestVec:=AClosestVectorCombinationsMatFFEVecFFE(Grstr, F, zero, i, 1);
+        if WeightVecFFE(AClosestVec) > 0 then
+            Add(J, [AClosestVec,i]);
+        fi;
+        od;
+
+        d1:=dimMat[2];
+        for rows in J do
+          d1:=Minimum(WeightVecFFE(rows[1])+rows[2],d1);
+        od;
+        arrayd1[k]:=d1;
+    od;
+    if AbsoluteValue(Sum(arrayd1)/Length(arrayd1)-Int(Sum(arrayd1)/Length(arrayd1)))<1/2 then
+        majority:=Int(Sum(arrayd1)/Length(arrayd1));
+    else
+        majority:=Int(Sum(arrayd1)/Length(arrayd1))+1;
+    fi;
+    return(majority);
 end);
 
 
 #############################################################################
 ##
-#F  LowerBoundMinimumDistance( arg )  . . . . . . . . . . . . . . . . . . .  
+#F  LowerBoundMinimumDistance( arg )  . . . . . . . . . . . . . . . . . . .
 ##
 
-##LR - Is there a better way to handle HasMD case, without reset? 
-InstallMethod(LowerBoundMinimumDistance, "method for unrestricted codes", 
-	true, [IsCode], 0, 
-function(C) 
-	if HasMinimumDistance(C) then 
-		C!.lowerBoundMinimumDistance := MinimumDistance(C); 
-	elif not IsBound(C!.lowerBoundMinimumDistance) then 
-		if Size(C) = 1 then 
-			C!.lowerBoundMinimumDistance := WordLength(C); 
-		else 
-			C!.lowerBoundMinimumDistance := 1;
-		fi;
-	fi; 
-	return C!.lowerBoundMinimumDistance; 
-end); 
+##LR - Is there a better way to handle HasMD case, without reset?
+InstallMethod(LowerBoundMinimumDistance, "method for unrestricted codes",
+    true, [IsCode], 0,
+function(C)
+    if HasMinimumDistance(C) then
+        C!.lowerBoundMinimumDistance := MinimumDistance(C);
+    elif not IsBound(C!.lowerBoundMinimumDistance) then
+        if Size(C) = 1 then
+            C!.lowerBoundMinimumDistance := WordLength(C);
+        else
+            C!.lowerBoundMinimumDistance := 1;
+        fi;
+    fi;
+    return C!.lowerBoundMinimumDistance;
+end);
 
-InstallMethod(LowerBoundMinimumDistance, "method for linear code", true, 
-	[IsLinearCode], 0, 
-function(C) 
-	if HasMinimumDistance(C) then 
-		C!.lowerBoundMinimumDistance := MinimumDistance(C); 
-	elif not IsBound(C!.lowerBoundMinimumDistance) then 
-		if Dimension(C) = 0 then  
-			C!.lowerBoundMinimumDistance := WordLength(C);  
-		elif Dimension(C) = 1 then 
-			C!.lowerBoundMinimumDistance:= Weight(Codeword(GeneratorMat(C)[1]));
-		else  
-			C!.lowerBoundMinimumDistance := 1;
-		fi;
-	fi; 
-	return C!.lowerBoundMinimumDistance; 
-end); 
+InstallMethod(LowerBoundMinimumDistance, "method for linear code", true,
+    [IsLinearCode], 0,
+function(C)
+    if HasMinimumDistance(C) then
+        C!.lowerBoundMinimumDistance := MinimumDistance(C);
+    elif not IsBound(C!.lowerBoundMinimumDistance) then
+        if Dimension(C) = 0 then
+            C!.lowerBoundMinimumDistance := WordLength(C);
+        elif Dimension(C) = 1 then
+            C!.lowerBoundMinimumDistance:= Weight(Codeword(GeneratorMat(C)[1]));
+        else
+            C!.lowerBoundMinimumDistance := 1;
+        fi;
+    fi;
+    return C!.lowerBoundMinimumDistance;
+end);
 
-InstallMethod(LowerBoundMinimumDistance, "method for cyclic codes", true, 
-	[IsCyclicCode], 0, 
-function(C) 
-	if HasMinimumDistance(C) then 
-		C!.lowerBoundMinimumDistance := MinimumDistance(C); 
-	elif not IsBound(C!.lowerBoundMinimumDistance) then 
-		if Dimension(C) = 0 then  
-			C!.lowerBoundMinimumDistance := WordLength(C);  
-		elif Dimension(C) = 1 then 
-			C!.lowerBoundMinimumDistance := Weight(Codeword(GeneratorPol(C))); 
-		else 
-			C!.lowerBoundMinimumDistance := 1;
-		fi;
-	fi; 
-	return C!.lowerBoundMinimumDistance; 
-end); 
+InstallMethod(LowerBoundMinimumDistance, "method for cyclic codes", true,
+    [IsCyclicCode], 0,
+function(C)
+    if HasMinimumDistance(C) then
+        C!.lowerBoundMinimumDistance := MinimumDistance(C);
+    elif not IsBound(C!.lowerBoundMinimumDistance) then
+        if Dimension(C) = 0 then
+            C!.lowerBoundMinimumDistance := WordLength(C);
+        elif Dimension(C) = 1 then
+            C!.lowerBoundMinimumDistance := Weight(Codeword(GeneratorPol(C)));
+        else
+            C!.lowerBoundMinimumDistance := 1;
+        fi;
+    fi;
+    return C!.lowerBoundMinimumDistance;
+end);
 
-InstallOtherMethod(LowerBoundMinimumDistance, "n, k, q", true, 
-	[IsInt, IsInt, IsInt], 0, 
-function(n, k, q) 
-	local r; 
-	r := BoundsMinimumDistance(n, k, q, true); 
-	return r.lowerBound; 
-end); 
+InstallOtherMethod(LowerBoundMinimumDistance, "n, k, q", true,
+    [IsInt, IsInt, IsInt], 0,
+function(n, k, q)
+    local r;
+    r := BoundsMinimumDistance(n, k, q, true);
+    return r.lowerBound;
+end);
 
-InstallOtherMethod(LowerBoundMinimumDistance, "n, k", true, 
-	[IsInt, IsInt], 0, 
-function(n, k) 
-	local r; 
-	r := BoundsMinimumDistance(n, k, 2, true); 
-	return r.lowerBound; 
-end); 
+InstallOtherMethod(LowerBoundMinimumDistance, "n, k", true,
+    [IsInt, IsInt], 0,
+function(n, k)
+    local r;
+    r := BoundsMinimumDistance(n, k, 2, true);
+    return r.lowerBound;
+end);
 
-InstallOtherMethod(LowerBoundMinimumDistance, "n, k, F", true, 
-	[IsInt, IsInt, IsField], 0, 
-function(n, k, F) 
-	local r; 
-	r := BoundsMinimumDistance(n, k, Size(F), true); 
-	return r.lowerBound; 
-end); 
+InstallOtherMethod(LowerBoundMinimumDistance, "n, k, F", true,
+    [IsInt, IsInt, IsField], 0,
+function(n, k, F)
+    local r;
+    r := BoundsMinimumDistance(n, k, Size(F), true);
+    return r.lowerBound;
+end);
 
 
 #############################################################################
 ##
-#F  UpperBoundMinimumDistance( arg )  . . . . . . . . . . . . . . . . . . .  
-## 
+#F  UpperBoundMinimumDistance( arg )  . . . . . . . . . . . . . . . . . . .
+##
 
-##LR - is there a better way to handle HasMD case, without reset? 
-InstallMethod(UpperBoundMinimumDistance, "method for unrestricted codes", 
-	true, [IsCode], 0, 
-function(C) 
-	if HasMinimumDistance(C) then 
-		C!.upperBoundMinimumDistance := MinimumDistance(C); 
-	elif not IsBound(C!.upperBoundMinimumDistance) then 
-		C!.upperBoundMinimumDistance := WordLength(C); 
-	fi; 
-	return C!.upperBoundMinimumDistance; 
-end); 
+##LR - is there a better way to handle HasMD case, without reset?
+InstallMethod(UpperBoundMinimumDistance, "method for unrestricted codes",
+    true, [IsCode], 0,
+function(C)
+    if HasMinimumDistance(C) then
+        C!.upperBoundMinimumDistance := MinimumDistance(C);
+    elif not IsBound(C!.upperBoundMinimumDistance) then
+        C!.upperBoundMinimumDistance := WordLength(C);
+    fi;
+    return C!.upperBoundMinimumDistance;
+end);
 
-InstallMethod(UpperBoundMinimumDistance, "method for linear codes", true, 
-	[IsLinearCode], 0, 
-function(C) 
+InstallMethod(UpperBoundMinimumDistance, "method for linear codes", true,
+    [IsLinearCode], 0,
+function(C)
     local ubmd;
-	if HasMinimumDistance(C) then 
-		C!.upperBoundMinimumDistance := MinimumDistance(C); 
-	else 
-		if not IsBound(C!.upperBoundMinimumDistance) then 
-			ubmd := WordLength(C);
-		else 
-			ubmd := C!.upperBoundMinimumDistance; 
-		fi; 
-		if MinimumWeightOfGenerators(C) < ubmd then
-			ubmd := MinimumWeightOfGenerators(C);
-		fi;
-		if UpperBoundOptimalMinimumDistance(C) < ubmd then
-		    ubmd := UpperBoundOptimalMinimumDistance(C);
-		fi;
-		C!.upperBoundMinimumDistance := ubmd; 
-	fi; 
-	return C!.upperBoundMinimumDistance; 
+    if HasMinimumDistance(C) then
+        C!.upperBoundMinimumDistance := MinimumDistance(C);
+    else
+        if not IsBound(C!.upperBoundMinimumDistance) then
+            ubmd := WordLength(C);
+        else
+            ubmd := C!.upperBoundMinimumDistance;
+        fi;
+        if MinimumWeightOfGenerators(C) < ubmd then
+            ubmd := MinimumWeightOfGenerators(C);
+        fi;
+        if UpperBoundOptimalMinimumDistance(C) < ubmd then
+            ubmd := UpperBoundOptimalMinimumDistance(C);
+        fi;
+        C!.upperBoundMinimumDistance := ubmd;
+    fi;
+    return C!.upperBoundMinimumDistance;
 end);
 
 InstallOtherMethod(UpperBoundMinimumDistance, "n, k, q", true,
     [IsInt, IsInt, IsInt], 0,
 function(n, k, q)
-	local r;
-	r := BoundsMinimumDistance(n, k, q, false);
-	return r.upperBound;
+    local r;
+    r := BoundsMinimumDistance(n, k, q, false);
+    return r.upperBound;
 end);
 
 InstallOtherMethod(UpperBoundMinimumDistance, "n,k", true,
-	[IsInt, IsInt], 0,
+    [IsInt, IsInt], 0,
 function(n, k)
-	local r;
-	r := BoundsMinimumDistance(n, k, 2, false);
-	return r.upperBound;
+    local r;
+    r := BoundsMinimumDistance(n, k, 2, false);
+    return r.upperBound;
 end);
 
 InstallOtherMethod(UpperBoundMinimumDistance, "n,k,F", true,
-	[IsInt, IsInt, IsField], 0,
+    [IsInt, IsInt, IsField], 0,
 function(n, k, F)
-	local r;
-	r := BoundsMinimumDistance(n, k, Size(F), false);
-	return r.upperBound;
+    local r;
+    r := BoundsMinimumDistance(n, k, Size(F), false);
+    return r.upperBound;
 end);
 
 
@@ -967,17 +965,17 @@ end);
 ##
 #F  UpperBoundOptimalMinimumDistance( arg )  . . . . . . . . . . . . . . . .
 ##
-##  UpperBoundMinimumDistance of optimal code with given parameters 
-## 
+##  UpperBoundMinimumDistance of optimal code with given parameters
+##
 
-InstallMethod(UpperBoundOptimalMinimumDistance, "method for unrestricted code", 
-	true, [IsCode], 0, 
-function(C) 
-	local r; 
-	r := BoundsMinimumDistance(WordLength(C), Dimension(C), 
-								Size(LeftActingDomain(C)), false); 
-	return r.upperBound; 
-end); 
+InstallMethod(UpperBoundOptimalMinimumDistance, "method for unrestricted code",
+    true, [IsCode], 0,
+function(C)
+    local r;
+    r := BoundsMinimumDistance(WordLength(C), Dimension(C),
+                                Size(LeftActingDomain(C)), false);
+    return r.upperBound;
+end);
 
 
 #############################################################################
@@ -986,39 +984,39 @@ end);
 ##
 ##
 
-InstallMethod(MinimumWeightOfGenerators, "linear codes", true, 
-	[IsLinearCode], 0, 
-function(C) 
-	local zero, mwg, sum, element, row;  
-    zero := Zero(LeftActingDomain(C));  
-	mwg := WordLength(C);
-	if Dimension(C) > 0 then
-	    # minimumWeightOfGenerators for null codes is n
-	    for row in GeneratorMat(C) do
-	        sum := 0;
-	        for element in row do
-	            if element <> zero then
-	                 sum := sum + 1;
-	            fi;
-	        od;
-			if sum < mwg then
-				 mwg := sum;
-			fi;
-	    od;
-	fi;
-	return mwg;
-end); 
+InstallMethod(MinimumWeightOfGenerators, "linear codes", true,
+    [IsLinearCode], 0,
+function(C)
+    local zero, mwg, sum, element, row;
+    zero := Zero(LeftActingDomain(C));
+    mwg := WordLength(C);
+    if Dimension(C) > 0 then
+        # minimumWeightOfGenerators for null codes is n
+        for row in GeneratorMat(C) do
+            sum := 0;
+            for element in row do
+                if element <> zero then
+                     sum := sum + 1;
+                fi;
+            od;
+            if sum < mwg then
+                 mwg := sum;
+            fi;
+        od;
+    fi;
+    return mwg;
+end);
 
-InstallMethod(MinimumWeightOfGenerators, "method for cyclic codes", true, 
-	[IsCyclicCode], 0, 
-function(C) 
-	if Dimension(C) > 0 then
-	     # minimumWeightOfGenerators of null codes is n
-	     return Weight(Codeword(GeneratorPol(C)));  
-	else
-	     return WordLength(C);
-	fi;
-end); 
+InstallMethod(MinimumWeightOfGenerators, "method for cyclic codes", true,
+    [IsCyclicCode], 0,
+function(C)
+    if Dimension(C) > 0 then
+        # minimumWeightOfGenerators of null codes is n
+        return Weight(Codeword(GeneratorPol(C)));
+    else
+        return WordLength(C);
+    fi;
+end);
 
 
 #############################################################################
@@ -1026,8 +1024,8 @@ end);
 #F  MinimumWeightWords( <C> ) . . .  returns the code words of minimum weight
 ##
 
-InstallMethod(MinimumWeightWords, "method for unrestricted code", true, 
-	[IsCode], 0, 
+InstallMethod(MinimumWeightWords, "method for unrestricted code", true,
+    [IsCode], 0,
 function(C)
     local curmin, res, e, w, zerovec, d;
     if IsLinearCode(C) then
@@ -1054,8 +1052,8 @@ function(C)
     fi;
 end);
 
-InstallMethod(MinimumWeightWords, "method for linear code", true, 
-	[IsLinearCode], 0, 
+InstallMethod(MinimumWeightWords, "method for linear code", true,
+    [IsLinearCode], 0,
 function(C)
     local d, G, res, vector, count, i, t, k, q, M, zerovec;
     d := MinimumDistance(C);  # Equal to minimum weight
@@ -1090,8 +1088,8 @@ end);
 ##
 #F  WeightDistribution( <C> ) . . . returns the weight distribution of a code
 ##
-InstallMethod(WeightDistribution, "method for unrestricted code", true, 
-	[IsCode], 0, 
+InstallMethod(WeightDistribution, "method for unrestricted code", true,
+    [IsCode], 0,
 function (C)
     local El, nl, newwd;
     if IsLinearCode(C) then
@@ -1103,14 +1101,14 @@ function (C)
     return newwd;
 end);
 
-InstallMethod(WeightDistribution, "method for linear code", true, 
-	[IsLinearCode], 0, 
+InstallMethod(WeightDistribution, "method for linear code", true,
+    [IsLinearCode], 0,
 function(C)
     local G, nl, k, n, q, F, wd, newwd, oldrow, newrow, i, j;
     n := WordLength(C);
     k := Dimension(C);
-    q := Size(LeftActingDomain(C)); 
-    F := LeftActingDomain(C); 
+    q := Size(LeftActingDomain(C));
+    F := LeftActingDomain(C);
     nl := VectorCodeword(NullWord(C));
     if k = 0 then
         G := NullVector(n+1);
@@ -1148,8 +1146,8 @@ end);
 ##  The average distance distribution of distances between all codewords
 ##
 
-InstallMethod(InnerDistribution, "method for unrestricted code", true, 
-	[IsCode], 0, 
+InstallMethod(InnerDistribution, "method for unrestricted code", true,
+    [IsCode], 0,
 function (C)
     local ID, c, El;
     El := VectorCodeword(AsSSortedList(C));
@@ -1160,8 +1158,8 @@ function (C)
     return ID/Size(C);
 end);
 
-InstallMethod(InnerDistribution, "method for linear codes", true, 
-	[IsLinearCode], 0, 
+InstallMethod(InnerDistribution, "method for linear codes", true,
+    [IsLinearCode], 0,
 function (C)
     return WeightDistribution(C);
 end);
@@ -1169,80 +1167,80 @@ end);
 
 #############################################################################
 ##
-#F  OuterDistribution( <C> )  . . . . . . . . . . . . . . . . . . . . . . .  
+#F  OuterDistribution( <C> )  . . . . . . . . . . . . . . . . . . . . . . .
 ##
 ##  the number of codewords on a distance i from all elements of GF(q)^n
 ##
-									
-InstallOtherMethod(OuterDistribution, "method for unrestricted code", true, 
-	[IsCode], 0, 
+
+InstallOtherMethod(OuterDistribution, "method for unrestricted code", true,
+    [IsCode], 0,
 function (C)
-	local gen, q, n, F, zero, Els, res, vector, t, large, count, dd; 
+    local gen, q, n, F, zero, Els, res, vector, t, large, count, dd;
 
     if IsLinearCode(C) then
         return OuterDistribution(C);
     fi;
     q := Size(LeftActingDomain(C));
     n := WordLength(C);
-	F := LeftActingDomain(C); 
-	zero := Zero(F); 
+    F := LeftActingDomain(C);
+    zero := Zero(F);
 
-	Els := VectorCodeword(AsSSortedList(C)); 
-	res := [[NullWord(C),WeightDistribution(C)]]; 
-	vector := NullVector(n, F); 
-	t := n; 
-	gen := Z(q); 
-	large := One(F); 
+    Els := VectorCodeword(AsSSortedList(C));
+    res := [[NullWord(C),WeightDistribution(C)]];
+    vector := NullVector(n, F);
+    t := n;
+    gen := Z(q);
+    large := One(F);
 
-	for count in [2..q^n] do 
-		t := n; 
-		while vector[t] = large do 
-			vector[t] := zero; 
-			t := t-1; 
-		od; 
-		if vector[t] = zero then 
-			vector[t] := gen; 
-		else 
-			vector[t] := vector[t] * gen; 
-		fi; 
+    for count in [2..q^n] do
+        t := n;
+        while vector[t] = large do
+            vector[t] := zero;
+            t := t-1;
+        od;
+        if vector[t] = zero then
+            vector[t] := gen;
+        else
+            vector[t] := vector[t] * gen;
+        fi;
 
-		dd := DistancesDistributionVecFFEsVecFFE(Els, vector); 
-		Add(res, [Codeword(vector), dd]); 
-	od; 
+        dd := DistancesDistributionVecFFEsVecFFE(Els, vector);
+        Add(res, [Codeword(vector), dd]);
+    od;
 
-	return res; 
+    return res;
 
-end); 
+end);
 
 InstallMethod(OuterDistribution, "method for linear codes", true,
     [IsLinearCode], 0,
 function(C)
-	local STentry, dtw, E, res, i;
-	E := AsSSortedList(C);
-	res := [];
-	for STentry in List(SyndromeTable(C), i -> i[1]) do
-		dtw := DistancesDistribution(C, STentry);
-		for i in E do
-			Add(res, [VectorCodeword(STentry) + i, dtw]);
-		od;
-	od;
-	return res;
+    local STentry, dtw, E, res, i;
+    E := AsSSortedList(C);
+    res := [];
+    for STentry in List(SyndromeTable(C), i -> i[1]) do
+        dtw := DistancesDistribution(C, STentry);
+        for i in E do
+            Add(res, [VectorCodeword(STentry) + i, dtw]);
+        od;
+    od;
+    return res;
 end);
 
 
-  
+
 #############################################################################
 ##
-#F  InformationWord( Code, c )  . . . "decodes" a codeword c in C to the 
+#F  InformationWord( Code, c )  . . . "decodes" a codeword c in C to the
 ##                                information "message" word m, so m*C=c
 
-InstallMethod(InformationWord, "code, codeword", true, [IsCode, IsCodeword], 1, 
+InstallMethod(InformationWord, "code, codeword", true, [IsCode, IsCodeword], 1,
 function(C, c)
-	local m;
-	if not(c in C) then Error( "ERROR: codeword must belong to code" ); fi; 
-	if not(IsLinearCode(C)) then return "ERROR: code must be linear"; fi; 
-	m := SolutionMat(List(GeneratorMat(C),List), VectorCodeword(c));  
-	return Codeword(m);
+    local m;
+    if not(c in C) then Error( "ERROR: codeword must belong to code" ); fi;
+    if not(IsLinearCode(C)) then return "ERROR: code must be linear"; fi;
+    m := SolutionMat(List(GeneratorMat(C),List), VectorCodeword(c));
+    return Codeword(m);
 end);
 
 
@@ -1254,31 +1252,31 @@ end);
 ##  i.o.w. each codeword is orthogonal to all codewords (including itself)
 ##
 
-InstallMethod(IsSelfDualCode, "method for unrestricted code", true, 
-	[IsCode], 0, 
+InstallMethod(IsSelfDualCode, "method for unrestricted code", true,
+    [IsCode], 0,
 function(C)
-    if IsCyclicCode(C) or IsLinearCode(C) then 
-		return IsSelfDualCode(C); 
-	else 
-		return false;
-	fi; 
-end);
-
-InstallMethod(IsSelfDualCode, "method for linear code", true, 
-	[IsLinearCode], 0, 
-function(C)
-    if IsCyclicCode(C) then 
-		return IsSelfDualCode(C); 
-	elif Redundancy(C) <> Dimension(C) then
-        return false; #so the code is not self dual
+    if IsCyclicCode(C) or IsLinearCode(C) then
+        return IsSelfDualCode(C);
     else
-        return (GeneratorMat(C)*TransposedMat(GeneratorMat(C)) = 
-                NullMat(Dimension(C),Dimension(C),LeftActingDomain(C))); 
+        return false;
     fi;
 end);
 
-InstallMethod(IsSelfDualCode, "method for cyclic codes", true, 
-	[IsCyclicCode], 0, 
+InstallMethod(IsSelfDualCode, "method for linear code", true,
+    [IsLinearCode], 0,
+function(C)
+    if IsCyclicCode(C) then
+        return IsSelfDualCode(C);
+    elif Redundancy(C) <> Dimension(C) then
+        return false; #so the code is not self dual
+    else
+        return (GeneratorMat(C)*TransposedMat(GeneratorMat(C)) =
+                NullMat(Dimension(C),Dimension(C),LeftActingDomain(C)));
+    fi;
+end);
+
+InstallMethod(IsSelfDualCode, "method for cyclic codes", true,
+    [IsCyclicCode], 0,
 function(C)
     local r;
     if Redundancy(C) <> Dimension(C) then
@@ -1295,28 +1293,28 @@ end);
 ##
 #F  CodewordVector( <l>, <C> )
 ##
-##  only valid if C is linear! 
+##  only valid if C is linear!
 ##
 
-InstallOtherMethod(CodewordVector,"vector and unrestricted code", true, 
-	[IsList, IsCode], 0, 
-function(l, C) 
+InstallOtherMethod(CodewordVector,"vector and unrestricted code", true,
+    [IsList, IsCode], 0,
+function(l, C)
     if IsLinearCode(C) then
         return CodewordVector(l,C);
     else
-    	Error("<r> is a non-linear code");# encoding not possible
+        Error("<r> is a non-linear code");# encoding not possible
     fi;
 end);
 
-InstallOtherMethod(CodewordVector,"vector and linear code", true, 
-	[IsList, IsLinearCode], 0, 
-function(l, C) 
+InstallOtherMethod(CodewordVector,"vector and linear code", true,
+    [IsList, IsLinearCode], 0,
+function(l, C)
     local s, i, k;
     if IsCyclicCode(C) then
         return CodewordVector(l,C);
     else
         l := VectorCodeword(Codeword(l, Dimension(C), LeftActingDomain(C)));
-		if GeneratorMat(C) = [] then
+        if GeneratorMat(C) = [] then
             return NullMat(Length(l), WordLength(C), LeftActingDomain(C));
         else
             return Codeword(l*GeneratorMat(C), C);
@@ -1324,62 +1322,62 @@ function(l, C)
     fi;
 end);
 
-InstallOtherMethod(CodewordVector, "<list of codewords|vector>,cyclic code", 
-	true, [IsList, IsCyclicCode], 0, 
-function(l, C) 
+InstallOtherMethod(CodewordVector, "<list of codewords|vector>,cyclic code",
+    true, [IsList, IsCyclicCode], 0,
+function(l, C)
     local F, p;
     F := LeftActingDomain(C);
-	l := Codeword(l, Dimension(C), F);
-	if IsList(l) and not IsCodeword(l) then
-	    return List(l, i->CodewordVector(i,C));
-	else
-	    return Codeword(PolyCodeword(l) * GeneratorPol(C), C);
-	fi;
-end);  
+    l := Codeword(l, Dimension(C), F);
+    if IsList(l) and not IsCodeword(l) then
+        return List(l, i->CodewordVector(i,C));
+    else
+        return Codeword(PolyCodeword(l) * GeneratorPol(C), C);
+    fi;
+end);
 
-InstallOtherMethod(CodewordVector, "method for poly and cyclic code", true, 
-	[IsUnivariatePolynomial, IsCyclicCode], 0, 
-function(p, C) 
-	local F, w; 
-	F := LeftActingDomain(C); 
-	w := Codeword(p, Dimension(C), F); 
-	return Codeword(PolyCodeword(w) * GeneratorPol(C), C); 
-end); 
+InstallOtherMethod(CodewordVector, "method for poly and cyclic code", true,
+    [IsUnivariatePolynomial, IsCyclicCode], 0,
+function(p, C)
+    local F, w;
+    F := LeftActingDomain(C);
+    w := Codeword(p, Dimension(C), F);
+    return Codeword(PolyCodeword(w) * GeneratorPol(C), C);
+end);
 
-InstallOtherMethod(\*, "list with code", true, [IsList, IsCode], 0, 
+InstallOtherMethod(\*, "list with code", true, [IsList, IsCode], 0,
   CodewordVector);
 
-InstallOtherMethod(\*, "poly with code", true, 
+InstallOtherMethod(\*, "poly with code", true,
   [IsUnivariatePolynomial, IsCode], 0, CodewordVector);
 
-InstallOtherMethod(\*, "method for two codes", true, [IsCode, IsCode], 0, 
-function(C1, C2) 
-	return DirectProductCode(C1, C2); 
-end); 
+InstallOtherMethod(\*, "method for two codes", true, [IsCode, IsCode], 0,
+function(C1, C2)
+    return DirectProductCode(C1, C2);
+end);
 
 
 #############################################################################
 ##
-#F  \+( <l>, <C> )  . . . . . . . . . . . . . . . . . . . . . . . . . . . .  
+#F  \+( <l>, <C> )  . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 ##
 ##
 
-InstallOtherMethod(\+, "method for codeword+code", true, 
-	[IsCodeword, IsCode], 0, 
-function(w, C) 
-	return CosetCode(C, w); 
-end); 
+InstallOtherMethod(\+, "method for codeword+code", true,
+    [IsCodeword, IsCode], 0,
+function(w, C)
+    return CosetCode(C, w);
+end);
 
-InstallOtherMethod(\+, "method for code+codeword", true, 
-	[IsCode, IsCodeword], 0, 
-function(C, w) 
-	return CosetCode(C, w); 
-end); 
+InstallOtherMethod(\+, "method for code+codeword", true,
+    [IsCode, IsCodeword], 0,
+function(C, w)
+    return CosetCode(C, w);
+end);
 
-InstallOtherMethod(\+, "method for two codes", true, [IsCode, IsCode], 0, 
-function(C1, C2) 
-	return DirectSumCode(C1, C2); 
-end); 
+InstallOtherMethod(\+, "method for two codes", true, [IsCode, IsCode], 0,
+function(C1, C2)
+    return DirectSumCode(C1, C2);
+end);
 
 
 #############################################################################
@@ -1388,65 +1386,65 @@ end);
 ##
 ##
 
-InstallMethod(\in, "method for codeword in unrestricted code", true, 
-	[IsCodeword, IsCode], 0, 
-function(w, C) 
-	if WordLength(w) <> WordLength(C) then 
-		return false; 
-	else 
-		return w in AsSSortedList(C); 
-	fi; 
-end); 
+InstallMethod(\in, "method for codeword in unrestricted code", true,
+    [IsCodeword, IsCode], 0,
+function(w, C)
+    if WordLength(w) <> WordLength(C) then
+        return false;
+    else
+        return w in AsSSortedList(C);
+    fi;
+end);
 
-InstallMethod(\in, "method for list of codewords in unrestricted code", true, 
-	[IsList, IsCode], 0, 
-function(l, C) 
-	return ForAll(l, w->w in C); 
-end); 
+InstallMethod(\in, "method for list of codewords in unrestricted code", true,
+    [IsList, IsCode], 0,
+function(l, C)
+    return ForAll(l, w->w in C);
+end);
 
-InstallMethod(\in, "method for unrestricted code in unrestricted code", true, 
-	[IsCode, IsCode], 0, 
+InstallMethod(\in, "method for unrestricted code in unrestricted code", true,
+    [IsCode, IsCode], 0,
 function(C1, C2)
-	local l;
-	l := ShallowCopy(AsSSortedList(C1)); 
-	return ForAll(l, w->w in C2);    
-end); 
+    local l;
+    l := ShallowCopy(AsSSortedList(C1));
+    return ForAll(l, w->w in C2);
+end);
 
-InstallMethod(\in, "method for codeword in linear code", true, 
-	[IsCodeword, IsLinearCode], 0, 
-function(w, C) 
-	if WordLength(w) <> WordLength(C) then 
-		return false; 
-	elif GeneratorMat(C) = [] then 
-		return w = 0*w; 
-	elif CheckMat(C) = [] then  #Code is WholeSpace, just check field.  
-		return ForAll(VectorCodeword(w), x->x in LeftActingDomain(C)); 
-	else 
-		return CheckMat(C)*w = 0*w;
-	fi; 
-end); 
+InstallMethod(\in, "method for codeword in linear code", true,
+    [IsCodeword, IsLinearCode], 0,
+function(w, C)
+    if WordLength(w) <> WordLength(C) then
+        return false;
+    elif GeneratorMat(C) = [] then
+        return w = 0*w;
+    elif CheckMat(C) = [] then  #Code is WholeSpace, just check field.
+        return ForAll(VectorCodeword(w), x->x in LeftActingDomain(C));
+    else
+        return CheckMat(C)*w = 0*w;
+    fi;
+end);
 
-InstallMethod(\in, "method for linear code in linear code", true, 
-	[IsLinearCode, IsLinearCode], 0, 
-function(C1, C2) 
-	local l; 
-	l := ShallowCopy(GeneratorMat(C1)); 
-	return ForAll(l, w-> Codeword(w) in C2); 
-end); 
+InstallMethod(\in, "method for linear code in linear code", true,
+    [IsLinearCode, IsLinearCode], 0,
+function(C1, C2)
+    local l;
+    l := ShallowCopy(GeneratorMat(C1));
+    return ForAll(l, w-> Codeword(w) in C2);
+end);
 
-InstallMethod(\in, "method for codeword in cyclic code", true, 
-	[IsCodeword, IsCyclicCode], 0, 
-function(w, C) 
-	return PolyCodeword(w) mod GeneratorPol(C) = 
-					0 * Indeterminate(LeftActingDomain(C)); 
-end); 
+InstallMethod(\in, "method for codeword in cyclic code", true,
+    [IsCodeword, IsCyclicCode], 0,
+function(w, C)
+    return PolyCodeword(w) mod GeneratorPol(C) =
+                    0 * Indeterminate(LeftActingDomain(C));
+end);
 
-InstallMethod(\in, "method for cyclic code in cyclic code", true, 
-	[IsCyclicCode, IsCyclicCode], 0, 
-function(C1, C2) 
-	return GeneratorPol(C1) mod GeneratorPol(C2) = 
-					0 * Indeterminate(LeftActingDomain(C2));
-end); 
+InstallMethod(\in, "method for cyclic code in cyclic code", true,
+    [IsCyclicCode, IsCyclicCode], 0,
+function(C1, C2)
+    return GeneratorPol(C1) mod GeneratorPol(C2) =
+                    0 * Indeterminate(LeftActingDomain(C2));
+end);
 
 #############################################################################
 ##
@@ -1455,129 +1453,129 @@ end);
 ##  Post: returns a boolean
 ##
 
-InstallMethod(\=, "method for unrestricted code = unrestricted code", true, 
-	[IsCode, IsCode], 0, 
-function(C1, C2) 
-	local field, fields; 
-	if (IsLinearCode(C1) and IsLinearCode(C2)) or 
-	   (IsCyclicCode(C1) and IsCyclicCode(C2)) then 
-		return C1 = C2; 
-	elif IsLinearCode(C1) or IsLinearCode(C2) then 
-		return false;  ##one is linear, the other is not, so not equal
-	fi; 
-	if Set(AsSSortedList(C1)) = Set(AsSSortedList(C2)) then
-		fields := [WeightDistribution, InnerDistribution,
-				   IsLinearCode, IsPerfectCode,
-				   IsSelfDualCode, OuterDistribution, IsCyclicCode,
-				   AutomorphismGroup, MinimumDistance, CoveringRadius];
-		for field in fields do 
-			if not Tester(field)(C1) then 
-				if Tester(field)(C2) then 
-					Setter(field)(C1, field(C2)); 
-				fi;
-			else
-				if not Tester(field)(C2) then
-					Setter(field)(C2, field(C1));  
-				fi;
-			fi;
-		od; 
-		if not IsBound(C1!.boundsCoveringRadius) then 
-			if IsBound(C2!.boundsCoveringRadius) then 
-				C1!.boundsCoveringRadius := C2!.boundsCoveringRadius; 
-			fi; 
-		else 
-			if not IsBound(C2!.boundsCoveringRadius) then 
-				C2!.boundsCoveringRadius := C1!.boundsCoveringRadius; 
-			fi; 
-		fi; 
-		C1!.lowerBoundMinimumDistance := Maximum(LowerBoundMinimumDistance(C1),
-												LowerBoundMinimumDistance(C2));
-		C2!.lowerBoundMinimumDistance := C1!.lowerBoundMinimumDistance;
-		C1!.upperBoundMinimumDistance := Minimum(UpperBoundMinimumDistance(C1), 
-												UpperBoundMinimumDistance(C2));
-		C2!.upperBoundMinimumDistance := C1!.upperBoundMinimumDistance;
-		return true;
-	else
-		return false; #so C1 is not equal to C2 
-	fi;
-end);
-
-InstallMethod(\=, "method for linear code = linear code", true, 
-	[IsLinearCode, IsLinearCode], 0, 
-function(C1, C2) 
+InstallMethod(\=, "method for unrestricted code = unrestricted code", true,
+    [IsCode, IsCode], 0,
+function(C1, C2)
     local field, fields;
-    if IsCyclicCode(C1) and IsCyclicCode(C2) then 
-		return C1 = C2; 
-	elif IsCyclicCode(C1) or IsCyclicCode(C2) then 
-		return false;  ##one is cyclic, the other is not, so not equal. 
-	fi; 
-	if BaseMat(GeneratorMat(C1))=BaseMat(GeneratorMat(C2)) then
-		fields := [WeightDistribution, InnerDistribution,
-				   IsLinearCode, IsPerfectCode,
-				   IsSelfDualCode, OuterDistribution, IsCyclicCode,
-				   AutomorphismGroup, MinimumDistance, CoveringRadius];
-		for field in fields do 
-			if not Tester(field)(C1) then
-				if Tester(field)(C2) then 
-					Setter(field)(C1, field(C2)); 
-				fi;
-			else
-				if not Tester(field)(C2) then 
-					Setter(field)(C2, field(C1)); 
-				fi;
-			fi;
-		od;  
-		if not IsBound(C1!.boundsCoveringRadius) then 
-			if IsBound(C2!.boundsCoveringRadius) then 
-				C1!.boundsCoveringRadius := C2!.boundsCoveringRadius; 
-			fi; 
-		else 
-			if not IsBound(C2!.boundsCoveringRadius) then 
-				C2!.boundsCoveringRadius := C1!.boundsCoveringRadius; 
-			fi; 
-		fi; 
-		C1!.lowerBoundMinimumDistance := Maximum(LowerBoundMinimumDistance(C1),
-												LowerBoundMinimumDistance(C2));
-		C2!.lowerBoundMinimumDistance := C1!.lowerBoundMinimumDistance;
-		C1!.upperBoundMinimumDistance := Minimum(UpperBoundMinimumDistance(C1),
-												UpperBoundMinimumDistance(C2));
-		C2!.upperBoundMinimumDistance := C1!.upperBoundMinimumDistance;
-		return true;
-	else
-		return false; #so l is not equal to r
-	fi;
+    if (IsLinearCode(C1) and IsLinearCode(C2)) or
+       (IsCyclicCode(C1) and IsCyclicCode(C2)) then
+        return C1 = C2;
+    elif IsLinearCode(C1) or IsLinearCode(C2) then
+        return false;  ##one is linear, the other is not, so not equal
+    fi;
+    if Set(AsSSortedList(C1)) = Set(AsSSortedList(C2)) then
+        fields := [WeightDistribution, InnerDistribution,
+                   IsLinearCode, IsPerfectCode,
+                   IsSelfDualCode, OuterDistribution, IsCyclicCode,
+                   AutomorphismGroup, MinimumDistance, CoveringRadius];
+        for field in fields do
+            if not Tester(field)(C1) then
+                if Tester(field)(C2) then
+                    Setter(field)(C1, field(C2));
+                fi;
+            else
+                if not Tester(field)(C2) then
+                    Setter(field)(C2, field(C1));
+                fi;
+            fi;
+        od;
+        if not IsBound(C1!.boundsCoveringRadius) then
+            if IsBound(C2!.boundsCoveringRadius) then
+                C1!.boundsCoveringRadius := C2!.boundsCoveringRadius;
+            fi;
+        else
+            if not IsBound(C2!.boundsCoveringRadius) then
+                C2!.boundsCoveringRadius := C1!.boundsCoveringRadius;
+            fi;
+        fi;
+        C1!.lowerBoundMinimumDistance := Maximum(LowerBoundMinimumDistance(C1),
+                                                LowerBoundMinimumDistance(C2));
+        C2!.lowerBoundMinimumDistance := C1!.lowerBoundMinimumDistance;
+        C1!.upperBoundMinimumDistance := Minimum(UpperBoundMinimumDistance(C1),
+                                                UpperBoundMinimumDistance(C2));
+        C2!.upperBoundMinimumDistance := C1!.upperBoundMinimumDistance;
+        return true;
+    else
+        return false; #so C1 is not equal to C2
+    fi;
 end);
 
-InstallMethod(\=, "method for cyclic code = cyclic code", true, 
-	[IsCyclicCode, IsCyclicCode], 0, 
-function(C1, C2) 
+InstallMethod(\=, "method for linear code = linear code", true,
+    [IsLinearCode, IsLinearCode], 0,
+function(C1, C2)
+    local field, fields;
+    if IsCyclicCode(C1) and IsCyclicCode(C2) then
+        return C1 = C2;
+    elif IsCyclicCode(C1) or IsCyclicCode(C2) then
+        return false;  ##one is cyclic, the other is not, so not equal.
+    fi;
+    if BaseMat(GeneratorMat(C1))=BaseMat(GeneratorMat(C2)) then
+        fields := [WeightDistribution, InnerDistribution,
+                   IsLinearCode, IsPerfectCode,
+                   IsSelfDualCode, OuterDistribution, IsCyclicCode,
+                   AutomorphismGroup, MinimumDistance, CoveringRadius];
+        for field in fields do
+            if not Tester(field)(C1) then
+                if Tester(field)(C2) then
+                    Setter(field)(C1, field(C2));
+                fi;
+            else
+                if not Tester(field)(C2) then
+                    Setter(field)(C2, field(C1));
+                fi;
+            fi;
+        od;
+        if not IsBound(C1!.boundsCoveringRadius) then
+            if IsBound(C2!.boundsCoveringRadius) then
+                C1!.boundsCoveringRadius := C2!.boundsCoveringRadius;
+            fi;
+        else
+            if not IsBound(C2!.boundsCoveringRadius) then
+                C2!.boundsCoveringRadius := C1!.boundsCoveringRadius;
+            fi;
+        fi;
+        C1!.lowerBoundMinimumDistance := Maximum(LowerBoundMinimumDistance(C1),
+                                                LowerBoundMinimumDistance(C2));
+        C2!.lowerBoundMinimumDistance := C1!.lowerBoundMinimumDistance;
+        C1!.upperBoundMinimumDistance := Minimum(UpperBoundMinimumDistance(C1),
+                                                UpperBoundMinimumDistance(C2));
+        C2!.upperBoundMinimumDistance := C1!.upperBoundMinimumDistance;
+        return true;
+    else
+        return false; #so l is not equal to r
+    fi;
+end);
+
+InstallMethod(\=, "method for cyclic code = cyclic code", true,
+    [IsCyclicCode, IsCyclicCode], 0,
+function(C1, C2)
     local field, fields, bmdl, bmdr;
     if GeneratorPol(C1) = GeneratorPol(C2) then
         fields := [WeightDistribution, InnerDistribution,
                    IsLinearCode, IsPerfectCode,
                    IsSelfDualCode, OuterDistribution, IsCyclicCode,
-                   AutomorphismGroup, MinimumDistance, CoveringRadius, 
-				   RootsOfCode]; 
-        for field in fields do 
-            if not Tester(field)(C1) then 
-                if Tester(field)(C2) then 
-                    Setter(field)(C1, field(C2)); 
+                   AutomorphismGroup, MinimumDistance, CoveringRadius,
+                   RootsOfCode];
+        for field in fields do
+            if not Tester(field)(C1) then
+                if Tester(field)(C2) then
+                    Setter(field)(C1, field(C2));
                 fi;
             else
                 if not Tester(field)(C2) then
-                    Setter(field)(C2, field(C1)); 
+                    Setter(field)(C2, field(C1));
                 fi;
             fi;
-        od; 
-		if not IsBound(C1!.boundsCoveringRadius) then 
-			if IsBound(C2!.boundsCoveringRadius) then 
-				C1!.boundsCoveringRadius := C2!.boundsCoveringRadius; 
-			fi; 
-		else 
-			if not IsBound(C2!.boundsCoveringRadius) then 
-				C2!.boundsCoveringRadius := C1!.boundsCoveringRadius; 
-			fi; 
-		fi; 
+        od;
+        if not IsBound(C1!.boundsCoveringRadius) then
+            if IsBound(C2!.boundsCoveringRadius) then
+                C1!.boundsCoveringRadius := C2!.boundsCoveringRadius;
+            fi;
+        else
+            if not IsBound(C2!.boundsCoveringRadius) then
+                C2!.boundsCoveringRadius := C1!.boundsCoveringRadius;
+            fi;
+        fi;
         C1!.lowerBoundMinimumDistance := Maximum(LowerBoundMinimumDistance(C1),
                                                LowerBoundMinimumDistance(C2));
         C2!.lowerBoundMinimumDistance := C1!.lowerBoundMinimumDistance;
@@ -1596,8 +1594,8 @@ end);
 #F  SyndromeTable ( <C> ) . . . . . . . . . . . . . . . a Syndrome table of C
 ##
 
-InstallMethod(SyndromeTable, "method for unrestricted code", true, 
-	[IsCode], 0, 
+InstallMethod(SyndromeTable, "method for unrestricted code", true,
+    [IsCode], 0,
 function(C)
     if IsLinearCode(C) then
         return SyndromeTable(C);
@@ -1606,8 +1604,8 @@ function(C)
     fi;
 end);
 
-InstallMethod(SyndromeTable, "method for linear code", true, 
-	[IsLinearCode], 0, 
+InstallMethod(SyndromeTable, "method for linear code", true,
+    [IsLinearCode], 0,
 function(C)
     local H, L, F;
     H := CheckMat(C);
@@ -1629,8 +1627,8 @@ end);
 ##  The other rows contain the cosets, preceded by their coset leaders.
 ##
 
-InstallMethod(StandardArray, "method for unrestricted code", true, 
-	[IsCode], 0, 
+InstallMethod(StandardArray, "method for unrestricted code", true,
+    [IsCode], 0,
 function(C)
     if IsLinearCode(C) then
         return StandardArray(C);
@@ -1639,7 +1637,7 @@ function(C)
     fi;
 end);
 
-InstallMethod(StandardArray, "method for linear code", true, [IsLinearCode], 0, 
+InstallMethod(StandardArray, "method for linear code", true, [IsLinearCode], 0,
 function(C)
     local Els;
     Els := AsSSortedList(C);
@@ -1649,7 +1647,7 @@ function(C)
     return List(Set(CosetLeadersMatFFE(CheckMat(C), LeftActingDomain(C))),
                 row -> List(Els, column -> row + column));
 end);
-    
+
 
 #############################################################################
 ##
@@ -1659,45 +1657,45 @@ end);
 ##  that for each permutation in the group C' = C
 ##
 
-InstallOtherMethod(AutomorphismGroup, "method for unrestricted codes", true, 
-	[IsCode], 0, 
-function(C) 
+InstallOtherMethod(AutomorphismGroup, "method for unrestricted codes", true,
+    [IsCode], 0,
+function(C)
  local path;
       path := DirectoriesPackagePrograms( "guava" );
 
-      if ForAny( ["desauto", "leonconv", "wtdist"], 
+      if ForAny( ["desauto", "leonconv", "wtdist"],
                  f -> Filename( path, f ) = fail ) then
 Print("desauto not loaded ... switching to PermutationGroup ...\n");
 return PermutationGroup(C);
       fi;
     if Size(LeftActingDomain(C)) > 2 then
-	Print("This command calculates automorphism groups for binary codes only\n");
+        Print("This command calculates automorphism groups for binary codes only\n");
         Print("... automatically switching to PermutationGroup ...\n");
         return PermutationGroup(C);
     elif IsLinearCode(C) then
         return AutomorphismGroup(C);
     else
-        return MatrixAutomorphisms(VectorCodeword(AsSSortedList(C)), 
+        return MatrixAutomorphisms(VectorCodeword(AsSSortedList(C)),
                        [], Group( () ));
     fi;
 end);
 
-InstallOtherMethod(AutomorphismGroup, "method for linear codes", true, 
-	[IsLinearCode], 0, 
-function(C) 
+InstallOtherMethod(AutomorphismGroup, "method for linear codes", true,
+    [IsLinearCode], 0,
+function(C)
     local incode, inV, outgroup, infile,Ccalc,path;
       path := DirectoriesPackagePrograms( "guava" );
 
-      if ForAny( ["desauto", "leonconv", "wtdist"], 
+      if ForAny( ["desauto", "leonconv", "wtdist"],
                  f -> Filename( path, f ) = fail ) then
-Print("desauto not loaded ... switching to PermutationGroup ...\n");
-return PermutationGroup(C);
+        Print("desauto not loaded ... switching to PermutationGroup ...\n");
+        return PermutationGroup(C);
       fi;
-    if Size(LeftActingDomain(C)) > 2 then 
-	Print("This command calculates automorphism groups for binary codes only\n");
+    if Size(LeftActingDomain(C)) > 2 then
+    Print("This command calculates automorphism groups for binary codes only\n");
         Print("... automatically switching to PermutationGroup ...\n");
         return PermutationGroup(C);
-	fi; 
+    fi;
     incode :=  TmpNameAllArchs(); PrintTo( incode, "\n" );
     inV := TmpNameAllArchs(); PrintTo( inV, "\n" );
     outgroup := TmpNameAllArchs(); PrintTo( outgroup, "\n" );
@@ -1715,7 +1713,7 @@ return PermutationGroup(C);
             OutputTextUser(),
             ["-q", Concatenation(incode,"::code"), MinimumDistance(Ccalc), Concatenation(inV, "::code")]
     );
-    #Exec(Filename(DirectoriesPackagePrograms("guava"), "wtdist"), 
+    #Exec(Filename(DirectoriesPackagePrograms("guava"), "wtdist"),
     #        Concatenation("-q ",incode,"::code ",
     #        String(MinimumDistance(Ccalc))," ",inV,"::code"));
     Process(DirectoryCurrent(),
@@ -1724,7 +1722,7 @@ return PermutationGroup(C);
             OutputTextUser(),
             ["-code", "-q", Concatenation(incode,"::code"), Concatenation(inV, "::code"), outgroup]
     );
-    #Exec(Filename(DirectoriesPackagePrograms("guava"), "desauto"), 
+    #Exec(Filename(DirectoriesPackagePrograms("guava"), "desauto"),
     #        Concatenation("-code -q ",
     #        incode,"::code ",inV,"::code ",outgroup));
     Process(DirectoryCurrent(),
@@ -1733,7 +1731,7 @@ return PermutationGroup(C);
             OutputTextUser(),
             ["-a", outgroup, infile]
     );
-    #Exec(Filename(DirectoriesPackagePrograms("guava"), "leonconv"), 
+    #Exec(Filename(DirectoriesPackagePrograms("guava"), "leonconv"),
     #        Concatenation("-a ",outgroup," ", infile));
     Read(infile);
     #RemoveFiles(incode,inV,outgroup,infile);
@@ -1742,8 +1740,8 @@ end);
 
 ##  If the new partition backtrack algorithms are implemented, the previous
 ##  function can be replaced by the next:
-#InstallOtherMethod(AutomorphismGroup, "method for linear code", true, 
-#	[IsLinearCode], 0, 
+#InstallOtherMethod(AutomorphismGroup, "method for linear code", true,
+#   [IsLinearCode], 0,
 #function(C)
 #    local Ccalc, InvSet;
 #    if Dimension(C) > QuoInt(WordLength(C), 2) then
@@ -1761,36 +1759,36 @@ end);
 ##
 ## confusing name?
 
-InstallMethod(PermutationGroup, "attribute method for linear codes", true, 
-	[IsLinearCode], 0, 
+InstallMethod(PermutationGroup, "attribute method for linear codes", true,
+    [IsLinearCode], 0,
 function(C)
 local G0, Gell, G1, G2, Gt, L, k, i, j, G, F, A, aut, n, Sn, ell;
 
 Print("\n To be deprecated. Please use PermutationAutomorphismGroup.\n");
-	F:=LeftActingDomain(C);
-	G1 := GeneratorMat(C);
-	G := List(G1,ShallowCopy);
-	k:=DimensionsMat(G)[1];
-	n:=DimensionsMat(G)[2];
-	TriangulizeMat(G);
-	Gt := TransposedMat(G);
-	Sn := SymmetricGroup(n);
-	A:=[];
-	for ell in Sn do
- 	  G2:= NullMat(n,k);
- 	  for j in [1..n] do
-  	    G2[j]:=Gt[OnPoints(j,ell)];
- 	  od; # j
-	  Gell := TransposedMat(G2);
- 	  G0 := List(Gell,ShallowCopy);
- 	  TriangulizeMat(G0);
- 	  if G = G0 then Add(A, ell); fi;
-	od; # ell
-	if Length(A)>0 then 
-	  aut := Group(A); 
-	else aut:=Group(()); 
-	fi;
-	return(aut);
+    F:=LeftActingDomain(C);
+    G1 := GeneratorMat(C);
+    G := List(G1,ShallowCopy);
+    k:=DimensionsMat(G)[1];
+    n:=DimensionsMat(G)[2];
+    TriangulizeMat(G);
+    Gt := TransposedMat(G);
+    Sn := SymmetricGroup(n);
+    A:=[];
+    for ell in Sn do
+      G2:= NullMat(n,k);
+      for j in [1..n] do
+        G2[j]:=Gt[OnPoints(j,ell)];
+      od; # j
+      Gell := TransposedMat(G2);
+      G0 := List(Gell,ShallowCopy);
+      TriangulizeMat(G0);
+      if G = G0 then Add(A, ell); fi;
+    od; # ell
+    if Length(A)>0 then
+      aut := Group(A);
+    else aut:=Group(());
+    fi;
+    return(aut);
 end);
 
 
@@ -1801,46 +1799,46 @@ end);
 ##
 ##
 
-InstallMethod(PermutationAutomorphismGroup, "attribute method for linear codes", true, 
-	[IsLinearCode], 0, 
+InstallMethod(PermutationAutomorphismGroup, "attribute method for linear codes", true,
+    [IsLinearCode], 0,
 function(C)
 local G0, Gell, G1, G2, Gt, L, k, i, j, G, F, A, aut, n, Sn, ell;
 
-	F:=LeftActingDomain(C);
-	G1 := GeneratorMat(C);
-	G := List(G1,ShallowCopy);
-	k:=DimensionsMat(G)[1];
-	n:=DimensionsMat(G)[2];
-	TriangulizeMat(G);
-	Gt := TransposedMat(G);
-	Sn := SymmetricGroup(n);
-	A:=[];
-	for ell in Sn do
- 	  G2:= NullMat(n,k);
- 	  for j in [1..n] do
-  	    G2[j]:=Gt[OnPoints(j,ell)];
- 	  od; # j
-	  Gell := TransposedMat(G2);
- 	  G0 := List(Gell,ShallowCopy);
- 	  TriangulizeMat(G0);
- 	  if G = G0 then Add(A, ell); fi;
-	od; # ell
-	if Length(A)>0 then 
-	  aut := Group(A); 
-	else aut:=Group(()); 
-	fi;
-	return(aut);
+    F:=LeftActingDomain(C);
+    G1 := GeneratorMat(C);
+    G := List(G1,ShallowCopy);
+    k:=DimensionsMat(G)[1];
+    n:=DimensionsMat(G)[2];
+    TriangulizeMat(G);
+    Gt := TransposedMat(G);
+    Sn := SymmetricGroup(n);
+    A:=[];
+    for ell in Sn do
+      G2:= NullMat(n,k);
+      for j in [1..n] do
+        G2[j]:=Gt[OnPoints(j,ell)];
+      od; # j
+      Gell := TransposedMat(G2);
+      G0 := List(Gell,ShallowCopy);
+      TriangulizeMat(G0);
+      if G = G0 then Add(A, ell); fi;
+    od; # ell
+    if Length(A)>0 then
+      aut := Group(A);
+    else aut:=Group(());
+    fi;
+    return(aut);
 end);
 
 #############################################################################
 ##
-#F  IsSelfOrthogonalCode( <C> ) . . . . . . . . . . . . . . . . . . . . . .  
+#F  IsSelfOrthogonalCode( <C> ) . . . . . . . . . . . . . . . . . . . . . .
 ##
 
-InstallTrueMethod(IsSelfOrthogonalCode, IsSelfDualCode);  
+InstallTrueMethod(IsSelfOrthogonalCode, IsSelfDualCode);
 
-InstallMethod(IsSelfOrthogonalCode, "method for unrestricted code", true, 
-	[IsCode], 0, 
+InstallMethod(IsSelfOrthogonalCode, "method for unrestricted code", true,
+    [IsCode], 0,
 function(C)
     local El, M, zero, i, j, IsSO;
     if IsLinearCode(C) then
@@ -1852,10 +1850,10 @@ function(C)
     i := 1; IsSO := true;
     while (i <= M-1) and IsSO do
         j := i+1;
-        while (j <= M) and (El[i]*El[j] = zero) do 
-            j := j + 1; 
+        while (j <= M) and (El[i]*El[j] = zero) do
+            j := j + 1;
         od;
-        if j <= M then 
+        if j <= M then
             IsSO := false;
         fi;
         i := i + 1;
@@ -1863,8 +1861,8 @@ function(C)
     return IsSO;
 end);
 
-InstallMethod(IsSelfOrthogonalCode, "method for linear code", true, 
-	[IsLinearCode], 0, 
+InstallMethod(IsSelfOrthogonalCode, "method for linear code", true,
+    [IsLinearCode], 0,
 function(C)
     local G, k;
     G := GeneratorMat(C);
@@ -1877,27 +1875,27 @@ end);
 #F  IsDoublyEvenCode( <C> ) . . . . . . . . . . . . . . . . . . . . . . . .
 ##
 ##  Return true if and only if the code C is a binary linear code which has
-##  all codewords of weight divisible by 4 only. 
+##  all codewords of weight divisible by 4 only.
 ##
 ##  If a binary linear code is self-orthogonal and the weight of each row
 ##  in its generator matrix is divisibly by 4, the code is doubly-even
 ##  (see Theorem 1.4.8 in  W. C. Huffman and V. Pless, "Fundamentals of
-##  error-correcting codes", Cambridge Univ. Press, 2003.) 
-##  
+##  error-correcting codes", Cambridge Univ. Press, 2003.)
+##
 InstallMethod(IsDoublyEvenCode, "method for binary linear code", true,
-	[IsLinearCode], 0,
+    [IsLinearCode], 0,
 function(C)
-	local G, i;
-	if LeftActingDomain(C)<>GF(2) then
-		Error("Code must be binary\n");
-	fi;
-	G:=GeneratorMat(C);
-	for i in [1..Size(G)] do;
-		if Weight(Codeword(G[i])) mod 4 <> 0 then
-			return false;
-		fi;
-	od;
-	return IsSelfOrthogonalCode(C);
+    local G, i;
+    if LeftActingDomain(C)<>GF(2) then
+        Error("Code must be binary\n");
+    fi;
+    G:=GeneratorMat(C);
+    for i in [1..Size(G)] do;
+        if Weight(Codeword(G[i])) mod 4 <> 0 then
+            return false;
+        fi;
+    od;
+    return IsSelfOrthogonalCode(C);
 end);
 
 #############################################################################
@@ -1908,12 +1906,12 @@ end);
 ##  code which is not doubly-even.
 ##
 InstallMethod(IsSinglyEvenCode, "method for binary linear code", true,
-	[IsLinearCode], 0,
+    [IsLinearCode], 0,
 function(C)
-	if LeftActingDomain(C)<>GF(2) then
-		Error("Code must be binary\n");
-	fi;
-	return (IsSelfOrthogonalCode(C)) and (not IsDoublyEvenCode(C));
+    if LeftActingDomain(C)<>GF(2) then
+        Error("Code must be binary\n");
+    fi;
+    return (IsSelfOrthogonalCode(C)) and (not IsDoublyEvenCode(C));
 end);
 
 #############################################################################
@@ -1924,12 +1922,12 @@ end);
 ##  even weight codewords--regardless whether or not it is self-orgthogonal.
 ##
 InstallMethod(IsEvenCode, "method for binary linear code", true,
-	[IsLinearCode], 0,
+    [IsLinearCode], 0,
 function(C)
-	if LeftActingDomain(C)<>GF(2) then
-		Error("Code must be binary\n");
-	fi;
-	return (C = EvenWeightSubcode(C));
+    if LeftActingDomain(C)<>GF(2) then
+        Error("Code must be binary\n");
+    fi;
+    return (C = EvenWeightSubcode(C));
 end);
 
 #############################################################################
@@ -1938,46 +1936,46 @@ end);
 #F                         C2 if C1 and C2 are equivalent, or false otherwise
 ##
 
-InstallMethod(CodeIsomorphism, "method for two unrestricted codes", true, 
-	[IsCode, IsCode], 0, 
-function(C1, C2) 
-    local tp, field; 
-	if WordLength(C1) <> WordLength(C2) or Size(C1) <> Size(C2)
+InstallMethod(CodeIsomorphism, "method for two unrestricted codes", true,
+    [IsCode, IsCode], 0,
+function(C1, C2)
+    local tp, field;
+    if WordLength(C1) <> WordLength(C2) or Size(C1) <> Size(C2)
        or MinimumDistance(C1) <> MinimumDistance(C2)
        or LeftActingDomain(C1) <> LeftActingDomain(C2) then
         return false; #I think this is what we want (see IsEquivalentCode)
     elif C1=C2 then
         return ();
-    elif IsLinearCode(C1) and IsLinearCode(C2) then 
+    elif IsLinearCode(C1) and IsLinearCode(C2) then
         return CodeIsomorphism(C1, C2 );
     fi;
-     
-    tp :=  TransformingPermutations(VectorCodeword(AsSSortedList(C1)), 
+
+    tp :=  TransformingPermutations(VectorCodeword(AsSSortedList(C1)),
                    VectorCodeword(AsSSortedList(C2)));
     if tp <> false then
         for field in [WeightDistribution, InnerDistribution,
-                IsPerfectCode, IsSelfDualCode] do 
-            if not Tester(field)(C1) then 
-				if Tester(field)(C2) then 
-					Setter(field)(C1, field(C2)); 
-				fi; 
-			else 
-				if not Tester(field)(C2) then 
-					Setter(field)(C2, field(C1)); 
-				fi; 
-			fi; 
-		od; 
+                IsPerfectCode, IsSelfDualCode] do
+            if not Tester(field)(C1) then
+                if Tester(field)(C2) then
+                    Setter(field)(C1, field(C2));
+                fi;
+            else
+                if not Tester(field)(C2) then
+                    Setter(field)(C2, field(C1));
+                fi;
+            fi;
+        od;
 
-		if not IsBound(C1!.boundsCoveringRadius) then
-			if IsBound(C2!.boundsCoveringRadius) then
-				C1!.boundsCoveringRadius := C2!.boundsCoveringRadius;
-			fi;
-		else
-			if not IsBound(C2!.boundsCoveringRadius) then
-				C2!.boundsCoveringRadius := C1!.boundsCoveringRadius;
-			fi;
-		fi;
-	    	
+        if not IsBound(C1!.boundsCoveringRadius) then
+            if IsBound(C2!.boundsCoveringRadius) then
+                C1!.boundsCoveringRadius := C2!.boundsCoveringRadius;
+            fi;
+        else
+            if not IsBound(C2!.boundsCoveringRadius) then
+                C2!.boundsCoveringRadius := C1!.boundsCoveringRadius;
+            fi;
+        fi;
+
         C1!.lowerBoundMinimumDistance := Maximum(LowerBoundMinimumDistance(C1),
                                                 LowerBoundMinimumDistance(C2));
         C2!.lowerBoundMinimumDistance := LowerBoundMinimumDistance(C1);
@@ -1990,21 +1988,21 @@ function(C1, C2)
     fi;
 end);
 
-InstallMethod(CodeIsomorphism, "method for two linear codes", true, 
-	[IsLinearCode, IsLinearCode], 0, 
-function(C1, C2) 
+InstallMethod(CodeIsomorphism, "method for two linear codes", true,
+    [IsLinearCode, IsLinearCode], 0,
+function(C1, C2)
     local code1,code2,cwcode1,cwcode2,output,infile, field;
 
-	if WordLength(C1) <> WordLength(C2) or Size(C1) <> Size(C2)
+    if WordLength(C1) <> WordLength(C2) or Size(C1) <> Size(C2)
        or MinimumDistance(C1) <> MinimumDistance(C2)
-	   or LeftActingDomain(C1) <> LeftActingDomain(C2) then
-		return false; #I think this is what we want (see IsEquivalentCode)
-	elif C1=C2 then
-		return ();
-	elif LeftActingDomain(C1) <> GF(2) then
+       or LeftActingDomain(C1) <> LeftActingDomain(C2) then
+        return false; #I think this is what we want (see IsEquivalentCode)
+    elif C1=C2 then
+        return ();
+    elif LeftActingDomain(C1) <> GF(2) then
         Error("GUAVA can only calculate equivalence over GF(2)");
     fi;
-    
+
     code1 := TmpNameAllArchs(); PrintTo( code1, "\n" );
     code2 := TmpNameAllArchs(); PrintTo( code2, "\n" );
     cwcode1 := TmpNameAllArchs(); PrintTo( cwcode1, "\n" );
@@ -2013,27 +2011,27 @@ function(C1, C2)
     infile := TmpNameAllArchs(); PrintTo( infile, "\n" );
     GuavaToLeon(C1, code1);
     GuavaToLeon(C2, code2);
-    #Exec(Filename(DirectoriesPackagePrograms("guava"), "wtdist"), 
+    #Exec(Filename(DirectoriesPackagePrograms("guava"), "wtdist"),
     #        Concatenation("-q ",code1,"::code ",
     #        String(MinimumDistance(C1))," ",cwcode1,"::code"));
     Process(DirectoryCurrent(),
             Filename(DirectoriesPackagePrograms("guava"), "wtdist"),
             InputTextUser(),
             OutputTextUser(),
-            ["-q", Concatenation(code1,"::code"), 
+            ["-q", Concatenation(code1,"::code"),
              MinimumDistance(C1), Concatenation(cwcode1, "::code")]
     );
-    #Exec(Filename(DirectoriesPackagePrograms("guava"), "wtdist"), 
+    #Exec(Filename(DirectoriesPackagePrograms("guava"), "wtdist"),
     #        Concatenation("-q ",code2,"::code ",
     #        String(MinimumDistance(C2))," ",cwcode2,"::code"));
     Process(DirectoryCurrent(),
             Filename(DirectoriesPackagePrograms("guava"), "wtdist"),
             InputTextUser(),
             OutputTextUser(),
-            ["-q", Concatenation(code2,"::code"), 
+            ["-q", Concatenation(code2,"::code"),
              MinimumDistance(C2), Concatenation(cwcode2, "::code")]
     );
-    #Exec(Filename(DirectoriesPackagePrograms("guava"), "desauto"), 
+    #Exec(Filename(DirectoriesPackagePrograms("guava"), "desauto"),
     #        Concatenation("-iso -code -q ",
     #        code1,"::code ",code2,"::code ",cwcode1,"::code ",
     #        cwcode2,"::code ",output));
@@ -2041,21 +2039,21 @@ function(C1, C2)
             Filename(DirectoriesPackagePrograms("guava"), "desauto"),
             InputTextUser(),
             OutputTextUser(),
-            ["-iso", "-code", "-q", 
-             Concatenation(code1,"::code"), 
-             Concatenation(code2,"::code"), 
+            ["-iso", "-code", "-q",
+             Concatenation(code1,"::code"),
+             Concatenation(code2,"::code"),
              Concatenation(cwcode1, "::code"),
-             Concatenation(cwcode2, "::code"), 
+             Concatenation(cwcode2, "::code"),
              output]
     );
-    #Exec(Filename(DirectoriesPackagePrograms("guava"), "leonconv"), 
-    #        Concatenation("-e ",output," ", 
+    #Exec(Filename(DirectoriesPackagePrograms("guava"), "leonconv"),
+    #        Concatenation("-e ",output," ",
     #        infile));
     Process(DirectoryCurrent(),
             Filename(DirectoriesPackagePrograms("guava"), "leonconv"),
             InputTextUser(),
             OutputTextUser(),
-            ["-e", output, infile] 
+            ["-e", output, infile]
     );
     Read(infile);
     RemoveFiles(code1,code2,cwcode1,cwcode2,output,infile);
@@ -2064,27 +2062,27 @@ function(C1, C2)
     else
         for field in [WeightDistribution,
                 IsPerfectCode,
-                IsSelfDualCode]  do 
-			if not Tester(field)(C1) then 
-				if Tester(field)(C2) then 
-					Setter(field)(C1, field(C2)); 
-				fi; 
-			else 
-				if not Tester(field)(C2) then 
-					Setter(field)(C2, field(C1)); 
-				fi; 
-			fi; 
-		od; 
+                IsSelfDualCode]  do
+            if not Tester(field)(C1) then
+                if Tester(field)(C2) then
+                    Setter(field)(C1, field(C2));
+                fi;
+            else
+                if not Tester(field)(C2) then
+                    Setter(field)(C2, field(C1));
+                fi;
+            fi;
+        od;
 
-		if not IsBound(C1!.boundsCoveringRadius) then
-			if IsBound(C2!.boundsCoveringRadius) then
-				C1!.boundsCoveringRadius := C2!.boundsCoveringRadius;
-			fi;
-		else
-			if not IsBound(C2!.boundsCoveringRadius) then
-				C2!.boundsCoveringRadius := C1!.boundsCoveringRadius;
-			fi;
-		fi;
+        if not IsBound(C1!.boundsCoveringRadius) then
+            if IsBound(C2!.boundsCoveringRadius) then
+                C1!.boundsCoveringRadius := C2!.boundsCoveringRadius;
+            fi;
+        else
+            if not IsBound(C2!.boundsCoveringRadius) then
+                C2!.boundsCoveringRadius := C1!.boundsCoveringRadius;
+            fi;
+        fi;
         C1!.lowerBoundMinimumDistance := Maximum(LowerBoundMinimumDistance(C1),
                                                 LowerBoundMinimumDistance(C2));
         C2!.lowerBoundMinimumDistance := LowerBoundMinimumDistance(C1);
@@ -2098,19 +2096,19 @@ end);
 
 ##  If the new partition backtrack algorithms are implemented, the previous
 ##  function can be replaced by the next:
-#InstallMethod(CodeIsomorphism, "method for linear codes", true, 
-#	[IsLinearCode, IsLinearCode], 0, 
+#InstallMethod(CodeIsomorphism, "method for linear codes", true,
+#   [IsLinearCode, IsLinearCode], 0,
 #function (C1, C2)
 #   local field, InvSet1, InvSet2, P;
 #   if WordLength(C1) <> WordLength(C2) or Size(C1) <> Size(C2)
 #      or MinimumDistance(C1) <> MinimumDistance(C2)
-#	   or LeftActingDomain(C1) <> LeftActingDomain(C2) then
-#		return false; #I think this is what we want (see IsEquivalentCode)
-#	elif C1=C2 then
-#	 	return ();
-#	elif LeftActingDomain(C1) <> GF(2) then
-#		Error("GUAVA can only calculate equivalence over GF(2)");
-#	fi;
+#      or LeftActingDomain(C1) <> LeftActingDomain(C2) then
+#       return false; #I think this is what we want (see IsEquivalentCode)
+#   elif C1=C2 then
+#       return ();
+#   elif LeftActingDomain(C1) <> GF(2) then
+#       Error("GUAVA can only calculate equivalence over GF(2)");
+#   fi;
 #    InvSet1 := VectorCodeword(MinimumWeightWords(C1));
 #    InvSet2 := VectorCodeword(MinimumWeightWords(C2));
 #    P := AutomorphismGroupBinaryLinearCode(C1, InvSet1, C2, InvSet2);
@@ -2119,21 +2117,21 @@ end);
 #    else
 #        for field in [WeightDistribution,
 #                      IsPerfectCode,
-#                      IsSelfDualCode]  do 
-#        	if not Tester(field)(C1) then 
-#				if Tester(field)(C2) then 
-#					Setter(field)(C1, field(C2)); 
-#				fi; 
-#			else 
-#				if not Tester(field)(C2) then 
-#					Setter(field)(C2, field(C1)); 
-#				fi; 
-#			fi; 
-#		 od; 
+#                      IsSelfDualCode]  do
+#           if not Tester(field)(C1) then
+#               if Tester(field)(C2) then
+#                   Setter(field)(C1, field(C2));
+#               fi;
+#           else
+#               if not Tester(field)(C2) then
+#                   Setter(field)(C2, field(C1));
+#               fi;
+#           fi;
+#        od;
 #
-#		 if not IsBound(C1!.boundsCoveringRadius) then
+#        if not IsBound(C1!.boundsCoveringRadius) then
 #            if IsBound(C2!.boundsCoveringRadius) then
-#                C1!.boundsCoveringRadius := C2!.boundsCoveringRadius; 
+#                C1!.boundsCoveringRadius := C2!.boundsCoveringRadius;
 #            fi;
 #        else
 #            if not IsBound(C2!.boundsCoveringRadius) then
@@ -2159,8 +2157,8 @@ end);
 ##  If returnperm is true, this permutation (if it exists) is returned;
 ##  else the function only returns true or false. Has a global dispatcher.
 ##
-InstallMethod(IsEquivalent, "method for unrestricted codes", true, 
-	[IsCode, IsCode], 0, 
+InstallMethod(IsEquivalent, "method for unrestricted codes", true,
+    [IsCode, IsCode], 0,
 function (C1, C2 )
     return not IsBool( CodeIsomorphism( C1, C2 ) );
 end);
@@ -2173,8 +2171,8 @@ end);
 ##  It finds the roots by trying all elements of the extension field
 ##
 
-InstallMethod(RootsOfCode, "method for unrestricted code", true, 
-	[IsCode], 0, 
+InstallMethod(RootsOfCode, "method for unrestricted code", true,
+    [IsCode], 0,
 function(C)
     if IsCyclicCode(C) then
         return RootsOfCode(C);
@@ -2183,7 +2181,7 @@ function(C)
     fi;
 end);
 
-InstallMethod(RootsOfCode, "method for cyclic code", true, [IsCyclicCode], 0, 
+InstallMethod(RootsOfCode, "method for cyclic code", true, [IsCyclicCode], 0,
 function(C)
     local a, roots, zero, i, t, G;
     G := GeneratorPol(C);
@@ -2207,38 +2205,38 @@ end);
 #F                                               word w to all codewords of C
 ##
 
-InstallMethod(DistancesDistribution, 
-	"method for unrestricted code and codeword", 
-	true, [IsCode, IsCodeword], 0, 
+InstallMethod(DistancesDistribution,
+    "method for unrestricted code and codeword",
+    true, [IsCode, IsCodeword], 0,
 function(C, w)
     local El;
     if IsLinearCode(C) then
         return DistancesDistribution(C,w);
     fi;
-    El := VectorCodeword(AsSSortedList(C));  
+    El := VectorCodeword(AsSSortedList(C));
     w := VectorCodeword(w);
     return DistancesDistributionVecFFEsVecFFE(El,w);
 end);
 
-InstallMethod(DistancesDistribution, "method for linear code and codeword", 
-	true, [IsLinearCode, IsCodeword], 0, 
+InstallMethod(DistancesDistribution, "method for linear code and codeword",
+    true, [IsLinearCode, IsCodeword], 0,
 function(C, w)
-	local F, G;
-        F := LeftActingDomain(C); 
-	G := One(F)*ShallowCopy(GeneratorMat(C));
-	w := VectorCodeword(w);
-	return DistancesDistributionMatFFEVecFFE(G, LeftActingDomain(C), w);
+    local F, G;
+        F := LeftActingDomain(C);
+    G := One(F)*ShallowCopy(GeneratorMat(C));
+    w := VectorCodeword(w);
+    return DistancesDistributionMatFFEVecFFE(G, LeftActingDomain(C), w);
 end);
 
-          
+
 #############################################################################
 ##
 #F  Syndrome( <C>, <c> )  . . . . . . .  the syndrome of word <c> in code <C>
 ##
 
-InstallMethod(Syndrome, "method for unrestricted code and codeword", true, 
-	[IsCode, IsCodeword], 0, 
-function(C, c) 
+InstallMethod(Syndrome, "method for unrestricted code and codeword", true,
+    [IsCode, IsCodeword], 0,
+function(C, c)
     if not IsLinearCode(C) then
         Error("argument must be a linear code");
     else
@@ -2246,11 +2244,11 @@ function(C, c)
     fi;
 end);
 
-InstallMethod(Syndrome, "method for linear code and codeword", true, 
-	[IsLinearCode, IsCodeword], 0, 
-function(C, c) 
+InstallMethod(Syndrome, "method for linear code and codeword", true,
+    [IsLinearCode, IsCodeword], 0,
+function(C, c)
     if CheckMat(C) = [] then
-        return [Zero(LeftActingDomain(C))];  
+        return [Zero(LeftActingDomain(C))];
     else
         return CheckMat(C) * Codeword(c,C);
     fi;
@@ -2262,16 +2260,16 @@ end);
 #F  CodewordNr( <C>, <i> )  . . . . . . . . . . . . . . . . .  elements(C)[i]
 ##
 
-InstallMethod(CodewordNr, "method for unrestricted code and position list", 
-	true, [IsCode, IsList], 0, 
-function(C, l) 
-	local returnlist;  
-	if IsLinearCode(C) then 
-		return CodewordNr(C,l); 
-	fi;
+InstallMethod(CodewordNr, "method for unrestricted code and position list",
+    true, [IsCode, IsList], 0,
+function(C, l)
+    local returnlist;
+    if IsLinearCode(C) then
+        return CodewordNr(C,l);
+    fi;
 
-	l := Set(l);
-	returnlist := (Length(l) > 1);
+    l := Set(l);
+    returnlist := (Length(l) > 1);
     if (l[1] < 1) or (l[Length(l)] > Size(C)) then
         Error("range: 1..", String(Size(C)));
     fi;
@@ -2282,7 +2280,7 @@ function(C, l)
     fi;
 end);
 
-DoCodewordNr:=function(C, l) 
+DoCodewordNr:=function(C, l)
 local index, source, i, result, q, returnlist, F, kmin;
     if IsList(l) then
       l := Set(l);
@@ -2294,7 +2292,7 @@ local index, source, i, result, q, returnlist, F, kmin;
     if (l[1] < 1) or (l[Length(l)] > Size(C)) then
         Error("range: 1..", String(Size(C)));
     fi;
-    if HasAsSSortedList(C) then 
+    if HasAsSSortedList(C) then
         if returnlist then
             return AsSSortedList(C){l};
         else
@@ -2302,7 +2300,7 @@ local index, source, i, result, q, returnlist, F, kmin;
         fi;
     else
         result := [];
-        q := Size(LeftActingDomain(C));  
+        q := Size(LeftActingDomain(C));
         F := LeftActingDomain(C);
         kmin := Dimension(C) - 1;
         for index in l do
@@ -2325,23 +2323,23 @@ local index, source, i, result, q, returnlist, F, kmin;
     fi;
 end;
 
-InstallOtherMethod(CodewordNr, "method for unrestricted code and int position", 
-	true, [IsCode, IsInt], 0,DoCodewordNr);
+InstallOtherMethod(CodewordNr, "method for unrestricted code and int position",
+    true, [IsCode, IsInt], 0,DoCodewordNr);
 
-InstallMethod(CodewordNr, "method for linear code and position list", true, 
-	[IsLinearCode, IsList], 0, DoCodewordNr);
+InstallMethod(CodewordNr, "method for linear code and position list", true,
+    [IsLinearCode, IsList], 0, DoCodewordNr);
 
 
 #############################################################################
 ##
-#F  String( <C> ) . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  
+#F  String( <C> ) . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 ##
-##  
+##
 
-InstallMethod(String, "method for code", true, [IsCode], 0, 
-function(C) 
-	return CodeDescription(C); 
-end); 
+InstallMethod(String, "method for code", true, [IsCode], 0,
+function(C)
+    return CodeDescription(C);
+end);
 
 
 #############################################################################
@@ -2350,35 +2348,35 @@ end);
 ##
 ##
 
-InstallMethod(CodeDescription, "method for an unrestricted code", 
-	true, [IsCode], 0, 
-function(C) 
+InstallMethod(CodeDescription, "method for an unrestricted code",
+    true, [IsCode], 0,
+function(C)
     local n, x, lbmd, ubmd, line;
     line := "a";
-    if Int(WordLength(C)/(10^LogInt(WordLength(C),10))) = 8 
+    if Int(WordLength(C)/(10^LogInt(WordLength(C),10))) = 8
        or WordLength( C ) = 11 or WordLength( C ) = 18 then
-    	Append(line, "n");
+        Append(line, "n");
     fi;
     Append(line,Concatenation(" (",String(WordLength(C)),",",
             String(Size(C)),","));
     lbmd := String( LowerBoundMinimumDistance(C));
     ubmd := String( UpperBoundMinimumDistance(C));
     if lbmd = ubmd then
-		Append(line, lbmd );
-	else
-		Append( line, Concatenation( lbmd, "..", ubmd ) );
-    fi; 
-    Append( line, ")" );
-	# Call to BoundsCoveringRadius checks HasCoveringRadius first.  
-	# No need to repeat here.  Similar for LBMD, UBMD, above.  
-	if Length( BoundsCoveringRadius( C ) ) = 1 then
-        SetCoveringRadius(C, BoundsCoveringRadius(C)[1]); 
-		Append( line, String( BoundsCoveringRadius(C)[ 1 ] ) );
+        Append(line, lbmd );
     else
-        Append( line, Concatenation( 
+        Append( line, Concatenation( lbmd, "..", ubmd ) );
+    fi;
+    Append( line, ")" );
+    # Call to BoundsCoveringRadius checks HasCoveringRadius first.
+    # No need to repeat here.  Similar for LBMD, UBMD, above.
+    if Length( BoundsCoveringRadius( C ) ) = 1 then
+        SetCoveringRadius(C, BoundsCoveringRadius(C)[1]);
+        Append( line, String( BoundsCoveringRadius(C)[ 1 ] ) );
+    else
+        Append( line, Concatenation(
                 String( BoundsCoveringRadius(C)[ 1 ] ),
                 "..",
-                String( BoundsCoveringRadius(C)[ 
+                String( BoundsCoveringRadius(C)[
                         Length( BoundsCoveringRadius(C) ) ] ) ) );
     fi;
     Append( line, " " );
@@ -2392,10 +2390,10 @@ function(C)
     IsString( line );
     return line;
 end);
-          
-InstallMethod(CodeDescription, "method for linear code", 
-	true, [IsLinearCode], 0, 
-function(C) 
+
+InstallMethod(CodeDescription, "method for linear code",
+    true, [IsLinearCode], 0,
+function(C)
     local lbmd, ubmd, line;
     line := "a linear [";
     line := Concatenation( line, String(WordLength(C)), ",",
@@ -2408,10 +2406,10 @@ function(C)
         Append(line,Concatenation( lbmd, "..", ubmd ) );
     fi;
     Append( line, "]" );
-	if Length( BoundsCoveringRadius( C ) ) = 1 then
+    if Length( BoundsCoveringRadius( C ) ) = 1 then
         Append( line, String( BoundsCoveringRadius(C)[ 1 ] ) );
     else
-        Append( line, Concatenation( 
+        Append( line, Concatenation(
                 String( BoundsCoveringRadius(C)[ 1 ] ),
                 "..",
                 String( Maximum( BoundsCoveringRadius(C) ) ) ) );
@@ -2428,28 +2426,28 @@ function(C)
     return line;
 end);
 
-InstallMethod(CodeDescription, "method for cyclic codes", 
-	true, [IsCyclicCode], 0, 
-function(C) 
+InstallMethod(CodeDescription, "method for cyclic codes",
+    true, [IsCyclicCode], 0,
+function(C)
     local n, x, lbmd, ubmd, line;
     line:="a cyclic [";
     Append( line, Concatenation( String(WordLength(C)), ",",
             String(Dimension(C)), "," ));
-	lbmd := String( LowerBoundMinimumDistance(C) );
-	ubmd := String( UpperBoundMinimumDistance(C) );
-	if lbmd = ubmd then
-		Append(line, lbmd );
-	else
-		Append(line,Concatenation( lbmd, "..", ubmd ) );
-	fi; 
-    Append( line, "]" );
-	if Length( BoundsCoveringRadius( C ) ) = 1 then
-		Append( line, String( BoundsCoveringRadius(C)[ 1 ] ) );
+    lbmd := String( LowerBoundMinimumDistance(C) );
+    ubmd := String( UpperBoundMinimumDistance(C) );
+    if lbmd = ubmd then
+        Append(line, lbmd );
     else
-        Append( line, Concatenation( 
+        Append(line,Concatenation( lbmd, "..", ubmd ) );
+    fi;
+    Append( line, "]" );
+    if Length( BoundsCoveringRadius( C ) ) = 1 then
+        Append( line, String( BoundsCoveringRadius(C)[ 1 ] ) );
+    else
+        Append( line, Concatenation(
                 String( BoundsCoveringRadius(C)[ 1 ] ),
                 "..",
-                String( BoundsCoveringRadius(C)[ 
+                String( BoundsCoveringRadius(C)[
                         Length( BoundsCoveringRadius(C) ) ] ) ) );
     fi;
     Append( line, " " );
@@ -2470,52 +2468,52 @@ end);
 #F  Print( <C> )  . . . . . . . . . . . . .  prints short information about C
 ##
 ##
-InstallMethod(PrintObj, "method for codes", true, [IsCode], 0, 
-function(C) 
-  if HasCoveringRadius(C) and HasMinimumDistance(C) then 
-    Print(String(C));  # sets for future use  
-  else 
-  Print(CodeDescription(C)); # allows to change as bmd, bcr updated 
-  fi; 
+InstallMethod(PrintObj, "method for codes", true, [IsCode], 0,
+function(C)
+  if HasCoveringRadius(C) and HasMinimumDistance(C) then
+    Print(String(C));  # sets for future use
+  else
+  Print(CodeDescription(C)); # allows to change as bmd, bcr updated
+  fi;
 end);
 
-InstallMethod(PrintObj, "method for linear code", true, 
-	[IsFreeLeftModule and IsLinearCodeRep], 0, 
-function(C) 
-  if HasCoveringRadius(C) and HasMinimumDistance(C) then 
-    Print(String(C));  #sets for future use 
-  else 
-    Print(CodeDescription(C)); # allows to change as bcr, bmd updated 
-  fi; 
-end); 
-
-InstallMethod(ViewObj, "method for codes", true, [IsCode], 0, 
-function(C) 
-  if HasCoveringRadius(C) and HasMinimumDistance(C) then 
-    Print(String(C));  # sets for future use  
-  else 
-    Print(CodeDescription(C)); # allows to change as bcr, bmd updated 
-  fi; 
+InstallMethod(PrintObj, "method for linear code", true,
+    [IsFreeLeftModule and IsLinearCodeRep], 0,
+function(C)
+  if HasCoveringRadius(C) and HasMinimumDistance(C) then
+    Print(String(C));  #sets for future use
+  else
+    Print(CodeDescription(C)); # allows to change as bcr, bmd updated
+  fi;
 end);
 
-InstallMethod(ViewObj, "method for linear code", true, 
-	[IsFreeLeftModule and IsLinearCodeRep], 0, 
-function(C) 
+InstallMethod(ViewObj, "method for codes", true, [IsCode], 0,
+function(C)
+  if HasCoveringRadius(C) and HasMinimumDistance(C) then
+    Print(String(C));  # sets for future use
+  else
+    Print(CodeDescription(C)); # allows to change as bcr, bmd updated
+  fi;
+end);
+
+InstallMethod(ViewObj, "method for linear code", true,
+    [IsFreeLeftModule and IsLinearCodeRep], 0,
+function(C)
   local line;
-  if HasCoveringRadius(C) and HasMinimumDistance(C) then 
-     Print(String(C));  #sets for future use 
-   elif (IsBound(C!.name) and C!.name="random linear code") then 
+  if HasCoveringRadius(C) and HasMinimumDistance(C) then
+     Print(String(C));  #sets for future use
+   elif (IsBound(C!.name) and C!.name="random linear code") then
      line := Concatenation( "a  [", String(WordLength(C)), ",",String(Dimension(C)), "," );
-     Append(line,Concatenation( "?] randomly generated code over GF(",String(Size(LeftActingDomain(C))),")") ); 
+     Append(line,Concatenation( "?] randomly generated code over GF(",String(Size(LeftActingDomain(C))),")") );
      Print(line);
-   elif (IsBound(C!.name) and C!.name="code defined by generator matrix, NC") then 
+   elif (IsBound(C!.name) and C!.name="code defined by generator matrix, NC") then
      line := Concatenation( "a  [", String(WordLength(C)), ",",String(Dimension(C)), "," );
-     Append(line,Concatenation( "?] randomly generated code over GF(",String(Size(LeftActingDomain(C))),")") ); 
+     Append(line,Concatenation( "?] randomly generated code over GF(",String(Size(LeftActingDomain(C))),")") );
      Print(line);
    else
-     Print(CodeDescription(C)); # allows to change as bcr, bmd updated  
+     Print(CodeDescription(C)); # allows to change as bcr, bmd updated
    fi;
-end); 
+end);
 
 
 #############################################################################
@@ -2524,8 +2522,8 @@ end);
 ##
 ##
 
-InstallMethod(Display, "method for codes", true, [IsCode], 0,  
-function(C) 
+InstallMethod(Display, "method for codes", true, [IsCode], 0,
+function(C)
     local d;
     for d in History(C) do
         Print(d,"\n");
@@ -2544,47 +2542,47 @@ end);
 ##  Pre: filename is accessible for writing
 ##
 
-InstallMethod(Save, "method for unrestricted code", true, 
-	[IsString, IsCode, IsString], 0, 
-function(filename, C, codename) 
-	local fld, attr_list, attr;
+InstallMethod(Save, "method for unrestricted code", true,
+    [IsString, IsCode, IsString], 0,
+function(filename, C, codename)
+    local fld, attr_list, attr;
     PrintTo(filename, "\n# GUAVA code #\n");
-    ##LR - need proper code creation statement here! 
-	AppendTo(filename, codename, " := rec(\n");
-	attr_list := [CheckMat, CheckPol, CodeDensity, CodeNorm, 
-		CoordinateNorm, CoveringRadius, DesignedDistance,
-	        Dimension, GeneratorMat, GeneratorPol, 
-		GeneratorsOfLeftModule, 
-		InnerDistribution, IsAffineCode, IsAlmostAffineCode, 
-		IsCyclicCode, IsGriesmerCode, IsLinearCode, 
-	        IsMDSCode, IsNormalCode, IsPerfectCode,
-		IsSelfComplementaryCode, IsSelfDualCode, 
-	        IsSelfOrthogonalCode,
-	        LeftActingDomain, MinimumDistance, 
-	        MinimumWeightOfGenerators, MinimumWeightWords, 
-	        OuterDistribution, Redundancy,
-		RootsOfCode, SpecialCoveringRadius, SpecialDecoder, 
-		StandardArray, SyndromeTable, 
-		UpperBoundOptimalMinimumDistance, 
-		WeightDistribution, WordLength ];
-	for attr in attr_list do  
-		if Tester(attr)(C) then 
-			AppendTo(filename, "Set", NameFunction(attr), "(", codename, ", ", 
-			attr(C), ");\n"); 
-    	fi; 
-	od;
-    for fld in ["boundsCoveringRadius", "lowerBoundMinimumDistance", 
-				"upperBoundMinimumDistance"] do 
-		if IsBound(C!.(fld)) then 
-			AppendTo(filename, codename, "!.", fld, ":=", C!.(fld), ";\n" ); 
-		fi; 
-	od; 
-	if (not HasIsLinearCode(C)) or (not IsLinearCode(C)) then 
-		AppendTo(filename,
-			"SetAsSSortedList(", codename, ", ", "Codeword(", 
-			VectorCodeword(AsSSortedList(C)),");\n");
-    fi; 
-	AppendTo(filename, "C!.name := \"", C!.name,"\";\n");
+    ##LR - need proper code creation statement here!
+    AppendTo(filename, codename, " := rec(\n");
+    attr_list := [CheckMat, CheckPol, CodeDensity, CodeNorm,
+        CoordinateNorm, CoveringRadius, DesignedDistance,
+            Dimension, GeneratorMat, GeneratorPol,
+        GeneratorsOfLeftModule,
+        InnerDistribution, IsAffineCode, IsAlmostAffineCode,
+        IsCyclicCode, IsGriesmerCode, IsLinearCode,
+            IsMDSCode, IsNormalCode, IsPerfectCode,
+        IsSelfComplementaryCode, IsSelfDualCode,
+            IsSelfOrthogonalCode,
+            LeftActingDomain, MinimumDistance,
+            MinimumWeightOfGenerators, MinimumWeightWords,
+            OuterDistribution, Redundancy,
+        RootsOfCode, SpecialCoveringRadius, SpecialDecoder,
+        StandardArray, SyndromeTable,
+        UpperBoundOptimalMinimumDistance,
+        WeightDistribution, WordLength ];
+    for attr in attr_list do
+        if Tester(attr)(C) then
+            AppendTo(filename, "Set", NameFunction(attr), "(", codename, ", ",
+            attr(C), ");\n");
+        fi;
+    od;
+    for fld in ["boundsCoveringRadius", "lowerBoundMinimumDistance",
+                "upperBoundMinimumDistance"] do
+        if IsBound(C!.(fld)) then
+            AppendTo(filename, codename, "!.", fld, ":=", C!.(fld), ";\n" );
+        fi;
+    od;
+    if (not HasIsLinearCode(C)) or (not IsLinearCode(C)) then
+        AppendTo(filename,
+            "SetAsSSortedList(", codename, ", ", "Codeword(",
+            VectorCodeword(AsSSortedList(C)),");\n");
+    fi;
+    AppendTo(filename, "C!.name := \"", C!.name,"\";\n");
 end);
 
 
@@ -2592,16 +2590,16 @@ end);
 ##
 #F  History( <C> )  . . . . . . . . . . . . . . . shows the history of a code
 ##
-InstallMethod(History, "method for codes", true, [IsCode], 0, 
-function(C) 
-	local s; 
-	if not IsBound(C!.history) then 
-		return [CodeDescription(C)]; 
-	else 
-		s := String(Concatenation(CodeDescription(C), " of")); 
-		return Concatenation( [s], C!.history); 
-	fi;
-end); 
+InstallMethod(History, "method for codes", true, [IsCode], 0,
+function(C)
+    local s;
+    if not IsBound(C!.history) then
+        return [CodeDescription(C)];
+    else
+        s := String(Concatenation(CodeDescription(C), " of"));
+        return Concatenation( [s], C!.history);
+    fi;
+end);
 
 
 ######################################################################################
@@ -2610,7 +2608,7 @@ end);
 ##
 ## This is a simpler version than Leon's method, which does not put G in st form.
 ## (this works welland is in some cases faster than the st form one)
-## Input: C is a linear code 
+## Input: C is a linear code
 ##        num is an integer >0 which represents the number of iterations
 ##        s is an integer between 1 and n which represents the columns considered
 ##           in the algorithm.
@@ -2626,87 +2624,87 @@ end);
 ##            extend c_A to a corresponding codeword c_p in C_Gp
 ##            return c=rho^(-1)(c_p) and wt=wt(c_p)=wt(c)
 ##
-InstallMethod(MinimumDistanceRandom, "attribute method for linear codes", true, 
-	[IsLinearCode,IsInt,IsInt], 0, 
-function(C,num,s) 
-	local A,HasZeroRow,majority,G0, Gp, Gpt, Gt, L, k, n, i, j, m, dimMat, J, d1,M,
-	arrayd1, Combo, rows, row, rowSum, G, F, zero, AClosestVec, B, ZZ,  p, numrow0,
+InstallMethod(MinimumDistanceRandom, "attribute method for linear codes", true,
+    [IsLinearCode,IsInt,IsInt], 0,
+function(C,num,s)
+    local A,HasZeroRow,majority,G0, Gp, Gpt, Gt, L, k, n, i, j, m, dimMat, J, d1,M,
+    arrayd1, Combo, rows, row, rowSum, G, F, zero, AClosestVec, B, ZZ,  p, numrow0,
         bigwtrow,bigwtvec, x, d, v, ds, vecs,rho,perms,g,newv,pos,rowcombos,v1,v2;
 # returns the estimated distance, and corresponding vector of that weight
 Print("\n This is a probabilistic algorithm which may return the wrong answer.\n");
-	G0 := GeneratorMat(C);
-	p:=5; #this seems to be an optimal value
+    G0 := GeneratorMat(C);
+    p:=5; #this seems to be an optimal value
               # it's the max number of rows used in Z to find a small
               # codewd in C_Z
         G := List(G0,ShallowCopy);
 
-	F:=LeftActingDomain(C);
-	dimMat := DimensionsMat(G);
-	n:=dimMat[2];
-	k:=dimMat[1];
-        if n=k then 
-           C!.lowerBoundMinimumDistance := 1; 
-           C!.upperBoundMinimumDistance := 1; 
-           return 1; 
+    F:=LeftActingDomain(C);
+    dimMat := DimensionsMat(G);
+    n:=dimMat[2];
+    k:=dimMat[1];
+        if n=k then
+           C!.lowerBoundMinimumDistance := 1;
+           C!.upperBoundMinimumDistance := 1;
+           return 1;
         fi; #  added 11-2004
-	if s > n-1 then 
-            Print("Resetting s to ",n-2," ... \n"); 
-            s:=n-k; 
+    if s > n-1 then
+            Print("Resetting s to ",n-2," ... \n");
+            s:=n-k;
         fi;
-	arrayd1:=[n];
+    arrayd1:=[n];
 
         numrow0:=0; # initialize
         perms:=[]; # initialize
 
    for m in [1..num] do
    ##Permute the columns of C randomly
-	Gt := TransposedMat(G);
-	Gp := NullMat(n,k);
-	L := SymmetricGroup(n);
-	rho := Random(L);
-	L:=List([1..n],i->OnPoints(i,rho));
-	for i in [1..n] do 
-		Gp[i] := Gt[L[i]];
-	od;
-	Gp := TransposedMat(Gp);
+    Gt := TransposedMat(G);
+    Gp := NullMat(n,k);
+    L := SymmetricGroup(n);
+    rho := Random(L);
+    L:=List([1..n],i->OnPoints(i,rho));
+    for i in [1..n] do
+        Gp[i] := Gt[L[i]];
+    od;
+    Gp := TransposedMat(Gp);
         Gp := List(Gp,ShallowCopy);
 
 ##generate the matrix A from Gp=(A|B)
-	Gpt := TransposedMat(Gp);
-	A := NullMat(s,k);
-	for i in [1..s] do
-		A[i] := Gpt[i];
-	od;
-	A := TransposedMat(A);
+    Gpt := TransposedMat(Gp);
+    A := NullMat(s,k);
+    for i in [1..s] do
+        A[i] := Gpt[i];
+    od;
+    A := TransposedMat(A);
 
 ##generate the matrix B from Gp=(A|B)
-	Gpt := TransposedMat(Gp);
-	B := NullMat(n-s,k);
-	for i in [s+1..n] do
-		B[i-s] := Gpt[i];
-	od;
-	B := TransposedMat(B);
+    Gpt := TransposedMat(Gp);
+    B := NullMat(n-s,k);
+    for i in [s+1..n] do
+        B[i-s] := Gpt[i];
+    od;
+    B := TransposedMat(B);
 
-	zero := Zero(F)*A[1];
-	if (s<n-k and A=Zero(F)*A) then 
+    zero := Zero(F)*A[1];
+    if (s<n-k and A=Zero(F)*A) then
            Error("This method fails for these parameters. Try increasing s.\n");
-        fi; 
-        if (s=n and A=Zero(F)*A) then 
-           return 1; 
-        fi;                 
+        fi;
+        if (s=n and A=Zero(F)*A) then
+           return 1;
+        fi;
 
 ## search for all rows of weight p
 ## J is the list of all triples representing the codeword in C which
 ## corresponds to AClosestVec[1].
 
-	J := []; #col number of codewords to compute the length of
-	for i in [1..p] do
-        	AClosestVec:=AClosestVectorCombinationsMatFFEVecFFECoords(A, F, zero, i, 1);
+    J := []; #col number of codewords to compute the length of
+    for i in [1..p] do
+            AClosestVec:=AClosestVectorCombinationsMatFFEVecFFECoords(A, F, zero, i, 1);
 ### AClosestVec[1]=ZZ*AClosestVec[2]...
                 v1:=AClosestVec[2]*Gp;
                 v2:=Permuted(v1,(rho)^(-1));
-        	Add(J,[WeightVecFFE(v2),Codeword(v2,n,F),AClosestVec[2]]);
-	od;
+            Add(J,[WeightVecFFE(v2),Codeword(v2,n,F),AClosestVec[2]]);
+    od;
         ds:=List(J,x->x[1]);
         vecs:=List(J,x->x[2]);
         rowcombos:=List(J,x->x[3]);
@@ -2736,38 +2734,38 @@ end);
 ##
 ## Author: CJ, Tjhai
 ##
-InstallMethod(MinimumWeight, "attribute method for linear codes", true, 
-	[IsLinearCode], 0, 
-function(C) 
-	## Since this function calls an external program, we need to write the code
-	## into a generator matrix format recognised by this external program
-	local r, c, q, k, n, G, path, param, tmpFile, tmpOutFile;
-    
-	path := DirectoriesPackagePrograms( "guava" );
+InstallMethod(MinimumWeight, "attribute method for linear codes", true,
+    [IsLinearCode], 0,
+function(C)
+    ## Since this function calls an external program, we need to write the code
+    ## into a generator matrix format recognised by this external program
+    local r, c, q, k, n, G, path, param, tmpFile, tmpOutFile;
+
+    path := DirectoriesPackagePrograms( "guava" );
 
     if ForAny( ["minimum-weight"], f->Filename( path, f ) = fail ) then
-		Print("The executable `minimum-weight' is not present in ", path, " ... switching to MinimumDistance ...\n");
-		return MinimumDistance(C);
+        Print("The executable `minimum-weight' is not present in ", path, " ... switching to MinimumDistance ...\n");
+        return MinimumDistance(C);
     fi;
-	if Size(LeftActingDomain(C)) > 3 then 
-		Print("Code must either be binary or ternary. Quitting. \n"); return(0); 
-	fi;
-	G := GeneratorMat(C);; G := ShallowCopy(G); TriangulizeMat(G);
+    if Size(LeftActingDomain(C)) > 3 then
+        Print("Code must either be binary or ternary. Quitting. \n"); return(0);
+    fi;
+    G := GeneratorMat(C);; G := ShallowCopy(G); TriangulizeMat(G);
     k := DimensionsMat(G)[1];
     n := DimensionsMat(G)[2];
     #path := DirectoriesPackagePrograms( "guava" );; #seems unnecessary -- already done above...
     tmpFile := TmpNameAllArchs(); tmpOutFile := TmpNameAllArchs();
-	
-	PrintTo(tmpFile, k, " ", n, " ", Size(LeftActingDomain(C)), "\n");
-	for r in [1..k] do;
+
+    PrintTo(tmpFile, k, " ", n, " ", Size(LeftActingDomain(C)), "\n");
+    for r in [1..k] do;
         for c in [1..n] do;
             AppendTo(tmpFile, IntFFE(G[r][c]), " ");
         od;
         AppendTo(tmpFile, "\n");
     od;
 
-	# Build the parameters required for the external program
-	# FYI, here is the usage string for the external program:
+    # Build the parameters required for the external program
+    # FYI, here is the usage string for the external program:
 #usage: C:\gap4r8\pkg\guava-3.13\bin\i686-pc-cygwin-gcc-default32\minimum-weight.exe options [generator matrix file]
 # -h --help             Display this help screen
 # -c --cyclic           Indicate that the code is cyclic
@@ -2780,24 +2778,25 @@ function(C)
 #        5 : 0 mod 3
     param := ["--out", tmpOutFile];
     if IsCyclicCode(C) then
-	Add(param,  "--cyclic");
-	fi;
-	if IsBound(C!.lowerBoundMinimumDistance) then
-	   Add(param, "--lower-bound");
-	   Add(param, C!.lowerBoundMinimumDistance);
-	fi;
-	if LeftActingDomain(C) = GF(2) then
-		if IsEvenCode(C) then
-		        Add(param, "--mod");
+    Add(param,  "--cyclic");
+    fi;
+    if IsBound(C!.lowerBoundMinimumDistance) then
+       Add(param, "--lower-bound");
+       Add(param, C!.lowerBoundMinimumDistance);
+    fi;
+    if LeftActingDomain(C) = GF(2) then
+        if IsEvenCode(C) then
+                Add(param, "--mod");
                         if IsDoublyEvenCode(C) then
-				Add(param,  4);
+                Add(param,  4);
                         else
-				Add(param,  1);
-			fi;
-		else
-		        Add(param, "--mod");
-		        Add(param, 2);
+                Add(param,  1);
+            fi;
+        else
+                Add(param, "--mod");
+                Add(param, 2);
                 fi;
+
 	elif LeftActingDomain(C) = GF(3) then
 		if IsSelfOrthogonalCode(C) then
 			Add(param, "--mod");
@@ -2807,15 +2806,16 @@ function(C)
 	Add(param, tmpFile);
 
 	## Now call the external program
+
         Process(DirectoryCurrent(),
             Filename(path, "minimum-weight"),
             InputTextUser(),
             OutputTextUser(),
             param
         );
-	Read(tmpOutFile);
-	RemoveFiles(tmpFile, tmpOutFile);
-	C!.lowerBoundMinimumDistance := GUAVA_TEMP_VAR; 
-	C!.upperBoundMinimumDistance := GUAVA_TEMP_VAR; 
-	return GUAVA_TEMP_VAR;
+    Read(tmpOutFile);
+    RemoveFiles(tmpFile, tmpOutFile);
+    C!.lowerBoundMinimumDistance := GUAVA_TEMP_VAR;
+    C!.upperBoundMinimumDistance := GUAVA_TEMP_VAR;
+    return GUAVA_TEMP_VAR;
 end);

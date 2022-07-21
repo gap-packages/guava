@@ -12,7 +12,7 @@
 #H  CJ, 17 May 2006
 #H  Updated lower- and upper-bounds of minimum distance for GF(2),
 #H  GF(3) and GF(4) codes. (Brouwer's table as of 11 May 2006)
-#H  
+#H
 #H  $Log: refs.g,v $
 #H  Revision 1.1.1.1  1998/03/19 17:31:43  lea
 #H  Initial version of GUAVA for GAP4.  Development still under way.
@@ -87,7 +87,7 @@ HP	:= ["%A A.A. Hashim & V.S. Pozdniakov",
 	    "%P 350-351",
 	    "%D July 1976"],
 
-YH1	:= ["%A Øyvind Ytrehus & Tor Helleseth",
+YH1	:= ["%A Ã˜yvind Ytrehus & Tor Helleseth",
 	    "%T There is no binary [25,8,10] code",
 	    "%J IEEE Trans. Inform. Theory",
 	    "%V 36",
@@ -161,7 +161,7 @@ vT3	:= ["%A H.C.A. van Tilborg",
 	    "%P 197-207",
 	    "%D 1981"],
 
-HY2	:= ["%A T. Helleseth & Ø. Ytrehus",
+HY2	:= ["%A T. Helleseth & Ã˜. Ytrehus",
 	    "%T How to find a [33,8,14]-code",
 	    "%R Report in Informatics (preliminary version), Dept. of Informatics, Univ. of Bergen, Norway",
 	    "%D Nov. 1989"],
@@ -171,7 +171,7 @@ He	:= ["%A P.W. Heijnen",
 	    "%R Afstudeerverslag, T.U. Delft",
 	    "%D Oct. 1993"],
 
-DHM	:= ["%A S.M. Dodunekov, T. Helleseth, N. Manev & Ø. Ytrehus", 
+DHM	:= ["%A S.M. Dodunekov, T. Helleseth, N. Manev & Ã˜. Ytrehus",
         "%T New bounds on binary linear codes of dimension eight",
 	    "%J IEEE Trans. Inform. Theory",
 	    "%V IT-33",
@@ -201,7 +201,7 @@ BE	:= ["%A J. Bierbrauer & Y. Edel",
 	    "%P 953-968",
 	    "%D 1997"],
 
-FB	:= ["%A P. Farkas & K. Brühl",
+FB	:= ["%A P. Farkas & K. BrÃ¼hl",
 	    "%T Three best binary linear block codes of minimum distance fifteen",
 	    "%J IEEE Trans. Inf. Th.",
 	    "%V 40",
@@ -439,7 +439,7 @@ Hg	:= ["%A H.J. Helgert",
 	    "%P 369-380",
 	    "%D Dec. 1974"],
 
-BDH	:= ["%A I. Boukliev, S. M. Dodunekov, T. Helleseth & Ø. Ytrehus",
+BDH	:= ["%A I. Boukliev, S. M. Dodunekov, T. Helleseth & Ã˜. Ytrehus",
 	    "%T On the [162,8,80;2] codes",
 	    "%R preprint",
 	    "%D 1996"],
@@ -524,7 +524,7 @@ EB1	:= ["%A Y. Edel & J. Bierbrauer",
 	    "%R preprint",
 	    "%D 1995"],
 
-BJK	:= ["%A Irina E. Bocharova, Rolf Johannesson, Boris D. Kudryashov & Per Ståhl",
+BJK	:= ["%A Irina E. Bocharova, Rolf Johannesson, Boris D. Kudryashov & Per StÃ¥hl",
 	    "%T Tailbiting Codes: Bounds and Search Results",
 	    "%O IEEE, to appear"],
 
@@ -680,7 +680,7 @@ vE0	:= ["%A M. van Eupen",
 	    "%P 193",
 	    "%D 1994"],
 
-HHM	:= ["%A N. Hamada, T. Helleseth, H.M. Martinsen & Ø. Ytrehus",
+HHM	:= ["%A N. Hamada, T. Helleseth, H.M. Martinsen & Ã˜. Ytrehus",
 	    "%T There is no ternary [28,6,16] code"],
 
 GuB	:= ["%A T. A. Gulliver",
@@ -726,7 +726,7 @@ BKn	:= ["%A Detlef Berntzen & Peter Kemper",
 Glo	:= ["%A Volker von Gloeden",
 	    "%T Kubische Reste Codes",
 	    "%R Dipl",
-	    "%D marbeit, Düsseldorf, Oktober 2002"],
+	    "%D marbeit, DÃ¼sseldorf, Oktober 2002"],
 
 Gu1	:= ["%A T. A. Gulliver",
 	    "%T New optimal ternary linear codes of dimension 6",
@@ -754,7 +754,7 @@ Gu2	:= ["%A T. A. Gulliver",
 
 D1	:= ["%R Code found by the (u|u+v) construction"],
 
-GO	:= ["%A T. A. Gulliver & P. R. J. Östergård",
+GO	:= ["%A T. A. Gulliver & P. R. J. Ã–stergÃ¥rd",
 	    "%T Improved bounds for ternary linear codes of dimension 7",
 	    "%J IEEE Trans. Inform. Theory",
 	    "%V 43",
@@ -801,7 +801,7 @@ Da	:= ["%A R. N. Daskalov",
 	    "%R pers. comm",
 	    "%D 1992-2005"],
 
-HHY	:= ["%A N. Hamada, T. Helleseth & Ø. Ytrehus",
+HHY	:= ["%A N. Hamada, T. Helleseth & Ã˜. Ytrehus",
 	    "%T On the construction of $[q^4+q^2-q,5,q^4-q^3+q^2-2q;q]$-codes meeting the Griesmer bound",
 	    "%J Des. Codes Cryptogr.",
 	    "%V 2",
@@ -831,7 +831,7 @@ LX	:= ["%A San Ling & Chaoping Xing",
 	    "%R preprint",
 	    "%D 2003"],
 
-GO2	:= ["%A T. A. Gulliver & P. R. J. Östergård",
+GO2	:= ["%A T. A. Gulliver & P. R. J. Ã–stergÃ¥rd",
 	    "%T Improved bounds for ternary linear codes of dimension 8",
 	    "%R preprint",
 	    "%D Nov. 1997"],

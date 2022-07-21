@@ -29,23 +29,23 @@
 ##  Return a vector with all ones.
 ##
 
-InstallMethod(AllOneVector, "length, Field", true, [IsInt, IsField], 0, 
-function(n, F) 
+InstallMethod(AllOneVector, "length, Field", true, [IsInt, IsField], 0,
+function(n, F)
     if n <= 0 then
         Error( "AllOneVector: <n> must be a positive integer" );
     fi;
     return List( [ 1 .. n ], x -> One(F) );
 end);
 
-InstallOtherMethod(AllOneVector, "length, fieldsize", true, [IsInt, IsInt], 0, 
-function(n, q) 
-	return AllOneVector(n, GF(q)); 
-end); 
+InstallOtherMethod(AllOneVector, "length, fieldsize", true, [IsInt, IsInt], 0,
+function(n, q)
+    return AllOneVector(n, GF(q));
+end);
 
-InstallOtherMethod(AllOneVector, "length", true, [IsInt], 0, 
-function(n) 
-	return AllOneVector(n, Rationals); 
-end); 
+InstallOtherMethod(AllOneVector, "length", true, [IsInt], 0,
+function(n)
+    return AllOneVector(n, Rationals);
+end);
 
 
 ########################################################################
@@ -55,24 +55,24 @@ end);
 ##  Return a codeword with <n> ones.
 ##
 
-InstallMethod(AllOneCodeword, "wordlength, field", true, [IsInt, IsField], 0, 
-function(n, F) 
+InstallMethod(AllOneCodeword, "wordlength, field", true, [IsInt, IsField], 0,
+function(n, F)
     if n <= 0 then
         Error( "AllOneCodeword: <n> must be a positive integer" );
     fi;
     return Codeword( AllOneVector( n, F ), F );
 end);
 
-InstallOtherMethod(AllOneCodeword, "wordlength, fieldsize", true, 
-	[IsInt, IsInt], 0, 
-function(n, q) 
-	return AllOneCodeword(n, GF(q)); 
-end); 
+InstallOtherMethod(AllOneCodeword, "wordlength, fieldsize", true,
+    [IsInt, IsInt], 0,
+function(n, q)
+    return AllOneCodeword(n, GF(q));
+end);
 
-InstallOtherMethod(AllOneCodeword, "wordlength", true, [IsInt], 0, 
-function(n) 
-	return AllOneCodeword(n, GF(2)); 
-end); 
+InstallOtherMethod(AllOneCodeword, "wordlength", true, [IsInt], 0,
+function(n)
+    return AllOneCodeword(n, GF(2));
+end);
 
 
 #############################################################################
@@ -83,50 +83,50 @@ end);
 ##  3/2 => 2,  -3/2 => -1.
 ##
 
-InstallMethod(IntCeiling, "method for integer", true, [IsInt], 0, 
-function(r) 
-	# don't round integers 
-	return r; 
-end); 
+InstallMethod(IntCeiling, "method for integer", true, [IsInt], 0,
+function(r)
+    # don't round integers
+    return r;
+end);
 
-InstallMethod(IntCeiling, "method for rational", true, [IsRat], 0, 
-function(r) 
-	if r > 0 then
-		# round positive numbers to smallest integer 
-		# greater than r (3/2 => 2)
-		return Int(r)+1;
-	else
-		# round negative numbers to smallest integer
-		# greater than r (-3/2 => -1)
-		return Int(r);
-	fi;
+InstallMethod(IntCeiling, "method for rational", true, [IsRat], 0,
+function(r)
+    if r > 0 then
+        # round positive numbers to smallest integer
+        # greater than r (3/2 => 2)
+        return Int(r)+1;
+    else
+        # round negative numbers to smallest integer
+        # greater than r (-3/2 => -1)
+        return Int(r);
+    fi;
 end);
 
 
 ########################################################################
 ##
-#F  IntFloor( <r> ) 
+#F  IntFloor( <r> )
 ##
 ##  Return the greatest integer smaller than or equal to r.
 ##  3/2 => 1, -3/2 => -2.
 ##
 
-InstallMethod(IntFloor, "method for integer", true, [IsInt], 0, 
-function(r) 
-	# don't round integers
-	return r;
-end); 
+InstallMethod(IntFloor, "method for integer", true, [IsInt], 0,
+function(r)
+    # don't round integers
+    return r;
+end);
 
-InstallMethod(IntFloor, "method for rational", true, [IsRat], 0, 
-function(r) 
-	if r > 0 then
-		# round positive numbers to largest integer
-		# smaller than r (3/2 => 1)
-		return Int(r);
-	else
-		# round negative numbers to largest integer
-		# smaller than r (-3/2 => -2)
-		return Int(r-1);
+InstallMethod(IntFloor, "method for rational", true, [IsRat], 0,
+function(r)
+    if r > 0 then
+        # round positive numbers to largest integer
+        # smaller than r (3/2 => 1)
+        return Int(r);
+    else
+        # round negative numbers to largest integer
+        # smaller than r (-3/2 => -2)
+        return Int(r-1);
     fi;
 end);
 
@@ -139,15 +139,15 @@ end);
 ##         0 otherwise
 ##
 
-InstallMethod(KroneckerDelta, true, [IsInt, IsInt], 0, 
+InstallMethod(KroneckerDelta, true, [IsInt, IsInt], 0,
 function ( i, j )
-    
+
     if i = j then
         return 1;
     else
         return 0;
     fi;
-    
+
 end);
 
 
@@ -157,15 +157,15 @@ end);
 ##
 ##  Return a binary representation of an element
 ##  of GF( 2^k ), where k <= length.
-##  
-##  The representation is actually the binary 
-##  representation of k+1, where k is the exponent 
-##  of the element, taken in the field 2^length.  
-##  For example, Z(16)^10 = Z(4)^2.  If length = 4, 
-##  the binary representation 1011 = 11(base 10) 
-##  is returned.  If length = 2, the binary 
-##  representation 11 = 3(base 10) is returned. 
-##  
+##
+##  The representation is actually the binary
+##  representation of k+1, where k is the exponent
+##  of the element, taken in the field 2^length.
+##  For example, Z(16)^10 = Z(4)^2.  If length = 4,
+##  the binary representation 1011 = 11(base 10)
+##  is returned.  If length = 2, the binary
+##  representation 11 = 3(base 10) is returned.
+##
 ##  If elements is a list, then return the binary
 ##  representation of every element of the list.
 ##
@@ -177,32 +177,32 @@ end);
 ##
 
 BinaryRepresentation := function ( elementlist, length )
-    
+
     local field, i, log, vector, element;
-    
+
     if IsList( elementlist ) then
         return( List( elementlist,
                       x -> BinaryRepresentation( x, length ) ) );
     else
-        
+
         element := elementlist;
         field := Field( element );
 
         vector := NullVector( length, GF(2) );
-    
-        if element = Zero(field) then 
+
+        if element = Zero(field) then
             # exception, log is not defined for zeroes
             return vector;
         else
-            log := LogFFE( element, Z(2^length) ) + 1; 
-        
+            log := LogFFE( element, Z(2^length) ) + 1;
+
             for i in [ 1 .. length ] do
                 if log >= 2^( length - i ) then
-                    vector[ i ] := One(GF(2)); 
+                    vector[ i ] := One(GF(2));
                     log := log - 2^( length - i );
                 fi;
             od;
-        
+
             return vector;
         fi;
     fi;
@@ -222,9 +222,9 @@ end;
 ##
 
 SortedGaloisFieldElements := function ( size )
-    
+
     local field, els, sortlist, alpha;
-    
+
     if IsInt( size ) then
         field := GF( size );
     else
@@ -232,7 +232,7 @@ SortedGaloisFieldElements := function ( size )
         size := Size( field );
     fi;
     alpha:=PrimitiveRoot( field );
-# this line was moved from immed after the local statement 9-2004    
+# this line was moved from immed after the local statement 9-2004
     els := ShallowCopy(AsSSortedList( field ));
     sortlist := NullVector( size );
     # log 1 = 0, so we add one to each log to avoid
@@ -249,20 +249,20 @@ SortedGaloisFieldElements := function ( size )
     sortlist{ [ 2 .. size ] } := List( els { [ 2 .. size ] },
                                  x -> LogFFE( x, alpha ) + 1 );
     SortParallel( sortlist, els );
-    
+
     return els;
 end;
 
 ########################################################################
 ##
 #F  VandermondeMat( <Pts> , <a> )
-##  
+##
 ## Input: Pts=[x1,..,xn], a >0 an integer
-## Output: Vandermonde matrix (xi^j), 
+## Output: Vandermonde matrix (xi^j),
 ##         for xi in Pts and 0 <= j <= a
 ##         (an nx(a+1) matrix)
 ##
-InstallMethod(VandermondeMat, true, [IsList, IsInt], 0, 
+InstallMethod(VandermondeMat, true, [IsList, IsInt], 0,
 function(Pts,a)
  local V,n,i,j;
  n:=Length(Pts);
@@ -273,7 +273,7 @@ end);
 ###########################################################
 ##
 #F    MultiplicityInList(L,a)
-##  
+##
 ## Input: a list L
 ##        an element a of L
 ## Output: the multiplicity a occurs in L
@@ -290,7 +290,7 @@ end;
 ###########################################################
 ##
 #F    MostCommonInList(L,a)
-##  
+##
 ## Input: a list L
 ## Output: an a in L which occurs at least as much as any other in L
 ##
@@ -305,7 +305,7 @@ end;
 ###########################################################
 ##
 #F    RotateList(L)
-##  
+##
 ## Input: a list L
 ## Output: cyclic rotation of the list (to the right)
 ##
@@ -316,42 +316,42 @@ local rL,i,n;
  for i in [1..n] do
   if i<n then rL[i]:=L[i+1]; fi;
   if i=n then rL[i]:=L[1]; fi;
- od; 
+ od;
  return rL;
 end;
 
 ###########################################################
 ##
 #F RightRotateList(L)
-##  
+##
 ## Input: a list L
 ## Output: cyclic rotation of the list (to the right)
 ##         RotateList function seems to rotate to the left ??
 ##         Am I loosing my direction now? left, right?
 ##
 RightRotateList:=function(L)
-	local rL,i,n;
- 	
-	n :=Length(L);
- 	rL:=[];
- 	rL[1] := L[n];
-	for i in [1..(n-1)] do
-		rL[n-i+1] := L[n-i];
-	od;
- 	
-	return rL;
+    local rL,i,n;
+
+    n :=Length(L);
+    rL:=[];
+    rL[1] := L[n];
+    for i in [1..(n-1)] do
+        rL[n-i+1] := L[n-i];
+    od;
+
+    return rL;
 end;
 
 ###########################################################
 ##
 #F    CirculantMatrix(k,L)
-##  
+##
 ## Input: integer k, a list L of length n
 ## Output: kxn matrix whose rows are cyclic rotations of the list L
 ##
 CirculantMatrix:=function(k,L)
 local M,i,rL;
- rL:=L; 
+ rL:=L;
  M:=[L];
  for i in [1..(k-1)] do
   rL:=RightRotateList(rL);
@@ -363,7 +363,7 @@ end;
 ###########################################################
 ##
 #F    NegacirculantMatrix(k,L)
-##  
+##
 ## Input: integer k, a list L of length n
 ## Output: kxk matrix whose rows are cyclic (right) rotations
 ##         of the list L
@@ -372,21 +372,21 @@ end;
 ##       function is used instead.
 ##
 NegacirculantMatrix:=function(k,L)
-	local M, rL, i;
+    local M, rL, i;
 
-	if k <> Size(L) then
-		Error("Negacirculant matrix must be a square matrix\n");
-	fi;
+    if k <> Size(L) then
+        Error("Negacirculant matrix must be a square matrix\n");
+    fi;
 
     rL:= L;
-	M := [L];
-	for i in [1..(k-1)] do;
-		# generate nega cyclic shift (to the right)
-		rL := RightRotateList(rL);
-		rL[1] := -rL[1];
-		M := Concatenation(M, [rL]);
-	od;
-	return M;
+    M := [L];
+    for i in [1..(k-1)] do;
+        # generate nega cyclic shift (to the right)
+        rL := RightRotateList(rL);
+        rL[1] := -rL[1];
+        M := Concatenation(M, [rL]);
+    od;
+    return M;
 end;
 
 ###############################################
@@ -412,7 +412,7 @@ end;
 
 ###################### finite field functions
 ## see also ConwayPolynomial
-## IsPrimitivePolynomial, for p < 256 
+## IsPrimitivePolynomial, for p < 256
 ## IsCheapConwayPolynomial
 ## RandomPrimitivePolynomial
 ##
@@ -420,18 +420,18 @@ end;
 PrimitivePolynomialsNr:=function(n,q)
 #n is an integer>1
 #F is a finite field
-#FACT (Golomb): The number of irreducible polynomials mod p of degree n 
+#FACT (Golomb): The number of irreducible polynomials mod p of degree n
 #with (maximum) period p^n-1 is lambda(n,p)=phi(p^n-1)/n).
 local period;
  #q:=Size(F);
- if n<2 then 
+ if n<2 then
    Error("\n\n First arg must be > 1.\n");
  fi;
  return Phi(q^n-1)/n;
 end;
 
 IrreduciblePolynomialsNr:=function(n,q)
-#FACT (Golomb): The number of irreducible polynomials in GF(q)[x] of degree n 
+#FACT (Golomb): The number of irreducible polynomials in GF(q)[x] of degree n
 #is Psi0(n,p).
  local d;
  return (1/n)*Sum(DivisorsInt(n),d->q^d*MoebiusMu(n/d));
@@ -442,24 +442,24 @@ MatrixRepresentationOfElement:=function(a,F)
 #the element a
 local q,p,d,A,i,j,f,coeffs,c0,Id;
  p:=Characteristic(F);
- if p>0 then 
+ if p>0 then
    q:=Size(F);
   # d:=LogInt(q,p);
    f:=MinimalPolynomial(GF(p),a);
    A:=CompanionMat(f);
-  # Id:=IdentityMat(d,F); 
+  # Id:=IdentityMat(d,F);
    return A;
  fi;
- if p=0 then 
+ if p=0 then
    f:=MinimalPolynomial(Rationals,a);
    A:=CompanionMat(f);
-  # Id:=IdentityMat(d,F); 
+  # Id:=IdentityMat(d,F);
    return A;
  fi;
 end;
 
 ZechLog:=function(x,b,F)
-#Zech log of x to base b, ie the i such that x+1=b^i, 
+#Zech log of x to base b, ie the i such that x+1=b^i,
 # so y+z=y*(1+z/y)=b^k, where k=Log(y,b)+ZechLog(z/y,b)
 # b must be a primitive element of F
  return LogFFE(x+One(F),b);
@@ -478,9 +478,9 @@ guava_version:=function()
  return GuavaVersion();
 end;
 
-InstallMethod(SupportToCodeword, "set, wordlength", true, [IsSet, IsInt], 0, 
-function(s, n) 
- local v,i;                        
+InstallMethod(SupportToCodeword, "set, wordlength", true, [IsSet, IsInt], 0,
+function(s, n)
+ local v,i;
  v := NullVector(n,GF(2));
  for i in s do
    if (i > n) or (i<1) then

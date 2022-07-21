@@ -4,7 +4,7 @@
 #A                                                        &Jasper Cramwinckel
 #A                                                           &Erik Roijackers
 ##
-##  All the code operations 
+##  All the code operations
 ##
 ##  20 Dec 07 14:24 (CJ) added IsDoublyEvenCode, IsSinglyEvenCode
 ##                       and IsEvenCode functions
@@ -19,7 +19,7 @@
 ##
 #F  IsLinearCode( <C> ) . . . . . . . . . . . . . . . checks if <C> is linear
 ##
-## If so, the record fields will be adjusted to the linear representation 
+## If so, the record fields will be adjusted to the linear representation
 ##
 DeclareProperty("IsLinearCode", IsCode);
 
@@ -85,8 +85,8 @@ DeclareAttribute("MinimumDistance", IsCode);
 
 #############################################################################
 ##
-#F  MinimumDistanceCodeword( <C> [, <w>] )  . . . .  determines the minimum 
-##                                      distance having  minimum distance to w 
+#F  MinimumDistanceCodeword( <C> [, <w>] )  . . . .  determines the minimum
+##                                      distance having  minimum distance to w
 ##                                      (w= zero vector is the default)
 ##  MinimumDistance( <C>, <w> ) determines the minimum distance to a word <w>
 ##
@@ -107,8 +107,8 @@ DeclareAttribute("MinimumDistanceLeon", IsLinearCode);
 #############################################################################
 ##
 #F  DesignedDistance( arg )  . . . . . . . . . . . . . . . . . . . . . . . .
-## 
-##  Cannot be calculated.  Must be set at creation, if at all. 
+##
+##  Cannot be calculated.  Must be set at creation, if at all.
 DeclareAttribute("DesignedDistance", IsCode);
 
 
@@ -116,21 +116,21 @@ DeclareAttribute("DesignedDistance", IsCode);
 ##
 #F  LowerBoundMinimumDistance( arg )  . . . . . . . . . . . . . . . . . . .
 ##
-DeclareOperation("LowerBoundMinimumDistance", [IsCode]);  
+DeclareOperation("LowerBoundMinimumDistance", [IsCode]);
 
 
 #############################################################################
 ##
 #F  UpperBoundMinimumDistance( arg )  . . . . . . . . . . . . . . . . . . .
 ##
-DeclareOperation("UpperBoundMinimumDistance", [IsCode]); 
+DeclareOperation("UpperBoundMinimumDistance", [IsCode]);
 
 #############################################################################
 ##
 #F  UpperBoundOptimalMinimumDistance( arg )  . . . . . . . . . . . . . . . .
-## 
-##  UpperBoundMinimumDistance of optimal code with same parameters 
-## 
+##
+##  UpperBoundMinimumDistance of optimal code with same parameters
+##
 DeclareAttribute("UpperBoundOptimalMinimumDistance", IsCode);
 
 
@@ -139,7 +139,7 @@ DeclareAttribute("UpperBoundOptimalMinimumDistance", IsCode);
 #F  MinimumWeightOfGenerators( arg )  . . . . . . . . . . . . . . . . . . . .
 ##
 ##
-DeclareAttribute("MinimumWeightOfGenerators", IsCode); 
+DeclareAttribute("MinimumWeightOfGenerators", IsCode);
 
 
 #############################################################################
@@ -176,19 +176,19 @@ DeclareAttribute("OuterDistribution", IsCode);
 
 #############################################################################
 ##
-#F  CodewordVector( <l>, <C> ) 
+#F  CodewordVector( <l>, <C> )
 ##
 ##  returns the element of the code <C> corresponding to the coefficient
 ##  list <l>. This is a synonym for \* for codes
-DeclareOperation("CodewordVector", [IsList, IsCode]); 
+DeclareOperation("CodewordVector", [IsList, IsCode]);
 
 
 #############################################################################
 ##
-#F  InformationWord( C, c )  . . . . . . . "decodes" a codeword in C to the 
+#F  InformationWord( C, c )  . . . . . . . "decodes" a codeword in C to the
 ##                                information "message" word m, so m*C=c
 ##
-DeclareOperation("InformationWord", [IsCode,IsCodeword]); 
+DeclareOperation("InformationWord", [IsCode,IsCodeword]);
 
 
 #############################################################################
@@ -204,7 +204,7 @@ DeclareProperty("IsSelfDualCode", IsCode);
 ##
 #F  \*( <l>, <C> )  . . . . .  the codeword belonging to information vector x
 ##
-##  only valid if C is linear! 
+##  only valid if C is linear!
 ##
 
 
@@ -293,8 +293,8 @@ DeclareProperty("IsSelfOrthogonalCode", IsCode);
 ##  If a binary linear code is self-orthogonal and the weight of each row
 ##  in its generator matrix is divisibly by 4, the code is doubly-even
 ##  (see Theorem 1.4.8 in  W. C. Huffman and V. Pless, "Fundamentals of
-##  error-correcting codes", Cambridge Univ. Press, 2003.) 
-##  
+##  error-correcting codes", Cambridge Univ. Press, 2003.)
+##
 DeclareProperty("IsDoublyEvenCode", IsLinearCode);
 
 #############################################################################
@@ -320,7 +320,7 @@ DeclareProperty("IsEvenCode", IsLinearCode);
 #F  CodeIsomorphism( <C1>, <C2> ) . . the permutation that translates C1 into
 #F                         C2 if C1 and C2 are equivalent, or false otherwise
 ##
-DeclareOperation("CodeIsomorphism", [IsCode, IsCode]); 
+DeclareOperation("CodeIsomorphism", [IsCode, IsCode]);
 
 
 #############################################################################
@@ -329,9 +329,9 @@ DeclareOperation("CodeIsomorphism", [IsCode, IsCode]);
 ##
 ##  that is if there exists a permutation that transforms C1 into C2.
 ##  If returnperm is true, this permutation (if it exists) is returned;
-##  else the function only returns true or false. 
+##  else the function only returns true or false.
 ##
-DeclareOperation("IsEquivalent", [IsCode, IsCode]); 
+DeclareOperation("IsEquivalent", [IsCode, IsCode]);
 
 
 #############################################################################
@@ -348,21 +348,21 @@ DeclareAttribute("RootsOfCode", IsCode);
 #F  DistancesDistribution( <C>, <w> ) . . .  distribution of distances from a
 #F                                               word w to all codewords of C
 ##
-DeclareOperation("DistancesDistribution", [IsCode, IsCodeword]);  
+DeclareOperation("DistancesDistribution", [IsCode, IsCodeword]);
 
 
 #############################################################################
 ##
 #F  Syndrome( <C>, <c> )  . . . . . . .  the syndrome of word <c> in code <C>
 ##
-DeclareOperation("Syndrome", [IsCode, IsCodeword]); 
+DeclareOperation("Syndrome", [IsCode, IsCodeword]);
 
 
 #############################################################################
 ##
 #F  CodewordNr( <C>, <i> )  . . . . . . . . . . . . . . . . .  elements(C)[i]
 ##
-DeclareOperation("CodewordNr", [IsCode, IsList]); 
+DeclareOperation("CodewordNr", [IsCode, IsList]);
 
 
 #############################################################################
@@ -374,9 +374,9 @@ DeclareOperation("CodewordNr", [IsCode, IsList]);
 
 #############################################################################
 ##
-#F  CodeDescription( <C> )  . . . . . . . . . . . . . . . . . . . . . . . . . 
+#F  CodeDescription( <C> )  . . . . . . . . . . . . . . . . . . . . . . . . .
 ##
-DeclareOperation("CodeDescription", [IsCode]); 
+DeclareOperation("CodeDescription", [IsCode]);
 
 
 #############################################################################
@@ -399,18 +399,18 @@ DeclareOperation("CodeDescription", [IsCode]);
 ##
 ##  with variable name var-name. It can be read back by calling
 ##  Read (filename); the code then has the name var-name.
-##  All fields of the code record are stored except, 
+##  All fields of the code record are stored except,
 ##  in case of a linear or cyclic code, the elements.
 ##  Pre: filename is accessible for writing
 ##
-DeclareOperation("Save", [IsString, IsCode, IsString]); 
+DeclareOperation("Save", [IsString, IsCode, IsString]);
 
 
 #############################################################################
 ##
 #F  History( <C> )  . . . . . . . . . . . . . . . shows the history of a code
-## 
-DeclareOperation("History", [IsCode]); 
+##
+DeclareOperation("History", [IsCode]);
 
 
 ######################################################################################
@@ -418,7 +418,7 @@ DeclareOperation("History", [IsCode]);
 ##
 ## This is a simpler version than Leon's method, which does not put G in st form.
 ## (this works welland is in some cases faster than the st form one)
-## Input: C is a linear code 
+## Input: C is a linear code
 ##        num is an integer >0 which represents the number of iterations
 ##        s is an integer between 1 and n which represents the columns considered
 ##           in the algorithm.
@@ -446,4 +446,4 @@ DeclareOperation("MinimumDistanceRandom",[IsCode,IsInt,IsInt]);
 ## Author: CJ, Tjhai
 ##
 DeclareAttribute("MinimumWeight", IsLinearCode);
- 
+

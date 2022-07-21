@@ -54,8 +54,8 @@ BindGlobal("ToricCodewords",function(L,F)
   return Elements(ToricCode(L,F));
 end);
 
-InstallMethod(GeneralizedReedMullerCode, "list of points,order,field,name", true, 
-	[IsList,IsInt,IsField], 0, 
+InstallMethod(GeneralizedReedMullerCode, "list of points,order,field,name", true,
+    [IsList,IsInt,IsField], 0,
 function(Pts,r,F)
 ## Pts=[p1,...,pn] are points in F^d
 ## for usual GRM code, take
@@ -68,7 +68,7 @@ function(Pts,r,F)
 ##
 local C, B, q, n, row, B0, L, exps, Ld, i, x, e, d, t;
   q:=Size(F);
-  d:=Length(Pts[1]); 
+  d:=Length(Pts[1]);
   L:=[0..Minimum(q-1,r)];
   Ld:=Cartesian(List([1..d],i->L));
   exps:=Filtered(Ld,x->Sum(x)<=r);
@@ -86,8 +86,8 @@ local C, B, q, n, row, B0, L, exps, Ld, i, x, e, d, t;
 return C;
 end);
 
-InstallOtherMethod(GeneralizedReedMullerCode, "number of vars,order,field", true, 
-	[IsInt,IsInt,IsField], 0, 
+InstallOtherMethod(GeneralizedReedMullerCode, "number of vars,order,field", true,
+    [IsInt,IsInt,IsField], 0,
 function(d,r,F)
 ## Pts=[p1,...,pn] are *all* points in F^d
 ## take

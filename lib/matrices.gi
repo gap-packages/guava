@@ -11,13 +11,13 @@
 ##
 #F  KrawtchoukMat( <n> [, <q>] )  . . . . . . .  matrix of Krawtchouk numbers
 ##
-InstallMethod(KrawtchoukMat, "n,q", true, [IsInt, IsInt], 0, 
-function(n,q) 
+InstallMethod(KrawtchoukMat, "n,q", true, [IsInt, IsInt], 0,
+function(n,q)
     local res,i,k;
-    if not IsPrimePowerInt(q) then 
-		Error("q must be a prime power int"); 
-	fi;
-	res := NullMat(n+1,n+1);
+    if not IsPrimePowerInt(q) then
+        Error("q must be a prime power int");
+    fi;
+    res := NullMat(n+1,n+1);
     for k in [0..n] do
         res[1][k+1]:=1;
     od;
@@ -32,9 +32,9 @@ function(n,q)
     return res;
 end);
 
-InstallOtherMethod(KrawtchoukMat, "n", true, [IsInt], 0, 
-function(n) 
-	return KrawtchoukMat(n, 2);
+InstallOtherMethod(KrawtchoukMat, "n", true, [IsInt], 0,
+function(n)
+    return KrawtchoukMat(n, 2);
 end);
 
 
@@ -46,12 +46,12 @@ end);
 ##  d( a(i), a(i+1) ) = 1 and a(1) = 0.
 ##
 
-InstallMethod(GrayMat, "n,Field", true, [IsInt, IsField], 0, 
-function(n, F) 
+InstallMethod(GrayMat, "n,Field", true, [IsInt, IsField], 0,
+function(n, F)
     local M, result, row, series, column, elem, q, elementnr, line,
-          goingup; 
-	elem := AsSSortedList(F);
-	q := Length(elem);
+          goingup;
+    elem := AsSSortedList(F);
+    q := Length(elem);
     M := q^n;
     result := NullMat(M,n);
     for column in [1..n] do
@@ -74,10 +74,10 @@ function(n, F)
     return result;
 end);
 
-InstallOtherMethod(GrayMat, "n", true, [IsInt], 0, 
-function(n) 
-	return GrayMat(n, GF(2));
-end); 
+InstallOtherMethod(GrayMat, "n", true, [IsInt], 0,
+function(n)
+    return GrayMat(n, GF(2));
+end);
 
 
 #############################################################################
@@ -85,8 +85,8 @@ end);
 #F  SylvesterMat( <n> ) . . . . . . . . . . . . Sylvester matrix of order <n>
 ##
 
-InstallMethod(SylvesterMat, "order", true, [IsInt], 0, 
-function(n) 
+InstallMethod(SylvesterMat, "order", true, [IsInt], 0,
+function(n)
     local result, syl;
     if n = 1 then
         return [[1]];
@@ -116,7 +116,7 @@ PaleyClasses@ := function(m)
   M:=m;
   if Length(L) = 2 then    #arg is a power of 2
     return [[0,L[2],0,0]]; #don't bother computing the rest of the Paley classes
-  fi; 
+  fi;
   ret:=[];
   for e in [0 .. l] do
     if IsPrimePowerInt(M-1) then
@@ -231,8 +231,8 @@ end;;
 #F  HadamardMat( <n> )  . . . . . . . . . . . .  Hadamard matrix of order <n>
 ##
 
-InstallMethod(HadamardMat, "order", true, [IsInt], 0, 
-function(m) 
+InstallMethod(HadamardMat, "order", true, [IsInt], 0,
+function(m)
   local L,k,e,q,n;
   if not (m=1 or m=2 or 0=(m mod 4)) then
     Error("Hadamard matrices exist only when the order is 1, 2 or a multiple of 4.\n");
@@ -273,13 +273,13 @@ end);
 ##  column of the array contains each symbol exactly once
 ##
 
-InstallMethod(IsLatinSquare, "method for matrix", true, [IsMatrix], 0, 
-function(M) 
+InstallMethod(IsLatinSquare, "method for matrix", true, [IsMatrix], 0,
+function(M)
 
     local i, j, s, n, isLS, MT;
-	n:=Length(M);
-	s:=Set(M[1]);
-	isLS:= (Length(s) = n and Length(s) = Length(M[1]) );
+    n:=Length(M);
+    s:=Set(M[1]);
+    isLS:= (Length(s) = n and Length(s) = Length(M[1]) );
     i:=2;
     if isLS then
         MT:=TransposedMat(M);
@@ -296,14 +296,14 @@ function(M)
     return isLS;
 end);
 
-InstallOtherMethod(IsLatinSquare, "generic method, any object", true, 
-	[IsObject], 0, 
-function(obj) 
-	if IsMatrix(obj) then 
-		TryNextMethod(); 
-	fi;
-	return false;
-end); 
+InstallOtherMethod(IsLatinSquare, "generic method, any object", true,
+    [IsObject], 0,
+function(obj)
+    if IsMatrix(obj) then
+        TryNextMethod();
+    fi;
+    return false;
+end);
 
 
 #############################################################################
@@ -314,9 +314,9 @@ end);
 ##  latin squares.
 ##
 
-##LR - doesn't handle case where arg is list of one matrix.  Is this a prob? 
-InstallGlobalFunction(AreMOLS, 
-function(arg) 
+##LR - doesn't handle case where arg is list of one matrix.  Is this a prob?
+InstallGlobalFunction(AreMOLS,
+function(arg)
     local i, j, s, M, n, q2, first, second, max, fast;
     if Length(arg) = 1 then
         M:=arg[1];
@@ -364,10 +364,10 @@ end);
 ##  MOLS will return a boolean false.
 ##
 
-InstallMethod(MOLS, "size, number", true, [IsInt, IsInt], 0, 
-function(q, n) 
+InstallMethod(MOLS, "size, number", true, [IsInt, IsInt], 0,
+function(q, n)
     local facs, res, Merged, Squares, nr, S, ToInt;
-	
+
     ToInt := function(M)
         local res, els, q, i, j;
         q:=Length(M);
@@ -411,15 +411,15 @@ function(q, n)
         return res;
     end;
 
-    if n <= 0 then 
-		return false; 
-	elif (q < 3) or (q = 6) or (q mod 4) = 2 then
+    if n <= 0 then
+        return false;
+    elif (q < 3) or (q = 6) or (q mod 4) = 2 then
         return false; #this must be so
     elif n <> 2 then
         if (not IsPrimePowerInt(q)) or (n >= q) then
             return false; #this is right
         elif IsPrimeInt(q) then
-            return List([1..n],i -> List([0..q-1], y -> List([0..q-1], x -> 
+            return List([1..n],i -> List([0..q-1], y -> List([0..q-1], x ->
                            (x+i*y) mod q)));
         else
             return Squares(q,n);
@@ -428,7 +428,7 @@ function(q, n)
         res:=[[[0]],[[0]]];
         facs:=Collected(Factors(q));
         for nr in facs do
-            if nr[2] = 1 then 
+            if nr[2] = 1 then
                 S:= List([1..2], i -> List([0..nr[1]-1],y ->
                             List([0..nr[1]-1], x -> (x+i*y) mod nr[1])));
             else
@@ -440,9 +440,9 @@ function(q, n)
     fi;
 end);
 
-InstallOtherMethod(MOLS, "size", true, [IsInt], 0, 
-function(q) 
-	return MOLS(q, 2);
+InstallOtherMethod(MOLS, "size", true, [IsInt], 0,
+function(q)
+    return MOLS(q, 2);
 end);
 
 
@@ -454,20 +454,20 @@ end);
 ##  over GF(q) with vertical orientation of the tuples
 ##
 
-InstallMethod(VerticalConversionFieldMat, "method for matrix and field", true, 
-	[IsMatrix, IsField], 0, 
-function(M, F)  
+InstallMethod(VerticalConversionFieldMat, "method for matrix and field", true,
+    [IsMatrix, IsField], 0,
+function(M, F)
     local res, q, Fq, m, n, r, ConvTable, x, temp, i, j, k, zero;
-    q := Characteristic(F);  
+    q := Characteristic(F);
     Fq := GF(q);
-    zero := Zero(Fq);  
-    m := Dimension(F);     
+    zero := Zero(Fq);
+    m := Dimension(F);
     n := Length(M[1]);
     r := Length(M);
 
     ConvTable := [];
     x := Indeterminate(Fq);
-	temp := MinimalPolynomial(Fq, Z(q^m));
+    temp := MinimalPolynomial(Fq, Z(q^m));
     for i in [1.. q^m - 1] do
         ConvTable[i] := VectorCodeword(Codeword(x^(i-1) mod temp, m+1));
     od;
@@ -486,11 +486,11 @@ function(M, F)
     return res;
 end);
 
-InstallOtherMethod(VerticalConversionFieldMat, "method for matrix", true, 
-	[IsMatrix], 0, 
-function(M) 
-	return VerticalConversionFieldMat(M, DefaultField(Flat(M))); 
-end); 
+InstallOtherMethod(VerticalConversionFieldMat, "method for matrix", true,
+    [IsMatrix], 0,
+function(M)
+    return VerticalConversionFieldMat(M, DefaultField(Flat(M)));
+end);
 
 
 #############################################################################
@@ -501,15 +501,15 @@ end);
 ##  matrix over GF(q) with horizontal orientation of the tuples
 ##
 
-InstallMethod(HorizontalConversionFieldMat, "method for matrix and field", 
-	true, [IsMatrix, IsField], 0, 
-function(M, F) 
+InstallMethod(HorizontalConversionFieldMat, "method for matrix and field",
+    true, [IsMatrix, IsField], 0,
+function(M, F)
     local res, vec, k, n, coord, i, p, q, m, zero, g, Nul, ConvTable,
           x;
-    q := Characteristic(F);  
-    m := Dimension(F);  
-    zero := Zero(F);  
-    g := MinimalPolynomial(GF(q), Z(q^m));    
+    q := Characteristic(F);
+    m := Dimension(F);
+    zero := Zero(F);
+    g := MinimalPolynomial(GF(q), Z(q^m));
     Nul := List([1..m], i -> zero);
     ConvTable := [];
     x := Indeterminate(GF(q));
@@ -538,11 +538,11 @@ function(M, F)
     return res;
 end);
 
-InstallOtherMethod(HorizontalConversionFieldMat, "method for matrix", true, 
-	[IsMatrix], 0, 
-function(M) 
-	return HorizontalConversionFieldMat(M, DefaultField(Flat(M))); 
-end); 
+InstallOtherMethod(HorizontalConversionFieldMat, "method for matrix", true,
+    [IsMatrix], 0,
+function(M)
+    return HorizontalConversionFieldMat(M, DefaultField(Flat(M)));
+end);
 
 
 #############################################################################
@@ -554,23 +554,23 @@ end);
 ##  of M; otherwise at the left side.
 ##
 
-InstallMethod(IsInStandardForm, "method for matrix and boolean", true, 
-	[IsMatrix, IsBool], 0, 
-function(M, identityleft) 
+InstallMethod(IsInStandardForm, "method for matrix and boolean", true,
+    [IsMatrix, IsBool], 0,
+function(M, identityleft)
     local l;
     l := Length(M);
-    if identityleft = false then  
+    if identityleft = false then
         return IdentityMat(l, DefaultField(Flat(M))) =
                M{[1..l]}{[Length(M[1])-l+1..Length(M[1])]};
-    else    
+    else
         return IdentityMat(l, DefaultField(Flat(M))) = M{[1..l]}{[1..l]};
     fi;
 end);
 
-InstallOtherMethod(IsInStandardForm, "method for matrix", true, [IsMatrix], 0, 
-function(M) 
-	return IsInStandardForm(M, true); 
-end); 
+InstallOtherMethod(IsInStandardForm, "method for matrix", true, [IsMatrix], 0,
+function(M)
+    return IsInStandardForm(M, true);
+end);
 
 
 #############################################################################
@@ -582,15 +582,15 @@ end);
 ##  the identity matrix is put left, else right. The permutation is returned.
 ##
 
-InstallMethod(PutStandardForm, "method for matrix, idleft and field", true, 
-	[IsMatrix, IsBool, IsField], 0, 
-function(Mat, idleft, F) 
+InstallMethod(PutStandardForm, "method for matrix, idleft and field", true,
+    [IsMatrix, IsBool, IsField], 0,
+function(Mat, idleft, F)
     local n, m, row, i, j, h, hp, s, zero, P;
     n := Length(Mat);   # not the word length!
     m := Length(Mat[1]);
-    if idleft then 
-        return PutStandardForm(Mat,F); 
-     else	
+    if idleft then
+        return PutStandardForm(Mat,F);
+     else
         s := m-n;
     fi;
     zero := Zero(F);
@@ -612,8 +612,8 @@ function(Mat, idleft, F)
                     if h > m then h := 1; fi;
                 od;
                 for i in [1..n] do
-                    Mat[i] := Permuted(Mat[i],(j+s,h));  
-                od;   
+                    Mat[i] := Permuted(Mat[i],(j+s,h));
+                od;
                 P := P*(j+s,h);
             fi;
         fi;
@@ -632,9 +632,9 @@ end);
 ##
 ##Thanks to Frank Luebeck for this code:
 ##
-InstallOtherMethod(PutStandardForm, "method for matrix and Field", true, 
-	[IsMatrix, IsField], 0, 
-function(mat, F) 
+InstallOtherMethod(PutStandardForm, "method for matrix and Field", true,
+    [IsMatrix, IsField], 0,
+function(mat, F)
 local perm, k, i, j, d ;
  d := Length(mat[1]);
  mat:=TriangulizeMat(mat); #this was TriangulizedMat which seems to be an error
@@ -652,17 +652,17 @@ local perm, k, i, j, d ;
    od;
  fi;
  return perm;
-end); 
+end);
 
-InstallOtherMethod(PutStandardForm, "method for matrix and idleft", true, 
-	[IsMatrix, IsBool], 0, 
-function(M, idleft) 
-	return PutStandardForm(M, idleft, DefaultField(Flat(M))); 
-end); 
+InstallOtherMethod(PutStandardForm, "method for matrix and idleft", true,
+    [IsMatrix, IsBool], 0,
+function(M, idleft)
+    return PutStandardForm(M, idleft, DefaultField(Flat(M)));
+end);
 
-InstallOtherMethod(PutStandardForm, "method for matrix", true, [IsMatrix], 0, 
-function(M) 
-	return PutStandardForm(M, true, DefaultField(Flat(M))); 
-end); 
+InstallOtherMethod(PutStandardForm, "method for matrix", true, [IsMatrix], 0,
+function(M)
+    return PutStandardForm(M, true, DefaultField(Flat(M)));
+end);
 
 
