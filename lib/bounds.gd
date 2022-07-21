@@ -14,7 +14,7 @@
 #F  LowerBoundGilbertVarshamov( <n>, <d>, <q> )  . . .Gilbert-Varshamov bound
 ##
 ## added 9-2004 by wdj
-DeclareOperation("LowerBoundGilbertVarshamov", [IsInt, IsInt, IsInt]); 
+DeclareOperation("LowerBoundGilbertVarshamov", [IsInt, IsInt, IsInt]);
 
 #############################################################################
 ##
@@ -22,43 +22,43 @@ DeclareOperation("LowerBoundGilbertVarshamov", [IsInt, IsInt, IsInt]);
 ##                                                 for unrestricted codes
 ##
 ## added 11-2004 by wdj
-DeclareOperation("LowerBoundSpherePacking", [IsInt, IsInt, IsInt]); 
+DeclareOperation("LowerBoundSpherePacking", [IsInt, IsInt, IsInt]);
 
 #############################################################################
 ##
 #F  UpperBoundHamming( <n>, <d>, <q> )  . . . . . . . . . . . . Hamming bound
 ##
-DeclareOperation("UpperBoundHamming", [IsInt, IsInt, IsInt]); 
+DeclareOperation("UpperBoundHamming", [IsInt, IsInt, IsInt]);
 
 #############################################################################
 ##
 #F  UpperBoundSingleton( <n>, <d>, <q> )  . . . . . . . . . . Singleton bound
 ##
-DeclareOperation("UpperBoundSingleton", [IsInt, IsInt, IsInt]);  
+DeclareOperation("UpperBoundSingleton", [IsInt, IsInt, IsInt]);
 
 #############################################################################
 ##
 #F  UpperBoundPlotkin( <n>, <d>, <q> )  . . . . . . . . . . . . Plotkin bound
 ##
-DeclareOperation("UpperBoundPlotkin", [IsInt, IsInt, IsInt]); 
+DeclareOperation("UpperBoundPlotkin", [IsInt, IsInt, IsInt]);
 
 #############################################################################
 ##
 #F  UpperBoundGriesmer( <n>, <d>, <q> ) . . . . . . . . . . .  Griesmer bound
 ##
-DeclareOperation("UpperBoundGriesmer", [IsInt, IsInt, IsInt]);  
+DeclareOperation("UpperBoundGriesmer", [IsInt, IsInt, IsInt]);
 
 #############################################################################
 ##
 #F  UpperBoundElias( <n>, <d>, <q> )  . . . . . . . . . . . . . . Elias bound
 ##
-DeclareOperation("UpperBoundElias", [IsInt, IsInt, IsInt]); 
+DeclareOperation("UpperBoundElias", [IsInt, IsInt, IsInt]);
 
 #############################################################################
 ##
 #F  UpperBoundJohnson( <n>, <d> ) . . . . . . . . . . Johnson bound for <q>=2
 ##
-DeclareOperation("UpperBoundJohnson", [IsInt, IsInt]); 
+DeclareOperation("UpperBoundJohnson", [IsInt, IsInt]);
 
 #############################################################################
 ##
@@ -68,19 +68,19 @@ DeclareOperation("UpperBoundJohnson", [IsInt, IsInt]);
 ##  least d over an alphabet Q of size q, using the minimum of the Hamming,
 ##  Plotkin and Singleton bound.
 ##
-DeclareOperation("UpperBound", [IsInt, IsInt, IsInt]); 
+DeclareOperation("UpperBound", [IsInt, IsInt, IsInt]);
 
 #############################################################################
 ##
 #F  IsPerfectCode( <C> )  . . . . . .  determines whether C is a perfect code
 ##
-DeclareProperty("IsPerfectCode", IsCode); 
+DeclareProperty("IsPerfectCode", IsCode);
 
 #############################################################################
 ##
 #F  IsMDSCode( <C> )  . . .  checks if C is a Maximum Distance Separable Code
 ##
-DeclareProperty("IsMDSCode", IsCode); 
+DeclareProperty("IsMDSCode", IsCode);
 
 #############################################################################
 ##
@@ -91,7 +91,7 @@ DeclareProperty("IsMDSCode", IsCode);
 ##  function UpperBound is not allways equal to the actual upperbound A(n,d)
 ##  thus the result may not be equal to 0 for all optimal codes!
 ##
-DeclareOperation("OptimalityCode", [IsCode]); 
+DeclareOperation("OptimalityCode", [IsCode]);
 
 #############################################################################
 ##
@@ -100,13 +100,13 @@ DeclareOperation("OptimalityCode", [IsCode]);
 ##  OptimalityLinearCode(C) returns the difference between the smallest known
 ##  upperbound on the size of a linear code and the actual size.
 ##
-DeclareOperation("OptimalityLinearCode", [IsCode]); 
+DeclareOperation("OptimalityLinearCode", [IsCode]);
 
 #############################################################################
 ##
 #F  BoundsMinimumDistance( <n>, <k>, <F> )  . .  gets data from bounds tables
 ##
 ##  LowerBoundMinimumDistance uses (n, k, q, true)
-##  LowerBoundMinimumDistance uses (n, k, q, false) 
-DeclareGlobalFunction("BoundsMinimumDistance"); 
+##  LowerBoundMinimumDistance uses (n, k, q, false)
+DeclareGlobalFunction("BoundsMinimumDistance");
 

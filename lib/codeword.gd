@@ -9,10 +9,10 @@
 
 #############################################################################
 ##
-#F  IsCodeword( <v> ) . . . . . . . . . . . . . . . .  codeword category 
+#F  IsCodeword( <v> ) . . . . . . . . . . . . . . . .  codeword category
 ##
-DeclareCategory("IsCodeword", IsRowVector); 
-DeclareCategoryCollections("IsCodeword"); 
+DeclareCategory("IsCodeword", IsRowVector);
+DeclareCategoryCollections("IsCodeword");
 
 #############################################################################
 ##
@@ -26,7 +26,7 @@ DeclareOperation("Codeword", [IsObject, IsInt, IsFFE]);
 ##
 #F  Support( <v> )  . . . . . . . set of coordinates in which <v> is not zero
 ##
-DeclareAttribute("Support", IsCodeword); 
+DeclareAttribute("Support", IsCodeword);
 
 #############################################################################
 ##
@@ -49,22 +49,22 @@ DeclareOperation("TreatAsVector", [IsCodeword]);
 #F  PolyCodeword( <arg> ) . . . . . . . . . . converts input to polynomial(s)
 ##
 ## Input may be codeword, polynomial, vector or a list of those
-##  
-DeclareAttribute("PolyCodeword", IsCodeword); 
+##
+DeclareAttribute("PolyCodeword", IsCodeword);
 
 #############################################################################
 ##
 #F  VectorCodeword( <arg> ) . . . . . . . . . . . .  converts input to vector
 ##
 ## Input may be codeword, polynomial, vector or a list of those
-## 
-DeclareAttribute("VectorCodeword", IsCodeword); 
+##
+DeclareAttribute("VectorCodeword", IsCodeword);
 
 #############################################################################
 ##
 #F  Weight( <v> ) . . . . . . . . . . . calculates the weight of codeword <v>
 ##
-DeclareAttribute("Weight", IsCodeword); 
+DeclareAttribute("Weight", IsCodeword);
 
 #############################################################################
 ##
@@ -76,13 +76,13 @@ DeclareSynonymAttr("WeightCodeword", Weight);
 ##
 #F  DistanceCodeword( <a>, <b> )  . the distance between codeword <a> and <b>
 ##
-DeclareOperation("DistanceCodeword", [IsCodeword, IsCodeword]); 
+DeclareOperation("DistanceCodeword", [IsCodeword, IsCodeword]);
 
 #############################################################################
 ##
 #F  NullWord( <C> ) or NullWord( <n>, <F> ) . . . . . . . . . . all zero word
 ##
-DeclareOperation("NullWord", [IsInt, IsFFE]); 
+DeclareOperation("NullWord", [IsInt, IsFFE]);
 
 #############################################################################
 ##
@@ -92,14 +92,14 @@ DeclareOperation("NullWord", [IsInt, IsFFE]);
 #############################################################################
 ##
 #F  WordLength( <v> ) . . . . . . . . . stores the wordlength of codeword <v>
-## 			Currently no method to calculate.  Assumed to be set at creation. 
-DeclareAttribute("WordLength", IsCodeword); 
+## 	Currently no method to calculate.  Assumed to be set at creation.
+DeclareAttribute("WordLength", IsCodeword);
 
 #############################################################################
 ##
 #F  AdditiveInverseMutable( <v> ) . .  . determines the negative of a
 ##                              codewor <v>. (Used in subtraction of codewords.)
-## 			
+##
 # DeclareOperation("AdditiveInverseMutable", [IsCodeword]);
 
 #############################################################################

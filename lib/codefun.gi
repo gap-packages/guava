@@ -47,9 +47,9 @@ end);
 ##  The maximum length of the columns is <height>. Default height is one
 ##  third of the screen size.
 ##
-InstallMethod(WeightHistogram, 
-	"method for unrestricted code and screen height", 
-	true, [IsCode, IsInt], 0, 
+InstallMethod(WeightHistogram,
+    "method for unrestricted code and screen height",
+    true, [IsCode, IsInt], 0,
 function(C, height)
     local wd, max, data, i, j, n, spaces, nr, Scr, char;
     Scr := SizeScreen();
@@ -114,13 +114,13 @@ function(C, height)
     Print("\n");
 end);
 
-InstallOtherMethod(WeightHistogram, "method for unrestricted code", true, 
-	[IsCode], 0, 
-function(C) 
-	local Scr; 
-	Scr := SizeScreen(); 
-	WeightHistogram(C, Int(Scr[2]/3));  
-end); 
+InstallOtherMethod(WeightHistogram, "method for unrestricted code", true,
+    [IsCode], 0,
+function(C)
+    local Scr;
+    Scr := SizeScreen();
+    WeightHistogram(C, Int(Scr[2]/3));
+end);
 
 
 #############################################################################
@@ -129,15 +129,15 @@ end);
 ##
 ##
 
-InstallGlobalFunction(MergeHistories, 
-function(arg)  
+InstallGlobalFunction(MergeHistories,
+function(arg)
     local i, his, names;
     if Length( arg ) > 1 then
         names := "UVWXYZ";
         his := [];
         for i in [1..Length(arg)] do
             Add(his, Concatenation( [ names[i] ], ": ", arg[i][1]) );
-            Append( his, List( arg[i]{[2..Length(arg[i])]}, line -> 
+            Append( his, List( arg[i]{[2..Length(arg[i])]}, line ->
                     Concatenation("   ", line ) ) );
         od;
         return his;

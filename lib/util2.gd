@@ -4,11 +4,11 @@
 #A                                                        &Jasper Cramwinckel
 #A                                                           &Erik Roijackers
 #A                                                         &David Joyner
-## 
+##
 ##  This file contains miscellaneous functions
 ##
-## several functions added 12-16-2005 
-##  
+## several functions added 12-16-2005
+##
 
 
 ########################################################################
@@ -17,7 +17,7 @@
 ##
 ##  Return a vector with all ones.
 ##
-DeclareOperation("AllOneVector", [IsInt, IsField]); 
+DeclareOperation("AllOneVector", [IsInt, IsField]);
 
 ########################################################################
 ##
@@ -25,7 +25,7 @@ DeclareOperation("AllOneVector", [IsInt, IsField]);
 ##
 ##  Return a codeword with <n> ones.
 ##
-DeclareOperation("AllOneCodeword", [IsInt, IsField]); 
+DeclareOperation("AllOneCodeword", [IsInt, IsField]);
 
 #############################################################################
 ##
@@ -34,16 +34,16 @@ DeclareOperation("AllOneCodeword", [IsInt, IsField]);
 ##  Return the smallest integer greater than or equal to r.
 ##  3/2 => 2,  -3/2 => -1.
 ##
-DeclareOperation("IntCeiling", [IsRat]); 
+DeclareOperation("IntCeiling", [IsRat]);
 
 ########################################################################
 ##
-#F  IntFloor( <r> ) 
+#F  IntFloor( <r> )
 ##
 ##  Return the greatest integer smaller than or equal to r.
 ##  3/2 => 1, -3/2 => -2.
 ##
-DeclareOperation("IntFloor", [IsRat]); 
+DeclareOperation("IntFloor", [IsRat]);
 
 ########################################################################
 ##
@@ -52,7 +52,7 @@ DeclareOperation("IntFloor", [IsRat]);
 ##  Return 1 if i = j,
 ##         0 otherwise
 ##
-DeclareOperation("KroneckerDelta", [IsInt, IsInt]); 
+DeclareOperation("KroneckerDelta", [IsInt, IsInt]);
 
 ########################################################################
 ##
@@ -60,7 +60,7 @@ DeclareOperation("KroneckerDelta", [IsInt, IsInt]);
 ##
 ##  Return a binary representation of an element
 ##  of GF( 2^k ), where k <= length.
-##  
+##
 ##  If elements is a list, then return the binary
 ##  representation of every element of the list.
 ##
@@ -81,23 +81,23 @@ DeclareOperation("KroneckerDelta", [IsInt, IsInt]);
 ##  This function is used to make to Gabidulin codes.
 ##  It is not intended to be a global function, but including
 ##  it in all five Gabidulin codes is not a good idea.
-## 
+##
 
 ########################################################################
 ##
 #F  VandermondeMat( <Pts> , <a> )
-##  
+##
 ## Input: Pts=[x1,..,xn], a >0 an integer
-## Output: Vandermonde matrix (xi^j), 
+## Output: Vandermonde matrix (xi^j),
 ##         for xi in Pts and 0 <= j <= a
 ##         (an nx(a+1) matrix)
 ##
-DeclareOperation("VandermondeMat", [IsList, IsInt]); 
+DeclareOperation("VandermondeMat", [IsList, IsInt]);
 
 ###########################################################
 ##
 #F    MultiplicityInList(L,a)
-##  
+##
 ## Input: a list L
 ##        an element a of L
 ## Output: the multiplicity a occurs in L
@@ -106,7 +106,7 @@ DeclareOperation("VandermondeMat", [IsList, IsInt]);
 ###########################################################
 ##
 #F    MostCommonInList(L,a)
-##  
+##
 ## Input: a list L
 ## Output: an a in L which occurs at least as much as any other in L
 ##
@@ -117,8 +117,8 @@ DeclareOperation("VandermondeMat", [IsList, IsInt]);
 ##
 ## Input:  <set>, a subset of [1 .. <num>]
 ## Output: A codeword over GF(2) with wordlength <num> whose support is <set>
-##  
-##  For binary codes this function gives an inverse for Support(). 
+##
+##  For binary codes this function gives an inverse for Support().
 
-DeclareOperation("SupportToCodeword", [IsSet, IsInt]); 
+DeclareOperation("SupportToCodeword", [IsSet, IsInt]);
 

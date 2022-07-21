@@ -12,12 +12,12 @@
 ##
 #F  CodeWeightEnumerator( <code> )
 ##
-##  Returns a polynomial over the rationals 
+##  Returns a polynomial over the rationals
 ##  with degree not greater than the length of the code.
 ##  The coefficient of x^i equals
 ##  the number of codewords of weight i.
 ##
-DeclareOperation("CodeWeightEnumerator", [IsCode]); 
+DeclareOperation("CodeWeightEnumerator", [IsCode]);
 
 ########################################################################
 ##
@@ -25,10 +25,9 @@ DeclareOperation("CodeWeightEnumerator", [IsCode]);
 ##
 ##  Returns a polynomial over the rationals
 ##  with degree not greater than the length of the code.
-##  The coefficient of x^i equals 
+##  The coefficient of x^i equals
 ##  the number of codewords with distance i to <word>.
-DeclareOperation("CodeDistanceEnumerator", 
-										[IsCode, IsCodeword]); 
+DeclareOperation("CodeDistanceEnumerator", [IsCode, IsCodeword]);
 
 ########################################################################
 ##
@@ -38,20 +37,20 @@ DeclareOperation("CodeDistanceEnumerator",
 ##  distribution of the dual code as
 ##  coefficients.
 ##
-DeclareOperation("CodeMacWilliamsTransform", [IsCode]); 
+DeclareOperation("CodeMacWilliamsTransform", [IsCode]);
 
 ########################################################################
 ##
 #F  WeightVector( <vector> )
 ##
 ##  Returns the number of non-zeroes in a vector.
-DeclareOperation("WeightVector", [IsVector]); 
+DeclareOperation("WeightVector", [IsVector]);
 
 ########################################################################
 ##
 #F  RandomVector( <len> [, <weight> [, <field> ] ] )
 ##
-DeclareOperation("RandomVector", [IsInt, IsInt, IsField]); 
+DeclareOperation("RandomVector", [IsInt, IsInt, IsField]);
 
 ########################################################################
 ##
@@ -98,7 +97,7 @@ DeclareProperty("IsGriesmerCode", IsCode);
 ##
 ##  Return the density of <code>, i.e. M*V_q(n,r)/(q^n).
 ##
-DeclareAttribute("CodeDensity", IsCode); 
+DeclareAttribute("CodeDensity", IsCode);
 
 ########################################################################
 ##
@@ -107,7 +106,7 @@ DeclareAttribute("CodeDensity", IsCode);
 ##  Tries to compute the minimum distance of C.
 ##  The algorithm is Leon's, see for more
 ##  information his article.
-DeclareOperation("DecreaseMinimumDistanceUpperBound", 
-						[IsCode, IsInt, IsInt]); 
+DeclareOperation("DecreaseMinimumDistanceUpperBound",
+        [IsCode, IsInt, IsInt]);
 
 

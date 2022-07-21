@@ -11,7 +11,7 @@
 #F  ToricPoints(<n>,<F>)
 ##
 ##  returns the points in $(F^*)^n$.
-##  
+##
 DeclareGlobalFunction("ToricPoints");
 
 #############################################################################
@@ -24,7 +24,7 @@ DeclareGlobalFunction("ToricPoints");
 ##  vectors (in Hansen's case, <L> is the list of integral vectors in a
 ##  polytope) and <F> is the finite field. The characteristic of <F> must
 ##  be different from 2.
-##  
+##
 DeclareGlobalFunction("ToricCode");
 
 #############################################################################
@@ -32,5 +32,5 @@ DeclareGlobalFunction("ToricCode");
 #F  GeneralizedReedMullerCode(<Pts>, <r>, <F>)
 #F  GeneralizedReedMullerCode(<d>, <r>, <F>)
 ##
-## 
+##
 DeclareOperation("GeneralizedReedMullerCode",[IsList,IsInt,IsField]);

@@ -29,13 +29,13 @@ DeclareOperation("RandomCode", [IsInt, IsInt, IsField]);
 ##
 #F  HadamardCode( <H | n> [, <t>] ) . Hadamard code of <t>'th kind, order <n>
 ##
-DeclareOperation("HadamardCode", [IsMatrix, IsInt]); 
+DeclareOperation("HadamardCode", [IsMatrix, IsInt]);
 
 #############################################################################
 ##
 #F  ConferenceCode( <n | M> ) . . . . . . . . . . code from conference matrix
 ##
-DeclareOperation("ConferenceCode", [IsMatrix]); 
+DeclareOperation("ConferenceCode", [IsMatrix]);
 
 #############################################################################
 ##
@@ -46,7 +46,7 @@ DeclareOperation("ConferenceCode", [IsMatrix]);
 ##  If n is omitted, a wordlength of 4 will be set.
 ##  If there are no n-2 MOLS known, the code will return an error
 ##
-DeclareOperation("MOLSCode", [IsInt, IsInt]);  
+DeclareOperation("MOLSCode", [IsInt, IsInt]);
 
 #############################################################################
 ##
@@ -63,45 +63,45 @@ DeclareOperation("MOLSCode", [IsInt, IsInt]);
 ##
 #F  GeneratorMatCode( <G> [, <name> ], <F> )  . .  code from generator matrix
 ##
-DeclareOperation("GeneratorMatCode", [IsMatrix, IsString, IsField]);  
+DeclareOperation("GeneratorMatCode", [IsMatrix, IsString, IsField]);
 
 #############################################################################
 ##
 #F  GeneratorMatCodeNC( <G> [, <name> ], <F> )  . .  code from generator matrix
-## 
+##
 ## same as GeneratorMatCode but does not compute upper + lower bounds
 ##  for the minimum distance or covering radius
-DeclareOperation("GeneratorMatCodeNC", [IsMatrix, IsField]);  
+DeclareOperation("GeneratorMatCodeNC", [IsMatrix, IsField]);
 
 #############################################################################
 ##
 #F  CheckMatCodeMutable( <H> [, <name> ], <F> )  . . . . . .  code from check matrix
 ##
-DeclareOperation("CheckMatCodeMutable", [IsMatrix, IsString, IsField]); 
+DeclareOperation("CheckMatCodeMutable", [IsMatrix, IsString, IsField]);
 
 #############################################################################
 ##
 #F  CheckMatCode( <H> [, <name> ], <F> )  . . . . . .  code from check matrix
 ##
-DeclareOperation("CheckMatCode", [IsMatrix, IsString, IsField]); 
+DeclareOperation("CheckMatCode", [IsMatrix, IsString, IsField]);
 
 #############################################################################
 ##
 #F  RandomLinearCode( <n>, <k> [, <F>] )  . . . . . . . .  random linear code
 ##
-DeclareOperation("RandomLinearCode", [IsInt, IsInt, IsField]); 
+DeclareOperation("RandomLinearCode", [IsInt, IsInt, IsField]);
 
 #############################################################################
 ##
 #F  HammingCode( <r> [, <F>] )  . . . . . . . . . . . . . . . .  Hamming code
 ##
-DeclareOperation("HammingCode", [IsInt, IsField]); 
+DeclareOperation("HammingCode", [IsInt, IsField]);
 
 #############################################################################
 ##
 #F  SimplexCode( <r>, <F> ) .  The SimplexCode is the Dual of the HammingCode
 ##
-DeclareOperation("SimplexCode", [IsInt, IsField]); 
+DeclareOperation("SimplexCode", [IsInt, IsField]);
 
 #############################################################################
 ##
@@ -110,13 +110,13 @@ DeclareOperation("SimplexCode", [IsInt, IsField]);
 ##  ReedMullerCode(r, k) creates a binary Reed-Muller code of dimension k,
 ##  order r; 0 <= r <= k
 ##
-DeclareOperation("ReedMullerCode", [IsInt, IsInt]); 
+DeclareOperation("ReedMullerCode", [IsInt, IsInt]);
 
 #############################################################################
 ##
 #F  LexiCode( <M | n>, <d>, <F> )  . . . . .  Greedy code with standard basis
 ##
-DeclareOperation("LexiCode", [IsMatrix,IsInt,IsField]); 
+DeclareOperation("LexiCode", [IsMatrix,IsInt,IsField]);
 
 #############################################################################
 ##
@@ -128,25 +128,25 @@ DeclareOperation("GreedyCode", [IsMatrix,IsInt,IsField]);
 ##
 #F  AlternantCode( <r>, <Y> [, <alpha>], <F> )  . . . . . . .  Alternant code
 ##
-DeclareOperation("AlternantCode", [IsInt, IsList, IsList, IsField]);  
+DeclareOperation("AlternantCode", [IsInt, IsList, IsList, IsField]);
 
 #############################################################################
 ##
 #F  GoppaCode( <G>, <L | n> ) . . . . . . . . . . . . . . . . . .  Goppa code
 ##
-DeclareGlobalFunction("GoppaCode"); 
+DeclareGlobalFunction("GoppaCode");
 
 #############################################################################
 ##
 #F  CordaroWagnerCode( <n> )  . . . . . . . . . . . . . . Cordaro-Wagner code
 ##
-DeclareOperation("CordaroWagnerCode", [IsInt]); 
+DeclareOperation("CordaroWagnerCode", [IsInt]);
 
 #############################################################################
 ##
-#F  GeneralizedSrivastavaCode( <a>, <w>, <z> [, <t>] [, <F>] )  . . . . . .  
+#F  GeneralizedSrivastavaCode( <a>, <w>, <z> [, <t>] [, <F>] )  . . . . . .
 ##
-DeclareOperation("GeneralizedSrivastavaCode",[IsList, IsList, IsList, IsInt, IsField]); 
+DeclareOperation("GeneralizedSrivastavaCode",[IsList, IsList, IsList, IsInt, IsField]);
 
 #############################################################################
 ##
@@ -158,64 +158,64 @@ DeclareOperation("SrivastavaCode",[IsList, IsList, IsInt, IsField]);
 ##
 #F  ExtendedBinaryGolayCode( )  . . . . . . . . .  extended binary Golay code
 ##
-DeclareOperation("ExtendedBinaryGolayCode", []); 
+DeclareOperation("ExtendedBinaryGolayCode", []);
 
 #############################################################################
 ##
 #F  ExtendedTernaryGolayCode( ) . . . . . . . . . extended ternary Golay code
 ##
-DeclareOperation("ExtendedTernaryGolayCode", []); 
+DeclareOperation("ExtendedTernaryGolayCode", []);
 
 #############################################################################
 ##
 #F  BestKnownLinearCode( <n>, <k> [, <F>] ) .  returns best known linear code
 #F  BestKnownLinearCode( <rec> )
 ##
-DeclareOperation("BestKnownLinearCode", [IsRecord]); 
+DeclareOperation("BestKnownLinearCode", [IsRecord]);
 
 #############################################################################
 ##
 #F  GeneratorPolCode( <G>, <n> [, <name> ], <F> ) .  code from generator poly
 ##
-DeclareOperation("GeneratorPolCode", 
-	[IsUnivariatePolynomial, IsInt, IsString, IsField]);  
+DeclareOperation("GeneratorPolCode",
+    [IsUnivariatePolynomial, IsInt, IsString, IsField]);
 
 #############################################################################
 ##
 #F  CheckPolCode( <H>, <n> [, <name> ], <F> ) . .  code from check polynomial
 ##
-DeclareOperation("CheckPolCode", 
-	[IsUnivariatePolynomial, IsInt, IsString, IsField]);  
+DeclareOperation("CheckPolCode",
+    [IsUnivariatePolynomial, IsInt, IsString, IsField]);
 
 #############################################################################
 ##
 #F  RepetitionCode( <n> [, <F>] ) . . . . . . . repetition code of length <n>
 ##
-DeclareOperation("RepetitionCode", [IsInt, IsField]); 
+DeclareOperation("RepetitionCode", [IsInt, IsField]);
 
 #############################################################################
 ##
 #F  WholeSpaceCode( <n> [, <F>] ) . . . . . . . . . . returns <F>^<n> as code
 ##
-DeclareOperation("WholeSpaceCode", [IsInt, IsField]); 
+DeclareOperation("WholeSpaceCode", [IsInt, IsField]);
 
 #############################################################################
 ##
 #F  CyclicCodes( <n> )  . .  returns a list of all cyclic codes of length <n>
 ##
-DeclareOperation("CyclicCodes", [IsInt,IsField]); 
+DeclareOperation("CyclicCodes", [IsInt,IsField]);
 
 #############################################################################
 ##
 #F  NrCyclicCodes( <n>, <F>)  . . .  number of cyclic codes of length <n>
 ##
-DeclareOperation("NrCyclicCodes", [IsInt, IsField]); 
+DeclareOperation("NrCyclicCodes", [IsInt, IsField]);
 
 #############################################################################
 ##
 #F  BCHCode( <n> [, <b>], <delta> [, <F>] ) . . . . . . . . . . . .  BCH code
 ##
-DeclareOperation("BCHCode", [IsInt, IsInt, IsInt, IsInt]); 
+DeclareOperation("BCHCode", [IsInt, IsInt, IsInt, IsInt]);
 
 #############################################################################
 ##
@@ -223,7 +223,7 @@ DeclareOperation("BCHCode", [IsInt, IsInt, IsInt, IsInt]);
 ##
 ##  ReedSolomonCode (n, d) returns a primitive narrow sense BCH code with
 ##  wordlength n, over alphabet q = n+1, designed distance d
-DeclareOperation("ReedSolomonCode", [IsInt, IsInt]); 
+DeclareOperation("ReedSolomonCode", [IsInt, IsInt]);
 
 #############################################################################
 ##
@@ -232,7 +232,7 @@ DeclareOperation("ReedSolomonCode", [IsInt, IsInt]);
 ##  ExtendedReedSolomonCode (n, d) returns a Reed Solomon code extended by
 ##  an overall parity-check symbol. Note that wordlength n = q, d is the
 ##  designed distance.
-DeclareOperation("ExtendedReedSolomonCode", [IsInt, IsInt]); 
+DeclareOperation("ExtendedReedSolomonCode", [IsInt, IsInt]);
 
 ## RootsCode implementation expunged and rewritten for Guava 3.11
 ## J. E. Fields 1/15/2012
@@ -240,44 +240,44 @@ DeclareOperation("ExtendedReedSolomonCode", [IsInt, IsInt]);
 ##
 #F  RootsCode( <n>, <list>, <field>) . code constructed from roots of polynomial
 ##
-##  RootsCode(n, rootlist, F) or RootsCode (n, powerlist, fieldsize) or 
+##  RootsCode(n, rootlist, F) or RootsCode (n, powerlist, fieldsize) or
 ##  RootsCode (n, rootlist) returns the
 ##  code with generator polynomial equal to the least common multiple of
 ##  the minimal polynomials of the n'th roots of unity in the list.
 ##  The code has wordlength n
 ##
-DeclareOperation("RootsCode", [IsInt, IsList, IsField]); 
+DeclareOperation("RootsCode", [IsInt, IsList, IsField]);
 
 #############################################################################
 ##
 #F  QRCode( <n> [, <F>] ) . . . . . . . . . . . . . .  quadratic residue code
 ##
-DeclareOperation("QRCode", [IsInt, IsInt]); 
+DeclareOperation("QRCode", [IsInt, IsInt]);
 
 #############################################################################
 ##
 #F  QQRCode( <n> [, <F>] ) . . . . . . . . binary quasi-quadratic residue code
 ##
-## Code of Bazzi-Mittel (see Bazzi, L. and Mitter, S.K. "Some constructions of 
+## Code of Bazzi-Mittel (see Bazzi, L. and Mitter, S.K. "Some constructions of
 ##  codes from group actions" preprint March 2003 (submitted to IEEE IT)
 ##
-DeclareOperation("QQRCode", [IsInt]); 
+DeclareOperation("QQRCode", [IsInt]);
 
 #############################################################################
 ##
 #F  QQRCodeNC( <n> [, <F>] ) . . . . . . . . binary quasi-quadratic residue code
 ##
-## Code of Bazzi-Mittel (see Bazzi, L. and Mitter, S.K. "Some constructions of 
+## Code of Bazzi-Mittel (see Bazzi, L. and Mitter, S.K. "Some constructions of
 ##  codes from group actions" preprint March 2003 (submitted to IEEE IT)
 ## Uses GeneratorMatCodeNC
 ##
-DeclareOperation("QQRCodeNC", [IsInt]); 
+DeclareOperation("QQRCodeNC", [IsInt]);
 
 #############################################################################
 ##
 #F  NullCode( <n> [, <F>] ) . . . . . . . . . . .  code consiting only of <0>
 ##
-DeclareOperation("NullCode", [IsInt, IsField]); 
+DeclareOperation("NullCode", [IsInt, IsField]);
 
 #############################################################################
 ##
@@ -287,19 +287,19 @@ DeclareOperation("NullCode", [IsInt, IsField]);
 ##  single error burst of length b or less.
 ##  G is a primitive polynomial of degree m
 ##
-DeclareOperation("FireCode", [IsUnivariatePolynomial, IsInt]); 
+DeclareOperation("FireCode", [IsUnivariatePolynomial, IsInt]);
 
 #############################################################################
 ##
 #F  BinaryGolayCode( )  . . . . . . . . . . . . . . . . . . binary Golay code
 ##
-DeclareOperation("BinaryGolayCode", []); 
+DeclareOperation("BinaryGolayCode", []);
 
 #############################################################################
 ##
 #F  TernaryGolayCode( ) . . . . . . . . . . . . . . . . .  ternary Golay code
 ##
-DeclareOperation("TernaryGolayCode", []); 
+DeclareOperation("TernaryGolayCode", []);
 
 #############################################################################
 ##
@@ -322,7 +322,7 @@ DeclareOperation("EvaluationCode",[IsList, IsList, IsRing]);
 ##   k is an integer
 ##   GRSCode returns the image of the evaluation map f->[f(P1),...,f(Pn)],
 ##   as f ranges over the vector space of polynomials in 1 variable
-##   of degree < k in the ring R. 
+##   of degree < k in the ring R.
 ##   The output is the code whose generator matrix has rows (f(P1)...f(Pn)) where
 ##   f = x^j, j<k, and P={P1,..,Pn}
 ##
@@ -393,16 +393,16 @@ DeclareOperation("CyclicMDSCode", [IsInt, IsInt, IsInt]);
 ##        |       :  A  :  B  |
 ##    G = |   I   :-----:-----|
 ##        |       : B^T : A^T |
-##        -                   -   
+##        -                   -
 ##
 ## Note that the matrices A, B, A^T and B^T are k/2 * k/2
 ## negacirculant matrices.
 ##
-DeclareOperation("FourNegacirculantSelfDualCode", 
-	[IsUnivariatePolynomial, IsUnivariatePolynomial, IsInt]);
+DeclareOperation("FourNegacirculantSelfDualCode",
+    [IsUnivariatePolynomial, IsUnivariatePolynomial, IsInt]);
 
-DeclareOperation("FourNegacirculantSelfDualCodeNC", 
-	[IsUnivariatePolynomial, IsUnivariatePolynomial, IsInt]);
+DeclareOperation("FourNegacirculantSelfDualCodeNC",
+    [IsUnivariatePolynomial, IsUnivariatePolynomial, IsInt]);
 
 ###########################################################################
 ##
