@@ -86,8 +86,8 @@ static UnsignedS nextBasePointEltCent(
    for ( pt = 1 ; pt <= degree ; ++pt )
       if ( (cSize = cellSize[cellNumber[pt]]) > 1 ) {
          if ( longCycleFlag )
-            priority = 2000000000ul - (unsigned long) MIN(cycleLen[pt],1000) << 20 
-                       + cSize;
+            priority = (2000000000ul - (unsigned long) MIN(cycleLen[pt],1000))
+                        << (20 + cSize);
          else
             if ( cycleLen[pt] == 1 ) 
                priority = cSize;
