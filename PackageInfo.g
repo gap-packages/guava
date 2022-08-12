@@ -27,13 +27,13 @@ SetPackageInfo( rec(
   ArchiveFormats 
           := ".tar.gz",
   BannerString:=Concatenation("""
-   ____                          |
-  /            \           /   --+--  Version """, ~.Version, """
- /      |    | |\\        //|    |
-|    _  |    | | \\      // |     the GUAVA Group
-|     \ |    | |--\\    //--|
- \     ||    | |   \\  //   |
-  \___/  \___/ |    \\//    |
+   ____                             |
+  /                \          /   --+--  Version """, ~.Version, """
+ /       |     | |\ \        / /|   |
+|    __  |     | | \ \      / / |          the GUAVA Group
+|      | |     | |--\ \    / /--|
+ \     | |     | |   \ \  / /   |
+  \___/   \___/  |    \ \/ /    |
 
  Homepage: https://gap-packages.github.io/guava
  Report issues at https://github.com/gap-packages/guava/issues
