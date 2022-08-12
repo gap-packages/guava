@@ -5,7 +5,7 @@
 The GUAVA Coding Theory Package
 -------------------------------
 
-GUAVA is a package thats implements coding theory algorithms
+GUAVA is a package that implements coding theory algorithms
 in  GAP.  With GUAVA, codes can be created and manipulated
 and information about these codes can be calculated.
 
