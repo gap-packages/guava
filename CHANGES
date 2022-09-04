@@ -1,11 +1,21 @@
 In this file we record the changes since the first GAP 4 release of
 the GUAVA package.
 
+Version 3.17 (9-2022)
+   o Add back QCLDPCCodeFromGroup method (it was accidentally removed
+     between Guava 3.8 and 3.9)
+   o Fix out of bounds access in the C code
+   o Fix most (all?) compiler warnings in the C code
+   o Fix PutStandardForm *again*
+   o Update several outdated manual examples
+   o Avoid accidentally displaying the output of subprocesses to the user
+   o Improve the package banner
+   o Various minor and/or janitorial changes
+
 Version 3.16 (4-2022)
    o CirculantMatrixi() now circulates to the right.
    o Build of the automorphism group subsystem by Jeff Leon was failing on Macs : fixed
-   
-    
+
 Version 3.15 (8-2019):
    o Fixed decoding of cyclic codes
    o Several updates to build system

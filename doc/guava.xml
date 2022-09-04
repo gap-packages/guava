@@ -16,7 +16,7 @@
        &nbsp;
     </Subtitle>
 
-    <Version>Version 3.16</Version>     <!-- OPTIONAL -->
+    <Version>Version 3.17</Version>     <!-- OPTIONAL -->
 <Author>
 Jasper Cramwinckel
 </Author>
@@ -64,7 +64,7 @@ Joe Fields (Maintainer)
     <Email>fieldsj1@southernct.edu</Email> 
     <Homepage>http://giam.southernct.edu/</Homepage>
 </Author> 
-<Date>April, 2022</Date>    <!-- OPTIONAL -->
+<Date>September, 2022</Date>    <!-- OPTIONAL -->
 <Copyright>     <!-- OPTIONAL -->
 <Package>GUAVA</Package>: &copyright; The GUAVA Group: 1992-2003
 Jasper Cramwinckel, Erik Roijackers,Reinald Baart, Eric Minkes,
