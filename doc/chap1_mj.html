@@ -88,17 +88,7 @@ make
 
 </pre>
 
-<p>to compile the binaries and install them in the appropriate place. (For a Windows machine with CYGWIN installed - see <span class="URL"><a href="https://www.cygwin.com/">https://www.cygwin.com/</a></span> - instructions for compiling Leon's binaries are likely to be similar to those above. On a 64-bit SUSE linux computer, instead of the configure command above - which will only compile the 32-bit binary - type</p>
-
-
-<pre class="normal">
-
-./configure ../.. --enable-libsuffix=64 
-make
-
-</pre>
-
-<p>to compile Leon's program as a 64 bit native binary. This may also work for other 64-bit linux distributions as well.)</p>
+<p>to compile the binaries and install them in the appropriate place. For a Windows machine with CYGWIN installed - see <span class="URL"><a href="https://www.cygwin.com/">https://www.cygwin.com/</a></span> - instructions for compiling Leon's binaries are likely to be similar to those above.</p>
 
 <p>If it is not already installed, you should also install the GAP package <strong class="pkg">SONATA</strong>. You can download this from the GAP website and unpack it in the `pkg' subdirectory.</p>
 
@@ -113,6 +103,7 @@ make
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LoadPackage( "guava" );</span>
+true
 </pre></div>
 
 <p>If <strong class="pkg">GUAVA</strong> isn't already in memory, it is loaded and the author information is displayed. If you are a frequent user of <strong class="pkg">GUAVA</strong>, you might consider adding <strong class="pkg">GUAVA</strong> to the "PackagesToLoad" preference in your gap initialization file. (Usually <code class="file">gap.ini</code> which should be located in your home directory.) Type <code class="file">GAPInfo.UserGapRoot;</code> at the GAP prompt to find the location of your initialization file. If none exists, the command <code class="file">WriteGapIniFile();</code> will create a default <code class="file">gap.ini</code> file which you can then modify.</p>

@@ -66,7 +66,7 @@ GeneratePackageYML:=function(pkg)
 
     stream := OutputTextFile("_data/package.yml", false);
     SetPrintFormattingStatus(stream, false);
-    
+
     AppendTo(stream, "name: ", pkg.PackageName, "\n");
     AppendTo(stream, "version: ", pkg.Version, "\n");
 
@@ -138,7 +138,7 @@ GeneratePackageYML:=function(pkg)
         AppendTo(stream, "github: ", pkg.GithubWWW, "\n");
     fi;
     AppendTo(stream, "\n");
-    
+
     formats := SplitString(pkg.ArchiveFormats, " ");
     if Length(formats) > 0 then
         AppendTo(stream, "downloads:\n");

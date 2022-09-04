@@ -9,10 +9,10 @@ Part 2: GUAVA code.
 
 Part 1:
 
-For many years GUAVA has been released along with the ``backtracking'' 
-C programs of J. Leon. In one of his *.c files the following statements occur: 
-``Copyright (C) 1992 by Jeffrey S. Leon. This software may be used freely for 
-educational and research purposes. Any other use requires permission from the 
+For many years GUAVA has been released along with the ``backtracking''
+C programs of J. Leon. In one of his *.c files the following statements occur:
+``Copyright (C) 1992 by Jeffrey S. Leon. This software may be used freely for
+educational and research purposes. Any other use requires permission from the
 author.''
 
 The following should be appended:

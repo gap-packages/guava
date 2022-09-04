@@ -920,7 +920,7 @@
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27Xx:= Indeterminate( GF(2) );; P:= x^2+1;[127X[104X
-    [4X[28XZ(2)^0+x^2[128X[104X
+    [4X[28Xx^2+Z(2)^0[128X[104X
     [4X[25Xgap>[125X [27XC1 := GeneratorPolCode(P, 7, GF(2));[127X[104X
     [4X[28Xa cyclic [7,6,1..2]1 code defined by generator polynomial over GF(2)[128X[104X
     [4X[25Xgap>[125X [27XGeneratorPol( C1 );[127X[104X
@@ -945,13 +945,13 @@
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27X x:= Indeterminate( GF(3) );; P:= x^2+2;[127X[104X
-    [4X[28X-Z(3)^0+x_1^2[128X[104X
+    [4X[28Xx_1^2-Z(3)^0[128X[104X
     [4X[25Xgap>[125X [27XH := CheckPolCode(P, 7, GF(3));[127X[104X
     [4X[28Xa cyclic [7,1,7]4 code defined by check polynomial over GF(3)[128X[104X
     [4X[25Xgap>[125X [27XCheckPol(H);[127X[104X
-    [4X[28X-Z(3)^0+x_1[128X[104X
+    [4X[28Xx_1-Z(3)^0[128X[104X
     [4X[25Xgap>[125X [27XGcd(P, X(GF(3))^7-1);[127X[104X
-    [4X[28X-Z(3)^0+x_1[128X[104X
+    [4X[28Xx_1-Z(3)^0[128X[104X
   [4X[32X[104X
   
   [1X5.5-3 RootsCode[101X
@@ -1204,9 +1204,9 @@
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27Xx:= Indeterminate( GF(2) );; G:= x^3+x^2+1;[127X[104X
-    [4X[28XZ(2)^0+x^2+x^3[128X[104X
+    [4X[28Xx^3+x^2+Z(2)^0[128X[104X
     [4X[25Xgap>[125X [27XFactors( G );[127X[104X
-    [4X[28X[ Z(2)^0+x^2+x^3 ][128X[104X
+    [4X[28X[ x^3+x^2+Z(2)^0 ][128X[104X
     [4X[25Xgap>[125X [27XC := FireCode( G, 3 );[127X[104X
     [4X[28Xa cyclic [35,27,1..4]2..6 3 burst error correcting fire code over GF(2)[128X[104X
     [4X[25Xgap>[125X [27XMinimumDistance( C );[127X[104X
@@ -1390,7 +1390,6 @@
     [4X[28Xa cyclic [28,25,4]2..3 MDS code over GF(27)[128X[104X
     [4X[25Xgap>[125X [27XGeneratorPol(C);[127X[104X
     [4X[28Xx^3+Z(3^3)^7*x^2+Z(3^3)^20*x-Z(3)^0[128X[104X
-    [4X[28Xgap>[128X[104X
   [4X[32X[104X
   
   [1X5.5-18 FourNegacirculantSelfDualCode[101X
@@ -1654,7 +1653,6 @@
   command.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[28Xgap>[128X[104X
     [4X[25Xgap>[125X [27XF:=GF(11);;[127X[104X
     [4X[25Xgap>[125X [27XR2:=PolynomialRing(F,2);[127X[104X
     [4X[28XPolynomialRing(..., [ x_1, x_2 ])[128X[104X
@@ -1683,7 +1681,6 @@
     [4X[28Xx_2[128X[104X
     [4X[25Xgap>[125X [27Xcrv:=AffineCurve(y^q+y-x^(q+1),R);[127X[104X
     [4X[28Xrec( ring := PolynomialRing(..., [ x_1, x_2 ]), polynomial := -x_1^4+x_2^3+x_2 )[128X[104X
-    [4X[28Xgap>[128X[104X
   [4X[32X[104X
   
   [33X[0;0YIn  GAP,  a  [13Xpoint[113X  on a curve defined by [22Xf(x,y)=0[122X is simply a list [3X[a,b][103X of
@@ -1905,7 +1902,7 @@
     [4X[25Xgap>[125X [27Xvar2:=Concatenation(var1,[b]);[127X[104X
     [4X[28X[ a, b ][128X[104X
     [4X[25Xgap>[125X [27XR2:=PolynomialRing(F,var2);[127X[104X
-    [4X[28XPolynomialRing(..., [ a, b ])[128X[104X
+    [4X[28XGF(11)[a,b][128X[104X
     [4X[25Xgap>[125X [27XcrvP1:=AffineCurve(b,R2);[127X[104X
     [4X[28Xrec( ring := PolynomialRing(..., [ a, b ]), polynomial := b )[128X[104X
     [4X[25Xgap>[125X [27Xdiv1:=DivisorOnAffineCurve([1,2,3,4],[Z(11)^2,Z(11)^3,Z(11)^7,Z(11)],crvP1);[127X[104X
@@ -1930,7 +1927,6 @@
     [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27XDivisorIsEffective(div2);[127X[104X
     [4X[28Xtrue[128X[104X
-    [4X[28Xgap>[128X[104X
     [4X[25Xgap>[125X [27Xndiv1:=DivisorNegate(div1);[127X[104X
     [4X[28Xrec( coeffs := [ -1, -2, -3, -4 ], [128X[104X
     [4X[28X     support := [ Z(11)^2, Z(11)^3, Z(11)^7, Z(11) ], [128X[104X
@@ -2334,7 +2330,6 @@
     [4X[28X56[128X[104X
     [4X[25Xgap>[125X [27XMinimumDistance(C3);[127X[104X
     [4X[28X56[128X[104X
-    [4X[28Xgap>[128X[104X
   [4X[32X[104X
   
   [1X5.7-25 OnePointAGCode[101X
@@ -2423,7 +2418,7 @@
   
   [33X[1;0Y[29X[2XQCLDPCCodeFromGroup[102X( [3Xm[103X, [3Xj[103X, [3Xk[103X ) [32X function[133X
   
-  [33X[0;0Y[10XQCLDCCodeFromGroup[110X  produces  an [22X(n,j,k)[122X regular quasi-cyclic LDPC code over
+  [33X[0;0Y[10XQCLDPCCodeFromGroup[110X  produces an [22X(n,j,k)[122X regular quasi-cyclic LDPC code over
   GF(2)  of  block length [22Xn = mk[122X. The term quasi-cyclic in the context of LDPC
   codes  typically  refers  to  LDPC codes whose parity-check matrix [22XH[122X has the
   following form[133X

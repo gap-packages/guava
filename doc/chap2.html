@@ -51,6 +51,7 @@
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LoadPackage("guava");</span>
+true
 </pre></div>
 
 <p><strong class="pkg">GUAVA</strong> can construct codewords in a variety of ways. One of the most typical cases is for a codeword to consist of binary digits. In that case we say that "the code is over GF(2)" and codewords can be constructed as follows:</p>
@@ -113,9 +114,7 @@ x_1^6+Z(2)^0
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">l:=["111000", "011100", "001110", "000111", "100011", "110001", "000000",$</span>
-[ "111000", "011100", "001110", "000111", "100011", "110001", "000000", 
-  "111111" ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">l:=["111000", "011100", "001110", "000111", "100011", "110001", "000000", "111111" ];;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m:=Codeword(l,6,GF(2));    </span>
 [ [ 1 1 1 0 0 0 ], [ 0 1 1 1 0 0 ], [ 0 0 1 1 1 0 ], [ 0 0 0 1 1 1 ], 
   [ 1 0 0 0 1 1 ], [ 1 1 0 0 0 1 ], [ 0 0 0 0 0 0 ], [ 1 1 1 1 1 1 ] ]

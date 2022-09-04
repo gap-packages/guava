@@ -446,7 +446,6 @@
     [4X[26Xbrk>[126X[104X
     [4X[25Xgap>[125X [27XCoveringRadius(C);[127X[104X
     [4X[28X3[128X[104X
-    [4X[28X[128X[104X
   [4X[32X[104X
   
   [1X7.2-3 ExhaustiveSearchCoveringRadius[101X
@@ -1560,8 +1559,6 @@
     [4X[25Xgap>[125X [27XM:=MatrixRepresentationOfElement(a,GF(4));; Display(M);[127X[104X
     [4X[28X . 1[128X[104X
     [4X[28X 1 1[128X[104X
-    [4X[28Xgap>[128X[104X
-    [4X[28X[128X[104X
   [4X[32X[104X
   
   [1X7.5-11 ReciprocalPolynomial[101X
@@ -1580,15 +1577,15 @@
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XP := UnivariatePolynomial( GF(3), Z(3)^0 * [1,0,1,2] );[127X[104X
-    [4X[28XZ(3)^0+x_1^2-x_1^3[128X[104X
+    [4X[28X-x_1^3+x_1^2+Z(3)^0[128X[104X
     [4X[25Xgap>[125X [27XRecP := ReciprocalPolynomial( P );[127X[104X
-    [4X[28X-Z(3)^0+x_1+x_1^3[128X[104X
+    [4X[28Xx_1^3+x_1-Z(3)^0[128X[104X
     [4X[25Xgap>[125X [27XReciprocalPolynomial( RecP ) = P;[127X[104X
     [4X[28Xtrue [128X[104X
     [4X[25Xgap>[125X [27XP := UnivariatePolynomial( GF(3), Z(3)^0 * [1,0,1,2] );[127X[104X
-    [4X[28XZ(3)^0+x_1^2-x_1^3[128X[104X
+    [4X[28X-x_1^3+x_1^2+Z(3)^0[128X[104X
     [4X[25Xgap>[125X [27XReciprocalPolynomial( P, 6 );[127X[104X
-    [4X[28X-x_1^3+x_1^4+x_1^6[128X[104X
+    [4X[28Xx_1^6+x_1^4-x_1^3[128X[104X
   [4X[32X[104X
   
   [1X7.5-12 CyclotomicCosets[101X
@@ -1751,8 +1748,6 @@
     [4X[25Xgap>[125X [27XDegreesMultivariatePolynomial(poly,R2);[127X[104X
     [4X[28X[ [ [ x_1, x_1, 1 ], [ x_1, x_2, 0 ] ], [ [ x_2^2, x_1, 0 ], [ x_2^2, x_2, 2 ] ],[128X[104X
     [4X[28X  [ [ x_1^3, x_1, 3 ], [ x_1^3, x_2, 0 ] ] ][128X[104X
-    [4X[28Xgap>[128X[104X
-    [4X[28X[128X[104X
   [4X[32X[104X
   
   [1X7.6-4 CoefficientMultivariatePolynomial[101X
@@ -1921,7 +1916,7 @@
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XR2:=PolynomialRing(GF(3),["x1","x2"]);[127X[104X
-    [4X[28XPolynomialRing(..., [ x1, x2 ])[128X[104X
+    [4X[28XGF(3)[x1,x2][128X[104X
     [4X[25Xgap>[125X [27Xvars:=IndeterminatesOfPolynomialRing(R2);[127X[104X
     [4X[28X[ x1, x2 ][128X[104X
     [4X[25Xgap>[125X [27Xx2:=vars[2];[127X[104X

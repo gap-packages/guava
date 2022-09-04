@@ -926,7 +926,7 @@ x_1^11+x_1^10+x_1^6+x_1^5+x_1^4+x_1^2+Z(2)^0
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">x:= Indeterminate( GF(2) );; P:= x^2+1;</span>
-Z(2)^0+x^2
+x^2+Z(2)^0
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C1 := GeneratorPolCode(P, 7, GF(2));</span>
 a cyclic [7,6,1..2]1 code defined by generator polynomial over GF(2)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">GeneratorPol( C1 );</span>
@@ -949,13 +949,13 @@ Z(2)^0+x
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput"> x:= Indeterminate( GF(3) );; P:= x^2+2;</span>
--Z(3)^0+x_1^2
+x_1^2-Z(3)^0
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">H := CheckPolCode(P, 7, GF(3));</span>
 a cyclic [7,1,7]4 code defined by check polynomial over GF(3)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CheckPol(H);</span>
--Z(3)^0+x_1
+x_1-Z(3)^0
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Gcd(P, X(GF(3))^7-1);</span>
--Z(3)^0+x_1
+x_1-Z(3)^0
 </pre></div>
 
 <p><a id="X818F0E6583E01D4B" name="X818F0E6583E01D4B"></a></p>
@@ -1161,9 +1161,9 @@ a linear [58,28,1..14]8..29 code defined by generator matrix over GF(2)
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">x:= Indeterminate( GF(2) );; G:= x^3+x^2+1;</span>
-Z(2)^0+x^2+x^3
+x^3+x^2+Z(2)^0
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Factors( G );</span>
-[ Z(2)^0+x^2+x^3 ]
+[ x^3+x^2+Z(2)^0 ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C := FireCode( G, 3 );</span>
 a cyclic [35,27,1..4]2..6 3 burst error correcting fire code over GF(2)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">MinimumDistance( C );</span>
@@ -1343,7 +1343,6 @@ true
 a cyclic [28,25,4]2..3 MDS code over GF(27)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">GeneratorPol(C);</span>
 x^3+Z(3^3)^7*x^2+Z(3^3)^20*x-Z(3)^0
-gap&gt;
 </pre></div>
 
 <p><a id="X7F40AF3B81C252DC" name="X7F40AF3B81C252DC"></a></p>
@@ -1577,7 +1576,6 @@ Algebraic geometric codes
 
 
 <div class="example"><pre>
-gap&gt;
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">F:=GF(11);;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">R2:=PolynomialRing(F,2);</span>
 PolynomialRing(..., [ x_1, x_2 ])
@@ -1606,7 +1604,6 @@ x_1
 x_2
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">crv:=AffineCurve(y^q+y-x^(q+1),R);</span>
 rec( ring := PolynomialRing(..., [ x_1, x_2 ]), polynomial := -x_1^4+x_2^3+x_2 )
-gap&gt;
 </pre></div>
 
 <p>In GAP, a <em>point</em> on a curve defined by <span class="SimpleMath">f(x,y)=0</span> is simply a list <var class="Arg">[a,b]</var> of elements of <span class="SimpleMath">F</span> satisfying this polynomial equation.</p>
@@ -1820,7 +1817,7 @@ b
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">var2:=Concatenation(var1,[b]);</span>
 [ a, b ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">R2:=PolynomialRing(F,var2);</span>
-PolynomialRing(..., [ a, b ])
+GF(11)[a,b]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">crvP1:=AffineCurve(b,R2);</span>
 rec( ring := PolynomialRing(..., [ a, b ]), polynomial := b )
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">div1:=DivisorOnAffineCurve([1,2,3,4],[Z(11)^2,Z(11)^3,Z(11)^7,Z(11)],crvP1);</span>
@@ -1845,7 +1842,6 @@ rec( coeffs := [ 5, 3, 5, 4, 3 ],
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">DivisorIsEffective(div2);</span>
 true
-gap&gt;
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ndiv1:=DivisorNegate(div1);</span>
 rec( coeffs := [ -1, -2, -3, -4 ], 
      support := [ Z(11)^2, Z(11)^3, Z(11)^7, Z(11) ], 
@@ -2231,7 +2227,6 @@ a linear [63,3,1..56]51..59  evaluation code over GF(16)
 56
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">MinimumDistance(C3);</span>
 56
-gap&gt;
 </pre></div>
 
 <p><a id="X842E227E8785168E" name="X842E227E8785168E"></a></p>
@@ -2302,7 +2297,7 @@ Low-Density Parity-Check Codes
 <h5>5.8-1 QCLDPCCodeFromGroup</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; QCLDPCCodeFromGroup</code>( <var class="Arg">m</var>, <var class="Arg">j</var>, <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
-<p><code class="code">QCLDCCodeFromGroup</code> produces an <span class="SimpleMath">(n,j,k)</span> regular quasi-cyclic LDPC code over GF(2) of block length <span class="SimpleMath">n = mk</span>. The term quasi-cyclic in the context of LDPC codes typically refers to LDPC codes whose parity-check matrix <span class="SimpleMath">H</span> has the following form</p>
+<p><code class="code">QCLDPCCodeFromGroup</code> produces an <span class="SimpleMath">(n,j,k)</span> regular quasi-cyclic LDPC code over GF(2) of block length <span class="SimpleMath">n = mk</span>. The term quasi-cyclic in the context of LDPC codes typically refers to LDPC codes whose parity-check matrix <span class="SimpleMath">H</span> has the following form</p>
 
 
 <pre class="normal">

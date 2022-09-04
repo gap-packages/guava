@@ -213,9 +213,10 @@ a cyclic [7,6,1..2]1 code defined by generator polynomial over GF(2)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">L := Z(2)*[ [0,0,0], [1,0,0], [0,1,1], [1,1,1] ];;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C := ElementsCode( L, GF(2) );</span>
 a (3,4,1..3)1 user defined unrestricted code over GF(2)
+
 # so far, GUAVA does not know what kind of code this is
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsLinearCode( C );</span>
-true                      # it is linear
+true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C;</span>
 a linear [3,2,1]1 user defined unrestricted code over GF(2) 
 </pre></div>
@@ -307,9 +308,9 @@ a linear [10,9,1]0..10 unknown linear code over GF(2)
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C1 := GeneratorMatCode( [ [1, 0,0,0], [0, 1,0,0] ], GF(2) );</span>
-a linear [4,2,1]1 code defined by generator matrix over GF(2)
+a linear [4,2,1]1..2 code defined by generator matrix over GF(2)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C2 := GeneratorMatCode( [ [0,0,1, 1], [0,0,0, 1] ], GF(2) );</span>
-a linear [4,2,1]1 code defined by generator matrix over GF(2)
+a linear [4,2,1]1..2 code defined by generator matrix over GF(2)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C1*C2;</span>
 a linear [16,4,1]4..12 direct product code
 </pre></div>
@@ -326,7 +327,7 @@ a linear [16,4,1]4..12 direct product code
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C := GeneratorMatCode( [ [1, 0,0,0], [0, 1,0,0] ], GF(2) );</span>
-a linear [4,2,1]1 code defined by generator matrix over GF(2)
+a linear [4,2,1]1..2 code defined by generator matrix over GF(2)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m:=Codeword("11");</span>
 [ 1 1 ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m*C;</span>
@@ -353,7 +354,7 @@ a linear [7,4,3]1 Hamming (3,2) code over GF(2)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">c:=Codeword("1111100");</span>
 [ 1 1 1 1 1 0 0 ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">InformationWord(C,c);</span>
-"ERROR: codeword must belong to code"
+Error, ERROR: codeword must belong to code
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C:=NordstromRobinsonCode();</span>
 a (16,256,6)4 Nordstrom-Robinson code over GF(2)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">c:=Random(C);</span>
@@ -492,8 +493,8 @@ true
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C1 := ReedSolomonCode( 6, 3 );</span>
 a cyclic [6,4,3]2 Reed-Solomon code over GF(7)
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsMDSCode( C1 );</span>
-true    # 6-3+1 = 4
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsMDSCode( C1 );  # verify it is an MDS code, as 6-3+1 = 4</span>
+true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsMDSCode( QRCode( 23, GF(2) ) );</span>
 false 
 </pre></div>
@@ -641,7 +642,7 @@ false
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsAffineCode( HammingCode( 3, GF(2) ) );</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsAffineCode( CosetCode( HammingCode( 3, GF(2) ),</span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">[ 1, 0, 0, 0, 0, 0, 0 ] ) );</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">Codeword([ 1, 0, 0, 0, 0, 0, 0 ]) ) );</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsAffineCode( NordstromRobinsonCode() );</span>
 false 
@@ -687,13 +688,15 @@ Equivalence and Isomorphism of Codes
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">x:= Indeterminate( GF(2) );; pol:= x^3+x+1; </span>
-Z(2)^0+x_1+x_1^3
+x_1^3+x_1+Z(2)^0
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">H := GeneratorPolCode( pol, 7, GF(2));          </span>
 a cyclic [7,4,1..3]1 code defined by generator polynomial over GF(2)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">H = HammingCode(3, GF(2));</span>
 false
+
+# verify that H is equivalent to a Hamming code
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsEquivalent(H, HammingCode(3, GF(2)));</span>
-true                        # H is equivalent to a Hamming code
+true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CodeIsomorphism(H, HammingCode(3, GF(2)));</span>
 (3,4)(5,6,7) 
 </pre></div>
@@ -710,7 +713,7 @@ true                        # H is equivalent to a Hamming code
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">x:= Indeterminate( GF(2) );; pol:= x^3+x+1; </span>
-Z(2)^0+x_1+x_1^3
+x_1^3+x_1+Z(2)^0
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">H := GeneratorPolCode( pol, 7, GF(2));          </span>
 a cyclic [7,4,1..3]1 code defined by generator polynomial over GF(2)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CodeIsomorphism(H, HammingCode(3, GF(2)));</span>
@@ -734,9 +737,11 @@ true
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">R := RepetitionCode(7,GF(2));</span>
 a cyclic [7,1,7]3 repetition code over GF(2)
+
+# verify that every permutation keeps R identical, that is, the
+# automorphism group is Sym(7)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">AutomorphismGroup(R);</span>
 Sym( [ 1 .. 7 ] )
-                        # every permutation keeps R identical
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C := CordaroWagnerCode(7);</span>
 a linear [7,2,4]3 Cordaro-Wagner code over GF(2)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">AsSSortedList(C);</span>
@@ -766,8 +771,7 @@ true
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">R := RepetitionCode(3,GF(3));</span>
 a cyclic [3,1,3]2 repetition code over GF(3)
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G:=PermutationAutomorphismGroup(R);</span>
-Group([ (), (1,3), (1,2,3), (2,3), (1,3,2), (1,2) ])
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G:=PermutationAutomorphismGroup(R);;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G=SymmetricGroup(3);</span>
 true
 </pre></div>
@@ -1069,11 +1073,11 @@ Generating (Check) Matrices and Polynomials
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">GeneratorPol(GeneratorMatCode([[1, 1, 0], [0, 1, 1]], GF(2)));</span>
-Z(2)^0+x_1
+x_1+Z(2)^0
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">GeneratorPol( WholeSpaceCode( 4, GF(2) ) );</span>
 Z(2)^0
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">GeneratorPol( NullCode( 7, GF(3) ) );</span>
--Z(3)^0+x_1^7
+x_1^7-Z(3)^0
 </pre></div>
 
 <p><a id="X7C45AA317BB1195F" name="X7C45AA317BB1195F"></a></p>
@@ -1094,9 +1098,9 @@ f\cdot h \equiv 0 \ ({\rm mod}\  x^n-1),
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CheckPol(GeneratorMatCode([[1, 1, 0], [0, 1, 1]], GF(2)));</span>
-Z(2)^0+x_1+x_1^2
+x_1^2+x_1+Z(2)^0
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CheckPol(WholeSpaceCode(4, GF(2)));</span>
-Z(2)^0+x_1^4
+x_1^4+Z(2)^0
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CheckPol(NullCode(7,GF(3)));</span>
 Z(3)^0
 </pre></div>
@@ -1714,7 +1718,6 @@ a linear [7,4,3]1 Hamming (3,2) code over GF(2)
 [ 1 0 1 1 0 1 0 ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Decodeword(C, c);                     # decoding</span>
 [ 1 0 1 1 0 1 0 ]
-gap&gt;
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">R:=PolynomialRing(GF(11),["t"]);</span>
 GF(11)[t]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">P:=List([1,3,4,5,7],i-&gt;Z(11)^i);</span>
@@ -1779,7 +1782,6 @@ a linear [5,3,1..3]2  generalized Reed-Solomon code over GF(11)
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">F:=GF(16);</span>
 GF(2^4)
-gap&gt;
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">a:=PrimitiveRoot(F);; b:=a^7;; b^4+b^3+1; </span>
 0*Z(2)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Pts:=List([0..14],i-&gt;b^i);</span>

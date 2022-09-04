@@ -61,17 +61,10 @@
   
   make
   
-  [33X[0;0Yto  compile  the  binaries and install them in the appropriate place. (For a
+  [33X[0;0Yto  compile  the  binaries  and install them in the appropriate place. For a
   Windows  machine  with  CYGWIN  installed  -  see  [7Xhttps://www.cygwin.com/[107X -
   instructions for compiling Leon's binaries are likely to be similar to those
-  above.  On  a  64-bit  SUSE linux computer, instead of the configure command
-  above - which will only compile the 32-bit binary - type[133X
-  
-  ./configure ../.. --enable-libsuffix=64 
-  make
-  
-  [33X[0;0Yto  compile Leon's program as a 64 bit native binary. This may also work for
-  other 64-bit linux distributions as well.)[133X
+  above.[133X
   
   [33X[0;0YIf  it  is  not  already  installed, you should also install the GAP package
   [5XSONATA[105X.  You  can  download  this  from the GAP website and unpack it in the
@@ -89,6 +82,7 @@
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XLoadPackage( "guava" );[127X[104X
+    [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
   [33X[0;0YIf [5XGUAVA[105X isn't already in memory, it is loaded and the author information is

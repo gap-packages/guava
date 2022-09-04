@@ -503,7 +503,6 @@ you can 'return;' to continue
 <span class="GAPbrkprompt">brk&gt;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CoveringRadius(C);</span>
 3
-
 </pre></div>
 
 <p><a id="X7AD9F1D27C52BC0F" name="X7AD9F1D27C52BC0F"></a></p>
@@ -1520,8 +1519,6 @@ Z(2^2)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M:=MatrixRepresentationOfElement(a,GF(4));; Display(M);</span>
  . 1
  1 1
-gap&gt;
-
 </pre></div>
 
 <p><a id="X7805D2BB7CE4D455" name="X7805D2BB7CE4D455"></a></p>
@@ -1536,15 +1533,15 @@ gap&gt;
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">P := UnivariatePolynomial( GF(3), Z(3)^0 * [1,0,1,2] );</span>
-Z(3)^0+x_1^2-x_1^3
+-x_1^3+x_1^2+Z(3)^0
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">RecP := ReciprocalPolynomial( P );</span>
--Z(3)^0+x_1+x_1^3
+x_1^3+x_1-Z(3)^0
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ReciprocalPolynomial( RecP ) = P;</span>
 true 
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">P := UnivariatePolynomial( GF(3), Z(3)^0 * [1,0,1,2] );</span>
-Z(3)^0+x_1^2-x_1^3
+-x_1^3+x_1^2+Z(3)^0
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ReciprocalPolynomial( P, 6 );</span>
--x_1^3+x_1^4+x_1^6
+x_1^6+x_1^4-x_1^3
 </pre></div>
 
 <p><a id="X7AEA9F807E6FFEFF" name="X7AEA9F807E6FFEFF"></a></p>
@@ -1709,8 +1706,6 @@ PolynomialRing(..., [ x_1, x_2 ])
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">DegreesMultivariatePolynomial(poly,R2);</span>
 [ [ [ x_1, x_1, 1 ], [ x_1, x_2, 0 ] ], [ [ x_2^2, x_1, 0 ], [ x_2^2, x_2, 2 ] ],
   [ [ x_1^3, x_1, 3 ], [ x_1^3, x_2, 0 ] ] ]
-gap&gt;
-
 </pre></div>
 
 <p><a id="X7E9021697A61A60F" name="X7E9021697A61A60F"></a></p>
@@ -1875,7 +1870,7 @@ b^3*c^7
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">R2:=PolynomialRing(GF(3),["x1","x2"]);</span>
-PolynomialRing(..., [ x1, x2 ])
+GF(3)[x1,x2]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">vars:=IndeterminatesOfPolynomialRing(R2);</span>
 [ x1, x2 ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">x2:=vars[2];</span>

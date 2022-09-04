@@ -6,10 +6,10 @@
           [1X A [5XGAP[105X4 Package for computing with error-correcting codes   [101X
   
   
-                                  Version 3.16
+                                  Version 3.17
   
   
-                                  April, 2022
+                                September, 2022
   
   
                                Jasper Cramwinckel
@@ -109,7 +109,7 @@
   binary codes have been updated. From 2009, starting with version 3.10, [5XGUAVA[105X
   has been maintained by Joe Fields. For further details, see the CHANGES file
   in       the       [5XGUAVA[105X       directory,       also       available      at
-  [7Xhttps://gap-packages.github.io/guava/CHANGES.guava[107X.[133X
+  [7Xhttps://gap-packages.github.io/guava/CHANGES[107X.[133X
   
   [33X[0;0YThis  documentation was prepared with the [5XGAPDoc[105X package of Frank Lübeck and
   Max  Neunhöffer.  The  conversion from TeX to [5XGAPDoc[105X's XML was done by David

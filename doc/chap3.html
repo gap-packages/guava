@@ -77,24 +77,24 @@ Other Codeword Functions
 
 
 <div class="example"><pre>
-  gap&gt; C:=RandomLinearCode(20,10,GF(4));
-  a  [20,10,?] randomly generated code over GF(4)
-  gap&gt; c:=Random(C);
-  [ 1 a 0 0 0 1 1 a^2 0 0 a 1 1 1 a 1 1 a a 0 ]
-  gap&gt; NamesOfComponents(C);
-  [ "LeftActingDomain", "GeneratorsOfLeftOperatorAdditiveGroup", "WordLength",
-    "GeneratorMat", "name", "Basis", "NiceFreeLeftModule", "Dimension", 
-     "Representative", "ZeroImmutable" ]
-  gap&gt; NamesOfComponents(c);
-  [ "VectorCodeword", "WordLength", "treatAsPoly" ]
-  gap&gt; c!.VectorCodeword;
-  [ immutable compressed vector length 20 over GF(4) ] 
-  gap&gt; Display(last);
-  [ Z(2^2), Z(2^2), Z(2^2), Z(2)^0, Z(2^2), Z(2^2)^2, 0*Z(2), Z(2^2), Z(2^2),
-    Z(2)^0, Z(2^2)^2, 0*Z(2), 0*Z(2), Z(2^2), 0*Z(2), 0*Z(2), 0*Z(2), Z(2^2)^2,
-    Z(2)^0, 0*Z(2) ]
-  gap&gt; C!.Dimension;
-  10
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C:=RandomLinearCode(20,10,GF(4));</span>
+a  [20,10,?] randomly generated code over GF(4)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">c:=Random(C);</span>
+[ 1 a 0 0 0 1 1 a^2 0 0 a 1 1 1 a 1 1 a a 0 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">NamesOfComponents(C);</span>
+[ "Representative", "ZeroImmutable", "name", "LeftActingDomain", "Dimension", 
+  "GeneratorsOfLeftOperatorAdditiveGroup", "Basis", "NiceFreeLeftModule", 
+  "GeneratorMat", "WordLength" ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">NamesOfComponents(c);</span>
+[ "VectorCodeword", "WordLength", "treatAsPoly" ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">c!.VectorCodeword;</span>
+&lt; immutable compressed vector length 20 over GF(4) &gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display(last);</span>
+[ Z(2^2), Z(2^2), Z(2^2), Z(2)^0, Z(2^2), Z(2^2)^2, 0*Z(2), Z(2^2), Z(2^2),
+  Z(2)^0, Z(2^2)^2, 0*Z(2), 0*Z(2), Z(2^2), 0*Z(2), 0*Z(2), 0*Z(2), Z(2^2)^2,
+  Z(2)^0, 0*Z(2) ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C!.Dimension;</span>
+10
 </pre></div>
 
 <p>Mathematically, a `codeword' is an element of a code <span class="SimpleMath">C</span>, but in <strong class="pkg">GUAVA</strong> the <code class="code">Codeword</code> and <code class="code">VectorCodeword</code> commands have implementations which do not check if the codeword belongs to <span class="SimpleMath">C</span> (i.e., are independent of the code itself). They exist primarily to make it easier for the user to construct the associated GAP record. Using these commands, one can enter into GAP both a codeword <span class="SimpleMath">c</span> (belonging to <span class="SimpleMath">C</span>) and a received word <span class="SimpleMath">r</span> (not belonging to <span class="SimpleMath">C</span>) using the same command. The user can input codewords in different formats (as strings, vectors, and polynomials), and output information is formatted in a readable way.</p>
@@ -143,7 +143,7 @@ Other Codeword Functions
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Codeword([c, c2, "0110"]);</span>
 [ [ 0 1 1 1 0 ], [ 0 1 1 1 0 ], [ 0 1 1 0 ] ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">p := UnivariatePolynomial(GF(2), [Z(2)^0, 0*Z(2), Z(2)^0]);</span>
-Z(2)^0+x_1^2
+x_1^2+Z(2)^0
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Codeword(p);</span>
 x^2 + 1 
 </pre></div>
@@ -159,7 +159,7 @@ a cyclic [7,7,1]0 whole space code over GF(5)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Codeword(["0220110", [1,1,1]], 7, GF(5));</span>
 [ [ 0 2 2 0 1 1 0 ], [ 1 1 1 0 0 0 0 ] ] 
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C:=RandomLinearCode(10,5,GF(3));</span>
-a linear [10,5,1..3]3..5 random linear code over GF(3)
+a  [10,5,?] randomly generated code over GF(3)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Codeword("1000000000",C);</span>
 [ 1 0 0 0 0 0 0 0 0 0 ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Codeword("1000000000",10,GF(3));</span>
@@ -224,7 +224,7 @@ true
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">P := UnivariatePolynomial(GF(2), Z(2)*[1,0,0,1]);</span>
-Z(2)^0+x_1^3
+x_1^3+Z(2)^0
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">c := Codeword(P, GF(2));</span>
 x^3 + 1
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">P = c;        # codeword operation</span>
@@ -261,12 +261,13 @@ true
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C:=RandomLinearCode(10,5,GF(3));</span>
-a linear [10,5,1..3]3..5 random linear code over GF(3)
+a  [10,5,?] randomly generated code over GF(3)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">c:=Random(C);</span>
 [ 1 0 2 2 2 2 1 0 2 0 ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Codeword(c+"2000000000");</span>
 [ 0 0 2 2 2 2 1 0 2 0 ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Codeword(c+"1000000000");</span>
+Error, &lt;x&gt; and &lt;y&gt; have different characteristic
 </pre></div>
 
 <p>The last command returns a GAP ERROR since the `codeword' which <strong class="pkg">GUAVA</strong> associates to "1000000000" belongs to <span class="SimpleMath">GF(2)</span> and not <span class="SimpleMath">GF(3)</span>.</p>
@@ -290,11 +291,11 @@ a linear [10,5,1..3]3..5 random linear code over GF(3)
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C:=RandomLinearCode(10,5);</span>
-a  [10,5,?] randomly generated code over GF(2)
+a  [10,5,?] randomly generated code over GF(3)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">c:=Random(C);</span>
 [ 0 0 0 0 0 0 0 0 0 0 ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">c+C;</span>
-[ add. coset of a  [10,5,?] randomly generated code over GF(2) ]
+&lt; add. coset of a  [10,5,?] randomly generated code over GF(2) &gt;
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">c+C=C;</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsLinearCode(c+C);</span>
@@ -302,17 +303,17 @@ false
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">v:=Codeword("100000000");</span>
 [ 1 0 0 0 0 0 0 0 0 ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">v+C;</span>
-[ add. coset of a  [10,5,?] randomly generated code over GF(2) ]
+&lt; add. coset of a  [10,5,?] randomly generated code over GF(2) &gt;
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C=v+C;</span>
 false
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C := GeneratorMatCode( [ [1, 0,0,0], [0, 1,0,0] ], GF(2) );</span>
-a linear [4,2,1]1 code defined by generator matrix over GF(2)
+a linear [4,2,1]1..2 code defined by generator matrix over GF(2)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Elements(C);</span>
 [ [ 0 0 0 0 ], [ 0 1 0 0 ], [ 1 0 0 0 ], [ 1 1 0 0 ] ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">v:=Codeword("0011");</span>
 [ 0 0 1 1 ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C+v;</span>
-[ add. coset of a linear [4,2,4]1 code defined by generator matrix over GF(2) ]
+&lt; add. coset of a linear [4,2,4]1 code defined by generator matrix over GF(2) &gt;
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Elements(C+v);</span>
 [ [ 0 0 1 1 ], [ 0 1 1 1 ], [ 1 0 1 1 ], [ 1 1 1 1 ] ]
 </pre></div>
@@ -352,7 +353,7 @@ Functions that Convert Codewords to Vectors or Polynomials
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">a := Codeword("011011");; </span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PolyCodeword(a);</span>
-x_1+x_1^2+x_1^4+x_1^5
+x_1^5+x_1^4+x_1^2+x_1
 </pre></div>
 
 <p><a id="X81D3230A797FE6E3" name="X81D3230A797FE6E3"></a></p>

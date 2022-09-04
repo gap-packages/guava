@@ -85,9 +85,10 @@
     [4X[25Xgap>[125X [27XL := Z(2)*[ [0,0,0], [1,0,0], [0,1,1], [1,1,1] ];;[127X[104X
     [4X[25Xgap>[125X [27XC := ElementsCode( L, GF(2) );[127X[104X
     [4X[28Xa (3,4,1..3)1 user defined unrestricted code over GF(2)[128X[104X
+    [4X[28X[128X[104X
     [4X[28X# so far, GUAVA does not know what kind of code this is[128X[104X
     [4X[25Xgap>[125X [27XIsLinearCode( C );[127X[104X
-    [4X[28Xtrue                      # it is linear[128X[104X
+    [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27XC;[127X[104X
     [4X[28Xa linear [3,2,1]1 user defined unrestricted code over GF(2) [128X[104X
   [4X[32X[104X
@@ -207,9 +208,9 @@
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XC1 := GeneratorMatCode( [ [1, 0,0,0], [0, 1,0,0] ], GF(2) );[127X[104X
-    [4X[28Xa linear [4,2,1]1 code defined by generator matrix over GF(2)[128X[104X
+    [4X[28Xa linear [4,2,1]1..2 code defined by generator matrix over GF(2)[128X[104X
     [4X[25Xgap>[125X [27XC2 := GeneratorMatCode( [ [0,0,1, 1], [0,0,0, 1] ], GF(2) );[127X[104X
-    [4X[28Xa linear [4,2,1]1 code defined by generator matrix over GF(2)[128X[104X
+    [4X[28Xa linear [4,2,1]1..2 code defined by generator matrix over GF(2)[128X[104X
     [4X[25Xgap>[125X [27XC1*C2;[127X[104X
     [4X[28Xa linear [16,4,1]4..12 direct product code[128X[104X
   [4X[32X[104X
@@ -232,7 +233,7 @@
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XC := GeneratorMatCode( [ [1, 0,0,0], [0, 1,0,0] ], GF(2) );[127X[104X
-    [4X[28Xa linear [4,2,1]1 code defined by generator matrix over GF(2)[128X[104X
+    [4X[28Xa linear [4,2,1]1..2 code defined by generator matrix over GF(2)[128X[104X
     [4X[25Xgap>[125X [27Xm:=Codeword("11");[127X[104X
     [4X[28X[ 1 1 ][128X[104X
     [4X[25Xgap>[125X [27Xm*C;[127X[104X
@@ -260,7 +261,7 @@
     [4X[25Xgap>[125X [27Xc:=Codeword("1111100");[127X[104X
     [4X[28X[ 1 1 1 1 1 0 0 ][128X[104X
     [4X[25Xgap>[125X [27XInformationWord(C,c);[127X[104X
-    [4X[28X"ERROR: codeword must belong to code"[128X[104X
+    [4X[28XError, ERROR: codeword must belong to code[128X[104X
     [4X[25Xgap>[125X [27XC:=NordstromRobinsonCode();[127X[104X
     [4X[28Xa (16,256,6)4 Nordstrom-Robinson code over GF(2)[128X[104X
     [4X[25Xgap>[125X [27Xc:=Random(C);[127X[104X
@@ -412,8 +413,8 @@
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XC1 := ReedSolomonCode( 6, 3 );[127X[104X
     [4X[28Xa cyclic [6,4,3]2 Reed-Solomon code over GF(7)[128X[104X
-    [4X[25Xgap>[125X [27XIsMDSCode( C1 );[127X[104X
-    [4X[28Xtrue    # 6-3+1 = 4[128X[104X
+    [4X[25Xgap>[125X [27XIsMDSCode( C1 );  # verify it is an MDS code, as 6-3+1 = 4[127X[104X
+    [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27XIsMDSCode( QRCode( 23, GF(2) ) );[127X[104X
     [4X[28Xfalse [128X[104X
   [4X[32X[104X
@@ -565,7 +566,7 @@
     [4X[25Xgap>[125X [27XIsAffineCode( HammingCode( 3, GF(2) ) );[127X[104X
     [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27XIsAffineCode( CosetCode( HammingCode( 3, GF(2) ),[127X[104X
-    [4X[25X>[125X [27X[ 1, 0, 0, 0, 0, 0, 0 ] ) );[127X[104X
+    [4X[25X>[125X [27XCodeword([ 1, 0, 0, 0, 0, 0, 0 ]) ) );[127X[104X
     [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27XIsAffineCode( NordstromRobinsonCode() );[127X[104X
     [4X[28Xfalse [128X[104X
@@ -614,13 +615,15 @@
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27Xx:= Indeterminate( GF(2) );; pol:= x^3+x+1; [127X[104X
-    [4X[28XZ(2)^0+x_1+x_1^3[128X[104X
+    [4X[28Xx_1^3+x_1+Z(2)^0[128X[104X
     [4X[25Xgap>[125X [27XH := GeneratorPolCode( pol, 7, GF(2));          [127X[104X
     [4X[28Xa cyclic [7,4,1..3]1 code defined by generator polynomial over GF(2)[128X[104X
     [4X[25Xgap>[125X [27XH = HammingCode(3, GF(2));[127X[104X
     [4X[28Xfalse[128X[104X
+    [4X[28X[128X[104X
+    [4X[28X# verify that H is equivalent to a Hamming code[128X[104X
     [4X[25Xgap>[125X [27XIsEquivalent(H, HammingCode(3, GF(2)));[127X[104X
-    [4X[28Xtrue                        # H is equivalent to a Hamming code[128X[104X
+    [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27XCodeIsomorphism(H, HammingCode(3, GF(2)));[127X[104X
     [4X[28X(3,4)(5,6,7) [128X[104X
   [4X[32X[104X
@@ -638,7 +641,7 @@
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27Xx:= Indeterminate( GF(2) );; pol:= x^3+x+1; [127X[104X
-    [4X[28XZ(2)^0+x_1+x_1^3[128X[104X
+    [4X[28Xx_1^3+x_1+Z(2)^0[128X[104X
     [4X[25Xgap>[125X [27XH := GeneratorPolCode( pol, 7, GF(2));          [127X[104X
     [4X[28Xa cyclic [7,4,1..3]1 code defined by generator polynomial over GF(2)[128X[104X
     [4X[25Xgap>[125X [27XCodeIsomorphism(H, HammingCode(3, GF(2)));[127X[104X
@@ -668,9 +671,11 @@
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XR := RepetitionCode(7,GF(2));[127X[104X
     [4X[28Xa cyclic [7,1,7]3 repetition code over GF(2)[128X[104X
+    [4X[28X[128X[104X
+    [4X[28X# verify that every permutation keeps R identical, that is, the[128X[104X
+    [4X[28X# automorphism group is Sym(7)[128X[104X
     [4X[25Xgap>[125X [27XAutomorphismGroup(R);[127X[104X
     [4X[28XSym( [ 1 .. 7 ] )[128X[104X
-    [4X[28X                        # every permutation keeps R identical[128X[104X
     [4X[25Xgap>[125X [27XC := CordaroWagnerCode(7);[127X[104X
     [4X[28Xa linear [7,2,4]3 Cordaro-Wagner code over GF(2)[128X[104X
     [4X[25Xgap>[125X [27XAsSSortedList(C);[127X[104X
@@ -705,8 +710,7 @@
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XR := RepetitionCode(3,GF(3));[127X[104X
     [4X[28Xa cyclic [3,1,3]2 repetition code over GF(3)[128X[104X
-    [4X[25Xgap>[125X [27XG:=PermutationAutomorphismGroup(R);[127X[104X
-    [4X[28XGroup([ (), (1,3), (1,2,3), (2,3), (1,3,2), (1,2) ])[128X[104X
+    [4X[25Xgap>[125X [27XG:=PermutationAutomorphismGroup(R);;[127X[104X
     [4X[25Xgap>[125X [27XG=SymmetricGroup(3);[127X[104X
     [4X[28Xtrue[128X[104X
   [4X[32X[104X
@@ -999,11 +1003,11 @@
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XGeneratorPol(GeneratorMatCode([[1, 1, 0], [0, 1, 1]], GF(2)));[127X[104X
-    [4X[28XZ(2)^0+x_1[128X[104X
+    [4X[28Xx_1+Z(2)^0[128X[104X
     [4X[25Xgap>[125X [27XGeneratorPol( WholeSpaceCode( 4, GF(2) ) );[127X[104X
     [4X[28XZ(2)^0[128X[104X
     [4X[25Xgap>[125X [27XGeneratorPol( NullCode( 7, GF(3) ) );[127X[104X
-    [4X[28X-Z(3)^0+x_1^7[128X[104X
+    [4X[28Xx_1^7-Z(3)^0[128X[104X
   [4X[32X[104X
   
   [1X4.7-4 CheckPol[101X
@@ -1027,9 +1031,9 @@
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XCheckPol(GeneratorMatCode([[1, 1, 0], [0, 1, 1]], GF(2)));[127X[104X
-    [4X[28XZ(2)^0+x_1+x_1^2[128X[104X
+    [4X[28Xx_1^2+x_1+Z(2)^0[128X[104X
     [4X[25Xgap>[125X [27XCheckPol(WholeSpaceCode(4, GF(2)));[127X[104X
-    [4X[28XZ(2)^0+x_1^4[128X[104X
+    [4X[28Xx_1^4+Z(2)^0[128X[104X
     [4X[25Xgap>[125X [27XCheckPol(NullCode(7,GF(3)));[127X[104X
     [4X[28XZ(3)^0[128X[104X
   [4X[32X[104X
@@ -1746,7 +1750,6 @@
     [4X[28X[ 1 0 1 1 0 1 0 ][128X[104X
     [4X[25Xgap>[125X [27XDecodeword(C, c);                     # decoding[127X[104X
     [4X[28X[ 1 0 1 1 0 1 0 ][128X[104X
-    [4X[28Xgap>[128X[104X
     [4X[25Xgap>[125X [27XR:=PolynomialRing(GF(11),["t"]);[127X[104X
     [4X[28XGF(11)[t][128X[104X
     [4X[25Xgap>[125X [27XP:=List([1,3,4,5,7],i->Z(11)^i);[127X[104X
@@ -1816,7 +1819,6 @@
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XF:=GF(16);[127X[104X
     [4X[28XGF(2^4)[128X[104X
-    [4X[28Xgap>[128X[104X
     [4X[25Xgap>[125X [27Xa:=PrimitiveRoot(F);; b:=a^7;; b^4+b^3+1; [127X[104X
     [4X[28X0*Z(2)[128X[104X
     [4X[25Xgap>[125X [27XPts:=List([0..14],i->b^i);[127X[104X

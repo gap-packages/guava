@@ -8,8 +8,8 @@
 SetPackageInfo( rec(
   PackageName := "GUAVA",
   Subtitle := "a GAP package for computing with error-correcting codes",
-  Version := "3.16",
-  Date    := "24/04/2022",
+  Version := "3.17",
+  Date    := "05/09/2022",
   License := "GPL-2.0-or-later",
   SourceRepository := rec(
     Type := "git",
@@ -19,21 +19,25 @@ SetPackageInfo( rec(
   IssueTrackerURL := Concatenation( ~.SourceRepository.URL, "/issues" ),
   PackageWWWHome  := Concatenation( "https://gap-packages.github.io/", 
                          LowercaseString( ~.PackageName ) ),
-  README_URL      := Concatenation( ~.PackageWWWHome, "/", "README.guava" ),
+  README_URL      := Concatenation( ~.PackageWWWHome, "/", "README.md" ),
   PackageInfoURL  := Concatenation( ~.PackageWWWHome, "/", "PackageInfo.g" ),
   ArchiveURL := Concatenation( ~.SourceRepository.URL,
                       "/releases/download/v", ~.Version,
                       "/", LowercaseString(~.PackageName), "-", ~.Version ),
   ArchiveFormats 
           := ".tar.gz",
-  BannerString:=Concatenation(["\n   ____                          |\n",
-    "  /            \\           /   --+--  Version ", ~.Version, "\n",
-    " /      |    | |\\\\        //|    |\n",
-    "|    _  |    | | \\\\      // |     the GUAVA Group\n",
-    "|     \\ |    | |--\\\\    //--|     \n",
-    " \\     ||    | |   \\\\  //   |     \n",
-    "  \\___/  \\___/ |    \\\\//    |      \n",
-    "                                  \n\n"]),
+  BannerString:=Concatenation("""
+   ____                             |
+  /                \          /   --+--  Version """, ~.Version, """
+ /       |     | |\ \        / /|   |
+|    __  |     | | \ \      / / |          the GUAVA Group
+|      | |     | |--\ \    / /--|
+ \     | |     | |   \ \  / /   |
+  \___/   \___/  |    \ \/ /    |
+
+ Homepage: https://gap-packages.github.io/guava
+ Report issues at https://github.com/gap-packages/guava/issues
+"""),
 
 ##    - if no 'TextFiles' or 'BinaryFiles' are given and a .zoo archive is
 ##      provided, then the files in that archive with a "!TEXT!" comment are
@@ -160,31 +164,6 @@ SetPackageInfo( rec(
   AcceptDate 
           := "02/2003",
 
-##  For a central overview of all packages and a collection of all package
-##  archives it is necessary to have two files accessible which should be
-##  contained in each package:
-##     - A README file, containing a short abstract about the package
-##       content and installation instructions.
-##     - The file you are currently reading or editing!
-##  You must specify URLs for these two files, these allow to automate 
-##  the updating of package information on the GAP Website, and inclusion
-##  and updating of the package in the GAP distribution.
-##  
-
-############################
-## THIS STUFF IS ALL SET-UP IN THE TOP OF THE FILE !!!
-############################
-##README_URL := 
-##    Concatenation( ~.PackageWWWHome, "README.guava" ),
-## PackageInfoURL := 
-##    Concatenation( ~.PackageWWWHome, "PackageInfo.g" ),
-##
-##SourceRepository := rec( 
-##  Type := "git", 
-##  URL := "https://github.com/gap-packages/guava"
-##),
-##IssueTrackerURL := Concatenation( ~.SourceRepository.URL, "/issues" ),
-
 ##  Here you  must provide a short abstract explaining the package content 
 ##  in HTML format (used on the package overview Web page) and an URL 
 ##  for a Webpage with more detailed information about the package
@@ -220,7 +199,7 @@ SetPackageInfo( rec(
     BookName  := "GUAVA",
     ArchiveURLSubset := ["doc"],
     # format/extension can be one of .zoo, .tar.gz, .tar.bz2, -win.zip
-    HTMLStart := "doc/chap0.html",
+    HTMLStart := "doc/chap0_mj.html",
     PDFFile   := "doc/manual.pdf",
     # the path to the .six file used by GAP's help system
     SixFile   := "doc/manual.six",
@@ -282,13 +261,6 @@ SetPackageInfo( rec(
       return true;
     end,
 
-
-##  Suggest here if the package should be *automatically loaded* when GAP is 
-##  started.  This should usually be 'false'. Say 'true' only if your package 
-##  provides some improvements of the GAP library which are likely to enhance 
-##  the overall system performance for many users.
-
-  Autoload := false,
 
 ##  *Optional*, but recommended: path relative to package root to a file which 
 ##  contains as many tests of the package functionality as sensible.
