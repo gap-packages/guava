@@ -10,3 +10,6 @@ autoheader
 # versions of GNU autotools.
 automake --force-missing --add-missing --copy >/dev/null 2>&1  || :
 autoconf
+
+# HACK: remove autom4te.cache
+rm -rf src/leon/autom4te.cache
