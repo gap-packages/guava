@@ -5,12 +5,12 @@
  * The core of computation is in this src file
  *
  * NOTES:
- *  ¯ The GF(3) vectors are represented as two packed long
+ *  - The GF(3) vectors are represented as two packed long
  *    integers, i.e. GF3_VEC structure in minimum-weight-gf3.h.
  *    Each of the long integer is either 32-bit or 64-bit,
  *    depending on the machine architecture, see config.h
  *
- *  ¯ This packing of GF(3) vectors and their vector manipulations
+ *  - This packing of GF(3) vectors and their vector manipulations
  *    follow the description given in the paper by
  *    
  *    K. Harrison, D. Page and N. P. Smart, "Software implementation
@@ -19,7 +19,7 @@
  *       Journal of Computation and Mathematics, vol. 5, pp.181--193,
  *       2002
  *    
- *  ¯ To efficiently generate combination patterns, revolving door
+ *  - To efficiently generate combination patterns, revolving door
  *    algorithm is used here. This algorithm has the property that
  *    in going to the next combination pattern, there is only one
  *    position that is exchanged, i.e. one 'In' and one 'Out'. The
@@ -34,11 +34,11 @@
  *    patterns does not fully exploit the the revolving door property
  *    yet--further (speed) optimisation is possible.
  *
- *  ¯ To generate all n-tupple of non zero elements of GF(3), Bitner's
+ *  - To generate all n-tupple of non zero elements of GF(3), Bitner's
  *    algorithm is used. See Algorithm L (Loopless Gray binary
  *    generation) in Knuth's book.
  *    
- *  ¯ The code here is not yet optmised, your contributions in this
+ *  - The code here is not yet optmised, your contributions in this
  *    respect are greatly appreciated.
  *
  * Version Log:

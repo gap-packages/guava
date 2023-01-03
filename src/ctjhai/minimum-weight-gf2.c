@@ -5,11 +5,11 @@
  * The core of computation is in this src file
  *
  * NOTES:
- *  ¯ The GF(2) vectors are represented in packed long integer
+ *  - The GF(2) vectors are represented in packed long integer
  *    format. This long integer is either 32-bit or 64-bit,
  *    depending on the machine architecture, see config.h
  *    
- *  ¯ To efficiently generate combination patterns, revolving door
+ *  - To efficiently generate combination patterns, revolving door
  *    algorithm is used here. This algorithm has the property that
  *    in going to the next combination pattern, there is only one
  *    position that is exchanged, i.e. one 'In' and one 'Out'. The
@@ -20,7 +20,7 @@
  *       algorithms with minimal change property", Communications
  *       of the ACM, vol. 25, no. 8, August 1982
  *
- *  ¯ The code here is not yet optmised, your contributions in this
+ *  - The code here is not yet optmised, your contributions in this
  *    respect are greatly appreciated.
  *
  * Version Log:
