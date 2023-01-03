@@ -1,6 +1,9 @@
 In this file we record the changes since the first GAP 4 release of
 the GUAVA package.
 
+Version 3.18 (1-2023)
+   o Enhance the `configure` script to accept `--with-gaproot=PATH`
+
 Version 3.17 (9-2022)
    o Add back QCLDPCCodeFromGroup method (it was accidentally removed
      between Guava 3.8 and 3.9)
