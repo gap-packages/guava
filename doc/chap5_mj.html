@@ -186,7 +186,7 @@ Generating Unrestricted Codes
 
 <p>The next functions generate random codes (see <code class="func">RandomCode</code> (<a href="chap5_mj.html#X7D87DD6380B2CE69"><span class="RefLink">5.1-5</span></a>)) and the Nordstrom-Robinson code (see <code class="func">NordstromRobinsonCode</code> (<a href="chap5_mj.html#X816353397F25B62E"><span class="RefLink">5.1-6</span></a>)), respectively.</p>
 
-<p>Finally, we describe two functions for generating Greedy codes. These are codes that contructed by gathering codewords from a space (see <code class="func">GreedyCode</code> (<a href="chap5_mj.html#X7880D34485C60BAF"><span class="RefLink">5.1-7</span></a>) and <code class="func">LexiCode</code> (<a href="chap5_mj.html#X7C1B374583AFB923"><span class="RefLink">5.1-8</span></a>)).</p>
+<p>Finally, we describe two functions for generating Greedy codes. These are codes that constructed by gathering codewords from a space (see <code class="func">GreedyCode</code> (<a href="chap5_mj.html#X7880D34485C60BAF"><span class="RefLink">5.1-7</span></a>) and <code class="func">LexiCode</code> (<a href="chap5_mj.html#X7C1B374583AFB923"><span class="RefLink">5.1-8</span></a>)).</p>
 
 <p><a id="X81AACBDD86E89D7D" name="X81AACBDD86E89D7D"></a></p>
 
@@ -1426,7 +1426,7 @@ Evaluation Codes
 <h5>5.6-1 EvaluationCode</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; EvaluationCode</code>( <var class="Arg">P</var>, <var class="Arg">L</var>, <var class="Arg">R</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
-<p>Input: <var class="Arg">F</var> is a finite field, <var class="Arg">L</var> is a list of rational functions in <span class="SimpleMath">\(R=F[x_1,...,x_r]\)</span>, <var class="Arg">P</var> is a list of <span class="SimpleMath">\(n\)</span> points in <span class="SimpleMath">\(F^r\)</span> at which all of the functions in <var class="Arg">L</var> are defined. <br /> Output: The 'evaluation code' <span class="SimpleMath">\(C\)</span>, which is the image of the evalation map</p>
+<p>Input: <var class="Arg">F</var> is a finite field, <var class="Arg">L</var> is a list of rational functions in <span class="SimpleMath">\(R=F[x_1,...,x_r]\)</span>, <var class="Arg">P</var> is a list of <span class="SimpleMath">\(n\)</span> points in <span class="SimpleMath">\(F^r\)</span> at which all of the functions in <var class="Arg">L</var> are defined. <br /> Output: The 'evaluation code' <span class="SimpleMath">\(C\)</span>, which is the image of the evaluation map</p>
 
 <p class="center">\[
 Eval_P:span(L)\rightarrow F^n,
@@ -1573,7 +1573,7 @@ Algebraic geometric codes
 
 <p>For example, for the ring, one could take <span class="SimpleMath">\({\mathbb{Q}}[x,y]\)</span>, and for the polynomial one could take <span class="SimpleMath">\(f(x,y)=x^2+y^2-1\)</span>. For the affine line, simply taking <span class="SimpleMath">\({\mathbb{Q}}[x,y]\)</span> for the ring and <span class="SimpleMath">\(f(x,y)=y\)</span> for the polynomial.</p>
 
-<p>(Not sure if <span class="SimpleMath">\(F\)</span> neeeds to be a field in fact ...)</p>
+<p>(Not sure if <span class="SimpleMath">\(F\)</span> needs to be a field in fact ...)</p>
 
 <p>To compute its degree, simply use the <code class="func">DegreeMultivariatePolynomial</code> (<a href="chap7_mj.html#X80433A4B792880EF"><span class="RefLink">7.6-2</span></a>) command.</p>
 

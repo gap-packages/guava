@@ -341,7 +341,7 @@
   [33X[1;0Y[29X[2XSubCode[102X( [3XC[103X[, [3Xs[103X] ) [32X function[133X
   
   [33X[0;0YThis  function [10XSubCode[110X returns a subcode of [3XC[103X by taking the first [22Xk - s[122X rows
-  of  the generator matrix of [3XC[103X, where [22Xk[122X is the dimension of [3XC[103X. The interger [3Xs[103X
+  of  the  generator matrix of [3XC[103X, where [22Xk[122X is the dimension of [3XC[103X. The integer [3Xs[103X
   may be omitted and in this case it is assumed as 1.[133X
   
   [4X[32X  Example  [32X[104X

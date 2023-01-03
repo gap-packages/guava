@@ -912,7 +912,7 @@
     [4X[28Xan optimal linear [20,17,d] code over GF(4) has d=3[128X[104X
     [4X[28X--------------------------------------------------------------------------------------------------[128X[104X
     [4X[28XLb(20,17)=3, by shortening of:[128X[104X
-    [4X[28XLb(21,18)=3, by applying contruction B to a [81,77,3] code[128X[104X
+    [4X[28XLb(21,18)=3, by applying construction B to a [81,77,3] code[128X[104X
     [4X[28XLb(81,77)=3, by shortening of:[128X[104X
     [4X[28XLb(85,81)=3, reference: Ham[128X[104X
     [4X[28X--------------------------------------------------------------------------------------------------[128X[104X
@@ -1226,13 +1226,13 @@
   This  function has a built-in check on the constraints of the minimum weight
   codewords.  For  example, for a self-orthogonal code over GF(3), the minimum
   weight  codewords  have  weight  that  is  divisible  by  3,  i.e.  0  mod 3
-  congruence. Similary, self-orthogonal codes over GF(2) have codeword weights
-  that  are  divisible  by  4 and even codes over GF(2) have codewords weights
-  that  are  divisible by 2. By taking these constraints into account, in many
-  cases, the execution time may be significantly reduced. Consider the minimum
-  Hamming  weight  enumeration  of  the  [22X[151,45][122X  binary  cyclic code (second
-  example  below).  This  cyclic code is self-orthogonal, so the weight of all
-  codewords  is  divisible  by  4.  Without  considering  this constraint, the
+  congruence.  Similarly,  self-orthogonal  codes  over  GF(2)  have  codeword
+  weights  that  are  divisible  by 4 and even codes over GF(2) have codewords
+  weights  that  are divisible by 2. By taking these constraints into account,
+  in many cases, the execution time may be significantly reduced. Consider the
+  minimum  Hamming  weight  enumeration  of  the  [22X[151,45][122X  binary cyclic code
+  (second  example  below). This cyclic code is self-orthogonal, so the weight
+  of all codewords is divisible by 4. Without considering this constraint, the
   computation  will finish at information weight [22X10[122X, rather than [22X9[122X. We can see
   that,  this  0  mod  4 constraint on the codeword weights, has allowed us to
   avoid  enumeration  of  [22Xb(45,10) = 3,190,187,286[122X additional codewords, where

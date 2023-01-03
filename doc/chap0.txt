@@ -6,10 +6,10 @@
           [1X A [5XGAP[105X4 Package for computing with error-correcting codes   [101X
   
   
-                                  Version 3.17
+                                  Version 3.18
   
   
-                                September, 2022
+                                 January, 2023
   
   
                                Jasper Cramwinckel

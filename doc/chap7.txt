@@ -84,7 +84,7 @@
   
   [124X
   
-  [33X[0;0Ywhere  [22XM[122X  is  the  maxmimum  number  of codewords and [22XV(n,e)[122X is equal to the
+  [33X[0;0Ywhere  [22XM[122X  is  the  maximum  number  of  codewords and [22XV(n,e)[122X is equal to the
   contents  of  a  ball of radius [22Xe[122X (see [2XSphereContent[102X ([14X7.5-5[114X)). This bound is
   useful  for  small  values  of  [3Xd[103X. Codes for which equality holds are called
   [13Xperfect[113X (see [2XIsPerfectCode[102X ([14X4.3-6[114X)).[133X
@@ -169,7 +169,7 @@
   counting  the number of equal symbols in each row of the generator matrix of
   the  code.  By  omitting  the  coordinates  in which all rows have a zero, a
   smaller  code  results.  The  Griesmer  bound  is obtained by repeating this
-  proces until a trivial code is left in the end.[133X
+  process until a trivial code is left in the end.[133X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XUpperBoundGriesmer( 13, 5, 2 );[127X[104X

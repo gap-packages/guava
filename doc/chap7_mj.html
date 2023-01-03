@@ -200,7 +200,7 @@ true
 M \leq {q^n \over V(n,e)},
 \]</p>
 
-<p>where <span class="SimpleMath">\(M\)</span> is the maxmimum number of codewords and <span class="SimpleMath">\(V(n,e)\)</span> is equal to the contents of a ball of radius <span class="SimpleMath">\(e\)</span> (see <code class="func">SphereContent</code> (<a href="chap7_mj.html#X85303BAE7BD46D81"><span class="RefLink">7.5-5</span></a>)). This bound is useful for small values of <var class="Arg">d</var>. Codes for which equality holds are called <em>perfect</em> (see <code class="func">IsPerfectCode</code> (<a href="chap4_mj.html#X85E3BD26856424F7"><span class="RefLink">4.3-6</span></a>)).</p>
+<p>where <span class="SimpleMath">\(M\)</span> is the maximum number of codewords and <span class="SimpleMath">\(V(n,e)\)</span> is equal to the contents of a ball of radius <span class="SimpleMath">\(e\)</span> (see <code class="func">SphereContent</code> (<a href="chap7_mj.html#X85303BAE7BD46D81"><span class="RefLink">7.5-5</span></a>)). This bound is useful for small values of <var class="Arg">d</var>. Codes for which equality holds are called <em>perfect</em> (see <code class="func">IsPerfectCode</code> (<a href="chap4_mj.html#X85E3BD26856424F7"><span class="RefLink">4.3-6</span></a>)).</p>
 
 
 <div class="example"><pre>
@@ -274,7 +274,7 @@ a cyclic [15,5,7]5 BCH code, delta=7, b=1 over GF(2)
 <h5>7.1-6 UpperBoundGriesmer</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; UpperBoundGriesmer</code>( <var class="Arg">n</var>, <var class="Arg">d</var>, <var class="Arg">q</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
-<p>The Griesmer bound is valid only for linear codes. It is obtained by counting the number of equal symbols in each row of the generator matrix of the code. By omitting the coordinates in which all rows have a zero, a smaller code results. The Griesmer bound is obtained by repeating this proces until a trivial code is left in the end.</p>
+<p>The Griesmer bound is valid only for linear codes. It is obtained by counting the number of equal symbols in each row of the generator matrix of the code. By omitting the coordinates in which all rows have a zero, a smaller code results. The Griesmer bound is obtained by repeating this process until a trivial code is left in the end.</p>
 
 
 <div class="example"><pre>

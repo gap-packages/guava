@@ -35,7 +35,7 @@
   Nordstrom-Robinson code (see [2XNordstromRobinsonCode[102X ([14X5.1-6[114X)), respectively.[133X
   
   [33X[0;0YFinally,  we  describe  two functions for generating Greedy codes. These are
-  codes  that  contructed  by gathering codewords from a space (see [2XGreedyCode[102X
+  codes  that  constructed by gathering codewords from a space (see [2XGreedyCode[102X
   ([14X5.1-7[114X) and [2XLexiCode[102X ([14X5.1-8[114X)).[133X
   
   [1X5.1-1 ElementsCode[101X
@@ -1470,7 +1470,7 @@
   [33X[0;0YInput:  [3XF[103X  is  a  finite  field,  [3XL[103X  is  a  list  of  rational  functions in
   [22XR=F[x_1,...,x_r][122X,  [3XP[103X  is  a  list  of  [22Xn[122X  points  in [22XF^r[122X at which all of the
   functions in [3XL[103X are defined.[133X
-  [33X[0;0YOutput: The 'evaluation code' [22XC[122X, which is the image of the evalation map[133X
+  [33X[0;0YOutput: The 'evaluation code' [22XC[122X, which is the image of the evaluation map[133X
   
   
   [24X[33X[0;6YEval_P:span(L)\rightarrow F^n,[133X
@@ -1647,7 +1647,7 @@
   one  could take [22Xf(x,y)=x^2+y^2-1[122X. For the affine line, simply taking [22XQ}[x,y][122X
   for the ring and [22Xf(x,y)=y[122X for the polynomial.[133X
   
-  [33X[0;0Y(Not sure if [22XF[122X neeeds to be a field in fact ...)[133X
+  [33X[0;0Y(Not sure if [22XF[122X needs to be a field in fact ...)[133X
   
   [33X[0;0YTo  compute  its degree, simply use the [2XDegreeMultivariatePolynomial[102X ([14X7.6-2[114X)
   command.[133X
