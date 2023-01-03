@@ -1308,7 +1308,7 @@ end);
 ##
 ##  L describs how to create a code. L is a list with two elements:
 ##  L[1] is a function and L[2] is a list of arguments for L[1].
-##  One or more of the argumenst of L[2] may again be such descriptions and
+##  One or more of the arguments of L[2] may again be such descriptions and
 ##  L[2] can be an empty list.
 ##  The field .construction contains such a list or false if the code is not
 ##  yet in the apropiatelibrary file (/tbl/codeq.g)
@@ -1321,7 +1321,7 @@ function(bds)
 
     # L describs how to create a code. L is a list with two elements:
     # L[1] is a function and L[2] is a list of arguments for L[1].
-    # One or more of the argumenst of L[2] may again be such descriptions and
+    # One or more of the arguments of L[2] may again be such descriptions and
     # L[2] can be an empty list.
     MakeCode := function(L)
         #beware: this is the most beautiful function in GUAVA (according to J)

@@ -327,7 +327,7 @@ end;
 ## Input: a list L
 ## Output: cyclic rotation of the list (to the right)
 ##         RotateList function seems to rotate to the left ??
-##         Am I loosing my direction now? left, right?
+##         Am I losing my direction now? left, right?
 ##
 RightRotateList:=function(L)
     local rL,i,n;

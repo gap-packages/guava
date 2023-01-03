@@ -301,7 +301,7 @@ end);
 ##
 ##  OptimalityCode(C) returns the difference between the smallest known upper-
 ##  bound and the actual size of the code. Note that the value of the
-##  function UpperBound is not allways equal to the actual upperbound A(n,d)
+##  function UpperBound is not always equal to the actual upperbound A(n,d)
 ##  thus the result may not be equal to 0 for all optimal codes!
 ##
 InstallMethod(OptimalityCode, "method for unrestricted code", true,
@@ -531,11 +531,11 @@ function(arg)
                 obj := RecurseBound(n+i[2],k+i[2]-1, spaces, "");
                 obj.cons := [ConstructionBCode, [obj.cons]];
 #                Add(obj.expl, InfoLine(n, k, obj.d, Concatenation(
-#                                    "by contruction B (deleting ",String(i[2]),
+#                                    "by construction B (deleting ",String(i[2]),
 #                                    " coordinates of a word in the dual)"),
 #                                    spaces, prefix) );
                 Add(obj.expl, InfoLine(n, k, obj.d, Concatenation(
-                                    "by applying contruction B to a [",
+                                    "by applying construction B to a [",
                                     String(n+i[2]), ",", String(k+i[2]-1), ",",
                                     String(obj.d), "] code"), spaces, prefix) );
                 Unbind(obj.lastman);
@@ -691,7 +691,7 @@ function(arg)
     if n > Length(GUAVA_BOUNDS_TABLE[1][q]) then
         # no error should be returned here, otherwise Upper and
         # LowerBoundMinimumDistance would not work. The upper bound
-        # could easely be sharpened by the Griesmer bound and
+        # could easily be sharpened by the Griesmer bound and
         # if n - k > Sz then
         #     upperbound >= n - k + 1;
         # else

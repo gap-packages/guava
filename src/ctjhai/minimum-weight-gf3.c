@@ -38,7 +38,7 @@
  *    algorithm is used. See Algorithm L (Loopless Gray binary
  *    generation) in Knuth's book.
  *    
- *  - The code here is not yet optmised, your contributions in this
+ *  - The code here is not yet optimized, your contributions in this
  *    respect are greatly appreciated.
  *
  * Version Log:

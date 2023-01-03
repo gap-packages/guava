@@ -4,7 +4,7 @@
 #A
 #A
 ##
-##  This file contains functions related to AG codes and RR speaces on P^1
+##  This file contains functions related to AG codes and RR spaces on P^1
 ##
 ## created 5-9-2005: also, moved
 ##       DivisorsMultivariatePolynomial (and subfunctions),
@@ -20,7 +20,7 @@
 ##      DegreesMonomialTerm(m)
 ##
 ## Input: a monomial m in n variables,
-##        n1 <= n is the number of variables occuring
+##        n1 <= n is the number of variables occurring
 ##          in each monomial term of m.
 ## Output: the list of degrees of each variable in m.
 ##

@@ -169,7 +169,7 @@ SetPackageInfo( rec(
 ##  for a Webpage with more detailed information about the package
 ##  (not more than a few lines, less is ok):
 ##  Please, use '<span class="pkgname">GAP</span>' and
-##  '<span class="pkgname">MyPKG</span>' for specifing package names.
+##  '<span class="pkgname">MyPKG</span>' for specifying package names.
 ##  
 
   AbstractHTML := 

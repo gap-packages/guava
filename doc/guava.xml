@@ -2718,7 +2718,7 @@ gap> DisplayBoundsInfo(bounds);
 an optimal linear [20,17,d] code over GF(4) has d=3
 --------------------------------------------------------------------------------------------------
 Lb(20,17)=3, by shortening of:
-Lb(21,18)=3, by applying contruction B to a [81,77,3] code
+Lb(21,18)=3, by applying construction B to a [81,77,3] code
 Lb(81,77)=3, by shortening of:
 Lb(85,81)=3, reference: Ham
 --------------------------------------------------------------------------------------------------
@@ -3166,7 +3166,7 @@ MinimumDistance(C); time;
 		if <A>C</A> is a general linear code. This function has a built-in check on
 		the constraints of the minimum weight codewords. For example, for a self-orthogonal
 		code over GF(3), the minimum weight codewords have weight that is divisible by
-		3, i.e. 0 mod 3 congruence. Similary, self-orthogonal codes over GF(2) have
+		3, i.e. 0 mod 3 congruence. Similarly, self-orthogonal codes over GF(2) have
 		codeword weights that are divisible by 4 and even codes over GF(2) have codewords
 		weights that are divisible by 2. By taking these constraints into account, in many
 		cases, the execution time may be significantly reduced. Consider the minimum
@@ -4577,7 +4577,7 @@ Nordstrom-Robinson code (see
 <Ref Func="NordstromRobinsonCode" Style="Number"/>), respectively.
 <P/>
 Finally, we describe two functions for generating Greedy codes. These are
-codes  that  contructed by gathering codewords from a space (see
+codes  that  constructed by gathering codewords from a space (see
 <Ref Func="GreedyCode" Style="Number"/> and 
 <Ref Func="LexiCode" Style="Number"/>).
 
@@ -6805,7 +6805,7 @@ Input: <A>F</A> is a finite field,
 are defined. 
 <Br/>
 Output: The 'evaluation code' <M>C</M>, which is the image of the
-evalation map
+evaluation map
 <Display>
 Eval_P:span(L)\rightarrow F^n,
 </Display> given by <M>f\longmapsto (f(p_1),...,f(p_n))</M>,
@@ -7077,7 +7077,7 @@ one could take <M>f(x,y)=x^2+y^2-1</M>. For the affine
 line, simply taking <M>{\mathbb{Q}}[x,y]</M> for the
 ring and <M>f(x,y)=y</M> for the polynomial.
 <P/>
-(Not sure if <M>F</M> neeeds to be a field in fact ...)
+(Not sure if <M>F</M> needs to be a field in fact ...)
 <P/>
 To compute its degree, simply use the
 <Ref Func="DegreeMultivariatePolynomial" Style="Number"/>
@@ -8930,7 +8930,7 @@ is not exactly the inverse function.
 		This function <C>SubCode</C> returns a subcode of
 		<A>C</A> by taking the first <M>k - s</M> rows of
 		the generator matrix of <A>C</A>, where <M>k</M>
-		is the dimension of <A>C</A>. The interger <A>s</A>
+		is the dimension of <A>C</A>. The integer <A>s</A>
 		may be omitted and in this case it is assumed as 1.
 	</Description>
 </ManSection>
@@ -10080,7 +10080,7 @@ they can never contain more than the whole vector  space.
 <Display>
 M \leq {q^n \over V(n,e)},
 </Display>
-where <M>M</M> is the maxmimum number of codewords and 
+where <M>M</M> is the maximum number of codewords and 
 <M>V(n,e)</M>
 is equal to the contents of a ball of radius <M>e</M> (see
 <Ref Func="SphereContent" Style="Number"/>).  
@@ -10201,7 +10201,7 @@ The Griesmer bound is valid only for linear codes.  It is obtained by
 counting the number of equal symbols in each row of the generator matrix
 of the code. By omitting the coordinates in which all rows have a zero, a
 smaller code results.  The Griesmer bound is obtained by repeating this
-proces until a trivial code is left in the end.
+process until a trivial code is left in the end.
 </Description>
 </ManSection>
 

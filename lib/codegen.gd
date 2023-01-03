@@ -275,7 +275,7 @@ DeclareOperation("QQRCodeNC", [IsInt]);
 
 #############################################################################
 ##
-#F  NullCode( <n> [, <F>] ) . . . . . . . . . . .  code consiting only of <0>
+#F  NullCode( <n> [, <F>] ) . . . . . . . . . . .  code consisting only of <0>
 ##
 DeclareOperation("NullCode", [IsInt, IsField]);
 

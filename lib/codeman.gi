@@ -1892,7 +1892,7 @@ function( C, A )
 		Error("Inappropriate chain of codes\n");
 	fi;
 
-	# Now, ensure that codes in A are sorted such that their dimensions are in accending order
+	# Now, ensure that codes in A are sorted such that their dimensions are in ascending order
 	K:=List([1..Size(A)], i->Dimension(A[i]));;
 	S:=List([1..Size(A)], i->Dimension(A[i]));;
 	Sort(S);;
@@ -1966,7 +1966,7 @@ function( C, A )
 	CX!.upperBoundMinimumDistance := Minimum(S);;
 
 	# This can be displayed using Display(C) or History(C). This shows the
-	# componenet codes that are used to construct the concatenated code
+	# component codes that are used to construct the concatenated code
 	CX!.history := [ Concatenation(String("Base codes: "), String(C)),
 					 Concatenation(String("Auxiliary codes: "), String(A)) ];
 
@@ -2098,7 +2098,7 @@ function( C1, C2, C3, A1, A2 )
 	CXX!.upperBoundMinimumDistance := Minimum(U);
 
 	# This can be displayed using Display(C) or History(C). This shows the
-	# componenet codes that are used to construct this code
+	# component codes that are used to construct this code
 	CXX!.history := [ Concatenation(String("C1: "), String(C1)),
 					  Concatenation(String("C2: "), String(C2)),
 					  Concatenation(String("C3: "), String(C3)),
@@ -2267,7 +2267,7 @@ function( O, I )
 		i->O[i]!.upperBoundMinimumDistance * I[i]!.upperBoundMinimumDistance) );
 
 	# This can be displayed using Display(C) or History(C). This shows the
-	# componenet codes that are used to construct the concatenated code
+	# component codes that are used to construct the concatenated code
 	C!.history := [ Concatenation(String("Inner codes: "), String(I)),
 					Concatenation(String("Outer codes: "), String(O)) ];
 
@@ -2298,7 +2298,7 @@ function( O, I )
     C!.boundsCoveringRadius := [ 0, WordLength(C) ];
 
 	# This can be displayed using Display(C) or History(C). This shows the
-	# componenet codes that are used to construct the concatenated code
+	# component codes that are used to construct the concatenated code
 	C!.history := [ Concatenation(String("Inner codes: "), String(I)),
 					Concatenation(String("Outer codes: "), String(O)) ];
 

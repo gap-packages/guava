@@ -336,7 +336,7 @@ function ( code, stopdistance, startvector )
     fi;
 
     # start algorithm, stop when we are satisfied with the results
-    # (either we have a coset leader of weigth <stopweigth>,
+    # (either we have a coset leader of weight <stopweigth>,
     # or lb = ub)
     while not satisfied do
         countertotal := countertotal + 1;

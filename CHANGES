@@ -208,7 +208,7 @@ Version 2.0002 (5-2005)
    o A renaming of GUAVA 2.0, for the GAP 4.4.5 release.
 
 Version 2.0001: (12-2004)
-   o Merely aded PolynomialByExtRepNC to GUAVA. (A *temporary* addition to 
+   o Merely added PolynomialByExtRepNC to GUAVA. (A *temporary* addition to
      last until GAP 4.4.5 was released.)
 
 Version 2.0: (12-2004)

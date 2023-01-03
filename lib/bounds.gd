@@ -88,7 +88,7 @@ DeclareProperty("IsMDSCode", IsCode);
 ##
 ##  OptimalityCode(C) returns the difference between the smallest known upper-
 ##  bound and the actual size of the code. Note that the value of the
-##  function UpperBound is not allways equal to the actual upperbound A(n,d)
+##  function UpperBound is not always equal to the actual upperbound A(n,d)
 ##  thus the result may not be equal to 0 for all optimal codes!
 ##
 DeclareOperation("OptimalityCode", [IsCode]);

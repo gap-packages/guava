@@ -20,7 +20,7 @@
  *       algorithms with minimal change property", Communications
  *       of the ACM, vol. 25, no. 8, August 1982
  *
- *  - The code here is not yet optmised, your contributions in this
+ *  - The code here is not yet optimized, your contributions in this
  *    respect are greatly appreciated.
  *
  * Version Log:
@@ -699,7 +699,7 @@ void mat_packed_print_gf2(packed_t **M, int nBlocks, int dim, int length) {
 	}
 }
 
-/* gauss jordan - turn matrix 'M' into reduced-echelon format at positon 'start' */
+/* gauss jordan - turn matrix 'M' into reduced-echelon format at position 'start' */
 int gf2_gauss_jordan(MATRIX *M, int start) {
 	bool found;
 	int i, r, c, pivot, swap;
