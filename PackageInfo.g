@@ -39,18 +39,6 @@ SetPackageInfo( rec(
  Report issues at https://github.com/gap-packages/guava/issues
 """),
 
-##    - if no 'TextFiles' or 'BinaryFiles' are given and a .zoo archive is
-##      provided, then the files in that archive with a "!TEXT!" comment are
-##      taken as text files
-##    - otherwise: exactly the files with names matching the regular expression
-##      ".*\(\.txt\|\.gi\|\.gd\|\.g\|\.c\|\.h\|\.htm\|\.html\|\.xml\|\.tex\|\.six\|\.bib\|\.tst\|README.*\|INSTALL.*\|Makefile\)"
-##      are taken as text files
-##  
-##  These entries are *optional*.
-#TextFiles := ["init.g", ......],
-#BinaryFiles := ["doc/manual.pdf", ......],
-
-
   Persons := [ 
     rec( 
       LastName      := "Baart",
