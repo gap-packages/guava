@@ -100,7 +100,7 @@ int main(
    Partition *partn;
    Matrix_01 *matrix, *matrixConjugated;
    Code *C, *CConjugated;
-   char comment[255];
+   char comment[1024];
    BOOLEAN baseSgsFlag = FALSE, imageFormatFlag = FALSE, cjperFlag = FALSE,
            monomialFlag = FALSE;
    UnsignedS *newCellNumber;

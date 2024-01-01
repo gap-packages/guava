@@ -50,7 +50,7 @@ int main( int argc, char *argv[])
         designFileName[MAX_FILE_NAME_LENGTH] = "",
         permGroupLibraryName[MAX_NAME_LENGTH] = "",
         designLibraryName[MAX_NAME_LENGTH] = "";
-   char comment[60];
+   char comment[1024];
    Unsigned orbRep, i, j, pt, basePt, processed, found, img, optionCountPlus1;
    char *flag;
    Unsigned *pointList;

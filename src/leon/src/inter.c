@@ -159,7 +159,7 @@ int main( int argc, char *argv[])
         suffix[MAX_NAME_LENGTH];
    PermGroup *G, *E, *G_pP, *L = NULL;
    BOOLEAN imageFlag = FALSE, imageFormatFlag = FALSE;
-   char comment[100];
+   char comment[1024];
 
    /* Provide usage information if no options are specified. */
    if ( argc == 1 ) {

@@ -178,7 +178,7 @@ int main( int argc, char *argv[])
    char tempArg[8], *nextChar;
    enum { ELT_CENTRALIZER, ELT_CONJUGATE, GROUP_CENTRALIZER} computationType =
                                                              ELT_CENTRALIZER;
-   char comment[100];
+   char comment[1024];
 
    /* Check whether the first parameter is conj or group.  If so, a conjugacy
       (rather than centralizer) or group centralizer computation will be

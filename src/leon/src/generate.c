@@ -173,7 +173,7 @@ int main( int argc, char *argv[])
            noBackupFlag;
    Unsigned trimStrGenSet1, trimStrGenSet2;
    PermGroup *G, *containingGroup;
-   char comment[60] = "";
+   char comment[1024] = "";
    UnsignedS *pointList = allocIntArrayBaseSize();
    char tempStr[12];
    char *strPtr, *commaPtr;

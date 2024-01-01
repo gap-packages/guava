@@ -202,7 +202,7 @@ int main( int argc, char *argv[])
    char tempArg[8];
    enum { DESIGN_AUTO, DESIGN_ISO, MATRIX_AUTO, MATRIX_ISO, CODE_AUTO,
           CODE_ISO} computationType = DESIGN_AUTO;
-   char comment[100];
+   char comment[1024];
 
    /* Check whether the first parameters are iso, code, or matrix.
       Set the computation type. */

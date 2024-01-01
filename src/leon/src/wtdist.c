@@ -148,7 +148,7 @@ int main( int argc, char *argv[])
    Matrix_01 *matrix;
    BOOLEAN saveCodeWords, oneCodeWordOnly, defaultForBinaryProcedure,
            useBinaryProcedure = FALSE, cWtDistFlag;
-   char comment[100];
+   char comment[1024];
    unsigned long *freq = malloc( (MAX_CODE_LENGTH+2) * sizeof(unsigned long));
 
    /* Provide help if no arguments are specified. */

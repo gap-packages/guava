@@ -66,7 +66,7 @@ int main( int argc, char *argv[])
         commutatorName[MAX_NAME_LENGTH+1] = "";
    PermGroup *G, *H, *C;
    BOOLEAN imageFormatFlag = FALSE, HnotequalG, quietFlag, normalClosureFlag;
-   char comment[100];
+   char comment[1024];
 
    /* If no arguments (except possibly -ncl) are given, provide help and exit. */
    if ( argc == 1 ) {

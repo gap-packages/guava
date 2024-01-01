@@ -187,7 +187,7 @@ int main( int argc, char *argv[])
    char tempArg[8];
    enum { SET_STAB, SET_IMAGE, PARTN_STAB, PARTN_IMAGE,
           UPARTN_STAB, UPARTN_IMAGE} computationType = SET_STAB;
-   char comment[100];
+   char comment[1024];
 
    /* Check whether the first parameter is Image or (U)Partn, and if so whether
       the second parameter is Image or (U)Partn.  If so, a set image, partition
