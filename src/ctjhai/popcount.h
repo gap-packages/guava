@@ -23,10 +23,10 @@ extern unsigned short *__popcnt_LUT;
 #endif
 
 /* Function prototypes */
-void init_popcount();
-void __init_popcount_LUT();
-void clear_popcount();
-void __clear_popcount_LUT();
+void init_popcount(void);
+void __init_popcount_LUT(void);
+void clear_popcount(void);
+void __clear_popcount_LUT(void);
 
 /* The following contains the macros that actually do the population count */
 #if defined(POPCOUNT_LUT8)		/* 8-bit LUT */
