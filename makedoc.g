@@ -50,7 +50,7 @@ local mypath, path, main, files, f, bookname;
 path:="doc";
 main:="guava.xml";
 bookname:="guava";
-MakeGAPDocDoc( path, main, GUAVAMANUALFILES, bookname, "../../..", "MathJax" );  
+MakeGAPDocDoc( path, main, GUAVAMANUALFILES, bookname, "/usr/lib/gap-4.12.2", "MathJax" );  
 CopyHTMLStyleFiles( path );
 GAPDocManualLab( "guava" );; 
 ExtractMyManualExamples( "guava", main, GUAVAMANUALFILES);
