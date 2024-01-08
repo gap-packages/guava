@@ -25,7 +25,7 @@ static Matrix_01 *xRead01Matrix(
    Unsigned requiredSetSize,
    Unsigned requiredNumberOfRows,
    Unsigned requiredNumberOfCols);
-
+   char *rv;
 
 /*-------------------------- readDesign -----------------------------------*/
 
@@ -62,7 +62,7 @@ Matrix_01 *readDesign(
       not found. */
    rewind( libFile);
    for (;;) {
-      fgets( inputBuffer, 80, libFile);
+      rv = fgets( inputBuffer, 80, libFile);
       if ( feof(libFile) )
          ERROR1s( "readDesign", "Library block ", libName,
                   " not found in specified library.")
@@ -228,7 +228,7 @@ Matrix_01 *read01Matrix(
    rewind( libFile);
    firstIdent = TRUE;
    for (;;) {
-      fgets( inputBuffer, 80, libFile);
+      rv = fgets( inputBuffer, 80, libFile);
       if ( feof(libFile) )
          ERROR1s( "read01Matrix", "Library block ", libName,
                   " not found in specified library.")

@@ -32,7 +32,8 @@ Permutation *readPermutation(
    Token token, saveToken;
    char inputBuffer[81];
    FILE *libFile;
-
+   char *rv;
+   
    /* Open input file. */
    libFile = fopen( libFileName, "r");
    if ( libFile == NULL )
@@ -50,7 +51,7 @@ Permutation *readPermutation(
       not found. */
    rewind( libFile);
    for (;;) {
-      fgets( inputBuffer, 80, libFile);
+      rv = fgets( inputBuffer, 80, libFile);
       if ( feof(libFile) )
          ERROR1s( "readPermutation", "Library block ", libName,
                   " not found in specified library.")

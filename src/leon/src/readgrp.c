@@ -304,8 +304,11 @@ PermGroup *readPermGroup(
    TokenType terminator;
    char attribute[MAX_NAME_LENGTH+1];
    char inputBuffer[81];
+   char *rv;
+   
    RandomSchreierOptions rOptions = {0,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,
                                      UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN};
+
    /* Attempt to open library file. */
    libFile = fopen( libFileName, "r");
    if ( libFile == NULL )
@@ -333,7 +336,7 @@ PermGroup *readPermGroup(
       not found. */
    rewind( libFile);
    for (;;) {
-      fgets( inputBuffer, 80, libFile);
+      rv = fgets( inputBuffer, 80, libFile);
       if ( feof(libFile) )
          ERROR1s( "readPermGroup", "Library block ", libName,
                   " not found in specified library.")
