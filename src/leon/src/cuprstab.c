@@ -124,6 +124,8 @@ PermGroup *uPartnStabilizer(
 
    return  computeSubgroup( G, NULL, refnFamList, reducChkList,
                             specialRefinement, extra, L);
+#else
+   return NULL;
 #endif
 }
 #undef familyParm
@@ -182,6 +184,8 @@ Permutation *uPartnImage(
 
    return  computeCosetRep( G, NULL, refnFamList, reducChkList,
                             specialRefinement, L_L, L_R);
+#else
+   return NULL;
 #endif
 }
 
@@ -213,10 +217,11 @@ static void initializePartnStabRefn(
          refnParm[1].intParm:    j.
 */
 
+/*
 static SplitSize uPartnStabRefine(
    const RefinementParm familyParm[],
    const RefinementParm refnParm[],
-   PartitionStack *const UpsilonStack)     /* The partition stack to refine. */
+   PartitionStack *const UpsilonStack)     // The partition stack to refine. 
 {
 #ifdef xxxx
    CellPartitionStack *xUpsilonStack = familyParm[0].ptrParm;
@@ -238,8 +243,8 @@ static SplitSize uPartnStabRefine(
    SplitSize  split;
    BOOLEAN cellSplits;
 
-   /* First check if the refinement acts nontrivially on UpsilonTop. If not
-      return immediately. */
+   // First check if the refinement acts nontrivially on UpsilonTop. If not
+   //   return immediately. 
    cellSplits = FALSE;
    for ( m = startCell[cellToSplit]+1 , last = m -1 + cellSize[cellToSplit] ;
          m < last ; ++m )
@@ -254,8 +259,8 @@ static SplitSize uPartnStabRefine(
       return split;
    }
 
-   /* Now split cell cellToSplit of UpsilonTop.  A variation of the splitting
-      algorithm used in quicksort is applied. */
+   // Now split cell cellToSplit of UpsilonTop.  A variation of the splitting
+   //   algorithm used in quicksort is applied. 
    if ( cellSize[i] <= xUpsilonStack->totalGroupSize[j] ) {
       left = startCell[i] - 1;
       right = startCell[i] + cellSize[i];
@@ -302,14 +307,18 @@ static SplitSize uPartnStabRefine(
    return split;
 #endif
 }
+ */
+
+
 
 
 /*-------------------------- initializeUPartnStabRefine --------------------------*/
 
+/*
 void initializeUPartnStabRefine( PermGroup *G)
 {
 #ifdef xxxx
-   /* Compute hash table size. */
+   // Compute hash table size. 
    if ( refnData.groupCount == 0 ) {
       hashTableSize = G->degree;
       while ( hashTableSize > 11 &&
@@ -333,7 +342,7 @@ void initializeUPartnStabRefine( PermGroup *G)
       ERROR( "initializeOrbRefine", "Orbit refinement limited to ten groups.")
 #endif
 }
-
+*/
 
 /*-------------------------- xPartnStabRefine ------------------------------*/
 
@@ -341,23 +350,24 @@ void initializeUPartnStabRefine( PermGroup *G)
                        zeroArray[nonZeroPosition[r]] = 0; \
                        nonZeroCount = 0;
 
-/* The function implements the refinement family xPartnStabRefine.   Here
-   xssS_{Pi,i,j,m,p} acting on Pi^(p) (the top partition of PiStack^(p))
-   splits from cell group i of Pi^(p) those cells intersecting cell j of Pi
-   in exactly m points. /
+// The function implements the refinement family xPartnStabRefine.   Here
+// xssS_{Pi,i,j,m,p} acting on Pi^(p) (the top partition of PiStack^(p))
+//   splits from cell group i of Pi^(p) those cells intersecting cell j of Pi
+//   in exactly m points. /
+//
+//   The family parameter is:
+//         familyParm[0].ptrParm:  extra[p]->xUpsilonStack
+//   The refinement parameters are:
+//         refnParm[0].intParm:    i,
+//         refnParm[1].intParm:    j.
+//         refnParm[2].intParm:    m.
 
-   The family parameter is:
-         familyParm[0].ptrParm:  extra[p]->xUpsilonStack
-   The refinement parameters are:
-         refnParm[0].intParm:    i,
-         refnParm[1].intParm:    j.
-         refnParm[2].intParm:    m.
-*/
 
+/*
 static SplitSize partnStabRefine(
    const RefinementParm familyParm[],
    const RefinementParm refnParm[],
-   PartitionStack *const UpsilonStack)     /* The partition stack to refine. */
+   PartitionStack *const UpsilonStack)     // The partition stack to refine. 
 {
 #ifdef xxxx
    static Unsigned zeroArrayDegree = 0;
@@ -397,9 +407,9 @@ static SplitSize partnStabRefine(
       nonZeroPosition = malloc( (zeroArrayDegree+2)*sizeof(UnsignedS) );
    }
 
-   /* Here we set zeroArray[j] to the cardinality of
-      (cell j of UpsilonTop) intersect (cell k of Lambda) for each k in
-      cell group i of xUpsilonTop. */
+   // Here we set zeroArray[j] to the cardinality of
+   //   (cell j of UpsilonTop) intersect (cell k of Lambda) for each k in
+   //   cell group i of xUpsilonTop. 
    if ( xUpsilonStack->totalGroupSize[i] <= cellSize[j] )
       for ( k = xStartCellGroup[i] ; k < xStartCellGroup[i] +
                                          xCellGroupSize[i] ; ++k ) {
@@ -421,8 +431,8 @@ static SplitSize partnStabRefine(
          }
       }
 
-   /* Now reset zeroArray and return immediately if the cell group does not
-      split. */
+   // Now reset zeroArray and return immediately if the cell group does not
+   //   split. 
    splitFlag = nonSplitFlag = FALSE;
    if ( xUpsilonStack->cellCount > nonZeroCount )
       if ( m == 0 )
@@ -442,8 +452,8 @@ static SplitSize partnStabRefine(
       return split;
    }
 
-   /* Now split cell group i of xUpsilonTop.  A variation of the splitting
-      algorithm used in quicksort is applied. */
+   // Now split cell group i of xUpsilonTop.  A variation of the splitting
+   //   algorithm used in quicksort is applied. 
    last = xStartCellGroup[i] + xCellGroupSize[i];
    if ( xUpsilonStack->cellGroupSize[i] <= cellSize[j] ) {
       left = xStartCellGroup[i] - 1;
@@ -493,13 +503,15 @@ static SplitSize partnStabRefine(
    return split;
 #endif
 }
+*/
 
+/*
 #ifdef xxxxxx
-/*-------------------------- deleteRefnListEntry --------------------------*/
+//-------------------------- deleteRefnListEntry --------------------------
 
 static void deleteRefnListEntry(
    RefnListEntry *entryToDelete,
-   Unsigned hashPosition,             /* hashTableSize+1 indicates unknown */
+   Unsigned hashPosition,             // hashTableSize+1 indicates unknown 
    RefnListEntry *prevHashListEntry)
 {
    if ( hashPosition > hashTableSize ) {
@@ -527,12 +539,12 @@ static void deleteRefnListEntry(
 }
 
 
-/*-------------------------- isUPartnStabReducible ------------------------*/
+//-------------------------- isUPartnStabReducible ------------------------
 
 RefinementPriorityPair isOrbReducible(
-   const RefinementFamily *family,        /* The refinement family mapping
-                                             must be orbRefine; family parm[0]
-                                             is the group. */
+   const RefinementFamily *family,        // The refinement family mapping
+                                          //   must be orbRefine; family parm[0]
+                                          //   is the group.
    const PartitionStack *const UpsilonStack)
 {
    BOOLEAN cellWillSplit;
@@ -551,9 +563,9 @@ RefinementPriorityPair isOrbReducible(
    RefnListEntry *refnList;
    RefnListEntry *p, *oldP, *position, *minPosition;
 
-   /* Check that the refinement mapping really is pointStabRefn, as required,
-      and that the group is one for which initializeOrbRefine has been
-      called. */
+   // Check that the refinement mapping really is pointStabRefn, as required,
+   //   and that the group is one for which initializeOrbRefine has been
+   //   called.
    if ( family->refine != orbRefine )
       ERROR( "isOrbReducible", "Error: incorrect refinement mapping");
    for ( groupNumber = 0 ; groupNumber < refnData.groupCount &&
@@ -566,11 +578,11 @@ RefinementPriorityPair isOrbReducible(
    refnList = refnData.refnList[groupNumber];
    oldLevelAddr = &refnData.oldLevel[groupNumber];
 
-   /* If this is a new level, we reconstruct the list of potential refinements
-      from scratch.  */
+   // If this is a new level, we reconstruct the list of potential refinements
+      from scratch. 
    if ( level != *oldLevelAddr ) {
 
-      /* Initialize data structures. */
+      // Initialize data structures.
       *oldLevelAddr = level;
       for ( i = 0 ; i < hashTableSize ; ++i )
          hashTable[i] = NULL;
@@ -580,12 +592,12 @@ RefinementPriorityPair isOrbReducible(
          refnList[i].next = &refnList[i+1];
       refnList[G->degree].next = NULL;
 
-   /* Process the i'th cell of the top partition for i = 1,2,...., finding all
-      possible refinements. */
+   // Process the i'th cell of the top partition for i = 1,2,...., finding all
+   //   possible refinements. 
       for ( i = 1 ; i <= UpsilonStack->height ; ++i ) {
 
-         /* First check if the i'th cell will split.  If not, proceed directly
-            to the next cell. */
+         // First check if the i'th cell will split.  If not, proceed directly
+         //   to the next cell. 
          for ( m = startCell[i]+1 , cellWillSplit = FALSE ;
                m < startCell[i] + cellSize[i] && !cellWillSplit ; ++m )
             if ( orbNumberOfPt[ pointList[m] ] !=
@@ -594,8 +606,8 @@ RefinementPriorityPair isOrbReducible(
          if ( !cellWillSplit )
             continue;
 
-         /* Now find all splittings of the i'th cell and insert them into the
-            list in sorted order. */
+         // Now find all splittings of the i'th cell and insert them into the
+         //   list in sorted order. 
          for ( m = startCell[i] ; m < startCell[i]+cellSize[i] ; ++m ) {
             j = orbNumberOfPt[pointList[m]];
             hashPosition = HASH( i, j);
@@ -625,9 +637,9 @@ RefinementPriorityPair isOrbReducible(
       }
    }
 
-   /* If this is not a new level, we merely fix up the old list.  The entries
-      for the new cell must be created and those for its parent must be
-      adjusted. */
+   // If this is not a new level, we merely fix up the old list.  The entries
+   //   for the new cell must be created and those for its parent must be
+   //   adjusted.
    else {
       freeListHeader = refnData.freeListHeader[groupNumber];
       inUseListHeader = refnData.inUseListHeader[groupNumber];
@@ -681,8 +693,8 @@ RefinementPriorityPair isOrbReducible(
          }
    }
 
-   /* Now we return a refinement of minimal priority.  While searching the
-      list, we also check for refinements invalidated by previous splittings. */
+   // Now we return a refinement of minimal priority.  While searching the
+   //   list, we also check for refinements invalidated by previous splittings. 
    minPosition = inUseListHeader;
    minPriority = ULONG_MAX;
    count = 1;
@@ -711,8 +723,8 @@ RefinementPriorityPair isOrbReducible(
       reducingRefn.priority = thisPriority;
    }
 
-   /* If this is the last call to isOrbReducible for this group (UpsilonStack
-      has height degree-1), free memory and reinitialize. */
+   // If this is the last call to isOrbReducible for this group (UpsilonStack
+   //   has height degree-1), free memory and reinitialize. 
    if ( UpsilonStack->height == G->degree - 1 ) {
       freePtrArrayDegree( refnData.hashTable[groupNumber]);
       free( refnData.refnList[groupNumber]);
@@ -730,3 +742,4 @@ RefinementPriorityPair isOrbReducible(
 
 cstExtraRBase()
 #endif
+*/
