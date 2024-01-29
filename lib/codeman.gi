@@ -398,10 +398,10 @@ function(C, wt)
       return CWS;
    else
       #Print("the C code programs are compiled, so using Leon's binary....\n");
-      incode := TmpNameAllArchs();
+      incode := TmpName();
       PrintTo( incode, "\n" );
-      infile := TmpNameAllArchs();
-      cwsc := TmpNameAllArchs();
+      infile := TmpName();
+      cwsc := TmpName();
       PrintTo( infile, "\n" );
       GuavaToLeon(C, incode);
       Process(DirectoryCurrent(),
