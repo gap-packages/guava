@@ -11,6 +11,10 @@ For more information, please refer to [the package manual]({{site.data.package.d
 There is also a [README](README.html) file and the former [webpage](oldindex.html)
 used for releases up to GUAVA 3.13 inclusive.
 
+{% if site.data.package.license %}
+  License: [{{ site.data.package.license }}](https://spdx.org/licenses/{{ site.data.package.license }})
+{% endif %}
+
 ## Dependencies
 
 This package requires GAP version {{site.data.package.GAP}}
@@ -43,6 +47,20 @@ The following additional GAP packages are not required, but suggested:
   {%- if forloop.last -%}.{% else %}, {%- endif -%}
  {% endfor %}
 {% endif %}
+
+{% if site.data.package.citeas %}
+## Citing
+
+Please, cite this package as
+
+{{site.data.package.citeas}}
+
+You can get more info by typing `Cite("{{ site.data.package.name }}");` in the gap prompt.
+
+{% include button-bibtex.html %}
+
+{% endif %}
+
 
 {% if site.github.issues_url %}
 ## Feedback
