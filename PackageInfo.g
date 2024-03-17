@@ -47,7 +47,6 @@ SetPackageInfo( rec(
       IsMaintainer  := false,
       Place         := "Delft",
       Institution   := "Delft University of Technology",
-      PostalAddress := "no address known",
     ),
     rec( 
       LastName      := "Boothby",
@@ -56,7 +55,6 @@ SetPackageInfo( rec(
       IsMaintainer  := false,
       Place         := "Seattle",
       Institution   := "The University of Washington",
-      PostalAddress := "no address known",
     ),
     rec( 
       LastName      := "Cramwinckel",
@@ -65,7 +63,6 @@ SetPackageInfo( rec(
       IsMaintainer  := false,
       Place         := "Delft",
       Institution   := "Delft University of Technology",
-      PostalAddress := "no address known",
     ),
     rec( 
       LastName      := "Fields",
@@ -106,7 +103,6 @@ SetPackageInfo( rec(
       IsMaintainer  := false,
       Place         := "Seattle",
       Institution   := "The University of Washington",
-      PostalAddress := "no address known",
     ),
     rec( 
       LastName      := "Minkes",
@@ -115,7 +111,6 @@ SetPackageInfo( rec(
       IsMaintainer  := false,
       Place         := "Delft",
       Institution   := "Delft University of Technology",
-      PostalAddress := "no address known",
     ),
     rec( 
       LastName      := "Roijackers",
@@ -124,7 +119,6 @@ SetPackageInfo( rec(
       IsMaintainer  := false,
       Place         := "Delft",
       Institution   := "Delft University of Technology",
-      PostalAddress := "no address known",
     ),
     rec( 
       LastName      := "Ruscio",
@@ -133,7 +127,6 @@ SetPackageInfo( rec(
       IsMaintainer  := false,
       Place         := "Edinburgh",
       Institution   := "The University of Edinburgh",
-      PostalAddress := "no address known",
     ),
     rec( 
       LastName      := "Tjhai",
@@ -142,7 +135,6 @@ SetPackageInfo( rec(
       IsMaintainer  := false,
       Place         := "Plymouth",
       Institution   := "The University of Plymouth",
-      PostalAddress := "no address known",
     )
   ],  
 
