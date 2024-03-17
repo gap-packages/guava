@@ -260,7 +260,23 @@ TestFile := "tst/guava.tst",
 "nonlinear code","minimum distance", "minimum weight", 
 "error-correcting block codes", "decoding",
 "generator matrix", "check matrix","covering radius", 
-"weight distribution","automorphism group of code" ]
+"weight distribution","automorphism group of code" ],
+
+AutoDoc := rec(
+    entities := rec(
+        VERSION := ~.Version,
+        RELEASEDATE := function(date)
+          local day, month, year, allMonths;
+          day := Int(date{[1,2]});
+          month := Int(date{[4,5]});
+          year := Int(date{[7..10]});
+          allMonths := [ "January", "February", "March", "April", "May", "June", "July",
+                         "August", "September", "October", "November", "December"];
+          return Concatenation(String(day)," ", allMonths[month], " ", String(year));
+        end(~.Date),
+        RELEASEYEAR := ~.Date{[7..10]},
+    ),
+),
 
 ));
 
