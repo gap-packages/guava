@@ -41,6 +41,8 @@ Makefile
 /src/leon/autom4te.cache/
 /src/leon/configure
 /src/leon/install-sh
+/src/leon/src/leon_config.h
+/src/leon/src/leon_config.h.in
 
 /src/leon/cent
 /src/leon/cjrndper
