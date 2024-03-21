@@ -12506,7 +12506,7 @@ Returns the current version of Guava. Same as
 
 <Example>
 gap> GuavaVersion();
-"3.11"
+"3.19"
 
 </Example>
 <!--

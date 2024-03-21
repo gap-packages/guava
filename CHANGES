@@ -1,6 +1,11 @@
 In this file we record the changes since the first GAP 4 release of
 the GUAVA package.
 
+Version 3.19 (3-2024)
+   o Fix various issues in the C source code, including potential buffer
+     overflows and many compiler warnings
+   o Various other minor and/or janitorial changes
+
 Version 3.18 (1-2023)
    o Enhance the `configure` script to accept `--with-gaproot=PATH`
 
