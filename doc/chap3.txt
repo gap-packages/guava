@@ -51,7 +51,7 @@
   explained more below.[133X
   
   [33X[0;0YMany  operations  are  available on codewords themselves, although codewords
-  also work together with codes (see chapter [14X4.[114X on Codes).[133X
+  also work together with codes (see chapter [14X4.0[114X on Codes).[133X
   
   [33X[0;0YThe  first  section  describes  how  codewords are constructed (see [2XCodeword[102X
   ([14X3.1-1[114X)   and  [2XIsCodeword[102X  ([14X3.1-3[114X)).  Sections  [14X3.2[114X  and  [14X3.3[114X  describe  the

@@ -1,7 +1,7 @@
 name: GUAVA
-version: "3.18"
+version: "3.19"
 license: "GPL-2.0-or-later"
-date: 2023-01-03
+date: 2024-03-21
 description: |
     a GAP package for computing with error-correcting codes
 
@@ -36,7 +36,7 @@ packageinfo: https://gap-packages.github.io/guava/PackageInfo.g
 
 downloads:
     - name: .tar.gz
-      url: https://github.com/gap-packages/guava/releases/download/v3.18/guava-3.18.tar.gz
+      url: https://github.com/gap-packages/guava/releases/download/v3.19/guava-3.19.tar.gz
 
 abstract: |
     <span class="pkgname">GUAVA</span> is a <span class="pkgname">GAP</span> package for computing with codes. <span class="pkgname">GUAVA</span> can construct unrestricted (non-linear), linear and cyclic codes; transform one code into another (for example by puncturing); construct a new code from two other codes (using direct sums for example); perform decoding/error-correction; and can calculate important data of codes (such as the minumim distance or covering radius) quickly. Limited ability to compute algebraic geometric codes.
@@ -48,33 +48,35 @@ keywords: |
     code, codeword, Hamming, linear code, nonlinear code, minimum distance, minimum weight, error-correcting block codes, decoding, generator matrix, check matrix, covering radius, weight distribution, automorphism group of code.
 citeas: |
     <p class='BibEntry'>
-    [<span class='BibKey'>BBCFJMMRRT23</span>]   <b class='BibAuthor'>Baart, R., Boothby, T., Cramwinckel, J., Fields, J., Joyner, D., Miller, R., Minkes, E., Roijackers, E., Ruscio, L. and Tjhai, C.</b>,
+    [<span class='BibKey'>BBCFJMMRRT24</span>]   <b class='BibAuthor'>Baart, R., Boothby, T., Cramwinckel, J., Fields, J., Joyner, D., Miller, R., Minkes, E., Roijackers, E., Ruscio, L. and Tjhai, C.</b>,
      <i class='BibTitle'>GUAVA, a GAP package for computing with error-correcting codes,
-             Version 3.18</i>
-     (<span class='BibYear'>2023</span>)<br />
-    (<span class='BibNote'>Refereed GAP package</span>),
+             Version 3.19</i>
+     (<span class='BibYear'>2024</span>)<br />
+    (<span class='BibNote'>GAP package</span>),
     <span class='BibHowpublished'><a href="https://gap-packages.github.io/guava">https://gap-packages.github.io/guava</a></span>.
     </p>
     
 
 bibtex: |
-    @misc{ GUAVA3.18,
+    @misc{ GUAVA,
       author =           {Baart,  R.  and  Boothby,  T.  and Cramwinckel, J. and
                           Fields,  J.  and Joyner, D. and Miller, R. and Minkes,
                           E. and Roijackers, E. and Ruscio, L. and Tjhai, C.},
       title =            {{GUAVA},    a   GAP   package   for   computing   with
-                          error-correcting codes, {V}ersion 3.18},
-      month =            {Jan},
-      year =             {2023},
-      note =             {Refereed GAP package},
+                          error\texttt{\symbol{45}}correcting  codes,  {V}ersion
+                          3.19},
+      month =            {Mar},
+      year =             {2024},
+      note =             {GAP package},
       howpublished =     {\href           {https://gap-packages.github.io/guava}
-                          {\texttt{https://gap-packages.github.io/}\discretionary
+                          {\texttt{https://gap\texttt{\symbol{45}}packages.github.io/}\discretionary
                           {}{}{}\texttt{guava}}},
       keywords =         {code;  codeword; Hamming; linear code; nonlinear code;
-                          minimum  distance;  minimum  weight;  error-correcting
-                          block codes; decoding; generator matrix; check matrix;
-                          covering  radius;  weight  distribution;  automorphism
-                          group of code},
-      printedkey =       {BBCFJMMRRT23}
+                          minimum        distance;        minimum        weight;
+                          error\texttt{\symbol{45}}correcting    block    codes;
+                          decoding;  generator  matrix;  check  matrix; covering
+                          radius;  weight  distribution;  automorphism  group of
+                          code},
+      printedkey =       {BBCFJMMRRT24}
     }
 

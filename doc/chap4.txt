@@ -5,7 +5,7 @@
   sequence  of elements of a finite field [22XGF(q)[122X, where [22Xq[122X is a prime power). We
   call  these  the  [13Xelements[113X  of  the  code.  Depending on the type of code, a
   codeword  can  be  interpreted  as  a  vector  or  as  a polynomial. This is
-  explained in more detail in Chapter [14X3.[114X.[133X
+  explained in more detail in Chapter [14X3.0[114X.[133X
   
   [33X[0;0YIn  [5XGUAVA[105X, codes can be a set specified by its elements (this will be called
   an [13Xunrestricted code[113X), by a generator matrix listing a set of basis elements
@@ -138,7 +138,7 @@
   [2XDistancesDistribution[102X  ([14X4.9-4[114X)).  Section  [14X4.10[114X describes functions that are
   related  to  decoding  (see  [2XDecode[102X  ([14X4.10-1[114X), [2XDecodeword[102X ([14X4.10-2[114X), [2XSyndrome[102X
   ([14X4.10-8[114X),  [2XSyndromeTable[102X  ([14X4.10-9[114X) and [2XStandardArray[102X ([14X4.10-10[114X)). In Chapters
-  [14X5.[114X  and  [14X6.[114X which follow, we describe functions that generate and manipulate
+  [14X5.0[114X and [14X6.0[114X which follow, we describe functions that generate and manipulate
   codes.[133X
   
   

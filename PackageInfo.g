@@ -8,8 +8,8 @@
 SetPackageInfo( rec(
   PackageName := "GUAVA",
   Subtitle := "a GAP package for computing with error-correcting codes",
-  Version := "3.18",
-  Date    := "03/01/2023",
+  Version := "3.19",
+  Date    := "21/03/2024",
   License := "GPL-2.0-or-later",
   SourceRepository := rec(
     Type := "git",
@@ -39,18 +39,6 @@ SetPackageInfo( rec(
  Report issues at https://github.com/gap-packages/guava/issues
 """),
 
-##    - if no 'TextFiles' or 'BinaryFiles' are given and a .zoo archive is
-##      provided, then the files in that archive with a "!TEXT!" comment are
-##      taken as text files
-##    - otherwise: exactly the files with names matching the regular expression
-##      ".*\(\.txt\|\.gi\|\.gd\|\.g\|\.c\|\.h\|\.htm\|\.html\|\.xml\|\.tex\|\.six\|\.bib\|\.tst\|README.*\|INSTALL.*\|Makefile\)"
-##      are taken as text files
-##  
-##  These entries are *optional*.
-#TextFiles := ["init.g", ......],
-#BinaryFiles := ["doc/manual.pdf", ......],
-
-
   Persons := [ 
     rec( 
       LastName      := "Baart",
@@ -59,7 +47,6 @@ SetPackageInfo( rec(
       IsMaintainer  := false,
       Place         := "Delft",
       Institution   := "Delft University of Technology",
-      PostalAddress := "no address known",
     ),
     rec( 
       LastName      := "Boothby",
@@ -68,7 +55,6 @@ SetPackageInfo( rec(
       IsMaintainer  := false,
       Place         := "Seattle",
       Institution   := "The University of Washington",
-      PostalAddress := "no address known",
     ),
     rec( 
       LastName      := "Cramwinckel",
@@ -77,7 +63,6 @@ SetPackageInfo( rec(
       IsMaintainer  := false,
       Place         := "Delft",
       Institution   := "Delft University of Technology",
-      PostalAddress := "no address known",
     ),
     rec( 
       LastName      := "Fields",
@@ -118,7 +103,6 @@ SetPackageInfo( rec(
       IsMaintainer  := false,
       Place         := "Seattle",
       Institution   := "The University of Washington",
-      PostalAddress := "no address known",
     ),
     rec( 
       LastName      := "Minkes",
@@ -127,7 +111,6 @@ SetPackageInfo( rec(
       IsMaintainer  := false,
       Place         := "Delft",
       Institution   := "Delft University of Technology",
-      PostalAddress := "no address known",
     ),
     rec( 
       LastName      := "Roijackers",
@@ -136,7 +119,6 @@ SetPackageInfo( rec(
       IsMaintainer  := false,
       Place         := "Delft",
       Institution   := "Delft University of Technology",
-      PostalAddress := "no address known",
     ),
     rec( 
       LastName      := "Ruscio",
@@ -145,7 +127,6 @@ SetPackageInfo( rec(
       IsMaintainer  := false,
       Place         := "Edinburgh",
       Institution   := "The University of Edinburgh",
-      PostalAddress := "no address known",
     ),
     rec( 
       LastName      := "Tjhai",
@@ -154,7 +135,6 @@ SetPackageInfo( rec(
       IsMaintainer  := false,
       Place         := "Plymouth",
       Institution   := "The University of Plymouth",
-      PostalAddress := "no address known",
     )
   ],  
 
@@ -198,7 +178,6 @@ SetPackageInfo( rec(
     # use same as in GAP            
     BookName  := "GUAVA",
     ArchiveURLSubset := ["doc"],
-    # format/extension can be one of .zoo, .tar.gz, .tar.bz2, -win.zip
     HTMLStart := "doc/chap0_mj.html",
     PDFFile   := "doc/manual.pdf",
     # the path to the .six file used by GAP's help system
@@ -273,7 +252,23 @@ TestFile := "tst/guava.tst",
 "nonlinear code","minimum distance", "minimum weight", 
 "error-correcting block codes", "decoding",
 "generator matrix", "check matrix","covering radius", 
-"weight distribution","automorphism group of code" ]
+"weight distribution","automorphism group of code" ],
+
+AutoDoc := rec(
+    entities := rec(
+        VERSION := ~.Version,
+        RELEASEDATE := function(date)
+          local day, month, year, allMonths;
+          day := Int(date{[1,2]});
+          month := Int(date{[4,5]});
+          year := Int(date{[7..10]});
+          allMonths := [ "January", "February", "March", "April", "May", "June", "July",
+                         "August", "September", "October", "November", "December"];
+          return Concatenation(String(day)," ", allMonths[month], " ", String(year));
+        end(~.Date),
+        RELEASEYEAR := ~.Date{[7..10]},
+    ),
+),
 
 ));
 

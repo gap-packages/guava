@@ -6,10 +6,10 @@
           [1X A [5XGAP[105X4 Package for computing with error-correcting codes   [101X
   
   
-                                  Version 3.18
+                                  Version 3.19
   
   
-                                 January, 2023
+                                 21 March 2024
   
   
                                Jasper Cramwinckel
@@ -127,7 +127,7 @@
   Linton,  Frank  Lübeck,  Aron Foster, Wayne Irons, Clifton (Clipper) Lennon,
   Jason McGowan, Shuhong Gao, Greg Gamble and Jeffrey S. Leon.[133X
   
-  [33X[0;0YFor  documentation  on Leon's programs, see the src/leon/doc subdirectory of
+  [33X[0;0YFor  documentation  on Leon's programs, see the [11Xsrc/leon/doc subdirectory[111X of
   [5XGUAVA[105X.[133X
   
   
