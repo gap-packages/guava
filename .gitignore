@@ -34,6 +34,8 @@ Makefile
 /doc/*.six
 /doc/*.tex
 /doc/*.toc
+/doc/_*.xml
+/doc/title.xml
 /doc/manual.pdf
 /doc/guava_bib.xml.bib
 
