@@ -189,7 +189,6 @@ SetPackageInfo( rec(
     Subtitle := "error-correcting codes computations",
     # Should this help book be autoloaded when GAP starts up? This should
     # usually be 'true', otherwise say 'false'. 
-    Autoload := true
   ),
 
 ##  Are there restrictions on the operating system for this package? Or does
