@@ -14,19 +14,19 @@ gap> START_TEST("guava03.tst");
 gap> C:=RandomLinearCode(20,10,GF(4));
 a  [20,10,?] randomly generated code over GF(4)
 gap> c:=Random(C);
-[ 1 a 0 0 0 1 1 a^2 0 0 a 1 1 1 a 1 1 a a 0 ]
+[ 1 0 a^2 a a 1 1 0 1 0 a^2 1 0 0 a a a 1 a 0 ]
 gap> NamesOfComponents(C);
 [ "Representative", "ZeroImmutable", "name", "LeftActingDomain", "Dimension", 
   "GeneratorsOfLeftOperatorAdditiveGroup", "Basis", "NiceFreeLeftModule", 
-  "GeneratorMat", "WordLength" ]
+  "WordLength", "GeneratorMat" ]
 gap> NamesOfComponents(c);
 [ "VectorCodeword", "WordLength", "treatAsPoly" ]
 gap> c!.VectorCodeword;
 < immutable compressed vector length 20 over GF(4) >
 gap> Display(last);
-[ Z(2^2), Z(2^2), Z(2^2), Z(2)^0, Z(2^2), Z(2^2)^2, 0*Z(2), Z(2^2), Z(2^2),
-  Z(2)^0, Z(2^2)^2, 0*Z(2), 0*Z(2), Z(2^2), 0*Z(2), 0*Z(2), 0*Z(2), Z(2^2)^2,
-  Z(2)^0, 0*Z(2) ]
+[ Z(2)^0, 0*Z(2), Z(2^2)^2, Z(2^2), Z(2^2), Z(2)^0, Z(2)^0, 0*Z(2), Z(2)^0,
+   0*Z(2), Z(2^2)^2, Z(2)^0, 0*Z(2), 0*Z(2), Z(2^2), Z(2^2), Z(2^2), Z(2)^0,
+   Z(2^2), 0*Z(2) ]
 gap> C!.Dimension;
 10
 
@@ -44,7 +44,7 @@ gap> Codeword([c, c2, "0110"]);
 gap> p := UnivariatePolynomial(GF(2), [Z(2)^0, 0*Z(2), Z(2)^0]);
 x_1^2+Z(2)^0
 gap> Codeword(p);
-x^2 + 1 
+x^2 + 1
 
 # doc/guava.xml:728-741
 gap> C := WholeSpaceCode(7,GF(5));
@@ -52,7 +52,7 @@ a cyclic [7,7,1]0 whole space code over GF(5)
 gap> Codeword(["0220110", [1,1,1]], C);
 [ [ 0 2 2 0 1 1 0 ], [ 1 1 1 0 0 0 0 ] ]
 gap> Codeword(["0220110", [1,1,1]], 7, GF(5));
-[ [ 0 2 2 0 1 1 0 ], [ 1 1 1 0 0 0 0 ] ] 
+[ [ 0 2 2 0 1 1 0 ], [ 1 1 1 0 0 0 0 ] ]
 gap> C:=RandomLinearCode(10,5,GF(3));
 a  [10,5,?] randomly generated code over GF(3)
 gap> Codeword("1000000000",C);
@@ -80,7 +80,7 @@ false
 gap> IsCodeword("11111");
 false
 gap> IsCodeword(Codeword("11111"));
-true 
+true
 
 # doc/guava.xml:865-886
 gap> P := UnivariatePolynomial(GF(2), Z(2)*[1,0,0,1]);
@@ -92,13 +92,13 @@ true
 gap> c2 := Codeword("1001", GF(2));
 [ 1 0 0 1 ]
 gap> c = c2;
-true 
+true
 gap> C:=HammingCode(3);
 a linear [7,4,3]1 Hamming (3,2) code over GF(2)
 gap> c1:=Random(C);
-[ 1 0 0 1 1 0 0 ]
+[ 1 1 1 0 0 0 0 ]
 gap> c2:=Random(C);
-[ 0 1 0 0 1 0 1 ]
+[ 0 1 1 0 0 1 1 ]
 gap> EQ(c1,c2);
 false
 gap> not EQ(c1,c2);
@@ -120,7 +120,7 @@ a  [10,5,?] randomly generated code over GF(3)
 gap> c:=Random(C);
 [ 0 0 0 0 0 0 0 0 0 0 ]
 gap> c+C;
-< add. coset of a  [10,5,?] randomly generated code over GF(2) >
+<add. coset of a  [10,5,?] randomly generated code over GF(2)>
 gap> c+C=C;
 true
 gap> IsLinearCode(c+C);
@@ -128,7 +128,7 @@ false
 gap> v:=Codeword("100000000");
 [ 1 0 0 0 0 0 0 0 0 ]
 gap> v+C;
-< add. coset of a  [10,5,?] randomly generated code over GF(2) >
+<add. coset of a  [10,5,?] randomly generated code over GF(2)>
 gap> C=v+C;
 false
 gap> C := GeneratorMatCode( [ [1, 0,0,0], [0, 1,0,0] ], GF(2) );
@@ -159,7 +159,7 @@ gap> c := CodewordNr(B, 4);
 x^22 + x^20 + x^17 + x^14 + x^13 + x^12 + x^11 + x^10
 gap> TreatAsVector(c);
 gap> c;
-[ 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 0 0 1 0 0 1 0 1 ] 
+[ 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 0 0 1 0 0 1 0 1 ]
 
 # doc/guava.xml:1145-1154
 gap> a := Codeword("00001",GF(2));
@@ -169,7 +169,7 @@ x^4
 gap> b := NullWord(6,GF(4));
 [ 0 0 0 0 0 0 ]
 gap> TreatAsPoly(b); b;
-0 
+0
 
 # doc/guava.xml:1187-1196
 gap> NullWord(8);
@@ -179,7 +179,7 @@ true
 gap> NullWord(5,GF(16));
 [ 0 0 0 0 0 ]
 gap> NullWord(ExtendedTernaryGolayCode());
-[ 0 0 0 0 0 0 0 0 0 0 0 0 ] 
+[ 0 0 0 0 0 0 0 0 0 0 0 0 ]
 
 # doc/guava.xml:1217-1225
 gap> a := Codeword([0, 1, 2, 0, 1, 2]);; b := NullWord(6, GF(3));;
@@ -188,20 +188,20 @@ gap> DistanceCodeword(a, b);
 gap> DistanceCodeword(b, a);
 4
 gap> DistanceCodeword(a, a);
-0 
+0
 
 # doc/guava.xml:1242-1247
 gap> a := Codeword("012320023002");; Support(a);
 [ 2, 3, 4, 5, 8, 9, 12 ]
 gap> Support(NullWord(7));
-[  ] 
+[  ]
 
 # doc/guava.xml:1257-1263
 gap> L := Codeword(["000000", "101010", "222000"], GF(3));;
 gap> S := Union(List(L, i -> Support(i)));
 [ 1, 2, 3, 5 ]
 gap> Length(S);
-4 
+4
 
 # doc/guava.xml:1281-1290
 gap> WeightCodeword(Codeword("22222"));
@@ -211,7 +211,7 @@ gap> WeightCodeword(NullWord(3));
 gap> C := HammingCode(3);
 a linear [7,4,3]1 Hamming (3,2) code over GF(2)
 gap> Minimum(List(AsSSortedList(C){[2..Size(C)]}, WeightCodeword ) );
-3 
+3
 
 #
 gap> STOP_TEST("guava03.tst", 1);

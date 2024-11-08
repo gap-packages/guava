@@ -114,7 +114,7 @@ gap> C:= HammingCode( 2 );; eC:= AsSSortedList( C );
 gap> eC[2] in C;
 true
 gap> [ 0 ] in C;
-false 
+false
 
 # doc/guava.xml:1813-1820
 gap> IsSubset( HammingCode(3), RepetitionCode( 7 ) );
@@ -138,7 +138,7 @@ true
 gap> IsLinearCode( ElementsCode( [ [1,1,1] ], GF(2) ) );
 false
 gap> IsLinearCode( 1 );
-false 
+false
 
 # doc/guava.xml:1897-1907
 gap> C := ElementsCode( [ [0,0,0], [1,1,1] ], GF(2) );
@@ -149,7 +149,7 @@ true
 gap> IsCyclicCode( HammingCode( 4, GF(2) ) );
 false
 gap> IsCyclicCode( 1 );
-false 
+false
 
 # doc/guava.xml:1940-1951
 gap> H := HammingCode(2);
