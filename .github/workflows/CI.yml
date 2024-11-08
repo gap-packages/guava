@@ -37,6 +37,7 @@ jobs:
         with:
           GAPBRANCH: ${{ matrix.gap-branch }}
       - uses: gap-actions/build-pkg@v1
+      - uses: gap-actions/build-pkg-docs@v1 # so manual examples get extracted and tested
       - uses: gap-actions/run-pkg-tests@v2
       - uses: gap-actions/run-pkg-tests@v2
         with:
