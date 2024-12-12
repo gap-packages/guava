@@ -25,6 +25,7 @@ jobs:
       matrix:
         gap-branch:
           - master
+          - stable-4.14
           - stable-4.13
           - stable-4.12
           - stable-4.11
@@ -37,6 +38,7 @@ jobs:
         with:
           GAPBRANCH: ${{ matrix.gap-branch }}
       - uses: gap-actions/build-pkg@v1
+      - uses: gap-actions/build-pkg-docs@v1 # so manual examples get extracted and tested
       - uses: gap-actions/run-pkg-tests@v2
       - uses: gap-actions/run-pkg-tests@v2
         with:

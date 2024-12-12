@@ -1004,5 +1004,3 @@ gap> MinimumDistance(C2);
 gap> MinimumDistance(C3);
 56
 gap> STOP_TEST( "guava.tst", 10000 );
-Guava installation tests
-GAP4stones: 2
