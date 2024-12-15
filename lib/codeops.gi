@@ -21,6 +21,8 @@
 ## 18 Dec 2008 (wdj) bugfix for MinimumDistanceLeon reported by
 ##                    Jorge Ernesto PÉREZ CHAMORRO
 ##
+## 05 Nov 2024 (jef) The infix '+' operation between codes was documented in the manual but apparently never implemented.
+## WRONG - it's on line 1382 - it's just not being selected...
 
 
 #############################################################################
@@ -687,12 +689,12 @@ InstallMethod(MinimumDistanceLeon, "attribute method for linear codes", true,
     [IsLinearCode], 0,
 function(C)
     local majority,G0, Gp, Gpt, Gt, L, k, i, j, dimMat, Grstr, J, d1, arrayd1, Combo, rows, row, rowSum, G, F, zero, AClosestVec, s, p, num;
+    F:=LeftActingDomain(C);
+    if F<>GF(2) then Print("Code must be binary. Quitting. \n"); return(0); fi;
     G := GeneratorMat(C);
     if (IsInStandardForm(G)=false) then
         PutStandardForm(G);
     fi;
-    F:=LeftActingDomain(C);
-    if F<>GF(2) then Print("Code must be binary. Quitting. \n"); return(0); fi;
     p:=5; #these seem to be optimal values
     num:=8; #these seem to be optimal values
     dimMat := DimensionsMat(G);
@@ -1374,7 +1376,7 @@ function(C, w)
     return CosetCode(C, w);
 end);
 
-InstallOtherMethod(\+, "method for two codes", true, [IsCode, IsCode], 0,
+InstallOtherMethod(\+, "method for two codes", IsIdenticalObj, [IsLinearCode, IsLinearCode], 25, 
 function(C1, C2)
     return DirectSumCode(C1, C2);
 end);
