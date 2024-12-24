@@ -541,7 +541,7 @@ gap> c:=Random(C);
 gap> NamesOfComponents(C);
 [ "Representative", "ZeroImmutable", "name", "LeftActingDomain", "Dimension", 
   "GeneratorsOfLeftOperatorAdditiveGroup", "Basis", "NiceFreeLeftModule", 
-  "GeneratorMat", "WordLength" ]
+  "WordLength", "GeneratorMat" ]
 gap> NamesOfComponents(c);
 [ "VectorCodeword", "WordLength", "treatAsPoly" ]
 gap> c!.VectorCodeword;
@@ -700,7 +700,7 @@ gap> Codeword([c, c2, "0110"]);
 gap> p := UnivariatePolynomial(GF(2), [Z(2)^0, 0*Z(2), Z(2)^0]);
 x_1^2+Z(2)^0
 gap> Codeword(p);
-x^2 + 1 
+x^2 + 1
 </Example>
 <!--
 c := Codeword([0,1,1,1,0]);
@@ -731,7 +731,7 @@ a cyclic [7,7,1]0 whole space code over GF(5)
 gap> Codeword(["0220110", [1,1,1]], C);
 [ [ 0 2 2 0 1 1 0 ], [ 1 1 1 0 0 0 0 ] ]
 gap> Codeword(["0220110", [1,1,1]], 7, GF(5));
-[ [ 0 2 2 0 1 1 0 ], [ 1 1 1 0 0 0 0 ] ] 
+[ [ 0 2 2 0 1 1 0 ], [ 1 1 1 0 0 0 0 ] ]
 gap> C:=RandomLinearCode(10,5,GF(3));
 a  [10,5,?] randomly generated code over GF(3)
 gap> Codeword("1000000000",C);
@@ -815,7 +815,7 @@ false
 gap> IsCodeword("11111");
 false
 gap> IsCodeword(Codeword("11111"));
-true 
+true
 </Example>
 <!--
 IsCodeword(1);
@@ -872,7 +872,7 @@ true
 gap> c2 := Codeword("1001", GF(2));
 [ 1 0 0 1 ]
 gap> c = c2;
-true 
+true
 gap> C:=HammingCode(3);
 a linear [7,4,3]1 Hamming (3,2) code over GF(2)
 gap> c1:=Random(C);
@@ -972,11 +972,11 @@ as the command <C>v+C</C>.
 
 <Example><![CDATA[
 gap> C:=RandomLinearCode(10,5);
-a  [10,5,?] randomly generated code over GF(3)
+a  [10,5,?] randomly generated code over GF(2)
 gap> c:=Random(C);
 [ 0 0 0 0 0 0 0 0 0 0 ]
 gap> c+C;
-< add. coset of a  [10,5,?] randomly generated code over GF(2) >
+<add. coset of a  [10,5,?] randomly generated code over GF(2)>
 gap> c+C=C;
 true
 gap> IsLinearCode(c+C);
@@ -984,7 +984,7 @@ false
 gap> v:=Codeword("100000000");
 [ 1 0 0 0 0 0 0 0 0 ]
 gap> v+C;
-< add. coset of a  [10,5,?] randomly generated code over GF(2) >
+<add. coset of a  [10,5,?] randomly generated code over GF(2)>
 gap> C=v+C;
 false
 gap> C := GeneratorMatCode( [ [1, 0,0,0], [0, 1,0,0] ], GF(2) );
@@ -994,7 +994,7 @@ gap> Elements(C);
 gap> v:=Codeword("0011");
 [ 0 0 1 1 ]
 gap> C+v;
-< add. coset of a linear [4,2,4]1 code defined by generator matrix over GF(2) >
+<add. coset of a linear [4,2,4]1 code defined by generator matrix over GF(2)>
 gap> Elements(C+v);
 [ [ 0 0 1 1 ], [ 0 1 1 1 ], [ 1 0 1 1 ], [ 1 1 1 1 ] ]
 ]]></Example>
@@ -1110,7 +1110,7 @@ gap> c := CodewordNr(B, 4);
 x^22 + x^20 + x^17 + x^14 + x^13 + x^12 + x^11 + x^10
 gap> TreatAsVector(c);
 gap> c;
-[ 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 0 0 1 0 0 1 0 1 ] 
+[ 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 0 0 1 0 0 1 0 1 ]
 </Example>
 <!--
 B := BinaryGolayCode();
@@ -1150,7 +1150,7 @@ x^4
 gap> b := NullWord(6,GF(4));
 [ 0 0 0 0 0 0 ]
 gap> TreatAsPoly(b); b;
-0 
+0
 </Example>
 <!--
 a := Codeword("00001",GF(2));
@@ -1192,7 +1192,7 @@ true
 gap> NullWord(5,GF(16));
 [ 0 0 0 0 0 ]
 gap> NullWord(ExtendedTernaryGolayCode());
-[ 0 0 0 0 0 0 0 0 0 0 0 0 ] 
+[ 0 0 0 0 0 0 0 0 0 0 0 0 ]
 </Example>
 <!--
 NullWord(8);
@@ -1221,7 +1221,7 @@ gap> DistanceCodeword(a, b);
 gap> DistanceCodeword(b, a);
 4
 gap> DistanceCodeword(a, a);
-0 
+0
 </Example>
 <!--
 a := Codeword([0, 1, 2, 0, 1, 2]);; b := NullWord(6, GF(3));;
@@ -1243,7 +1243,7 @@ the non-zero entries in a codeword <A>c</A>.
 gap> a := Codeword("012320023002");; Support(a);
 [ 2, 3, 4, 5, 8, 9, 12 ]
 gap> Support(NullWord(7));
-[  ] 
+[  ]
 </Example>
 <!--
 a := Codeword("012320023002");; Support(a);
@@ -1259,7 +1259,7 @@ gap> L := Codeword(["000000", "101010", "222000"], GF(3));;
 gap> S := Union(List(L, i -> Support(i)));
 [ 1, 2, 3, 5 ]
 gap> Length(S);
-4 
+4
 </Example>
 <!--
 L := Codeword(["000000", "101010", "222000"], GF(3));;
@@ -1286,7 +1286,7 @@ gap> WeightCodeword(NullWord(3));
 gap> C := HammingCode(3);
 a linear [7,4,3]1 Hamming (3,2) code over GF(2)
 gap> Minimum(List(AsSSortedList(C){[2..Size(C)]}, WeightCodeword ) );
-3 
+3
 </Example>
 <!--
 WeightCodeword(Codeword("22222"));
@@ -1328,7 +1328,7 @@ code a name.
 
 <Example>
 gap> C := ElementsCode(["1100", "1010", "0001"], "example code", GF(2) );
-a (4,3,1..4)2..4 example code over GF(2) 
+a (4,3,1..4)2..4 example code over GF(2)
 </Example>
 
 An <M>(n,M,d)</M> code is a code with word <E>length</E> 
@@ -1362,11 +1362,11 @@ than or equal to <M>4</M>.
 
 <Example>
 gap> C := ElementsCode(["1100", "1010", "0001"], "example code", GF(2) );
-a (4,3,1..4)2..4 example code over GF(2) 
+a (4,3,1..4)2..4 example code over GF(2)
 gap> MinimumDistance(C);
 2
 gap> C;
-a (4,3,2)2..4 example code over GF(2) 
+a (4,3,2)2..4 example code over GF(2)
 </Example>
 <!--
 C := ElementsCode(["1100", "1010", "0001"], "example code", GF(2) );
@@ -1392,7 +1392,7 @@ C^* = \{ v \in GF(q)^n\ |\ v\cdot c = 0,\ for \ all\ c \in C \}.
 
 <Example>
 gap> G := GeneratorMatCode([[1,0,1],[0,1,2]], "demo code", GF(3) );
-a linear [3,2,1..2]1 demo code over GF(3) 
+a linear [3,2,1..2]1 demo code over GF(3)
 </Example>
 
 So a linear <M>[n,  k, d]r</M> code 
@@ -1445,7 +1445,7 @@ a (3,4,1..3)1 user defined unrestricted code over GF(2)
 gap> IsLinearCode( C );
 true
 gap> C;
-a linear [3,2,1]1 user defined unrestricted code over GF(2) 
+a linear [3,2,1]1 user defined unrestricted code over GF(2)
 </Example>
 <!--
 L := Z(2)*[ [0,0,0], [1,0,0], [0,1,1], [1,1,1] ];;
@@ -1481,8 +1481,8 @@ gap> w := [ 1, 0, 1, 1 ] * R;
 [ 1 0 0 1 1 0 0 1 ]
 gap> Decode( R, w );
 [ 1 0 1 1 ]
-gap> Decode( R, w + "10000000" ); # One error at the first position
-[ 1 0 1 1 ]                       # Corrected by Guava 
+gap> Decode( R, w + "10000000" ); # One error at the first position. Corrected by Guava.
+[ 1 0 1 1 ]
 </Example>
 <!--
 R := ReedMullerCode( 1, 3 );
@@ -1790,7 +1790,7 @@ gap> C:= HammingCode( 2 );; eC:= AsSSortedList( C );
 gap> eC[2] in C;
 true
 gap> [ 0 ] in C;
-false 
+false
 </Example>
 <!--
 C:= HammingCode( 2 );; eC:= AsSSortedList( C );
@@ -1870,7 +1870,7 @@ true
 gap> IsLinearCode( ElementsCode( [ [1,1,1] ], GF(2) ) );
 false
 gap> IsLinearCode( 1 );
-false 
+false
 </Example>
 <!--
 C := ElementsCode( [ [0,0,0],[1,1,1] ], GF(2) );
@@ -1903,7 +1903,7 @@ true
 gap> IsCyclicCode( HammingCode( 4, GF(2) ) );
 false
 gap> IsCyclicCode( 1 );
-false 
+false
 </Example>
 <!--
 C := ElementsCode( [ [0,0,0], [1,1,1] ], GF(2) );
@@ -1947,7 +1947,7 @@ true
 gap> IsPerfectCode( ReedSolomonCode( 6, 3 ) );
 false
 gap> IsPerfectCode( BinaryGolayCode() );
-true 
+true
 </Example>
 <!--
 H := HammingCode(2);
@@ -1988,7 +1988,7 @@ a cyclic [6,4,3]2 Reed-Solomon code over GF(7)
 gap> IsMDSCode( C1 );  # verify it is an MDS code, as 6-3+1 = 4
 true
 gap> IsMDSCode( QRCode( 23, GF(2) ) );
-false 
+false
 </Example>
 <!--
 C1 := ReedSolomonCode( 6, 3 );
@@ -2023,7 +2023,7 @@ true
 gap> C := ReedMullerCode( 1, 3 );
 a linear [8,4,4]2 Reed-Muller (1,3) code over GF(2)
 gap> DualCode( C ) = C;
-true 
+true
 </Example>
 
 <Index>
@@ -2050,7 +2050,7 @@ a linear [16,5,8]6 Reed-Muller (1,4) code over GF(2)
 gap> IsSelfOrthogonalCode(R);
 true
 gap> IsSelfDualCode(R);
-false 
+false
 </Example>
 <!--
 R := ReedMullerCode(1,4);
@@ -2203,7 +2203,7 @@ gap> IsSelfComplementaryCode( HammingCode( 3, GF(2) ) );
 true
 gap> IsSelfComplementaryCode( EvenWeightSubcode(
 > HammingCode( 3, GF(2) ) ) );
-false 
+false
 </Example>
 
 <Index>
@@ -2227,7 +2227,7 @@ gap> IsAffineCode( CosetCode( HammingCode( 3, GF(2) ),
 > Codeword([ 1, 0, 0, 0, 0, 0, 0 ]) ) );
 true
 gap> IsAffineCode( NordstromRobinsonCode() );
-false 
+false
 </Example>
 
 <ManSection>
@@ -2253,7 +2253,7 @@ gap> code := ElementsCode( [ [0,0,0], [0,1,1], [0,2,2], [0,3,3],
 gap> IsAlmostAffineCode( code );
 true
 gap> IsAlmostAffineCode( NordstromRobinsonCode() );
-false 
+false
 </Example>
 <!--
 code := ElementsCode( [ [0,0,0], [0,1,1], [0,2,2], [0,3,3], [1,0,1], [1,1,0], [1,2,3], [1,3,2], [2,0,2], [2,1,3], [2,2,0], [2,3,1], [3,0,3], [3,1,2], [3,2,1], [3,3,0] ], GF(4) );;
@@ -2315,7 +2315,7 @@ false
 gap> IsEquivalent(H, HammingCode(3, GF(2)));
 true
 gap> CodeIsomorphism(H, HammingCode(3, GF(2)));
-(3,4)(5,6,7) 
+(3,4)(5,6,7)
 </Example>
 <!--
 x:= Indeterminate( GF(2) );; pol:= x^3+x+1; 
@@ -2348,9 +2348,9 @@ x_1^3+x_1+Z(2)^0
 gap> H := GeneratorPolCode( pol, 7, GF(2));          
 a cyclic [7,4,1..3]1 code defined by generator polynomial over GF(2)
 gap> CodeIsomorphism(H, HammingCode(3, GF(2)));
-(3,4)(5,6,7) 
+(3,4)(5,6,7)
 gap> PermutedCode(H, (3,4)(5,6,7)) = HammingCode(3, GF(2));
-true 
+true
 </Example>
 <!--
 x:= Indeterminate( GF(2) );; pol:= x^3+x+1; 
@@ -2403,7 +2403,7 @@ a linear [7,2,4]3 permuted code
 gap> AsSSortedList(C2);
 [ [ 0 0 0 0 0 0 0 ], [ 0 0 1 1 1 1 1 ], [ 1 1 0 0 0 1 1 ], [ 1 1 1 1 1 0 0 ] ]
 gap> C2 = C;
-true 
+true
 </Example>
 <!--
 R := RepetitionCode(7,GF(2));
@@ -2477,7 +2477,7 @@ code <A>C</A>.
 
 <Example>
 gap> IsFinite( RepetitionCode( 1000, GF(11) ) );
-true 
+true
 </Example>
 
 <ManSection>
@@ -2496,7 +2496,7 @@ is the dimension.
 gap> Size( RepetitionCode( 1000, GF(11) ) );
 11
 gap> Size( NordstromRobinsonCode() );
-256 
+256
 </Example>
 
 <ManSection>
@@ -2520,7 +2520,7 @@ a (3,3,1..3)2..3 user defined unrestricted code over GF(4)
 gap> LeftActingDomain( C1 );
 GF(2^2)
 gap> LeftActingDomain( HammingCode( 3, GF(9) ) );
-GF(3^2) 
+GF(3^2)
 </Example>
 
 <ManSection>
@@ -2543,7 +2543,7 @@ a cyclic [15,9,5]3..4 BCH code, delta=5, b=1 over GF(4)
 gap> Dimension( C );
 9
 gap> Size( C ) = Size( LeftActingDomain( C ) ) ^ Dimension( C );
-true 
+true
 </Example>
 <!--
 Dimension( NullCode( 5, GF(5) ) );
@@ -2692,7 +2692,7 @@ gap> C1 := ExtendedCode( HammingCode(2) );;
 gap> C2 := PuncturedCode( ReedMullerCode( 2, 3 ) );;
 gap> Display( LengthenedCode( UUVCode( C1, C2 ) ) );
 a linear [12,8,2]2..4 code, lengthened with 1 column(s) of
-a linear [11,8,1]1..2 U U+V construction code of
+a linear [11,8,1]1..2 U|U+V construction code of
 U: a linear [4,1,4]2 extended code of
    a linear [3,1,3]1 Hamming (2,2) code over GF(2)
 V: a linear [7,7,1]0 punctured code of
@@ -2718,17 +2718,17 @@ the code <M>C</M> indicated in <C>bds:= BoundsMinimumDistance( n, k, GF(q) )</C>
 gap> bounds := BoundsMinimumDistance( 20, 17, GF(4) );
 gap> DisplayBoundsInfo(bounds);
 an optimal linear [20,17,d] code over GF(4) has d=3
---------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------
 Lb(20,17)=3, by shortening of:
 Lb(21,18)=3, by applying construction B to a [81,77,3] code
 Lb(81,77)=3, by shortening of:
 Lb(85,81)=3, reference: Ham
---------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------
 Ub(20,17)=3, by considering shortening to:
 Ub(7,4)=3, by considering puncturing to:
 Ub(6,4)=2, by construction B applied to:
 Ub(2,1)=2, repetition code
---------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------
 Reference Ham:
 %T this reference is unknown, for more info
 %T contact A.E. Brouwer (aeb@cwi.nl)
@@ -2765,10 +2765,10 @@ If <A>C</A> is a non-linear code, the function returns an error.
 
 <Example>
 gap> GeneratorMat( HammingCode( 3, GF(2) ) );
-[ [ an immutable GF2 vector of length 7], 
-  [ an immutable GF2 vector of length 7], 
-  [ an immutable GF2 vector of length 7], 
-  [ an immutable GF2 vector of length 7] ]
+[ &lt;an immutable GF2 vector of length 7&gt;, 
+  &lt;an immutable GF2 vector of length 7&gt;, 
+  &lt;an immutable GF2 vector of length 7&gt;, 
+  &lt;an immutable GF2 vector of length 7&gt; ]
 gap> Display(last);
  1 1 1 . . . .
  1 . . 1 1 . .
@@ -2805,19 +2805,19 @@ If <A>C</A> is a non-linear code, the function returns an error.
 <Example>
 gap> CheckMat( HammingCode(3, GF(2) ) );
 [ [ 0*Z(2), 0*Z(2), 0*Z(2), Z(2)^0, Z(2)^0, Z(2)^0, Z(2)^0 ], 
-  [ 0*Z(2), Z(2)^0, Z(2)^0, 0*Z(2), 0*Z(2), Z(2)^0, Z(2)^0 ],
+  [ 0*Z(2), Z(2)^0, Z(2)^0, 0*Z(2), 0*Z(2), Z(2)^0, Z(2)^0 ], 
   [ Z(2)^0, 0*Z(2), Z(2)^0, 0*Z(2), Z(2)^0, 0*Z(2), Z(2)^0 ] ]
 gap> Display(last);
  . . . 1 1 1 1
  . 1 1 . . 1 1
  1 . 1 . 1 . 1
 gap> CheckMat( RepetitionCode( 5, GF(25) ) );
-[ [ Z(5)^0, Z(5)^2, 0*Z(5), 0*Z(5), 0*Z(5) ],
-  [ 0*Z(5), Z(5)^0, Z(5)^2, 0*Z(5), 0*Z(5) ],
-  [ 0*Z(5), 0*Z(5), Z(5)^0, Z(5)^2, 0*Z(5) ],
+[ [ Z(5)^0, Z(5)^2, 0*Z(5), 0*Z(5), 0*Z(5) ], 
+  [ 0*Z(5), Z(5)^0, Z(5)^2, 0*Z(5), 0*Z(5) ], 
+  [ 0*Z(5), 0*Z(5), Z(5)^0, Z(5)^2, 0*Z(5) ], 
   [ 0*Z(5), 0*Z(5), 0*Z(5), Z(5)^0, Z(5)^2 ] ]
 gap> CheckMat( WholeSpaceCode( 12, GF(4) ) );
-[  ] 
+[  ]
 </Example>
 <!--
 CheckMat( HammingCode(3, GF(2) ) );
@@ -2913,7 +2913,7 @@ gap> RootsOfCode( C1 );
 gap> C2 := RootsCode( 16, last );
 a cyclic [16,12,5]3..4 code defined by roots over GF(17)
 gap> C1 = C2;
-true 
+true
 </Example>
 <!--
 C1 := ReedSolomonCode( 16, 5 );
@@ -2950,7 +2950,7 @@ gap> WordLength( NordstromRobinsonCode() );
 gap> WordLength( PuncturedCode( WholeSpaceCode(7) ) );
 6
 gap> WordLength( UUVCode( WholeSpaceCode(7), RepetitionCode(7) ) );
-14 
+14
 </Example>
 <!--
 WordLength( NordstromRobinsonCode() );
@@ -2980,7 +2980,7 @@ a cyclic [11,6,5]2 ternary Golay code over GF(3)
 gap> Redundancy(C);
 5
 gap> Redundancy( DualCode(C) );
-6 
+6
 </Example>
 <!--
 C := TernaryGolayCode();
@@ -3056,13 +3056,14 @@ gap> MinimumDistance( NullCode( 4, GF(2) ) );
 gap> C := ConferenceCode(9);; MinimumDistance(C);
 4
 gap> InnerDistribution(C);
-[ 1, 0, 0, 0, 63/5, 9/5, 18/5, 0, 9/10, 1/10 ] 
+[ 1, 0, 0, 0, 63/5, 9/5, 18/5, 0, 9/10, 1/10 ]
 gap> C := MOLSCode(7);; w := CodewordNr( C, 17 );
 [ 3 3 6 2 ]
 gap> MinimumDistance( C, w );
 0
-gap> C := RemovedElementsCode( C, w );; MinimumDistance( C, w );
-3                           # so w no longer belongs to C 
+gap> C := RemovedElementsCode( C, w );; # so w no longer belongs to C 
+gap> MinimumDistance( C, w );
+3
 </Example>
 <!--
 C := MOLSCode(7);; MinimumDistance(C);
@@ -3138,12 +3139,10 @@ flexibility for the user - see the GAP code in codeops.gi for details.)
 <Example>
 gap> C:=RandomLinearCode(50,22,GF(2));
 a  [50,22,?] randomly generated code over GF(2)
-gap> MinimumDistanceLeon(C); time;
+gap> MinimumDistanceLeon(C); #time; #Uncomment the call to "time;"" to see performance data
 6
-211
-gap> MinimumDistance(C); time;
+gap> MinimumDistance(C); #time; #Uncomment the call to "time;"" to see performance data
 6
-1204
 </Example>
 <!--
 C:=RandomLinearCode(50,22,GF(2));
@@ -3350,7 +3349,7 @@ gap> MinimumDistance(C);
 gap> C:=RandomLinearCode(8,4,GF(2));
 a  [8,4,?] randomly generated code over GF(2)
 gap> DecreaseMinimumDistanceUpperBound(C,3,4);
-rec( mindist := 2,
+rec( mindist := 2, 
   word := [ Z(2)^0, 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), Z(2)^0 ] )
 gap> MinimumDistance(C);
 2
@@ -3407,17 +3406,16 @@ occurring weight is taken.
 <Example>
 gap> C:=RandomLinearCode(60,20,GF(2));
 a  [60,20,?] randomly generated code over GF(2)
-gap> #mindist(C);time;
-gap> #mindistleon(C,10,30);time; #doesn't work well
-gap> a:=MinimumDistanceRandom(C,10,30);time; # done 10 times -with fastest time!!
+gap> #mindist(C); #time;
+gap> #mindistleon(C,10,30); #time; #doesn't work well
+gap> a:=MinimumDistanceRandom(C,10,30); #time; # done 10 times -with fastest time!!
 
  This is a probabilistic algorithm which may return the wrong answer.
 [ 12, [ 0 0 0 0 0 0 1 0 1 0 0 0 0 0 0 0 1 1 0 0 1 0 0 0 1 0 0 0 0 0 0 1 0 0 
         1 0 0 0 0 0 0 0 0 0 1 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 ] ]
-130
 gap> a[2] in C;
 true
-gap> b:=DecreaseMinimumDistanceUpperBound(C,10,1); time; #only done once!
+gap> b:=DecreaseMinimumDistanceUpperBound(C,10,1); #time; #only done once!
 rec( mindist := 12, word := [ 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), 
       Z(2)^0, 0*Z(2), Z(2)^0, 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), 
       0*Z(2), Z(2)^0, Z(2)^0, 0*Z(2), 0*Z(2), Z(2)^0, 0*Z(2), 0*Z(2), 0*Z(2), 
@@ -3425,35 +3423,29 @@ rec( mindist := 12, word := [ 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2),
       0*Z(2), Z(2)^0, 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), 
       0*Z(2), 0*Z(2), Z(2)^0, 0*Z(2), 0*Z(2), 0*Z(2), Z(2)^0, 0*Z(2), 0*Z(2), 
       0*Z(2), 0*Z(2), Z(2)^0, 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), Z(2)^0, 0*Z(2) ] )
-649
 gap> Codeword(b!.word) in C;
 true
-gap> MinimumDistance(C);time;
+gap> MinimumDistance(C); #time; #Uncomment the call to "time;"" to see performance data
 12
-196
-gap> c:=MinimumDistanceLeon(C);time;
+gap> c:=MinimumDistanceLeon(C); #time; #Uncomment the call to "time;"" to see performance data
 12
-66
 gap> C:=RandomLinearCode(30,10,GF(3));
 a  [30,10,?] randomly generated code over GF(3)
-gap> a:=MinimumDistanceRandom(C,10,10);time;
+gap> a:=MinimumDistanceRandom(C,10,10); #time; #Uncomment the call to "time;"" to see performance data
 
  This is a probabilistic algorithm which may return the wrong answer.
 [ 13, [ 0 0 0 1 0 0 0 0 0 0 1 0 2 2 1 1 0 2 2 0 1 0 2 1 0 0 0 1 0 2 ] ]
-229
 gap> a[2] in C;
 true
-gap> MinimumDistance(C);time;
+gap> MinimumDistance(C); #time; #Uncomment the call to "time;"" to see performance data
 9
-45
 gap> c:=MinimumDistanceLeon(C);
-Code must be binary. Quitting.
+Code must be binary. Quitting. 
 0
-gap> a:=MinimumDistanceRandom(C,1,29);time;
+gap> a:=MinimumDistanceRandom(C,1,29); #time; #Uncomment the call to "time;"" to see performance data
 
  This is a probabilistic algorithm which may return the wrong answer.
 [ 10, [ 0 0 1 0 2 0 2 0 1 0 0 0 0 0 0 1 0 1 0 0 1 0 0 0 0 0 2 2 2 0 ] ]
-53
 </Example>
 <!--
 
@@ -3563,21 +3555,21 @@ gap> CoveringRadius(H);
 3
 gap> H := HammingCode(4, GF(2));; IsPerfectCode(H);
 true
-gap> CoveringRadius(H);
-1                       # Hamming codes have minimum distance 3
+gap> CoveringRadius(H); # Hamming codes have minimum distance 3
+1
 gap> CoveringRadius(ReedSolomonCode(7,4));
-3 
+3
 gap> CoveringRadius( BCHCode( 17, 3, GF(2) ) );
 3
 gap> CoveringRadius( HammingCode( 5, GF(2) ) );
 1
 gap> C := ReedMullerCode( 1, 9 );;
 gap> CoveringRadius( C );
-CoveringRadius: warning, the covering radius of
-this code cannot be computed straightforward.
-Try to use IncreaseCoveringRadiusLowerBound( code ).
+CoveringRadius: warning, the covering radius of 
+this code cannot be computed straightforward. 
+Try to use IncreaseCoveringRadiusLowerBound( &lt;code&gt; ).
 (see the manual for more details).
-The covering radius of code lies in the interval:
+The covering radius of &lt;code&gt; lies in the interval:
 [ 240 .. 248 ]
 </Example>
 <!--
@@ -3620,10 +3612,10 @@ new results may be invalid.
 <Example>
 gap> C := BCHCode( 17, 3, GF(2) );;
 gap> BoundsCoveringRadius( C );
-[ 3 .. 4 ]
+[ 3, 4 ]
 gap> SetCoveringRadius( C, [ 2 .. 3 ] );
 gap> BoundsCoveringRadius( C );
-[ [ 2 .. 3 ] ]
+[ [ 2, 3 ] ]
 </Example>
 <!--
 C := BCHCode( 17, 3, GF(2) );;
@@ -3699,7 +3691,7 @@ gap> WeightDistribution( ConferenceCode(9) );
 gap> WeightDistribution( RepetitionCode( 7, GF(4) ) );
 [ 1, 0, 0, 0, 0, 0, 0, 3 ]
 gap> WeightDistribution( WholeSpaceCode( 5, GF(2) ) );
-[ 1, 5, 10, 10, 5, 1 ] 
+[ 1, 5, 10, 10, 5, 1 ]
 </Example>
 <!--
 WeightDistribution( ConferenceCode(9) );
@@ -3734,7 +3726,7 @@ and <M>d</M> never occurs. See
 gap> InnerDistribution( ConferenceCode(9) );
 [ 1, 0, 0, 0, 63/5, 9/5, 18/5, 0, 9/10, 1/10 ]
 gap> InnerDistribution( RepetitionCode( 7, GF(4) ) );
-[ 1, 0, 0, 0, 0, 0, 0, 3 ] 
+[ 1, 0, 0, 0, 0, 0, 0, 3 ]
 </Example>
 <!--
 InnerDistribution( ConferenceCode(9) );
@@ -3770,8 +3762,8 @@ gap> c := Codeword("10110101101010010101", H);
 [ 1 0 1 1 0 1 0 1 1 0 1 0 1 0 0 1 0 1 0 1 ]
 gap> DistancesDistribution(H, c);
 [ 0, 0, 0, 0, 0, 1, 0, 7, 0, 12, 0, 12, 0, 7, 0, 1, 0, 0, 0, 0, 0 ]
-gap> MinimumDistance(H, c);
-5                           # distance to H 
+gap> MinimumDistance(H, c); # distance to H 
+5
 </Example>
 <!--
 H := HadamardCode(20);
@@ -3806,14 +3798,14 @@ can be used  to calculate one entry of the list.
 gap> C := RepetitionCode( 3, GF(2) );
 a cyclic [3,1,3]1 repetition code over GF(2)
 gap> OD := OuterDistribution(C);
-[ [ [ 0 0 0 ], [ 1, 0, 0, 1 ] ], [ [ 1 1 1 ], [ 1, 0, 0, 1 ] ],
-  [ [ 0 0 1 ], [ 0, 1, 1, 0 ] ], [ [ 1 1 0 ], [ 0, 1, 1, 0 ] ],
-  [ [ 1 0 0 ], [ 0, 1, 1, 0 ] ], [ [ 0 1 1 ], [ 0, 1, 1, 0 ] ],
+[ [ [ 0 0 0 ], [ 1, 0, 0, 1 ] ], [ [ 1 1 1 ], [ 1, 0, 0, 1 ] ], 
+  [ [ 0 0 1 ], [ 0, 1, 1, 0 ] ], [ [ 1 1 0 ], [ 0, 1, 1, 0 ] ], 
+  [ [ 1 0 0 ], [ 0, 1, 1, 0 ] ], [ [ 0 1 1 ], [ 0, 1, 1, 0 ] ], 
   [ [ 0 1 0 ], [ 0, 1, 1, 0 ] ], [ [ 1 0 1 ], [ 0, 1, 1, 0 ] ] ]
 gap> WeightDistribution(C) = OD[1][2];
 true
 gap> DistancesDistribution( C, Codeword("110") ) = OD[4][2];
-true 
+true
 </Example>
 <!--
 C := RepetitionCode( 3, GF(2) );
@@ -3891,14 +3883,14 @@ gap> c := "1010"*C;                    # encoding
 [ 1 0 1 1 0 1 0 ]
 gap> Decode(C, c);                     # decoding
 [ 1 0 1 0 ]
-gap> Decode(C, Codeword("0010101"));
-[ 1 1 0 1 ]                            # one error corrected
+gap> Decode(C, Codeword("0010101")); # one error corrected
+[ 1 1 0 1 ]
 gap> C!.SpecialDecoder := function(C, c)
 > return NullWord(Dimension(C));
 > end;
-function ( C, c ) ... end
-gap> Decode(C, c);
-[ 0 0 0 0 ]           # new decoder always returns null word 
+function( C, c ) ... end
+gap> Decode(C, c); # new decoder always returns null word 
+[ 0 0 0 0 ]
 </Example>
 <!--
 C := HammingCode(3);
@@ -3962,8 +3954,8 @@ gap> GeneralizedReedSolomonDecoderGao(C,v);
 gap> Decodeword(C,v); # calls the special interpolation decoder
 [ 0 9 6 2 1 ]
 gap> G:=GeneratorMat(C);
-[ [ Z(11)^0, 0*Z(11), 0*Z(11), Z(11)^8, Z(11)^9 ],
-  [ 0*Z(11), Z(11)^0, 0*Z(11), Z(11)^0, Z(11)^8 ],
+[ [ Z(11)^0, 0*Z(11), 0*Z(11), Z(11)^8, Z(11)^9 ], 
+  [ 0*Z(11), Z(11)^0, 0*Z(11), Z(11)^0, Z(11)^8 ], 
   [ 0*Z(11), 0*Z(11), Z(11)^0, Z(11)^3, Z(11)^8 ] ]
 gap> C1:=GeneratorMatCode(G,GF(11));
 a linear [5,3,1..3]2 code defined by generator matrix over GF(11)
@@ -3985,7 +3977,7 @@ GeneralizedReedSolomonDecoderGao(C,v);
                    ########   [ 0 9 6 2 1 ]
 Decodeword(C,v);
                    ########   [ 0 9 6 2 1 ]
-Decodeword(C,v); time;
+Decodeword(C,v); #time;
                    ########   [ 0 9 6 2 1 ]
                    ###         5
 G:=GeneratorMat(C);
@@ -4110,10 +4102,9 @@ gap> z:=Zero(F);;
 gap> r:=[z,z,z,z,z,z,z,z,b^6,b^2,b^5,b^14,b,b^7,b^11];; 
 gap> r:=Codeword(r);
 [ 0 0 0 0 0 0 0 0 a^12 a^14 a^5 a^8 a^7 a^4 a^2 ]
-gap> cs:=GeneralizedReedSolomonListDecoder(C,r,2); time;
-[ [ 0 a^9 a^3 a^13 a^6 a^10 a^11 a a^12 a^14 a^5 a^8 a^7 a^4 a^2 ],
+gap> cs:=GeneralizedReedSolomonListDecoder(C,r,2); #time; #Uncomment the call to "time;"" to see performance data
+[ [ 0 a^9 a^3 a^13 a^6 a^10 a^11 a a^12 a^14 a^5 a^8 a^7 a^4 a^2 ], 
   [ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ] ]
-250
 gap> c1:=cs[1]; c1 in C;
 [ 0 a^9 a^3 a^13 a^6 a^10 a^11 a a^12 a^14 a^5 a^8 a^7 a^4 a^2 ]
 true
@@ -4175,8 +4166,6 @@ gap> v:=Codeword(v);
 [ 1 0 0 1 0 0 1 0 0 1 1 0 1 0 1 ]
 gap> BitFlipDecoder(C,v);
 [ 0 0 0 1 0 0 1 0 0 1 1 0 1 0 1 ]
-
-
 </Example>
 <!--
 C:=HammingCode(4,GF(2));
@@ -4211,8 +4200,8 @@ gap> a:=PrimitiveRoot(F);; b:=a^7; b^4+b^3+1;
 Z(2^4)^7
 0*Z(2)
 gap> Pts:=List([0..14],i->b^i);
-[ Z(2)^0, Z(2^4)^7, Z(2^4)^14, Z(2^4)^6, Z(2^4)^13, Z(2^2), Z(2^4)^12,
-  Z(2^4)^4, Z(2^4)^11, Z(2^4)^3, Z(2^2)^2, Z(2^4)^2, Z(2^4)^9, Z(2^4),
+[ Z(2)^0, Z(2^4)^7, Z(2^4)^14, Z(2^4)^6, Z(2^4)^13, Z(2^2), Z(2^4)^12, 
+  Z(2^4)^4, Z(2^4)^11, Z(2^4)^3, Z(2^2)^2, Z(2^4)^2, Z(2^4)^9, Z(2^4), 
   Z(2^4)^8 ]
 gap> x:=X(F);;
 gap> R1:=PolynomialRing(F,[x]);;
@@ -4229,7 +4218,7 @@ gap> r:=[z,z,z,z,z,z,z,z,b^6,b^2,b^5,b^14,b,b^7,b^11];; # 7 errors
 gap> r:=Codeword(r);
 [ 0 0 0 0 0 0 0 0 a^12 a^14 a^5 a^8 a^7 a^4 a^2 ]
 gap> cs:=NearestNeighborGRSDecodewords(C,r,7);
-[ [ [ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ], 0*Z(2) ],
+[ [ [ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ], 0*Z(2) ], 
   [ [ 0 a^9 a^3 a^13 a^6 a^10 a^11 a a^12 a^14 a^5 a^8 a^7 a^4 a^2 ], x_1+Z(2)^0 ] ]
 </Example>
 <!--
@@ -4270,8 +4259,8 @@ gap> a:=PrimitiveRoot(F);; b:=a^7; b^4+b^3+1;
 Z(2^4)^7
 0*Z(2)
 gap> Pts:=List([0..14],i->b^i);
-[ Z(2)^0, Z(2^4)^7, Z(2^4)^14, Z(2^4)^6, Z(2^4)^13, Z(2^2), Z(2^4)^12,
-  Z(2^4)^4, Z(2^4)^11, Z(2^4)^3, Z(2^2)^2, Z(2^4)^2, Z(2^4)^9, Z(2^4),
+[ Z(2)^0, Z(2^4)^7, Z(2^4)^14, Z(2^4)^6, Z(2^4)^13, Z(2^2), Z(2^4)^12, 
+  Z(2^4)^4, Z(2^4)^11, Z(2^4)^3, Z(2^2)^2, Z(2^4)^2, Z(2^4)^9, Z(2^4), 
   Z(2^4)^8 ]
 gap> x:=X(F);;
 gap> R1:=PolynomialRing(F,[x]);;
@@ -4290,7 +4279,6 @@ gap> r:=Codeword(r);
 gap> cs:=NearestNeighborDecodewords(C,r,7);
 [ [ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ], 
   [ 0 a^9 a^3 a^13 a^6 a^10 a^11 a a^12 a^14 a^5 a^8 a^7 a^4 a^2 ] ]
-
 </Example>
 <!--
 F:=GF(16);
@@ -4335,9 +4323,8 @@ gap> Syndrome( C, v );
 [ 0 0 0 0 ]
 gap> Syndrome( C, Codeword( "000000001100111" ) );
 [ 1 1 1 1 ]
-gap> Syndrome( C, Codeword( "000000000000001" ) );
-[ 1 1 1 1 ]    # the same syndrome: both codewords are in the same
-               # coset of C 
+gap> Syndrome( C, Codeword( "000000000000001" ) ); # the same syndrome: both codewords are in the same coset of C 
+[ 1 1 1 1 ]
 </Example>
 <!--
 C := HammingCode(4);
@@ -4376,15 +4363,12 @@ gap> SyndromeTable(H);
   [ [ 0 1 0 ], [ 1 0 ] ], [ [ 0 0 1 ], [ 1 1 ] ] ]
 gap> c := Codeword("101");
 [ 1 0 1 ]
-gap> c in H;
-false          # c is not an element of H
-gap> Syndrome(H,c);
-[ 1 0 ]        # according to the syndrome table,
-               # the error vector [ 0 1 0 ] belongs to this syndrome
-gap> c - Codeword("010") in H;
-true           # so the corrected codeword is
-               # [ 1 0 1 ] - [ 0 1 0 ] = [ 1 1 1 ],
-               # this is an element of H 
+gap> c in H;  # c is not an element of H
+false
+gap> Syndrome(H,c); # according to the syndrome table, the error vector [ 0 1 0 ] belongs to this syndrome
+[ 1 0 ]
+gap> c - Codeword("010") in H; # so the corrected codeword is [ 1 0 1 ] - [ 0 1 0 ] = [ 1 1 1 ], this is an element of H 
+true
 </Example>
 <!--
 H := HammingCode(2);
@@ -4674,12 +4658,12 @@ a (3,4,2)1 Hadamard code of order 4 over GF(2)
 gap> HadamardCode( H4, 2 );
 a (3,8,1)0 Hadamard code of order 4 over GF(2)
 gap> HadamardCode( H4 );
-a (4,8,2)1 Hadamard code of order 4 over GF(2) 
+a (4,8,2)1 Hadamard code of order 4 over GF(2)
 gap> H4 := [[1,1,1,1],[1,-1,1,-1],[1,1,-1,-1],[1,-1,-1,1]];;
 gap> C := HadamardCode( 4 );
 a (4,8,2)1 Hadamard code of order 4 over GF(2)
 gap> C = HadamardCode( H4 );
-true 
+true
 </Example>
 <!--
 H4 := [[1,1,1,1],[1,-1,1,-1],[1,1,-1,-1],[1,-1,-1,1]];;
@@ -4723,7 +4707,7 @@ gap> H6 := [[0,1,1,1,1,1],[1,0,1,-1,-1,1],[1,1,0,1,-1,-1],
 gap> C1 := ConferenceCode( H6 );
 a (5,12,2)1..4 conference code over GF(2)
 gap> IsLinearCode( C1 );
-false 
+false
 gap> C2 := ConferenceCode( 5 );
 a (5,12,2)1..4 conference code over GF(2)
 gap> AsSSortedList( C2 );
@@ -4776,7 +4760,7 @@ gap> mols := List( [1 .. WordLength(C1) - 2 ], function( nr )
 gap> AreMOLS( mols );
 true
 gap> C2 := MOLSCode( 11 );
-a (4,121,3)2 code generated by 2 MOLS of order 11 over GF(11) 
+a (4,121,3)2 code generated by 2 MOLS of order 11 over GF(11)
 </Example>
 <!--
 C1 := MOLSCode( 6, 5 );
@@ -4813,7 +4797,7 @@ gap> MinimumDistance(C1);
 gap> C2 := RandomCode( 6, 10, GF(8) );
 a (6,10,1..6)4..6 random unrestricted code over GF(8)
 gap> C1 = C2;
-false 
+false
 </Example>
 
 <Index>
@@ -4835,7 +4819,7 @@ code.
 gap> C := NordstromRobinsonCode();
 a (16,256,6)4 Nordstrom-Robinson code over GF(2)
 gap> OptimalityCode( C );
-0 
+0
 </Example>
 
 
@@ -4870,7 +4854,7 @@ gap> C2 := GreedyCode( Permuted( Tuples( AsSSortedList( GF(2) ), 5 ),
 >                         (1,4) ), 3, GF(2) );
 a (5,4,3..5)2 Greedy code, user defined basis over GF(2)
 gap> C1 = C2;
-false 
+false
 </Example>
 <!--
 C1 := GreedyCode( Tuples( AsSSortedList( GF(2) ), 5 ), 3, GF(2) );
@@ -4905,10 +4889,10 @@ Note that binary lexicodes are always linear.
 
 <Example>
 gap> C := LexiCode( 4, 3, GF(5) );
-a (4,17,3..4)2..4 lexicode over GF(5) 
+a (4,17,3..4)2..4 lexicode over GF(5)
 gap> B := [ [Z(2)^0, 0*Z(2), 0*Z(2)], [Z(2)^0, Z(2)^0, 0*Z(2)] ];;
 gap> C := LexiCode( B, 2, GF(2) );
-a linear [3,1,2]1..2 lexicode over GF(2) 
+a linear [3,1,2]1..2 lexicode over GF(2)
 </Example>
 
 The function <C>GreedyCode</C> creates a greedy code that is not restricted to
@@ -4976,9 +4960,8 @@ a linear [5,3,1..2]1..2 code defined by generator matrix over GF(3)
 gap> C2 := GeneratorMatCode( IdentityMat( 5, GF(2) ), GF(2) );
 a linear [5,5,1]0 code defined by generator matrix over GF(2)
 gap> GeneratorMatCode( List( AsSSortedList( NordstromRobinsonCode() ),
-> x -> VectorCodeword( x ) ), GF( 2 ) );
+> x -> VectorCodeword( x ) ), GF( 2 ) ); # This is the smallest linear code that contains the N-R code 
 a linear [16,11,1..4]2 code defined by generator matrix over GF(2)
-# This is the smallest linear code that contains the N-R code 
 </Example>
 <!--
 G := Z(3)^0 * [[1,0,1,2,0],[0,1,2,1,1],[0,0,1,2,1]];;
@@ -5023,8 +5006,8 @@ gap> G := Z(3)^0 * [[1,0,1,2,0],[0,1,2,1,1],[0,0,1,2,1]];;
 gap> C1 := CheckMatCode( G, GF(3) );
 a linear [5,2,1..2]2..3 code defined by check matrix over GF(3)
 gap> CheckMat(C1);
-[ [ Z(3)^0, 0*Z(3), Z(3)^0, Z(3), 0*Z(3) ],
-  [ 0*Z(3), Z(3)^0, Z(3), Z(3)^0, Z(3)^0 ],
+[ [ Z(3)^0, 0*Z(3), Z(3)^0, Z(3), 0*Z(3) ], 
+  [ 0*Z(3), Z(3)^0, Z(3), Z(3)^0, Z(3)^0 ], 
   [ 0*Z(3), 0*Z(3), Z(3)^0, Z(3), Z(3)^0 ] ]
 gap> C2 := CheckMatCode( IdentityMat( 5, GF(2) ), GF(2) );
 a cyclic [5,0,5]5 code defined by check matrix over GF(2)
@@ -5060,7 +5043,7 @@ Hamming code is a linear <M>[(q^r-1)/(q-1), (q^r-1)/(q-1) - r, 3]</M> code.
 gap> C1 := HammingCode( 4, GF(2) );
 a linear [15,11,3]1 Hamming (4,2) code over GF(2)
 gap> C2 := HammingCode( 3, GF(9) );
-a linear [91,88,3]1 Hamming (3,9) code over GF(9) 
+a linear [91,88,3]1 Hamming (3,9) code over GF(9)
 </Example>
 <!--
 C1 := HammingCode( 4, GF(2) );
@@ -5089,7 +5072,7 @@ at most <M>r</M>.
 
 <Example>
 gap> ReedMullerCode( 1, 3 );
-a linear [8,4,4]2 Reed-Muller (1,3) code over GF(2) 
+a linear [8,4,4]2 Reed-Muller (1,3) code over GF(2)
 </Example>
 <!--
 ReedMullerCode( 1, 3 );
@@ -5128,7 +5111,7 @@ where <M>a</M> is a primitive element of a Galois field <A>F</A>.
 gap> Y := [ 1, 1, 1, 1, 1, 1, 1];; a := PrimitiveUnityRoot( 2, 7 );;
 gap> alpha := List( [0..6], i -> a^i );;
 gap> C := AlternantCode( 2, Y, alpha, GF(8) );
-a linear [7,3,3..4]3..4 alternant code over GF(8) 
+a linear [7,3,3..4]3..4 alternant code over GF(8)
 </Example>
 <!--
 Y := [ 1, 1, 1, 1, 1, 1, 1];; a := PrimitiveUnityRoot( 2, 7 );;
@@ -5179,15 +5162,15 @@ gap> L:=Elements(GF(8));
 gap> g:=x^2+x+1;
 x^2+x+Z(2)^0
 gap> C:=GoppaCode(g,L);
-a linear [8,2,5]3 Goppa code over GF(2)
+a linear [8,2,5]3 classical Goppa code over GF(2)
 gap> xx := Indeterminate( GF(2), "xx" );; 
 gap> gg := xx^2 + xx + 1;; L := AsSSortedList( GF(8) );;
 gap> C1 := GoppaCode( gg, L );
-a linear [8,2,5]3 Goppa code over GF(2) 
+a linear [8,2,5]3 classical Goppa code over GF(2)
 gap> y := Indeterminate( GF(2), "y" );; 
 gap> h := y^2 + y + 1;;
 gap> C2 := GoppaCode( h, 8 );
-a linear [8,2,5]3 Goppa code over GF(2) 
+a linear [8,2,5]3 classical Goppa code over GF(2)
 gap> C1=C2;
 true
 gap> C=C1;
@@ -5245,7 +5228,7 @@ special case <M>t=1</M>, <M>z_i=a_i^\mu</M>, for some
 gap> a := Filtered( AsSSortedList( GF(2^6) ), e -> e in GF(2^3) );;
 gap> w := [ Z(2^6) ];; z := List( [1..8], e -> 1 );;
 gap> C := GeneralizedSrivastavaCode( a, w, z, 1, GF(64) );
-a linear [8,2,2..5]3..4 generalized Srivastava code over GF(2) 
+a linear [8,2,2..5]3..4 generalized Srivastava code over GF(2)
 </Example>
 <!--
 a := Filtered( AsSSortedList( GF(2^6) ), e -> e in GF(2^3) );;
@@ -5290,8 +5273,8 @@ gap> a := AsSSortedList( GF(11) ){[2..8]};;
 gap> w := AsSSortedList( GF(11) ){[9..10]};;
 gap> C := SrivastavaCode( a, w, 2, GF(11) );
 a linear [7,5,3]2 Srivastava code over GF(11)
-gap> IsMDSCode( C );
-true    # Always true if F is a prime field 
+gap> IsMDSCode( C );     # Always true if F is a prime field 
+true
 </Example>
 <!--
 a := AsSSortedList( GF(11) ){[2..8]};;
@@ -5379,14 +5362,14 @@ INPUT: <M>P</M> is a list of prime powers describing an abelian group <M>G</M>.
 
 <Example>
 gap> G:=AbelianGroup([5,5] );
- [ pc group of size 25 with 2 generators ]
+&lt;pc group of size 25 with 2 generators&gt;
 gap> FpfAutomorphismGroupsMaxSize( G );
 [ 24, 2 ]
 gap> L:=FpfAutomorphismGroupsCyclic( [5,5], 3 );
-[ [ [ f1, f2 ] -> [ f1*f2^2, f1*f2^3 ] ],
-  [ pc group of size 25 with 2 generators ] ]
+[ [ [ f1, f2 ] -> [ f1*f2^2, f1*f2^3 ] ], 
+  &lt;pc group of size 25 with 2 generators&gt; ]
 gap> D := DesignFromFerreroPair( L[2], Group(L[1][1]), "*" );
- [ a 2 - ( 25, 3, 2 ) nearring generated design ]
+&lt;a 2 - ( 25, 3, 2 ) nearring generated design&gt;
 gap> M:=IncidenceMat( D );; Length(M); Length(TransposedMat(M));
 25
 200
@@ -5398,7 +5381,6 @@ gap> C2:=FerreroDesignCode( [5,5],3);
 a linear [200,25,1..24]62..100 code defined by generator matrix over GF(2)
 gap> C1=C2;
 true
-
 </Example>
 <!--
 
@@ -5509,8 +5491,8 @@ bounds are already calculated.
 <Example>
 gap> C1 := BestKnownLinearCode( 23, 12, GF(2) );
 a linear [23,12,7]3 punctured code
-gap> C1 = BinaryGolayCode();
-false     # it's constructed differently
+gap> C1 = BinaryGolayCode();  # it's constructed differently
+false
 gap> C1 := BestKnownLinearCode( 23, 12, GF(2) );
 a linear [23,12,7]3 punctured code
 gap> G1 := MutableCopyMat(GeneratorMat(C1));;
@@ -5534,7 +5516,7 @@ a cyclic [23,12,7]3 binary Golay code over GF(2)
 gap> G2 := MutableCopyMat(GeneratorMat(C2));;
 gap> PutStandardForm(G2);
 ()
-gap> Display(G2);
+gap> Display(G2); ## Despite their generator matrices are different, they are equivalent codes, see below.
  1 . . . . . . . . . . . 1 . 1 . 1 1 1 . . . 1
  . 1 . . . . . . . . . . 1 1 1 1 1 . . 1 . . 1
  . . 1 . . . . . . . . . 1 1 . 1 . . 1 . 1 . 1
@@ -5547,7 +5529,6 @@ gap> Display(G2);
  . . . . . . . . . 1 . . . . 1 . 1 1 . 1 1 1 1
  . . . . . . . . . . 1 . 1 . 1 1 1 . . . 1 1 .
  . . . . . . . . . . . 1 . 1 . 1 1 1 . . . 1 1
-## Despite their generator matrices are different, they are equivalent codes, see below.
 gap> IsEquivalent(C1,C2);
 true
 gap> CodeIsomorphism(C1,C2);
@@ -5774,7 +5755,7 @@ a cyclic [23,12,7]3 binary Golay code over GF(2)
 gap> ExtendedBinaryGolayCode() = ExtendedCode(BinaryGolayCode());
 true
 gap> IsPerfectCode(C);
-true 
+true
 gap> IsCyclicCode(C);
 true
 </Example>
@@ -5805,10 +5786,9 @@ true
 gap> P := PuncturedCode(C);
 a linear [23,12,7]3 punctured code
 gap> P = BinaryGolayCode();
-true 
+true
 gap> IsCyclicCode(C);
 false
-
 </Example>
 <!--
 C := ExtendedBinaryGolayCode();
@@ -5841,7 +5821,7 @@ There's also the binary Golay code (see
 gap> C:=TernaryGolayCode();
 a cyclic [11,6,5]2 ternary Golay code over GF(3)
 gap> ExtendedTernaryGolayCode() = ExtendedCode(TernaryGolayCode());
-true 
+true
 gap> IsCyclicCode(C);
 true
 </Example>
@@ -5872,7 +5852,7 @@ true
 gap> P := PuncturedCode(C);
 a linear [11,6,5]2 punctured code
 gap> P = TernaryGolayCode();
-true 
+true
 gap> IsCyclicCode(C);
 false
 </Example>
@@ -6075,7 +6055,7 @@ Z(2^4)
 gap> C2 := RootsCode( 15, [ b, b^2, b^3, b^4 ] );
 a cyclic [15,7,5]3..5 code defined by roots over GF(2)
 gap> C2 = BCHCode( 15, 5, GF(2) );
-true 
+true
 gap> C3 := RootsCode( 4, [ 1, 2 ], 5 );
 a cyclic [4,2,2..3]2 code defined by roots over GF(5)
 gap> RootsOfCode( C3 );
@@ -6164,7 +6144,7 @@ a cyclic [23,12,5..7]3 BCH code, delta=5, b=1 over GF(2)
 gap> DesignedDistance( C2 );       
 5
 gap> MinimumDistance(C2);
-7 
+7
 </Example>
 <!--
 C1 := BCHCode( 15, 3, 5, GF(2) );
@@ -6208,7 +6188,7 @@ a cyclic [4,2,3]2 Reed-Solomon code over GF(5)
 gap> RootsOfCode( C2 );
 [ Z(5), Z(5)^2 ]
 gap> IsMDSCode(C2);
-true 
+true
 </Example>
 <!--
 C1 := ReedSolomonCode( 3, 2 );
@@ -6272,7 +6252,7 @@ false
 gap> C2 := QRCode( 11, GF(3) );
 a cyclic [11,6,4..5]2 quadratic residue code over GF(3)
 gap> C2 = TernaryGolayCode();
-true 
+true
 gap> Q1 := QRCode( 7, GF(2));
 a cyclic [7,4,3]1 quadratic residue code over GF(2)
 gap> P1:=AutomorphismGroup(Q1); IdGroup(P1);
@@ -6347,7 +6327,7 @@ gap> C2 := QQRCode( 29); MinimumDistance(C2);
 a linear [58,28,1..14]8..29 code defined by generator matrix over GF(2)
 12
 gap> Aut2:=AutomorphismGroup(C2); IdGroup(Aut2);
-[ permutation group of size 812 with 4 generators ]
+&lt;permutation group of size 812 with 4 generators&gt;
 [ 812, 7 ]
 </Example>
 
@@ -6412,8 +6392,8 @@ gap> Factors( G );
 [ x^3+x^2+Z(2)^0 ]
 gap> C := FireCode( G, 3 );
 a cyclic [35,27,1..4]2..6 3 burst error correcting fire code over GF(2)
-gap> MinimumDistance( C );
-4     # Still it can correct bursts of length 3 
+gap> MinimumDistance( C );     # Still it can correct bursts of length 3 
+4
 </Example>
 <!--
 x:= Indeterminate( GF(2) );; G:= x^3+x^2+1;
@@ -6483,7 +6463,7 @@ gap> AsSSortedList( C );
 gap> IsPerfectCode( C );
 false
 gap> IsMDSCode( C );
-true 
+true
 </Example>
 <!--
 C := RepetitionCode( 3, GF(5) );
@@ -6506,9 +6486,9 @@ factors yields a generator polynomial after multiplication.
 <Example>
 gap> CyclicCodes(3,GF(3));
 [ a cyclic [3,3,1]0 enumerated code over GF(3), 
-a cyclic [3,2,1..2]1 enumerated code over GF(3), 
-a cyclic [3,1,3]2 enumerated code over GF(3), 
-a cyclic [3,0,3]3 enumerated code over GF(3) ]
+  a cyclic [3,2,1..2]1 enumerated code over GF(3), 
+  a cyclic [3,1,3]2 enumerated code over GF(3), 
+  a cyclic [3,0,3]3 enumerated code over GF(3) ]
 </Example>
 <!--
 CyclicCodes(3,GF(3));
@@ -6540,8 +6520,8 @@ gap> BinaryGolayCode() in codelist;
 true
 gap> RepetitionCode( 23, GF(2) ) in codelist;
 true
-gap> CordaroWagnerCode( 23 ) in codelist;
-false    # This code is not cyclic 
+gap> CordaroWagnerCode( 23 ) in codelist;     # This code is not cyclic 
+false
 </Example>
 <!--
 NrCyclicCodes( 23, GF(2) );
@@ -7026,7 +7006,7 @@ to see them all): <C>C!.exponents</C> (namely <A>L</A>).
 
 <Example>
 gap> C:=ToricCode([[1,0],[3,4]],GF(3));
-a linear [4,1,4]2 toric code over GF(3)
+a linear [4,1,4]2  toric code over GF(3)
 gap> Display(GeneratorMat(C));
  1 1 2 2
 gap> Elements(C);
@@ -7202,7 +7182,6 @@ gap> crv:=AffineCurve(b^q+b-a^(q+1),R2);
 rec( ring := PolynomialRing(..., [ x_1, x_1 ]), polynomial := x_1^5+x_1^4+x_1 )
 gap> GenusCurve(crv);
 36
-
 </Example>
 
 <ManSection>
@@ -7229,19 +7208,16 @@ Z(43)^6
 gap> zzz:=Z(43);
 Z(43)
 gap> rho1:=zz^0*[[zz^4,0,0],[0,zz^2,0],[0,0,zz]];
-[ [ Z(43)^24, 0*Z(43), 0*Z(43) ], 
-[ 0*Z(43), Z(43)^12, 0*Z(43) ], 
-[ 0*Z(43), 0*Z(43), Z(43)^6 ] ]
+[ [ Z(43)^24, 0*Z(43), 0*Z(43) ], [ 0*Z(43), Z(43)^12, 0*Z(43) ], 
+  [ 0*Z(43), 0*Z(43), Z(43)^6 ] ]
 gap> rho2:=zz^0*[[0,1,0],[0,0,1],[1,0,0]];
-[ [ 0*Z(43), Z(43)^0, 0*Z(43) ], 
-[ 0*Z(43), 0*Z(43), Z(43)^0 ], 
-[ Z(43)^0, 0*Z(43), 0*Z(43) ] ]
+[ [ 0*Z(43), Z(43)^0, 0*Z(43) ], [ 0*Z(43), 0*Z(43), Z(43)^0 ], 
+  [ Z(43)^0, 0*Z(43), 0*Z(43) ] ]
 gap> rho3:=(-1)*[[(zz-zz^6 )/zzz^7,( zz^2-zz^5 )/ zzz^7, ( zz^4-zz^3 )/ zzz^7],
 >             [( zz^2-zz^5 )/ zzz^7, ( zz^4-zz^3 )/ zzz^7, ( zz-zz^6 )/ zzz^7],
 >             [( zz^4-zz^3 )/ zzz^7, ( zz-zz^6 )/ zzz^7, ( zz^2-zz^5 )/ zzz^7]];
-[ [ Z(43)^9, Z(43)^28, Z(43)^12 ], 
-[ Z(43)^28, Z(43)^12, Z(43)^9 ], 
-[ Z(43)^12, Z(43)^9, Z(43)^28 ] ]
+[ [ Z(43)^9, Z(43)^28, Z(43)^12 ], [ Z(43)^28, Z(43)^12, Z(43)^9 ], 
+  [ Z(43)^12, Z(43)^9, Z(43)^28 ] ]
 gap> G:=Group([rho1,rho2,rho3]);; #PSL(2,7)
 gap> Size(G);
 168
@@ -7262,7 +7238,6 @@ gap> O:=GOrbitPoint(G,P);
 [ Z(43)^4, Z(43)^0, Z(43)^3 ], [ Z(43)^4, Z(43)^36, Z(43)^15 ] ]
 gap> Length(O);
 24
-
 </Example>
 
 Informally, a <E>divisor</E> 
@@ -7331,7 +7306,6 @@ rec( coeffs := [ 1, -1 ],
      support := [ [ 0*Z(5), Z(5)^0 ], [ Z(5)^0, Z(5) ] ],
      curve := rec( ring := PolynomialRing(..., [ x_1, x_2 ]), 
                    polynomial := -x_1^3+x_2^3-x_1-Z(5)^0 ) )
-
 </Example>
 <!--
 q:=5;
@@ -7450,20 +7424,20 @@ gap> crvP1:=AffineCurve(b,R2);
 rec( ring := PolynomialRing(..., [ a, b ]), polynomial := b )
 gap> div1:=DivisorOnAffineCurve([1,2,3,4],[Z(11)^2,Z(11)^3,Z(11)^7,Z(11)],crvP1);
 rec( coeffs := [ 1, 2, 3, 4 ], 
-     support := [ Z(11)^2, Z(11)^3, Z(11)^7, Z(11) ], 
-     curve := rec( ring := PolynomialRing(..., [ a, b ]), polynomial := b ) )
+     curve := rec( ring := PolynomialRing(..., [ a, b ]), polynomial := b ), 
+     support := [ Z(11)^2, Z(11)^3, Z(11)^7, Z(11) ] )
 gap> DivisorDegree(div1);
 10
 gap> div2:=DivisorOnAffineCurve([1,2,3,4],[Z(11),Z(11)^2,Z(11)^3,Z(11)^4],crvP1);
 rec( coeffs := [ 1, 2, 3, 4 ], 
-     support := [ Z(11), Z(11)^2, Z(11)^3, Z(11)^4 ], 
-     curve := rec( ring := PolynomialRing(..., [ a, b ]), polynomial := b ) )
+     curve := rec( ring := PolynomialRing(..., [ a, b ]), polynomial := b ),
+     support := [ Z(11), Z(11)^2, Z(11)^3, Z(11)^4 ] )
 gap> DivisorDegree(div2);
 10
 gap> div3:=DivisorAddition(div1,div2);
 rec( coeffs := [ 5, 3, 5, 4, 3 ], 
-     support := [ Z(11), Z(11)^2, Z(11)^3, Z(11)^4, Z(11)^7 ], 
-     curve := rec( ring := PolynomialRing(..., [ a, b ]), polynomial := b ) )
+     curve := rec( ring := PolynomialRing(..., [ a, b ]), polynomial := b ), 
+     support := [ Z(11), Z(11)^2, Z(11)^3, Z(11)^4, Z(11)^7 ] )
 gap> DivisorDegree(div3);
 20
 gap> DivisorIsEffective(div1);
@@ -7472,29 +7446,28 @@ gap> DivisorIsEffective(div2);
 true
 gap> ndiv1:=DivisorNegate(div1);
 rec( coeffs := [ -1, -2, -3, -4 ], 
-     support := [ Z(11)^2, Z(11)^3, Z(11)^7, Z(11) ], 
-     curve := rec( ring := PolynomialRing(..., [ a, b ]), polynomial := b ) )
+     curve := rec( ring := PolynomialRing(..., [ a, b ]), polynomial := b ), 
+     support := [ Z(11)^2, Z(11)^3, Z(11)^7, Z(11) ] )
 gap> zdiv:=DivisorAddition(div1,ndiv1);
 rec( coeffs := [ 0, 0, 0, 0 ], 
-     support := [ Z(11), Z(11)^2, Z(11)^3, Z(11)^7 ], 
-     curve := rec( ring := PolynomialRing(..., [ a, b ]), polynomial := b ) )
+     curve := rec( ring := PolynomialRing(..., [ a, b ]), polynomial := b ), 
+     support := [ Z(11), Z(11)^2, Z(11)^3, Z(11)^7 ] )
 gap> DivisorIsZero(zdiv);
 true
 gap> div_gcd:=DivisorGCD(div1,div2);
 rec( coeffs := [ 1, 1, 2, 0, 0 ], 
-     support := [ Z(11), Z(11)^2, Z(11)^3, Z(11)^4, Z(11)^7 ], 
-     curve := rec( ring := PolynomialRing(..., [ a, b ]), polynomial := b ) )
+     curve := rec( ring := PolynomialRing(..., [ a, b ]), polynomial := b ), 
+     support := [ Z(11), Z(11)^2, Z(11)^3, Z(11)^4, Z(11)^7 ] )
 gap> div_lcm:=DivisorLCM(div1,div2);
 rec( coeffs := [ 4, 2, 3, 4, 3 ], 
-     support := [ Z(11), Z(11)^2, Z(11)^3, Z(11)^4, Z(11)^7 ], 
-     curve := rec( ring := PolynomialRing(..., [ a, b ]), polynomial := b ) )
+     curve := rec( ring := PolynomialRing(..., [ a, b ]), polynomial := b ), 
+     support := [ Z(11), Z(11)^2, Z(11)^3, Z(11)^4, Z(11)^7 ] )
 gap> DivisorDegree(div_gcd);
 4
 gap> DivisorDegree(div_lcm);
 16
 gap> DivisorEqual(div3,DivisorAddition(div_gcd,div_lcm));
 true
-
 </Example>
 <!--
 F:=GF(11);
@@ -7801,7 +7774,6 @@ gap> f:=MoebiusTransformation(A,R1);
 (a+Z(11))/(Z(11)^8*a+Z(11)^2)
 gap> ActionMoebiusTransformationOnFunction(A,f,R1);
 -Z(11)^0+Z(11)^3*a^-1
-
 </Example>
 <!--
 F:=GF(11);
@@ -7853,11 +7825,9 @@ gap> D:=DivisorOnAffineCurve([1,2,3,4],[Z(11)^2,Z(11)^3,Z(11)^7,Z(11)],crvP1);
 rec( coeffs := [ 1, 2, 3, 4 ], 
      support := [ Z(11)^2, Z(11)^3, Z(11)^7, Z(11) ], 
      curve := rec( ring := PolynomialRing(..., [ a, b ]), polynomial := b ) )
-gap> agp:=DivisorAutomorphismGroupP1(D);; time;
-7305
+gap> agp:=DivisorAutomorphismGroupP1(D);; #time; #Uncomment the call to "time;"" to see performance data
 gap> IdGroup(agp);
 [ 10, 2 ]
-
 </Example>
 <!--
 F:=GF(11);
@@ -7916,8 +7886,7 @@ gap> D:=DivisorOnAffineCurve([1,1,1,4],[Z(11)^2,Z(11)^3,Z(11)^7,Z(11)],crvP1);
 rec( coeffs := [ 1, 1, 1, 4 ],  
      support := [ Z(11)^2, Z(11)^3, Z(11)^7, Z(11) ], 
      curve := rec( ring := PolynomialRing(..., [ a, b ]), polynomial := b ) )
-gap> agp:=DivisorAutomorphismGroupP1(D);; time;
-7198
+gap> agp:=DivisorAutomorphismGroupP1(D);; #time; #Uncomment the call to "time;"" to see performance data
 gap> IdGroup(agp);
 [ 20, 5 ]
 gap> g:=Random(agp);
@@ -8123,7 +8092,7 @@ rec( ring := PolynomialRing(..., [ x_1, x_2 ]), polynomial := x_1^5+x_2^4+x_2 )
 gap> L:=[ x^0, x, x^2*y^-1 ];
 [ Z(2)^0, x_1, x_1^2/x_2 ]
 gap> Pts:=AffinePointsOnCurve(crv.polynomial,crv.ring,F);;
-gap> C1:=EvaluationBivariateCode(Pts,L,crv); time;
+gap> C1:=EvaluationBivariateCode(Pts,L,crv); #time; #Uncomment the call to "time;"" to see performance data
 
 
  Automatically removed the following 'bad' points (either a pole or not 
@@ -8131,14 +8100,11 @@ gap> C1:=EvaluationBivariateCode(Pts,L,crv); time;
 [ [ 0*Z(2), 0*Z(2) ] ]
 
 a linear [63,3,1..60]51..59  evaluation code over GF(16)
-52
 gap> P:=Difference(Pts,[[ 0*Z(2^4)^0, 0*Z(2)^0 ]]);;
-gap> C2:=EvaluationBivariateCodeNC(P,L,crv); time;
+gap> C2:=EvaluationBivariateCodeNC(P,L,crv); #time; #Uncomment the call to "time;"" to see performance data
 a linear [63,3,1..60]51..59  evaluation code over GF(16)
-48
-gap> C3:=EvaluationCode(P,L,R); time;
+gap> C3:=EvaluationCode(P,L,R); #time; #Uncomment the call to "time;"" to see performance data
 a linear [63,3,1..56]51..59  evaluation code over GF(16)
-58
 gap> MinimumDistance(C1);
 56
 gap> MinimumDistance(C2);
@@ -8507,7 +8473,7 @@ true
 gap> List( AsSSortedList( C2 ), WeightCodeword );
 [ 0, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 8 ]
 gap> C3 := EvenWeightSubcode( C1 );
-a linear [7,3,4]2..3 even weight subcode 
+a linear [7,3,4]2..3 even weight subcode
 </Example>
 <!--
 C1 := HammingCode( 3, GF(2) );
@@ -8557,8 +8523,8 @@ gap> ExtendedCode( C2 ) = C1;
 false
 gap> PuncturedCode( C1, [1,2,3,4,5,6,7] );
 a linear [8,7,1]1 punctured code
-gap> PuncturedCode( WholeSpaceCode( 4, GF(5) ) );
-a linear [3,3,1]0 punctured code  # The dimension decreased from 4 to 3 
+gap> PuncturedCode( WholeSpaceCode( 4, GF(5) ) ); # The dimension decreases from 4 to 3 
+a linear [3,3,1]0 punctured code
 </Example>
 <!--
 C1 := BCHCode( 15, 5, GF(2) );
@@ -8600,7 +8566,7 @@ gap> List( AsSSortedList( C1 ), WeightCodeword );
 [ 0, 4, 4, 4, 4, 4, 4, 6, 4, 4, 4, 4, 6, 4, 4, 6, 4, 4, 8, 6, 4, 6, 8, 4, 4, 
   4, 6, 4, 6, 8, 4, 6, 8 ]
 gap> EvenWeightSubcode( ReedMullerCode( 1, 3 ) );
-a linear [8,4,4]2 Reed-Muller (1,3) code over GF(2) 
+a linear [8,4,4]2 Reed-Muller (1,3) code over GF(2)
 </Example>
 <!--
 C1 := EvenWeightSubcode( BCHCode( 8, 4, GF(3) ) );
@@ -8642,7 +8608,7 @@ gap> p := CodeIsomorphism( C1, C2 );
 gap> C3 := PermutedCode( C1, p );
 a linear [15,5,7]5 permuted code
 gap> C2 = C3;
-true 
+true
 </Example>
 <!--
 C1 := PuncturedCode( ReedMullerCode( 1, 4 ) );
@@ -8675,7 +8641,7 @@ gap> L := Filtered( AsSSortedList(C1), i -> WeightCodeword(i) = 3 );;
 gap> C2 := ExpurgatedCode( C1, L );
 a linear [15,4,3..4]5..11 code, expurgated with 7 word(s)
 gap> WeightDistribution( C2 );
-[ 1, 0, 0, 0, 14, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0 ] 
+[ 1, 0, 0, 0, 14, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0 ]
 </Example>
 <!--
 C1 := HammingCode( 4 );; WeightDistribution( C1 );
@@ -8726,7 +8692,7 @@ a linear [8,4,4]2 Reed-Muller (1,3) code over GF(2)
 gap> C32 := AugmentedCode(C31,["00000011","00000101","00010001"]);
 a linear [8,7,1..2]1 code, augmented with 3 word(s)
 gap> C32 = ReedMullerCode( 2, 3 );
-true 
+true
 gap> C1 := CordaroWagnerCode(6);
 a linear [6,2,4]2..3 Cordaro-Wagner code over GF(2)
 gap> Codeword( [0,0,1,1,1,1] ) in C1;
@@ -8768,9 +8734,8 @@ gap> C2 := RemovedElementsCode( C1, L );
 a (15,2013,3..15)2..15 code with 35 word(s) removed
 gap> WeightDistribution( C2 );
 [ 1, 0, 0, 0, 105, 168, 280, 435, 435, 280, 168, 105, 35, 0, 0, 1 ]
-gap> MinimumDistance( C2 );
-3        # C2 is not linear, so the minimum weight does not have to
-         # be equal to the minimum distance 
+gap> MinimumDistance( C2 );     # C2 is not linear, so the minimum weight does not have to be equal to the minimum distance 
+3
 </Example>
 <!--
 C1 := HammingCode( 4 );; WeightDistribution( C1 );
@@ -8810,7 +8775,7 @@ true
 gap> C3 := AddedElementsCode( C2, [ "101010", "010101" ] );
 a (6,4,1..6)2 code with 2 word(s) added
 gap> IsCyclicCode( C3 );
-true 
+true
 </Example>
 <!--
 C1 := NullCode( 6, GF(2) );
@@ -8914,7 +8879,7 @@ code, the new code generally is a <M>[n+i,k+1]</M> code.
 gap> C1 := CordaroWagnerCode( 5 );
 a linear [5,2,3]2 Cordaro-Wagner code over GF(2)
 gap> C2 := LengthenedCode( C1 );
-a linear [6,3,2]2..3 code, lengthened with 1 column(s) 
+a linear [6,3,2]2..3 code, lengthened with 1 column(s)
 </Example>
 <!--
 C1 := CordaroWagnerCode( 5 );
@@ -8943,15 +8908,15 @@ a cyclic [31,11,11]7..11 BCH code, delta=11, b=1 over GF(2)
 gap> S1:= SubCode(C);
 a linear [31,10,11]7..13 subcode
 gap> WeightDistribution(S1);
-[ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 120, 190, 0, 0, 272, 255, 0, 0, 120, 66,
+[ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 120, 190, 0, 0, 272, 255, 0, 0, 120, 66, 
   0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
 gap> S2:= SubCode(C, 8);
 a linear [31,3,11]14..20 subcode
 gap> History(S2);
-[ "a linear [31,3,11]14..20 subcode of",
+[ "a linear [31,3,11]14..20 subcode of", 
   "a cyclic [31,11,11]7..11 BCH code, delta=11, b=1 over GF(2)" ]
 gap> WeightDistribution(S2);
-[ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 1, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,
+[ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 1, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 
   0, 0, 0, 0, 0, 0, 0 ]
 </Example>
 
@@ -8988,7 +8953,7 @@ gap> C2 := ResidueCode( C1 );
 a linear [8,4,4]2 residue code
 gap> c := Codeword( [ 0,0,0,1,0,0,1,1,0,1,0,1,1,1,1 ], C1);;
 gap> C3 := ResidueCode( C1, c );
-a linear [7,4,3]1 residue code 
+a linear [7,4,3]1 residue code
 </Example>
 <!--
 C1 := BCHCode( 15, 7 );
@@ -9019,7 +8984,7 @@ gap> C1 := ReedMullerCode( 2, 5 );
 a linear [32,16,8]6 Reed-Muller (2,5) code over GF(2)
 gap> C2 := ConstructionBCode( C1 );
 a linear [24,9,8]5..10 Construction B (8 coordinates)
-gap> BoundsMinimumDistance( 24, 9, GF(2) );
+gap> BoundsMinimumDistance( 24, 9, GF(2) );  # so C2 is optimal
 rec( n := 24, k := 9, q := 2, references := rec(  ), 
   construction := [ [ Operation "UUVCode" ], 
       [ [ [ Operation "UUVCode" ], [ [ [ Operation "DualCode" ], 
@@ -9033,7 +8998,6 @@ rec( n := 24, k := 9, q := 2, references := rec(  ),
   upperBound := 8, 
   upperBoundExplanation := [ "Ub(24,9)=8, otherwise construction B would 
                              contradict:", "Ub(18,4)=8, Griesmer bound" ] )
-# so C2 is optimal
 </Example>
 <!--
 C1 := ReedMullerCode( 2, 5 );
@@ -9068,13 +9032,13 @@ If a code <A>C</A> is equal to its dual code, it is called
 gap> R := ReedMullerCode( 1, 3 );
 a linear [8,4,4]2 Reed-Muller (1,3) code over GF(2)
 gap> RD := DualCode( R );
-a linear [8,4,4]2 Reed-Muller (1,3) code over GF(2)
+a linear [8,4,4]2 dual code
 gap> R = RD;
 true
 gap> N := WholeSpaceCode( 7, GF(4) );
 a cyclic [7,7,1]0 whole space code over GF(4)
 gap> DualCode( N ) = NullCode( 7, GF(4) );
-true 
+true
 </Example>
 <!--
 R := ReedMullerCode( 1, 3 );
@@ -9115,8 +9079,8 @@ true
 gap> GeneratorMat( R );
 [ [ Z(2)^0, Z(2)^0, Z(2)^0, Z(2)^0 ] ]
 gap> GeneratorMat( R2 );
-[ [ Z(2)^0, 0*Z(2), Z(2)^0, 0*Z(2), Z(2)^0, 0*Z(2), Z(2)^0, 0*Z(2) ],
-  [ 0*Z(2), Z(2)^0, 0*Z(2), Z(2)^0, 0*Z(2), Z(2)^0, 0*Z(2), Z(2)^0 ] ] 
+[ [ Z(2)^0, 0*Z(2), Z(2)^0, 0*Z(2), Z(2)^0, 0*Z(2), Z(2)^0, 0*Z(2) ], 
+  [ 0*Z(2), Z(2)^0, 0*Z(2), Z(2)^0, 0*Z(2), Z(2)^0, 0*Z(2), Z(2)^0 ] ]
 </Example>
 <!--
 R := RepetitionCode( 4, GF(4) );
@@ -9151,7 +9115,6 @@ a  [10,4,?] randomly generated code over GF(4)
 gap> trC:=TraceCode(C,GF(2)); MinimumDistance(trC);
 a linear [10,7,1]1..3 user defined unrestricted code over GF(2)
 1
-
 </Example>
 <!--
 C:=RandomLinearCode(10,4,GF(4)); MinimumDistance(C);
@@ -9184,11 +9147,10 @@ gap> c := Codeword("1011011");; c in H;
 false
 gap> C := CosetCode(H, c);
 a (7,16,3)1 coset code
-gap> List(AsSSortedList(C), el-> Syndrome(H, el));
-[ [ 1 1 1 ], [ 1 1 1 ], [ 1 1 1 ], [ 1 1 1 ], [ 1 1 1 ], [ 1 1 1 ],
-  [ 1 1 1 ], [ 1 1 1 ], [ 1 1 1 ], [ 1 1 1 ], [ 1 1 1 ], [ 1 1 1 ],
+gap> List(AsSSortedList(C), el-> Syndrome(H, el));  # All elements of the coset have the same syndrome in H 
+[ [ 1 1 1 ], [ 1 1 1 ], [ 1 1 1 ], [ 1 1 1 ], [ 1 1 1 ], [ 1 1 1 ], 
+  [ 1 1 1 ], [ 1 1 1 ], [ 1 1 1 ], [ 1 1 1 ], [ 1 1 1 ], [ 1 1 1 ], 
   [ 1 1 1 ], [ 1 1 1 ], [ 1 1 1 ], [ 1 1 1 ] ]
-# All elements of the coset have the same syndrome in H 
 </Example>
 <!--
 H := HammingCode(3, GF(2));
@@ -9228,13 +9190,13 @@ gap> N := NordstromRobinsonCode();; WeightDistribution(N);
 gap> C := ConstantWeightSubcode(N, 8);
 a (16,30,6..16)5..8 code with codewords of weight 8
 gap> WeightDistribution(C);
-[ 0, 0, 0, 0, 0, 0, 0, 0, 30, 0, 0, 0, 0, 0, 0, 0, 0 ] 
+[ 0, 0, 0, 0, 0, 0, 0, 0, 30, 0, 0, 0, 0, 0, 0, 0, 0 ]
 gap> eg := ExtendedTernaryGolayCode();; WeightDistribution(eg);
 [ 1, 0, 0, 0, 0, 0, 264, 0, 0, 440, 0, 0, 24 ]
 gap> C := ConstantWeightSubcode(eg);
 a (12,264,6..12)3..6 code with codewords of weight 6
 gap> WeightDistribution(C);
-[ 0, 0, 0, 0, 0, 0, 264, 0, 0, 0, 0, 0, 0 ] 
+[ 0, 0, 0, 0, 0, 0, 264, 0, 0, 0, 0, 0, 0 ]
 </Example>
 <!--
 N := NordstromRobinsonCode();; WeightDistribution(N);
@@ -9284,7 +9246,7 @@ a linear [4,2,1..2]1..2 random form code over GF(2)
 gap> Codeword( GeneratorMat( G ) );
 [ [ 0 1 0 1 ], [ 0 0 1 1 ] ]
 gap> Codeword( GeneratorMat( StandardFormCode( G ) ) );
-[ [ 1 0 0 1 ], [ 0 1 0 1 ] ] 
+[ [ 1 0 0 1 ], [ 0 1 0 1 ] ]
 </Example>
 <!--
 G := GeneratorMatCode( Z(2) * [ [0,1,1,0], [0,1,0,1], [0,0,1,1] ], "random form code", GF(2) );
@@ -9376,7 +9338,7 @@ gap> D := DirectSumCode(C1, C2);;
 gap> AsSSortedList(D);
 [ [ 1 0 0 0 0 ], [ 1 0 3 3 3 ], [ 4 5 0 0 0 ], [ 4 5 3 3 3 ] ]
 gap> D = C1 + C2;   # addition = direct sum
-true 
+true
 </Example>
 <!--
 C1 := ElementsCode( [ [1,0], [4,5] ], GF(7) );;
@@ -9415,9 +9377,9 @@ a cyclic [4,3,2]1 even weight subcode
 gap> C2 := RepetitionCode(4, GF(2));
 a cyclic [4,1,4]2 repetition code over GF(2)
 gap> R := UUVCode(C1, C2);
-a linear [8,4,4]2 U U+V construction code
+a linear [8,4,4]2 U|U+V construction code
 gap> R = ReedMullerCode(1,3);
-true 
+true
 </Example>
 <!--
 C1 := EvenWeightSubcode(WholeSpaceCode(4, GF(2)));
@@ -9452,7 +9414,7 @@ a linear [10,5,4]2..4 lexicode over GF(2)
 gap> L2 := LexiCode(8, 3, GF(2));
 a linear [8,4,3]2..3 lexicode over GF(2)
 gap> D := DirectProductCode(L1, L2);
-a linear [80,20,12]20..45 direct product code 
+a linear [80,20,12]20..45 direct product code
 </Example>
 <!--
 L1 := LexiCode(10, 4, GF(2));
@@ -9476,16 +9438,16 @@ If both are cyclic, the result is also cyclic.
 
 <Example>
 gap> C := CyclicCodes(7, GF(2));
-[ a cyclic [7,7,1]0 enumerated code over GF(2),
-  a cyclic [7,6,1..2]1 enumerated code over GF(2),
-  a cyclic [7,3,1..4]2..3 enumerated code over GF(2),
-  a cyclic [7,0,7]7 enumerated code over GF(2),
-  a cyclic [7,3,1..4]2..3 enumerated code over GF(2),
-  a cyclic [7,4,1..3]1 enumerated code over GF(2),
-  a cyclic [7,1,7]3 enumerated code over GF(2),
+[ a cyclic [7,7,1]0 enumerated code over GF(2), 
+  a cyclic [7,6,1..2]1 enumerated code over GF(2), 
+  a cyclic [7,3,1..4]2..3 enumerated code over GF(2), 
+  a cyclic [7,0,7]7 enumerated code over GF(2), 
+  a cyclic [7,3,1..4]2..3 enumerated code over GF(2), 
+  a cyclic [7,4,1..3]1 enumerated code over GF(2), 
+  a cyclic [7,1,7]3 enumerated code over GF(2), 
   a cyclic [7,4,1..3]1 enumerated code over GF(2) ]
 gap> IntersectionCode(C[6], C[8]) = C[7];
-true 
+true
 </Example>
 
 <Index>hull</Index> 
@@ -9522,7 +9484,7 @@ false
 gap> c in H;
 false
 gap> c in U;
-true 
+true
 </Example>
 <!--
 G := GeneratorMatCode([[1,0,1],[0,1,1]]*Z(2)^0, GF(2));
@@ -9734,7 +9696,8 @@ true
 gap> IsSubset(C[2], C[3]);
 true
 gap> A := [ RepetitionCode(4, GF(2)), EvenWeightSubcode( QRCode(17, GF(2)) ) ];
-[ a cyclic [4,1,4]2 repetition code over GF(2), a cyclic [17,8,6]3..6 even weight subcode ]
+[ a cyclic [4,1,4]2 repetition code over GF(2), 
+  a cyclic [17,8,6]3..6 even weight subcode ]
 gap> CX := ConstructionXCode(C, A);
 a linear [148,23,53]43..74 Construction X code
 gap> History(CX);
@@ -9882,7 +9845,8 @@ gap> O := [ CyclicMDSCode(2,3,7), BestKnownLinearCode(9,5,GF(2)), CyclicMDSCode(
   a cyclic [9,4,6]4..5 MDS code over GF(8) ]
 gap> A := ExtendedCode( HammingCode(3,GF(2)) );;
 gap> I := [ SubCode(A), A, DualCode( RepetitionCode(8, GF(2)) ) ];
-[ a linear [8,3,4]3..4 subcode, a linear [8,4,4]2 extended code, a cyclic [8,7,2]1 dual code ]
+[ a linear [8,3,4]3..4 subcode, a linear [8,4,4]2 extended code, 
+  a cyclic [8,7,2]1 dual code ]
 gap> C := BZCodeNC(O, I);
 a linear [72,38,12]0..72 Blokh Zyablov concatenated code
 gap> #
@@ -9895,21 +9859,21 @@ gap> MinimumDistance(O1);; MinimumDistance(O2);; MinimumDistance(O3);;
 gap> Cy := CyclicCodes(5, GF(5));;
 gap> for i in [4, 5] do; MinimumDistance(Cy[i]);; od;
 gap> O  := [ O1, O2, O3 ];
-[ a linear [6,4,3]1 dual code, a linear [6,3,4]2..3 extended code,
+[ a linear [6,4,3]1 dual code, a linear [6,3,4]2..3 extended code, 
   a linear [6,2,5]3..4 extended code ]
 gap> I  := [ Cy[5], Cy[4], Cy[3] ];
-[ a cyclic [5,1,5]3..4 enumerated code over GF(5),
-  a cyclic [5,2,4]2..3 enumerated code over GF(5),
+[ a cyclic [5,1,5]3..4 enumerated code over GF(5), 
+  a cyclic [5,2,4]2..3 enumerated code over GF(5), 
   a cyclic [5,3,1..3]2 enumerated code over GF(5) ]
 gap> C  := BZCodeNC( O, I );
 a linear [30,9,5..15]0..30 Blokh Zyablov concatenated code
 gap> MinimumDistance(C);
 15
 gap> History(C);
-[ "a linear [30,9,15]0..30 Blokh Zyablov concatenated code of",
+[ "a linear [30,9,15]0..30 Blokh Zyablov concatenated code of", 
   "Inner codes: [ a cyclic [5,1,5]3..4 enumerated code over GF(5), a cyclic [5\
 ,2,4]2..3 enumerated code over GF(5), a cyclic [5,3,1..3]2 enumerated code ove\
-r GF(5) ]",
+r GF(5) ]", 
   "Outer codes: [ a linear [6,4,3]1 dual code, a linear [6,3,4]2..3 extended c\
 ode, a linear [6,2,5]3..4 extended code ]" ]
 </Example>
@@ -10054,7 +10018,7 @@ gap> UpperBoundSingleton(4, 3, 5);
 gap> C := ReedSolomonCode(4,3);; Size(C);
 25
 gap> IsMDSCode(C);
-true 
+true
 </Example>
 
 <Index>
@@ -10122,8 +10086,8 @@ The Johnson bound only works for binary codes.
 <Example>
 gap> UpperBoundJohnson( 13, 5 );
 77
-gap> UpperBoundHamming( 13, 5, 2);
-89   # in this case the Johnson bound is better 
+gap> UpperBoundHamming( 13, 5, 2);    # in this case the Johnson bound is better
+89 
 </Example>
 
 <Index>bounds, Plotkin
@@ -10157,7 +10121,7 @@ a cyclic [15,5,7]5 BCH code, delta=7, b=1 over GF(2)
 gap> Size(C);
 32
 gap> WeightDistribution(C);
-[ 1, 0, 0, 0, 0, 0, 0, 15, 15, 0, 0, 0, 0, 0, 0, 1 ] 
+[ 1, 0, 0, 0, 0, 0, 0, 15, 15, 0, 0, 0, 0, 0, 0, 1 ]
 </Example>
 <!--
 UpperBoundPlotkin( 15, 7, 2 );
@@ -10186,7 +10150,7 @@ minimum distances.
 gap> UpperBoundPlotkin( 16, 3, 2 );
 12288
 gap> UpperBoundElias( 16, 3, 2 );
-10280 
+10280
 gap> UpperBoundElias( 20, 10, 3 );
 16255
 </Example>
@@ -10210,10 +10174,10 @@ process until a trivial code is left in the end.
 <Example>
 gap> UpperBoundGriesmer( 13, 5, 2 );
 64
-gap> UpperBoundGriesmer( 18, 9, 2 );
-8        # the maximum number of words for a linear code is 8
-gap> Size( PuncturedCode( HadamardCode( 20, 1 ) ) );
-20       # this non-linear code has 20 elements 
+gap> UpperBoundGriesmer( 18, 9, 2 );       # the maximum number of words for a linear code is 8
+8
+gap> Size( PuncturedCode( HadamardCode( 20, 1 ) ) );       # this non-linear code has 20 elements 
+20
 </Example>
 <!--
 UpperBoundGriesmer( 13, 5, 2 );
@@ -10243,7 +10207,7 @@ n = g[k,d] = \sum_{i=0}^{k-1} \lceil \frac{d}{q^i} \rceil.
 gap> IsGriesmerCode( HammingCode( 3, GF(2) ) );
 true
 gap> IsGriesmerCode( BCHCode( 17, 2, GF(2) ) );
-false 
+false
 </Example>
 
 
@@ -10278,7 +10242,7 @@ all methods for the parameters
 gap> UpperBound( 10, 3, 2 );
 85
 gap> UpperBound( 25, 9, 8 );
-1211778792827540 
+1211778792827540
 </Example>
 
 
@@ -10302,10 +10266,10 @@ It uses the  mechanism explained in section
 <Example>
 gap> C := BCHCode( 45, 7 );
 a cyclic [45,23,7..9]6..16 BCH code, delta=7, b=1 over GF(2)
-gap> LowerBoundMinimumDistance( C );
-7     # designed distance is lower bound for minimum distance 
+gap> LowerBoundMinimumDistance( C );     # designed distance is lower bound for minimum distance 
+7
 gap> LowerBoundMinimumDistance( 45, 23, GF(2) );
-10 
+10
 </Example>
 <!--
 C := BCHCode( 45, 7 );
@@ -10406,9 +10370,9 @@ It uses the mechanism explained in section
 <Example>
 gap> C := BCHCode( 45, 7 );;
 gap> UpperBoundMinimumDistance( C );
-9 
+9
 gap> UpperBoundMinimumDistance( 45, 23, GF(2) );
-11 
+11
 </Example>
 <!--
 C := BCHCode( 45, 7 );;
@@ -10448,20 +10412,18 @@ equal to the lower bound.
 </ManSection>
 
 <Example>
-gap> bounds := BoundsMinimumDistance( 7, 3 );; DisplayBoundsInfo( bounds );
+gap> bounds := BoundsMinimumDistance( 7, 3 );; DisplayBoundsInfo( bounds ); # The lower bound is equal to the upper bound, so a code with these parameters is optimal.
 an optimal linear [7,3,d] code over GF(2) has d=4
 ------------------------------------------------------------------------------
 Lb(7,3)=4, by shortening of:
-Lb(8,4)=4, u u+v construction of C1 and C2:
+Lb(8,4)=4, by the u|u+v construction applied to C1 [4,3,2] and C2 [4,1,4]: 
 Lb(4,3)=2, dual of the repetition code
 Lb(4,1)=4, repetition code
 ------------------------------------------------------------------------------
-Ub(7,3)=4, Griesmer bound
-# The lower bound is equal to the upper bound, so a code with
-# these parameters is optimal.
+Ub(7,3)=4, by the Griesmer bound
 gap> C := BestKnownLinearCode( bounds );; Display( C );
 a linear [7,3,4]2..3 shortened code of
-a linear [8,4,4]2 U U+V construction code of
+a linear [8,4,4]2 U|U+V construction code of
 U: a cyclic [4,3,2]1 dual code of
    a cyclic [4,1,4]2 repetition code over GF(2)
 V: a cyclic [4,1,4]2 repetition code over GF(2)
@@ -10502,9 +10464,9 @@ returned.
 
 <Example>
 gap> BoundsCoveringRadius( BCHCode( 17, 3, GF(2) ) );
-[ 3 .. 4 ]
+[ 3, 4 ]
 gap> BoundsCoveringRadius( HammingCode( 5, GF(2) ) );
-[ 1 ] 
+[ 1 ]
 </Example>
 
 
@@ -10627,7 +10589,6 @@ Trying 3 ...
 [ 3 .. 5 ]
 gap> CoveringRadius(C);
 3
-
 </Example>
 <!--
 C:=RandomLinearCode(10,5,GF(2));
@@ -10656,7 +10617,6 @@ gap> GeneralLowerBoundCoveringRadius(C);
 2
 gap> CoveringRadius(C);
 3
-
 </Example>
 <!--
 C:=RandomLinearCode(10,5,GF(2));
@@ -10683,7 +10643,6 @@ gap> GeneralUpperBoundCoveringRadius(C);
 4
 gap> CoveringRadius(C);
 3
-
 </Example>
 
 <ManSection>
@@ -10721,7 +10680,6 @@ gap> LowerBoundCoveringRadiusSphereCovering(10,32,GF(2),false);
 2
 gap> LowerBoundCoveringRadiusSphereCovering(10,3,GF(2),true);
 6
-
 </Example>
 <!--
 C:=RandomLinearCode(10,5,GF(2));
@@ -10768,7 +10726,6 @@ gap> LowerBoundCoveringRadiusVanWee1(10,32,GF(2),false);
 2
 gap> LowerBoundCoveringRadiusVanWee1(10,3,GF(2),true);
 6
-
 </Example>
 <!--
 C:=RandomLinearCode(10,5,GF(2));
@@ -10822,7 +10779,6 @@ gap> LowerBoundCoveringRadiusVanWee2(10,32,false);
 2
 gap> LowerBoundCoveringRadiusVanWee2(10,3,true);
 7
-
 </Example>
 <!--
 C:=RandomLinearCode(10,5,GF(2));
@@ -10880,7 +10836,6 @@ gap> LowerBoundCoveringRadiusCountingExcess(10,32,false);
 0
 gap> LowerBoundCoveringRadiusCountingExcess(10,3,true);
 7
-
 </Example>
 <!--
 C:=RandomLinearCode(10,5,GF(2));
@@ -10933,7 +10888,6 @@ gap> LowerBoundCoveringRadiusEmbedded1(10,32,false);
 2
 gap> LowerBoundCoveringRadiusEmbedded1(10,3,true);
 7
-
 </Example>
 <!--
 C:=RandomLinearCode(10,5,GF(2));
@@ -10986,7 +10940,6 @@ gap> LowerBoundCoveringRadiusEmbedded2(10,32,false);
 2
 gap> LowerBoundCoveringRadiusEmbedded2(10,3,true);
 7
-
 </Example>
 
 <ManSection>
@@ -11017,7 +10970,6 @@ gap> CoveringRadius(C);
 5
 gap> LowerBoundCoveringRadiusInduction(15,6);
 7
-
 </Example>
 <!--
 C:=RandomLinearCode(15,5,GF(2));
@@ -11047,7 +10999,6 @@ gap> CoveringRadius(C);
 5
 gap> UpperBoundCoveringRadiusRedundancy(C);
 10
-
 </Example>
 <!--
 C:=RandomLinearCode(15,5,GF(2));
@@ -11139,7 +11090,6 @@ gap> CoveringRadius(C);
 5
 gap> UpperBoundCoveringRadiusGriesmerLike(C);
 9
-
 </Example>
 <!--
 C:=RandomLinearCode(15,5,GF(2));
@@ -11168,7 +11118,6 @@ gap> CoveringRadius(C);
 3
 gap> UpperBoundCoveringRadiusCyclicCode(C);
 3
-
 </Example>
 <!--
 C:=CyclicCodes(15,GF(2))[3];
@@ -11241,7 +11190,7 @@ gap> k := Dimension( C );;
 gap> q^( -k ) * KrawtchoukMat( n, q ) * a;
 [ 1, 0, 0, 0, 7, 0, 0, 0 ]
 gap> WeightDistribution( DualCode( C ) );
-[ 1, 0, 0, 0, 7, 0, 0, 0 ] 
+[ 1, 0, 0, 0, 7, 0, 0, 0 ]
 </Example>
 <!--
 PrintArray( KrawtchoukMat( 3, 2 ) );
@@ -11272,14 +11221,14 @@ modify the result.
 
 <Example>
 gap> GrayMat(3);
-[ [ 0*Z(2), 0*Z(2), 0*Z(2) ], [ 0*Z(2), 0*Z(2), Z(2)^0 ],
-  [ 0*Z(2), Z(2)^0, Z(2)^0 ], [ 0*Z(2), Z(2)^0, 0*Z(2) ],
-  [ Z(2)^0, Z(2)^0, 0*Z(2) ], [ Z(2)^0, Z(2)^0, Z(2)^0 ],
+[ [ 0*Z(2), 0*Z(2), 0*Z(2) ], [ 0*Z(2), 0*Z(2), Z(2)^0 ], 
+  [ 0*Z(2), Z(2)^0, Z(2)^0 ], [ 0*Z(2), Z(2)^0, 0*Z(2) ], 
+  [ Z(2)^0, Z(2)^0, 0*Z(2) ], [ Z(2)^0, Z(2)^0, Z(2)^0 ], 
   [ Z(2)^0, 0*Z(2), Z(2)^0 ], [ Z(2)^0, 0*Z(2), 0*Z(2) ] ]
-gap> G := GrayMat( 4, GF(4) );; Length(G);
-256          # the length of a GrayMat is always q^n
+gap> G := GrayMat( 4, GF(4) );; Length(G);         # the length of a GrayMat is always q^n
+256
 gap> G[101] - G[100];
-[ 0*Z(2), 0*Z(2), Z(2)^0, 0*Z(2) ] 
+[ 0*Z(2), 0*Z(2), Z(2)^0, 0*Z(2) ]
 </Example>
 <!--
 GrayMat(3);
@@ -11349,7 +11298,7 @@ gap> C := HadamardMat(8);; PrintArray(C);
   [   1,   1,  -1,  -1,  -1,  -1,   1,   1 ],
   [   1,  -1,  -1,   1,  -1,   1,   1,  -1 ] ]
 gap> C * TransposedMat(C) = 8 * IdentityMat( 8, 8 );
-true 
+true
 </Example>
 
 
@@ -11367,7 +11316,7 @@ non-negative integer.
 
 <Example>
 gap> M:=VandermondeMat([Z(5),Z(5)^2,Z(5)^0,Z(5)^3],2);
-[ [ Z(5)^0, Z(5), Z(5)^2 ], [ Z(5)^0, Z(5)^2, Z(5)^0 ],
+[ [ Z(5)^0, Z(5), Z(5)^2 ], [ Z(5)^0, Z(5)^2, Z(5)^0 ], 
   [ Z(5)^0, Z(5)^0, Z(5)^0 ], [ Z(5)^0, Z(5)^3, Z(5)^2 ] ]
 gap> Display(M);
  1 2 4
@@ -11414,7 +11363,7 @@ vector space after <C>BaseMat</C>,  but after calling
 
 <Example>
 gap> M := Z(2)*[[1,0,0,1],[0,0,1,1]];; PrintArray(M);
-[ [    Z(2),  0*Z(2),  0*Z(2),    Z(2) ],
+[ [    Z(2),  0*Z(2),  0*Z(2),    Z(2) ], 
   [  0*Z(2),  0*Z(2),    Z(2),    Z(2) ] ]
 gap> PutStandardForm(M);                   # identity at the left side
 (2,3)
@@ -11444,7 +11393,6 @@ gap> Display(G);
  . . . . . . . . . 1 . . . . 1 . 1 1 . 1 1 1 .
  . . . . . . . . . . 1 . 1 . 1 1 1 . . . 1 1 1
  . . . . . . . . . . . 1 . 1 . 1 1 1 . . . 1 1
-
 </Example>
 
 <ManSection>
@@ -11470,7 +11418,7 @@ true
 gap> IsInStandardForm([[1, 3, 2, 7]]);
 true
 gap> IsInStandardForm(HadamardMat(4));
-false 
+false
 </Example>
 
 
@@ -11489,7 +11437,7 @@ gap> M := [[1,2,3,4],[1,2,3,4]];; PrintArray(M);
   [  1,  2,  3,  4 ] ]
 gap> PrintArray(PermutedCols(M, (1,2,3)));
 [ [  3,  1,  2,  4 ],
-  [  3,  1,  2,  4 ] ] 
+  [  3,  1,  2,  4 ] ]
 </Example>
 
 <ManSection>
@@ -11528,7 +11476,7 @@ gap> VCFM := VerticalConversionFieldMat( M, GF(9) );; PrintArray(VCFM);
   [  0*Z(3),  0*Z(3) ],
   [    Z(3),  Z(3)^0 ] ]
 gap> DefaultField( Flat(VCFM) );
-GF(3) 
+GF(3)
 </Example>
 
 A similar function is <C>HorizontalConversionFieldMat</C> (see
@@ -11571,7 +11519,7 @@ gap> HCFM := HorizontalConversionFieldMat(M, GF(9));; PrintArray(HCFM);
   [  0*Z(3),    Z(3),  0*Z(3),  Z(3)^0 ],
   [    Z(3),    Z(3),  Z(3)^0,  Z(3)^0 ] ]
 gap> DefaultField( Flat(HCFM) );
-GF(3) 
+GF(3)
 </Example>
 
 A similar function is <C>VerticalConversionFieldMat</C> (see
@@ -11631,7 +11579,7 @@ gap> PrintArray( M[3] );
   [  2,  1,  3,  0 ],
   [  3,  0,  2,  1 ] ]
 gap> MOLS( 12, 3 );
-false 
+false
 </Example>
 
 <ManSection>
@@ -11649,7 +11597,7 @@ each row and each column contains all the integers
 gap> IsLatinSquare([[1,2],[2,1]]);
 true
 gap> IsLatinSquare([[1,2,3],[2,3,1],[1,3,2]]);
-false 
+false
 </Example>
 
 <ManSection>
@@ -11667,10 +11615,10 @@ creates MOLS (see <Ref Func="MOLS" Style="Number"/>).
 
 <Example>
 gap> M := MOLS(4,2);
-[ [ [ 0, 1, 2, 3 ], [ 1, 0, 3, 2 ], [ 2, 3, 0, 1 ], [ 3, 2, 1, 0 ] ],
+[ [ [ 0, 1, 2, 3 ], [ 1, 0, 3, 2 ], [ 2, 3, 0, 1 ], [ 3, 2, 1, 0 ] ], 
   [ [ 0, 2, 3, 1 ], [ 1, 3, 2, 0 ], [ 2, 0, 1, 3 ], [ 3, 1, 0, 2 ] ] ]
 gap> AreMOLS(M);
-true 
+true
 </Example>
 
 
@@ -11708,7 +11656,7 @@ if <M>C_a</M> is empty.
 
 <Example>
 gap> CoordinateNorm( HammingCode( 3, GF(2) ), 3 );
-3 
+3
 </Example>
 
 <Index>
@@ -11730,7 +11678,7 @@ of the calculated numbers is returned.
 
 <Example>
 gap> CodeNorm( HammingCode( 3, GF(2) ) );
-3 
+3
 </Example>
 
 <Index>
@@ -11752,7 +11700,7 @@ the code plus one.
 
 <Example>
 gap> IsCoordinateAcceptable( HammingCode( 3, GF(2) ), 3 );
-true 
+true
 </Example>
 
 <Index>
@@ -11774,7 +11722,7 @@ gap> ham := HammingCode( 3, GF(2) );;
 gap> d := EvenWeightSubcode( ham );;
 gap> e := ConstantWeightSubcode( ham, 3 );;
 gap> GeneralizedCodeNorm( ham, c, d, e );
-4 
+4
 </Example>
 
 
@@ -11803,7 +11751,7 @@ parameters.
 
 <Example>
 gap> IsNormalCode( HammingCode( 3, GF(2) ) );
-true 
+true
 </Example>
 
 </Section>
@@ -11923,7 +11871,7 @@ computed using <C>SphereContent</C>),
 gap> CodeDensity( HammingCode( 3, GF(2) ) );
 1
 gap> CodeDensity( ReedMullerCode( 1, 4 ) );
-14893/2048 
+14893/2048
 </Example>
 
 <Index>
@@ -11949,15 +11897,14 @@ partition the whole ambient vector space, where
 </ManSection>
 
 <Example>
-gap> SphereContent( 15, 0, GF(2) );
-1    # Only one word with distance 0, which is the word itself
+gap> SphereContent( 15, 0, GF(2) );     # Only one word with distance 0, which is the word itself
+1
 gap> SphereContent( 11, 3, GF(4) );
 4984
-gap> C := HammingCode(5);
+gap> C := HammingCode(5); #the minimum distance is 3, so the code can correct one error
 a linear [31,26,3]1 Hamming (5,2) code over GF(2)
-#the minimum distance is 3, so the code can correct one error
 gap> ( SphereContent( 31, 1, GF(2) ) * Size(C) ) = 2 ^ 31;
-true 
+true
 </Example>
 
 <ManSection>
@@ -11984,7 +11931,7 @@ see <Cite Key="MS83"/>.
 
 <Example>
 gap> Krawtchouk( 2, 0, 3, 2);
-3 
+3
 </Example>
 
 <ManSection>
@@ -12005,7 +11952,7 @@ Z(2^4)
 gap> last^15;
 Z(2)^0
 gap> PrimitiveUnityRoot( GF(8), 21 );
-Z(2^6)^3 
+Z(2^6)^3
 </Example>
 
 <ManSection>
@@ -12026,7 +11973,6 @@ See also the GAP function <C>RandomPrimitivePolynomial</C>,
 <Example>
 gap> PrimitivePolynomialsNr(3,4);
 12
-
 </Example>
 
 
@@ -12042,7 +11988,6 @@ polynomials over <M>F=GF(q)</M> of degree <A>n</A>.
 <Example>
 gap> IrreduciblePolynomialsNr(3,4);
 20
-
 </Example>
 
 
@@ -12111,7 +12056,7 @@ gap> P := UnivariatePolynomial( GF(3), Z(3)^0 * [1,0,1,2] );
 gap> RecP := ReciprocalPolynomial( P );
 x_1^3+x_1-Z(3)^0
 gap> ReciprocalPolynomial( RecP ) = P;
-true 
+true
 gap> P := UnivariatePolynomial( GF(3), Z(3)^0 * [1,0,1,2] );
 -x_1^3+x_1^2+Z(3)^0
 gap> ReciprocalPolynomial( P, 6 );
@@ -12146,10 +12091,9 @@ in the previous cosets.
 
 <Example>
 gap> CyclotomicCosets( 2, 15 );
-[ [ 0 ], [ 1, 2, 4, 8 ], [ 3, 6, 12, 9 ], [ 5, 10 ],
-  [ 7, 14, 13, 11 ] ]
+[ [ 0 ], [ 1, 2, 4, 8 ], [ 3, 6, 12, 9 ], [ 5, 10 ], [ 7, 14, 13, 11 ] ]
 gap> CyclotomicCosets( 7, 6 );
-[ [ 0 ], [ 1 ], [ 2 ], [ 3 ], [ 4 ], [ 5 ] ] 
+[ [ 0 ], [ 1 ], [ 2 ], [ 3 ], [ 4 ], [ 5 ] ]
 </Example>
 
 <ManSection>
@@ -12251,7 +12195,7 @@ cyclic rotation of L (to the right)
 <Example>
 gap> L:=[1,2,3,4];;
 gap> RotateList(L);
-[2,3,4,1]
+[ 2, 3, 4, 1 ]
 </Example>
 <!--
 L:=[1,2,3,4];;
@@ -12269,9 +12213,12 @@ Output: kxn matrix whose rows are cyclic rotations of the list L
 </Description>
 </ManSection>
 <Example>
-gap> k:=3; L:=[1,2,3,4];;
+gap> k:=3;; L:=[1,2,3,4];;
 gap> M:=CirculantMatrix(k,L);;
 gap> Display(M);
+[ [  1,  2,  3,  4 ],
+  [  4,  1,  2,  3 ],
+  [  3,  4,  1,  2 ] ]
 </Example>
 <!--
 k:=3; L:=[1,2,3,4];;
@@ -12332,7 +12279,6 @@ gap> x:=vars[1];; y:=vars[2];;
 gap> poly:=y^2-x*(x^2-1);;
 gap> DegreeMultivariatePolynomial(poly,R2);
 3
-
 </Example>
 <!--
 F:=GF(11);;
@@ -12365,7 +12311,8 @@ gap> vars:=IndeterminatesOfPolynomialRing(R2);;
 gap> x:=vars[1];; y:=vars[2];;
 gap> poly:=y^2-x*(x^2-1);;
 gap> DegreesMultivariatePolynomial(poly,R2);
-[ [ [ x_1, x_1, 1 ], [ x_1, x_2, 0 ] ], [ [ x_2^2, x_1, 0 ], [ x_2^2, x_2, 2 ] ],
+[ [ [ x_1, x_1, 1 ], [ x_1, x_2, 0 ] ], 
+  [ [ x_2^2, x_1, 0 ], [ x_2^2, x_2, 2 ] ], 
   [ [ x_1^3, x_1, 3 ], [ x_1^3, x_2, 0 ] ] ]
 </Example>
 <!--
@@ -12424,7 +12371,6 @@ gap> CoefficientMultivariatePolynomial(poly,x,2,R2);
 0*Z(11)
 gap> CoefficientMultivariatePolynomial(poly,x,3,R2);
 -Z(11)^0
-
 </Example>
 <!--
 F:=GF(11);;
@@ -12478,7 +12424,6 @@ gap> Value(f,[x,y],soln); # checking okay
 0*Z(11)
 gap> Value(g,[x,y],col); # checking okay
 0*Z(11)
-
 </Example>
 <!--
 F:=GF(11);;
@@ -12507,7 +12452,6 @@ Returns the current version of Guava. Same as
 <Example>
 gap> GuavaVersion();
 "3.19"
-
 </Example>
 <!--
 
@@ -12530,9 +12474,7 @@ gap> ZechLog(2*l,8*l,F);
 -24
 gap> 8*l+l;(2*l)^(-24);
 Z(11)^6
-Z(11)^6
-
-</Example>
+Z(11)^6</Example>
 <!--
 F:=GF(11);; l := One(F);;
 ZechLog(2*l,8*l,F);
@@ -12750,11 +12692,11 @@ gap> v:=Codeword("12101111");
 gap> v:=VectorCodeword(v);
 [ Z(3)^0, Z(3), Z(3)^0, 0*Z(3), Z(3)^0, Z(3)^0, Z(3)^0, Z(3)^0 ]
 gap> G:=GeneratorMat(C);
-[ [ Z(3)^0, 0*Z(3), Z(3)^0, 0*Z(3), 0*Z(3), 0*Z(3), 0*Z(3), 0*Z(3) ],
-  [ 0*Z(3), Z(3)^0, 0*Z(3), Z(3)^0, 0*Z(3), 0*Z(3), 0*Z(3), 0*Z(3) ],
-  [ 0*Z(3), 0*Z(3), Z(3)^0, 0*Z(3), Z(3)^0, 0*Z(3), 0*Z(3), 0*Z(3) ],
-  [ 0*Z(3), 0*Z(3), 0*Z(3), Z(3)^0, 0*Z(3), Z(3)^0, 0*Z(3), 0*Z(3) ],
-  [ 0*Z(3), 0*Z(3), 0*Z(3), 0*Z(3), Z(3)^0, 0*Z(3), Z(3)^0, 0*Z(3) ],
+[ [ Z(3)^0, 0*Z(3), Z(3)^0, 0*Z(3), 0*Z(3), 0*Z(3), 0*Z(3), 0*Z(3) ], 
+  [ 0*Z(3), Z(3)^0, 0*Z(3), Z(3)^0, 0*Z(3), 0*Z(3), 0*Z(3), 0*Z(3) ], 
+  [ 0*Z(3), 0*Z(3), Z(3)^0, 0*Z(3), Z(3)^0, 0*Z(3), 0*Z(3), 0*Z(3) ], 
+  [ 0*Z(3), 0*Z(3), 0*Z(3), Z(3)^0, 0*Z(3), Z(3)^0, 0*Z(3), 0*Z(3) ], 
+  [ 0*Z(3), 0*Z(3), 0*Z(3), 0*Z(3), Z(3)^0, 0*Z(3), Z(3)^0, 0*Z(3) ], 
   [ 0*Z(3), 0*Z(3), 0*Z(3), 0*Z(3), 0*Z(3), Z(3)^0, 0*Z(3), Z(3)^0 ] ]
 gap> AClosestVectorCombinationsMatFFEVecFFE(G,F,v,1,1);
 [ 0*Z(3), 0*Z(3), 0*Z(3), 0*Z(3), 0*Z(3), Z(3)^0, 0*Z(3), Z(3)^0 ]
@@ -12792,7 +12734,7 @@ gap> v:=Codeword("12101111"); v:=VectorCodeword(v);;
 [ 1 2 1 0 1 1 1 1 ]
 gap> G:=GeneratorMat(C);;
 gap> AClosestVectorCombinationsMatFFEVecFFECoords(G,F,v,1,1);
-[ [ 0*Z(3), 0*Z(3), 0*Z(3), 0*Z(3), 0*Z(3), Z(3)^0, 0*Z(3), Z(3)^0 ],
+[ [ 0*Z(3), 0*Z(3), 0*Z(3), 0*Z(3), 0*Z(3), Z(3)^0, 0*Z(3), Z(3)^0 ], 
   [ 0*Z(3), 0*Z(3), 0*Z(3), 0*Z(3), 0*Z(3), Z(3)^0 ] ]
 </Example>
 <!--
