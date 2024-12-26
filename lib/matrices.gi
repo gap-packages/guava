@@ -634,8 +634,9 @@ end);
 ##
 InstallOtherMethod(PutStandardForm, "method for matrix and Field", true,
     [IsMatrix, IsField], 0,
-function(mat, F)
-local perm, k, i, j, d ;
+function(M, F)
+local mat, perm, k, i, j, d ;
+ mat := MutableCopyMatrix(M);
  d := Length(mat[1]);
  TriangulizeMat(mat);
  perm := ();
