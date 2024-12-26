@@ -111,7 +111,7 @@ end);
 ##Create a linear code from a list of Codeword generators
 LinearCodeByGenerators := function(F, gens)
 
-    local V, M, i, j, row;
+    local V, M;
     V:= Objectify( NewType( FamilyObj( gens ),
                             IsLeftModule and
                 IsLinearCodeRep and IsCodeDefaultRep ),
@@ -128,7 +128,7 @@ LinearCodeByGenerators := function(F, gens)
         od;
         Append(M, [row]);
     od;
-    SetGeneratorMat(V, M ) ;
+    SetGeneratorMat(V, M);
     return V;
 
 end;
