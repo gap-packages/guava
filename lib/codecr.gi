@@ -42,7 +42,7 @@ CalculateLinearCodeCoveringRadius := function( code )
 #return Maximum( List( SyndromeTable( code ), i -> Weight( i[ 1 ] ) ) );
 # (old version had line above in place of next 5)
     H:=CheckMat(code);
-    CLs:=CosetLeadersMatFFE(H,LeftActingDomain(code));
+    CLs:=List(Set(CosetLeadersMatFFE(H,LeftActingDomain(code))));
     wts:=List([1..Length(CLs)],i->WeightVecFFE(CLs[i]));
     rho:=Maximum(wts);
     return rho;
