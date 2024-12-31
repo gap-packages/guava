@@ -3193,8 +3193,8 @@ gap> # Extended ternary quadratic residue code of length 48
 gap> n := 47;;
 gap> x := Indeterminate(GF(3));;
 gap> F := Factors(x^n-1);;
-gap> v := List([1..n], i->Zero(GF(3)));;
-gap> v := v + MutableCopyMat(VectorCodeword( Codeword(F[2]) ));;
+gap> v := NullVector(n,GF(3));
+gap> v := v + ShallowCopy(VectorCodeword( Codeword(F[2]) ));;
 gap> G := CirculantMatrix(24, v);;
 gap> for i in [1..Size(G)] do; s:=Zero(GF(3));
 > for j in [1..Size(G[i])] do; s:=s+G[i][j]; od; Append(G[i], [ s ]);
@@ -3202,36 +3202,6 @@ gap> for i in [1..Size(G)] do; s:=Zero(GF(3));
 gap> C := GeneratorMatCodeNC(G, GF(3));
 a  [48,24,?] randomly generated code over GF(3)
 gap> MinimumWeight(C);
-[48,24] linear code over GF(3) - minimum weight evaluation
-Known lower-bound: 1
-There are 2 generator matrices, ranks : 24 24 
-The weight of the minimum weight codeword satisfies 0 mod 3 congruence
-Enumerating codewords with information weight 1 (w=1)
-    Found new minimum weight 15
-Number of matrices required for codeword enumeration 2
-Completed w= 1, 48 codewords enumerated, lower-bound 6, upper-bound 15
-Termination expected with information weight 6 at matrix 1
------------------------------------------------------------------------------
-Enumerating codewords with information weight 2 (w=2) using 2 matrices
-Completed w= 2, 1104 codewords enumerated, lower-bound 6, upper-bound 15
-Termination expected with information weight 6 at matrix 1
------------------------------------------------------------------------------
-Enumerating codewords with information weight 3 (w=3) using 2 matrices
-Completed w= 3, 16192 codewords enumerated, lower-bound 9, upper-bound 15
-Termination expected with information weight 6 at matrix 1
------------------------------------------------------------------------------
-Enumerating codewords with information weight 4 (w=4) using 2 matrices
-Completed w= 4, 170016 codewords enumerated, lower-bound 12, upper-bound 15
-Termination expected with information weight 6 at matrix 1
------------------------------------------------------------------------------
-Enumerating codewords with information weight 5 (w=5) using 2 matrices
-Completed w= 5, 1360128 codewords enumerated, lower-bound 12, upper-bound 15
-Termination expected with information weight 6 at matrix 1
------------------------------------------------------------------------------
-Enumerating codewords with information weight 6 (w=6) using 1 matrices
-Completed w= 6, 4307072 codewords enumerated, lower-bound 15, upper-bound 15
------------------------------------------------------------------------------
-Minimum weight: 15
 15
 gap> 
 
@@ -3242,50 +3212,6 @@ gap> F := Factors(x^n-1);;
 gap> C := CheckPolCode(F[2]*F[3]*F[3]*F[4], n, GF(2));
 a cyclic [151,45,1..50]31..75 code defined by check polynomial over GF(2)
 gap> MinimumWeight(C);
-[151,45] cyclic code over GF(2) - minimum weight evaluation
-Known lower-bound: 1
-The weight of the minimum weight codeword satisfies 0 mod 4 congruence
-Enumerating codewords with information weight 1 (w=1)
-    Found new minimum weight 56
-    Found new minimum weight 44
-Number of matrices required for codeword enumeration 1
-Completed w= 1, 45 codewords enumerated, lower-bound 8, upper-bound 44
-Termination expected with information weight 11
------------------------------------------------------------------------------
-Enumerating codewords with information weight 2 (w=2) using 1 matrix
-Completed w= 2, 990 codewords enumerated, lower-bound 12, upper-bound 44
-Termination expected with information weight 11
------------------------------------------------------------------------------
-Enumerating codewords with information weight 3 (w=3) using 1 matrix
-   Found new minimum weight 40
-   Found new minimum weight 36
-Completed w= 3, 14190 codewords enumerated, lower-bound 16, upper-bound 36
-Termination expected with information weight 9
------------------------------------------------------------------------------
-Enumerating codewords with information weight 4 (w=4) using 1 matrix
-Completed w= 4, 148995 codewords enumerated, lower-bound 20, upper-bound 36
-Termination expected with information weight 9
------------------------------------------------------------------------------
-Enumerating codewords with information weight 5 (w=5) using 1 matrix
-Completed w= 5, 1221759 codewords enumerated, lower-bound 24, upper-bound 36
-Termination expected with information weight 9
------------------------------------------------------------------------------
-Enumerating codewords with information weight 6 (w=6) using 1 matrix
-Completed w= 6, 8145060 codewords enumerated, lower-bound 24, upper-bound 36
-Termination expected with information weight 9
------------------------------------------------------------------------------
-Enumerating codewords with information weight 7 (w=7) using 1 matrix
-Completed w= 7, 45379620 codewords enumerated, lower-bound 28, upper-bound 36
-Termination expected with information weight 9
------------------------------------------------------------------------------
-Enumerating codewords with information weight 8 (w=8) using 1 matrix
-Completed w= 8, 215553195 codewords enumerated, lower-bound 32, upper-bound 36
-Termination expected with information weight 9
------------------------------------------------------------------------------
-Enumerating codewords with information weight 9 (w=9) using 1 matrix
-Completed w= 9, 886163135 codewords enumerated, lower-bound 36, upper-bound 36
------------------------------------------------------------------------------
-Minimum weight: 36
 36
 </Example>
 
@@ -3641,7 +3567,7 @@ Distributions
 <C>MinimumWeightWords</C> returns the list of minimum weight codewords of 
 <A>C</A>. 
 <P/>
-This algorithm is written in GAP is slow, so is only suitable for small codes.
+This algorithm is written in GAP and is rather slow. It is only suitable for small codes.
 <P/>
 This does not call the very fast function <C>MinimumWeight</C>
 (see <Ref Func="MinimumWeight" Style="Number"/>).
@@ -8327,20 +8253,6 @@ P = |    .    |    .     |   .   |        .       |.
 gap> C := QCLDPCCodeFromGroup(7,2,3);
 a linear [21,8,1..6]5..10 low-density parity-check code over GF(2)
 gap> MinimumWeight(C);
-[21,8] linear code over GF(2) - minimum weight evaluation
-Known lower-bound: 1
-There are 3 generator matrices, ranks : 8 8 5 
-The weight of the minimum weight codeword satisfies 0 mod 2 congruence
-Enumerating codewords with information weight 1 (w=1)
-    Found new minimum weight 6
-Number of matrices required for codeword enumeration 2
-Completed w= 1, 24 codewords enumerated, lower-bound 4, upper-bound 6
-Termination expected with information weight 2 at matrix 1
------------------------------------------------------------------------------
-Enumerating codewords with information weight 2 (w=2) using 1 matrices
-Completed w= 2, 28 codewords enumerated, lower-bound 6, upper-bound 6
------------------------------------------------------------------------------
-Minimum weight: 6
 6
 gap> # The quasi-cyclic structure is obvious from the check matrix
 gap> Display( CheckMat(C) );
