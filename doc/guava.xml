@@ -2079,13 +2079,15 @@ doubly-even
 gap> C:=BinaryGolayCode();
 a cyclic [23,12,7]3 binary Golay code over GF(2)
 gap> WeightDistribution(C);
-[ 1, 0, 0, 0, 0, 0, 0, 253, 506, 0, 0, 1288, 1288, 0, 0, 506, 253, 0, 0, 0, 0, 0, 0, 1 ]
+[ 1, 0, 0, 0, 0, 0, 0, 253, 506, 0, 0, 1288, 1288, 0, 0, 506, 253, 0, 0, 0, 
+  0, 0, 0, 1 ]
 gap> IsDoublyEvenCode(C);  
 false
 gap> C:=ExtendedCode(C);  
 a linear [24,12,8]4 extended code
 gap> WeightDistribution(C);
-[ 1, 0, 0, 0, 0, 0, 0, 0, 759, 0, 0, 0, 2576, 0, 0, 0, 759, 0, 0, 0, 0, 0, 0, 0, 1 ]
+[ 1, 0, 0, 0, 0, 0, 0, 0, 759, 0, 0, 0, 2576, 0, 0, 0, 759, 0, 0, 0, 0, 0, 0, 
+  0, 1 ]
 gap> IsDoublyEvenCode(C);  
 true
 </Example>
@@ -3193,7 +3195,7 @@ gap> # Extended ternary quadratic residue code of length 48
 gap> n := 47;;
 gap> x := Indeterminate(GF(3));;
 gap> F := Factors(x^n-1);;
-gap> v := NullVector(n,GF(3));
+gap> v := NullVector(n,GF(3));;
 gap> v := v + ShallowCopy(VectorCodeword( Codeword(F[2]) ));;
 gap> G := CirculantMatrix(24, v);;
 gap> for i in [1..Size(G)] do; s:=Zero(GF(3));
