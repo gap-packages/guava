@@ -1641,7 +1641,7 @@ a  [10,5,?] randomly generated code over GF(2)
 gap> C2:=RandomLinearCode(9,4);
 a  [9,4,?] randomly generated code over GF(2)
 gap> C1+C2;
-a linear [10,9,1]0..10 unknown linear code over GF(2)
+a linear [19,9,1..2]4..9 direct sum code
 </Example>
 
 
