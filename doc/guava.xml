@@ -2717,7 +2717,7 @@ the code <M>C</M> indicated in <C>bds:= BoundsMinimumDistance( n, k, GF(q) )</C>
 </ManSection>
 
 <Example>
-gap> bounds := BoundsMinimumDistance( 20, 17, GF(4) );
+gap> bounds := BoundsMinimumDistance( 20, 17, GF(4) );;
 gap> DisplayBoundsInfo(bounds);
 an optimal linear [20,17,d] code over GF(4) has d=3
 ------------------------------------------------------------------------------
@@ -3580,9 +3580,8 @@ This does not call the very fast function <C>MinimumWeight</C>
 gap> C:=HammingCode(3,GF(2));
 a linear [7,4,3]1 Hamming (3,2) code over GF(2)
 gap> MinimumWeightWords(C);
-[ [ 1 0 0 0 0 1 1 ], [ 0 1 0 1 0 1 0 ], [ 0 1 0 0 1 0 1 ], [ 1 0 0 1 1 0 0 ], [ 0 0 1 0 1 1 0 ],
-  [ 0 0 1 1 0 0 1 ], [ 1 1 1 0 0 0 0 ] ]
-
+[ [ 1 0 0 0 0 1 1 ], [ 0 1 0 1 0 1 0 ], [ 0 1 0 0 1 0 1 ], [ 1 0 0 1 1 0 0 ], 
+  [ 0 0 1 0 1 1 0 ], [ 0 0 1 1 0 0 1 ], [ 1 1 1 0 0 0 0 ] ]
 </Example>
 <!--
 C:=HammingCode(3,GF(2));
@@ -4015,8 +4014,9 @@ GF(2^4)
 gap> a:=PrimitiveRoot(F);; b:=a^7;; b^4+b^3+1; 
 0*Z(2)
 gap> Pts:=List([0..14],i->b^i);
-[ Z(2)^0, Z(2^4)^7, Z(2^4)^14, Z(2^4)^6, Z(2^4)^13, Z(2^2), Z(2^4)^12, Z(2^4)^4,
-  Z(2^4)^11, Z(2^4)^3, Z(2^2)^2, Z(2^4)^2, Z(2^4)^9, Z(2^4), Z(2^4)^8 ]
+[ Z(2)^0, Z(2^4)^7, Z(2^4)^14, Z(2^4)^6, Z(2^4)^13, Z(2^2), Z(2^4)^12, 
+  Z(2^4)^4, Z(2^4)^11, Z(2^4)^3, Z(2^2)^2, Z(2^4)^2, Z(2^4)^9, Z(2^4), 
+  Z(2^4)^8 ]
 gap> x:=X(F);;
 gap> R1:=PolynomialRing(F,[x]);;
 gap> vars:=IndeterminatesOfPolynomialRing(R1);;
@@ -4147,7 +4147,8 @@ gap> r:=Codeword(r);
 [ 0 0 0 0 0 0 0 0 a^12 a^14 a^5 a^8 a^7 a^4 a^2 ]
 gap> cs:=NearestNeighborGRSDecodewords(C,r,7);
 [ [ [ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ], 0*Z(2) ], 
-  [ [ 0 a^9 a^3 a^13 a^6 a^10 a^11 a a^12 a^14 a^5 a^8 a^7 a^4 a^2 ], x_1+Z(2)^0 ] ]
+  [ [ 0 a^9 a^3 a^13 a^6 a^10 a^11 a a^12 a^14 a^5 a^8 a^7 a^4 a^2 ], 
+      x_1+Z(2)^0 ] ]
 </Example>
 <!--
 F:=GF(16);
@@ -4287,8 +4288,8 @@ vectors.
 gap> H := HammingCode(2);
 a linear [3,1,3]1 Hamming (2,2) code over GF(2)
 gap> SyndromeTable(H);
-[ [ [ 0 0 0 ], [ 0 0 ] ], [ [ 1 0 0 ], [ 0 1 ] ],
-  [ [ 0 1 0 ], [ 1 0 ] ], [ [ 0 0 1 ], [ 1 1 ] ] ]
+[ [ [ 0 0 0 ], [ 0 0 ] ], [ [ 1 0 0 ], [ 0 1 ] ], [ [ 0 1 0 ], [ 1 0 ] ], 
+  [ [ 0 0 1 ], [ 1 1 ] ] ]
 gap> c := Codeword("101");
 [ 1 0 1 ]
 gap> c in H;  # c is not an element of H
@@ -9155,7 +9156,7 @@ for cyclic codes.
 
 <Example>
 gap> G := GeneratorMatCode( Z(2) * [ [0,1,1,0], [0,1,0,1], [0,0,1,1] ], 
-          "random form code", GF(2) );
+> "random form code", GF(2) );
 a linear [4,2,1..2]1..2 random form code over GF(2)
 gap> Codeword( GeneratorMat( G ) );
 [ [ 0 1 0 1 ], [ 0 0 1 1 ] ]
