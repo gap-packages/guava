@@ -1376,7 +1376,7 @@ function(C, w)
     return CosetCode(C, w);
 end);
 
-InstallOtherMethod(\+, "method for two codes", IsIdenticalObj, [IsLinearCode, IsLinearCode], 25, 
+InstallOtherMethod(\+, "method for two codes", IsIdenticalObj, [IsCode, IsCode], 25, 
 function(C1, C2)
     return DirectSumCode(C1, C2);
 end);
