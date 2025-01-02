@@ -314,13 +314,13 @@ true
 
 # doc/guava.xml:2478-2481
 gap> IsFinite( RepetitionCode( 1000, GF(11) ) );
-true 
+true
 
 # doc/guava.xml:2495-2500
 gap> Size( RepetitionCode( 1000, GF(11) ) );
 11
 gap> Size( NordstromRobinsonCode() );
-256 
+256
 
 # doc/guava.xml:2517-2524
 gap> C1 := ElementsCode([[0,0,0], [1,0,1], [0,1,0]], GF(4));
@@ -328,7 +328,7 @@ a (3,3,1..3)2..3 user defined unrestricted code over GF(4)
 gap> LeftActingDomain( C1 );
 GF(2^2)
 gap> LeftActingDomain( HammingCode( 3, GF(9) ) );
-GF(3^2) 
+GF(3^2)
 
 # doc/guava.xml:2538-2547
 gap> Dimension( NullCode( 5, GF(5) ) );
@@ -338,7 +338,7 @@ a cyclic [15,9,5]3..4 BCH code, delta=5, b=1 over GF(4)
 gap> Dimension( C );
 9
 gap> Size( C ) = Size( LeftActingDomain( C ) ) ^ Dimension( C );
-true 
+true
 
 # doc/guava.xml:2576-2585
 gap> C := ConferenceCode( 5 );
@@ -455,7 +455,7 @@ gap> RootsOfCode( C1 );
 gap> C2 := RootsCode( 16, last );
 a cyclic [16,12,5]3..4 code defined by roots over GF(17)
 gap> C1 = C2;
-true 
+true
 
 # doc/guava.xml:2947-2954
 gap> WordLength( NordstromRobinsonCode() );
@@ -463,7 +463,7 @@ gap> WordLength( NordstromRobinsonCode() );
 gap> WordLength( PuncturedCode( WholeSpaceCode(7) ) );
 6
 gap> WordLength( UUVCode( WholeSpaceCode(7), RepetitionCode(7) ) );
-14 
+14
 
 # doc/guava.xml:2977-2984
 gap> C := TernaryGolayCode();
@@ -471,7 +471,7 @@ a cyclic [11,6,5]2 ternary Golay code over GF(3)
 gap> Redundancy(C);
 5
 gap> Redundancy( DualCode(C) );
-6 
+6
 
 # doc/guava.xml:3047-3066
 gap> C := MOLSCode(7);; MinimumDistance(C);
@@ -485,7 +485,7 @@ gap> MinimumDistance( NullCode( 4, GF(2) ) );
 gap> C := ConferenceCode(9);; MinimumDistance(C);
 4
 gap> InnerDistribution(C);
-[ 1, 0, 0, 0, 63/5, 9/5, 18/5, 0, 9/10, 1/10 ] 
+[ 1, 0, 0, 0, 63/5, 9/5, 18/5, 0, 9/10, 1/10 ]
 gap> C := MOLSCode(7);; w := CodewordNr( C, 17 );
 [ 3 3 6 2 ]
 gap> MinimumDistance( C, w );
@@ -737,14 +737,14 @@ gap> MinimumDistance(H, c);
 gap> C := RepetitionCode( 3, GF(2) );
 a cyclic [3,1,3]1 repetition code over GF(2)
 gap> OD := OuterDistribution(C);
-[ [ [ 0 0 0 ], [ 1, 0, 0, 1 ] ], [ [ 1 1 1 ], [ 1, 0, 0, 1 ] ],
-  [ [ 0 0 1 ], [ 0, 1, 1, 0 ] ], [ [ 1 1 0 ], [ 0, 1, 1, 0 ] ],
-  [ [ 1 0 0 ], [ 0, 1, 1, 0 ] ], [ [ 0 1 1 ], [ 0, 1, 1, 0 ] ],
+[ [ [ 0 0 0 ], [ 1, 0, 0, 1 ] ], [ [ 1 1 1 ], [ 1, 0, 0, 1 ] ], 
+  [ [ 0 0 1 ], [ 0, 1, 1, 0 ] ], [ [ 1 1 0 ], [ 0, 1, 1, 0 ] ], 
+  [ [ 1 0 0 ], [ 0, 1, 1, 0 ] ], [ [ 0 1 1 ], [ 0, 1, 1, 0 ] ], 
   [ [ 0 1 0 ], [ 0, 1, 1, 0 ] ], [ [ 1 0 1 ], [ 0, 1, 1, 0 ] ] ]
 gap> WeightDistribution(C) = OD[1][2];
 true
 gap> DistancesDistribution( C, Codeword("110") ) = OD[4][2];
-true 
+true
 
 # doc/guava.xml:3887-3902
 gap> C := HammingCode(3);

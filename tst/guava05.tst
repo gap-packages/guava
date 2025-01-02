@@ -26,12 +26,12 @@ a (3,4,2)1 Hadamard code of order 4 over GF(2)
 gap> HadamardCode( H4, 2 );
 a (3,8,1)0 Hadamard code of order 4 over GF(2)
 gap> HadamardCode( H4 );
-a (4,8,2)1 Hadamard code of order 4 over GF(2) 
+a (4,8,2)1 Hadamard code of order 4 over GF(2)
 gap> H4 := [[1,1,1,1],[1,-1,1,-1],[1,1,-1,-1],[1,-1,-1,1]];;
 gap> C := HadamardCode( 4 );
 a (4,8,2)1 Hadamard code of order 4 over GF(2)
 gap> C = HadamardCode( H4 );
-true 
+true
 
 # doc/guava.xml:4720-4733
 gap> H6 := [[0,1,1,1,1,1],[1,0,1,-1,-1,1],[1,1,0,1,-1,-1],
@@ -39,7 +39,7 @@ gap> H6 := [[0,1,1,1,1,1],[1,0,1,-1,-1,1],[1,1,0,1,-1,-1],
 gap> C1 := ConferenceCode( H6 );
 a (5,12,2)1..4 conference code over GF(2)
 gap> IsLinearCode( C1 );
-false 
+false
 gap> C2 := ConferenceCode( 5 );
 a (5,12,2)1..4 conference code over GF(2)
 gap> AsSSortedList( C2 );
@@ -71,13 +71,13 @@ gap> MinimumDistance(C1);
 gap> C2 := RandomCode( 6, 10, GF(8) );
 a (6,10,1..6)4..6 random unrestricted code over GF(8)
 gap> C1 = C2;
-false 
+false
 
 # doc/guava.xml:4834-4839
 gap> C := NordstromRobinsonCode();
 a (16,256,6)4 Nordstrom-Robinson code over GF(2)
 gap> OptimalityCode( C );
-0 
+0
 
 # doc/guava.xml:4866-4874
 gap> C1 := GreedyCode( Tuples( AsSSortedList( GF(2) ), 5 ), 3, GF(2) );
@@ -86,14 +86,14 @@ gap> C2 := GreedyCode( Permuted( Tuples( AsSSortedList( GF(2) ), 5 ),
 >                         (1,4) ), 3, GF(2) );
 a (5,4,3..5)2 Greedy code, user defined basis over GF(2)
 gap> C1 = C2;
-false 
+false
 
 # doc/guava.xml:4906-4912
 gap> C := LexiCode( 4, 3, GF(5) );
-a (4,17,3..4)2..4 lexicode over GF(5) 
+a (4,17,3..4)2..4 lexicode over GF(5)
 gap> B := [ [Z(2)^0, 0*Z(2), 0*Z(2)], [Z(2)^0, Z(2)^0, 0*Z(2)] ];;
 gap> C := LexiCode( B, 2, GF(2) );
-a linear [3,1,2]1..2 lexicode over GF(2) 
+a linear [3,1,2]1..2 lexicode over GF(2)
 
 # doc/guava.xml:4972-4982
 gap> G := Z(3)^0 * [[1,0,1,2,0],[0,1,2,1,1],[0,0,1,2,1]];;
@@ -121,17 +121,17 @@ a cyclic [5,0,5]5 code defined by check matrix over GF(2)
 gap> C1 := HammingCode( 4, GF(2) );
 a linear [15,11,3]1 Hamming (4,2) code over GF(2)
 gap> C2 := HammingCode( 3, GF(9) );
-a linear [91,88,3]1 Hamming (3,9) code over GF(9) 
+a linear [91,88,3]1 Hamming (3,9) code over GF(9)
 
 # doc/guava.xml:5090-5093
 gap> ReedMullerCode( 1, 3 );
-a linear [8,4,4]2 Reed-Muller (1,3) code over GF(2) 
+a linear [8,4,4]2 Reed-Muller (1,3) code over GF(2)
 
 # doc/guava.xml:5127-5132
 gap> Y := [ 1, 1, 1, 1, 1, 1, 1];; a := PrimitiveUnityRoot( 2, 7 );;
 gap> alpha := List( [0..6], i -> a^i );;
 gap> C := AlternantCode( 2, Y, alpha, GF(8) );
-a linear [7,3,3..4]3..4 alternant code over GF(8) 
+a linear [7,3,3..4]3..4 alternant code over GF(8)
 
 # doc/guava.xml:5174-5195
 gap> x:=Indeterminate(GF(8),"x");
@@ -293,7 +293,7 @@ a cyclic [23,12,7]3 binary Golay code over GF(2)
 gap> ExtendedBinaryGolayCode() = ExtendedCode(BinaryGolayCode());
 true
 gap> IsPerfectCode(C);
-true 
+true
 gap> IsCyclicCode(C);
 true
 
@@ -305,16 +305,15 @@ true
 gap> P := PuncturedCode(C);
 a linear [23,12,7]3 punctured code
 gap> P = BinaryGolayCode();
-true 
+true
 gap> IsCyclicCode(C);
 false
-
 
 # doc/guava.xml:5840-5847
 gap> C:=TernaryGolayCode();
 a cyclic [11,6,5]2 ternary Golay code over GF(3)
 gap> ExtendedTernaryGolayCode() = ExtendedCode(TernaryGolayCode());
-true 
+true
 gap> IsCyclicCode(C);
 true
 
@@ -326,7 +325,7 @@ true
 gap> P := PuncturedCode(C);
 a linear [11,6,5]2 punctured code
 gap> P = TernaryGolayCode();
-true 
+true
 gap> IsCyclicCode(C);
 false
 
@@ -394,7 +393,7 @@ a cyclic [23,12,5..7]3 BCH code, delta=5, b=1 over GF(2)
 gap> DesignedDistance( C2 );       
 5
 gap> MinimumDistance(C2);
-7 
+7
 
 # doc/guava.xml:6201-6212
 gap> C1 := ReedSolomonCode( 3, 2 );
@@ -406,7 +405,7 @@ a cyclic [4,2,3]2 Reed-Solomon code over GF(5)
 gap> RootsOfCode( C2 );
 [ Z(5), Z(5)^2 ]
 gap> IsMDSCode(C2);
-true 
+true
 
 # doc/guava.xml:6237-6242
 gap> C := ExtendedReedSolomonCode(17, 13);
@@ -426,7 +425,7 @@ false
 gap> C2 := QRCode( 11, GF(3) );
 a cyclic [11,6,4..5]2 quadratic residue code over GF(3)
 gap> C2 = TernaryGolayCode();
-true 
+true
 gap> Q1 := QRCode( 7, GF(2));
 a cyclic [7,4,3]1 quadratic residue code over GF(2)
 gap> P1:=AutomorphismGroup(Q1); IdGroup(P1);
@@ -968,7 +967,6 @@ gap> f:=MoebiusTransformation(A,R1);
 gap> ActionMoebiusTransformationOnFunction(A,f,R1);
 -Z(11)^0+Z(11)^3*a^-1
 
-
 # doc/guava.xml:7839-7861
 gap> F:=GF(11);
 GF(11)
@@ -990,7 +988,6 @@ gap> agp:=DivisorAutomorphismGroupP1(D);; time;
 7305
 gap> IdGroup(agp);
 [ 10, 2 ]
-
 
 # doc/guava.xml:7902-7944
 gap> F:=GF(11);

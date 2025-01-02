@@ -104,7 +104,7 @@ true
 gap> C3 := AddedElementsCode( C2, [ "101010", "010101" ] );
 a (6,4,1..6)2 code with 2 word(s) added
 gap> IsCyclicCode( C3 );
-true 
+true
 
 # doc/guava.xml:8860-8879
 gap> C1 := HammingCode( 4 );
@@ -130,7 +130,7 @@ gap> OptimalityLinearCode( C6 );
 gap> C1 := CordaroWagnerCode( 5 );
 a linear [5,2,3]2 Cordaro-Wagner code over GF(2)
 gap> C2 := LengthenedCode( C1 );
-a linear [6,3,2]2..3 code, lengthened with 1 column(s) 
+a linear [6,3,2]2..3 code, lengthened with 1 column(s)
 
 # doc/guava.xml:8940-8956
 gap> C := BCHCode(31,11);
@@ -138,15 +138,15 @@ a cyclic [31,11,11]7..11 BCH code, delta=11, b=1 over GF(2)
 gap> S1:= SubCode(C);
 a linear [31,10,11]7..13 subcode
 gap> WeightDistribution(S1);
-[ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 120, 190, 0, 0, 272, 255, 0, 0, 120, 66,
+[ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 120, 190, 0, 0, 272, 255, 0, 0, 120, 66, 
   0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
 gap> S2:= SubCode(C, 8);
 a linear [31,3,11]14..20 subcode
 gap> History(S2);
-[ "a linear [31,3,11]14..20 subcode of",
+[ "a linear [31,3,11]14..20 subcode of", 
   "a cyclic [31,11,11]7..11 BCH code, delta=11, b=1 over GF(2)" ]
 gap> WeightDistribution(S2);
-[ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 1, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,
+[ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 1, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 
   0, 0, 0, 0, 0, 0, 0 ]
 
 # doc/guava.xml:8984-8992
@@ -189,7 +189,7 @@ true
 gap> N := WholeSpaceCode( 7, GF(4) );
 a cyclic [7,7,1]0 whole space code over GF(4)
 gap> DualCode( N ) = NullCode( 7, GF(4) );
-true 
+true
 
 # doc/guava.xml:9108-9120
 gap> R := RepetitionCode( 4, GF(4) );
@@ -211,7 +211,6 @@ a  [10,4,?] randomly generated code over GF(4)
 gap> trC:=TraceCode(C,GF(2)); MinimumDistance(trC);
 a linear [10,7,1]1..3 user defined unrestricted code over GF(2)
 1
-
 
 # doc/guava.xml:9180-9192
 gap> H := HammingCode(3, GF(2));
@@ -268,7 +267,7 @@ gap> D := DirectSumCode(C1, C2);;
 gap> AsSSortedList(D);
 [ [ 1 0 0 0 0 ], [ 1 0 3 3 3 ], [ 4 5 0 0 0 ], [ 4 5 3 3 3 ] ]
 gap> D = C1 + C2;   # addition = direct sum
-true 
+true
 
 # doc/guava.xml:9412-9421
 gap> C1 := EvenWeightSubcode(WholeSpaceCode(4, GF(2)));
@@ -278,7 +277,7 @@ a cyclic [4,1,4]2 repetition code over GF(2)
 gap> R := UUVCode(C1, C2);
 a linear [8,4,4]2 U U+V construction code
 gap> R = ReedMullerCode(1,3);
-true 
+true
 
 # doc/guava.xml:9449-9456
 gap> L1 := LexiCode(10, 4, GF(2));
@@ -299,7 +298,7 @@ gap> C := CyclicCodes(7, GF(2));
   a cyclic [7,1,7]3 enumerated code over GF(2),
   a cyclic [7,4,1..3]1 enumerated code over GF(2) ]
 gap> IntersectionCode(C[6], C[8]) = C[7];
-true 
+true
 
 # doc/guava.xml:9513-9526
 gap> G := GeneratorMatCode([[1,0,1],[0,1,1]]*Z(2)^0, GF(2));
@@ -313,7 +312,7 @@ false
 gap> c in H;
 false
 gap> c in U;
-true 
+true
 
 # doc/guava.xml:9568-9575
 gap> c := HammingCode( 3, GF(2) );

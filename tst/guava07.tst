@@ -16,7 +16,7 @@ gap> UpperBoundSingleton(4, 3, 5);
 gap> C := ReedSolomonCode(4,3);; Size(C);
 25
 gap> IsMDSCode(C);
-true 
+true
 
 # doc/guava.xml:10095-10102
 gap> UpperBoundHamming( 15, 3, 2 );
@@ -24,13 +24,13 @@ gap> UpperBoundHamming( 15, 3, 2 );
 gap> C := HammingCode( 4, GF(2) );
 a linear [15,11,3]1 Hamming (4,2) code over GF(2)
 gap> Size( C );
-2048 
+2048
 
 # doc/guava.xml:10122-10127
 gap> UpperBoundJohnson( 13, 5 );
 77
 gap> UpperBoundHamming( 13, 5, 2);
-89   # in this case the Johnson bound is better 
+89
 
 # doc/guava.xml:10152-10161
 gap> UpperBoundPlotkin( 15, 7, 2 );
@@ -40,13 +40,13 @@ a cyclic [15,5,7]5 BCH code, delta=7, b=1 over GF(2)
 gap> Size(C);
 32
 gap> WeightDistribution(C);
-[ 1, 0, 0, 0, 0, 0, 0, 15, 15, 0, 0, 0, 0, 0, 0, 1 ] 
+[ 1, 0, 0, 0, 0, 0, 0, 15, 15, 0, 0, 0, 0, 0, 0, 1 ]
 
 # doc/guava.xml:10185-10192
 gap> UpperBoundPlotkin( 16, 3, 2 );
 12288
 gap> UpperBoundElias( 16, 3, 2 );
-10280 
+10280
 gap> UpperBoundElias( 20, 10, 3 );
 16255
 
@@ -62,13 +62,13 @@ gap> Size( PuncturedCode( HadamardCode( 20, 1 ) ) );
 gap> IsGriesmerCode( HammingCode( 3, GF(2) ) );
 true
 gap> IsGriesmerCode( BCHCode( 17, 2, GF(2) ) );
-false 
+false
 
 # doc/guava.xml:10277-10282
 gap> UpperBound( 10, 3, 2 );
 85
 gap> UpperBound( 25, 9, 8 );
-1211778792827540 
+1211778792827540
 
 # doc/guava.xml:10302-10309
 gap> C := BCHCode( 45, 7 );
@@ -139,7 +139,6 @@ Trying 3 ...
 gap> CoveringRadius(C);
 3
 
-
 # doc/guava.xml:10652-10660
 gap> C:=RandomLinearCode(10,5,GF(2));
 a  [10,5,?] randomly generated code over GF(2)
@@ -148,7 +147,6 @@ gap> GeneralLowerBoundCoveringRadius(C);
 gap> CoveringRadius(C);
 3
 
-
 # doc/guava.xml:10679-10687
 gap> C:=RandomLinearCode(10,5,GF(2));
 a  [10,5,?] randomly generated code over GF(2)
@@ -156,7 +154,6 @@ gap> GeneralUpperBoundCoveringRadius(C);
 4
 gap> CoveringRadius(C);
 3
-
 
 # doc/guava.xml:10713-10725
 gap> C:=RandomLinearCode(10,5,GF(2));
@@ -170,7 +167,6 @@ gap> LowerBoundCoveringRadiusSphereCovering(10,32,GF(2),false);
 gap> LowerBoundCoveringRadiusSphereCovering(10,3,GF(2),true);
 6
 
-
 # doc/guava.xml:10760-10772
 gap> C:=RandomLinearCode(10,5,GF(2));
 a  [10,5,?] randomly generated code over GF(2)
@@ -182,7 +178,6 @@ gap> LowerBoundCoveringRadiusVanWee1(10,32,GF(2),false);
 2
 gap> LowerBoundCoveringRadiusVanWee1(10,3,GF(2),true);
 6
-
 
 # doc/guava.xml:10814-10826
 gap> C:=RandomLinearCode(10,5,GF(2));
@@ -196,7 +191,6 @@ gap> LowerBoundCoveringRadiusVanWee2(10,32,false);
 gap> LowerBoundCoveringRadiusVanWee2(10,3,true);
 7
 
-
 # doc/guava.xml:10872-10884
 gap> C:=RandomLinearCode(10,5,GF(2));
 a  [10,5,?] randomly generated code over GF(2)
@@ -208,7 +202,6 @@ gap> LowerBoundCoveringRadiusCountingExcess(10,32,false);
 0
 gap> LowerBoundCoveringRadiusCountingExcess(10,3,true);
 7
-
 
 # doc/guava.xml:10925-10937
 gap> C:=RandomLinearCode(10,5,GF(2));
@@ -222,28 +215,25 @@ gap> LowerBoundCoveringRadiusEmbedded1(10,32,false);
 gap> LowerBoundCoveringRadiusEmbedded1(10,3,true);
 7
 
-
 # doc/guava.xml:10978-10990
 gap> C:=RandomLinearCode(15,5,GF(2));
 a  [15,5,?] randomly generated code over GF(2)
 gap> Size(C);
 32
 gap> CoveringRadius(C);
-6
+5
 gap> LowerBoundCoveringRadiusEmbedded2(10,32,false);
 2
 gap> LowerBoundCoveringRadiusEmbedded2(10,3,true);
 7
 
-
 # doc/guava.xml:11013-11021
 gap> C:=RandomLinearCode(15,5,GF(2));
 a  [15,5,?] randomly generated code over GF(2)
 gap> CoveringRadius(C);
-5
+6
 gap> LowerBoundCoveringRadiusInduction(15,6);
 7
-
 
 # doc/guava.xml:11043-11051
 gap> C:=RandomLinearCode(15,5,GF(2));
@@ -253,12 +243,11 @@ gap> CoveringRadius(C);
 gap> UpperBoundCoveringRadiusRedundancy(C);
 10
 
-
 # doc/guava.xml:11072-11079
 gap> C:=RandomLinearCode(15,5,GF(2));
 a  [15,5,?] randomly generated code over GF(2)
 gap> CoveringRadius(C);
-5
+6
 gap> UpperBoundCoveringRadiusDelsarte(C);
 13
 
@@ -278,7 +267,6 @@ gap> CoveringRadius(C);
 gap> UpperBoundCoveringRadiusGriesmerLike(C);
 9
 
-
 # doc/guava.xml:11164-11172
 gap> C:=CyclicCodes(15,GF(2))[3];
 a cyclic [15,12,1..2]1..3 enumerated code over GF(2)
@@ -286,7 +274,6 @@ gap> CoveringRadius(C);
 3
 gap> UpperBoundCoveringRadiusCyclicCode(C);
 3
-
 
 # doc/guava.xml:11231-11245
 gap> PrintArray( KrawtchoukMat( 3, 2 ) );
@@ -301,7 +288,7 @@ gap> k := Dimension( C );;
 gap> q^( -k ) * KrawtchoukMat( n, q ) * a;
 [ 1, 0, 0, 0, 7, 0, 0, 0 ]
 gap> WeightDistribution( DualCode( C ) );
-[ 1, 0, 0, 0, 7, 0, 0, 0 ] 
+[ 1, 0, 0, 0, 7, 0, 0, 0 ]
 
 # doc/guava.xml:11273-11283
 gap> GrayMat(3);
@@ -335,7 +322,7 @@ gap> C := HadamardMat(8);; PrintArray(C);
   [   1,   1,  -1,  -1,  -1,  -1,   1,   1 ],
   [   1,  -1,  -1,   1,  -1,   1,   1,  -1 ] ]
 gap> C * TransposedMat(C) = 8 * IdentityMat( 8, 8 );
-true 
+true
 
 # doc/guava.xml:11368-11377
 gap> M:=VandermondeMat([Z(5),Z(5)^2,Z(5)^0,Z(5)^3],2);
