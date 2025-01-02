@@ -187,8 +187,6 @@ SetPackageInfo( rec(
     # fit on a single text line (appears with the '?books' command in GAP)
     LongTitle := "GUAVA Coding Theory Package",
     Subtitle := "error-correcting codes computations",
-    # Should this help book be autoloaded when GAP starts up? This should
-    # usually be 'true', otherwise say 'false'. 
   ),
 
 ##  Are there restrictions on the operating system for this package? Or does
