@@ -13,7 +13,7 @@ gap> START_TEST("guava08.tst");
 # doc/guava.xml:12742-12761
 gap> F:=GF(3);;
 gap> x:= Indeterminate( F );; pol:= x^2+1;
-x_1^2+Z(3)^0
+x^2+Z(3)^0
 gap> C := GeneratorPolCode(pol,8,F);
 a cyclic [8,6,1..2]1..2 code defined by generator polynomial over GF(3)
 gap> v:=Codeword("12101111");
@@ -21,11 +21,11 @@ gap> v:=Codeword("12101111");
 gap> v:=VectorCodeword(v);
 [ Z(3)^0, Z(3), Z(3)^0, 0*Z(3), Z(3)^0, Z(3)^0, Z(3)^0, Z(3)^0 ]
 gap> G:=GeneratorMat(C);
-[ [ Z(3)^0, 0*Z(3), Z(3)^0, 0*Z(3), 0*Z(3), 0*Z(3), 0*Z(3), 0*Z(3) ],
-  [ 0*Z(3), Z(3)^0, 0*Z(3), Z(3)^0, 0*Z(3), 0*Z(3), 0*Z(3), 0*Z(3) ],
-  [ 0*Z(3), 0*Z(3), Z(3)^0, 0*Z(3), Z(3)^0, 0*Z(3), 0*Z(3), 0*Z(3) ],
-  [ 0*Z(3), 0*Z(3), 0*Z(3), Z(3)^0, 0*Z(3), Z(3)^0, 0*Z(3), 0*Z(3) ],
-  [ 0*Z(3), 0*Z(3), 0*Z(3), 0*Z(3), Z(3)^0, 0*Z(3), Z(3)^0, 0*Z(3) ],
+[ [ Z(3)^0, 0*Z(3), Z(3)^0, 0*Z(3), 0*Z(3), 0*Z(3), 0*Z(3), 0*Z(3) ], 
+  [ 0*Z(3), Z(3)^0, 0*Z(3), Z(3)^0, 0*Z(3), 0*Z(3), 0*Z(3), 0*Z(3) ], 
+  [ 0*Z(3), 0*Z(3), Z(3)^0, 0*Z(3), Z(3)^0, 0*Z(3), 0*Z(3), 0*Z(3) ], 
+  [ 0*Z(3), 0*Z(3), 0*Z(3), Z(3)^0, 0*Z(3), Z(3)^0, 0*Z(3), 0*Z(3) ], 
+  [ 0*Z(3), 0*Z(3), 0*Z(3), 0*Z(3), Z(3)^0, 0*Z(3), Z(3)^0, 0*Z(3) ], 
   [ 0*Z(3), 0*Z(3), 0*Z(3), 0*Z(3), 0*Z(3), Z(3)^0, 0*Z(3), Z(3)^0 ] ]
 gap> AClosestVectorCombinationsMatFFEVecFFE(G,F,v,1,1);
 [ 0*Z(3), 0*Z(3), 0*Z(3), 0*Z(3), 0*Z(3), Z(3)^0, 0*Z(3), Z(3)^0 ]
@@ -33,14 +33,14 @@ gap> AClosestVectorCombinationsMatFFEVecFFE(G,F,v,1,1);
 # doc/guava.xml:12785-12797
 gap> F:=GF(3);;
 gap> x:= Indeterminate( F );; pol:= x^2+1;
-x_1^2+Z(3)^0
+x^2+Z(3)^0
 gap> C := GeneratorPolCode(pol,8,F);
 a cyclic [8,6,1..2]1..2 code defined by generator polynomial over GF(3)
 gap> v:=Codeword("12101111"); v:=VectorCodeword(v);;
 [ 1 2 1 0 1 1 1 1 ]
 gap> G:=GeneratorMat(C);;
 gap> AClosestVectorCombinationsMatFFEVecFFECoords(G,F,v,1,1);
-[ [ 0*Z(3), 0*Z(3), 0*Z(3), 0*Z(3), 0*Z(3), Z(3)^0, 0*Z(3), Z(3)^0 ],
+[ [ 0*Z(3), 0*Z(3), 0*Z(3), 0*Z(3), 0*Z(3), Z(3)^0, 0*Z(3), Z(3)^0 ], 
   [ 0*Z(3), 0*Z(3), 0*Z(3), 0*Z(3), 0*Z(3), Z(3)^0 ] ]
 
 # doc/guava.xml:12821-12831
