@@ -24,7 +24,10 @@ typedef struct {
 	unsigned int **m;
 } MATRIX;
 
-typedef enum { false = 0, true = 1 } bool;
+#if __STDC_VERSION__ <= 201710L
+    typedef enum { false = 0, true = 1 } bool;
+#endif
+
 typedef enum { C_0MOD2 = 1, C_1MOD2, C_3MOD4, C_0MOD4, C_0MOD3 } mod_t;
 
 typedef struct {
