@@ -161,9 +161,9 @@ The conversion from TeX to
 Please send bug reports, suggestions and other comments about
 <Package>GUAVA</Package> to 
 <Email>support@gap-system.org</Email>. Currently known bugs and 
-suggested <Package>GUAVA</Package> projects are listed on the
-bugs and projects web page
-<URL>https://gap-packages.github.io/guava/guava2do.html</URL>.
+suggested <Package>GUAVA</Package> projects are listed in the Issues
+section of the <Package>GUAVA</Package> GitHub page: 
+<URL>https://github.com/gap-packages/guava/issues</URL>.
 Older releases and further history can be found on the 
 <Package>GUAVA</Package> web page
 <URL>https://gap-packages.github.io/guava/</URL>.
@@ -175,7 +175,7 @@ Wayne Irons, Clifton (Clipper) Lennon, Jason McGowan, Shuhong Gao,
 Greg Gamble and Jeffrey S. Leon.
 <P/>
 For documentation on Leon's programs, 
-see the <F>src/leon/doc subdirectory</F> of <Package>GUAVA</Package>.
+see the <F>src/leon/doc</F> subdirectory of <Package>GUAVA</Package>.
 
 </Acknowledgements>
 </TitlePage>              <!-- end of title page --> 
