@@ -347,7 +347,7 @@ DeclareOperation("OnePointAGCode",[IsPolynomial,IsList, IsInt, IsRing]);
 #F  FerreroDesignCode( <P>, <m> ) ... code from a Ferrero design
 ##
 ##
-#DeclareOperation("FerreroDesignCode",[IsList, IsInt]);
+DeclareOperation("FerreroDesignCode",[IsList, IsInt]);
 
 #############################################################################
 ##
