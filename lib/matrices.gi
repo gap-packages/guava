@@ -634,25 +634,29 @@ end);
 ##
 InstallOtherMethod(PutStandardForm, "method for matrix and Field", true,
     [IsMatrix, IsField], 0,
-function(M, F)
-local mat, perm, k, i, j, d ;
- mat:=MutableCopyMatrix(M);
- d := Length(mat[1]);
- TriangulizeMat(mat);
- perm := ();
- k := Length(mat[1]);
- for i in [1..Length(mat)] do
-   j := PositionNonZero(mat[i]);
-   if (j <= d and i <> j) then
-     perm := perm * (i,j);
-   fi;
- od;
- if perm <> () then
-   for i in [1..Length(mat)] do
-     mat[i] := Permuted(mat[i], perm);
-   od;
- fi;
- return perm;
+function(mat, F)
+    local perm, k, i, j, d ;
+
+    if IsMutable(mat)=false then
+       Error("Argument to PutStandardForm() must be mutable");
+    fi;
+    
+    d := Length(mat[1]);
+    TriangulizeMat(mat);
+    perm := ();
+    k := Length(mat[1]);
+    for i in [1..Length(mat)] do
+        j := PositionNonZero(mat[i]);
+        if (j <= d and i <> j) then
+            perm := perm * (i,j);
+        fi;
+    od;
+    if perm <> () then
+        for i in [1..Length(mat)] do
+            mat[i] := Permuted(mat[i], perm);
+        od;
+    fi;
+    return perm;
 end);
 
 InstallOtherMethod(PutStandardForm, "method for matrix and idleft", true,
