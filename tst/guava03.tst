@@ -108,9 +108,9 @@ true
 gap> C:=RandomLinearCode(10,5,GF(3));
 a  [10,5,?] randomly generated code over GF(3)
 gap> c:=Random(C);
-[ 0 2 2 2 0 1 2 2 2 1 ]
+[ 1 0 2 2 2 2 1 0 2 0 ]
 gap> Codeword(c+"2000000000");
-[ 2 2 2 2 0 1 2 2 2 1 ]
+[ 0 0 2 2 2 2 1 0 2 0 ]
 gap> Codeword(c+"1000000000");
 Error, <x> and <y> have different characteristic
 
@@ -118,7 +118,7 @@ Error, <x> and <y> have different characteristic
 gap> C:=RandomLinearCode(10,5);
 a  [10,5,?] randomly generated code over GF(2)
 gap> c:=Random(C);
-[ 0 0 0 1 1 1 0 1 1 0 ]
+[ 0 0 0 0 0 0 0 0 0 0 ]
 gap> c+C;
 <add. coset of a  [10,5,?] randomly generated code over GF(2)>
 gap> c+C=C;
@@ -138,8 +138,7 @@ gap> Elements(C);
 gap> v:=Codeword("0011");
 [ 0 0 1 1 ]
 gap> C+v;
-<add. coset of a linear [4,2,1]1..2 code defined by generator matrix over GF(2\
-)>
+<add. coset of a linear [4,2,4]1 code defined by generator matrix over GF(2)>
 gap> Elements(C+v);
 [ [ 0 0 1 1 ], [ 0 1 1 1 ], [ 1 0 1 1 ], [ 1 1 1 1 ] ]
 

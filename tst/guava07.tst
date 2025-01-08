@@ -10,7 +10,7 @@
 #
 gap> START_TEST("guava07.tst");
 
-# doc/guava.xml:10051-10058
+# doc/guava.xml:9930-9937
 gap> UpperBoundSingleton(4, 3, 5);
 25
 gap> C := ReedSolomonCode(4,3);; Size(C);
@@ -18,21 +18,21 @@ gap> C := ReedSolomonCode(4,3);; Size(C);
 gap> IsMDSCode(C);
 true
 
-# doc/guava.xml:10095-10102
+# doc/guava.xml:9974-9981
 gap> UpperBoundHamming( 15, 3, 2 );
 2048
 gap> C := HammingCode( 4, GF(2) );
 a linear [15,11,3]1 Hamming (4,2) code over GF(2)
 gap> Size( C );
-2048
+2048 
 
-# doc/guava.xml:10122-10127
+# doc/guava.xml:10001-10006
 gap> UpperBoundJohnson( 13, 5 );
 77
-gap> UpperBoundHamming( 13, 5, 2);
-89
+gap> UpperBoundHamming( 13, 5, 2);    # in this case the Johnson bound is better
+89 
 
-# doc/guava.xml:10152-10161
+# doc/guava.xml:10031-10040
 gap> UpperBoundPlotkin( 15, 7, 2 );
 32
 gap> C := BCHCode( 15, 7, GF(2) );
@@ -42,7 +42,7 @@ gap> Size(C);
 gap> WeightDistribution(C);
 [ 1, 0, 0, 0, 0, 0, 0, 15, 15, 0, 0, 0, 0, 0, 0, 1 ]
 
-# doc/guava.xml:10185-10192
+# doc/guava.xml:10064-10071
 gap> UpperBoundPlotkin( 16, 3, 2 );
 12288
 gap> UpperBoundElias( 16, 3, 2 );
@@ -50,35 +50,35 @@ gap> UpperBoundElias( 16, 3, 2 );
 gap> UpperBoundElias( 20, 10, 3 );
 16255
 
-# doc/guava.xml:10210-10217
+# doc/guava.xml:10089-10096
 gap> UpperBoundGriesmer( 13, 5, 2 );
 64
-gap> UpperBoundGriesmer( 18, 9, 2 );
+gap> UpperBoundGriesmer( 18, 9, 2 );       # the maximum number of words for a linear code is 8
 8
-gap> Size( PuncturedCode( HadamardCode( 20, 1 ) ) );
+gap> Size( PuncturedCode( HadamardCode( 20, 1 ) ) );       # this non-linear code has 20 elements 
 20
 
-# doc/guava.xml:10242-10247
+# doc/guava.xml:10121-10126
 gap> IsGriesmerCode( HammingCode( 3, GF(2) ) );
 true
 gap> IsGriesmerCode( BCHCode( 17, 2, GF(2) ) );
 false
 
-# doc/guava.xml:10277-10282
+# doc/guava.xml:10156-10161
 gap> UpperBound( 10, 3, 2 );
 85
 gap> UpperBound( 25, 9, 8 );
 1211778792827540
 
-# doc/guava.xml:10302-10309
+# doc/guava.xml:10181-10188
 gap> C := BCHCode( 45, 7 );
 a cyclic [45,23,7..9]6..16 BCH code, delta=7, b=1 over GF(2)
-gap> LowerBoundMinimumDistance( C );
+gap> LowerBoundMinimumDistance( C );     # designed distance is lower bound for minimum distance 
 7
 gap> LowerBoundMinimumDistance( 45, 23, GF(2) );
 10
 
-# doc/guava.xml:10333-10346
+# doc/guava.xml:10212-10225
 gap> LowerBoundGilbertVarshamov(24,8,2);
 64
 gap> LowerBoundGilbertVarshamov(7,3,2);
@@ -86,27 +86,27 @@ gap> LowerBoundGilbertVarshamov(7,3,2);
 gap> LowerBoundMinimumDistance(7,4,2);
 3
 gap> LowerBoundGilbertVarshamov(3,3,2);
-2
+1
 gap> LowerBoundMinimumDistance(3,3,2);
 1
 gap> LowerBoundGilbertVarshamov(25,10,2);
 16
 
-# doc/guava.xml:10373-10378
+# doc/guava.xml:10252-10257
 gap> LowerBoundSpherePacking(3,2,2);
 2
 gap> LowerBoundSpherePacking(3,3,2);
 1
 
-# doc/guava.xml:10406-10412
+# doc/guava.xml:10285-10291
 gap> C := BCHCode( 45, 7 );;
 gap> UpperBoundMinimumDistance( C );
 9
 gap> UpperBoundMinimumDistance( 45, 23, GF(2) );
-10
+11
 
-# doc/guava.xml:10450-10468
-gap> bounds := BoundsMinimumDistance( 7, 3 );; DisplayBoundsInfo( bounds );
+# doc/guava.xml:10329-10345
+gap> bounds := BoundsMinimumDistance( 7, 3 );; DisplayBoundsInfo( bounds ); # The lower bound is equal to the upper bound, so a code with these parameters is optimal.
 an optimal linear [7,3,d] code over GF(2) has d=4
 ------------------------------------------------------------------------------
 Lb(7,3)=4, by shortening of:
@@ -122,13 +122,13 @@ U: a cyclic [4,3,2]1 dual code of
    a cyclic [4,1,4]2 repetition code over GF(2)
 V: a cyclic [4,1,4]2 repetition code over GF(2)
 
-# doc/guava.xml:10503-10508
+# doc/guava.xml:10380-10385
 gap> BoundsCoveringRadius( BCHCode( 17, 3, GF(2) ) );
 [ 3, 4 ]
 gap> BoundsCoveringRadius( HammingCode( 5, GF(2) ) );
 [ 1 ]
 
-# doc/guava.xml:10622-10631
+# doc/guava.xml:10499-10507
 gap> C:=RandomLinearCode(10,5,GF(2));
 a  [10,5,?] randomly generated code over GF(2)
 gap> ExhaustiveSearchCoveringRadius(C);
@@ -137,7 +137,7 @@ Trying 3 ...
 gap> CoveringRadius(C);
 3
 
-# doc/guava.xml:10652-10660
+# doc/guava.xml:10528-10535
 gap> C:=RandomLinearCode(10,5,GF(2));
 a  [10,5,?] randomly generated code over GF(2)
 gap> GeneralLowerBoundCoveringRadius(C);
@@ -145,15 +145,15 @@ gap> GeneralLowerBoundCoveringRadius(C);
 gap> CoveringRadius(C);
 3
 
-# doc/guava.xml:10679-10687
+# doc/guava.xml:10554-10561
 gap> C:=RandomLinearCode(10,5,GF(2));
 a  [10,5,?] randomly generated code over GF(2)
 gap> GeneralUpperBoundCoveringRadius(C);
-5
+4
 gap> CoveringRadius(C);
 3
 
-# doc/guava.xml:10713-10725
+# doc/guava.xml:10587-10598
 gap> C:=RandomLinearCode(10,5,GF(2));
 a  [10,5,?] randomly generated code over GF(2)
 gap> Size(C);
@@ -165,7 +165,7 @@ gap> LowerBoundCoveringRadiusSphereCovering(10,32,GF(2),false);
 gap> LowerBoundCoveringRadiusSphereCovering(10,3,GF(2),true);
 6
 
-# doc/guava.xml:10760-10772
+# doc/guava.xml:10633-10644
 gap> C:=RandomLinearCode(10,5,GF(2));
 a  [10,5,?] randomly generated code over GF(2)
 gap> Size(C);
@@ -177,7 +177,7 @@ gap> LowerBoundCoveringRadiusVanWee1(10,32,GF(2),false);
 gap> LowerBoundCoveringRadiusVanWee1(10,3,GF(2),true);
 6
 
-# doc/guava.xml:10814-10826
+# doc/guava.xml:10686-10697
 gap> C:=RandomLinearCode(10,5,GF(2));
 a  [10,5,?] randomly generated code over GF(2)
 gap> Size(C);
@@ -189,7 +189,7 @@ gap> LowerBoundCoveringRadiusVanWee2(10,32,false);
 gap> LowerBoundCoveringRadiusVanWee2(10,3,true);
 7
 
-# doc/guava.xml:10872-10884
+# doc/guava.xml:10743-10754
 gap> C:=RandomLinearCode(10,5,GF(2));
 a  [10,5,?] randomly generated code over GF(2)
 gap> Size(C);
@@ -201,7 +201,7 @@ gap> LowerBoundCoveringRadiusCountingExcess(10,32,false);
 gap> LowerBoundCoveringRadiusCountingExcess(10,3,true);
 7
 
-# doc/guava.xml:10925-10937
+# doc/guava.xml:10795-10806
 gap> C:=RandomLinearCode(10,5,GF(2));
 a  [10,5,?] randomly generated code over GF(2)
 gap> Size(C);
@@ -213,27 +213,27 @@ gap> LowerBoundCoveringRadiusEmbedded1(10,32,false);
 gap> LowerBoundCoveringRadiusEmbedded1(10,3,true);
 7
 
-# doc/guava.xml:10978-10990
+# doc/guava.xml:10847-10858
 gap> C:=RandomLinearCode(15,5,GF(2));
 a  [15,5,?] randomly generated code over GF(2)
 gap> Size(C);
 32
 gap> CoveringRadius(C);
-5
+6
 gap> LowerBoundCoveringRadiusEmbedded2(10,32,false);
 2
 gap> LowerBoundCoveringRadiusEmbedded2(10,3,true);
 7
 
-# doc/guava.xml:11013-11021
+# doc/guava.xml:10881-10888
 gap> C:=RandomLinearCode(15,5,GF(2));
 a  [15,5,?] randomly generated code over GF(2)
 gap> CoveringRadius(C);
-6
+5
 gap> LowerBoundCoveringRadiusInduction(15,6);
 7
 
-# doc/guava.xml:11043-11051
+# doc/guava.xml:10910-10917
 gap> C:=RandomLinearCode(15,5,GF(2));
 a  [15,5,?] randomly generated code over GF(2)
 gap> CoveringRadius(C);
@@ -241,15 +241,15 @@ gap> CoveringRadius(C);
 gap> UpperBoundCoveringRadiusRedundancy(C);
 10
 
-# doc/guava.xml:11072-11079
+# doc/guava.xml:10938-10945
 gap> C:=RandomLinearCode(15,5,GF(2));
 a  [15,5,?] randomly generated code over GF(2)
 gap> CoveringRadius(C);
-6
+5
 gap> UpperBoundCoveringRadiusDelsarte(C);
 13
 
-# doc/guava.xml:11108-11115
+# doc/guava.xml:10974-10981
 gap> C:=RandomLinearCode(15,5,GF(2));
 a  [15,5,?] randomly generated code over GF(2)
 gap> CoveringRadius(C);
@@ -257,15 +257,15 @@ gap> CoveringRadius(C);
 gap> UpperBoundCoveringRadiusStrength(C);
 7
 
-# doc/guava.xml:11135-11143
+# doc/guava.xml:11001-11008
 gap> C:=RandomLinearCode(15,5,GF(2));
 a  [15,5,?] randomly generated code over GF(2)
 gap> CoveringRadius(C);
-6
+5
 gap> UpperBoundCoveringRadiusGriesmerLike(C);
 9
 
-# doc/guava.xml:11164-11172
+# doc/guava.xml:11029-11036
 gap> C:=CyclicCodes(15,GF(2))[3];
 a cyclic [15,12,1..2]1..3 enumerated code over GF(2)
 gap> CoveringRadius(C);
@@ -273,7 +273,7 @@ gap> CoveringRadius(C);
 gap> UpperBoundCoveringRadiusCyclicCode(C);
 3
 
-# doc/guava.xml:11231-11245
+# doc/guava.xml:11095-11109
 gap> PrintArray( KrawtchoukMat( 3, 2 ) );
 [ [   1,   1,   1,   1 ],
   [   3,   1,  -1,  -3 ],
@@ -288,18 +288,18 @@ gap> q^( -k ) * KrawtchoukMat( n, q ) * a;
 gap> WeightDistribution( DualCode( C ) );
 [ 1, 0, 0, 0, 7, 0, 0, 0 ]
 
-# doc/guava.xml:11273-11283
+# doc/guava.xml:11137-11147
 gap> GrayMat(3);
 [ [ 0*Z(2), 0*Z(2), 0*Z(2) ], [ 0*Z(2), 0*Z(2), Z(2)^0 ], 
   [ 0*Z(2), Z(2)^0, Z(2)^0 ], [ 0*Z(2), Z(2)^0, 0*Z(2) ], 
   [ Z(2)^0, Z(2)^0, 0*Z(2) ], [ Z(2)^0, Z(2)^0, Z(2)^0 ], 
   [ Z(2)^0, 0*Z(2), Z(2)^0 ], [ Z(2)^0, 0*Z(2), 0*Z(2) ] ]
-gap> G := GrayMat( 4, GF(4) );; Length(G);
+gap> G := GrayMat( 4, GF(4) );; Length(G);         # the length of a GrayMat is always q^n
 256
 gap> G[101] - G[100];
 [ 0*Z(2), 0*Z(2), Z(2)^0, 0*Z(2) ]
 
-# doc/guava.xml:11304-11313
+# doc/guava.xml:11168-11177
 gap> PrintArray(SylvesterMat(2));
 [ [   1,   1 ],
   [   1,  -1 ] ]
@@ -309,7 +309,7 @@ gap> PrintArray( SylvesterMat(4) );
   [   1,   1,  -1,  -1 ],
   [   1,  -1,  -1,   1 ] ]
 
-# doc/guava.xml:11341-11353
+# doc/guava.xml:11205-11217
 gap> C := HadamardMat(8);; PrintArray(C);
 [ [   1,   1,   1,   1,   1,   1,   1,   1 ],
   [   1,  -1,   1,  -1,   1,  -1,   1,  -1 ],
@@ -322,7 +322,7 @@ gap> C := HadamardMat(8);; PrintArray(C);
 gap> C * TransposedMat(C) = 8 * IdentityMat( 8, 8 );
 true
 
-# doc/guava.xml:11368-11377
+# doc/guava.xml:11232-11241
 gap> M:=VandermondeMat([Z(5),Z(5)^2,Z(5)^0,Z(5)^3],2);
 [ [ Z(5)^0, Z(5), Z(5)^2 ], [ Z(5)^0, Z(5)^2, Z(5)^0 ], 
   [ Z(5)^0, Z(5)^0, Z(5)^0 ], [ Z(5)^0, Z(5)^3, Z(5)^2 ] ]
@@ -332,20 +332,20 @@ gap> Display(M);
  1 1 1
  1 3 4
 
-# doc/guava.xml:11415-11448
+# doc/guava.xml:11279-11311
 gap> M := Z(2)*[[1,0,0,1],[0,0,1,1]];; PrintArray(M);
-[ [  Z(2)^0,  0*Z(2),  0*Z(2),  Z(2)^0 ],
-  [  0*Z(2),  0*Z(2),  Z(2)^0,  Z(2)^0 ] ]
+[ [    Z(2),  0*Z(2),  0*Z(2),    Z(2) ], 
+  [  0*Z(2),  0*Z(2),    Z(2),    Z(2) ] ]
 gap> PutStandardForm(M);                   # identity at the left side
 (2,3)
 gap> PrintArray(M);
-[ [  Z(2)^0,  0*Z(2),  0*Z(2),  Z(2)^0 ],
-  [  0*Z(2),  Z(2)^0,  0*Z(2),  Z(2)^0 ] ]
+[ [    Z(2),  0*Z(2),  0*Z(2),    Z(2) ],
+  [  0*Z(2),    Z(2),  0*Z(2),    Z(2) ] ]
 gap> PutStandardForm(M, false);            # identity at the right side
 (1,4,3)
 gap> PrintArray(M);
-[ [  0*Z(2),  Z(2)^0,  Z(2)^0,  0*Z(2) ],
-  [  0*Z(2),  Z(2)^0,  0*Z(2),  Z(2)^0 ] ]
+[ [  0*Z(2),    Z(2),    Z(2),  0*Z(2) ],
+  [  0*Z(2),    Z(2),  0*Z(2),    Z(2) ] ]
 gap> C := BestKnownLinearCode( 23, 12, GF(2) );
 a linear [23,12,7]3 punctured code
 gap> G:=MutableCopyMat(GeneratorMat(C));;
@@ -365,7 +365,7 @@ gap> Display(G);
  . . . . . . . . . . 1 . 1 . 1 1 1 . . . 1 1 1
  . . . . . . . . . . . 1 . 1 . 1 1 1 . . . 1 1
 
-# doc/guava.xml:11465-11474
+# doc/guava.xml:11328-11337
 gap> IsInStandardForm(IdentityMat(7, GF(2)));
 true
 gap> IsInStandardForm([[1, 1, 0], [1, 0, 1]], false);
@@ -375,7 +375,7 @@ true
 gap> IsInStandardForm(HadamardMat(4));
 false
 
-# doc/guava.xml:11486-11493
+# doc/guava.xml:11349-11356
 gap> M := [[1,2,3,4],[1,2,3,4]];; PrintArray(M);
 [ [  1,  2,  3,  4 ],
   [  1,  2,  3,  4 ] ]
@@ -383,7 +383,7 @@ gap> PrintArray(PermutedCols(M, (1,2,3)));
 [ [  3,  1,  2,  4 ],
   [  3,  1,  2,  4 ] ]
 
-# doc/guava.xml:11519-11532
+# doc/guava.xml:11382-11395
 gap> M := Z(9)*[[1,2],[2,1]];; PrintArray(M);
 [ [    Z(3^2),  Z(3^2)^5 ],
   [  Z(3^2)^5,    Z(3^2) ] ]
@@ -397,7 +397,7 @@ gap> VCFM := VerticalConversionFieldMat( M, GF(9) );; PrintArray(VCFM);
 gap> DefaultField( Flat(VCFM) );
 GF(3)
 
-# doc/guava.xml:11562-11575
+# doc/guava.xml:11425-11438
 gap> M := Z(9)*[[1,2],[2,1]];; PrintArray(M);
 [ [    Z(3^2),  Z(3^2)^5 ],
   [  Z(3^2)^5,    Z(3^2) ] ]
@@ -411,7 +411,7 @@ gap> HCFM := HorizontalConversionFieldMat(M, GF(9));; PrintArray(HCFM);
 gap> DefaultField( Flat(HCFM) );
 GF(3)
 
-# doc/guava.xml:11617-11635
+# doc/guava.xml:11480-11498
 gap> M := MOLS( 4, 3 );;PrintArray( M[1] );
 [ [  0,  1,  2,  3 ],
   [  1,  0,  3,  2 ],
@@ -430,83 +430,81 @@ gap> PrintArray( M[3] );
 gap> MOLS( 12, 3 );
 false
 
-# doc/guava.xml:11648-11653
+# doc/guava.xml:11511-11516
 gap> IsLatinSquare([[1,2],[2,1]]);
 true
 gap> IsLatinSquare([[1,2,3],[2,3,1],[1,3,2]]);
 false
 
-# doc/guava.xml:11668-11674
+# doc/guava.xml:11531-11537
 gap> M := MOLS(4,2);
 [ [ [ 0, 1, 2, 3 ], [ 1, 0, 3, 2 ], [ 2, 3, 0, 1 ], [ 3, 2, 1, 0 ] ], 
   [ [ 0, 2, 3, 1 ], [ 1, 3, 2, 0 ], [ 2, 0, 1, 3 ], [ 3, 1, 0, 2 ] ] ]
 gap> AreMOLS(M);
 true
 
-# doc/guava.xml:11709-11712
+# doc/guava.xml:11572-11575
 gap> CoordinateNorm( HammingCode( 3, GF(2) ), 3 );
 3
 
-# doc/guava.xml:11731-11734
+# doc/guava.xml:11594-11597
 gap> CodeNorm( HammingCode( 3, GF(2) ) );
 3
 
-# doc/guava.xml:11753-11756
+# doc/guava.xml:11616-11619
 gap> IsCoordinateAcceptable( HammingCode( 3, GF(2) ), 3 );
 true
 
-# doc/guava.xml:11771-11778
+# doc/guava.xml:11634-11641
 gap> c := RepetitionCode( 7, GF(2) );;
 gap> ham := HammingCode( 3, GF(2) );;
 gap> d := EvenWeightSubcode( ham );;
 gap> e := ConstantWeightSubcode( ham, 3 );;
 gap> GeneralizedCodeNorm( ham, c, d, e );
-Error, GeneralizedCodeNorm: code 1 is not a subcode of code.
+4
 
-# doc/guava.xml:11804-11807
+# doc/guava.xml:11667-11670
 gap> IsNormalCode( HammingCode( 3, GF(2) ) );
 true
 
-# doc/guava.xml:11843-11849
+# doc/guava.xml:11706-11712
 gap> CodeWeightEnumerator( ElementsCode( [ [ 0,0,0 ], [ 0,0,1 ],
 > [ 0,1,1 ], [ 1,1,1 ] ], GF(2) ) );
-x_1^3+x_1^2+x_1+1
+x^3 + x^2 + x + 1
 gap> CodeWeightEnumerator( HammingCode( 3, GF(2) ) );
-x_1^7+7*x_1^4+7*x_1^3+1
+x^7 + 7*x^4 + 7*x^3 + 1
 
-# doc/guava.xml:11868-11873
+# doc/guava.xml:11731-11736
 gap> CodeDistanceEnumerator( HammingCode( 3, GF(2) ),[0,0,0,0,0,0,1] );
-Error, no method found! For debugging hints type ?Recovery from NoMethodFound
-Error, no 1st choice method found for `CodeDistanceEnumerator' on 2 arguments
+x^6 + 3*x^5 + 4*x^4 + 4*x^3 + 3*x^2 + x
 gap> CodeDistanceEnumerator( HammingCode( 3, GF(2) ),[1,1,1,1,1,1,1] );
-Error, no method found! For debugging hints type ?Recovery from NoMethodFound
-Error, no 1st choice method found for `CodeDistanceEnumerator' on 2 arguments
+x^7 + 7*x^4 + 7*x^3 + 1 # `[1,1,1,1,1,1,1]' $\in$ `HammingCode( 3, GF(2 ) )'
 
-# doc/guava.xml:11894-11897
+# doc/guava.xml:11757-11760
 gap> CodeMacWilliamsTransform( HammingCode( 3, GF(2) ) );
-7*x_1^4+1
+7*x^4 + 1
 
-# doc/guava.xml:11922-11927
+# doc/guava.xml:11785-11790
 gap> CodeDensity( HammingCode( 3, GF(2) ) );
 1
 gap> CodeDensity( ReedMullerCode( 1, 4 ) );
 14893/2048
 
-# doc/guava.xml:11951-11961
-gap> SphereContent( 15, 0, GF(2) );
+# doc/guava.xml:11814-11823
+gap> SphereContent( 15, 0, GF(2) );     # Only one word with distance 0, which is the word itself
 1
 gap> SphereContent( 11, 3, GF(4) );
 4984
-gap> C := HammingCode(5);
+gap> C := HammingCode(5); #the minimum distance is 3, so the code can correct one error
 a linear [31,26,3]1 Hamming (5,2) code over GF(2)
 gap> ( SphereContent( 31, 1, GF(2) ) * Size(C) ) = 2 ^ 31;
 true
 
-# doc/guava.xml:11985-11988
+# doc/guava.xml:11847-11850
 gap> Krawtchouk( 2, 0, 3, 2);
 3
 
-# doc/guava.xml:12002-12009
+# doc/guava.xml:11864-11871
 gap> PrimitiveUnityRoot( GF(2), 15 );
 Z(2^4)
 gap> last^15;
@@ -514,149 +512,112 @@ Z(2)^0
 gap> PrimitiveUnityRoot( GF(8), 21 );
 Z(2^6)^3
 
-# doc/guava.xml:12026-12030
+# doc/guava.xml:11888-11891
 gap> PrimitivePolynomialsNr(3,4);
 12
 
-# doc/guava.xml:12042-12046
+# doc/guava.xml:11903-11906
 gap> IrreduciblePolynomialsNr(3,4);
 20
 
-# doc/guava.xml:12064-12074
+# doc/guava.xml:11924-11934
 gap> a:=Random(GF(4));
-Z(2^2)^2
+0*Z(2)
+gap> M:=MatrixRepresentationOfElement(a,GF(4));; Display(M);
+ .
+gap> a:=Random(GF(4));
+Z(2^2)
 gap> M:=MatrixRepresentationOfElement(a,GF(4));; Display(M);
  . 1
  1 1
-gap> a:=Random(GF(4));
-Z(2)^0
-gap> M:=MatrixRepresentationOfElement(a,GF(4));; Display(M);
- 1
 
-# doc/guava.xml:12108-12119
+# doc/guava.xml:11968-11979
 gap> P := UnivariatePolynomial( GF(3), Z(3)^0 * [1,0,1,2] );
--x^3+x^2+Z(3)^0
+-x_1^3+x_1^2+Z(3)^0
 gap> RecP := ReciprocalPolynomial( P );
-x^3+x-Z(3)^0
+x_1^3+x_1-Z(3)^0
 gap> ReciprocalPolynomial( RecP ) = P;
 true
 gap> P := UnivariatePolynomial( GF(3), Z(3)^0 * [1,0,1,2] );
--x^3+x^2+Z(3)^0
+-x_1^3+x_1^2+Z(3)^0
 gap> ReciprocalPolynomial( P, 6 );
-x^6+x^4-x^3
+x_1^6+x_1^4-x_1^3
 
-# doc/guava.xml:12147-12153
+# doc/guava.xml:12007-12012
 gap> CyclotomicCosets( 2, 15 );
 [ [ 0 ], [ 1, 2, 4, 8 ], [ 3, 6, 12, 9 ], [ 5, 10 ], [ 7, 14, 13, 11 ] ]
 gap> CyclotomicCosets( 7, 6 );
 [ [ 0 ], [ 1 ], [ 2 ], [ 3 ], [ 4 ], [ 5 ] ]
 
-# doc/guava.xml:12167-12184
+# doc/guava.xml:12026-12043
 gap> H := HammingCode(2, GF(5));
 a linear [6,4,3]1 Hamming (2,5) code over GF(5)
 gap> WeightDistribution(H);
 [ 1, 0, 0, 80, 120, 264, 160 ]
 gap> WeightHistogram(H);
 264----------------
-               *     
-               *     
-               *     
-               *     
-               *     
-               *     
-               *     
-               *     
-               *  *  
-               *  *  
-            *  *  *  
-            *  *  *  
-            *  *  *  
-         *  *  *  *  
-         *  *  *  *  
-         *  *  *  *  
-         *  *  *  *  
-         *  *  *  *  
+               *
+               *
+               *
+               *
+               *  *
+            *  *  *
+         *  *  *  *
+         *  *  *  *
 +--------+--+--+--+--
-0  1  2  3  4  5  6  
-                     
+0  1  2  3  4  5  6 
 
-# doc/guava.xml:12204-12210
+# doc/guava.xml:12063-12069
 gap> L:=[1,2,3,4,3,2,1,5,4,3,2,1];;
 gap> MultiplicityInList(L,1);
 3
 gap> MultiplicityInList(L,6);
 0
 
-# doc/guava.xml:12228-12232
+# doc/guava.xml:12087-12091
 gap> L:=[1,2,3,4,3,2,1,5,4,3,2,1];;
 gap> MostCommonInList(L);
 1
 
-# doc/guava.xml:12251-12255
+# doc/guava.xml:12110-12114
 gap> L:=[1,2,3,4];;
 gap> RotateList(L);
 [ 2, 3, 4, 1 ]
 
-# doc/guava.xml:12271-12275
-gap> k:=3; L:=[1,2,3,4];;
-3
+# doc/guava.xml:12130-12137
+gap> k:=3;; L:=[1,2,3,4];;
 gap> M:=CirculantMatrix(k,L);;
 gap> Display(M);
 [ [  1,  2,  3,  4 ],
   [  4,  1,  2,  3 ],
   [  3,  4,  1,  2 ] ]
 
-# doc/guava.xml:12326-12336
+# doc/guava.xml:12188-12197
 gap> F:=GF(11);;
 gap> R2:=PolynomialRing(F,2);
-GF(11)[t,x]
+PolynomialRing(..., [ x_1, x_2 ])
 gap> vars:=IndeterminatesOfPolynomialRing(R2);;
 gap> x:=vars[1];; y:=vars[2];;
 gap> poly:=y^2-x*(x^2-1);;
 gap> DegreeMultivariatePolynomial(poly,R2);
 3
 
-# doc/guava.xml:12360-12370
+# doc/guava.xml:12221-12232
 gap> F:=GF(11);;
 gap> R2:=PolynomialRing(F,2);
-GF(11)[t,x]
+PolynomialRing(..., [ x_1, x_2 ])
 gap> vars:=IndeterminatesOfPolynomialRing(R2);;
 gap> x:=vars[1];; y:=vars[2];;
 gap> poly:=y^2-x*(x^2-1);;
 gap> DegreesMultivariatePolynomial(poly,R2);
-[ [ [ t, t, 1 ], [ t, x, 0 ] ], [ [ x^2, t, 0 ], [ x^2, x, 2 ] ], 
-  [ [ t^3, t, 3 ], [ t^3, x, 0 ] ] ]
+[ [ [ x_1, x_1, 1 ], [ x_1, x_2, 0 ] ], 
+  [ [ x_2^2, x_1, 0 ], [ x_2^2, x_2, 2 ] ], 
+  [ [ x_1^3, x_1, 3 ], [ x_1^3, x_2, 0 ] ] ]
 
-# doc/guava.xml:12402-12428
+# doc/guava.xml:12265-12278
 gap> F:=GF(11);;
 gap> R2:=PolynomialRing(F,2);
-GF(11)[t,x]
-gap> vars:=IndeterminatesOfPolynomialRing(R2);;
-gap> x:=vars[1];; y:=vars[2];;
-gap> poly:=y^2-x*(x^2-1);;
-gap> PolynomialCoefficientsOfPolynomial(poly,x);
-[ x^2, Z(11)^0, 0*Z(11), -Z(11)^0 ]
-gap> PolynomialCoefficientsOfPolynomial(poly,y);
-[ -t^3+t, 0*Z(11), Z(11)^0 ]
-gap> CoefficientMultivariatePolynomial(poly,y,0,R2);
-Error, Variable: 'CoefficientMultivariatePolynomial' must have a value
-gap> CoefficientMultivariatePolynomial(poly,y,1,R2);
-Error, Variable: 'CoefficientMultivariatePolynomial' must have a value
-gap> CoefficientMultivariatePolynomial(poly,y,2,R2);
-Error, Variable: 'CoefficientMultivariatePolynomial' must have a value
-gap> CoefficientMultivariatePolynomial(poly,x,0,R2);
-Error, Variable: 'CoefficientMultivariatePolynomial' must have a value
-gap> CoefficientMultivariatePolynomial(poly,x,1,R2);
-Error, Variable: 'CoefficientMultivariatePolynomial' must have a value
-gap> CoefficientMultivariatePolynomial(poly,x,2,R2);
-Error, Variable: 'CoefficientMultivariatePolynomial' must have a value
-gap> CoefficientMultivariatePolynomial(poly,x,3,R2);
-Error, Variable: 'CoefficientMultivariatePolynomial' must have a value
-
-# doc/guava.xml:12468-12482
-gap> F:=GF(11);;
-gap> R2:=PolynomialRing(F,2);
-GF(11)[t,x]
+PolynomialRing(..., [ x_1, x_2 ])
 gap> vars:=IndeterminatesOfPolynomialRing(R2);;
 gap> x:=vars[1];; y:=vars[2];;
 gap> f:=3*y-3*x+1;; g:=-5*y+2*x-7;;
@@ -665,21 +626,21 @@ gap> soln:=SolveLinearSystem([f,g],[x,y]);
 gap> Value(f,[x,y],soln); # checking okay
 0*Z(11)
 gap> Value(g,[x,y],col); # checking okay
-Error, Variable: 'col' must have a value
+0*Z(11)
 
-# doc/guava.xml:12507-12511
+# doc/guava.xml:12303-12306
 gap> GuavaVersion();
-"3.19dev"
+"3.19"
 
-# doc/guava.xml:12527-12535
+# doc/guava.xml:12322-12328
 gap> F:=GF(11);; l := One(F);;
 gap> ZechLog(2*l,8*l,F);
-6
+-24
 gap> 8*l+l;(2*l)^(-24);
 Z(11)^6
 Z(11)^6
 
-# doc/guava.xml:12556-12565
+# doc/guava.xml:12349-12358
 gap> F:=GF(11);
 GF(11)
 gap> R1:=PolynomialRing(F,["a"]);;
@@ -689,7 +650,7 @@ gap> coeffs:=Z(11)^0*[1,2,3,4];
 gap> CoefficientToPolynomial(coeffs,R1);
 Z(11)^2*a^3+Z(11)^8*a^2+Z(11)*a+Z(11)^0
 
-# doc/guava.xml:12586-12607
+# doc/guava.xml:12379-12400
 gap> F:=GF(11);
 GF(11)
 gap> R1:=PolynomialRing(F,["a"]);;
@@ -699,19 +660,19 @@ b
 gap> var2:=Concatenation(var1,[b]);
 [ a, b ]
 gap> R2:=PolynomialRing(F,var2);
-GF(11)[a,b]
+PolynomialRing(..., [ a, b ])
 gap> c:=X(F,"c",var2);
 c
 gap> var3:=Concatenation(var2,[c]);
 [ a, b, c ]
 gap> R3:=PolynomialRing(F,var3);
-GF(11)[a,b,c]
+PolynomialRing(..., [ a, b, c ])
 gap> m:=b^3*c^7;
 b^3*c^7
 gap> DegreesMonomialTerm(m,R3);
 [ 0, 3, 7 ]
 
-# doc/guava.xml:12642-12654
+# doc/guava.xml:12435-12447
 gap> R2:=PolynomialRing(GF(3),["x1","x2"]);
 GF(3)[x1,x2]
 gap> vars:=IndeterminatesOfPolynomialRing(R2);

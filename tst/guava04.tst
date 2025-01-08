@@ -48,7 +48,7 @@ gap> w := [ 1, 0, 1, 1 ] * R;
 [ 1 0 0 1 1 0 0 1 ]
 gap> Decode( R, w );
 [ 1 0 1 1 ]
-gap> Decode( R, w + "10000000" ); # One error at the first position
+gap> Decode( R, w + "10000000" ); # One error at the first position. Corrected by Guava.
 [ 1 0 1 1 ]
 
 # doc/guava.xml:1580-1594
@@ -72,8 +72,7 @@ a  [10,5,?] randomly generated code over GF(2)
 gap> C2:=RandomLinearCode(9,4);
 a  [9,4,?] randomly generated code over GF(2)
 gap> C1+C2;
-Error, no method found! For debugging hints type ?Recovery from NoMethodFound
-Error, no 1st choice method found for `WordLength' on 1 arguments
+a linear [19,9,1..2]4..9 direct sum code
 
 # doc/guava.xml:1662-1669
 gap> C1 := GeneratorMatCode( [ [1, 0,0,0], [0, 1,0,0] ], GF(2) );
@@ -95,9 +94,9 @@ gap> m*C;
 gap> C:=HammingCode(3);
 a linear [7,4,3]1 Hamming (3,2) code over GF(2)
 gap> c:=Random(C);
-[ 1 1 0 1 0 0 1 ]
+[ 0 0 0 1 1 1 1 ]
 gap> InformationWord(C,c);
-[ 0 0 0 1 ]
+[ 0 1 1 1 ]
 gap> c:=Codeword("1111100");
 [ 1 1 1 1 1 0 0 ]
 gap> InformationWord(C,c);
@@ -105,7 +104,7 @@ Error, ERROR: codeword must belong to code
 gap> C:=NordstromRobinsonCode();
 a (16,256,6)4 Nordstrom-Robinson code over GF(2)
 gap> c:=Random(C);
-[ 1 0 0 1 0 0 0 0 0 1 1 1 1 0 1 1 ]
+[ 0 0 0 1 0 0 0 1 0 0 1 0 1 1 0 1 ]
 gap> InformationWord(C,c);
 "ERROR: code must be linear"
 
@@ -188,7 +187,7 @@ true
 gap> IsSelfDualCode(R);
 false
 
-# doc/guava.xml:2078-2091
+# doc/guava.xml:2078-2093
 gap> C:=BinaryGolayCode();
 a cyclic [23,12,7]3 binary Golay code over GF(2)
 gap> WeightDistribution(C);
@@ -204,7 +203,7 @@ gap> WeightDistribution(C);
 gap> IsDoublyEvenCode(C);  
 true
 
-# doc/guava.xml:2117-2128
+# doc/guava.xml:2119-2130
 gap> x:=Indeterminate(GF(2));                     
 x_1
 gap> C:=QuasiCyclicCode( [x^0, 1+x^3+x^5+x^6+x^7], 11, GF(2) );
@@ -216,7 +215,7 @@ false
 gap> IsSinglyEvenCode(C);
 true
 
-# doc/guava.xml:2152-2171
+# doc/guava.xml:2154-2173
 gap> C:=BinaryGolayCode();
 a cyclic [23,12,7]3 binary Golay code over GF(2)
 gap> IsSelfOrthogonalCode(C);
@@ -236,14 +235,14 @@ false
 gap> IsEvenCode(C);
 true
 
-# doc/guava.xml:2201-2207
+# doc/guava.xml:2203-2209
 gap> IsSelfComplementaryCode( HammingCode( 3, GF(2) ) );
 true
 gap> IsSelfComplementaryCode( EvenWeightSubcode(
 > HammingCode( 3, GF(2) ) ) );
 false
 
-# doc/guava.xml:2223-2231
+# doc/guava.xml:2225-2233
 gap> IsAffineCode( HammingCode( 3, GF(2) ) );
 true
 gap> IsAffineCode( CosetCode( HammingCode( 3, GF(2) ),
@@ -252,7 +251,7 @@ true
 gap> IsAffineCode( NordstromRobinsonCode() );
 false
 
-# doc/guava.xml:2247-2257
+# doc/guava.xml:2249-2259
 gap> code := ElementsCode( [ [0,0,0], [0,1,1], [0,2,2], [0,3,3],
 >                             [1,0,1], [1,1,0], [1,2,3], [1,3,2],
 >                             [2,0,2], [2,1,3], [2,2,0], [2,3,1],
@@ -263,7 +262,7 @@ true
 gap> IsAlmostAffineCode( NordstromRobinsonCode() );
 false
 
-# doc/guava.xml:2306-2319
+# doc/guava.xml:2308-2321
 gap> x:= Indeterminate( GF(2) );; pol:= x^3+x+1; 
 x_1^3+x_1+Z(2)^0
 gap> H := GeneratorPolCode( pol, 7, GF(2));          
@@ -277,7 +276,7 @@ true
 gap> CodeIsomorphism(H, HammingCode(3, GF(2)));
 (3,4)(5,6,7)
 
-# doc/guava.xml:2345-2354
+# doc/guava.xml:2347-2356
 gap> x:= Indeterminate( GF(2) );; pol:= x^3+x+1; 
 x_1^3+x_1+Z(2)^0
 gap> H := GeneratorPolCode( pol, 7, GF(2));          
@@ -287,7 +286,7 @@ gap> CodeIsomorphism(H, HammingCode(3, GF(2)));
 gap> PermutedCode(H, (3,4)(5,6,7)) = HammingCode(3, GF(2));
 true
 
-# doc/guava.xml:2387-2407
+# doc/guava.xml:2389-2409
 gap> R := RepetitionCode(7,GF(2));
 a cyclic [7,1,7]3 repetition code over GF(2)
 
@@ -308,24 +307,24 @@ gap> AsSSortedList(C2);
 gap> C2 = C;
 true
 
-# doc/guava.xml:2443-2449
+# doc/guava.xml:2445-2451
 gap> R := RepetitionCode(3,GF(3));
 a cyclic [3,1,3]2 repetition code over GF(3)
 gap> G:=PermutationAutomorphismGroup(R);;
 gap> G=SymmetricGroup(3);
 true
 
-# doc/guava.xml:2478-2481
+# doc/guava.xml:2480-2483
 gap> IsFinite( RepetitionCode( 1000, GF(11) ) );
 true
 
-# doc/guava.xml:2495-2500
+# doc/guava.xml:2497-2502
 gap> Size( RepetitionCode( 1000, GF(11) ) );
 11
 gap> Size( NordstromRobinsonCode() );
 256
 
-# doc/guava.xml:2517-2524
+# doc/guava.xml:2519-2526
 gap> C1 := ElementsCode([[0,0,0], [1,0,1], [0,1,0]], GF(4));
 a (3,3,1..3)2..3 user defined unrestricted code over GF(4)
 gap> LeftActingDomain( C1 );
@@ -333,7 +332,7 @@ GF(2^2)
 gap> LeftActingDomain( HammingCode( 3, GF(9) ) );
 GF(3^2)
 
-# doc/guava.xml:2538-2547
+# doc/guava.xml:2540-2549
 gap> Dimension( NullCode( 5, GF(5) ) );
 0
 gap> C := BCHCode( 15, 4, GF(4) );
@@ -343,7 +342,7 @@ gap> Dimension( C );
 gap> Size( C ) = Size( LeftActingDomain( C ) ) ^ Dimension( C );
 true
 
-# doc/guava.xml:2576-2585
+# doc/guava.xml:2578-2587
 gap> C := ConferenceCode( 5 );
 a (5,12,2)1..4 conference code over GF(2)
 gap> AsSSortedList( C );
@@ -353,13 +352,13 @@ gap> AsSSortedList( C );
 gap> CodewordNr( C, [ 1, 2 ] );
 [ [ 0 0 0 0 0 ], [ 0 0 1 1 1 ] ]
 
-# doc/guava.xml:2643-2648
+# doc/guava.xml:2645-2650
 gap> C1 := ExtendedCode( HammingCode( 3, GF(2) ) );
 a linear [8,4,4]2 extended code
 gap> Print( "This is ", NordstromRobinsonCode(), ". \n");
 This is a (16,256,6)4 Nordstrom-Robinson code over GF(2). 
 
-# doc/guava.xml:2659-2668
+# doc/guava.xml:2661-2670
 gap> x:= Indeterminate( GF(3) );; pol:= x^2+1;
 x_1^2+Z(3)^0
 gap> Factors(pol);
@@ -369,7 +368,7 @@ a cyclic [8,6,1..2]1..2 code defined by generator polynomial over GF(3)
 gap> String(H);
 "a cyclic [8,6,1..2]1..2 code defined by generator polynomial over GF(3)"
 
-# doc/guava.xml:2688-2700
+# doc/guava.xml:2690-2702
 gap> Display( RepetitionCode( 6, GF(3) ) );
 a cyclic [6,1,6]4 repetition code over GF(3)
 gap> C1 := ExtendedCode( HammingCode(2) );;
@@ -382,30 +381,8 @@ U: a linear [4,1,4]2 extended code of
 V: a linear [7,7,1]0 punctured code of
    a cyclic [8,7,2]1 Reed-Muller (2,3) code over GF(2)
 
-# doc/guava.xml:2717-2735
-gap> bounds := BoundsMinimumDistance( 20, 17, GF(4) );
-rec( 
-  construction := 
-    [ <Operation "ShortenedCode">, 
-      [ 
-          [ <Operation "ConstructionBCode">, 
-              [ 
-                  [ <Operation "ShortenedCode">, 
-                      [ [ <Operation "HammingCode">, [ 4, 4 ] ], 
-                          [ 1, 2, 3, 4 ] ] ] ] ], [ 1 ] ] ], k := 17, 
-  lowerBound := 3, 
-  lowerBoundExplanation := [ "Lb(20,17)=3, by shortening of:", 
-      "Lb(21,18)=3, by applying construction B to a [81,77,3] code", 
-      "Lb(81,77)=3, by shortening of:", "Lb(85,81)=3, reference: Ham" ], 
-  n := 20, q := 4, 
-  references := 
-    rec( 
-      Ham := [ "%T this reference is unknown, for more info", 
-          "%T contact A.E. Brouwer (aeb@cwi.nl)" ] ), upperBound := 3, 
-  upperBoundExplanation := [ "Ub(20,17)=3, by considering shortening to:", 
-      "Ub(7,4)=3, by considering puncturing to:", 
-      "Ub(6,4)=2, by construction B applied to:", 
-      "Ub(2,1)=2, repetition code" ] )
+# doc/guava.xml:2719-2737
+gap> bounds := BoundsMinimumDistance( 20, 17, GF(4) );;
 gap> DisplayBoundsInfo(bounds);
 an optimal linear [20,17,d] code over GF(4) has d=3
 ------------------------------------------------------------------------------
@@ -423,10 +400,11 @@ Reference Ham:
 %T this reference is unknown, for more info
 %T contact A.E. Brouwer (aeb@cwi.nl)
 
-# doc/guava.xml:2766-2781
+# doc/guava.xml:2768-2783
 gap> GeneratorMat( HammingCode( 3, GF(2) ) );
-[ <an immutable GF2 vector of length 7>, <an immutable GF2 vector of length 7>
-    , <an immutable GF2 vector of length 7>, 
+[ <an immutable GF2 vector of length 7>, 
+  <an immutable GF2 vector of length 7>, 
+  <an immutable GF2 vector of length 7>, 
   <an immutable GF2 vector of length 7> ]
 gap> Display(last);
  1 1 1 . . . .
@@ -438,7 +416,7 @@ gap> GeneratorMat( RepetitionCode( 5, GF(25) ) );
 gap> GeneratorMat( NullCode( 14, GF(4) ) );
 [  ]
 
-# doc/guava.xml:2805-2821
+# doc/guava.xml:2807-2823
 gap> CheckMat( HammingCode(3, GF(2) ) );
 [ [ 0*Z(2), 0*Z(2), 0*Z(2), Z(2)^0, Z(2)^0, Z(2)^0, Z(2)^0 ], 
   [ 0*Z(2), Z(2)^0, Z(2)^0, 0*Z(2), 0*Z(2), Z(2)^0, Z(2)^0 ], 
@@ -455,7 +433,7 @@ gap> CheckMat( RepetitionCode( 5, GF(25) ) );
 gap> CheckMat( WholeSpaceCode( 12, GF(4) ) );
 [  ]
 
-# doc/guava.xml:2845-2852
+# doc/guava.xml:2847-2854
 gap> GeneratorPol(GeneratorMatCode([[1, 1, 0], [0, 1, 1]], GF(2)));
 x_1+Z(2)^0
 gap> GeneratorPol( WholeSpaceCode( 4, GF(2) ) );
@@ -463,7 +441,7 @@ Z(2)^0
 gap> GeneratorPol( NullCode( 7, GF(3) ) );
 x_1^7-Z(3)^0
 
-# doc/guava.xml:2878-2885
+# doc/guava.xml:2880-2887
 gap> CheckPol(GeneratorMatCode([[1, 1, 0], [0, 1, 1]], GF(2)));
 x_1^2+x_1+Z(2)^0
 gap> CheckPol(WholeSpaceCode(4, GF(2)));
@@ -471,17 +449,17 @@ x_1^4+Z(2)^0
 gap> CheckPol(NullCode(7,GF(3)));
 Z(3)^0
 
-# doc/guava.xml:2908-2917
+# doc/guava.xml:2910-2919
 gap> C1 := ReedSolomonCode( 16, 5 );
 a cyclic [16,12,5]3..4 Reed-Solomon code over GF(17)
 gap> RootsOfCode( C1 );
 [ Z(17), Z(17)^2, Z(17)^3, Z(17)^4 ]
 gap> C2 := RootsCode( 16, last );
-a cyclic [16,12,3..5]3..4 code defined by roots over GF(17)
+a cyclic [16,12,5]3..4 code defined by roots over GF(17)
 gap> C1 = C2;
 true
 
-# doc/guava.xml:2947-2954
+# doc/guava.xml:2949-2956
 gap> WordLength( NordstromRobinsonCode() );
 16
 gap> WordLength( PuncturedCode( WholeSpaceCode(7) ) );
@@ -489,7 +467,7 @@ gap> WordLength( PuncturedCode( WholeSpaceCode(7) ) );
 gap> WordLength( UUVCode( WholeSpaceCode(7), RepetitionCode(7) ) );
 14
 
-# doc/guava.xml:2977-2984
+# doc/guava.xml:2979-2986
 gap> C := TernaryGolayCode();
 a cyclic [11,6,5]2 ternary Golay code over GF(3)
 gap> Redundancy(C);
@@ -497,7 +475,7 @@ gap> Redundancy(C);
 gap> Redundancy( DualCode(C) );
 6
 
-# doc/guava.xml:3047-3066
+# doc/guava.xml:3049-3069
 gap> C := MOLSCode(7);; MinimumDistance(C);
 3
 gap> WeightDistribution(C);
@@ -514,38 +492,35 @@ gap> C := MOLSCode(7);; w := CodewordNr( C, 17 );
 [ 3 3 6 2 ]
 gap> MinimumDistance( C, w );
 0
-gap> C := RemovedElementsCode( C, w );; MinimumDistance( C, w );
+gap> C := RemovedElementsCode( C, w );; # so w no longer belongs to C 
+gap> MinimumDistance( C, w );
 3
 
-# doc/guava.xml:3138-3147
+# doc/guava.xml:3141-3148
 gap> C:=RandomLinearCode(50,22,GF(2));
 a  [50,22,?] randomly generated code over GF(2)
-gap> MinimumDistanceLeon(C); time;
-Error, no method found! For debugging hints type ?Recovery from NoMethodFound
-Error, no 1st choice method found for `TriangulizeMat' on 1 arguments
-1
-gap> MinimumDistance(C); time;
-8
-50
+gap> MinimumDistanceLeon(C); #time; #Uncomment the call to "time;"" to see performance data
+6
+gap> MinimumDistance(C); #time; #Uncomment the call to "time;"" to see performance data
+6
 
-# doc/guava.xml:3192-3291
+# doc/guava.xml:3193-3218
 gap> # Extended ternary quadratic residue code of length 48
 gap> n := 47;;
 gap> x := Indeterminate(GF(3));;
 gap> F := Factors(x^n-1);;
-gap> v := List([1..n], i->Zero(GF(3)));;
-gap> v := v + MutableCopyMat(VectorCodeword( Codeword(F[2]) ));;
-Error, no method found! For debugging hints type ?Recovery from NoMethodFound
-Error, no 1st choice method found for `MutableCopyMatrix' on 1 arguments
+gap> v := NullVector(n,GF(3));;
+gap> v := v + ShallowCopy(VectorCodeword( Codeword(F[2]) ));;
 gap> G := CirculantMatrix(24, v);;
 gap> for i in [1..Size(G)] do; s:=Zero(GF(3));
 > for j in [1..Size(G[i])] do; s:=s+G[i][j]; od; Append(G[i], [ s ]);
 > od;;
 gap> C := GeneratorMatCodeNC(G, GF(3));
-Error, recursion depth trap (5000)
+a  [48,24,?] randomly generated code over GF(3)
 gap> MinimumWeight(C);
-8
+15
 gap> 
+
 gap> # Binary cyclic code [151,45,36]
 gap> n := 151;;
 gap> x := Indeterminate(GF(2));;
@@ -555,85 +530,76 @@ a cyclic [151,45,1..50]31..75 code defined by check polynomial over GF(2)
 gap> MinimumWeight(C);
 36
 
-# doc/guava.xml:3343-3357
+# doc/guava.xml:3270-3284
 gap> C:=RandomLinearCode(5,2,GF(2));
 a  [5,2,?] randomly generated code over GF(2)
 gap> DecreaseMinimumDistanceUpperBound(C,1,4);
-rec( mindist := 2, word := [ 0*Z(2), 0*Z(2), 0*Z(2), Z(2)^0, Z(2)^0 ] )
+rec( mindist := 3, word := [ 0*Z(2), Z(2)^0, Z(2)^0, 0*Z(2), Z(2)^0 ] )
 gap> MinimumDistance(C);
-2
+3
 gap> C:=RandomLinearCode(8,4,GF(2));
 a  [8,4,?] randomly generated code over GF(2)
 gap> DecreaseMinimumDistanceUpperBound(C,3,4);
-rec( mindist := 1, 
-  word := [ Z(2)^0, 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2) ] )
+rec( mindist := 2, 
+  word := [ Z(2)^0, 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), Z(2)^0 ] )
 gap> MinimumDistance(C);
-1
+2
 
-# doc/guava.xml:3407-3457
+# doc/guava.xml:3334-3377
 gap> C:=RandomLinearCode(60,20,GF(2));
 a  [60,20,?] randomly generated code over GF(2)
-gap> #mindist(C);time;
-gap> #mindistleon(C,10,30);time; #doesn't work well
-gap> a:=MinimumDistanceRandom(C,10,30);time; # done 10 times -with fastest time!!
+gap> #mindist(C); #time;
+gap> #mindistleon(C,10,30); #time; #doesn't work well
+gap> a:=MinimumDistanceRandom(C,10,30); #time; # done 10 times -with fastest time!!
 
  This is a probabilistic algorithm which may return the wrong answer.
-[ 15, [ 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 0 1 0 0 0 0 0 1 0 0 1 0 1 0 1 0 1 1 0 0 
-    1 0 0 0 0 1 1 0 0 1 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 ] ]
-4
+[ 12, [ 0 0 0 0 0 0 1 0 1 0 0 0 0 0 0 0 1 1 0 0 1 0 0 0 1 0 0 0 0 0 0 1 0 0 
+        1 0 0 0 0 0 0 0 0 0 1 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 ] ]
 gap> a[2] in C;
 true
-gap> b:=DecreaseMinimumDistanceUpperBound(C,10,1); time; #only done once!
-rec( mindist := 10, 
-  word := [ 0*Z(2), 0*Z(2), 0*Z(2), Z(2)^0, 0*Z(2), Z(2)^0, 0*Z(2), 0*Z(2), 
-      Z(2)^0, Z(2)^0, 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), 
-      0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), 
-      0*Z(2), 0*Z(2), Z(2)^0, 0*Z(2), 0*Z(2), Z(2)^0, 0*Z(2), 0*Z(2), 0*Z(2), 
-      0*Z(2), 0*Z(2), 0*Z(2), Z(2)^0, 0*Z(2), 0*Z(2), 0*Z(2), Z(2)^0, 0*Z(2), 
-      0*Z(2), 0*Z(2), 0*Z(2), Z(2)^0, 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), 
-      0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), Z(2)^0, 0*Z(2), 0*Z(2) ] )
-87
+gap> b:=DecreaseMinimumDistanceUpperBound(C,10,1); #time; #only done once!
+rec( mindist := 12, word := [ 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), 
+      Z(2)^0, 0*Z(2), Z(2)^0, 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), 
+      0*Z(2), Z(2)^0, Z(2)^0, 0*Z(2), 0*Z(2), Z(2)^0, 0*Z(2), 0*Z(2), 0*Z(2), 
+      Z(2)^0, 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), Z(2)^0, 0*Z(2), 
+      0*Z(2), Z(2)^0, 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), 
+      0*Z(2), 0*Z(2), Z(2)^0, 0*Z(2), 0*Z(2), 0*Z(2), Z(2)^0, 0*Z(2), 0*Z(2), 
+      0*Z(2), 0*Z(2), Z(2)^0, 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), Z(2)^0, 0*Z(2) ] )
 gap> Codeword(b!.word) in C;
 true
-gap> MinimumDistance(C);time;
-10
+gap> MinimumDistance(C); #time; #Uncomment the call to "time;"" to see performance data
 12
-gap> c:=MinimumDistanceLeon(C);time;
-Error, no method found! For debugging hints type ?Recovery from NoMethodFound
-Error, no 1st choice method found for `TriangulizeMat' on 1 arguments
-1
+gap> c:=MinimumDistanceLeon(C); #time; #Uncomment the call to "time;"" to see performance data
+12
 gap> C:=RandomLinearCode(30,10,GF(3));
 a  [30,10,?] randomly generated code over GF(3)
-gap> a:=MinimumDistanceRandom(C,10,10);time;
+gap> a:=MinimumDistanceRandom(C,10,10); #time; #Uncomment the call to "time;"" to see performance data
 
  This is a probabilistic algorithm which may return the wrong answer.
-[ 12, [ 0 0 0 0 0 1 1 0 0 2 0 0 2 0 0 2 1 1 0 1 1 0 2 0 0 2 0 0 1 0 ] ]
-13
+[ 13, [ 0 0 0 1 0 0 0 0 0 0 1 0 2 2 1 1 0 2 2 0 1 0 2 1 0 0 0 1 0 2 ] ]
 gap> a[2] in C;
 true
-gap> MinimumDistance(C);time;
-10
-2
+gap> MinimumDistance(C); #time; #Uncomment the call to "time;"" to see performance data
+9
 gap> c:=MinimumDistanceLeon(C);
-Error, no method found! For debugging hints type ?Recovery from NoMethodFound
-Error, no 1st choice method found for `TriangulizeMat' on 1 arguments
-gap> a:=MinimumDistanceRandom(C,1,29);time;
+Code must be binary. Quitting. 
+0
+gap> a:=MinimumDistanceRandom(C,1,29); #time; #Uncomment the call to "time;"" to see performance data
 
  This is a probabilistic algorithm which may return the wrong answer.
-[ 10, [ 0 0 1 2 0 1 0 0 0 0 1 0 0 0 2 0 2 2 0 0 0 0 0 2 0 0 0 2 0 1 ] ]
-3
+[ 10, [ 0 0 1 0 2 0 2 0 1 0 0 0 0 0 0 1 0 1 0 0 1 0 0 0 0 0 2 2 2 0 ] ]
 
-# doc/guava.xml:3559-3582
+# doc/guava.xml:3479-3502
 gap> H := RandomLinearCode(10, 5, GF(2));
 a  [10,5,?] randomly generated code over GF(2)
 gap> CoveringRadius(H);
 3
 gap> H := HammingCode(4, GF(2));; IsPerfectCode(H);
 true
-gap> CoveringRadius(H);
+gap> CoveringRadius(H); # Hamming codes have minimum distance 3
 1
 gap> CoveringRadius(ReedSolomonCode(7,4));
-Error, List Element: <list>[7] must have an assigned value
+3
 gap> CoveringRadius( BCHCode( 17, 3, GF(2) ) );
 3
 gap> CoveringRadius( HammingCode( 5, GF(2) ) );
@@ -647,7 +613,7 @@ Try to use IncreaseCoveringRadiusLowerBound( <code> ).
 The covering radius of <code> lies in the interval:
 [ 240 .. 248 ]
 
-# doc/guava.xml:3620-3627
+# doc/guava.xml:3540-3547
 gap> C := BCHCode( 17, 3, GF(2) );;
 gap> BoundsCoveringRadius( C );
 [ 3, 4 ]
@@ -655,14 +621,14 @@ gap> SetCoveringRadius( C, [ 2 .. 3 ] );
 gap> BoundsCoveringRadius( C );
 [ [ 2, 3 ] ]
 
-# doc/guava.xml:3659-3666
+# doc/guava.xml:3579-3585
 gap> C:=HammingCode(3,GF(2));
 a linear [7,4,3]1 Hamming (3,2) code over GF(2)
 gap> MinimumWeightWords(C);
 [ [ 1 0 0 0 0 1 1 ], [ 0 1 0 1 0 1 0 ], [ 0 1 0 0 1 0 1 ], [ 1 0 0 1 1 0 0 ], 
   [ 0 0 1 0 1 1 0 ], [ 0 0 1 1 0 0 1 ], [ 1 1 1 0 0 0 0 ] ]
 
-# doc/guava.xml:3696-3703
+# doc/guava.xml:3615-3622
 gap> WeightDistribution( ConferenceCode(9) );
 [ 1, 0, 0, 0, 0, 18, 0, 0, 0, 1 ]
 gap> WeightDistribution( RepetitionCode( 7, GF(4) ) );
@@ -670,23 +636,23 @@ gap> WeightDistribution( RepetitionCode( 7, GF(4) ) );
 gap> WeightDistribution( WholeSpaceCode( 5, GF(2) ) );
 [ 1, 5, 10, 10, 5, 1 ]
 
-# doc/guava.xml:3733-3738
+# doc/guava.xml:3652-3657
 gap> InnerDistribution( ConferenceCode(9) );
 [ 1, 0, 0, 0, 63/5, 9/5, 18/5, 0, 9/10, 1/10 ]
 gap> InnerDistribution( RepetitionCode( 7, GF(4) ) );
 [ 1, 0, 0, 0, 0, 0, 0, 3 ]
 
-# doc/guava.xml:3766-3775
+# doc/guava.xml:3685-3694
 gap> H := HadamardCode(20);
 a (20,40,10)6..8 Hadamard code of order 20 over GF(2)
 gap> c := Codeword("10110101101010010101", H);
 [ 1 0 1 1 0 1 0 1 1 0 1 0 1 0 0 1 0 1 0 1 ]
 gap> DistancesDistribution(H, c);
 [ 0, 0, 0, 0, 0, 1, 0, 7, 0, 12, 0, 12, 0, 7, 0, 1, 0, 0, 0, 0, 0 ]
-gap> MinimumDistance(H, c);
+gap> MinimumDistance(H, c); # distance to H 
 5
 
-# doc/guava.xml:3805-3817
+# doc/guava.xml:3724-3736
 gap> C := RepetitionCode( 3, GF(2) );
 a cyclic [3,1,3]1 repetition code over GF(2)
 gap> OD := OuterDistribution(C);
@@ -699,23 +665,23 @@ true
 gap> DistancesDistribution( C, Codeword("110") ) = OD[4][2];
 true
 
-# doc/guava.xml:3887-3902
+# doc/guava.xml:3806-3821
 gap> C := HammingCode(3);
 a linear [7,4,3]1 Hamming (3,2) code over GF(2)
 gap> c := "1010"*C;                    # encoding
 [ 1 0 1 1 0 1 0 ]
 gap> Decode(C, c);                     # decoding
 [ 1 0 1 0 ]
-gap> Decode(C, Codeword("0010101"));
+gap> Decode(C, Codeword("0010101")); # one error corrected
 [ 1 1 0 1 ]
 gap> C!.SpecialDecoder := function(C, c)
 > return NullWord(Dimension(C));
 > end;
 function( C, c ) ... end
-gap> Decode(C, c);
-[ 1 0 1 0 ]
+gap> Decode(C, c); # new decoder always returns null word 
+[ 0 0 0 0 ]
 
-# doc/guava.xml:3941-3972
+# doc/guava.xml:3860-3891
 gap> C := HammingCode(3);
 a linear [7,4,3]1 Hamming (3,2) code over GF(2)
 gap> c := "1010"*C;                    # encoding
@@ -731,23 +697,23 @@ a linear [5,3,1..3]2  generalized Reed-Solomon code over GF(11)
 gap> MinimumDistance(C);
 3
 gap> c:=Random(C);
-[ 5 2 6 10 10 ]
+[ 0 9 6 2 1 ]
 gap> v:=Codeword("09620");
 [ 0 9 6 2 0 ]
 gap> GeneralizedReedSolomonDecoderGao(C,v);
 [ 0 9 6 2 1 ]
 gap> Decodeword(C,v); # calls the special interpolation decoder
-Error, Denominator evaluates as zero
+[ 0 9 6 2 1 ]
 gap> G:=GeneratorMat(C);
-[ [ Z(11)^0, Z(11)^0, Z(11)^0, Z(11)^0, Z(11)^0 ], 
-  [ Z(11), Z(11)^3, Z(11)^4, Z(11)^5, Z(11)^7 ], 
-  [ Z(11)^2, Z(11)^6, Z(11)^8, Z(11)^0, Z(11)^4 ] ]
+[ [ Z(11)^0, 0*Z(11), 0*Z(11), Z(11)^8, Z(11)^9 ], 
+  [ 0*Z(11), Z(11)^0, 0*Z(11), Z(11)^0, Z(11)^8 ], 
+  [ 0*Z(11), 0*Z(11), Z(11)^0, Z(11)^3, Z(11)^8 ] ]
 gap> C1:=GeneratorMatCode(G,GF(11));
 a linear [5,3,1..3]2 code defined by generator matrix over GF(11)
 gap> Decodeword(C,v); # calls syndrome decoding
-Error, Denominator evaluates as zero
+[ 0 9 6 2 1 ]
 
-# doc/guava.xml:4023-4038
+# doc/guava.xml:3942-3957
 gap> R:=PolynomialRing(GF(11),["t"]);
 GF(11)[t]
 gap> P:=List([1,3,4,5,7],i->Z(11)^i);
@@ -757,13 +723,13 @@ a linear [5,3,1..3]2  generalized Reed-Solomon code over GF(11)
 gap> MinimumDistance(C);
 3
 gap> c:=Random(C);
-[ 1 0 1 0 9 ]
+[ 0 9 6 2 1 ]
 gap> v:=Codeword("09620");
 [ 0 9 6 2 0 ]
 gap> GeneralizedReedSolomonDecoderGao(C,v); 
 [ 0 9 6 2 1 ]
 
-# doc/guava.xml:4092-4127
+# doc/guava.xml:4011-4046
 gap> F:=GF(16);
 GF(2^4)
 gap> a:=PrimitiveRoot(F);; b:=a^7;; b^4+b^3+1; 
@@ -785,10 +751,9 @@ gap> z:=Zero(F);;
 gap> r:=[z,z,z,z,z,z,z,z,b^6,b^2,b^5,b^14,b,b^7,b^11];; 
 gap> r:=Codeword(r);
 [ 0 0 0 0 0 0 0 0 a^12 a^14 a^5 a^8 a^7 a^4 a^2 ]
-gap> cs:=GeneralizedReedSolomonListDecoder(C,r,2); time;
+gap> cs:=GeneralizedReedSolomonListDecoder(C,r,2); #time; #Uncomment the call to "time;"" to see performance data
 [ [ 0 a^9 a^3 a^13 a^6 a^10 a^11 a a^12 a^14 a^5 a^8 a^7 a^4 a^2 ], 
   [ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ] ]
-23
 gap> c1:=cs[1]; c1 in C;
 [ 0 a^9 a^3 a^13 a^6 a^10 a^11 a a^12 a^14 a^5 a^8 a^7 a^4 a^2 ]
 true
@@ -800,22 +765,22 @@ gap> WeightCodeword(c1-r);
 gap> WeightCodeword(c2-r);
 7
 
-# doc/guava.xml:4164-4180
+# doc/guava.xml:4083-4097
 gap> C:=HammingCode(4,GF(2));
 a linear [15,11,3]1 Hamming (4,2) code over GF(2)
 gap> c:=Random(C);
-[ 0 1 1 0 0 1 1 0 1 0 1 1 0 1 0 ]
+[ 0 0 0 1 0 0 1 0 0 1 1 0 1 0 1 ]
 gap> v:=List(c);
-[ 0*Z(2), Z(2)^0, Z(2)^0, 0*Z(2), 0*Z(2), Z(2)^0, Z(2)^0, 0*Z(2), Z(2)^0, 
-  0*Z(2), Z(2)^0, Z(2)^0, 0*Z(2), Z(2)^0, 0*Z(2) ]
+[ 0*Z(2), 0*Z(2), 0*Z(2), Z(2)^0, 0*Z(2), 0*Z(2), Z(2)^0, 0*Z(2), 0*Z(2),
+  Z(2)^0, Z(2)^0, 0*Z(2), Z(2)^0, 0*Z(2), Z(2)^0 ]
 gap> v[1]:=Z(2)+v[1]; # flip 1st bit of c to create an error
 Z(2)^0
 gap> v:=Codeword(v);
-[ 1 1 1 0 0 1 1 0 1 0 1 1 0 1 0 ]
+[ 1 0 0 1 0 0 1 0 0 1 1 0 1 0 1 ]
 gap> BitFlipDecoder(C,v);
-[ 0 1 1 0 0 1 1 0 1 0 1 1 0 1 0 ]
+[ 0 0 0 1 0 0 1 0 0 1 1 0 1 0 1 ]
 
-# doc/guava.xml:4207-4234
+# doc/guava.xml:4124-4152
 gap> F:=GF(16);
 GF(2^4)
 gap> a:=PrimitiveRoot(F);; b:=a^7; b^4+b^3+1;
@@ -844,7 +809,7 @@ gap> cs:=NearestNeighborGRSDecodewords(C,r,7);
   [ [ 0 a^9 a^3 a^13 a^6 a^10 a^11 a a^12 a^14 a^5 a^8 a^7 a^4 a^2 ], 
       x_1+Z(2)^0 ] ]
 
-# doc/guava.xml:4266-4294
+# doc/guava.xml:4184-4211
 gap> F:=GF(16);
 GF(2^4)
 gap> a:=PrimitiveRoot(F);; b:=a^7; b^4+b^3+1;
@@ -872,7 +837,7 @@ gap> cs:=NearestNeighborDecodewords(C,r,7);
 [ [ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ], 
   [ 0 a^9 a^3 a^13 a^6 a^10 a^11 a a^12 a^14 a^5 a^8 a^7 a^4 a^2 ] ]
 
-# doc/guava.xml:4329-4341
+# doc/guava.xml:4246-4257
 gap> C := HammingCode(4);
 a linear [15,11,3]1 Hamming (4,2) code over GF(2)
 gap> v := CodewordNr( C, 7 );
@@ -881,10 +846,10 @@ gap> Syndrome( C, v );
 [ 0 0 0 0 ]
 gap> Syndrome( C, Codeword( "000000001100111" ) );
 [ 1 1 1 1 ]
-gap> Syndrome( C, Codeword( "000000000000001" ) );
+gap> Syndrome( C, Codeword( "000000000000001" ) ); # the same syndrome: both codewords are in the same coset of C 
 [ 1 1 1 1 ]
 
-# doc/guava.xml:4371-4388
+# doc/guava.xml:4287-4301
 gap> H := HammingCode(2);
 a linear [3,1,3]1 Hamming (2,2) code over GF(2)
 gap> SyndromeTable(H);
@@ -892,19 +857,19 @@ gap> SyndromeTable(H);
   [ [ 0 0 1 ], [ 1 1 ] ] ]
 gap> c := Codeword("101");
 [ 1 0 1 ]
-gap> c in H;
+gap> c in H;  # c is not an element of H
 false
-gap> Syndrome(H,c);
+gap> Syndrome(H,c); # according to the syndrome table, the error vector [ 0 1 0 ] belongs to this syndrome
 [ 1 0 ]
-gap> c - Codeword("010") in H;
+gap> c - Codeword("010") in H; # so the corrected codeword is [ 1 0 1 ] - [ 0 1 0 ] = [ 1 1 1 ], this is an element of H 
 true
 
-# doc/guava.xml:4421-4425
+# doc/guava.xml:4334-4338
 gap> StandardArray(RepetitionCode(3)); 
 [ [ [ 0 0 0 ], [ 1 1 1 ] ], [ [ 0 0 1 ], [ 1 1 0 ] ], 
   [ [ 0 1 0 ], [ 1 0 1 ] ], [ [ 1 0 0 ], [ 0 1 1 ] ] ]
 
-# doc/guava.xml:4450-4478
+# doc/guava.xml:4363-4391
 gap> C0:=HammingCode(3,GF(2));
 a linear [7,4,3]1 Hamming (3,2) code over GF(2)
 gap> G0:=GeneratorMat(C0);;
@@ -922,14 +887,14 @@ gap> Display(H0);
  . 1 1 . . 1 1
  1 . 1 . 1 . 1
 gap> c0:=Random(C0);
-[ 1 1 1 1 1 1 1 ]
+[ 0 0 0 1 1 1 1 ]
 gap> v01:=c0[1]+Z(2)^2;;
 gap> v1:=List(c0, ShallowCopy);;
 gap> v1[1]:=v01;;
 gap> v1:=Codeword(v1);
-[ 0 1 1 1 1 1 1 ]
+[ 1 0 0 1 1 1 1 ]
 gap> c1:=PermutationDecode(C0,v1);
-[ 1 1 1 1 1 1 1 ]
+[ 0 0 0 1 1 1 1 ]
 gap> c1=c0;
 true
 
