@@ -1,5 +1,5 @@
 name: GUAVA
-version: 3.20
+version: "3.20"
 date: 2025-02-01
 description: |
     a GAP package for computing with error-correcting codes
