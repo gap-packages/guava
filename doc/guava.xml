@@ -538,11 +538,12 @@ gap> C:=RandomLinearCode(20,10,GF(4));
 a  [20,10,?] randomly generated code over GF(4)
 gap> c:=Random(C);
 [ 1 a 0 0 0 1 1 a^2 0 0 a 1 1 1 a 1 1 a a 0 ]
-gap> NamesOfComponents(C);
-[ "Representative", "ZeroImmutable", "name", "LeftActingDomain", "Dimension", 
-  "GeneratorsOfLeftOperatorAdditiveGroup", "Basis", "NiceFreeLeftModule", 
-  "WordLength", "GeneratorMat" ]
-gap> NamesOfComponents(c);
+gap> Set(NamesOfComponents(C));
+[ "Basis", "Dimension", "GeneratorMat", 
+  "GeneratorsOfLeftOperatorAdditiveGroup", "LeftActingDomain", 
+  "NiceFreeLeftModule", "Representative", "WordLength", "ZeroImmutable", 
+  "name" ]
+gap> Set(NamesOfComponents(c));
 [ "VectorCodeword", "WordLength", "treatAsPoly" ]
 gap> c!.VectorCodeword;
 < immutable compressed vector length 20 over GF(4) >
@@ -2306,8 +2307,8 @@ alphabet.
 </ManSection>
 
 <Example>
-gap> x:= Indeterminate( GF(2) );; pol:= x^3+x+1; 
-x_1^3+x_1+Z(2)^0
+gap> x:= Indeterminate( GF(2), "x" );; pol:= x^3+x+1; 
+x^3+x+Z(2)^0
 gap> H := GeneratorPolCode( pol, 7, GF(2));          
 a cyclic [7,4,1..3]1 code defined by generator polynomial over GF(2)
 gap> H = HammingCode(3, GF(2));
@@ -2345,8 +2346,8 @@ between <E>binary</E> codes on a linux/unix computer
 </ManSection>
 
 <Example>
-gap> x:= Indeterminate( GF(2) );; pol:= x^3+x+1; 
-x_1^3+x_1+Z(2)^0
+gap> x:= Indeterminate( GF(2), "x" );; pol:= x^3+x+1; 
+x^3+x+Z(2)^0
 gap> H := GeneratorPolCode( pol, 7, GF(2));          
 a cyclic [7,4,1..3]1 code defined by generator polynomial over GF(2)
 gap> CodeIsomorphism(H, HammingCode(3, GF(2)));
@@ -2659,10 +2660,10 @@ This function is used by <C>Print</C>.
 </ManSection>
 
 <Example>
-gap> x:= Indeterminate( GF(3) );; pol:= x^2+1;
-x_1^2+Z(3)^0
+gap> x:= Indeterminate( GF(3), "x" );; pol:= x^2+1;
+x^2+Z(3)^0
 gap> Factors(pol);
-[ x_1^2+Z(3)^0 ]
+[ x^2+Z(3)^0 ]
 gap> H := GeneratorPolCode( pol, 8, GF(3));
 a cyclic [8,6,1..2]1..2 code defined by generator polynomial over GF(3)
 gap> String(H);
@@ -3193,7 +3194,7 @@ MinimumDistance(C); time;
 <Example>
 gap> # Extended ternary quadratic residue code of length 48
 gap> n := 47;;
-gap> x := Indeterminate(GF(3));;
+gap> x := Indeterminate(GF(3), "x");;
 gap> F := Factors(x^n-1);;
 gap> v := NullVector(n,GF(3));;
 gap> v := v + ShallowCopy(VectorCodeword( Codeword(F[2]) ));;
@@ -3205,11 +3206,9 @@ gap> C := GeneratorMatCodeNC(G, GF(3));
 a  [48,24,?] randomly generated code over GF(3)
 gap> MinimumWeight(C);
 15
-gap> 
-
 gap> # Binary cyclic code [151,45,36]
 gap> n := 151;;
-gap> x := Indeterminate(GF(2));;
+gap> x := Indeterminate(GF(2), "x");;
 gap> F := Factors(x^n-1);;
 gap> C := CheckPolCode(F[2]*F[3]*F[3]*F[4], n, GF(2));
 a cyclic [151,45,1..50]31..75 code defined by check polynomial over GF(2)
@@ -4722,7 +4721,7 @@ The function <C>RandomLinearCode</C> returns a random linear code (see
 gap> C1 := RandomCode( 6, 10, GF(8) );
 a (6,10,1..6)4..6 random unrestricted code over GF(8)
 gap> MinimumDistance(C1);
-3
+2
 gap> C2 := RandomCode( 6, 10, GF(8) );
 a (6,10,1..6)4..6 random unrestricted code over GF(8)
 gap> C1 = C2;
@@ -5468,16 +5467,19 @@ a linear [85,81,3]1 Hamming (4,4) code over GF(4)
 gap> C:=BestKnownLinearCode(174,72);
 a linear [174,72,31..36]26..87 code defined by generator matrix over GF(2)
 gap> bounds := BoundsMinimumDistance( 81, 77, GF(4) );
-rec( n := 81, k := 77, q := 4, 
-  references := rec( Ham := [ "%T this reference is unknown, for more info", 
-          "%T contact A.E. Brouwer (aeb@cwi.nl)" ], 
-      cap := [ "%T this reference is unknown, for more info", 
-          "%T contact A.E. Brouwer (aeb@cwi.nl)" ] ), 
-  construction := [ (Operation "ShortenedCode"), 
-      [ [ (Operation "HammingCode"), [ 4, 4 ] ], [ 1, 2, 3, 4 ] ] ], 
+rec( 
+  construction := 
+    [ &lt;Operation "ShortenedCode"&gt;, 
+      [ [ &lt;Operation "HammingCode"&gt;, [ 4, 4 ] ], [ 1, 2, 3, 4 ] ] ], k := 77, 
   lowerBound := 3, 
   lowerBoundExplanation := [ "Lb(81,77)=3, by shortening of:", 
-      "Lb(85,81)=3, reference: Ham" ], upperBound := 3, 
+      "Lb(85,81)=3, reference: Ham" ], n := 81, q := 4, 
+  references := 
+    rec( 
+      Ham := [ "%T this reference is unknown, for more info", 
+          "%T contact A.E. Brouwer (aeb@cwi.nl)" ], 
+      cap := [ "%T this reference is unknown, for more info", 
+          "%T contact A.E. Brouwer (aeb@cwi.nl)" ] ), upperBound := 3, 
   upperBoundExplanation := [ "Ub(81,77)=3, by considering shortening to:", 
       "Ub(18,14)=3, reference: cap" ] )
 gap> C := BestKnownLinearCode( bounds );
@@ -5838,14 +5840,15 @@ Golay code contains the generator polynomial:
 <Example>
 gap> C := BinaryGolayCode();
 a cyclic [23,12,7]3 binary Golay code over GF(2)
-gap> NamesOfComponents(C);
-[ "LeftActingDomain", "GeneratorsOfLeftOperatorAdditiveGroup", "WordLength",
-  "GeneratorMat", "GeneratorPol", "Dimension", "Redundancy", "Size", "name",
-  "lowerBoundMinimumDistance", "upperBoundMinimumDistance", "WeightDistribution",
-  "boundsCoveringRadius", "MinimumWeightOfGenerators", 
-  "UpperBoundOptimalMinimumDistance" ]
+gap> Set(NamesOfComponents(C));
+[ "Dimension", "GeneratorMat", "GeneratorPol", 
+  "GeneratorsOfLeftOperatorAdditiveGroup", "LeftActingDomain", 
+  "MinimumWeightOfGenerators", "Redundancy", "Size", "SpecialDecoder", 
+  "UpperBoundOptimalMinimumDistance", "WeightDistribution", "WordLength", 
+  "boundsCoveringRadius", "lowerBoundMinimumDistance", "name", 
+  "upperBoundMinimumDistance" ]
 gap> C!.GeneratorPol;
-x_1^11+x_1^10+x_1^6+x_1^5+x_1^4+x_1^2+Z(2)^0
+x^11+x^10+x^6+x^5+x^4+x^2+Z(2)^0
 </Example>
 <!--
 C := BinaryGolayCode();
@@ -5887,16 +5890,16 @@ See <Ref Func="Generating Cyclic Codes" Style="Number"/>.
 </ManSection>
 
 <Example>
-gap> x:= Indeterminate( GF(2) );; P:= x^2+1;
+gap> x:= Indeterminate( GF(2), "x" );; P:= x^2+1;
 x^2+Z(2)^0
 gap> C1 := GeneratorPolCode(P, 7, GF(2));
 a cyclic [7,6,1..2]1 code defined by generator polynomial over GF(2)
 gap> GeneratorPol( C1 );
-Z(2)^0+x
+x+Z(2)^0
 gap> C2 := GeneratorPolCode( x+1, 7, GF(2)); 
 a cyclic [7,6,1..2]1 code defined by generator polynomial over GF(2)
 gap> GeneratorPol( C2 );
-Z(2)^0+x
+x+Z(2)^0
 </Example>
 <!--
 x:= Indeterminate( GF(2) );; P:= x^2+1;
@@ -5926,14 +5929,14 @@ the same elements as the ideal <M>(h)</M>. See
 </ManSection>
 
 <Example>
-gap>  x:= Indeterminate( GF(3) );; P:= x^2+2;
-x_1^2-Z(3)^0
+gap>  x := Indeterminate( GF(3), "x" );; P:= x^2+2;
+x^2-Z(3)^0
 gap> H := CheckPolCode(P, 7, GF(3));
 a cyclic [7,1,7]4 code defined by check polynomial over GF(3)
 gap> CheckPol(H);
-x_1-Z(3)^0
+x-Z(3)^0
 gap> Gcd(P, X(GF(3))^7-1);
-x_1-Z(3)^0
+x-Z(3)^0
 </Example>
 <!--
 x:= Indeterminate( GF(3) );; P:= x^2+2;
@@ -6236,20 +6239,20 @@ a linear [14,7,1..4]3..5 code defined by generator matrix over GF(2)
 gap> G1:=GeneratorMat(C1);;
 gap> Display(G1);
  . 1 1 . 1 . . . . . 1 . 1 1
- 1 . 1 1 1 . . . . 1 1 1 . 1
- . . . 1 1 . 1 . 1 1 . . . 1
- . . 1 . 1 1 1 1 . 1 . . 1 1
- . . . . . . . 1 . . 1 1 1 .
- . . . . . . . . . 1 1 1 . 1
- . . . . . . . . 1 . . 1 1 1
+ . . 1 1 . 1 . 1 . . . 1 . 1
+ . . . 1 1 . 1 1 1 . . . 1 .
+ 1 . . . 1 1 . . 1 1 . . . 1
+ . 1 . . . 1 1 1 . 1 1 . . .
+ 1 . 1 . . . 1 . 1 . 1 1 . .
+ 1 1 . 1 . . . . . 1 . 1 1 .
 gap> Display(C1!.DoublyCirculant);
  . 1 1 . 1 . . . . . 1 . 1 1
- 1 1 . 1 . . . . . 1 . 1 1 .
- 1 . 1 . . . 1 . 1 . 1 1 . .
- . 1 . . . 1 1 1 . 1 1 . . .
- 1 . . . 1 1 . . 1 1 . . . 1
- . . . 1 1 . 1 1 1 . . . 1 .
  . . 1 1 . 1 . 1 . . . 1 . 1
+ . . . 1 1 . 1 1 1 . . . 1 .
+ 1 . . . 1 1 . . 1 1 . . . 1
+ . 1 . . . 1 1 1 . 1 1 . . .
+ 1 . 1 . . . 1 . 1 . 1 1 . .
+ 1 1 . 1 . . . . . 1 . 1 1 .
 gap> MinimumDistance(C1);
 4
 gap> C2 := QQRCode( 29); MinimumDistance(C2);
@@ -6315,7 +6318,7 @@ Non-binary Fire codes have not been implemented.
 .
 
 <Example>
-gap> x:= Indeterminate( GF(2) );; G:= x^3+x^2+1;
+gap> x:= Indeterminate( GF(2), "x" );; G:= x^3+x^2+1;
 x^3+x^2+Z(2)^0
 gap> Factors( G );
 [ x^3+x^2+Z(2)^0 ]
@@ -6631,9 +6634,9 @@ G = |  I_2k  |-----+-----|
 
 <Example>
 gap> ax:=PolyCodeword(Codeword("1200200", GF(3)));
--x_1^4-x_1+Z(3)^0
+-x^4-x+Z(3)^0
 gap> bx:=PolyCodeword(Codeword("2020221", GF(3)));
-x_1^6-x_1^5-x_1^4-x_1^2-Z(3)^0
+x^6-x^5-x^4-x^2-Z(3)^0
 gap> C:=FourNegacirculantSelfDualCode(ax, bx, 14);;
 gap> MinimumDistance(C);;
 gap> CoveringRadius(C);;
@@ -6878,10 +6881,11 @@ to see them all): <C>C!.points</C> (namely <A>Pts</A>) and
 
 <Example>
 gap> Pts:=ToricPoints(2,GF(5));
-[ [ Z(5)^0, Z(5)^0 ], [ Z(5)^0, Z(5) ], [ Z(5)^0, Z(5)^2 ], [ Z(5)^0, Z(5)^3 ],
-  [ Z(5), Z(5)^0 ], [ Z(5), Z(5) ], [ Z(5), Z(5)^2 ], [ Z(5), Z(5)^3 ],
-  [ Z(5)^2, Z(5)^0 ], [ Z(5)^2, Z(5) ], [ Z(5)^2, Z(5)^2 ], [ Z(5)^2, Z(5)^3 ],
-  [ Z(5)^3, Z(5)^0 ], [ Z(5)^3, Z(5) ], [ Z(5)^3, Z(5)^2 ], [ Z(5)^3, Z(5)^3 ] ]
+[ [ Z(5)^0, Z(5)^0 ], [ Z(5)^0, Z(5) ], [ Z(5)^0, Z(5)^2 ], 
+  [ Z(5)^0, Z(5)^3 ], [ Z(5), Z(5)^0 ], [ Z(5), Z(5) ], [ Z(5), Z(5)^2 ], 
+  [ Z(5), Z(5)^3 ], [ Z(5)^2, Z(5)^0 ], [ Z(5)^2, Z(5) ], [ Z(5)^2, Z(5)^2 ], 
+  [ Z(5)^2, Z(5)^3 ], [ Z(5)^3, Z(5)^0 ], [ Z(5)^3, Z(5) ], 
+  [ Z(5)^3, Z(5)^2 ], [ Z(5)^3, Z(5)^3 ] ]
 gap> C:=GeneralizedReedMullerCode(Pts,2,GF(5));
 a linear [16,6,1..11]6..10  generalized Reed-Muller code over GF(5)
 </Example>
@@ -7000,32 +7004,32 @@ command.
 <Example>
 gap> F:=GF(11);;
 gap> R2:=PolynomialRing(F,2);
-PolynomialRing(..., [ x_1, x_2 ])
+GF(11)[t,x_2]
 gap> vars:=IndeterminatesOfPolynomialRing(R2);;
 gap> x:=vars[1];; y:=vars[2];;
 gap> poly:=y;; crvP1:=AffineCurve(poly,R2);
-rec( ring := PolynomialRing(..., [ x_1, x_2 ]), polynomial := x_2 )
+rec( polynomial := x_2, ring := GF(11)[t,x_2] )
 gap> degree_crv:=DegreeMultivariatePolynomial(poly,R2);
 1
 gap> poly:=y^2-x*(x^2-1);; ell_crv:=AffineCurve(poly,R2);
-rec( ring := PolynomialRing(..., [ x_1, x_2 ]), polynomial := -x_1^3+x_2^2+x_1 )
+rec( polynomial := -t^3+x_2^2+t, ring := GF(11)[t,x_2] )
 gap> degree_crv:=DegreeMultivariatePolynomial(poly,R2);
 3
 gap> poly:=x^2+y^2-1;; circle:=AffineCurve(poly,R2);
-rec( ring := PolynomialRing(..., [ x_1, x_2 ]), polynomial := x_1^2+x_2^2-Z(11)^0 )
+rec( polynomial := t^2+x_2^2-Z(11)^0, ring := GF(11)[t,x_2] )
 gap> degree_crv:=DegreeMultivariatePolynomial(poly,R2);
 2
 gap> q:=3;;
 gap> F:=GF(q^2);;
 gap> R:=PolynomialRing(F,2);;
 gap> vars:=IndeterminatesOfPolynomialRing(R);
-[ x_1, x_2 ]
+[ x, x_2 ]
 gap> x:=vars[1];
-x_1
+x
 gap> y:=vars[2];
 x_2
 gap> crv:=AffineCurve(y^q+y-x^(q+1),R);
-rec( ring := PolynomialRing(..., [ x_1, x_2 ]), polynomial := -x_1^4+x_2^3+x_2 )
+rec( polynomial := -x^4+x_2^3+x_2, ring := GF(3^2)[x,x_2] )
 </Example>
 <!--
 F:=GF(11);;
@@ -7067,7 +7071,7 @@ where <A>f</A> is an element of <M>R=F[x,y]</M>.
 <Example>
 gap> F:=GF(11);;
 gap> R := PolynomialRing(F,["x","y"]);
-PolynomialRing(..., [ x, y ])
+GF(11)[x,y]
 gap> indets := IndeterminatesOfPolynomialRing(R);;
 gap> x:=indets[1];; y:=indets[2];;
 gap> P:=AffinePointsOnCurve(y^2-x^11+x,R,F);
@@ -7100,17 +7104,16 @@ may be false).
 <Example>
 gap> q:=4;;
 gap> F:=GF(q^2);;
-gap> a:=X(F);;
+gap> a:=Indeterminate(F, "a");;
 gap> R1:=PolynomialRing(F,[a]);;
 gap> var1:=IndeterminatesOfPolynomialRing(R1);;
-gap> b:=X(F);;
+gap> b:=Indeterminate(F, "b");;
 gap> R2:=PolynomialRing(F,[a,b]);;
 gap> var2:=IndeterminatesOfPolynomialRing(R2);;
-gap> crv:=AffineCurve(b^q+b-a^(q+1),R2);;
 gap> crv:=AffineCurve(b^q+b-a^(q+1),R2);
-rec( ring := PolynomialRing(..., [ x_1, x_1 ]), polynomial := x_1^5+x_1^4+x_1 )
+rec( polynomial := a^5+b^4+b, ring := GF(2^4)[a,b] )
 gap> GenusCurve(crv);
-36
+6
 </Example>
 
 <ManSection>
@@ -7219,22 +7222,20 @@ gap> F:=GF(q);
 GF(5)
 gap> R:=PolynomialRing(F,2);;
 gap> vars:=IndeterminatesOfPolynomialRing(R);
-[ x_1, x_2 ]
+[ x, x_2 ]
 gap> x:=vars[1];
-x_1
+x
 gap> y:=vars[2];
 x_2
 gap> crv:=AffineCurve(y^3-x^3-x-1,R);
-rec( ring := PolynomialRing(..., [ x_1, x_2 ]), 
-     polynomial := -x_1^3+x_2^3-x_1-Z(5)^0 )
-gap> Pts:=AffinePointsOnCurve(crv,R,F);;
+rec( polynomial := -x^3+x_2^3-x-Z(5)^0, ring := GF(5)[x,x_2] )
+gap> Pts:=AffinePointsOnCurve(crv!.polynomial,R,F);;
 gap> supp:=[Pts[1],Pts[2]];
 [ [ 0*Z(5), Z(5)^0 ], [ Z(5)^0, Z(5) ] ]
 gap> D:=DivisorOnAffineCurve([1,-1],supp,crv);
 rec( coeffs := [ 1, -1 ], 
-     support := [ [ 0*Z(5), Z(5)^0 ], [ Z(5)^0, Z(5) ] ],
-     curve := rec( ring := PolynomialRing(..., [ x_1, x_2 ]), 
-                   polynomial := -x_1^3+x_2^3-x_1-Z(5)^0 ) )
+  curve := rec( polynomial := -x^3+x_2^3-x-Z(5)^0, ring := GF(5)[x,x_2] ), 
+  support := [ [ Z(5)^0, Z(5)^0 ], [ Z(5)^0, Z(5) ] ] )
 </Example>
 <!--
 q:=5;
@@ -7350,23 +7351,23 @@ gap> var2:=Concatenation(var1,[b]);
 gap> R2:=PolynomialRing(F,var2);
 GF(11)[a,b]
 gap> crvP1:=AffineCurve(b,R2);
-rec( ring := PolynomialRing(..., [ a, b ]), polynomial := b )
+rec( polynomial := b, ring := GF(11)[a,b] )
 gap> div1:=DivisorOnAffineCurve([1,2,3,4],[Z(11)^2,Z(11)^3,Z(11)^7,Z(11)],crvP1);
 rec( coeffs := [ 1, 2, 3, 4 ], 
-     curve := rec( ring := PolynomialRing(..., [ a, b ]), polynomial := b ), 
-     support := [ Z(11)^2, Z(11)^3, Z(11)^7, Z(11) ] )
+  curve := rec( polynomial := b, ring := GF(11)[a,b] ), 
+  support := [ Z(11)^2, Z(11)^3, Z(11)^7, Z(11) ] )
 gap> DivisorDegree(div1);
 10
 gap> div2:=DivisorOnAffineCurve([1,2,3,4],[Z(11),Z(11)^2,Z(11)^3,Z(11)^4],crvP1);
 rec( coeffs := [ 1, 2, 3, 4 ], 
-     curve := rec( ring := PolynomialRing(..., [ a, b ]), polynomial := b ),
-     support := [ Z(11), Z(11)^2, Z(11)^3, Z(11)^4 ] )
+  curve := rec( polynomial := b, ring := GF(11)[a,b] ), 
+  support := [ Z(11), Z(11)^2, Z(11)^3, Z(11)^4 ] )
 gap> DivisorDegree(div2);
 10
 gap> div3:=DivisorAddition(div1,div2);
 rec( coeffs := [ 5, 3, 5, 4, 3 ], 
-     curve := rec( ring := PolynomialRing(..., [ a, b ]), polynomial := b ), 
-     support := [ Z(11), Z(11)^2, Z(11)^3, Z(11)^4, Z(11)^7 ] )
+  curve := rec( polynomial := b, ring := GF(11)[a,b] ), 
+  support := [ Z(11), Z(11)^2, Z(11)^3, Z(11)^4, Z(11)^7 ] )
 gap> DivisorDegree(div3);
 20
 gap> DivisorIsEffective(div1);
@@ -7375,22 +7376,22 @@ gap> DivisorIsEffective(div2);
 true
 gap> ndiv1:=DivisorNegate(div1);
 rec( coeffs := [ -1, -2, -3, -4 ], 
-     curve := rec( ring := PolynomialRing(..., [ a, b ]), polynomial := b ), 
-     support := [ Z(11)^2, Z(11)^3, Z(11)^7, Z(11) ] )
+  curve := rec( polynomial := b, ring := GF(11)[a,b] ), 
+  support := [ Z(11)^2, Z(11)^3, Z(11)^7, Z(11) ] )
 gap> zdiv:=DivisorAddition(div1,ndiv1);
 rec( coeffs := [ 0, 0, 0, 0 ], 
-     curve := rec( ring := PolynomialRing(..., [ a, b ]), polynomial := b ), 
-     support := [ Z(11), Z(11)^2, Z(11)^3, Z(11)^7 ] )
+  curve := rec( polynomial := b, ring := GF(11)[a,b] ), 
+  support := [ Z(11), Z(11)^2, Z(11)^3, Z(11)^7 ] )
 gap> DivisorIsZero(zdiv);
 true
 gap> div_gcd:=DivisorGCD(div1,div2);
 rec( coeffs := [ 1, 1, 2, 0, 0 ], 
-     curve := rec( ring := PolynomialRing(..., [ a, b ]), polynomial := b ), 
-     support := [ Z(11), Z(11)^2, Z(11)^3, Z(11)^4, Z(11)^7 ] )
+  curve := rec( polynomial := b, ring := GF(11)[a,b] ), 
+  support := [ Z(11), Z(11)^2, Z(11)^3, Z(11)^4, Z(11)^7 ] )
 gap> div_lcm:=DivisorLCM(div1,div2);
 rec( coeffs := [ 4, 2, 3, 4, 3 ], 
-     curve := rec( ring := PolynomialRing(..., [ a, b ]), polynomial := b ), 
-     support := [ Z(11), Z(11)^2, Z(11)^3, Z(11)^4, Z(11)^7 ] )
+  curve := rec( polynomial := b, ring := GF(11)[a,b] ), 
+  support := [ Z(11), Z(11)^2, Z(11)^3, Z(11)^4, Z(11)^7 ] )
 gap> DivisorDegree(div_gcd);
 4
 gap> DivisorDegree(div_lcm);
@@ -7475,15 +7476,14 @@ b
 gap> var2:=Concatenation(var1,[b]);
 [ a, b ]
 gap> R2:=PolynomialRing(F,var2);
-PolynomialRing(..., [ a, b ])
+GF(11)[a,b]
 gap> pt:=Z(11);
 Z(11)
 gap> f:=RiemannRochSpaceBasisFunctionP1(pt,2,R2);
 (Z(11)^0)/(a^2+Z(11)^7*a+Z(11)^2)
 gap> Df:=DivisorOfRationalFunctionP1(f,R2);
-rec( coeffs := [ -2 ], support := [ Z(11) ], 
-     curve := rec( ring := PolynomialRing(..., [ a, b ]), polynomial := a )
-   )
+rec( coeffs := [ -2 ], curve := rec( polynomial := a, ring := GF(11)[a,b] ), 
+  support := [ Z(11) ] )
 gap> Df.support;
 [ Z(11) ]
 gap> F:=GF(11);;
@@ -7493,15 +7493,14 @@ gap> a:=vars[1];;
 gap> b:=vars[2];;
 gap> f:=(a^4+Z(11)^6*a^3-a^2+Z(11)^7*a+Z(11)^0)/(a^4+Z(11)*a^2+Z(11)^7*a+Z(11));;
 gap> divf:=DivisorOfRationalFunctionP1(f,R);
-rec( coeffs := [ 3, 1 ], support := [ Z(11), Z(11)^7 ],
-  curve := rec( ring := PolynomialRing(..., [ a, b ]), polynomial := a ) )
+rec( coeffs := [ 3, 1 ], curve := rec( polynomial := t, ring := GF(11)[t,x] ),
+  support := [ Z(11), Z(11)^7 ] )
 gap> denf:=DenominatorOfRationalFunction(f); RootsOfUPol(denf);
-a^4+Z(11)*a^2+Z(11)^7*a+Z(11)
+t^4+Z(11)*t^2+Z(11)^7*t+Z(11)
 [  ]
 gap> numf:=NumeratorOfRationalFunction(f); RootsOfUPol(numf);
-a^4+Z(11)^6*a^3-a^2+Z(11)^7*a+Z(11)^0
+t^4+Z(11)^6*t^3-t^2+Z(11)^7*t+Z(11)^0
 [ Z(11)^7, Z(11), Z(11), Z(11) ]
-
 </Example>
 <!--
 F:=GF(11);
@@ -7552,20 +7551,20 @@ b
 gap> var2:=Concatenation(var1,[b]);
 [ a, b ]
 gap> R2:=PolynomialRing(F,var2);
-PolynomialRing(..., [ a, b ])
+GF(11)[a,b]
 gap> crvP1:=AffineCurve(b,R2);
-rec( ring := PolynomialRing(..., [ a, b ]), polynomial := b )
+rec( polynomial := b, ring := GF(11)[a,b] )
 gap> D:=DivisorOnAffineCurve([1,2,3,4],[Z(11)^2,Z(11)^3,Z(11)^7,Z(11)],crvP1);
 rec( coeffs := [ 1, 2, 3, 4 ], 
-     support := [ Z(11)^2, Z(11)^3, Z(11)^7, Z(11) ], 
-     curve := rec( ring := PolynomialRing(..., [ a, b ]), polynomial := b ) )
+  curve := rec( polynomial := b, ring := GF(11)[a,b] ), 
+  support := [ Z(11)^2, Z(11)^3, Z(11)^7, Z(11) ] )
 gap> B:=RiemannRochSpaceBasisP1(D);
-[ Z(11)^0, (Z(11)^0)/(a+Z(11)^7), (Z(11)^0)/(a+Z(11)^8), 
-(Z(11)^0)/(a^2+Z(11)^9*a+Z(11)^6), (Z(11)^0)/(a+Z(11)^2), 
-(Z(11)^0)/(a^2+Z(11)^3*a+Z(11)^4), (Z(11)^0)/(a^3+a^2+Z(11)^2*a+Z(11)^6),
+[ (Z(11)^0)/(a+Z(11)^7), (Z(11)^0)/(a+Z(11)^8), 
+  (Z(11)^0)/(a^2+Z(11)^9*a+Z(11)^6), (Z(11)^0)/(a+Z(11)^2), 
+  (Z(11)^0)/(a^2+Z(11)^3*a+Z(11)^4), (Z(11)^0)/(a^3+a^2+Z(11)^2*a+Z(11)^6), 
   (Z(11)^0)/(a+Z(11)^6), (Z(11)^0)/(a^2+Z(11)^7*a+Z(11)^2), 
-(Z(11)^0)/(a^3+Z(11)^4*a^2+a+Z(11)^8), 
-(Z(11)^0)/(a^4+Z(11)^8*a^3+Z(11)*a^2+a+Z(11)^4) ]
+  (Z(11)^0)/(a^3+Z(11)^4*a^2+a+Z(11)^8), 
+  (Z(11)^0)/(a^4+Z(11)^8*a^3+Z(11)*a^2+a+Z(11)^4), Z(11)^0 ]
 gap> DivisorOfRationalFunctionP1(B[1],R2).support;
 [  ]
 gap> DivisorOfRationalFunctionP1(B[2],R2).support;
@@ -7588,7 +7587,6 @@ gap> DivisorOfRationalFunctionP1(B[10],R2).support;
 [ Z(11) ]
 gap> DivisorOfRationalFunctionP1(B[11],R2).support;
 [ Z(11) ]
-
 </Example>
 <!--
 F:=GF(11);
@@ -7680,13 +7678,13 @@ b
 gap> var2:=Concatenation(var1,[b]);
 [ a, b ]
 gap> R2:=PolynomialRing(F,var2);
-PolynomialRing(..., [ a, b ])
+GF(11)[a,b]
 gap> crvP1:=AffineCurve(b,R2);
-rec( ring := PolynomialRing(..., [ a, b ]), polynomial := b )
+rec( polynomial := b, ring := GF(11)[a,b] )
 gap> D:=DivisorOnAffineCurve([1,2,3,4],[Z(11)^2,Z(11)^3,Z(11)^7,Z(11)],crvP1);
 rec( coeffs := [ 1, 2, 3, 4 ], 
-     support := [ Z(11)^2, Z(11)^3, Z(11)^7, Z(11) ], 
-     curve := rec( ring := PolynomialRing(..., [ a, b ]), polynomial := b ) )
+  curve := rec( polynomial := b, ring := GF(11)[a,b] ), 
+  support := [ Z(11)^2, Z(11)^3, Z(11)^7, Z(11) ] )
 gap> A:=Z(11)^0*[[1,2],[1,4]];
 [ [ Z(11)^0, Z(11) ], [ Z(11)^0, Z(11)^2 ] ]
 gap> ActionMoebiusTransformationOnDivisorDefinedP1(A,D);
@@ -7697,8 +7695,8 @@ gap> ActionMoebiusTransformationOnDivisorDefinedP1(A,D);
 true
 gap> ActionMoebiusTransformationOnDivisorP1(A,D);
 rec( coeffs := [ 1, 2, 3, 4 ], 
-     support := [ Z(11)^5, Z(11)^6, Z(11)^8, Z(11)^7 ], 
-     curve := rec( ring := PolynomialRing(..., [ a, b ]), polynomial := b ) )
+  curve := rec( polynomial := b, ring := GF(11)[a,b] ), 
+  support := [ Z(11)^5, Z(11)^6, Z(11)^8, Z(11)^7 ] )
 gap> f:=MoebiusTransformation(A,R1);
 (a+Z(11))/(Z(11)^8*a+Z(11)^2)
 gap> ActionMoebiusTransformationOnFunction(A,f,R1);
@@ -7747,13 +7745,13 @@ b
 gap> var2:=Concatenation(var1,[b]);
 [ a, b ]
 gap> R2:=PolynomialRing(F,var2);
-PolynomialRing(..., [ a, b ])
+GF(11)[a,b]
 gap> crvP1:=AffineCurve(b,R2);
-rec( ring := PolynomialRing(..., [ a, b ]), polynomial := b )
+rec( polynomial := b, ring := GF(11)[a,b] )
 gap> D:=DivisorOnAffineCurve([1,2,3,4],[Z(11)^2,Z(11)^3,Z(11)^7,Z(11)],crvP1);
 rec( coeffs := [ 1, 2, 3, 4 ], 
-     support := [ Z(11)^2, Z(11)^3, Z(11)^7, Z(11) ], 
-     curve := rec( ring := PolynomialRing(..., [ a, b ]), polynomial := b ) )
+  curve := rec( polynomial := b, ring := GF(11)[a,b] ), 
+  support := [ Z(11)^2, Z(11)^3, Z(11)^7, Z(11) ] )
 gap> agp:=DivisorAutomorphismGroupP1(D);; #time; #Uncomment the call to "time;"" to see performance data
 gap> IdGroup(agp);
 [ 10, 2 ]
@@ -7808,13 +7806,13 @@ b
 gap> var2:=Concatenation(var1,[b]);
 [ a, b ]
 gap> R2:=PolynomialRing(F,var2);
-PolynomialRing(..., [ a, b ])
+GF(11)[a,b]
 gap> crvP1:=AffineCurve(b,R2);
-rec( ring := PolynomialRing(..., [ a, b ]), polynomial := b )
+rec( polynomial := b, ring := GF(11)[a,b] )
 gap> D:=DivisorOnAffineCurve([1,1,1,4],[Z(11)^2,Z(11)^3,Z(11)^7,Z(11)],crvP1);
-rec( coeffs := [ 1, 1, 1, 4 ],  
-     support := [ Z(11)^2, Z(11)^3, Z(11)^7, Z(11) ], 
-     curve := rec( ring := PolynomialRing(..., [ a, b ]), polynomial := b ) )
+rec( coeffs := [ 1, 1, 1, 4 ], 
+  curve := rec( polynomial := b, ring := GF(11)[a,b] ), 
+  support := [ Z(11)^2, Z(11)^3, Z(11)^7, Z(11) ] )
 gap> agp:=DivisorAutomorphismGroupP1(D);; #time; #Uncomment the call to "time;"" to see performance data
 gap> IdGroup(agp);
 [ 20, 5 ]
@@ -7940,10 +7938,11 @@ gap> cdiv:=[ 1, 2, -1, -2 ];
 gap> sdiv:=[ Z(11)^2, Z(11)^3, Z(11)^6, Z(11)^9 ];
 [ Z(11)^2, Z(11)^3, Z(11)^6, Z(11)^9 ]
 gap> crv:=rec(polynomial:=b,ring:=R2);
-rec( polynomial := x_2, ring := PolynomialRing(..., [ x_1, x_2 ]) )
+rec( polynomial := x, ring := GF(11)[t,x] )
 gap> div:=DivisorOnAffineCurve(cdiv,sdiv,crv);
-rec( coeffs := [ 1, 2, -1, -2 ], support := [ Z(11)^2, Z(11)^3, Z(11)^6, Z(11)^9 ],
-  curve := rec( polynomial := x_2, ring := PolynomialRing(..., [ x_1, x_2 ]) ) )
+rec( coeffs := [ 1, 2, -1, -2 ], 
+  curve := rec( polynomial := x, ring := GF(11)[t,x] ), 
+  support := [ Z(11)^2, Z(11)^3, Z(11)^6, Z(11)^9 ] )
 gap> pts:=Difference(Elements(GF(11)),div.support);
 [ 0*Z(11), Z(11)^0, Z(11), Z(11)^4, Z(11)^5, Z(11)^7, Z(11)^8 ]
 gap> C:=GoppaCodeClassical(div,pts);
@@ -8017,15 +8016,15 @@ gap> vars:=IndeterminatesOfPolynomialRing(R);;
 gap> x:=vars[1];;
 gap> y:=vars[2];;
 gap> crv:=AffineCurve(y^q+y-x^(q+1),R);
-rec( ring := PolynomialRing(..., [ x_1, x_2 ]), polynomial := x_1^5+x_2^4+x_2 )
+rec( polynomial := x^5+xx^4+xx, ring := GF(2^4)[x,xx] )
 gap> L:=[ x^0, x, x^2*y^-1 ];
-[ Z(2)^0, x_1, x_1^2/x_2 ]
+[ Z(2)^0, x, x^2/xx ]
 gap> Pts:=AffinePointsOnCurve(crv.polynomial,crv.ring,F);;
 gap> C1:=EvaluationBivariateCode(Pts,L,crv); #time; #Uncomment the call to "time;"" to see performance data
 
 
- Automatically removed the following 'bad' points (either a pole or not 
- on the curve):
+ Automatically removed the following 'bad' points (either a pole or not on the\
+ curve):
 [ [ 0*Z(2), 0*Z(2) ] ]
 
 a linear [63,3,1..60]51..59  evaluation code over GF(16)
@@ -12188,7 +12187,7 @@ affine plane curve.
 <Example>
 gap> F:=GF(11);;
 gap> R2:=PolynomialRing(F,2);
-PolynomialRing(..., [ x_1, x_2 ])
+GF(2^4)[x,xx]
 gap> vars:=IndeterminatesOfPolynomialRing(R2);;
 gap> x:=vars[1];; y:=vars[2];;
 gap> poly:=y^2-x*(x^2-1);;
@@ -12221,7 +12220,7 @@ programs but mostly unreadable by GAP users.
 <Example>
 gap> F:=GF(11);;
 gap> R2:=PolynomialRing(F,2);
-PolynomialRing(..., [ x_1, x_2 ])
+GF(2^4)[x,xx]
 gap> vars:=IndeterminatesOfPolynomialRing(R2);;
 gap> x:=vars[1];; y:=vars[2];;
 gap> poly:=y^2-x*(x^2-1);;
@@ -12265,7 +12264,7 @@ Related to the GAP command <C>SolutionMat( A, b )</C>.
 <Example>
 gap> F:=GF(11);;
 gap> R2:=PolynomialRing(F,2);
-PolynomialRing(..., [ x_1, x_2 ])
+GF(2^4)[x,xx]
 gap> vars:=IndeterminatesOfPolynomialRing(R2);;
 gap> x:=vars[1];; y:=vars[2];;
 gap> f:=3*y-3*x+1;; g:=-5*y+2*x-7;;
@@ -12534,8 +12533,8 @@ nonnegative integer, then it stops immediately and returns this vector.
 
 <Example>
 gap> F:=GF(3);;
-gap> x:= Indeterminate( F );; pol:= x^2+1;
-x_1^2+Z(3)^0
+gap> x:= Indeterminate( F, "x" );; pol:= x^2+1;
+x^2+Z(3)^0
 gap> C := GeneratorPolCode(pol,8,F);
 a cyclic [8,6,1..2]1..2 code defined by generator polynomial over GF(3)
 gap> v:=Codeword("12101111");
@@ -12577,8 +12576,8 @@ entries, such that <M>v*mat</M> is the closest vector.
 
 <Example>
 gap> F:=GF(3);;
-gap> x:= Indeterminate( F );; pol:= x^2+1;
-x_1^2+Z(3)^0
+gap> x:= Indeterminate( F, "x" );; pol:= x^2+1;
+x^2+Z(3)^0
 gap> C := GeneratorPolCode(pol,8,F);
 a cyclic [8,6,1..2]1..2 code defined by generator polynomial over GF(3)
 gap> v:=Codeword("12101111"); v:=VectorCodeword(v);;
