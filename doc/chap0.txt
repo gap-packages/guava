@@ -6,10 +6,10 @@
           [1X A [5XGAP[105X4 Package for computing with error-correcting codes   [101X
   
   
-                                  Version 3.19
+                                  Version 3.20
   
   
-                                 21 March 2024
+                                1 February 2025
   
   
                                Jasper Cramwinckel
@@ -50,7 +50,7 @@
   Roijackers,Reinald  Baart,  Eric  Minkes,  Lea Ruscio (for the tex version),
   Jeffrey  Leon  ©  2004  David  Joyner,  Cen  Tjhai, Jasper Cramwinckel, Erik
   Roijackers,  Reinald Baart, Eric Minkes, Lea Ruscio. © 2007 Robert L Miller,
-  Tom Boothby © 2009, 2012, 2016, 2018, 2022 Joe Fields[133X
+  Tom Boothby © 2009, 2012, 2016, 2018, 2022, 2025 Joe Fields[133X
   
   [33X[0;0Y[5XGUAVA[105X is released under the GNU General Public License (GPL).[133X
   
@@ -109,7 +109,7 @@
   binary codes have been updated. From 2009, starting with version 3.10, [5XGUAVA[105X
   has been maintained by Joe Fields. For further details, see the CHANGES file
   in       the       [5XGUAVA[105X       directory,       also       available      at
-  [7Xhttps://gap-packages.github.io/guava/CHANGES[107X.[133X
+  [7Xhttps://gap-packages.github.io/guava/CHANGES.guava[107X.[133X
   
   [33X[0;0YThis  documentation was prepared with the [5XGAPDoc[105X package of Frank Lübeck and
   Max  Neunhöffer.  The  conversion from TeX to [5XGAPDoc[105X's XML was done by David
@@ -117,9 +117,9 @@
   
   [33X[0;0YPlease  send  bug  reports,  suggestions  and  other comments about [5XGUAVA[105X to
   [7Xmailto:support@gap-system.org[107X.  Currently  known  bugs  and  suggested [5XGUAVA[105X
-  projects    are    listed    on    the    bugs   and   projects   web   page
-  [7Xhttps://gap-packages.github.io/guava/guava2do.html[107X.   Older   releases   and
-  further    history    can    be    found    on    the    [5XGUAVA[105X    web   page
+  projects  are  listed  in  the  Issues  section  of  the  [5XGUAVA[105X GitHub page:
+  [7Xhttps://github.com/gap-packages/guava/issues[107X.  Older  releases  and  further
+  history      can      be     found     on     the     [5XGUAVA[105X     web     page
   [7Xhttps://gap-packages.github.io/guava/[107X.[133X
   
   [33X[0;0Y[13XContributors[113X: Other than the authors listed on the title page, the following
@@ -127,7 +127,7 @@
   Linton,  Frank  Lübeck,  Aron Foster, Wayne Irons, Clifton (Clipper) Lennon,
   Jason McGowan, Shuhong Gao, Greg Gamble and Jeffrey S. Leon.[133X
   
-  [33X[0;0YFor  documentation  on Leon's programs, see the [11Xsrc/leon/doc subdirectory[111X of
+  [33X[0;0YFor  documentation  on Leon's programs, see the [11Xsrc/leon/doc[111X subdirectory of
   [5XGUAVA[105X.[133X
   
   
@@ -440,13 +440,12 @@
       7.6-1 MatrixTransformationOnMultivariatePolynomial 
       7.6-2 DegreeMultivariatePolynomial
       7.6-3 DegreesMultivariatePolynomial
-      7.6-4 CoefficientMultivariatePolynomial
-      7.6-5 SolveLinearSystem
-      7.6-6 GuavaVersion
-      7.6-7 ZechLog
-      7.6-8 CoefficientToPolynomial
-      7.6-9 DegreesMonomialTerm
-      7.6-10 DivisorsMultivariatePolynomial
+      7.6-4 SolveLinearSystem
+      7.6-5 GuavaVersion
+      7.6-6 ZechLog
+      7.6-7 CoefficientToPolynomial
+      7.6-8 DegreesMonomialTerm
+      7.6-9 DivisorsMultivariatePolynomial
   8 [33X[0;0YCoding theory functions in GAP[133X
     8.1 [33X[0;0YDistance functions[133X
       8.1-1 AClosestVectorCombinationsMatFFEVecFFE

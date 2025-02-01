@@ -65,7 +65,7 @@
     [4X[25Xgap>[125X [27XC := ReedSolomonCode(4,3);; Size(C);[127X[104X
     [4X[28X25[128X[104X
     [4X[25Xgap>[125X [27XIsMDSCode(C);[127X[104X
-    [4X[28Xtrue [128X[104X
+    [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
   [1X7.1-2 UpperBoundHamming[101X
@@ -110,8 +110,8 @@
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XUpperBoundJohnson( 13, 5 );[127X[104X
     [4X[28X77[128X[104X
-    [4X[25Xgap>[125X [27XUpperBoundHamming( 13, 5, 2);[127X[104X
-    [4X[28X89   # in this case the Johnson bound is better [128X[104X
+    [4X[25Xgap>[125X [27XUpperBoundHamming( 13, 5, 2);    # in this case the Johnson bound is better[127X[104X
+    [4X[28X89 [128X[104X
   [4X[32X[104X
   
   [1X7.1-4 UpperBoundPlotkin[101X
@@ -139,7 +139,7 @@
     [4X[25Xgap>[125X [27XSize(C);[127X[104X
     [4X[28X32[128X[104X
     [4X[25Xgap>[125X [27XWeightDistribution(C);[127X[104X
-    [4X[28X[ 1, 0, 0, 0, 0, 0, 0, 15, 15, 0, 0, 0, 0, 0, 0, 1 ] [128X[104X
+    [4X[28X[ 1, 0, 0, 0, 0, 0, 0, 15, 15, 0, 0, 0, 0, 0, 0, 1 ][128X[104X
   [4X[32X[104X
   
   [1X7.1-5 UpperBoundElias[101X
@@ -156,7 +156,7 @@
     [4X[25Xgap>[125X [27XUpperBoundPlotkin( 16, 3, 2 );[127X[104X
     [4X[28X12288[128X[104X
     [4X[25Xgap>[125X [27XUpperBoundElias( 16, 3, 2 );[127X[104X
-    [4X[28X10280 [128X[104X
+    [4X[28X10280[128X[104X
     [4X[25Xgap>[125X [27XUpperBoundElias( 20, 10, 3 );[127X[104X
     [4X[28X16255[128X[104X
   [4X[32X[104X
@@ -174,10 +174,10 @@
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XUpperBoundGriesmer( 13, 5, 2 );[127X[104X
     [4X[28X64[128X[104X
-    [4X[25Xgap>[125X [27XUpperBoundGriesmer( 18, 9, 2 );[127X[104X
-    [4X[28X8        # the maximum number of words for a linear code is 8[128X[104X
-    [4X[25Xgap>[125X [27XSize( PuncturedCode( HadamardCode( 20, 1 ) ) );[127X[104X
-    [4X[28X20       # this non-linear code has 20 elements [128X[104X
+    [4X[25Xgap>[125X [27XUpperBoundGriesmer( 18, 9, 2 );       # the maximum number of words for a linear code is 8[127X[104X
+    [4X[28X8[128X[104X
+    [4X[25Xgap>[125X [27XSize( PuncturedCode( HadamardCode( 20, 1 ) ) );       # this non-linear code has 20 elements [127X[104X
+    [4X[28X20[128X[104X
   [4X[32X[104X
   
   [1X7.1-7 IsGriesmerCode[101X
@@ -196,7 +196,7 @@
     [4X[25Xgap>[125X [27XIsGriesmerCode( HammingCode( 3, GF(2) ) );[127X[104X
     [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27XIsGriesmerCode( BCHCode( 17, 2, GF(2) ) );[127X[104X
-    [4X[28Xfalse [128X[104X
+    [4X[28Xfalse[128X[104X
   [4X[32X[104X
   
   [1X7.1-8 UpperBound[101X
@@ -218,7 +218,7 @@
     [4X[25Xgap>[125X [27XUpperBound( 10, 3, 2 );[127X[104X
     [4X[28X85[128X[104X
     [4X[25Xgap>[125X [27XUpperBound( 25, 9, 8 );[127X[104X
-    [4X[28X1211778792827540 [128X[104X
+    [4X[28X1211778792827540[128X[104X
   [4X[32X[104X
   
   [1X7.1-9 LowerBoundMinimumDistance[101X
@@ -236,10 +236,10 @@
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XC := BCHCode( 45, 7 );[127X[104X
     [4X[28Xa cyclic [45,23,7..9]6..16 BCH code, delta=7, b=1 over GF(2)[128X[104X
-    [4X[25Xgap>[125X [27XLowerBoundMinimumDistance( C );[127X[104X
-    [4X[28X7     # designed distance is lower bound for minimum distance [128X[104X
+    [4X[25Xgap>[125X [27XLowerBoundMinimumDistance( C );     # designed distance is lower bound for minimum distance [127X[104X
+    [4X[28X7[128X[104X
     [4X[25Xgap>[125X [27XLowerBoundMinimumDistance( 45, 23, GF(2) );[127X[104X
-    [4X[28X10 [128X[104X
+    [4X[28X10[128X[104X
   [4X[32X[104X
   
   [1X7.1-10 LowerBoundGilbertVarshamov[101X
@@ -300,9 +300,9 @@
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XC := BCHCode( 45, 7 );;[127X[104X
     [4X[25Xgap>[125X [27XUpperBoundMinimumDistance( C );[127X[104X
-    [4X[28X9 [128X[104X
+    [4X[28X9[128X[104X
     [4X[25Xgap>[125X [27XUpperBoundMinimumDistance( 45, 23, GF(2) );[127X[104X
-    [4X[28X11 [128X[104X
+    [4X[28X11[128X[104X
   [4X[32X[104X
   
   [1X7.1-13 BoundsMinimumDistance[101X
@@ -327,20 +327,18 @@
   equal to the lower bound.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27Xbounds := BoundsMinimumDistance( 7, 3 );; DisplayBoundsInfo( bounds );[127X[104X
+    [4X[25Xgap>[125X [27Xbounds := BoundsMinimumDistance( 7, 3 );; DisplayBoundsInfo( bounds ); # The lower bound is equal to the upper bound, so a code with these parameters is optimal.[127X[104X
     [4X[28Xan optimal linear [7,3,d] code over GF(2) has d=4[128X[104X
     [4X[28X------------------------------------------------------------------------------[128X[104X
     [4X[28XLb(7,3)=4, by shortening of:[128X[104X
-    [4X[28XLb(8,4)=4, u u+v construction of C1 and C2:[128X[104X
+    [4X[28XLb(8,4)=4, by the u|u+v construction applied to C1 [4,3,2] and C2 [4,1,4]: [128X[104X
     [4X[28XLb(4,3)=2, dual of the repetition code[128X[104X
     [4X[28XLb(4,1)=4, repetition code[128X[104X
     [4X[28X------------------------------------------------------------------------------[128X[104X
-    [4X[28XUb(7,3)=4, Griesmer bound[128X[104X
-    [4X[28X# The lower bound is equal to the upper bound, so a code with[128X[104X
-    [4X[28X# these parameters is optimal.[128X[104X
+    [4X[28XUb(7,3)=4, by the Griesmer bound[128X[104X
     [4X[25Xgap>[125X [27XC := BestKnownLinearCode( bounds );; Display( C );[127X[104X
     [4X[28Xa linear [7,3,4]2..3 shortened code of[128X[104X
-    [4X[28Xa linear [8,4,4]2 U U+V construction code of[128X[104X
+    [4X[28Xa linear [8,4,4]2 U|U+V construction code of[128X[104X
     [4X[28XU: a cyclic [4,3,2]1 dual code of[128X[104X
     [4X[28X   a cyclic [4,1,4]2 repetition code over GF(2)[128X[104X
     [4X[28XV: a cyclic [4,1,4]2 repetition code over GF(2)[128X[104X
@@ -363,9 +361,9 @@
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XBoundsCoveringRadius( BCHCode( 17, 3, GF(2) ) );[127X[104X
-    [4X[28X[ 3 .. 4 ][128X[104X
+    [4X[28X[ 3, 4 ][128X[104X
     [4X[25Xgap>[125X [27XBoundsCoveringRadius( HammingCode( 5, GF(2) ) );[127X[104X
-    [4X[28X[ 1 ] [128X[104X
+    [4X[28X[ 1 ][128X[104X
   [4X[32X[104X
   
   [1X7.2-2 IncreaseCoveringRadiusLowerBound[101X
@@ -467,7 +465,6 @@
     [4X[28X[ 3 .. 5 ][128X[104X
     [4X[25Xgap>[125X [27XCoveringRadius(C);[127X[104X
     [4X[28X3[128X[104X
-    [4X[28X[128X[104X
   [4X[32X[104X
   
   [1X7.2-4 GeneralLowerBoundCoveringRadius[101X
@@ -487,7 +484,6 @@
     [4X[28X2[128X[104X
     [4X[25Xgap>[125X [27XCoveringRadius(C);[127X[104X
     [4X[28X3[128X[104X
-    [4X[28X[128X[104X
   [4X[32X[104X
   
   [1X7.2-5 GeneralUpperBoundCoveringRadius[101X
@@ -506,7 +502,6 @@
     [4X[28X4[128X[104X
     [4X[25Xgap>[125X [27XCoveringRadius(C);[127X[104X
     [4X[28X3[128X[104X
-    [4X[28X[128X[104X
   [4X[32X[104X
   
   [1X7.2-6 LowerBoundCoveringRadiusSphereCovering[101X
@@ -542,7 +537,6 @@
     [4X[28X2[128X[104X
     [4X[25Xgap>[125X [27XLowerBoundCoveringRadiusSphereCovering(10,3,GF(2),true);[127X[104X
     [4X[28X6[128X[104X
-    [4X[28X[128X[104X
   [4X[32X[104X
   
   [1X7.2-7 LowerBoundCoveringRadiusVanWee1[101X
@@ -578,7 +572,6 @@
     [4X[28X2[128X[104X
     [4X[25Xgap>[125X [27XLowerBoundCoveringRadiusVanWee1(10,3,GF(2),true);[127X[104X
     [4X[28X6[128X[104X
-    [4X[28X[128X[104X
   [4X[32X[104X
   
   [1X7.2-8 LowerBoundCoveringRadiusVanWee2[101X
@@ -620,7 +613,6 @@
     [4X[28X2[128X[104X
     [4X[25Xgap>[125X [27XLowerBoundCoveringRadiusVanWee2(10,3,true);[127X[104X
     [4X[28X7[128X[104X
-    [4X[28X[128X[104X
   [4X[32X[104X
   
   [1X7.2-9 LowerBoundCoveringRadiusCountingExcess[101X
@@ -669,7 +661,6 @@
     [4X[28X0[128X[104X
     [4X[25Xgap>[125X [27XLowerBoundCoveringRadiusCountingExcess(10,3,true);[127X[104X
     [4X[28X7[128X[104X
-    [4X[28X[128X[104X
   [4X[32X[104X
   
   [1X7.2-10 LowerBoundCoveringRadiusEmbedded1[101X
@@ -709,7 +700,6 @@
     [4X[28X2[128X[104X
     [4X[25Xgap>[125X [27XLowerBoundCoveringRadiusEmbedded1(10,3,true);[127X[104X
     [4X[28X7[128X[104X
-    [4X[28X[128X[104X
   [4X[32X[104X
   
   [1X7.2-11 LowerBoundCoveringRadiusEmbedded2[101X
@@ -749,7 +739,6 @@
     [4X[28X2[128X[104X
     [4X[25Xgap>[125X [27XLowerBoundCoveringRadiusEmbedded2(10,3,true);[127X[104X
     [4X[28X7[128X[104X
-    [4X[28X[128X[104X
   [4X[32X[104X
   
   [1X7.2-12 LowerBoundCoveringRadiusInduction[101X
@@ -774,7 +763,6 @@
     [4X[28X5[128X[104X
     [4X[25Xgap>[125X [27XLowerBoundCoveringRadiusInduction(15,6);[127X[104X
     [4X[28X7[128X[104X
-    [4X[28X[128X[104X
   [4X[32X[104X
   
   [1X7.2-13 UpperBoundCoveringRadiusRedundancy[101X
@@ -791,7 +779,6 @@
     [4X[28X5[128X[104X
     [4X[25Xgap>[125X [27XUpperBoundCoveringRadiusRedundancy(C);[127X[104X
     [4X[28X10[128X[104X
-    [4X[28X[128X[104X
   [4X[32X[104X
   
   [1X7.2-14 UpperBoundCoveringRadiusDelsarte[101X
@@ -855,7 +842,6 @@
     [4X[28X5[128X[104X
     [4X[25Xgap>[125X [27XUpperBoundCoveringRadiusGriesmerLike(C);[127X[104X
     [4X[28X9[128X[104X
-    [4X[28X[128X[104X
   [4X[32X[104X
   
   [1X7.2-17 UpperBoundCoveringRadiusCyclicCode[101X
@@ -879,7 +865,6 @@
     [4X[28X3[128X[104X
     [4X[25Xgap>[125X [27XUpperBoundCoveringRadiusCyclicCode(C);[127X[104X
     [4X[28X3[128X[104X
-    [4X[28X[128X[104X
   [4X[32X[104X
   
   
@@ -927,7 +912,7 @@
     [4X[25Xgap>[125X [27Xq^( -k ) * KrawtchoukMat( n, q ) * a;[127X[104X
     [4X[28X[ 1, 0, 0, 0, 7, 0, 0, 0 ][128X[104X
     [4X[25Xgap>[125X [27XWeightDistribution( DualCode( C ) );[127X[104X
-    [4X[28X[ 1, 0, 0, 0, 7, 0, 0, 0 ] [128X[104X
+    [4X[28X[ 1, 0, 0, 0, 7, 0, 0, 0 ][128X[104X
   [4X[32X[104X
   
   [1X7.3-2 GrayMat[101X
@@ -942,14 +927,14 @@
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XGrayMat(3);[127X[104X
-    [4X[28X[ [ 0*Z(2), 0*Z(2), 0*Z(2) ], [ 0*Z(2), 0*Z(2), Z(2)^0 ],[128X[104X
-    [4X[28X  [ 0*Z(2), Z(2)^0, Z(2)^0 ], [ 0*Z(2), Z(2)^0, 0*Z(2) ],[128X[104X
-    [4X[28X  [ Z(2)^0, Z(2)^0, 0*Z(2) ], [ Z(2)^0, Z(2)^0, Z(2)^0 ],[128X[104X
+    [4X[28X[ [ 0*Z(2), 0*Z(2), 0*Z(2) ], [ 0*Z(2), 0*Z(2), Z(2)^0 ], [128X[104X
+    [4X[28X  [ 0*Z(2), Z(2)^0, Z(2)^0 ], [ 0*Z(2), Z(2)^0, 0*Z(2) ], [128X[104X
+    [4X[28X  [ Z(2)^0, Z(2)^0, 0*Z(2) ], [ Z(2)^0, Z(2)^0, Z(2)^0 ], [128X[104X
     [4X[28X  [ Z(2)^0, 0*Z(2), Z(2)^0 ], [ Z(2)^0, 0*Z(2), 0*Z(2) ] ][128X[104X
-    [4X[25Xgap>[125X [27XG := GrayMat( 4, GF(4) );; Length(G);[127X[104X
-    [4X[28X256          # the length of a GrayMat is always q^n[128X[104X
+    [4X[25Xgap>[125X [27XG := GrayMat( 4, GF(4) );; Length(G);         # the length of a GrayMat is always q^n[127X[104X
+    [4X[28X256[128X[104X
     [4X[25Xgap>[125X [27XG[101] - G[100];[127X[104X
-    [4X[28X[ 0*Z(2), 0*Z(2), Z(2)^0, 0*Z(2) ] [128X[104X
+    [4X[28X[ 0*Z(2), 0*Z(2), Z(2)^0, 0*Z(2) ][128X[104X
   [4X[32X[104X
   
   [1X7.3-3 SylvesterMat[101X
@@ -1000,7 +985,7 @@
     [4X[28X  [   1,   1,  -1,  -1,  -1,  -1,   1,   1 ],[128X[104X
     [4X[28X  [   1,  -1,  -1,   1,  -1,   1,   1,  -1 ] ][128X[104X
     [4X[25Xgap>[125X [27XC * TransposedMat(C) = 8 * IdentityMat( 8, 8 );[127X[104X
-    [4X[28Xtrue [128X[104X
+    [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
   [1X7.3-5 VandermondeMat[101X
@@ -1013,7 +998,7 @@
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XM:=VandermondeMat([Z(5),Z(5)^2,Z(5)^0,Z(5)^3],2);[127X[104X
-    [4X[28X[ [ Z(5)^0, Z(5), Z(5)^2 ], [ Z(5)^0, Z(5)^2, Z(5)^0 ],[128X[104X
+    [4X[28X[ [ Z(5)^0, Z(5), Z(5)^2 ], [ Z(5)^0, Z(5)^2, Z(5)^0 ], [128X[104X
     [4X[28X  [ Z(5)^0, Z(5)^0, Z(5)^0 ], [ Z(5)^0, Z(5)^3, Z(5)^2 ] ][128X[104X
     [4X[25Xgap>[125X [27XDisplay(M);[127X[104X
     [4X[28X 1 2 4[128X[104X
@@ -1043,7 +1028,7 @@
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XM := Z(2)*[[1,0,0,1],[0,0,1,1]];; PrintArray(M);[127X[104X
-    [4X[28X[ [    Z(2),  0*Z(2),  0*Z(2),    Z(2) ],[128X[104X
+    [4X[28X[ [    Z(2),  0*Z(2),  0*Z(2),    Z(2) ], [128X[104X
     [4X[28X  [  0*Z(2),  0*Z(2),    Z(2),    Z(2) ] ][128X[104X
     [4X[25Xgap>[125X [27XPutStandardForm(M);                   # identity at the left side[127X[104X
     [4X[28X(2,3)[128X[104X
@@ -1073,7 +1058,6 @@
     [4X[28X . . . . . . . . . 1 . . . . 1 . 1 1 . 1 1 1 .[128X[104X
     [4X[28X . . . . . . . . . . 1 . 1 . 1 1 1 . . . 1 1 1[128X[104X
     [4X[28X . . . . . . . . . . . 1 . 1 . 1 1 1 . . . 1 1[128X[104X
-    [4X[28X[128X[104X
   [4X[32X[104X
   
   [1X7.3-7 IsInStandardForm[101X
@@ -1094,7 +1078,7 @@
     [4X[25Xgap>[125X [27XIsInStandardForm([[1, 3, 2, 7]]);[127X[104X
     [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27XIsInStandardForm(HadamardMat(4));[127X[104X
-    [4X[28Xfalse [128X[104X
+    [4X[28Xfalse[128X[104X
   [4X[32X[104X
   
   [1X7.3-8 PermutedCols[101X
@@ -1109,7 +1093,7 @@
     [4X[28X  [  1,  2,  3,  4 ] ][128X[104X
     [4X[25Xgap>[125X [27XPrintArray(PermutedCols(M, (1,2,3)));[127X[104X
     [4X[28X[ [  3,  1,  2,  4 ],[128X[104X
-    [4X[28X  [  3,  1,  2,  4 ] ] [128X[104X
+    [4X[28X  [  3,  1,  2,  4 ] ][128X[104X
   [4X[32X[104X
   
   [1X7.3-9 VerticalConversionFieldMat[101X
@@ -1143,7 +1127,7 @@
     [4X[28X  [  0*Z(3),  0*Z(3) ],[128X[104X
     [4X[28X  [    Z(3),  Z(3)^0 ] ][128X[104X
     [4X[25Xgap>[125X [27XDefaultField( Flat(VCFM) );[127X[104X
-    [4X[28XGF(3) [128X[104X
+    [4X[28XGF(3)[128X[104X
   [4X[32X[104X
   
   [33X[0;0YA      similar     function     is     [10XHorizontalConversionFieldMat[110X     (see
@@ -1179,7 +1163,7 @@
     [4X[28X  [  0*Z(3),    Z(3),  0*Z(3),  Z(3)^0 ],[128X[104X
     [4X[28X  [    Z(3),    Z(3),  Z(3)^0,  Z(3)^0 ] ][128X[104X
     [4X[25Xgap>[125X [27XDefaultField( Flat(HCFM) );[127X[104X
-    [4X[28XGF(3) [128X[104X
+    [4X[28XGF(3)[128X[104X
   [4X[32X[104X
   
   [33X[0;0YA      similar      function      is     [10XVerticalConversionFieldMat[110X     (see
@@ -1223,7 +1207,7 @@
     [4X[28X  [  2,  1,  3,  0 ],[128X[104X
     [4X[28X  [  3,  0,  2,  1 ] ][128X[104X
     [4X[25Xgap>[125X [27XMOLS( 12, 3 );[127X[104X
-    [4X[28Xfalse [128X[104X
+    [4X[28Xfalse[128X[104X
   [4X[32X[104X
   
   [1X7.3-12 IsLatinSquare[101X
@@ -1238,7 +1222,7 @@
     [4X[25Xgap>[125X [27XIsLatinSquare([[1,2],[2,1]]);[127X[104X
     [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27XIsLatinSquare([[1,2,3],[2,3,1],[1,3,2]]);[127X[104X
-    [4X[28Xfalse [128X[104X
+    [4X[28Xfalse[128X[104X
   [4X[32X[104X
   
   [1X7.3-13 AreMOLS[101X
@@ -1253,10 +1237,10 @@
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XM := MOLS(4,2);[127X[104X
-    [4X[28X[ [ [ 0, 1, 2, 3 ], [ 1, 0, 3, 2 ], [ 2, 3, 0, 1 ], [ 3, 2, 1, 0 ] ],[128X[104X
+    [4X[28X[ [ [ 0, 1, 2, 3 ], [ 1, 0, 3, 2 ], [ 2, 3, 0, 1 ], [ 3, 2, 1, 0 ] ], [128X[104X
     [4X[28X  [ [ 0, 2, 3, 1 ], [ 1, 3, 2, 0 ], [ 2, 0, 1, 3 ], [ 3, 1, 0, 2 ] ] ][128X[104X
     [4X[25Xgap>[125X [27XAreMOLS(M);[127X[104X
-    [4X[28Xtrue [128X[104X
+    [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
   
@@ -1284,7 +1268,7 @@
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XCoordinateNorm( HammingCode( 3, GF(2) ), 3 );[127X[104X
-    [4X[28X3 [128X[104X
+    [4X[28X3[128X[104X
   [4X[32X[104X
   
   [1X7.4-2 CodeNorm[101X
@@ -1298,7 +1282,7 @@
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XCodeNorm( HammingCode( 3, GF(2) ) );[127X[104X
-    [4X[28X3 [128X[104X
+    [4X[28X3[128X[104X
   [4X[32X[104X
   
   [1X7.4-3 IsCoordinateAcceptable[101X
@@ -1312,7 +1296,7 @@
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XIsCoordinateAcceptable( HammingCode( 3, GF(2) ), 3 );[127X[104X
-    [4X[28Xtrue [128X[104X
+    [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
   [1X7.4-4 GeneralizedCodeNorm[101X
@@ -1327,7 +1311,7 @@
     [4X[25Xgap>[125X [27Xd := EvenWeightSubcode( ham );;[127X[104X
     [4X[25Xgap>[125X [27Xe := ConstantWeightSubcode( ham, 3 );;[127X[104X
     [4X[25Xgap>[125X [27XGeneralizedCodeNorm( ham, c, d, e );[127X[104X
-    [4X[28X4 [128X[104X
+    [4X[28X4[128X[104X
   [4X[32X[104X
   
   [1X7.4-5 IsNormalCode[101X
@@ -1346,7 +1330,7 @@
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XIsNormalCode( HammingCode( 3, GF(2) ) );[127X[104X
-    [4X[28Xtrue [128X[104X
+    [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
   
@@ -1440,7 +1424,7 @@
     [4X[25Xgap>[125X [27XCodeDensity( HammingCode( 3, GF(2) ) );[127X[104X
     [4X[28X1[128X[104X
     [4X[25Xgap>[125X [27XCodeDensity( ReedMullerCode( 1, 4 ) );[127X[104X
-    [4X[28X14893/2048 [128X[104X
+    [4X[28X14893/2048[128X[104X
   [4X[32X[104X
   
   [1X7.5-5 SphereContent[101X
@@ -1458,15 +1442,14 @@
   the code can correct.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XSphereContent( 15, 0, GF(2) );[127X[104X
-    [4X[28X1    # Only one word with distance 0, which is the word itself[128X[104X
+    [4X[25Xgap>[125X [27XSphereContent( 15, 0, GF(2) );     # Only one word with distance 0, which is the word itself[127X[104X
+    [4X[28X1[128X[104X
     [4X[25Xgap>[125X [27XSphereContent( 11, 3, GF(4) );[127X[104X
     [4X[28X4984[128X[104X
-    [4X[25Xgap>[125X [27XC := HammingCode(5);[127X[104X
+    [4X[25Xgap>[125X [27XC := HammingCode(5); #the minimum distance is 3, so the code can correct one error[127X[104X
     [4X[28Xa linear [31,26,3]1 Hamming (5,2) code over GF(2)[128X[104X
-    [4X[28X#the minimum distance is 3, so the code can correct one error[128X[104X
     [4X[25Xgap>[125X [27X( SphereContent( 31, 1, GF(2) ) * Size(C) ) = 2 ^ 31;[127X[104X
-    [4X[28Xtrue [128X[104X
+    [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
   [1X7.5-6 Krawtchouk[101X
@@ -1488,7 +1471,7 @@
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XKrawtchouk( 2, 0, 3, 2);[127X[104X
-    [4X[28X3 [128X[104X
+    [4X[28X3[128X[104X
   [4X[32X[104X
   
   [1X7.5-7 PrimitiveUnityRoot[101X
@@ -1505,7 +1488,7 @@
     [4X[25Xgap>[125X [27Xlast^15;[127X[104X
     [4X[28XZ(2)^0[128X[104X
     [4X[25Xgap>[125X [27XPrimitiveUnityRoot( GF(8), 21 );[127X[104X
-    [4X[28XZ(2^6)^3 [128X[104X
+    [4X[28XZ(2^6)^3[128X[104X
   [4X[32X[104X
   
   [1X7.5-8 PrimitivePolynomialsNr[101X
@@ -1522,7 +1505,6 @@
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XPrimitivePolynomialsNr(3,4);[127X[104X
     [4X[28X12[128X[104X
-    [4X[28X[128X[104X
   [4X[32X[104X
   
   [1X7.5-9 IrreduciblePolynomialsNr[101X
@@ -1535,7 +1517,6 @@
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XIrreduciblePolynomialsNr(3,4);[127X[104X
     [4X[28X20[128X[104X
-    [4X[28X[128X[104X
   [4X[32X[104X
   
   [1X7.5-10 MatrixRepresentationOfElement[101X
@@ -1581,7 +1562,7 @@
     [4X[25Xgap>[125X [27XRecP := ReciprocalPolynomial( P );[127X[104X
     [4X[28Xx_1^3+x_1-Z(3)^0[128X[104X
     [4X[25Xgap>[125X [27XReciprocalPolynomial( RecP ) = P;[127X[104X
-    [4X[28Xtrue [128X[104X
+    [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27XP := UnivariatePolynomial( GF(3), Z(3)^0 * [1,0,1,2] );[127X[104X
     [4X[28X-x_1^3+x_1^2+Z(3)^0[128X[104X
     [4X[25Xgap>[125X [27XReciprocalPolynomial( P, 6 );[127X[104X
@@ -1603,10 +1584,9 @@
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XCyclotomicCosets( 2, 15 );[127X[104X
-    [4X[28X[ [ 0 ], [ 1, 2, 4, 8 ], [ 3, 6, 12, 9 ], [ 5, 10 ],[128X[104X
-    [4X[28X  [ 7, 14, 13, 11 ] ][128X[104X
+    [4X[28X[ [ 0 ], [ 1, 2, 4, 8 ], [ 3, 6, 12, 9 ], [ 5, 10 ], [ 7, 14, 13, 11 ] ][128X[104X
     [4X[25Xgap>[125X [27XCyclotomicCosets( 7, 6 );[127X[104X
-    [4X[28X[ [ 0 ], [ 1 ], [ 2 ], [ 3 ], [ 4 ], [ 5 ] ] [128X[104X
+    [4X[28X[ [ 0 ], [ 1 ], [ 2 ], [ 3 ], [ 4 ], [ 5 ] ][128X[104X
   [4X[32X[104X
   
   [1X7.5-13 WeightHistogram[101X
@@ -1678,7 +1658,7 @@
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XL:=[1,2,3,4];;[127X[104X
     [4X[25Xgap>[125X [27XRotateList(L);[127X[104X
-    [4X[28X[2,3,4,1][128X[104X
+    [4X[28X[ 2, 3, 4, 1 ][128X[104X
   [4X[32X[104X
   
   [1X7.5-17 CirculantMatrix[101X
@@ -1690,9 +1670,12 @@
   [33X[0;0YOutput: kxn matrix whose rows are cyclic rotations of the list L[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27Xk:=3; L:=[1,2,3,4];;[127X[104X
+    [4X[25Xgap>[125X [27Xk:=3;; L:=[1,2,3,4];;[127X[104X
     [4X[25Xgap>[125X [27XM:=CirculantMatrix(k,L);;[127X[104X
     [4X[25Xgap>[125X [27XDisplay(M);[127X[104X
+    [4X[28X[ [  1,  2,  3,  4 ],[128X[104X
+    [4X[28X  [  4,  1,  2,  3 ],[128X[104X
+    [4X[28X  [  3,  4,  1,  2 ] ][128X[104X
   [4X[32X[104X
   
   
@@ -1722,13 +1705,12 @@
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XF:=GF(11);;[127X[104X
     [4X[25Xgap>[125X [27XR2:=PolynomialRing(F,2);[127X[104X
-    [4X[28XPolynomialRing(..., [ x_1, x_2 ])[128X[104X
+    [4X[28XGF(2^4)[x,xx][128X[104X
     [4X[25Xgap>[125X [27Xvars:=IndeterminatesOfPolynomialRing(R2);;[127X[104X
     [4X[25Xgap>[125X [27Xx:=vars[1];; y:=vars[2];;[127X[104X
     [4X[25Xgap>[125X [27Xpoly:=y^2-x*(x^2-1);;[127X[104X
     [4X[25Xgap>[125X [27XDegreeMultivariatePolynomial(poly,R2);[127X[104X
     [4X[28X3[128X[104X
-    [4X[28X[128X[104X
   [4X[32X[104X
   
   [1X7.6-3 DegreesMultivariatePolynomial[101X
@@ -1741,58 +1723,17 @@
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XF:=GF(11);;[127X[104X
     [4X[25Xgap>[125X [27XR2:=PolynomialRing(F,2);[127X[104X
-    [4X[28XPolynomialRing(..., [ x_1, x_2 ])[128X[104X
+    [4X[28XGF(2^4)[x,xx][128X[104X
     [4X[25Xgap>[125X [27Xvars:=IndeterminatesOfPolynomialRing(R2);;[127X[104X
     [4X[25Xgap>[125X [27Xx:=vars[1];; y:=vars[2];;[127X[104X
     [4X[25Xgap>[125X [27Xpoly:=y^2-x*(x^2-1);;[127X[104X
     [4X[25Xgap>[125X [27XDegreesMultivariatePolynomial(poly,R2);[127X[104X
-    [4X[28X[ [ [ x_1, x_1, 1 ], [ x_1, x_2, 0 ] ], [ [ x_2^2, x_1, 0 ], [ x_2^2, x_2, 2 ] ],[128X[104X
+    [4X[28X[ [ [ x_1, x_1, 1 ], [ x_1, x_2, 0 ] ], [128X[104X
+    [4X[28X  [ [ x_2^2, x_1, 0 ], [ x_2^2, x_2, 2 ] ], [128X[104X
     [4X[28X  [ [ x_1^3, x_1, 3 ], [ x_1^3, x_2, 0 ] ] ][128X[104X
   [4X[32X[104X
   
-  [1X7.6-4 CoefficientMultivariatePolynomial[101X
-  
-  [33X[1;0Y[29X[2XCoefficientMultivariatePolynomial[102X( [3Xf[103X, [3Xvar[103X, [3Xpower[103X, [3XR[103X ) [32X function[133X
-  
-  [33X[0;0YThe   command  [10XCoefficientMultivariatePolynomial[110X  takes  four  arguments:  a
-  multivariant  polynomial  [3Xf[103X,  a  variable  name [3Xvar[103X, an integer [3Xpower[103X, and a
-  polynomial  ring  [3XR[103X  containing  [3Xf[103X.  For  example,  if  [3Xf[103X  is a multivariate
-  polynomial  in  [22XR[122X  = [22XF[122X[[22Xx_1,x_2,...,x_n[122X] then [3Xvar[103X must be one of the [22Xx_i[122X. The
-  output is the coefficient of [22Xx_i^power[122X in [3Xf[103X.[133X
-  
-  [33X[0;0Y(Not sure if [22XF[122X needs to be a field in fact ...)[133X
-  
-  [33X[0;0YRelated to the GAP command [10XPolynomialCoefficientsPolynomial[110X.[133X
-  
-  [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XF:=GF(11);;[127X[104X
-    [4X[25Xgap>[125X [27XR2:=PolynomialRing(F,2);[127X[104X
-    [4X[28XPolynomialRing(..., [ x_1, x_2 ])[128X[104X
-    [4X[25Xgap>[125X [27Xvars:=IndeterminatesOfPolynomialRing(R2);;[127X[104X
-    [4X[25Xgap>[125X [27Xx:=vars[1];; y:=vars[2];;[127X[104X
-    [4X[25Xgap>[125X [27Xpoly:=y^2-x*(x^2-1);;[127X[104X
-    [4X[25Xgap>[125X [27XPolynomialCoefficientsOfPolynomial(poly,x);[127X[104X
-    [4X[28X[ x_2^2, Z(11)^0, 0*Z(11), -Z(11)^0 ][128X[104X
-    [4X[25Xgap>[125X [27XPolynomialCoefficientsOfPolynomial(poly,y);[127X[104X
-    [4X[28X[ -x_1^3+x_1, 0*Z(11), Z(11)^0 ][128X[104X
-    [4X[25Xgap>[125X [27XCoefficientMultivariatePolynomial(poly,y,0,R2);[127X[104X
-    [4X[28X-x_1^3+x_1[128X[104X
-    [4X[25Xgap>[125X [27XCoefficientMultivariatePolynomial(poly,y,1,R2);[127X[104X
-    [4X[28X0*Z(11)[128X[104X
-    [4X[25Xgap>[125X [27XCoefficientMultivariatePolynomial(poly,y,2,R2);[127X[104X
-    [4X[28XZ(11)^0[128X[104X
-    [4X[25Xgap>[125X [27XCoefficientMultivariatePolynomial(poly,x,0,R2);[127X[104X
-    [4X[28Xx_2^2[128X[104X
-    [4X[25Xgap>[125X [27XCoefficientMultivariatePolynomial(poly,x,1,R2);[127X[104X
-    [4X[28XZ(11)^0[128X[104X
-    [4X[25Xgap>[125X [27XCoefficientMultivariatePolynomial(poly,x,2,R2);[127X[104X
-    [4X[28X0*Z(11)[128X[104X
-    [4X[25Xgap>[125X [27XCoefficientMultivariatePolynomial(poly,x,3,R2);[127X[104X
-    [4X[28X-Z(11)^0[128X[104X
-    [4X[28X[128X[104X
-  [4X[32X[104X
-  
-  [1X7.6-5 SolveLinearSystem[101X
+  [1X7.6-4 SolveLinearSystem[101X
   
   [33X[1;0Y[29X[2XSolveLinearSystem[102X( [3XL[103X, [3Xvars[103X ) [32X function[133X
   
@@ -1808,7 +1749,7 @@
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XF:=GF(11);;[127X[104X
     [4X[25Xgap>[125X [27XR2:=PolynomialRing(F,2);[127X[104X
-    [4X[28XPolynomialRing(..., [ x_1, x_2 ])[128X[104X
+    [4X[28XGF(2^4)[x,xx][128X[104X
     [4X[25Xgap>[125X [27Xvars:=IndeterminatesOfPolynomialRing(R2);;[127X[104X
     [4X[25Xgap>[125X [27Xx:=vars[1];; y:=vars[2];;[127X[104X
     [4X[25Xgap>[125X [27Xf:=3*y-3*x+1;; g:=-5*y+2*x-7;;[127X[104X
@@ -1818,10 +1759,9 @@
     [4X[28X0*Z(11)[128X[104X
     [4X[25Xgap>[125X [27XValue(g,[x,y],col); # checking okay[127X[104X
     [4X[28X0*Z(11)[128X[104X
-    [4X[28X[128X[104X
   [4X[32X[104X
   
-  [1X7.6-6 GuavaVersion[101X
+  [1X7.6-5 GuavaVersion[101X
   
   [33X[1;0Y[29X[2XGuavaVersion[102X(  ) [32X function[133X
   
@@ -1830,10 +1770,9 @@
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XGuavaVersion();[127X[104X
     [4X[28X"3.19"[128X[104X
-    [4X[28X[128X[104X
   [4X[32X[104X
   
-  [1X7.6-7 ZechLog[101X
+  [1X7.6-6 ZechLog[101X
   
   [33X[1;0Y[29X[2XZechLog[102X( [3Xx[103X, [3Xb[103X, [3XF[103X ) [32X function[133X
   
@@ -1848,10 +1787,9 @@
     [4X[25Xgap>[125X [27X8*l+l;(2*l)^(-24);[127X[104X
     [4X[28XZ(11)^6[128X[104X
     [4X[28XZ(11)^6[128X[104X
-    [4X[28X[128X[104X
   [4X[32X[104X
   
-  [1X7.6-8 CoefficientToPolynomial[101X
+  [1X7.6-7 CoefficientToPolynomial[101X
   
   [33X[1;0Y[29X[2XCoefficientToPolynomial[102X( [3Xcoeffs[103X, [3XR[103X ) [32X function[133X
   
@@ -1870,7 +1808,7 @@
     [4X[28XZ(11)^2*a^3+Z(11)^8*a^2+Z(11)*a+Z(11)^0[128X[104X
   [4X[32X[104X
   
-  [1X7.6-9 DegreesMonomialTerm[101X
+  [1X7.6-8 DegreesMonomialTerm[101X
   
   [33X[1;0Y[29X[2XDegreesMonomialTerm[102X( [3Xm[103X, [3XR[103X ) [32X function[133X
   
@@ -1901,7 +1839,7 @@
     [4X[28X[ 0, 3, 7 ][128X[104X
   [4X[32X[104X
   
-  [1X7.6-10 DivisorsMultivariatePolynomial[101X
+  [1X7.6-9 DivisorsMultivariatePolynomial[101X
   
   [33X[1;0Y[29X[2XDivisorsMultivariatePolynomial[102X( [3Xf[103X, [3XR[103X ) [32X function[133X
   

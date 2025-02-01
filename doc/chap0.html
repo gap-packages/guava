@@ -28,9 +28,9 @@
 
 <h2>A <strong class="pkg">GAP</strong>4 Package for computing with error-correcting codes  </h2>
 
-<p>Version 3.19</p>
+<p>Version 3.20</p>
 
-<p>21 March 2024</p>
+<p>1 February 2025</p>
 
 </div>
 <p><b>
@@ -74,7 +74,7 @@ Joe Fields (Maintainer)
 
 <p><a id="X81488B807F2A1CF1" name="X81488B807F2A1CF1"></a></p>
 <h3>Copyright</h3>
-<p><strong class="pkg">GUAVA</strong>: © The GUAVA Group: 1992-2003 Jasper Cramwinckel, Erik Roijackers,Reinald Baart, Eric Minkes, Lea Ruscio (for the tex version), Jeffrey Leon © 2004 David Joyner, Cen Tjhai, Jasper Cramwinckel, Erik Roijackers, Reinald Baart, Eric Minkes, Lea Ruscio. © 2007 Robert L Miller, Tom Boothby © 2009, 2012, 2016, 2018, 2022 Joe Fields</p>
+<p><strong class="pkg">GUAVA</strong>: © The GUAVA Group: 1992-2003 Jasper Cramwinckel, Erik Roijackers,Reinald Baart, Eric Minkes, Lea Ruscio (for the tex version), Jeffrey Leon © 2004 David Joyner, Cen Tjhai, Jasper Cramwinckel, Erik Roijackers, Reinald Baart, Eric Minkes, Lea Ruscio. © 2007 Robert L Miller, Tom Boothby © 2009, 2012, 2016, 2018, 2022, 2025 Joe Fields</p>
 
 <p><strong class="pkg">GUAVA</strong> is released under the GNU General Public License (GPL).</p>
 
@@ -96,15 +96,15 @@ Joe Fields (Maintainer)
 
 <p>JC, ER and RB would like to thank the GAP people at the RWTH Aachen for their support, A.E. Brouwer for his advice and J. Simonis for his supervision.</p>
 
-<p>The GAP 4 version of <strong class="pkg">GUAVA</strong> (versions 1.4 and 1.5) was created by Lea Ruscio and (from 2001, starting with version 1.6, to early 2009) was maintained by David Joyner, who (with the help of several students) added several new functions. Starting with version 2.7, the ``best linear code'' tables for binary codes have been updated. From 2009, starting with version 3.10, <strong class="pkg">GUAVA</strong> has been maintained by Joe Fields. For further details, see the CHANGES file in the <strong class="pkg">GUAVA</strong> directory, also available at <span class="URL"><a href="https://gap-packages.github.io/guava/CHANGES">https://gap-packages.github.io/guava/CHANGES</a></span>.</p>
+<p>The GAP 4 version of <strong class="pkg">GUAVA</strong> (versions 1.4 and 1.5) was created by Lea Ruscio and (from 2001, starting with version 1.6, to early 2009) was maintained by David Joyner, who (with the help of several students) added several new functions. Starting with version 2.7, the ``best linear code'' tables for binary codes have been updated. From 2009, starting with version 3.10, <strong class="pkg">GUAVA</strong> has been maintained by Joe Fields. For further details, see the CHANGES file in the <strong class="pkg">GUAVA</strong> directory, also available at <span class="URL"><a href="https://gap-packages.github.io/guava/CHANGES.guava">https://gap-packages.github.io/guava/CHANGES.guava</a></span>.</p>
 
 <p>This documentation was prepared with the <strong class="pkg">GAPDoc</strong> package of Frank Lübeck and Max Neunhöffer. The conversion from TeX to <strong class="pkg">GAPDoc</strong>'s XML was done by David Joyner in 2004.</p>
 
-<p>Please send bug reports, suggestions and other comments about <strong class="pkg">GUAVA</strong> to <span class="URL"><a href="mailto:support@gap-system.org">support@gap-system.org</a></span>. Currently known bugs and suggested <strong class="pkg">GUAVA</strong> projects are listed on the bugs and projects web page <span class="URL"><a href="https://gap-packages.github.io/guava/guava2do.html">https://gap-packages.github.io/guava/guava2do.html</a></span>. Older releases and further history can be found on the <strong class="pkg">GUAVA</strong> web page <span class="URL"><a href="https://gap-packages.github.io/guava/">https://gap-packages.github.io/guava/</a></span>.</p>
+<p>Please send bug reports, suggestions and other comments about <strong class="pkg">GUAVA</strong> to <span class="URL"><a href="mailto:support@gap-system.org">support@gap-system.org</a></span>. Currently known bugs and suggested <strong class="pkg">GUAVA</strong> projects are listed in the Issues section of the <strong class="pkg">GUAVA</strong> GitHub page: <span class="URL"><a href="https://github.com/gap-packages/guava/issues">https://github.com/gap-packages/guava/issues</a></span>. Older releases and further history can be found on the <strong class="pkg">GUAVA</strong> web page <span class="URL"><a href="https://gap-packages.github.io/guava/">https://gap-packages.github.io/guava/</a></span>.</p>
 
 <p><em>Contributors</em>: Other than the authors listed on the title page, the following people have contributed code to the <strong class="pkg">GUAVA</strong> project: Alexander Hulpke, Steve Linton, Frank Lübeck, Aron Foster, Wayne Irons, Clifton (Clipper) Lennon, Jason McGowan, Shuhong Gao, Greg Gamble and Jeffrey S. Leon.</p>
 
-<p>For documentation on Leon's programs, see the <code class="file">src/leon/doc subdirectory</code> of <strong class="pkg">GUAVA</strong>.</p>
+<p>For documentation on Leon's programs, see the <code class="file">src/leon/doc</code> subdirectory of <strong class="pkg">GUAVA</strong>.</p>
 
 <p><a id="X8537FEB07AF2BEC8" name="X8537FEB07AF2BEC8"></a></p>
 
@@ -584,13 +584,12 @@ Miscellaneous polynomial functions
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X84D51EBB784E7C5D">7.6-1 MatrixTransformationOnMultivariatePolynomial </a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X80433A4B792880EF">7.6-2 DegreeMultivariatePolynomial</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X83F44E397C56F2E0">7.6-3 DegreesMultivariatePolynomial</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X7E9021697A61A60F">7.6-4 CoefficientMultivariatePolynomial</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X79E76B6F7D177E27">7.6-5 SolveLinearSystem</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X80171AA687FFDC70">7.6-6 GuavaVersion</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X7EBBE86D85CC90C0">7.6-7 ZechLog</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X7C8C1E6A7E3497F0">7.6-8 CoefficientToPolynomial</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X8431985183B63BB7">7.6-9 DegreesMonomialTerm</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X860EF39B841380A1">7.6-10 DivisorsMultivariatePolynomial</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X79E76B6F7D177E27">7.6-4 SolveLinearSystem</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X80171AA687FFDC70">7.6-5 GuavaVersion</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X7EBBE86D85CC90C0">7.6-6 ZechLog</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X7C8C1E6A7E3497F0">7.6-7 CoefficientToPolynomial</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X8431985183B63BB7">7.6-8 DegreesMonomialTerm</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X860EF39B841380A1">7.6-9 DivisorsMultivariatePolynomial</a></span>
 </div></div>
 </div>
 <div class="ContChap"><a href="chap8.html#X7A93308C82637F4F">8 <span class="Heading">Coding theory functions in GAP</span></a>

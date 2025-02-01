@@ -81,11 +81,12 @@ Other Codeword Functions
 a  [20,10,?] randomly generated code over GF(4)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">c:=Random(C);</span>
 [ 1 a 0 0 0 1 1 a^2 0 0 a 1 1 1 a 1 1 a a 0 ]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">NamesOfComponents(C);</span>
-[ "Representative", "ZeroImmutable", "name", "LeftActingDomain", "Dimension", 
-  "GeneratorsOfLeftOperatorAdditiveGroup", "Basis", "NiceFreeLeftModule", 
-  "GeneratorMat", "WordLength" ]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">NamesOfComponents(c);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Set(NamesOfComponents(C));</span>
+[ "Basis", "Dimension", "GeneratorMat", 
+  "GeneratorsOfLeftOperatorAdditiveGroup", "LeftActingDomain", 
+  "NiceFreeLeftModule", "Representative", "WordLength", "ZeroImmutable", 
+  "name" ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Set(NamesOfComponents(c));</span>
 [ "VectorCodeword", "WordLength", "treatAsPoly" ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">c!.VectorCodeword;</span>
 &lt; immutable compressed vector length 20 over GF(4) &gt;
@@ -145,7 +146,7 @@ a  [20,10,?] randomly generated code over GF(4)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">p := UnivariatePolynomial(GF(2), [Z(2)^0, 0*Z(2), Z(2)^0]);</span>
 x_1^2+Z(2)^0
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Codeword(p);</span>
-x^2 + 1 
+x^2 + 1
 </pre></div>
 
 <p>This command can also be called using the syntax <code class="code">Codeword(obj,C)</code>. In this format, the elements of <var class="Arg">obj</var> are converted to elements of the same ambient vector space as the elements of a code <var class="Arg">C</var>. The command <code class="code">Codeword(c,C)</code> is the same as calling <code class="code">Codeword(c,n,F)</code>, where <var class="Arg">n</var> is the word length of <var class="Arg">C</var> and the <var class="Arg">F</var> is the ground field of <var class="Arg">C</var>.</p>
@@ -157,7 +158,7 @@ a cyclic [7,7,1]0 whole space code over GF(5)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Codeword(["0220110", [1,1,1]], C);</span>
 [ [ 0 2 2 0 1 1 0 ], [ 1 1 1 0 0 0 0 ] ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Codeword(["0220110", [1,1,1]], 7, GF(5));</span>
-[ [ 0 2 2 0 1 1 0 ], [ 1 1 1 0 0 0 0 ] ] 
+[ [ 0 2 2 0 1 1 0 ], [ 1 1 1 0 0 0 0 ] ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C:=RandomLinearCode(10,5,GF(3));</span>
 a  [10,5,?] randomly generated code over GF(3)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Codeword("1000000000",C);</span>
@@ -203,7 +204,7 @@ false
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsCodeword("11111");</span>
 false
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsCodeword(Codeword("11111"));</span>
-true 
+true
 </pre></div>
 
 <p><a id="X8253374284B475B6" name="X8253374284B475B6"></a></p>
@@ -232,7 +233,7 @@ true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">c2 := Codeword("1001", GF(2));</span>
 [ 1 0 0 1 ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">c = c2;</span>
-true 
+true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C:=HammingCode(3);</span>
 a linear [7,4,3]1 Hamming (3,2) code over GF(2)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">c1:=Random(C);</span>
@@ -291,11 +292,11 @@ Error, &lt;x&gt; and &lt;y&gt; have different characteristic
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C:=RandomLinearCode(10,5);</span>
-a  [10,5,?] randomly generated code over GF(3)
+a  [10,5,?] randomly generated code over GF(2)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">c:=Random(C);</span>
 [ 0 0 0 0 0 0 0 0 0 0 ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">c+C;</span>
-&lt; add. coset of a  [10,5,?] randomly generated code over GF(2) &gt;
+&lt;add. coset of a  [10,5,?] randomly generated code over GF(2)&gt;
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">c+C=C;</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsLinearCode(c+C);</span>
@@ -303,7 +304,7 @@ false
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">v:=Codeword("100000000");</span>
 [ 1 0 0 0 0 0 0 0 0 ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">v+C;</span>
-&lt; add. coset of a  [10,5,?] randomly generated code over GF(2) &gt;
+&lt;add. coset of a  [10,5,?] randomly generated code over GF(2)&gt;
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C=v+C;</span>
 false
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C := GeneratorMatCode( [ [1, 0,0,0], [0, 1,0,0] ], GF(2) );</span>
@@ -313,7 +314,7 @@ a linear [4,2,1]1..2 code defined by generator matrix over GF(2)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">v:=Codeword("0011");</span>
 [ 0 0 1 1 ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C+v;</span>
-&lt; add. coset of a linear [4,2,4]1 code defined by generator matrix over GF(2) &gt;
+&lt;add. coset of a linear [4,2,4]1 code defined by generator matrix over GF(2)&gt;
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Elements(C+v);</span>
 [ [ 0 0 1 1 ], [ 0 1 1 1 ], [ 1 0 1 1 ], [ 1 1 1 1 ] ]
 </pre></div>
@@ -379,7 +380,7 @@ a cyclic [23,12,7]3 binary Golay code over GF(2)
 x^22 + x^20 + x^17 + x^14 + x^13 + x^12 + x^11 + x^10
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">TreatAsVector(c);</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">c;</span>
-[ 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 0 0 1 0 0 1 0 1 ] 
+[ 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 0 0 1 0 0 1 0 1 ]
 </pre></div>
 
 <p><a id="X7A6828148490BD2E" name="X7A6828148490BD2E"></a></p>
@@ -400,7 +401,7 @@ x^4
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">b := NullWord(6,GF(4));</span>
 [ 0 0 0 0 0 0 ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">TreatAsPoly(b); b;</span>
-0 
+0
 </pre></div>
 
 <p><a id="X805BF7147C68CACD" name="X805BF7147C68CACD"></a></p>
@@ -425,7 +426,7 @@ true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">NullWord(5,GF(16));</span>
 [ 0 0 0 0 0 ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">NullWord(ExtendedTernaryGolayCode());</span>
-[ 0 0 0 0 0 0 0 0 0 0 0 0 ] 
+[ 0 0 0 0 0 0 0 0 0 0 0 0 ]
 </pre></div>
 
 <p><a id="X7CDA1B547D55E6FB" name="X7CDA1B547D55E6FB"></a></p>
@@ -443,7 +444,7 @@ true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">DistanceCodeword(b, a);</span>
 4
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">DistanceCodeword(a, a);</span>
-0 
+0
 </pre></div>
 
 <p><a id="X7B689C0284AC4296" name="X7B689C0284AC4296"></a></p>
@@ -458,7 +459,7 @@ true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">a := Codeword("012320023002");; Support(a);</span>
 [ 2, 3, 4, 5, 8, 9, 12 ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Support(NullWord(7));</span>
-[  ] 
+[  ]
 </pre></div>
 
 <p>The support of a list with codewords can be calculated by taking the union of the individual supports. The weight of the support is the length of the set.</p>
@@ -469,7 +470,7 @@ true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">S := Union(List(L, i -&gt; Support(i)));</span>
 [ 1, 2, 3, 5 ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Length(S);</span>
-4 
+4
 </pre></div>
 
 <p><a id="X7AD61C237D8D3849" name="X7AD61C237D8D3849"></a></p>
@@ -488,7 +489,7 @@ true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C := HammingCode(3);</span>
 a linear [7,4,3]1 Hamming (3,2) code over GF(2)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Minimum(List(AsSSortedList(C){[2..Size(C)]}, WeightCodeword ) );</span>
-3 
+3
 </pre></div>
 
 

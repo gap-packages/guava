@@ -106,8 +106,7 @@
   codewords, addition 3.3-1 
   codewords, cosets 3.3-3 
   codewords, subtraction 3.3-2 
-  [2XCoefficientMultivariatePolynomial[102X 7.6-4 
-  [2XCoefficientToPolynomial[102X 7.6-8 
+  [2XCoefficientToPolynomial[102X 7.6-7 
   conference matrix 5.1-3 
   [2XConferenceCode[102X 5.1-3 
   [2XConstantWeightSubcode[102X 6.1-18 
@@ -133,7 +132,7 @@
   defining polynomial 8.2 
   degree 5.7-7 
   [2XDegreeMultivariatePolynomial[102X 7.6-2 
-  [2XDegreesMonomialTerm[102X 7.6-9 
+  [2XDegreesMonomialTerm[102X 7.6-8 
   [2XDegreesMultivariatePolynomial[102X 7.6-3 
   density of a code 7.5-3 
   [2XDimension[102X 4.5-4 
@@ -158,7 +157,7 @@
   [2XDivisorOfRationalFunctionP1 [102X 5.7-14 
   [2XDivisorOnAffineCurve[102X 5.7-5 
   [2XDivisorsEqual [102X 5.7-10 
-  [2XDivisorsMultivariatePolynomial[102X 7.6-10 
+  [2XDivisorsMultivariatePolynomial[102X 7.6-9 
   doubly-even 4.3-9 
   [2XDualCode[102X 6.1-14 
   [2XElementsCode[102X 5.1-1 
@@ -208,7 +207,7 @@
   greatest common divisor 5.7-11 
   [2XGreedyCode[102X 5.1-7 
   Griesmer code 7.1-6 
-  [2XGuavaVersion[102X 7.6-6 
+  [2XGuavaVersion[102X 7.6-5 
   Hadamard matrix 5.1-2  7.3-3 
   [2XHadamardCode[102X 5.1-2 
   [2XHadamardMat[102X 7.3-4 
@@ -348,7 +347,7 @@
   singly-even 4.3-10 
   size 4.0 
   [2XSize[102X 4.5-2 
-  [2XSolveLinearSystem[102X 7.6-5 
+  [2XSolveLinearSystem[102X 7.6-4 
   [2XSphereContent[102X 7.5-5 
   [2XSrivastavaCode[102X 5.2-9 
   standard form 7.3-5 
@@ -396,7 +395,7 @@
   [2XWeightVecFFE[102X 8.1-5 
   [2XWholeSpaceCode[102X 5.5-11 
   [2XWordLength[102X 4.8-1 
-  [2XZechLog[102X 7.6-7 
+  [2XZechLog[102X 7.6-6 
   
   
   -------------------------------------------------------

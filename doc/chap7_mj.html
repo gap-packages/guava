@@ -132,13 +132,12 @@ Miscellaneous polynomial functions
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7_mj.html#X84D51EBB784E7C5D">7.6-1 MatrixTransformationOnMultivariatePolynomial </a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7_mj.html#X80433A4B792880EF">7.6-2 DegreeMultivariatePolynomial</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7_mj.html#X83F44E397C56F2E0">7.6-3 DegreesMultivariatePolynomial</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7_mj.html#X7E9021697A61A60F">7.6-4 CoefficientMultivariatePolynomial</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7_mj.html#X79E76B6F7D177E27">7.6-5 SolveLinearSystem</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7_mj.html#X80171AA687FFDC70">7.6-6 GuavaVersion</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7_mj.html#X7EBBE86D85CC90C0">7.6-7 ZechLog</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7_mj.html#X7C8C1E6A7E3497F0">7.6-8 CoefficientToPolynomial</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7_mj.html#X8431985183B63BB7">7.6-9 DegreesMonomialTerm</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7_mj.html#X860EF39B841380A1">7.6-10 DivisorsMultivariatePolynomial</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7_mj.html#X79E76B6F7D177E27">7.6-4 SolveLinearSystem</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7_mj.html#X80171AA687FFDC70">7.6-5 GuavaVersion</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7_mj.html#X7EBBE86D85CC90C0">7.6-6 ZechLog</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7_mj.html#X7C8C1E6A7E3497F0">7.6-7 CoefficientToPolynomial</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7_mj.html#X8431985183B63BB7">7.6-8 DegreesMonomialTerm</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7_mj.html#X860EF39B841380A1">7.6-9 DivisorsMultivariatePolynomial</a></span>
 </div></div>
 </div>
 
@@ -186,7 +185,7 @@ M \leq q^{n-d+1}.
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C := ReedSolomonCode(4,3);; Size(C);</span>
 25
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsMDSCode(C);</span>
-true 
+true
 </pre></div>
 
 <p><a id="X828095537C91FDFA" name="X828095537C91FDFA"></a></p>
@@ -223,8 +222,8 @@ a linear [15,11,3]1 Hamming (4,2) code over GF(2)
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">UpperBoundJohnson( 13, 5 );</span>
 77
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">UpperBoundHamming( 13, 5, 2);</span>
-89   # in this case the Johnson bound is better 
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">UpperBoundHamming( 13, 5, 2);    # in this case the Johnson bound is better</span>
+89 
 </pre></div>
 
 <p><a id="X7A26E2537DFF4409" name="X7A26E2537DFF4409"></a></p>
@@ -249,7 +248,7 @@ a cyclic [15,5,7]5 BCH code, delta=7, b=1 over GF(2)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Size(C);</span>
 32
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">WeightDistribution(C);</span>
-[ 1, 0, 0, 0, 0, 0, 0, 15, 15, 0, 0, 0, 0, 0, 0, 1 ] 
+[ 1, 0, 0, 0, 0, 0, 0, 15, 15, 0, 0, 0, 0, 0, 0, 1 ]
 </pre></div>
 
 <p><a id="X86A5A7C67F625A40" name="X86A5A7C67F625A40"></a></p>
@@ -264,7 +263,7 @@ a cyclic [15,5,7]5 BCH code, delta=7, b=1 over GF(2)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">UpperBoundPlotkin( 16, 3, 2 );</span>
 12288
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">UpperBoundElias( 16, 3, 2 );</span>
-10280 
+10280
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">UpperBoundElias( 20, 10, 3 );</span>
 16255
 </pre></div>
@@ -280,10 +279,10 @@ a cyclic [15,5,7]5 BCH code, delta=7, b=1 over GF(2)
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">UpperBoundGriesmer( 13, 5, 2 );</span>
 64
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">UpperBoundGriesmer( 18, 9, 2 );</span>
-8        # the maximum number of words for a linear code is 8
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Size( PuncturedCode( HadamardCode( 20, 1 ) ) );</span>
-20       # this non-linear code has 20 elements 
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">UpperBoundGriesmer( 18, 9, 2 );       # the maximum number of words for a linear code is 8</span>
+8
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Size( PuncturedCode( HadamardCode( 20, 1 ) ) );       # this non-linear code has 20 elements </span>
+20
 </pre></div>
 
 <p><a id="X8301FA9F7C6C7445" name="X8301FA9F7C6C7445"></a></p>
@@ -302,7 +301,7 @@ n = g[k,d] = \sum_{i=0}^{k-1} \lceil \frac{d}{q^i} \rceil.
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsGriesmerCode( HammingCode( 3, GF(2) ) );</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsGriesmerCode( BCHCode( 17, 2, GF(2) ) );</span>
-false 
+false
 </pre></div>
 
 <p><a id="X7A5CB74485184FEE" name="X7A5CB74485184FEE"></a></p>
@@ -317,7 +316,7 @@ false
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">UpperBound( 10, 3, 2 );</span>
 85
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">UpperBound( 25, 9, 8 );</span>
-1211778792827540 
+1211778792827540
 </pre></div>
 
 <p><a id="X7FDF54BA81115D88" name="X7FDF54BA81115D88"></a></p>
@@ -333,10 +332,10 @@ false
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C := BCHCode( 45, 7 );</span>
 a cyclic [45,23,7..9]6..16 BCH code, delta=7, b=1 over GF(2)
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LowerBoundMinimumDistance( C );</span>
-7     # designed distance is lower bound for minimum distance 
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LowerBoundMinimumDistance( C );     # designed distance is lower bound for minimum distance </span>
+7
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LowerBoundMinimumDistance( 45, 23, GF(2) );</span>
-10 
+10
 </pre></div>
 
 <p><a id="X7CF15D2084499869" name="X7CF15D2084499869"></a></p>
@@ -390,9 +389,9 @@ a cyclic [45,23,7..9]6..16 BCH code, delta=7, b=1 over GF(2)
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C := BCHCode( 45, 7 );;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">UpperBoundMinimumDistance( C );</span>
-9 
+9
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">UpperBoundMinimumDistance( 45, 23, GF(2) );</span>
-11 
+11
 </pre></div>
 
 <p><a id="X7B3858B27A9E509A" name="X7B3858B27A9E509A"></a></p>
@@ -408,20 +407,18 @@ a cyclic [45,23,7..9]6..16 BCH code, delta=7, b=1 over GF(2)
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">bounds := BoundsMinimumDistance( 7, 3 );; DisplayBoundsInfo( bounds );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">bounds := BoundsMinimumDistance( 7, 3 );; DisplayBoundsInfo( bounds ); # The lower bound is equal to the upper bound, so a code with these parameters is optimal.</span>
 an optimal linear [7,3,d] code over GF(2) has d=4
 ------------------------------------------------------------------------------
 Lb(7,3)=4, by shortening of:
-Lb(8,4)=4, u u+v construction of C1 and C2:
+Lb(8,4)=4, by the u|u+v construction applied to C1 [4,3,2] and C2 [4,1,4]: 
 Lb(4,3)=2, dual of the repetition code
 Lb(4,1)=4, repetition code
 ------------------------------------------------------------------------------
-Ub(7,3)=4, Griesmer bound
-# The lower bound is equal to the upper bound, so a code with
-# these parameters is optimal.
+Ub(7,3)=4, by the Griesmer bound
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C := BestKnownLinearCode( bounds );; Display( C );</span>
 a linear [7,3,4]2..3 shortened code of
-a linear [8,4,4]2 U U+V construction code of
+a linear [8,4,4]2 U|U+V construction code of
 U: a cyclic [4,3,2]1 dual code of
    a cyclic [4,1,4]2 repetition code over GF(2)
 V: a cyclic [4,1,4]2 repetition code over GF(2)
@@ -445,9 +442,9 @@ Covering radius bounds on codes
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">BoundsCoveringRadius( BCHCode( 17, 3, GF(2) ) );</span>
-[ 3 .. 4 ]
+[ 3, 4 ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">BoundsCoveringRadius( HammingCode( 5, GF(2) ) );</span>
-[ 1 ] 
+[ 1 ]
 </pre></div>
 
 <p><a id="X7881E03E812140F4" name="X7881E03E812140F4"></a></p>
@@ -521,7 +518,6 @@ Trying 3 ...
 [ 3 .. 5 ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CoveringRadius(C);</span>
 3
-
 </pre></div>
 
 <p><a id="X85D671F4824B4B0C" name="X85D671F4824B4B0C"></a></p>
@@ -539,7 +535,6 @@ a  [10,5,?] randomly generated code over GF(2)
 2
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CoveringRadius(C);</span>
 3
-
 </pre></div>
 
 <p><a id="X8638F5A67D6E50C1" name="X8638F5A67D6E50C1"></a></p>
@@ -557,7 +552,6 @@ a  [10,5,?] randomly generated code over GF(2)
 4
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CoveringRadius(C);</span>
 3
-
 </pre></div>
 
 <p><a id="X7E7FBCC87D5562AB" name="X7E7FBCC87D5562AB"></a></p>
@@ -587,7 +581,6 @@ a  [10,5,?] randomly generated code over GF(2)
 2
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LowerBoundCoveringRadiusSphereCovering(10,3,GF(2),true);</span>
 6
-
 </pre></div>
 
 <p><a id="X85E20C518360AB70" name="X85E20C518360AB70"></a></p>
@@ -620,7 +613,6 @@ a  [10,5,?] randomly generated code over GF(2)
 2
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LowerBoundCoveringRadiusVanWee1(10,3,GF(2),true);</span>
 6
-
 </pre></div>
 
 <p><a id="X7C72994A825228E7" name="X7C72994A825228E7"></a></p>
@@ -660,7 +652,6 @@ a  [10,5,?] randomly generated code over GF(2)
 2
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LowerBoundCoveringRadiusVanWee2(10,3,true);</span>
 7
-
 </pre></div>
 
 <p><a id="X7F95362485759ACB" name="X7F95362485759ACB"></a></p>
@@ -706,7 +697,6 @@ a  [10,5,?] randomly generated code over GF(2)
 0
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LowerBoundCoveringRadiusCountingExcess(10,3,true);</span>
 7
-
 </pre></div>
 
 <p><a id="X829C14A383B5BF59" name="X829C14A383B5BF59"></a></p>
@@ -739,7 +729,6 @@ a  [10,5,?] randomly generated code over GF(2)
 2
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LowerBoundCoveringRadiusEmbedded1(10,3,true);</span>
 7
-
 </pre></div>
 
 <p><a id="X7B0C81B88604C448" name="X7B0C81B88604C448"></a></p>
@@ -772,7 +761,6 @@ a  [15,5,?] randomly generated code over GF(2)
 2
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LowerBoundCoveringRadiusEmbedded2(10,3,true);</span>
 7
-
 </pre></div>
 
 <p><a id="X7D27F6E27B9A0D35" name="X7D27F6E27B9A0D35"></a></p>
@@ -798,7 +786,6 @@ a  [15,5,?] randomly generated code over GF(2)
 5
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LowerBoundCoveringRadiusInduction(15,6);</span>
 7
-
 </pre></div>
 
 <p><a id="X80F8DFAD7D67CBEC" name="X80F8DFAD7D67CBEC"></a></p>
@@ -816,7 +803,6 @@ a  [15,5,?] randomly generated code over GF(2)
 5
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">UpperBoundCoveringRadiusRedundancy(C);</span>
 10
-
 </pre></div>
 
 <p><a id="X832847A17FD0D142" name="X832847A17FD0D142"></a></p>
@@ -876,7 +862,6 @@ a  [15,5,?] randomly generated code over GF(2)
 5
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">UpperBoundCoveringRadiusGriesmerLike(C);</span>
 9
-
 </pre></div>
 
 <p><a id="X82A38F5F858CF3FC" name="X82A38F5F858CF3FC"></a></p>
@@ -900,7 +885,6 @@ a cyclic [15,12,1..2]1..3 enumerated code over GF(2)
 3
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">UpperBoundCoveringRadiusCyclicCode(C);</span>
 3
-
 </pre></div>
 
 <p><a id="X806EBEC77C16E657" name="X806EBEC77C16E657"></a></p>
@@ -940,7 +924,7 @@ Special matrices in <strong class="pkg">GUAVA</strong>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">q^( -k ) * KrawtchoukMat( n, q ) * a;</span>
 [ 1, 0, 0, 0, 7, 0, 0, 0 ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">WeightDistribution( DualCode( C ) );</span>
-[ 1, 0, 0, 0, 7, 0, 0, 0 ] 
+[ 1, 0, 0, 0, 7, 0, 0, 0 ]
 </pre></div>
 
 <p><a id="X87AFE2C078031CE4" name="X87AFE2C078031CE4"></a></p>
@@ -953,14 +937,14 @@ Special matrices in <strong class="pkg">GUAVA</strong>
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">GrayMat(3);</span>
-[ [ 0*Z(2), 0*Z(2), 0*Z(2) ], [ 0*Z(2), 0*Z(2), Z(2)^0 ],
-  [ 0*Z(2), Z(2)^0, Z(2)^0 ], [ 0*Z(2), Z(2)^0, 0*Z(2) ],
-  [ Z(2)^0, Z(2)^0, 0*Z(2) ], [ Z(2)^0, Z(2)^0, Z(2)^0 ],
+[ [ 0*Z(2), 0*Z(2), 0*Z(2) ], [ 0*Z(2), 0*Z(2), Z(2)^0 ], 
+  [ 0*Z(2), Z(2)^0, Z(2)^0 ], [ 0*Z(2), Z(2)^0, 0*Z(2) ], 
+  [ Z(2)^0, Z(2)^0, 0*Z(2) ], [ Z(2)^0, Z(2)^0, Z(2)^0 ], 
   [ Z(2)^0, 0*Z(2), Z(2)^0 ], [ Z(2)^0, 0*Z(2), 0*Z(2) ] ]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G := GrayMat( 4, GF(4) );; Length(G);</span>
-256          # the length of a GrayMat is always q^n
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G := GrayMat( 4, GF(4) );; Length(G);         # the length of a GrayMat is always q^n</span>
+256
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G[101] - G[100];</span>
-[ 0*Z(2), 0*Z(2), Z(2)^0, 0*Z(2) ] 
+[ 0*Z(2), 0*Z(2), Z(2)^0, 0*Z(2) ]
 </pre></div>
 
 <p><a id="X7E1E7C5287919CDB" name="X7E1E7C5287919CDB"></a></p>
@@ -1001,7 +985,7 @@ Special matrices in <strong class="pkg">GUAVA</strong>
   [   1,   1,  -1,  -1,  -1,  -1,   1,   1 ],
   [   1,  -1,  -1,   1,  -1,   1,   1,  -1 ] ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C * TransposedMat(C) = 8 * IdentityMat( 8, 8 );</span>
-true 
+true
 </pre></div>
 
 <p><a id="X797F43607AD8660D" name="X797F43607AD8660D"></a></p>
@@ -1014,7 +998,7 @@ true
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M:=VandermondeMat([Z(5),Z(5)^2,Z(5)^0,Z(5)^3],2);</span>
-[ [ Z(5)^0, Z(5), Z(5)^2 ], [ Z(5)^0, Z(5)^2, Z(5)^0 ],
+[ [ Z(5)^0, Z(5), Z(5)^2 ], [ Z(5)^0, Z(5)^2, Z(5)^0 ], 
   [ Z(5)^0, Z(5)^0, Z(5)^0 ], [ Z(5)^0, Z(5)^3, Z(5)^2 ] ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display(M);</span>
  1 2 4
@@ -1033,7 +1017,7 @@ true
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := Z(2)*[[1,0,0,1],[0,0,1,1]];; PrintArray(M);</span>
-[ [    Z(2),  0*Z(2),  0*Z(2),    Z(2) ],
+[ [    Z(2),  0*Z(2),  0*Z(2),    Z(2) ], 
   [  0*Z(2),  0*Z(2),    Z(2),    Z(2) ] ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PutStandardForm(M);                   # identity at the left side</span>
 (2,3)
@@ -1063,7 +1047,6 @@ a linear [23,12,7]3 punctured code
  . . . . . . . . . 1 . . . . 1 . 1 1 . 1 1 1 .
  . . . . . . . . . . 1 . 1 . 1 1 1 . . . 1 1 1
  . . . . . . . . . . . 1 . 1 . 1 1 1 . . . 1 1
-
 </pre></div>
 
 <p><a id="X7D4EDA0A854EBFEF" name="X7D4EDA0A854EBFEF"></a></p>
@@ -1082,7 +1065,7 @@ true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsInStandardForm([[1, 3, 2, 7]]);</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsInStandardForm(HadamardMat(4));</span>
-false 
+false
 </pre></div>
 
 <p><a id="X7A97AD477E7638DE" name="X7A97AD477E7638DE"></a></p>
@@ -1099,7 +1082,7 @@ false
   [  1,  2,  3,  4 ] ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PrintArray(PermutedCols(M, (1,2,3)));</span>
 [ [  3,  1,  2,  4 ],
-  [  3,  1,  2,  4 ] ] 
+  [  3,  1,  2,  4 ] ]
 </pre></div>
 
 <p><a id="X7B68119F85E9EC6D" name="X7B68119F85E9EC6D"></a></p>
@@ -1131,7 +1114,7 @@ GF(3^2)
   [  0*Z(3),  0*Z(3) ],
   [    Z(3),  Z(3)^0 ] ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">DefaultField( Flat(VCFM) );</span>
-GF(3) 
+GF(3)
 </pre></div>
 
 <p>A similar function is <code class="code">HorizontalConversionFieldMat</code> (see <code class="func">HorizontalConversionFieldMat</code> (<a href="chap7_mj.html#X8033E9A67BA155C8"><span class="RefLink">7.3-10</span></a>)).</p>
@@ -1160,7 +1143,7 @@ GF(3^2)
   [  0*Z(3),    Z(3),  0*Z(3),  Z(3)^0 ],
   [    Z(3),    Z(3),  Z(3)^0,  Z(3)^0 ] ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">DefaultField( Flat(HCFM) );</span>
-GF(3) 
+GF(3)
 </pre></div>
 
 <p>A similar function is <code class="code">VerticalConversionFieldMat</code> (see <code class="func">VerticalConversionFieldMat</code> (<a href="chap7_mj.html#X7B68119F85E9EC6D"><span class="RefLink">7.3-9</span></a>)).</p>
@@ -1196,7 +1179,7 @@ GF(3)
   [  2,  1,  3,  0 ],
   [  3,  0,  2,  1 ] ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">MOLS( 12, 3 );</span>
-false 
+false
 </pre></div>
 
 <p><a id="X7F34306B81DC2776" name="X7F34306B81DC2776"></a></p>
@@ -1211,7 +1194,7 @@ false
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsLatinSquare([[1,2],[2,1]]);</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsLatinSquare([[1,2,3],[2,3,1],[1,3,2]]);</span>
-false 
+false
 </pre></div>
 
 <p><a id="X81B9B40B7B2D97D5" name="X81B9B40B7B2D97D5"></a></p>
@@ -1224,10 +1207,10 @@ false
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := MOLS(4,2);</span>
-[ [ [ 0, 1, 2, 3 ], [ 1, 0, 3, 2 ], [ 2, 3, 0, 1 ], [ 3, 2, 1, 0 ] ],
+[ [ [ 0, 1, 2, 3 ], [ 1, 0, 3, 2 ], [ 2, 3, 0, 1 ], [ 3, 2, 1, 0 ] ], 
   [ [ 0, 2, 3, 1 ], [ 1, 3, 2, 0 ], [ 2, 0, 1, 3 ], [ 3, 1, 0, 2 ] ] ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">AreMOLS(M);</span>
-true 
+true
 </pre></div>
 
 <p><a id="X7AB5E5CE7FDF7132" name="X7AB5E5CE7FDF7132"></a></p>
@@ -1254,7 +1237,7 @@ Some functions related to the norm of a code
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CoordinateNorm( HammingCode( 3, GF(2) ), 3 );</span>
-3 
+3
 </pre></div>
 
 <p><a id="X7ED2EF368203AF47" name="X7ED2EF368203AF47"></a></p>
@@ -1267,7 +1250,7 @@ Some functions related to the norm of a code
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CodeNorm( HammingCode( 3, GF(2) ) );</span>
-3 
+3
 </pre></div>
 
 <p><a id="X7D24F8BF7F9A7BF1" name="X7D24F8BF7F9A7BF1"></a></p>
@@ -1280,7 +1263,7 @@ Some functions related to the norm of a code
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsCoordinateAcceptable( HammingCode( 3, GF(2) ), 3 );</span>
-true 
+true
 </pre></div>
 
 <p><a id="X87039FD179AD3009" name="X87039FD179AD3009"></a></p>
@@ -1297,7 +1280,7 @@ true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">d := EvenWeightSubcode( ham );;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">e := ConstantWeightSubcode( ham, 3 );;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">GeneralizedCodeNorm( ham, c, d, e );</span>
-4 
+4
 </pre></div>
 
 <p><a id="X80283A2F7C8101BD" name="X80283A2F7C8101BD"></a></p>
@@ -1312,7 +1295,7 @@ true
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsNormalCode( HammingCode( 3, GF(2) ) );</span>
-true 
+true
 </pre></div>
 
 <p><a id="X8308D685809A4E2F" name="X8308D685809A4E2F"></a></p>
@@ -1407,7 +1390,7 @@ f(x) = \sum_{i=0}^{n} C_i x^i,
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CodeDensity( HammingCode( 3, GF(2) ) );</span>
 1
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CodeDensity( ReedMullerCode( 1, 4 ) );</span>
-14893/2048 
+14893/2048
 </pre></div>
 
 <p><a id="X85303BAE7BD46D81" name="X85303BAE7BD46D81"></a></p>
@@ -1421,15 +1404,14 @@ f(x) = \sum_{i=0}^{n} C_i x^i,
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SphereContent( 15, 0, GF(2) );</span>
-1    # Only one word with distance 0, which is the word itself
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SphereContent( 15, 0, GF(2) );     # Only one word with distance 0, which is the word itself</span>
+1
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SphereContent( 11, 3, GF(4) );</span>
 4984
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C := HammingCode(5);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C := HammingCode(5); #the minimum distance is 3, so the code can correct one error</span>
 a linear [31,26,3]1 Hamming (5,2) code over GF(2)
-#the minimum distance is 3, so the code can correct one error
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">( SphereContent( 31, 1, GF(2) ) * Size(C) ) = 2 ^ 31;</span>
-true 
+true
 </pre></div>
 
 <p><a id="X7ACDC5377CD17451" name="X7ACDC5377CD17451"></a></p>
@@ -1449,7 +1431,7 @@ K_k^{n,q}(x)
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Krawtchouk( 2, 0, 3, 2);</span>
-3 
+3
 </pre></div>
 
 <p><a id="X827E39957A87EB51" name="X827E39957A87EB51"></a></p>
@@ -1466,7 +1448,7 @@ Z(2^4)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">last^15;</span>
 Z(2)^0
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PrimitiveUnityRoot( GF(8), 21 );</span>
-Z(2^6)^3 
+Z(2^6)^3
 </pre></div>
 
 <p><a id="X78AEA40F7AD9D541" name="X78AEA40F7AD9D541"></a></p>
@@ -1482,7 +1464,6 @@ Z(2^6)^3
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PrimitivePolynomialsNr(3,4);</span>
 12
-
 </pre></div>
 
 <p><a id="X7A2B54EF868AA752" name="X7A2B54EF868AA752"></a></p>
@@ -1496,7 +1477,6 @@ Z(2^6)^3
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IrreduciblePolynomialsNr(3,4);</span>
 20
-
 </pre></div>
 
 <p><a id="X7B50D3417F6FD7C6" name="X7B50D3417F6FD7C6"></a></p>
@@ -1537,7 +1517,7 @@ Z(2^2)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">RecP := ReciprocalPolynomial( P );</span>
 x_1^3+x_1-Z(3)^0
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ReciprocalPolynomial( RecP ) = P;</span>
-true 
+true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">P := UnivariatePolynomial( GF(3), Z(3)^0 * [1,0,1,2] );</span>
 -x_1^3+x_1^2+Z(3)^0
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ReciprocalPolynomial( P, 6 );</span>
@@ -1554,10 +1534,9 @@ x_1^6+x_1^4-x_1^3
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CyclotomicCosets( 2, 15 );</span>
-[ [ 0 ], [ 1, 2, 4, 8 ], [ 3, 6, 12, 9 ], [ 5, 10 ],
-  [ 7, 14, 13, 11 ] ]
+[ [ 0 ], [ 1, 2, 4, 8 ], [ 3, 6, 12, 9 ], [ 5, 10 ], [ 7, 14, 13, 11 ] ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CyclotomicCosets( 7, 6 );</span>
-[ [ 0 ], [ 1 ], [ 2 ], [ 3 ], [ 4 ], [ 5 ] ] 
+[ [ 0 ], [ 1 ], [ 2 ], [ 3 ], [ 4 ], [ 5 ] ]
 </pre></div>
 
 <p><a id="X7A4EA98D794CF410" name="X7A4EA98D794CF410"></a></p>
@@ -1632,7 +1611,7 @@ a linear [6,4,3]1 Hamming (2,5) code over GF(5)
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">L:=[1,2,3,4];;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">RotateList(L);</span>
-[2,3,4,1]
+[ 2, 3, 4, 1 ]
 </pre></div>
 
 <p><a id="X85E526367878F72A" name="X85E526367878F72A"></a></p>
@@ -1646,9 +1625,12 @@ a linear [6,4,3]1 Hamming (2,5) code over GF(5)
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">k:=3; L:=[1,2,3,4];;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">k:=3;; L:=[1,2,3,4];;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M:=CirculantMatrix(k,L);;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display(M);</span>
+[ [  1,  2,  3,  4 ],
+  [  4,  1,  2,  3 ],
+  [  3,  4,  1,  2 ] ]
 </pre></div>
 
 <p><a id="X7969103F7A8598F9" name="X7969103F7A8598F9"></a></p>
@@ -1679,13 +1661,12 @@ Miscellaneous polynomial functions
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">F:=GF(11);;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">R2:=PolynomialRing(F,2);</span>
-PolynomialRing(..., [ x_1, x_2 ])
+GF(2^4)[x,xx]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">vars:=IndeterminatesOfPolynomialRing(R2);;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">x:=vars[1];; y:=vars[2];;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">poly:=y^2-x*(x^2-1);;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">DegreeMultivariatePolynomial(poly,R2);</span>
 3
-
 </pre></div>
 
 <p><a id="X83F44E397C56F2E0" name="X83F44E397C56F2E0"></a></p>
@@ -1699,58 +1680,19 @@ PolynomialRing(..., [ x_1, x_2 ])
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">F:=GF(11);;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">R2:=PolynomialRing(F,2);</span>
-PolynomialRing(..., [ x_1, x_2 ])
+GF(2^4)[x,xx]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">vars:=IndeterminatesOfPolynomialRing(R2);;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">x:=vars[1];; y:=vars[2];;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">poly:=y^2-x*(x^2-1);;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">DegreesMultivariatePolynomial(poly,R2);</span>
-[ [ [ x_1, x_1, 1 ], [ x_1, x_2, 0 ] ], [ [ x_2^2, x_1, 0 ], [ x_2^2, x_2, 2 ] ],
+[ [ [ x_1, x_1, 1 ], [ x_1, x_2, 0 ] ], 
+  [ [ x_2^2, x_1, 0 ], [ x_2^2, x_2, 2 ] ], 
   [ [ x_1^3, x_1, 3 ], [ x_1^3, x_2, 0 ] ] ]
-</pre></div>
-
-<p><a id="X7E9021697A61A60F" name="X7E9021697A61A60F"></a></p>
-
-<h5>7.6-4 CoefficientMultivariatePolynomial</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; CoefficientMultivariatePolynomial</code>( <var class="Arg">f</var>, <var class="Arg">var</var>, <var class="Arg">power</var>, <var class="Arg">R</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
-<p>The command <code class="code">CoefficientMultivariatePolynomial</code> takes four arguments: a multivariant polynomial <var class="Arg">f</var>, a variable name <var class="Arg">var</var>, an integer <var class="Arg">power</var>, and a polynomial ring <var class="Arg">R</var> containing <var class="Arg">f</var>. For example, if <var class="Arg">f</var> is a multivariate polynomial in <span class="SimpleMath">\(R\)</span> = <span class="SimpleMath">\(F\)</span>[<span class="SimpleMath">\(x_1,x_2,...,x_n\)</span>] then <var class="Arg">var</var> must be one of the <span class="SimpleMath">\(x_i\)</span>. The output is the coefficient of <span class="SimpleMath">\(x_i^{power}\)</span> in <var class="Arg">f</var>.</p>
-
-<p>(Not sure if <span class="SimpleMath">\(F\)</span> needs to be a field in fact ...)</p>
-
-<p>Related to the GAP command <code class="code">PolynomialCoefficientsPolynomial</code>.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">F:=GF(11);;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">R2:=PolynomialRing(F,2);</span>
-PolynomialRing(..., [ x_1, x_2 ])
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">vars:=IndeterminatesOfPolynomialRing(R2);;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">x:=vars[1];; y:=vars[2];;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">poly:=y^2-x*(x^2-1);;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PolynomialCoefficientsOfPolynomial(poly,x);</span>
-[ x_2^2, Z(11)^0, 0*Z(11), -Z(11)^0 ]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PolynomialCoefficientsOfPolynomial(poly,y);</span>
-[ -x_1^3+x_1, 0*Z(11), Z(11)^0 ]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CoefficientMultivariatePolynomial(poly,y,0,R2);</span>
--x_1^3+x_1
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CoefficientMultivariatePolynomial(poly,y,1,R2);</span>
-0*Z(11)
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CoefficientMultivariatePolynomial(poly,y,2,R2);</span>
-Z(11)^0
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CoefficientMultivariatePolynomial(poly,x,0,R2);</span>
-x_2^2
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CoefficientMultivariatePolynomial(poly,x,1,R2);</span>
-Z(11)^0
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CoefficientMultivariatePolynomial(poly,x,2,R2);</span>
-0*Z(11)
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CoefficientMultivariatePolynomial(poly,x,3,R2);</span>
--Z(11)^0
-
 </pre></div>
 
 <p><a id="X79E76B6F7D177E27" name="X79E76B6F7D177E27"></a></p>
 
-<h5>7.6-5 SolveLinearSystem</h5>
+<h5>7.6-4 SolveLinearSystem</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SolveLinearSystem</code>( <var class="Arg">L</var>, <var class="Arg">vars</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Input: <var class="Arg">L</var> is a list of linear forms in the variables <var class="Arg">vars</var>.</p>
@@ -1765,7 +1707,7 @@ Z(11)^0
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">F:=GF(11);;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">R2:=PolynomialRing(F,2);</span>
-PolynomialRing(..., [ x_1, x_2 ])
+GF(2^4)[x,xx]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">vars:=IndeterminatesOfPolynomialRing(R2);;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">x:=vars[1];; y:=vars[2];;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">f:=3*y-3*x+1;; g:=-5*y+2*x-7;;</span>
@@ -1775,12 +1717,11 @@ PolynomialRing(..., [ x_1, x_2 ])
 0*Z(11)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Value(g,[x,y],col); # checking okay</span>
 0*Z(11)
-
 </pre></div>
 
 <p><a id="X80171AA687FFDC70" name="X80171AA687FFDC70"></a></p>
 
-<h5>7.6-6 GuavaVersion</h5>
+<h5>7.6-5 GuavaVersion</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; GuavaVersion</code>(  )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns the current version of Guava. Same as <code class="code">guava\_version()</code>.</p>
@@ -1789,12 +1730,11 @@ PolynomialRing(..., [ x_1, x_2 ])
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">GuavaVersion();</span>
 "3.19"
-
 </pre></div>
 
 <p><a id="X7EBBE86D85CC90C0" name="X7EBBE86D85CC90C0"></a></p>
 
-<h5>7.6-7 ZechLog</h5>
+<h5>7.6-6 ZechLog</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ZechLog</code>( <var class="Arg">x</var>, <var class="Arg">b</var>, <var class="Arg">F</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns the Zech log of x to base b, ie the i such that $x+1=b^i$, so $y+z=y(1+z/y)=b^k$, where k=Log(y,b)+ZechLog(z/y,b) and b must be a primitive element of F.</p>
@@ -1806,13 +1746,11 @@ PolynomialRing(..., [ x_1, x_2 ])
 -24
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">8*l+l;(2*l)^(-24);</span>
 Z(11)^6
-Z(11)^6
-
-</pre></div>
+Z(11)^6</pre></div>
 
 <p><a id="X7C8C1E6A7E3497F0" name="X7C8C1E6A7E3497F0"></a></p>
 
-<h5>7.6-8 CoefficientToPolynomial</h5>
+<h5>7.6-7 CoefficientToPolynomial</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; CoefficientToPolynomial</code>( <var class="Arg">coeffs</var>, <var class="Arg">R</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>The function <code class="code">CoefficientToPolynomial</code> returns the degree <span class="SimpleMath">\(d-1\)</span> polynomial <span class="SimpleMath">\(c_0+c_1x+...+c_{d-1}x^{d-1}\)</span>, where <var class="Arg">coeffs</var> is a list of elements of a field, <span class="SimpleMath">\(coeffs=\{ c_0,...,c_{d-1}\}\)</span>, and <var class="Arg">R</var> is a univariate polynomial ring.</p>
@@ -1831,7 +1769,7 @@ Z(11)^2*a^3+Z(11)^8*a^2+Z(11)*a+Z(11)^0
 
 <p><a id="X8431985183B63BB7" name="X8431985183B63BB7"></a></p>
 
-<h5>7.6-9 DegreesMonomialTerm</h5>
+<h5>7.6-8 DegreesMonomialTerm</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DegreesMonomialTerm</code>( <var class="Arg">m</var>, <var class="Arg">R</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>The function <code class="code">DegreesMonomialTerm</code> returns the list of degrees to which each variable in the multivariate polynomial ring <var class="Arg">R</var> occurs in the monomial <var class="Arg">m</var>, where <var class="Arg">coeffs</var> is a list of elements of a field.</p>
@@ -1862,7 +1800,7 @@ b^3*c^7
 
 <p><a id="X860EF39B841380A1" name="X860EF39B841380A1"></a></p>
 
-<h5>7.6-10 DivisorsMultivariatePolynomial</h5>
+<h5>7.6-9 DivisorsMultivariatePolynomial</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DivisorsMultivariatePolynomial</code>( <var class="Arg">f</var>, <var class="Arg">R</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>The function <code class="code">DivisorsMultivariatePolynomial</code> returns the list of polynomial divisors of <var class="Arg">f</var> in the multivariate polynomial ring <var class="Arg">R</var> with coefficients in a field. This program uses a simple but slow algorithm (see Joachim von zur Gathen, Jürgen Gerhard, <a href="chapBib_mj.html#biBGG03">[vzGG03]</a>, exercise 16.10) which first converts the multivariate polynomial <var class="Arg">f</var> to an associated univariate polynomial <span class="SimpleMath">\(f^*\)</span>, then <code class="code">Factors</code> <span class="SimpleMath">\(f^*\)</span>, and finally converts these univariate factors back into the multivariate polynomial factors of <var class="Arg">f</var>. Since <code class="code">Factors</code> is non-deterministic, <code class="code">DivisorsMultivariatePolynomial</code> is non-deterministic as well.</p>

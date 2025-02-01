@@ -17,11 +17,12 @@
     [4X[28Xa  [20,10,?] randomly generated code over GF(4)[128X[104X
     [4X[25Xgap>[125X [27Xc:=Random(C);[127X[104X
     [4X[28X[ 1 a 0 0 0 1 1 a^2 0 0 a 1 1 1 a 1 1 a a 0 ][128X[104X
-    [4X[25Xgap>[125X [27XNamesOfComponents(C);[127X[104X
-    [4X[28X[ "Representative", "ZeroImmutable", "name", "LeftActingDomain", "Dimension", [128X[104X
-    [4X[28X  "GeneratorsOfLeftOperatorAdditiveGroup", "Basis", "NiceFreeLeftModule", [128X[104X
-    [4X[28X  "GeneratorMat", "WordLength" ][128X[104X
-    [4X[25Xgap>[125X [27XNamesOfComponents(c);[127X[104X
+    [4X[25Xgap>[125X [27XSet(NamesOfComponents(C));[127X[104X
+    [4X[28X[ "Basis", "Dimension", "GeneratorMat", [128X[104X
+    [4X[28X  "GeneratorsOfLeftOperatorAdditiveGroup", "LeftActingDomain", [128X[104X
+    [4X[28X  "NiceFreeLeftModule", "Representative", "WordLength", "ZeroImmutable", [128X[104X
+    [4X[28X  "name" ][128X[104X
+    [4X[25Xgap>[125X [27XSet(NamesOfComponents(c));[127X[104X
     [4X[28X[ "VectorCodeword", "WordLength", "treatAsPoly" ][128X[104X
     [4X[25Xgap>[125X [27Xc!.VectorCodeword;[127X[104X
     [4X[28X< immutable compressed vector length 20 over GF(4) >[128X[104X
@@ -127,7 +128,7 @@
     [4X[25Xgap>[125X [27Xp := UnivariatePolynomial(GF(2), [Z(2)^0, 0*Z(2), Z(2)^0]);[127X[104X
     [4X[28Xx_1^2+Z(2)^0[128X[104X
     [4X[25Xgap>[125X [27XCodeword(p);[127X[104X
-    [4X[28Xx^2 + 1 [128X[104X
+    [4X[28Xx^2 + 1[128X[104X
   [4X[32X[104X
   
   [33X[0;0YThis  command  can  also be called using the syntax [10XCodeword(obj,C)[110X. In this
@@ -142,7 +143,7 @@
     [4X[25Xgap>[125X [27XCodeword(["0220110", [1,1,1]], C);[127X[104X
     [4X[28X[ [ 0 2 2 0 1 1 0 ], [ 1 1 1 0 0 0 0 ] ][128X[104X
     [4X[25Xgap>[125X [27XCodeword(["0220110", [1,1,1]], 7, GF(5));[127X[104X
-    [4X[28X[ [ 0 2 2 0 1 1 0 ], [ 1 1 1 0 0 0 0 ] ] [128X[104X
+    [4X[28X[ [ 0 2 2 0 1 1 0 ], [ 1 1 1 0 0 0 0 ] ][128X[104X
     [4X[25Xgap>[125X [27XC:=RandomLinearCode(10,5,GF(3));[127X[104X
     [4X[28Xa  [10,5,?] randomly generated code over GF(3)[128X[104X
     [4X[25Xgap>[125X [27XCodeword("1000000000",C);[127X[104X
@@ -197,7 +198,7 @@
     [4X[25Xgap>[125X [27XIsCodeword("11111");[127X[104X
     [4X[28Xfalse[128X[104X
     [4X[25Xgap>[125X [27XIsCodeword(Codeword("11111"));[127X[104X
-    [4X[28Xtrue [128X[104X
+    [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
   
@@ -233,7 +234,7 @@
     [4X[25Xgap>[125X [27Xc2 := Codeword("1001", GF(2));[127X[104X
     [4X[28X[ 1 0 0 1 ][128X[104X
     [4X[25Xgap>[125X [27Xc = c2;[127X[104X
-    [4X[28Xtrue [128X[104X
+    [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27XC:=HammingCode(3);[127X[104X
     [4X[28Xa linear [7,4,3]1 Hamming (3,2) code over GF(2)[128X[104X
     [4X[25Xgap>[125X [27Xc1:=Random(C);[127X[104X
@@ -292,11 +293,11 @@
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XC:=RandomLinearCode(10,5);[127X[104X
-    [4X[28Xa  [10,5,?] randomly generated code over GF(3)[128X[104X
+    [4X[28Xa  [10,5,?] randomly generated code over GF(2)[128X[104X
     [4X[25Xgap>[125X [27Xc:=Random(C);[127X[104X
     [4X[28X[ 0 0 0 0 0 0 0 0 0 0 ][128X[104X
     [4X[25Xgap>[125X [27Xc+C;[127X[104X
-    [4X[28X< add. coset of a  [10,5,?] randomly generated code over GF(2) >[128X[104X
+    [4X[28X<add. coset of a  [10,5,?] randomly generated code over GF(2)>[128X[104X
     [4X[25Xgap>[125X [27Xc+C=C;[127X[104X
     [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27XIsLinearCode(c+C);[127X[104X
@@ -304,7 +305,7 @@
     [4X[25Xgap>[125X [27Xv:=Codeword("100000000");[127X[104X
     [4X[28X[ 1 0 0 0 0 0 0 0 0 ][128X[104X
     [4X[25Xgap>[125X [27Xv+C;[127X[104X
-    [4X[28X< add. coset of a  [10,5,?] randomly generated code over GF(2) >[128X[104X
+    [4X[28X<add. coset of a  [10,5,?] randomly generated code over GF(2)>[128X[104X
     [4X[25Xgap>[125X [27XC=v+C;[127X[104X
     [4X[28Xfalse[128X[104X
     [4X[25Xgap>[125X [27XC := GeneratorMatCode( [ [1, 0,0,0], [0, 1,0,0] ], GF(2) );[127X[104X
@@ -314,7 +315,7 @@
     [4X[25Xgap>[125X [27Xv:=Codeword("0011");[127X[104X
     [4X[28X[ 0 0 1 1 ][128X[104X
     [4X[25Xgap>[125X [27XC+v;[127X[104X
-    [4X[28X< add. coset of a linear [4,2,4]1 code defined by generator matrix over GF(2) >[128X[104X
+    [4X[28X<add. coset of a linear [4,2,4]1 code defined by generator matrix over GF(2)>[128X[104X
     [4X[25Xgap>[125X [27XElements(C+v);[127X[104X
     [4X[28X[ [ 0 0 1 1 ], [ 0 1 1 1 ], [ 1 0 1 1 ], [ 1 1 1 1 ] ][128X[104X
   [4X[32X[104X
@@ -384,7 +385,7 @@
     [4X[28Xx^22 + x^20 + x^17 + x^14 + x^13 + x^12 + x^11 + x^10[128X[104X
     [4X[25Xgap>[125X [27XTreatAsVector(c);[127X[104X
     [4X[25Xgap>[125X [27Xc;[127X[104X
-    [4X[28X[ 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 0 0 1 0 0 1 0 1 ] [128X[104X
+    [4X[28X[ 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 0 0 1 0 0 1 0 1 ][128X[104X
   [4X[32X[104X
   
   [1X3.5-2 TreatAsPoly[101X
@@ -412,7 +413,7 @@
     [4X[25Xgap>[125X [27Xb := NullWord(6,GF(4));[127X[104X
     [4X[28X[ 0 0 0 0 0 0 ][128X[104X
     [4X[25Xgap>[125X [27XTreatAsPoly(b); b;[127X[104X
-    [4X[28X0 [128X[104X
+    [4X[28X0[128X[104X
   [4X[32X[104X
   
   
@@ -435,7 +436,7 @@
     [4X[25Xgap>[125X [27XNullWord(5,GF(16));[127X[104X
     [4X[28X[ 0 0 0 0 0 ][128X[104X
     [4X[25Xgap>[125X [27XNullWord(ExtendedTernaryGolayCode());[127X[104X
-    [4X[28X[ 0 0 0 0 0 0 0 0 0 0 0 0 ] [128X[104X
+    [4X[28X[ 0 0 0 0 0 0 0 0 0 0 0 0 ][128X[104X
   [4X[32X[104X
   
   [1X3.6-2 DistanceCodeword[101X
@@ -455,7 +456,7 @@
     [4X[25Xgap>[125X [27XDistanceCodeword(b, a);[127X[104X
     [4X[28X4[128X[104X
     [4X[25Xgap>[125X [27XDistanceCodeword(a, a);[127X[104X
-    [4X[28X0 [128X[104X
+    [4X[28X0[128X[104X
   [4X[32X[104X
   
   [1X3.6-3 Support[101X
@@ -469,7 +470,7 @@
     [4X[25Xgap>[125X [27Xa := Codeword("012320023002");; Support(a);[127X[104X
     [4X[28X[ 2, 3, 4, 5, 8, 9, 12 ][128X[104X
     [4X[25Xgap>[125X [27XSupport(NullWord(7));[127X[104X
-    [4X[28X[  ] [128X[104X
+    [4X[28X[  ][128X[104X
   [4X[32X[104X
   
   [33X[0;0YThe  support  of a list with codewords can be calculated by taking the union
@@ -481,7 +482,7 @@
     [4X[25Xgap>[125X [27XS := Union(List(L, i -> Support(i)));[127X[104X
     [4X[28X[ 1, 2, 3, 5 ][128X[104X
     [4X[25Xgap>[125X [27XLength(S);[127X[104X
-    [4X[28X4 [128X[104X
+    [4X[28X4[128X[104X
   [4X[32X[104X
   
   [1X3.6-4 WeightCodeword[101X
@@ -500,6 +501,6 @@
     [4X[25Xgap>[125X [27XC := HammingCode(3);[127X[104X
     [4X[28Xa linear [7,4,3]1 Hamming (3,2) code over GF(2)[128X[104X
     [4X[25Xgap>[125X [27XMinimum(List(AsSSortedList(C){[2..Size(C)]}, WeightCodeword ) );[127X[104X
-    [4X[28X3 [128X[104X
+    [4X[28X3[128X[104X
   [4X[32X[104X
   

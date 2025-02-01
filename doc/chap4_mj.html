@@ -160,7 +160,7 @@ Decoding Functions
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C := ElementsCode(["1100", "1010", "0001"], "example code", GF(2) );</span>
-a (4,3,1..4)2..4 example code over GF(2) 
+a (4,3,1..4)2..4 example code over GF(2)
 </pre></div>
 
 <p>An <span class="SimpleMath">\((n,M,d)\)</span> code is a code with word <em>length</em> <span class="SimpleMath">\(n\)</span>, <em>size</em> <span class="SimpleMath">\(M\)</span> and <em>minimum distance</em> <span class="SimpleMath">\(d\)</span>. If the minimum distance has not yet been calculated, the lower bound and upper bound are printed (except in the case where the code is a random linear codes, where these are not printed for efficiency reasons). So</p>
@@ -177,11 +177,11 @@ a (4,3,1..4)2..4 code over GF(2)
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C := ElementsCode(["1100", "1010", "0001"], "example code", GF(2) );</span>
-a (4,3,1..4)2..4 example code over GF(2) 
+a (4,3,1..4)2..4 example code over GF(2)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">MinimumDistance(C);</span>
 2
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C;</span>
-a (4,3,2)2..4 example code over GF(2) 
+a (4,3,2)2..4 example code over GF(2)
 </pre></div>
 
 <p>If the set of elements is a linear subspace of <span class="SimpleMath">\(GF(q)^n\)</span>, the code is called <em>linear</em>. If a code is linear, it can be defined by its <em>generator matrix</em> or <em>parity check matrix</em>. By definition, the rows of the generator matrix is a basis for the code (as a vector space over <span class="SimpleMath">\(GF(q)\)</span>). By definition, the rows of the parity check matrix is a basis for the dual space of the code,</p>
@@ -193,7 +193,7 @@ C^* = \{ v \in GF(q)^n\ |\ v\cdot c = 0,\ for \ all\ c \in C \}.
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G := GeneratorMatCode([[1,0,1],[0,1,2]], "demo code", GF(3) );</span>
-a linear [3,2,1..2]1 demo code over GF(3) 
+a linear [3,2,1..2]1 demo code over GF(3)
 </pre></div>
 
 <p>So a linear <span class="SimpleMath">\([n, k, d]r\)</span> code is a code with word <em>length</em> <span class="SimpleMath">\(n\)</span>, <em>dimension</em> <span class="SimpleMath">\(k\)</span>, <em>minimum distance</em> <span class="SimpleMath">\(d\)</span> and <em>covering radius</em> <span class="SimpleMath">\(r\)</span>.</p>
@@ -218,7 +218,7 @@ a (3,4,1..3)1 user defined unrestricted code over GF(2)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsLinearCode( C );</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C;</span>
-a linear [3,2,1]1 user defined unrestricted code over GF(2) 
+a linear [3,2,1]1 user defined unrestricted code over GF(2)
 </pre></div>
 
 <p>Of course the same holds for unrestricted codes that in fact are cyclic, or codes, defined by a generator matrix, that actually are cyclic.</p>
@@ -235,8 +235,8 @@ a linear [8,4,4]2 Reed-Muller (1,3) code over GF(2)
 [ 1 0 0 1 1 0 0 1 ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Decode( R, w );</span>
 [ 1 0 1 1 ]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Decode( R, w + "10000000" ); # One error at the first position</span>
-[ 1 0 1 1 ]                       # Corrected by Guava 
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Decode( R, w + "10000000" ); # One error at the first position. Corrected by Guava.</span>
+[ 1 0 1 1 ]
 </pre></div>
 
 <p>Sections <a href="chap4_mj.html#X7ECE60E1873B49A6"><span class="RefLink">4.1</span></a> and <a href="chap4_mj.html#X832DA51986A3882C"><span class="RefLink">4.2</span></a> describe the operations that are available for codes. Section <a href="chap4_mj.html#X864091AA7D4AFE86"><span class="RefLink">4.3</span></a> describe the functions that tests whether an object is a code and what kind of code it is (see <code class="code">IsCode</code>, <code class="func">IsLinearCode</code> (<a href="chap4_mj.html#X7B24748A7CE8D4B9"><span class="RefLink">4.3-4</span></a>) and <code class="code">IsCyclicCode</code>) and various other boolean functions for codes. Section <a href="chap4_mj.html#X86442DCD7A0B2146"><span class="RefLink">4.4</span></a> describe functions about equivalence and isomorphism of codes (see <code class="func">IsEquivalent</code> (<a href="chap4_mj.html#X843034687D9C75B0"><span class="RefLink">4.4-1</span></a>), <code class="func">CodeIsomorphism</code> (<a href="chap4_mj.html#X874DED8E86BC180B"><span class="RefLink">4.4-2</span></a>) and <code class="func">AutomorphismGroup</code> (<a href="chap4_mj.html#X87677B0787B4461A"><span class="RefLink">4.4-3</span></a>)). Section <a href="chap4_mj.html#X866EB39483DDAE72"><span class="RefLink">4.5</span></a> describes functions that work on <em>domains</em> (see Chapter "Domains and their Elements" in the GAP Reference Manual). Section <a href="chap4_mj.html#X823827927D6A8235"><span class="RefLink">4.6</span></a> describes functions for printing and displaying codes. Section <a href="chap4_mj.html#X7D0F48B685A3ECDD"><span class="RefLink">4.7</span></a> describes functions that return the matrices and polynomials that define a code (see <code class="func">GeneratorMat</code> (<a href="chap4_mj.html#X817224657C9829C4"><span class="RefLink">4.7-1</span></a>), <code class="func">CheckMat</code> (<a href="chap4_mj.html#X85D4B26E7FB38D57"><span class="RefLink">4.7-2</span></a>), <code class="func">GeneratorPol</code> (<a href="chap4_mj.html#X78E33C3A843B0261"><span class="RefLink">4.7-3</span></a>), <code class="func">CheckPol</code> (<a href="chap4_mj.html#X7C45AA317BB1195F"><span class="RefLink">4.7-4</span></a>), <code class="func">RootsOfCode</code> (<a href="chap4_mj.html#X7F4CB9DB7CD97178"><span class="RefLink">4.7-5</span></a>)). Section <a href="chap4_mj.html#X8170B52D7C154247"><span class="RefLink">4.8</span></a> describes functions that return the basic parameters of codes (see <code class="func">WordLength</code> (<a href="chap4_mj.html#X7A36C3C67B0062E8"><span class="RefLink">4.8-1</span></a>), <code class="func">Redundancy</code> (<a href="chap4_mj.html#X7E33FD56792DBF3D"><span class="RefLink">4.8-2</span></a>) and <code class="func">MinimumDistance</code> (<a href="chap4_mj.html#X7B31613D8538BD29"><span class="RefLink">4.8-3</span></a>)). Section <a href="chap4_mj.html#X806384B4815EFF2E"><span class="RefLink">4.9</span></a> describes functions that return distance and weight distributions (see <code class="func">WeightDistribution</code> (<a href="chap4_mj.html#X8728BCC9842A6E5D"><span class="RefLink">4.9-2</span></a>), <code class="func">InnerDistribution</code> (<a href="chap4_mj.html#X871FD301820717A4"><span class="RefLink">4.9-3</span></a>), <code class="func">OuterDistribution</code> (<a href="chap4_mj.html#X8495870687195324"><span class="RefLink">4.9-5</span></a>) and <code class="func">DistancesDistribution</code> (<a href="chap4_mj.html#X87AD54F87C5EE77E"><span class="RefLink">4.9-4</span></a>)). Section <a href="chap4_mj.html#X7D9A39BF801948C8"><span class="RefLink">4.10</span></a> describes functions that are related to decoding (see <code class="func">Decode</code> (<a href="chap4_mj.html#X7A42FF7D87FC34AC"><span class="RefLink">4.10-1</span></a>), <code class="func">Decodeword</code> (<a href="chap4_mj.html#X7D870C9387C47D9F"><span class="RefLink">4.10-2</span></a>), <code class="func">Syndrome</code> (<a href="chap4_mj.html#X7D02E0FE8735D3E6"><span class="RefLink">4.10-8</span></a>), <code class="func">SyndromeTable</code> (<a href="chap4_mj.html#X7B9E71987E4294A7"><span class="RefLink">4.10-9</span></a>) and <code class="func">StandardArray</code> (<a href="chap4_mj.html#X8642D0BD789DA9B5"><span class="RefLink">4.10-10</span></a>)). In Chapters <a href="chap5_mj.html#X87EB64ED831CCE99"><span class="RefLink">5.</span></a> and <a href="chap6_mj.html#X866FC1117814B64D"><span class="RefLink">6.</span></a> which follow, we describe functions that generate and manipulate codes.</p>
@@ -295,7 +295,7 @@ a  [10,5,?] randomly generated code over GF(2)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C2:=RandomLinearCode(9,4);</span>
 a  [9,4,?] randomly generated code over GF(2)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C1+C2;</span>
-a linear [10,9,1]0..10 unknown linear code over GF(2)
+a linear [19,9,1..2]4..9 direct sum code
 </pre></div>
 
 <p><a id="X7EFA08EE7BA22261" name="X7EFA08EE7BA22261"></a></p>
@@ -383,7 +383,7 @@ Boolean Functions for Codes
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">eC[2] in C;</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">[ 0 ] in C;</span>
-false 
+false
 </pre></div>
 
 <p><a id="X79CA175481F8105F" name="X79CA175481F8105F"></a></p>
@@ -434,7 +434,7 @@ true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsLinearCode( ElementsCode( [ [1,1,1] ], GF(2) ) );</span>
 false
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsLinearCode( 1 );</span>
-false 
+false
 </pre></div>
 
 <p><a id="X850C23D07C9A9B19" name="X850C23D07C9A9B19"></a></p>
@@ -454,7 +454,7 @@ true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsCyclicCode( HammingCode( 4, GF(2) ) );</span>
 false
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsCyclicCode( 1 );</span>
-false 
+false
 </pre></div>
 
 <p><a id="X85E3BD26856424F7" name="X85E3BD26856424F7"></a></p>
@@ -477,7 +477,7 @@ true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsPerfectCode( ReedSolomonCode( 6, 3 ) );</span>
 false
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsPerfectCode( BinaryGolayCode() );</span>
-true 
+true
 </pre></div>
 
 <p><a id="X789380D28018EC3F" name="X789380D28018EC3F"></a></p>
@@ -496,7 +496,7 @@ a cyclic [6,4,3]2 Reed-Solomon code over GF(7)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsMDSCode( C1 );  # verify it is an MDS code, as 6-3+1 = 4</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsMDSCode( QRCode( 23, GF(2) ) );</span>
-false 
+false
 </pre></div>
 
 <p><a id="X80166D8D837FEB58" name="X80166D8D837FEB58"></a></p>
@@ -515,7 +515,7 @@ true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C := ReedMullerCode( 1, 3 );</span>
 a linear [8,4,4]2 Reed-Muller (1,3) code over GF(2)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">DualCode( C ) = C;</span>
-true 
+true
 </pre></div>
 
 <p><a id="X7B2A0CC481D2366F" name="X7B2A0CC481D2366F"></a></p>
@@ -532,7 +532,7 @@ a linear [16,5,8]6 Reed-Muller (1,4) code over GF(2)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsSelfOrthogonalCode(R);</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsSelfDualCode(R);</span>
-false 
+false
 </pre></div>
 
 <p><a id="X8358D43981EBE970" name="X8358D43981EBE970"></a></p>
@@ -547,13 +547,15 @@ false
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C:=BinaryGolayCode();</span>
 a cyclic [23,12,7]3 binary Golay code over GF(2)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">WeightDistribution(C);</span>
-[ 1, 0, 0, 0, 0, 0, 0, 253, 506, 0, 0, 1288, 1288, 0, 0, 506, 253, 0, 0, 0, 0, 0, 0, 1 ]
+[ 1, 0, 0, 0, 0, 0, 0, 253, 506, 0, 0, 1288, 1288, 0, 0, 506, 253, 0, 0, 0, 
+  0, 0, 0, 1 ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsDoublyEvenCode(C);  </span>
 false
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C:=ExtendedCode(C);  </span>
 a linear [24,12,8]4 extended code
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">WeightDistribution(C);</span>
-[ 1, 0, 0, 0, 0, 0, 0, 0, 759, 0, 0, 0, 2576, 0, 0, 0, 759, 0, 0, 0, 0, 0, 0, 0, 1 ]
+[ 1, 0, 0, 0, 0, 0, 0, 0, 759, 0, 0, 0, 2576, 0, 0, 0, 759, 0, 0, 0, 0, 0, 0, 
+  0, 1 ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsDoublyEvenCode(C);  </span>
 true
 </pre></div>
@@ -627,7 +629,7 @@ v \in C \Rightarrow 1 - v \in C,
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsSelfComplementaryCode( EvenWeightSubcode(</span>
 <span class="GAPprompt">&gt;</span> <span class="GAPinput">HammingCode( 3, GF(2) ) ) );</span>
-false 
+false
 </pre></div>
 
 <p><a id="X7AFD3844859B20BF" name="X7AFD3844859B20BF"></a></p>
@@ -645,7 +647,7 @@ true
 <span class="GAPprompt">&gt;</span> <span class="GAPinput">Codeword([ 1, 0, 0, 0, 0, 0, 0 ]) ) );</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsAffineCode( NordstromRobinsonCode() );</span>
-false 
+false
 </pre></div>
 
 <p><a id="X861D32FB81EF0D77" name="X861D32FB81EF0D77"></a></p>
@@ -665,7 +667,7 @@ false
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsAlmostAffineCode( code );</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsAlmostAffineCode( NordstromRobinsonCode() );</span>
-false 
+false
 </pre></div>
 
 <p><a id="X86442DCD7A0B2146" name="X86442DCD7A0B2146"></a></p>
@@ -687,8 +689,8 @@ Equivalence and Isomorphism of Codes
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">x:= Indeterminate( GF(2) );; pol:= x^3+x+1; </span>
-x_1^3+x_1+Z(2)^0
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">x:= Indeterminate( GF(2), "x" );; pol:= x^3+x+1; </span>
+x^3+x+Z(2)^0
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">H := GeneratorPolCode( pol, 7, GF(2));          </span>
 a cyclic [7,4,1..3]1 code defined by generator polynomial over GF(2)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">H = HammingCode(3, GF(2));</span>
@@ -698,7 +700,7 @@ false
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsEquivalent(H, HammingCode(3, GF(2)));</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CodeIsomorphism(H, HammingCode(3, GF(2)));</span>
-(3,4)(5,6,7) 
+(3,4)(5,6,7)
 </pre></div>
 
 <p><a id="X874DED8E86BC180B" name="X874DED8E86BC180B"></a></p>
@@ -712,14 +714,14 @@ true
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">x:= Indeterminate( GF(2) );; pol:= x^3+x+1; </span>
-x_1^3+x_1+Z(2)^0
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">x:= Indeterminate( GF(2), "x" );; pol:= x^3+x+1; </span>
+x^3+x+Z(2)^0
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">H := GeneratorPolCode( pol, 7, GF(2));          </span>
 a cyclic [7,4,1..3]1 code defined by generator polynomial over GF(2)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CodeIsomorphism(H, HammingCode(3, GF(2)));</span>
-(3,4)(5,6,7) 
+(3,4)(5,6,7)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PermutedCode(H, (3,4)(5,6,7)) = HammingCode(3, GF(2));</span>
-true 
+true
 </pre></div>
 
 <p><a id="X87677B0787B4461A" name="X87677B0787B4461A"></a></p>
@@ -753,7 +755,7 @@ a linear [7,2,4]3 permuted code
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">AsSSortedList(C2);</span>
 [ [ 0 0 0 0 0 0 0 ], [ 0 0 1 1 1 1 1 ], [ 1 1 0 0 0 1 1 ], [ 1 1 1 1 1 0 0 ] ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C2 = C;</span>
-true 
+true
 </pre></div>
 
 <p><a id="X79F3261F86C29F6D" name="X79F3261F86C29F6D"></a></p>
@@ -794,7 +796,7 @@ Domain Functions for Codes
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsFinite( RepetitionCode( 1000, GF(11) ) );</span>
-true 
+true
 </pre></div>
 
 <p><a id="X858ADA3B7A684421" name="X858ADA3B7A684421"></a></p>
@@ -809,7 +811,7 @@ true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Size( RepetitionCode( 1000, GF(11) ) );</span>
 11
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Size( NordstromRobinsonCode() );</span>
-256 
+256
 </pre></div>
 
 <p><a id="X86F070E0807DC34E" name="X86F070E0807DC34E"></a></p>
@@ -826,7 +828,7 @@ a (3,3,1..3)2..3 user defined unrestricted code over GF(4)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LeftActingDomain( C1 );</span>
 GF(2^2)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LeftActingDomain( HammingCode( 3, GF(9) ) );</span>
-GF(3^2) 
+GF(3^2)
 </pre></div>
 
 <p><a id="X7E6926C6850E7C4E" name="X7E6926C6850E7C4E"></a></p>
@@ -845,7 +847,7 @@ a cyclic [15,9,5]3..4 BCH code, delta=5, b=1 over GF(4)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Dimension( C );</span>
 9
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Size( C ) = Size( LeftActingDomain( C ) ) ^ Dimension( C );</span>
-true 
+true
 </pre></div>
 
 <p><a id="X856D927378C33548" name="X856D927378C33548"></a></p>
@@ -938,10 +940,10 @@ This is a (16,256,6)4 Nordstrom-Robinson code over GF(2).
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">x:= Indeterminate( GF(3) );; pol:= x^2+1;</span>
-x_1^2+Z(3)^0
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">x:= Indeterminate( GF(3), "x" );; pol:= x^2+1;</span>
+x^2+Z(3)^0
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Factors(pol);</span>
-[ x_1^2+Z(3)^0 ]
+[ x^2+Z(3)^0 ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">H := GeneratorPolCode( pol, 8, GF(3));</span>
 a cyclic [8,6,1..2]1..2 code defined by generator polynomial over GF(3)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">String(H);</span>
@@ -963,7 +965,7 @@ a cyclic [6,1,6]4 repetition code over GF(3)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C2 := PuncturedCode( ReedMullerCode( 2, 3 ) );;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( LengthenedCode( UUVCode( C1, C2 ) ) );</span>
 a linear [12,8,2]2..4 code, lengthened with 1 column(s) of
-a linear [11,8,1]1..2 U U+V construction code of
+a linear [11,8,1]1..2 U|U+V construction code of
 U: a linear [4,1,4]2 extended code of
    a linear [3,1,3]1 Hamming (2,2) code over GF(2)
 V: a linear [7,7,1]0 punctured code of
@@ -979,20 +981,20 @@ V: a linear [7,7,1]0 punctured code of
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">bounds := BoundsMinimumDistance( 20, 17, GF(4) );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">bounds := BoundsMinimumDistance( 20, 17, GF(4) );;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">DisplayBoundsInfo(bounds);</span>
 an optimal linear [20,17,d] code over GF(4) has d=3
---------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------
 Lb(20,17)=3, by shortening of:
 Lb(21,18)=3, by applying construction B to a [81,77,3] code
 Lb(81,77)=3, by shortening of:
 Lb(85,81)=3, reference: Ham
---------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------
 Ub(20,17)=3, by considering shortening to:
 Ub(7,4)=3, by considering puncturing to:
 Ub(6,4)=2, by construction B applied to:
 Ub(2,1)=2, repetition code
---------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------
 Reference Ham:
 %T this reference is unknown, for more info
 %T contact A.E. Brouwer (aeb@cwi.nl)
@@ -1018,10 +1020,10 @@ Generating (Check) Matrices and Polynomials
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">GeneratorMat( HammingCode( 3, GF(2) ) );</span>
-[ [ an immutable GF2 vector of length 7], 
-  [ an immutable GF2 vector of length 7], 
-  [ an immutable GF2 vector of length 7], 
-  [ an immutable GF2 vector of length 7] ]
+[ &lt;an immutable GF2 vector of length 7&gt;, 
+  &lt;an immutable GF2 vector of length 7&gt;, 
+  &lt;an immutable GF2 vector of length 7&gt;, 
+  &lt;an immutable GF2 vector of length 7&gt; ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display(last);</span>
  1 1 1 . . . .
  1 . . 1 1 . .
@@ -1046,19 +1048,19 @@ Generating (Check) Matrices and Polynomials
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CheckMat( HammingCode(3, GF(2) ) );</span>
 [ [ 0*Z(2), 0*Z(2), 0*Z(2), Z(2)^0, Z(2)^0, Z(2)^0, Z(2)^0 ], 
-  [ 0*Z(2), Z(2)^0, Z(2)^0, 0*Z(2), 0*Z(2), Z(2)^0, Z(2)^0 ],
+  [ 0*Z(2), Z(2)^0, Z(2)^0, 0*Z(2), 0*Z(2), Z(2)^0, Z(2)^0 ], 
   [ Z(2)^0, 0*Z(2), Z(2)^0, 0*Z(2), Z(2)^0, 0*Z(2), Z(2)^0 ] ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display(last);</span>
  . . . 1 1 1 1
  . 1 1 . . 1 1
  1 . 1 . 1 . 1
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CheckMat( RepetitionCode( 5, GF(25) ) );</span>
-[ [ Z(5)^0, Z(5)^2, 0*Z(5), 0*Z(5), 0*Z(5) ],
-  [ 0*Z(5), Z(5)^0, Z(5)^2, 0*Z(5), 0*Z(5) ],
-  [ 0*Z(5), 0*Z(5), Z(5)^0, Z(5)^2, 0*Z(5) ],
+[ [ Z(5)^0, Z(5)^2, 0*Z(5), 0*Z(5), 0*Z(5) ], 
+  [ 0*Z(5), Z(5)^0, Z(5)^2, 0*Z(5), 0*Z(5) ], 
+  [ 0*Z(5), 0*Z(5), Z(5)^0, Z(5)^2, 0*Z(5) ], 
   [ 0*Z(5), 0*Z(5), 0*Z(5), Z(5)^0, Z(5)^2 ] ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CheckMat( WholeSpaceCode( 12, GF(4) ) );</span>
-[  ] 
+[  ]
 </pre></div>
 
 <p><a id="X78E33C3A843B0261" name="X78E33C3A843B0261"></a></p>
@@ -1123,7 +1125,7 @@ a cyclic [16,12,5]3..4 Reed-Solomon code over GF(17)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C2 := RootsCode( 16, last );</span>
 a cyclic [16,12,5]3..4 code defined by roots over GF(17)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C1 = C2;</span>
-true 
+true
 </pre></div>
 
 <p><a id="X8170B52D7C154247" name="X8170B52D7C154247"></a></p>
@@ -1146,7 +1148,7 @@ Parameters of Codes
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">WordLength( PuncturedCode( WholeSpaceCode(7) ) );</span>
 6
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">WordLength( UUVCode( WholeSpaceCode(7), RepetitionCode(7) ) );</span>
-14 
+14
 </pre></div>
 
 <p><a id="X7E33FD56792DBF3D" name="X7E33FD56792DBF3D"></a></p>
@@ -1165,7 +1167,7 @@ a cyclic [11,6,5]2 ternary Golay code over GF(3)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Redundancy(C);</span>
 5
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Redundancy( DualCode(C) );</span>
-6 
+6
 </pre></div>
 
 <p><a id="X7B31613D8538BD29" name="X7B31613D8538BD29"></a></p>
@@ -1196,13 +1198,14 @@ a cyclic [11,6,5]2 ternary Golay code over GF(3)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C := ConferenceCode(9);; MinimumDistance(C);</span>
 4
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">InnerDistribution(C);</span>
-[ 1, 0, 0, 0, 63/5, 9/5, 18/5, 0, 9/10, 1/10 ] 
+[ 1, 0, 0, 0, 63/5, 9/5, 18/5, 0, 9/10, 1/10 ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C := MOLSCode(7);; w := CodewordNr( C, 17 );</span>
 [ 3 3 6 2 ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">MinimumDistance( C, w );</span>
 0
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C := RemovedElementsCode( C, w );; MinimumDistance( C, w );</span>
-3                           # so w no longer belongs to C 
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C := RemovedElementsCode( C, w );; # so w no longer belongs to C </span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">MinimumDistance( C, w );</span>
+3
 </pre></div>
 
 <p>See also the <strong class="pkg">GUAVA</strong> commands relating to bounds on the minimum distance in section <a href="chap7_mj.html#X87C753EB840C34D3"><span class="RefLink">7.1</span></a>.</p>
@@ -1244,12 +1247,10 @@ G=(I_{k} \, | \, Z \, | \, B)
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C:=RandomLinearCode(50,22,GF(2));</span>
 a  [50,22,?] randomly generated code over GF(2)
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">MinimumDistanceLeon(C); time;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">MinimumDistanceLeon(C); #time; #Uncomment the call to "time;"" to see performance data</span>
 6
-211
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">MinimumDistance(C); time;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">MinimumDistance(C); #time; #Uncomment the call to "time;"" to see performance data</span>
 6
-1204
 </pre></div>
 
 <p><a id="X84EDF67B86B4154C" name="X84EDF67B86B4154C"></a></p>
@@ -1269,10 +1270,10 @@ a  [50,22,?] randomly generated code over GF(2)
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput"># Extended ternary quadratic residue code of length 48</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">n := 47;;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">x := Indeterminate(GF(3));;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">x := Indeterminate(GF(3), "x");;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">F := Factors(x^n-1);;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">v := List([1..n], i-&gt;Zero(GF(3)));;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">v := v + MutableCopyMat(VectorCodeword( Codeword(F[2]) ));;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">v := NullVector(n,GF(3));;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">v := v + ShallowCopy(VectorCodeword( Codeword(F[2]) ));;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G := CirculantMatrix(24, v);;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">for i in [1..Size(G)] do; s:=Zero(GF(3));</span>
 <span class="GAPprompt">&gt;</span> <span class="GAPinput">for j in [1..Size(G[i])] do; s:=s+G[i][j]; od; Append(G[i], [ s ]);</span>
@@ -1280,90 +1281,14 @@ a  [50,22,?] randomly generated code over GF(2)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C := GeneratorMatCodeNC(G, GF(3));</span>
 a  [48,24,?] randomly generated code over GF(3)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">MinimumWeight(C);</span>
-[48,24] linear code over GF(3) - minimum weight evaluation
-Known lower-bound: 1
-There are 2 generator matrices, ranks : 24 24 
-The weight of the minimum weight codeword satisfies 0 mod 3 congruence
-Enumerating codewords with information weight 1 (w=1)
-    Found new minimum weight 15
-Number of matrices required for codeword enumeration 2
-Completed w= 1, 48 codewords enumerated, lower-bound 6, upper-bound 15
-Termination expected with information weight 6 at matrix 1
------------------------------------------------------------------------------
-Enumerating codewords with information weight 2 (w=2) using 2 matrices
-Completed w= 2, 1104 codewords enumerated, lower-bound 6, upper-bound 15
-Termination expected with information weight 6 at matrix 1
------------------------------------------------------------------------------
-Enumerating codewords with information weight 3 (w=3) using 2 matrices
-Completed w= 3, 16192 codewords enumerated, lower-bound 9, upper-bound 15
-Termination expected with information weight 6 at matrix 1
------------------------------------------------------------------------------
-Enumerating codewords with information weight 4 (w=4) using 2 matrices
-Completed w= 4, 170016 codewords enumerated, lower-bound 12, upper-bound 15
-Termination expected with information weight 6 at matrix 1
------------------------------------------------------------------------------
-Enumerating codewords with information weight 5 (w=5) using 2 matrices
-Completed w= 5, 1360128 codewords enumerated, lower-bound 12, upper-bound 15
-Termination expected with information weight 6 at matrix 1
------------------------------------------------------------------------------
-Enumerating codewords with information weight 6 (w=6) using 1 matrices
-Completed w= 6, 4307072 codewords enumerated, lower-bound 15, upper-bound 15
------------------------------------------------------------------------------
-Minimum weight: 15
 15
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput"></span>
-
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput"># Binary cyclic code [151,45,36]</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">n := 151;;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">x := Indeterminate(GF(2));;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">x := Indeterminate(GF(2), "x");;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">F := Factors(x^n-1);;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C := CheckPolCode(F[2]*F[3]*F[3]*F[4], n, GF(2));</span>
 a cyclic [151,45,1..50]31..75 code defined by check polynomial over GF(2)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">MinimumWeight(C);</span>
-[151,45] cyclic code over GF(2) - minimum weight evaluation
-Known lower-bound: 1
-The weight of the minimum weight codeword satisfies 0 mod 4 congruence
-Enumerating codewords with information weight 1 (w=1)
-    Found new minimum weight 56
-    Found new minimum weight 44
-Number of matrices required for codeword enumeration 1
-Completed w= 1, 45 codewords enumerated, lower-bound 8, upper-bound 44
-Termination expected with information weight 11
------------------------------------------------------------------------------
-Enumerating codewords with information weight 2 (w=2) using 1 matrix
-Completed w= 2, 990 codewords enumerated, lower-bound 12, upper-bound 44
-Termination expected with information weight 11
------------------------------------------------------------------------------
-Enumerating codewords with information weight 3 (w=3) using 1 matrix
-   Found new minimum weight 40
-   Found new minimum weight 36
-Completed w= 3, 14190 codewords enumerated, lower-bound 16, upper-bound 36
-Termination expected with information weight 9
------------------------------------------------------------------------------
-Enumerating codewords with information weight 4 (w=4) using 1 matrix
-Completed w= 4, 148995 codewords enumerated, lower-bound 20, upper-bound 36
-Termination expected with information weight 9
------------------------------------------------------------------------------
-Enumerating codewords with information weight 5 (w=5) using 1 matrix
-Completed w= 5, 1221759 codewords enumerated, lower-bound 24, upper-bound 36
-Termination expected with information weight 9
------------------------------------------------------------------------------
-Enumerating codewords with information weight 6 (w=6) using 1 matrix
-Completed w= 6, 8145060 codewords enumerated, lower-bound 24, upper-bound 36
-Termination expected with information weight 9
------------------------------------------------------------------------------
-Enumerating codewords with information weight 7 (w=7) using 1 matrix
-Completed w= 7, 45379620 codewords enumerated, lower-bound 28, upper-bound 36
-Termination expected with information weight 9
------------------------------------------------------------------------------
-Enumerating codewords with information weight 8 (w=8) using 1 matrix
-Completed w= 8, 215553195 codewords enumerated, lower-bound 32, upper-bound 36
-Termination expected with information weight 9
------------------------------------------------------------------------------
-Enumerating codewords with information weight 9 (w=9) using 1 matrix
-Completed w= 9, 886163135 codewords enumerated, lower-bound 36, upper-bound 36
------------------------------------------------------------------------------
-Minimum weight: 36
 36
 </pre></div>
 
@@ -1387,7 +1312,7 @@ rec( mindist := 3, word := [ 0*Z(2), Z(2)^0, Z(2)^0, 0*Z(2), Z(2)^0 ] )
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C:=RandomLinearCode(8,4,GF(2));</span>
 a  [8,4,?] randomly generated code over GF(2)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">DecreaseMinimumDistanceUpperBound(C,3,4);</span>
-rec( mindist := 2,
+rec( mindist := 2, 
   word := [ Z(2)^0, 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), Z(2)^0 ] )
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">MinimumDistance(C);</span>
 2
@@ -1428,17 +1353,16 @@ G=(A, B)
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C:=RandomLinearCode(60,20,GF(2));</span>
 a  [60,20,?] randomly generated code over GF(2)
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">#mindist(C);time;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">#mindistleon(C,10,30);time; #doesn't work well</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">a:=MinimumDistanceRandom(C,10,30);time; # done 10 times -with fastest time!!</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">#mindist(C); #time;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">#mindistleon(C,10,30); #time; #doesn't work well</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">a:=MinimumDistanceRandom(C,10,30); #time; # done 10 times -with fastest time!!</span>
 
  This is a probabilistic algorithm which may return the wrong answer.
 [ 12, [ 0 0 0 0 0 0 1 0 1 0 0 0 0 0 0 0 1 1 0 0 1 0 0 0 1 0 0 0 0 0 0 1 0 0 
         1 0 0 0 0 0 0 0 0 0 1 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 ] ]
-130
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">a[2] in C;</span>
 true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">b:=DecreaseMinimumDistanceUpperBound(C,10,1); time; #only done once!</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">b:=DecreaseMinimumDistanceUpperBound(C,10,1); #time; #only done once!</span>
 rec( mindist := 12, word := [ 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), 
       Z(2)^0, 0*Z(2), Z(2)^0, 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), 
       0*Z(2), Z(2)^0, Z(2)^0, 0*Z(2), 0*Z(2), Z(2)^0, 0*Z(2), 0*Z(2), 0*Z(2), 
@@ -1446,35 +1370,29 @@ rec( mindist := 12, word := [ 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2),
       0*Z(2), Z(2)^0, 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), 
       0*Z(2), 0*Z(2), Z(2)^0, 0*Z(2), 0*Z(2), 0*Z(2), Z(2)^0, 0*Z(2), 0*Z(2), 
       0*Z(2), 0*Z(2), Z(2)^0, 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), Z(2)^0, 0*Z(2) ] )
-649
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Codeword(b!.word) in C;</span>
 true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">MinimumDistance(C);time;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">MinimumDistance(C); #time; #Uncomment the call to "time;"" to see performance data</span>
 12
-196
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">c:=MinimumDistanceLeon(C);time;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">c:=MinimumDistanceLeon(C); #time; #Uncomment the call to "time;"" to see performance data</span>
 12
-66
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C:=RandomLinearCode(30,10,GF(3));</span>
 a  [30,10,?] randomly generated code over GF(3)
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">a:=MinimumDistanceRandom(C,10,10);time;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">a:=MinimumDistanceRandom(C,10,10); #time; #Uncomment the call to "time;"" to see performance data</span>
 
  This is a probabilistic algorithm which may return the wrong answer.
 [ 13, [ 0 0 0 1 0 0 0 0 0 0 1 0 2 2 1 1 0 2 2 0 1 0 2 1 0 0 0 1 0 2 ] ]
-229
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">a[2] in C;</span>
 true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">MinimumDistance(C);time;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">MinimumDistance(C); #time; #Uncomment the call to "time;"" to see performance data</span>
 9
-45
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">c:=MinimumDistanceLeon(C);</span>
-Code must be binary. Quitting.
+Code must be binary. Quitting. 
 0
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">a:=MinimumDistanceRandom(C,1,29);time;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">a:=MinimumDistanceRandom(C,1,29); #time; #Uncomment the call to "time;"" to see performance data</span>
 
  This is a probabilistic algorithm which may return the wrong answer.
 [ 10, [ 0 0 1 0 2 0 2 0 1 0 0 0 0 0 0 1 0 1 0 0 1 0 0 0 0 0 2 2 2 0 ] ]
-53
 </pre></div>
 
 <p><a id="X7A195E317D2AB7CE" name="X7A195E317D2AB7CE"></a></p>
@@ -1518,21 +1436,21 @@ a  [10,5,?] randomly generated code over GF(2)
 3
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">H := HammingCode(4, GF(2));; IsPerfectCode(H);</span>
 true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CoveringRadius(H);</span>
-1                       # Hamming codes have minimum distance 3
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CoveringRadius(H); # Hamming codes have minimum distance 3</span>
+1
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CoveringRadius(ReedSolomonCode(7,4));</span>
-3 
+3
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CoveringRadius( BCHCode( 17, 3, GF(2) ) );</span>
 3
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CoveringRadius( HammingCode( 5, GF(2) ) );</span>
 1
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C := ReedMullerCode( 1, 9 );;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CoveringRadius( C );</span>
-CoveringRadius: warning, the covering radius of
-this code cannot be computed straightforward.
-Try to use IncreaseCoveringRadiusLowerBound( code ).
+CoveringRadius: warning, the covering radius of 
+this code cannot be computed straightforward. 
+Try to use IncreaseCoveringRadiusLowerBound( &lt;code&gt; ).
 (see the manual for more details).
-The covering radius of code lies in the interval:
+The covering radius of &lt;code&gt; lies in the interval:
 [ 240 .. 248 ]
 </pre></div>
 
@@ -1549,10 +1467,10 @@ The covering radius of code lies in the interval:
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C := BCHCode( 17, 3, GF(2) );;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">BoundsCoveringRadius( C );</span>
-[ 3 .. 4 ]
+[ 3, 4 ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SetCoveringRadius( C, [ 2 .. 3 ] );</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">BoundsCoveringRadius( C );</span>
-[ [ 2 .. 3 ] ]
+[ [ 2, 3 ] ]
 </pre></div>
 
 <p><a id="X806384B4815EFF2E" name="X806384B4815EFF2E"></a></p>
@@ -1568,7 +1486,7 @@ Distributions
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; MinimumWeightWords</code>( <var class="Arg">C</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">MinimumWeightWords</code> returns the list of minimum weight codewords of <var class="Arg">C</var>.</p>
 
-<p>This algorithm is written in GAP is slow, so is only suitable for small codes.</p>
+<p>This algorithm is written in GAP and is rather slow. It is only suitable for small codes.</p>
 
 <p>This does not call the very fast function <code class="code">MinimumWeight</code> (see <code class="func">MinimumWeight</code> (<a href="chap4_mj.html#X84EDF67B86B4154C"><span class="RefLink">4.8-5</span></a>)).</p>
 
@@ -1577,9 +1495,8 @@ Distributions
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C:=HammingCode(3,GF(2));</span>
 a linear [7,4,3]1 Hamming (3,2) code over GF(2)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">MinimumWeightWords(C);</span>
-[ [ 1 0 0 0 0 1 1 ], [ 0 1 0 1 0 1 0 ], [ 0 1 0 0 1 0 1 ], [ 1 0 0 1 1 0 0 ], [ 0 0 1 0 1 1 0 ],
-  [ 0 0 1 1 0 0 1 ], [ 1 1 1 0 0 0 0 ] ]
-
+[ [ 1 0 0 0 0 1 1 ], [ 0 1 0 1 0 1 0 ], [ 0 1 0 0 1 0 1 ], [ 1 0 0 1 1 0 0 ], 
+  [ 0 0 1 0 1 1 0 ], [ 0 0 1 1 0 0 1 ], [ 1 1 1 0 0 0 0 ] ]
 </pre></div>
 
 <p><a id="X8728BCC9842A6E5D" name="X8728BCC9842A6E5D"></a></p>
@@ -1598,7 +1515,7 @@ a linear [7,4,3]1 Hamming (3,2) code over GF(2)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">WeightDistribution( RepetitionCode( 7, GF(4) ) );</span>
 [ 1, 0, 0, 0, 0, 0, 0, 3 ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">WeightDistribution( WholeSpaceCode( 5, GF(2) ) );</span>
-[ 1, 5, 10, 10, 5, 1 ] 
+[ 1, 5, 10, 10, 5, 1 ]
 </pre></div>
 
 <p><a id="X871FD301820717A4" name="X871FD301820717A4"></a></p>
@@ -1615,7 +1532,7 @@ a linear [7,4,3]1 Hamming (3,2) code over GF(2)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">InnerDistribution( ConferenceCode(9) );</span>
 [ 1, 0, 0, 0, 63/5, 9/5, 18/5, 0, 9/10, 1/10 ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">InnerDistribution( RepetitionCode( 7, GF(4) ) );</span>
-[ 1, 0, 0, 0, 0, 0, 0, 3 ] 
+[ 1, 0, 0, 0, 0, 0, 0, 3 ]
 </pre></div>
 
 <p><a id="X87AD54F87C5EE77E" name="X87AD54F87C5EE77E"></a></p>
@@ -1633,8 +1550,8 @@ a (20,40,10)6..8 Hadamard code of order 20 over GF(2)
 [ 1 0 1 1 0 1 0 1 1 0 1 0 1 0 0 1 0 1 0 1 ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">DistancesDistribution(H, c);</span>
 [ 0, 0, 0, 0, 0, 1, 0, 7, 0, 12, 0, 12, 0, 7, 0, 1, 0, 0, 0, 0, 0 ]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">MinimumDistance(H, c);</span>
-5                           # distance to H 
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">MinimumDistance(H, c); # distance to H </span>
+5
 </pre></div>
 
 <p><a id="X8495870687195324" name="X8495870687195324"></a></p>
@@ -1649,14 +1566,14 @@ a (20,40,10)6..8 Hadamard code of order 20 over GF(2)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C := RepetitionCode( 3, GF(2) );</span>
 a cyclic [3,1,3]1 repetition code over GF(2)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">OD := OuterDistribution(C);</span>
-[ [ [ 0 0 0 ], [ 1, 0, 0, 1 ] ], [ [ 1 1 1 ], [ 1, 0, 0, 1 ] ],
-  [ [ 0 0 1 ], [ 0, 1, 1, 0 ] ], [ [ 1 1 0 ], [ 0, 1, 1, 0 ] ],
-  [ [ 1 0 0 ], [ 0, 1, 1, 0 ] ], [ [ 0 1 1 ], [ 0, 1, 1, 0 ] ],
+[ [ [ 0 0 0 ], [ 1, 0, 0, 1 ] ], [ [ 1 1 1 ], [ 1, 0, 0, 1 ] ], 
+  [ [ 0 0 1 ], [ 0, 1, 1, 0 ] ], [ [ 1 1 0 ], [ 0, 1, 1, 0 ] ], 
+  [ [ 1 0 0 ], [ 0, 1, 1, 0 ] ], [ [ 0 1 1 ], [ 0, 1, 1, 0 ] ], 
   [ [ 0 1 0 ], [ 0, 1, 1, 0 ] ], [ [ 1 0 1 ], [ 0, 1, 1, 0 ] ] ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">WeightDistribution(C) = OD[1][2];</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">DistancesDistribution( C, Codeword("110") ) = OD[4][2];</span>
-true 
+true
 </pre></div>
 
 <p><a id="X7D9A39BF801948C8" name="X7D9A39BF801948C8"></a></p>
@@ -1693,14 +1610,14 @@ a linear [7,4,3]1 Hamming (3,2) code over GF(2)
 [ 1 0 1 1 0 1 0 ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Decode(C, c);                     # decoding</span>
 [ 1 0 1 0 ]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Decode(C, Codeword("0010101"));</span>
-[ 1 1 0 1 ]                            # one error corrected
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Decode(C, Codeword("0010101")); # one error corrected</span>
+[ 1 1 0 1 ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C!.SpecialDecoder := function(C, c)</span>
 <span class="GAPprompt">&gt;</span> <span class="GAPinput">return NullWord(Dimension(C));</span>
 <span class="GAPprompt">&gt;</span> <span class="GAPinput">end;</span>
-function ( C, c ) ... end
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Decode(C, c);</span>
-[ 0 0 0 0 ]           # new decoder always returns null word 
+function( C, c ) ... end
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Decode(C, c); # new decoder always returns null word </span>
+[ 0 0 0 0 ]
 </pre></div>
 
 <p><a id="X7D870C9387C47D9F" name="X7D870C9387C47D9F"></a></p>
@@ -1735,8 +1652,8 @@ a linear [5,3,1..3]2  generalized Reed-Solomon code over GF(11)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Decodeword(C,v); # calls the special interpolation decoder</span>
 [ 0 9 6 2 1 ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G:=GeneratorMat(C);</span>
-[ [ Z(11)^0, 0*Z(11), 0*Z(11), Z(11)^8, Z(11)^9 ],
-  [ 0*Z(11), Z(11)^0, 0*Z(11), Z(11)^0, Z(11)^8 ],
+[ [ Z(11)^0, 0*Z(11), 0*Z(11), Z(11)^8, Z(11)^9 ], 
+  [ 0*Z(11), Z(11)^0, 0*Z(11), Z(11)^0, Z(11)^8 ], 
   [ 0*Z(11), 0*Z(11), Z(11)^0, Z(11)^3, Z(11)^8 ] ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C1:=GeneratorMatCode(G,GF(11));</span>
 a linear [5,3,1..3]2 code defined by generator matrix over GF(11)
@@ -1785,8 +1702,9 @@ GF(2^4)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">a:=PrimitiveRoot(F);; b:=a^7;; b^4+b^3+1; </span>
 0*Z(2)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Pts:=List([0..14],i-&gt;b^i);</span>
-[ Z(2)^0, Z(2^4)^7, Z(2^4)^14, Z(2^4)^6, Z(2^4)^13, Z(2^2), Z(2^4)^12, Z(2^4)^4,
-  Z(2^4)^11, Z(2^4)^3, Z(2^2)^2, Z(2^4)^2, Z(2^4)^9, Z(2^4), Z(2^4)^8 ]
+[ Z(2)^0, Z(2^4)^7, Z(2^4)^14, Z(2^4)^6, Z(2^4)^13, Z(2^2), Z(2^4)^12, 
+  Z(2^4)^4, Z(2^4)^11, Z(2^4)^3, Z(2^2)^2, Z(2^4)^2, Z(2^4)^9, Z(2^4), 
+  Z(2^4)^8 ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">x:=X(F);;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">R1:=PolynomialRing(F,[x]);;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">vars:=IndeterminatesOfPolynomialRing(R1);;</span>
@@ -1800,10 +1718,9 @@ a linear [15,3,1..13]10..12  generalized Reed-Solomon code over GF(16)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">r:=[z,z,z,z,z,z,z,z,b^6,b^2,b^5,b^14,b,b^7,b^11];; </span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">r:=Codeword(r);</span>
 [ 0 0 0 0 0 0 0 0 a^12 a^14 a^5 a^8 a^7 a^4 a^2 ]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">cs:=GeneralizedReedSolomonListDecoder(C,r,2); time;</span>
-[ [ 0 a^9 a^3 a^13 a^6 a^10 a^11 a a^12 a^14 a^5 a^8 a^7 a^4 a^2 ],
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">cs:=GeneralizedReedSolomonListDecoder(C,r,2); #time; #Uncomment the call to "time;"" to see performance data</span>
+[ [ 0 a^9 a^3 a^13 a^6 a^10 a^11 a a^12 a^14 a^5 a^8 a^7 a^4 a^2 ], 
   [ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ] ]
-250
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">c1:=cs[1]; c1 in C;</span>
 [ 0 a^9 a^3 a^13 a^6 a^10 a^11 a a^12 a^14 a^5 a^8 a^7 a^4 a^2 ]
 true
@@ -1838,8 +1755,6 @@ Z(2)^0
 [ 1 0 0 1 0 0 1 0 0 1 1 0 1 0 1 ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">BitFlipDecoder(C,v);</span>
 [ 0 0 0 1 0 0 1 0 0 1 1 0 1 0 1 ]
-
-
 </pre></div>
 
 <p><a id="X7B88DEB37F28404A" name="X7B88DEB37F28404A"></a></p>
@@ -1857,8 +1772,8 @@ GF(2^4)
 Z(2^4)^7
 0*Z(2)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Pts:=List([0..14],i-&gt;b^i);</span>
-[ Z(2)^0, Z(2^4)^7, Z(2^4)^14, Z(2^4)^6, Z(2^4)^13, Z(2^2), Z(2^4)^12,
-  Z(2^4)^4, Z(2^4)^11, Z(2^4)^3, Z(2^2)^2, Z(2^4)^2, Z(2^4)^9, Z(2^4),
+[ Z(2)^0, Z(2^4)^7, Z(2^4)^14, Z(2^4)^6, Z(2^4)^13, Z(2^2), Z(2^4)^12, 
+  Z(2^4)^4, Z(2^4)^11, Z(2^4)^3, Z(2^2)^2, Z(2^4)^2, Z(2^4)^9, Z(2^4), 
   Z(2^4)^8 ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">x:=X(F);;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">R1:=PolynomialRing(F,[x]);;</span>
@@ -1875,8 +1790,9 @@ a linear [15,3,1..13]10..12  generalized Reed-Solomon code over GF(16)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">r:=Codeword(r);</span>
 [ 0 0 0 0 0 0 0 0 a^12 a^14 a^5 a^8 a^7 a^4 a^2 ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">cs:=NearestNeighborGRSDecodewords(C,r,7);</span>
-[ [ [ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ], 0*Z(2) ],
-  [ [ 0 a^9 a^3 a^13 a^6 a^10 a^11 a a^12 a^14 a^5 a^8 a^7 a^4 a^2 ], x_1+Z(2)^0 ] ]
+[ [ [ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ], 0*Z(2) ], 
+  [ [ 0 a^9 a^3 a^13 a^6 a^10 a^11 a a^12 a^14 a^5 a^8 a^7 a^4 a^2 ], 
+      x_1+Z(2)^0 ] ]
 </pre></div>
 
 <p><a id="X825E35757D778787" name="X825E35757D778787"></a></p>
@@ -1894,8 +1810,8 @@ GF(2^4)
 Z(2^4)^7
 0*Z(2)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Pts:=List([0..14],i-&gt;b^i);</span>
-[ Z(2)^0, Z(2^4)^7, Z(2^4)^14, Z(2^4)^6, Z(2^4)^13, Z(2^2), Z(2^4)^12,
-  Z(2^4)^4, Z(2^4)^11, Z(2^4)^3, Z(2^2)^2, Z(2^4)^2, Z(2^4)^9, Z(2^4),
+[ Z(2)^0, Z(2^4)^7, Z(2^4)^14, Z(2^4)^6, Z(2^4)^13, Z(2^2), Z(2^4)^12, 
+  Z(2^4)^4, Z(2^4)^11, Z(2^4)^3, Z(2^2)^2, Z(2^4)^2, Z(2^4)^9, Z(2^4), 
   Z(2^4)^8 ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">x:=X(F);;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">R1:=PolynomialRing(F,[x]);;</span>
@@ -1914,7 +1830,6 @@ a linear [15,3,1..13]10..12  generalized Reed-Solomon code over GF(16)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">cs:=NearestNeighborDecodewords(C,r,7);</span>
 [ [ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ], 
   [ 0 a^9 a^3 a^13 a^6 a^10 a^11 a a^12 a^14 a^5 a^8 a^7 a^4 a^2 ] ]
-
 </pre></div>
 
 <p><a id="X7D02E0FE8735D3E6" name="X7D02E0FE8735D3E6"></a></p>
@@ -1936,9 +1851,8 @@ a linear [15,11,3]1 Hamming (4,2) code over GF(2)
 [ 0 0 0 0 ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Syndrome( C, Codeword( "000000001100111" ) );</span>
 [ 1 1 1 1 ]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Syndrome( C, Codeword( "000000000000001" ) );</span>
-[ 1 1 1 1 ]    # the same syndrome: both codewords are in the same
-               # coset of C 
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Syndrome( C, Codeword( "000000000000001" ) ); # the same syndrome: both codewords are in the same coset of C </span>
+[ 1 1 1 1 ]
 </pre></div>
 
 <p><a id="X7B9E71987E4294A7" name="X7B9E71987E4294A7"></a></p>
@@ -1953,19 +1867,16 @@ a linear [15,11,3]1 Hamming (4,2) code over GF(2)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">H := HammingCode(2);</span>
 a linear [3,1,3]1 Hamming (2,2) code over GF(2)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SyndromeTable(H);</span>
-[ [ [ 0 0 0 ], [ 0 0 ] ], [ [ 1 0 0 ], [ 0 1 ] ],
-  [ [ 0 1 0 ], [ 1 0 ] ], [ [ 0 0 1 ], [ 1 1 ] ] ]
+[ [ [ 0 0 0 ], [ 0 0 ] ], [ [ 1 0 0 ], [ 0 1 ] ], [ [ 0 1 0 ], [ 1 0 ] ], 
+  [ [ 0 0 1 ], [ 1 1 ] ] ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">c := Codeword("101");</span>
 [ 1 0 1 ]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">c in H;</span>
-false          # c is not an element of H
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Syndrome(H,c);</span>
-[ 1 0 ]        # according to the syndrome table,
-               # the error vector [ 0 1 0 ] belongs to this syndrome
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">c - Codeword("010") in H;</span>
-true           # so the corrected codeword is
-               # [ 1 0 1 ] - [ 0 1 0 ] = [ 1 1 1 ],
-               # this is an element of H 
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">c in H;  # c is not an element of H</span>
+false
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Syndrome(H,c); # according to the syndrome table, the error vector [ 0 1 0 ] belongs to this syndrome</span>
+[ 1 0 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">c - Codeword("010") in H; # so the corrected codeword is [ 1 0 1 ] - [ 0 1 0 ] = [ 1 1 1 ], this is an element of H </span>
+true
 </pre></div>
 
 <p><a id="X8642D0BD789DA9B5" name="X8642D0BD789DA9B5"></a></p>

@@ -56,7 +56,7 @@
     [4X[25Xgap>[125X [27XList( AsSSortedList( C2 ), WeightCodeword );[127X[104X
     [4X[28X[ 0, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 8 ][128X[104X
     [4X[25Xgap>[125X [27XC3 := EvenWeightSubcode( C1 );[127X[104X
-    [4X[28Xa linear [7,3,4]2..3 even weight subcode [128X[104X
+    [4X[28Xa linear [7,3,4]2..3 even weight subcode[128X[104X
   [4X[32X[104X
   
   [33X[0;0YTo  undo  extending,  call  [10XPuncturedCode[110X  (see  [2XPuncturedCode[102X ([14X6.1-2[114X)). The
@@ -91,8 +91,8 @@
     [4X[28Xfalse[128X[104X
     [4X[25Xgap>[125X [27XPuncturedCode( C1, [1,2,3,4,5,6,7] );[127X[104X
     [4X[28Xa linear [8,7,1]1 punctured code[128X[104X
-    [4X[25Xgap>[125X [27XPuncturedCode( WholeSpaceCode( 4, GF(5) ) );[127X[104X
-    [4X[28Xa linear [3,3,1]0 punctured code  # The dimension decreased from 4 to 3 [128X[104X
+    [4X[25Xgap>[125X [27XPuncturedCode( WholeSpaceCode( 4, GF(5) ) ); # The dimension decreases from 4 to 3 [127X[104X
+    [4X[28Xa linear [3,3,1]0 punctured code[128X[104X
   [4X[32X[104X
   
   [33X[0;0Y[10XExtendedCode[110X  extends the code again (see [2XExtendedCode[102X ([14X6.1-1[114X)), although in
@@ -121,7 +121,7 @@
     [4X[28X[ 0, 4, 4, 4, 4, 4, 4, 6, 4, 4, 4, 4, 6, 4, 4, 6, 4, 4, 8, 6, 4, 6, 8, 4, 4, [128X[104X
     [4X[28X  4, 6, 4, 6, 8, 4, 6, 8 ][128X[104X
     [4X[25Xgap>[125X [27XEvenWeightSubcode( ReedMullerCode( 1, 3 ) );[127X[104X
-    [4X[28Xa linear [8,4,4]2 Reed-Muller (1,3) code over GF(2) [128X[104X
+    [4X[28Xa linear [8,4,4]2 Reed-Muller (1,3) code over GF(2)[128X[104X
   [4X[32X[104X
   
   [33X[0;0Y[10XExtendedCode[110X  also  returns a related code of only even weights, but without
@@ -150,7 +150,7 @@
     [4X[25Xgap>[125X [27XC3 := PermutedCode( C1, p );[127X[104X
     [4X[28Xa linear [15,5,7]5 permuted code[128X[104X
     [4X[25Xgap>[125X [27XC2 = C3;[127X[104X
-    [4X[28Xtrue [128X[104X
+    [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
   [1X6.1-5 ExpurgatedCode[101X
@@ -170,7 +170,7 @@
     [4X[25Xgap>[125X [27XC2 := ExpurgatedCode( C1, L );[127X[104X
     [4X[28Xa linear [15,4,3..4]5..11 code, expurgated with 7 word(s)[128X[104X
     [4X[25Xgap>[125X [27XWeightDistribution( C2 );[127X[104X
-    [4X[28X[ 1, 0, 0, 0, 14, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0 ] [128X[104X
+    [4X[28X[ 1, 0, 0, 0, 14, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0 ][128X[104X
   [4X[32X[104X
   
   [33X[0;0YThis  function  does not work on non-linear codes. For removing words from a
@@ -202,7 +202,7 @@
     [4X[25Xgap>[125X [27XC32 := AugmentedCode(C31,["00000011","00000101","00010001"]);[127X[104X
     [4X[28Xa linear [8,7,1..2]1 code, augmented with 3 word(s)[128X[104X
     [4X[25Xgap>[125X [27XC32 = ReedMullerCode( 2, 3 );[127X[104X
-    [4X[28Xtrue [128X[104X
+    [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27XC1 := CordaroWagnerCode(6);[127X[104X
     [4X[28Xa linear [6,2,4]2..3 Cordaro-Wagner code over GF(2)[128X[104X
     [4X[25Xgap>[125X [27XCodeword( [0,0,1,1,1,1] ) in C1;[127X[104X
@@ -232,9 +232,8 @@
     [4X[28Xa (15,2013,3..15)2..15 code with 35 word(s) removed[128X[104X
     [4X[25Xgap>[125X [27XWeightDistribution( C2 );[127X[104X
     [4X[28X[ 1, 0, 0, 0, 105, 168, 280, 435, 435, 280, 168, 105, 35, 0, 0, 1 ][128X[104X
-    [4X[25Xgap>[125X [27XMinimumDistance( C2 );[127X[104X
-    [4X[28X3        # C2 is not linear, so the minimum weight does not have to[128X[104X
-    [4X[28X         # be equal to the minimum distance [128X[104X
+    [4X[25Xgap>[125X [27XMinimumDistance( C2 );     # C2 is not linear, so the minimum weight does not have to be equal to the minimum distance [127X[104X
+    [4X[28X3[128X[104X
   [4X[32X[104X
   
   [33X[0;0YAdding  elements  to  a  code is done by the function [10XAddedElementsCode[110X (see
@@ -259,7 +258,7 @@
     [4X[25Xgap>[125X [27XC3 := AddedElementsCode( C2, [ "101010", "010101" ] );[127X[104X
     [4X[28Xa (6,4,1..6)2 code with 2 word(s) added[128X[104X
     [4X[25Xgap>[125X [27XIsCyclicCode( C3 );[127X[104X
-    [4X[28Xtrue [128X[104X
+    [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
   [33X[0;0YTo   remove   elements   from   a   code,   use   [10XRemovedElementsCode[110X   (see
@@ -330,7 +329,7 @@
     [4X[25Xgap>[125X [27XC1 := CordaroWagnerCode( 5 );[127X[104X
     [4X[28Xa linear [5,2,3]2 Cordaro-Wagner code over GF(2)[128X[104X
     [4X[25Xgap>[125X [27XC2 := LengthenedCode( C1 );[127X[104X
-    [4X[28Xa linear [6,3,2]2..3 code, lengthened with 1 column(s) [128X[104X
+    [4X[28Xa linear [6,3,2]2..3 code, lengthened with 1 column(s)[128X[104X
   [4X[32X[104X
   
   [33X[0;0Y[10XShortenedCode[110X'  shortens  the  code,  see [2XShortenedCode[102X ([14X6.1-9[114X). In general,
@@ -350,15 +349,15 @@
     [4X[25Xgap>[125X [27XS1:= SubCode(C);[127X[104X
     [4X[28Xa linear [31,10,11]7..13 subcode[128X[104X
     [4X[25Xgap>[125X [27XWeightDistribution(S1);[127X[104X
-    [4X[28X[ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 120, 190, 0, 0, 272, 255, 0, 0, 120, 66,[128X[104X
+    [4X[28X[ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 120, 190, 0, 0, 272, 255, 0, 0, 120, 66, [128X[104X
     [4X[28X  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ][128X[104X
     [4X[25Xgap>[125X [27XS2:= SubCode(C, 8);[127X[104X
     [4X[28Xa linear [31,3,11]14..20 subcode[128X[104X
     [4X[25Xgap>[125X [27XHistory(S2);[127X[104X
-    [4X[28X[ "a linear [31,3,11]14..20 subcode of",[128X[104X
+    [4X[28X[ "a linear [31,3,11]14..20 subcode of", [128X[104X
     [4X[28X  "a cyclic [31,11,11]7..11 BCH code, delta=11, b=1 over GF(2)" ][128X[104X
     [4X[25Xgap>[125X [27XWeightDistribution(S2);[127X[104X
-    [4X[28X[ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 1, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,[128X[104X
+    [4X[28X[ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 1, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, [128X[104X
     [4X[28X  0, 0, 0, 0, 0, 0, 0 ][128X[104X
   [4X[32X[104X
   
@@ -380,7 +379,7 @@
     [4X[28Xa linear [8,4,4]2 residue code[128X[104X
     [4X[25Xgap>[125X [27Xc := Codeword( [ 0,0,0,1,0,0,1,1,0,1,0,1,1,1,1 ], C1);;[127X[104X
     [4X[25Xgap>[125X [27XC3 := ResidueCode( C1, c );[127X[104X
-    [4X[28Xa linear [7,4,3]1 residue code [128X[104X
+    [4X[28Xa linear [7,4,3]1 residue code[128X[104X
   [4X[32X[104X
   
   [1X6.1-13 ConstructionBCode[101X
@@ -399,7 +398,7 @@
     [4X[28Xa linear [32,16,8]6 Reed-Muller (2,5) code over GF(2)[128X[104X
     [4X[25Xgap>[125X [27XC2 := ConstructionBCode( C1 );[127X[104X
     [4X[28Xa linear [24,9,8]5..10 Construction B (8 coordinates)[128X[104X
-    [4X[25Xgap>[125X [27XBoundsMinimumDistance( 24, 9, GF(2) );[127X[104X
+    [4X[25Xgap>[125X [27XBoundsMinimumDistance( 24, 9, GF(2) );  # so C2 is optimal[127X[104X
     [4X[28Xrec( n := 24, k := 9, q := 2, references := rec(  ), [128X[104X
     [4X[28X  construction := [ [ Operation "UUVCode" ], [128X[104X
     [4X[28X      [ [ [ Operation "UUVCode" ], [ [ [ Operation "DualCode" ], [128X[104X
@@ -413,7 +412,6 @@
     [4X[28X  upperBound := 8, [128X[104X
     [4X[28X  upperBoundExplanation := [ "Ub(24,9)=8, otherwise construction B would [128X[104X
     [4X[28X                             contradict:", "Ub(18,4)=8, Griesmer bound" ] )[128X[104X
-    [4X[28X# so C2 is optimal[128X[104X
   [4X[32X[104X
   
   [1X6.1-14 DualCode[101X
@@ -436,13 +434,13 @@
     [4X[25Xgap>[125X [27XR := ReedMullerCode( 1, 3 );[127X[104X
     [4X[28Xa linear [8,4,4]2 Reed-Muller (1,3) code over GF(2)[128X[104X
     [4X[25Xgap>[125X [27XRD := DualCode( R );[127X[104X
-    [4X[28Xa linear [8,4,4]2 Reed-Muller (1,3) code over GF(2)[128X[104X
+    [4X[28Xa linear [8,4,4]2 dual code[128X[104X
     [4X[25Xgap>[125X [27XR = RD;[127X[104X
     [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27XN := WholeSpaceCode( 7, GF(4) );[127X[104X
     [4X[28Xa cyclic [7,7,1]0 whole space code over GF(4)[128X[104X
     [4X[25Xgap>[125X [27XDualCode( N ) = NullCode( 7, GF(4) );[127X[104X
-    [4X[28Xtrue [128X[104X
+    [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
   [1X6.1-15 ConversionFieldCode[101X
@@ -467,8 +465,8 @@
     [4X[25Xgap>[125X [27XGeneratorMat( R );[127X[104X
     [4X[28X[ [ Z(2)^0, Z(2)^0, Z(2)^0, Z(2)^0 ] ][128X[104X
     [4X[25Xgap>[125X [27XGeneratorMat( R2 );[127X[104X
-    [4X[28X[ [ Z(2)^0, 0*Z(2), Z(2)^0, 0*Z(2), Z(2)^0, 0*Z(2), Z(2)^0, 0*Z(2) ],[128X[104X
-    [4X[28X  [ 0*Z(2), Z(2)^0, 0*Z(2), Z(2)^0, 0*Z(2), Z(2)^0, 0*Z(2), Z(2)^0 ] ] [128X[104X
+    [4X[28X[ [ Z(2)^0, 0*Z(2), Z(2)^0, 0*Z(2), Z(2)^0, 0*Z(2), Z(2)^0, 0*Z(2) ], [128X[104X
+    [4X[28X  [ 0*Z(2), Z(2)^0, 0*Z(2), Z(2)^0, 0*Z(2), Z(2)^0, 0*Z(2), Z(2)^0 ] ][128X[104X
   [4X[32X[104X
   
   [1X6.1-16 TraceCode[101X
@@ -493,7 +491,6 @@
     [4X[25Xgap>[125X [27XtrC:=TraceCode(C,GF(2)); MinimumDistance(trC);[127X[104X
     [4X[28Xa linear [10,7,1]1..3 user defined unrestricted code over GF(2)[128X[104X
     [4X[28X1[128X[104X
-    [4X[28X[128X[104X
   [4X[32X[104X
   
   [1X6.1-17 CosetCode[101X
@@ -515,11 +512,10 @@
     [4X[28Xfalse[128X[104X
     [4X[25Xgap>[125X [27XC := CosetCode(H, c);[127X[104X
     [4X[28Xa (7,16,3)1 coset code[128X[104X
-    [4X[25Xgap>[125X [27XList(AsSSortedList(C), el-> Syndrome(H, el));[127X[104X
-    [4X[28X[ [ 1 1 1 ], [ 1 1 1 ], [ 1 1 1 ], [ 1 1 1 ], [ 1 1 1 ], [ 1 1 1 ],[128X[104X
-    [4X[28X  [ 1 1 1 ], [ 1 1 1 ], [ 1 1 1 ], [ 1 1 1 ], [ 1 1 1 ], [ 1 1 1 ],[128X[104X
+    [4X[25Xgap>[125X [27XList(AsSSortedList(C), el-> Syndrome(H, el));  # All elements of the coset have the same syndrome in H [127X[104X
+    [4X[28X[ [ 1 1 1 ], [ 1 1 1 ], [ 1 1 1 ], [ 1 1 1 ], [ 1 1 1 ], [ 1 1 1 ], [128X[104X
+    [4X[28X  [ 1 1 1 ], [ 1 1 1 ], [ 1 1 1 ], [ 1 1 1 ], [ 1 1 1 ], [ 1 1 1 ], [128X[104X
     [4X[28X  [ 1 1 1 ], [ 1 1 1 ], [ 1 1 1 ], [ 1 1 1 ] ][128X[104X
-    [4X[28X# All elements of the coset have the same syndrome in H [128X[104X
   [4X[32X[104X
   
   [1X6.1-18 ConstantWeightSubcode[101X
@@ -546,13 +542,13 @@
     [4X[25Xgap>[125X [27XC := ConstantWeightSubcode(N, 8);[127X[104X
     [4X[28Xa (16,30,6..16)5..8 code with codewords of weight 8[128X[104X
     [4X[25Xgap>[125X [27XWeightDistribution(C);[127X[104X
-    [4X[28X[ 0, 0, 0, 0, 0, 0, 0, 0, 30, 0, 0, 0, 0, 0, 0, 0, 0 ] [128X[104X
+    [4X[28X[ 0, 0, 0, 0, 0, 0, 0, 0, 30, 0, 0, 0, 0, 0, 0, 0, 0 ][128X[104X
     [4X[25Xgap>[125X [27Xeg := ExtendedTernaryGolayCode();; WeightDistribution(eg);[127X[104X
     [4X[28X[ 1, 0, 0, 0, 0, 0, 264, 0, 0, 440, 0, 0, 24 ][128X[104X
     [4X[25Xgap>[125X [27XC := ConstantWeightSubcode(eg);[127X[104X
     [4X[28Xa (12,264,6..12)3..6 code with codewords of weight 6[128X[104X
     [4X[25Xgap>[125X [27XWeightDistribution(C);[127X[104X
-    [4X[28X[ 0, 0, 0, 0, 0, 0, 264, 0, 0, 0, 0, 0, 0 ] [128X[104X
+    [4X[28X[ 0, 0, 0, 0, 0, 0, 264, 0, 0, 0, 0, 0, 0 ][128X[104X
   [4X[32X[104X
   
   [1X6.1-19 StandardFormCode[101X
@@ -581,12 +577,12 @@
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XG := GeneratorMatCode( Z(2) * [ [0,1,1,0], [0,1,0,1], [0,0,1,1] ], [127X[104X
-    [4X[28X          "random form code", GF(2) );[128X[104X
+    [4X[25X>[125X [27X"random form code", GF(2) );[127X[104X
     [4X[28Xa linear [4,2,1..2]1..2 random form code over GF(2)[128X[104X
     [4X[25Xgap>[125X [27XCodeword( GeneratorMat( G ) );[127X[104X
     [4X[28X[ [ 0 1 0 1 ], [ 0 0 1 1 ] ][128X[104X
     [4X[25Xgap>[125X [27XCodeword( GeneratorMat( StandardFormCode( G ) ) );[127X[104X
-    [4X[28X[ [ 1 0 0 1 ], [ 0 1 0 1 ] ] [128X[104X
+    [4X[28X[ [ 1 0 0 1 ], [ 0 1 0 1 ] ][128X[104X
   [4X[32X[104X
   
   [1X6.1-20 PiecewiseConstantCode[101X
@@ -647,7 +643,7 @@
     [4X[25Xgap>[125X [27XAsSSortedList(D);[127X[104X
     [4X[28X[ [ 1 0 0 0 0 ], [ 1 0 3 3 3 ], [ 4 5 0 0 0 ], [ 4 5 3 3 3 ] ][128X[104X
     [4X[25Xgap>[125X [27XD = C1 + C2;   # addition = direct sum[127X[104X
-    [4X[28Xtrue [128X[104X
+    [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
   [1X6.2-2 UUVCode[101X
@@ -674,9 +670,9 @@
     [4X[25Xgap>[125X [27XC2 := RepetitionCode(4, GF(2));[127X[104X
     [4X[28Xa cyclic [4,1,4]2 repetition code over GF(2)[128X[104X
     [4X[25Xgap>[125X [27XR := UUVCode(C1, C2);[127X[104X
-    [4X[28Xa linear [8,4,4]2 U U+V construction code[128X[104X
+    [4X[28Xa linear [8,4,4]2 U|U+V construction code[128X[104X
     [4X[25Xgap>[125X [27XR = ReedMullerCode(1,3);[127X[104X
-    [4X[28Xtrue [128X[104X
+    [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
   [1X6.2-3 DirectProductCode[101X
@@ -697,7 +693,7 @@
     [4X[25Xgap>[125X [27XL2 := LexiCode(8, 3, GF(2));[127X[104X
     [4X[28Xa linear [8,4,3]2..3 lexicode over GF(2)[128X[104X
     [4X[25Xgap>[125X [27XD := DirectProductCode(L1, L2);[127X[104X
-    [4X[28Xa linear [80,20,12]20..45 direct product code [128X[104X
+    [4X[28Xa linear [80,20,12]20..45 direct product code[128X[104X
   [4X[32X[104X
   
   [1X6.2-4 IntersectionCode[101X
@@ -711,16 +707,16 @@
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XC := CyclicCodes(7, GF(2));[127X[104X
-    [4X[28X[ a cyclic [7,7,1]0 enumerated code over GF(2),[128X[104X
-    [4X[28X  a cyclic [7,6,1..2]1 enumerated code over GF(2),[128X[104X
-    [4X[28X  a cyclic [7,3,1..4]2..3 enumerated code over GF(2),[128X[104X
-    [4X[28X  a cyclic [7,0,7]7 enumerated code over GF(2),[128X[104X
-    [4X[28X  a cyclic [7,3,1..4]2..3 enumerated code over GF(2),[128X[104X
-    [4X[28X  a cyclic [7,4,1..3]1 enumerated code over GF(2),[128X[104X
-    [4X[28X  a cyclic [7,1,7]3 enumerated code over GF(2),[128X[104X
+    [4X[28X[ a cyclic [7,7,1]0 enumerated code over GF(2), [128X[104X
+    [4X[28X  a cyclic [7,6,1..2]1 enumerated code over GF(2), [128X[104X
+    [4X[28X  a cyclic [7,3,1..4]2..3 enumerated code over GF(2), [128X[104X
+    [4X[28X  a cyclic [7,0,7]7 enumerated code over GF(2), [128X[104X
+    [4X[28X  a cyclic [7,3,1..4]2..3 enumerated code over GF(2), [128X[104X
+    [4X[28X  a cyclic [7,4,1..3]1 enumerated code over GF(2), [128X[104X
+    [4X[28X  a cyclic [7,1,7]3 enumerated code over GF(2), [128X[104X
     [4X[28X  a cyclic [7,4,1..3]1 enumerated code over GF(2) ][128X[104X
     [4X[25Xgap>[125X [27XIntersectionCode(C[6], C[8]) = C[7];[127X[104X
-    [4X[28Xtrue [128X[104X
+    [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
   [33X[0;0YThe  [13Xhull[113X  of  a  linear  code is the intersection of the code with its dual
@@ -749,7 +745,7 @@
     [4X[25Xgap>[125X [27Xc in H;[127X[104X
     [4X[28Xfalse[128X[104X
     [4X[25Xgap>[125X [27Xc in U;[127X[104X
-    [4X[28Xtrue [128X[104X
+    [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
   [1X6.2-6 ExtendedDirectSumCode[101X
@@ -900,7 +896,8 @@
     [4X[25Xgap>[125X [27XIsSubset(C[2], C[3]);[127X[104X
     [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27XA := [ RepetitionCode(4, GF(2)), EvenWeightSubcode( QRCode(17, GF(2)) ) ];[127X[104X
-    [4X[28X[ a cyclic [4,1,4]2 repetition code over GF(2), a cyclic [17,8,6]3..6 even weight subcode ][128X[104X
+    [4X[28X[ a cyclic [4,1,4]2 repetition code over GF(2), [128X[104X
+    [4X[28X  a cyclic [17,8,6]3..6 even weight subcode ][128X[104X
     [4X[25Xgap>[125X [27XCX := ConstructionXCode(C, A);[127X[104X
     [4X[28Xa linear [148,23,53]43..74 Construction X code[128X[104X
     [4X[25Xgap>[125X [27XHistory(CX);[127X[104X
@@ -1007,7 +1004,8 @@
     [4X[28X  a cyclic [9,4,6]4..5 MDS code over GF(8) ][128X[104X
     [4X[25Xgap>[125X [27XA := ExtendedCode( HammingCode(3,GF(2)) );;[127X[104X
     [4X[25Xgap>[125X [27XI := [ SubCode(A), A, DualCode( RepetitionCode(8, GF(2)) ) ];[127X[104X
-    [4X[28X[ a linear [8,3,4]3..4 subcode, a linear [8,4,4]2 extended code, a cyclic [8,7,2]1 dual code ][128X[104X
+    [4X[28X[ a linear [8,3,4]3..4 subcode, a linear [8,4,4]2 extended code, [128X[104X
+    [4X[28X  a cyclic [8,7,2]1 dual code ][128X[104X
     [4X[25Xgap>[125X [27XC := BZCodeNC(O, I);[127X[104X
     [4X[28Xa linear [72,38,12]0..72 Blokh Zyablov concatenated code[128X[104X
     [4X[25Xgap>[125X [27X#[127X[104X
@@ -1020,21 +1018,21 @@
     [4X[25Xgap>[125X [27XCy := CyclicCodes(5, GF(5));;[127X[104X
     [4X[25Xgap>[125X [27Xfor i in [4, 5] do; MinimumDistance(Cy[i]);; od;[127X[104X
     [4X[25Xgap>[125X [27XO  := [ O1, O2, O3 ];[127X[104X
-    [4X[28X[ a linear [6,4,3]1 dual code, a linear [6,3,4]2..3 extended code,[128X[104X
+    [4X[28X[ a linear [6,4,3]1 dual code, a linear [6,3,4]2..3 extended code, [128X[104X
     [4X[28X  a linear [6,2,5]3..4 extended code ][128X[104X
     [4X[25Xgap>[125X [27XI  := [ Cy[5], Cy[4], Cy[3] ];[127X[104X
-    [4X[28X[ a cyclic [5,1,5]3..4 enumerated code over GF(5),[128X[104X
-    [4X[28X  a cyclic [5,2,4]2..3 enumerated code over GF(5),[128X[104X
+    [4X[28X[ a cyclic [5,1,5]3..4 enumerated code over GF(5), [128X[104X
+    [4X[28X  a cyclic [5,2,4]2..3 enumerated code over GF(5), [128X[104X
     [4X[28X  a cyclic [5,3,1..3]2 enumerated code over GF(5) ][128X[104X
     [4X[25Xgap>[125X [27XC  := BZCodeNC( O, I );[127X[104X
     [4X[28Xa linear [30,9,5..15]0..30 Blokh Zyablov concatenated code[128X[104X
     [4X[25Xgap>[125X [27XMinimumDistance(C);[127X[104X
     [4X[28X15[128X[104X
     [4X[25Xgap>[125X [27XHistory(C);[127X[104X
-    [4X[28X[ "a linear [30,9,15]0..30 Blokh Zyablov concatenated code of",[128X[104X
+    [4X[28X[ "a linear [30,9,15]0..30 Blokh Zyablov concatenated code of", [128X[104X
     [4X[28X  "Inner codes: [ a cyclic [5,1,5]3..4 enumerated code over GF(5), a cyclic [5\[128X[104X
     [4X[28X,2,4]2..3 enumerated code over GF(5), a cyclic [5,3,1..3]2 enumerated code ove\[128X[104X
-    [4X[28Xr GF(5) ]",[128X[104X
+    [4X[28Xr GF(5) ]", [128X[104X
     [4X[28X  "Outer codes: [ a linear [6,4,3]1 dual code, a linear [6,3,4]2..3 extended c\[128X[104X
     [4X[28Xode, a linear [6,2,5]3..4 extended code ]" ][128X[104X
   [4X[32X[104X
