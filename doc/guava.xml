@@ -74,7 +74,7 @@ Lea Ruscio (for the tex version), Jeffrey Leon
 &copyright; 2004 David Joyner, Cen Tjhai, Jasper Cramwinckel, Erik Roijackers,
 Reinald Baart, Eric Minkes, Lea Ruscio.
 &copyright; 2007 Robert L Miller, Tom Boothby
-&copyright; 2009, 2012, 2016, 2018, 2022 Joe Fields
+&copyright; 2009, 2012, 2016, 2018, 2022, 2025 Joe Fields
 
 <P/>
 <Package>GUAVA</Package> is released under the 
@@ -151,7 +151,7 @@ starting with version 3.10, <Package>GUAVA</Package> has been maintained
 by Joe Fields.
 For further details, see the CHANGES file in the
 <Package>GUAVA</Package> directory, also available at 
-<URL>https://gap-packages.github.io/guava/CHANGES</URL>.
+<URL>https://gap-packages.github.io/guava/CHANGES.guava</URL>.
    <P/>
 <P/>This documentation was prepared with the 
 <Package>GAPDoc</Package> package of Frank L&#xfc;beck and Max Neunh&#xf6;ffer. 
@@ -198,7 +198,7 @@ This is the manual of the GAP package <Package>GUAVA</Package>.
 <Package>GUAVA</Package> contains many functions that allow one 
 to perform computations relevant to the theory of error-correcting codes.  
 This version of <Package>GUAVA</Package> 
-requires GAP 4.4.5 or later.  The current version of <Package>GUAVA</Package> (3.13) was updated to work with GAP 4.7.9.
+requires GAP 4.4.5 or later.  The current version of <Package>GUAVA</Package> (3.20) was updated to work with GAP 4.14.0.
 
 <P/>
 The functions in <Package>GUAVA</Package> can be divided into three subcategories:
