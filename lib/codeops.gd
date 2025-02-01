@@ -213,7 +213,21 @@ DeclareProperty("IsSelfDualCode", IsCode);
 #F  \+( <l>, <C> )  . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 ##
 ##
+##DeclareOperation("\+", [IsCodeword,IsCode]);
 
+#############################################################################
+##
+#F  \+( <C>, <l> )  . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+##
+##
+##DeclareOperation("\+", [IsCode,IsCodeword]);
+
+#############################################################################
+##
+#F  \+( <C>, <C> )  . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+##
+##
+##DeclareOperation("\+", [IsCode,IsCode]);
 
 #############################################################################
 ##
@@ -446,4 +460,6 @@ DeclareOperation("MinimumDistanceRandom",[IsCode,IsInt,IsInt]);
 ## Author: CJ, Tjhai
 ##
 DeclareAttribute("MinimumWeight", IsLinearCode);
+
+DeclareOperation("GuavaCosetLeadersMatFFE",[IsMatrix,IsFFECollection]);
 
