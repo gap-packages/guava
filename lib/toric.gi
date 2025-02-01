@@ -29,21 +29,24 @@ end);
 #F  ToricCode(<L>,<F>)
 ##
 InstallGlobalFunction(ToricCode,function(L,F)
-local u,gens,d,V,n,i,Z,v,B0,B,C,C1,t,e,tmpvar;
+local u,gens,d,V,n,i,v,B0,B,C,C1,t,e,tmpvar;
   gens:=L;
   d:=Size(gens[1]);
   n:=Size(ToricPoints(d,F));
   V:=F^n;         # VectorSpace(F,n);
-  Z:=Integers;
+  #Z:=Integers;   
   B0:=[];
-  e:=gens[1];
+  #e:=gens[1];
   for e in gens do
-  tmpvar:=List(ToricPoints(d,F),t->Product([1..d],i->t[i]^e[i]));
-  Add(B0,tmpvar);
+    #Print(e);
+    tmpvar:=List(ToricPoints(d,F),t->Product([1..d],i->t[i]^e[i]));
+    #Print(tmpvar, "\n");
+    Add(B0,tmpvar);
   od;
-  B:=One(F)*AsList(B0);
+  B:=BaseMat(One(F)*AsList(B0)); #Added the surrounding call to BaseMat to remove dependencies before calling GeneratorMatCode
   C:=GeneratorMatCode(B,F); ##uses guava command
-  C!.GeneratorMat:=ShallowCopy(B);
+  #C!.GeneratorMat:=ShallowCopy(B); #doing this can overrule the smaller GenMat which results when there is a dependency
+  C!.GeneratorMat:=ShallowCopy(B); #After the above changes this should be cool
   C!.exponents:=L;
   C!.name:=" toric code";
   return C;
