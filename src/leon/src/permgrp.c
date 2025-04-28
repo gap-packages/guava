@@ -241,7 +241,7 @@ void assignGenName(
          let2 = tolower( oldGen->name[1]);
          if ( strlen(oldGen->name) == 1 )
             inUse[let1] = TRUE;
-         else if ( strlen(oldGen->name) == 2 && let1 == let2 & let1 >= 64 )
+         else if ( strlen(oldGen->name) == 2 && let1 == let2 && let1 >= 64 )
             inUse[let1-64] = TRUE;
       }
       for ( i = 0 ; i < 26 ; ++i )
