@@ -8,8 +8,8 @@
 SetPackageInfo( rec(
   PackageName := "GUAVA",
   Subtitle := "a GAP package for computing with error-correcting codes",
-  Version := "3.19",
-  Date    := "21/03/2024", # dd/mm/yyyy format
+  Version := "3.20",
+  Date    := "01/02/2025", # dd/mm/yyyy format
   License := "GPL-2.0-or-later",
 
   SourceRepository := rec(
@@ -187,8 +187,6 @@ SetPackageInfo( rec(
     # fit on a single text line (appears with the '?books' command in GAP)
     LongTitle := "GUAVA Coding Theory Package",
     Subtitle := "error-correcting codes computations",
-    # Should this help book be autoloaded when GAP starts up? This should
-    # usually be 'true', otherwise say 'false'. 
   ),
 
 ##  Are there restrictions on the operating system for this package? Or does

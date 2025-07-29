@@ -21,6 +21,8 @@
 ## 18 Dec 2008 (wdj) bugfix for MinimumDistanceLeon reported by
 ##                    Jorge Ernesto PÉREZ CHAMORRO
 ##
+## 05 Nov 2024 (jef) The infix '+' operation between codes was documented in the manual but apparently never implemented.
+## WRONG - it's on line 1382 - it's just not being selected...
 
 
 #############################################################################
@@ -687,12 +689,12 @@ InstallMethod(MinimumDistanceLeon, "attribute method for linear codes", true,
     [IsLinearCode], 0,
 function(C)
     local majority,G0, Gp, Gpt, Gt, L, k, i, j, dimMat, Grstr, J, d1, arrayd1, Combo, rows, row, rowSum, G, F, zero, AClosestVec, s, p, num;
-    G := GeneratorMat(C);
+    F:=LeftActingDomain(C);
+    if F<>GF(2) then Print("Code must be binary. Quitting. \n"); return(0); fi;
+    G := MutableCopyMatrix(GeneratorMat(C));
     if (IsInStandardForm(G)=false) then
         PutStandardForm(G);
     fi;
-    F:=LeftActingDomain(C);
-    if F<>GF(2) then Print("Code must be binary. Quitting. \n"); return(0); fi;
     p:=5; #these seem to be optimal values
     num:=8; #these seem to be optimal values
     dimMat := DimensionsMat(G);
@@ -755,7 +757,7 @@ function(C,p,num)
     # p = 5 seems to be optimal
     # num = 8 seems to be optimal
     local majority,G0, Gp, Gpt, Gt, L, k, i, j, dimMat, Grstr, J, d1, arrayd1, Combo, rows, row, rowSum, G, F, zero, AClosestVec, s;
-    G := GeneratorMat(C);
+    G := MutableCopyMatrix(GeneratorMat(C));
     if (IsInStandardForm(G)=false) then
         PutStandardForm(G);
     fi;
@@ -1374,11 +1376,17 @@ function(C, w)
     return CosetCode(C, w);
 end);
 
-InstallOtherMethod(\+, "method for two codes", true, [IsCode, IsCode], 0,
+InstallOtherMethod(\+, "method for two codes", ReturnTrue,
+    [IsCodeDefaultRep, IsCodeDefaultRep], 25, 
 function(C1, C2)
     return DirectSumCode(C1, C2);
 end);
 
+InstallOtherMethod(\+, "method for two linear codes", ReturnTrue,
+    [IsLinearCode, IsLinearCode], 26, 
+function(C1, C2)
+    return DirectSumCode(C1, C2);
+end);
 
 #############################################################################
 ##
@@ -1613,7 +1621,7 @@ function(C)
         return [];
     fi;
     F := LeftActingDomain(C);
-    L := CosetLeadersMatFFE(List(H,List), F);
+    L := GuavaCosetLeadersMatFFE(List(H,List), F);
     H := TransposedMat(H);
     return Codeword(List(L, l-> [l, l*H]), F);
 end);
@@ -1644,7 +1652,7 @@ function(C)
     if CheckMat(C) = [] then
         return [Els];
     fi;
-    return List(Set(CosetLeadersMatFFE(CheckMat(C), LeftActingDomain(C))),
+    return List(Set(GuavaCosetLeadersMatFFE(CheckMat(C), LeftActingDomain(C))),
                 row -> List(Els, column -> row + column));
 end);
 
@@ -2819,3 +2827,111 @@ function(C)
     C!.upperBoundMinimumDistance := GUAVA_TEMP_VAR;
     return GUAVA_TEMP_VAR;
 end);
+
+#This is a copy of CosetLeadersMatFFE(mat,f) from gap/lib/listcoef.gi
+# for experimentation purposes...
+
+InstallMethod(GuavaCosetLeadersMatFFE,"generic",IsCollsElms,
+        [IsMatrix,IsFFECollection and IsField],0,
+        function(mat,f)
+    local q, leaders, tofind, n,m, t, vl, i, felts, fds,
+          fdps, v,j,x, w, rrecord, nzfelts, weight, ok8;
+
+    rrecord := function(v,w)
+        local sy,x,u;
+        sy := NumberFFVector(v,q);
+        if not IsBound(leaders[sy+1]) then
+            for x in nzfelts do
+                sy := NumberFFVector(v*x,q);
+                u := w*x;
+                MakeImmutable(u);
+                leaders[sy+1] := u;
+            od;
+            return q-1;
+        fi;
+        return 0;
+    end;
+
+    leaders:=[];
+    q := Size(f);
+    n := Length(mat[1]);
+    m := Length(mat);
+    tofind := q^m;
+    t := TransposedMat(mat);
+    vl := [];
+    vl[m+1] := false;
+    felts := AsSSortedList(f);
+    Assert(2, felts[1] = Zero(f));
+    nzfelts := felts{[2..q]};
+    fds := List([2..q], i->felts[i] - felts[i-1]);
+    Add(fds, - Sum(fds));
+    Add(fds, - One(f));
+    fdps := List(fds, x-> Position(fds,x));
+    for i in [1..n] do
+        v := t[i];
+        vl[i] := [];
+        for j in [1..q+1] do
+            if fdps[j] < j then
+                Add(vl[i], vl[i][fdps[j]]);
+            else
+                Add(vl[i], v*fds[j]);
+            fi;
+        od;
+        Add(vl[i],false);
+    od;
+    v := ListWithIdenticalEntries(n, felts[1]);
+    w := ZeroOp(t[1]);
+    if 2 <= q and q < 256 then
+
+        # 8 bit case, need to get all vectors over the right field
+        ok8 := true;
+        if q <> ConvertToVectorRepNC(v,q) then
+            v := PlainListCopy(v);
+            ok8 := ok8 and q = ConvertToVectorRepNC(v,q);
+        fi;
+        if ok8 and q <> ConvertToVectorRepNC(w,q) then
+            w := PlainListCopy(w);
+            ok8 := ok8 and q = ConvertToVectorRepNC(w,q);
+        fi;
+        for x in vl{[1..n]} do
+            for i in [1..q+1] do
+                if ok8 and q <> ConvertToVectorRepNC(x[i],q) then
+                    x[i] := PlainListCopy(x[i]);
+                    ok8 := ok8 and q = ConvertToVectorRepNC(x[i],q);
+                fi;
+            od;
+        od;
+    else
+        ok8 := false;
+    fi;
+    leaders := [Immutable(v)];
+
+    # this line checks that the required number of coset leaders
+    # CAN be stored in a plain list
+
+    leaders[tofind+1] := false;
+    tofind := tofind -1;
+    weight := 0;
+    while  tofind > 0 do
+        weight := weight + 1;
+        if weight > n then
+            Error("not all cosets found");
+        fi;
+        if q = 2 then
+            tofind := tofind - COSET_LEADERS_INNER_GF2( vl, weight,
+                              tofind, leaders);
+        #elif ok8 then
+        #    Print(tofind, "\n");
+        #    tofind := tofind - COSET_LEADERS_INNER_8BITS( vl, weight,
+        #                      tofind, leaders, felts);
+        else
+            #Print(tofind, "\n");
+            tofind := tofind - CosetLeadersInner(vl, v, w, weight, 1,
+                              rrecord, felts, q, tofind);
+        fi;
+    od;
+
+    Unbind(leaders[q^m+1]);
+    return leaders;
+end);
+

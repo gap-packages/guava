@@ -111,7 +111,7 @@ end);
 ##Create a linear code from a list of Codeword generators
 LinearCodeByGenerators := function(F, gens)
 
-    local V;
+    local V, M, row, i, j;
     V:= Objectify( NewType( FamilyObj( gens ),
                             IsLeftModule and
                 IsLinearCodeRep and IsCodeDefaultRep ),
@@ -120,6 +120,15 @@ LinearCodeByGenerators := function(F, gens)
     SetGeneratorsOfLeftModule( V, AsList( One(F)*gens ) );
     SetIsLinearCode(V, true);
     SetWordLength(V, Length(gens[1]));
+    #M:=[];
+    #for i in [1..Length(gens)] do
+    #    row:=[];
+    #    for j in [1..Length(gens[i])] do
+    #        Append(row,[gens[i][j]]);
+    #    od;
+    #    Append(M, [row]);
+    #od;
+    #SetGeneratorMat(V, M);  #The calling functions always handle setting the GenMat
     return V;
 
 end;
@@ -1852,7 +1861,7 @@ InstallMethod(ExtendedReedSolomonCode, "wordlength, designed distance", true,
 function(n, d)
     local i, j, s, C, G, Ce;
     C := ReedSolomonCode(n-1, d-1);
-    G := MutableCopyMat( GeneratorMat(C) );
+    G := MutableCopyMatrix( GeneratorMat(C) );
     TriangulizeMat(G);
     for i in [1..Size(G)] do;
         s := 0;
@@ -2053,7 +2062,7 @@ QuadraticResidueSupports:=function(p)
  if p mod 4 = 1 then
      G0:=List([1..(p-1)],i->G[i]);
  else
-    G0:=G;
+    G0:=MatrixByBlockMatrix(G);
  fi;
  C:=GeneratorMatCode(G0,F);
  C!.DoublyCirculant:=G0;
@@ -2098,7 +2107,7 @@ QuadraticResidueSupports:=function(p)
  if p mod 4 = 1 then
      G0:=List([1..(p-1)],i->G[i]);
  else
-    G0:=G;
+    G0:=MatrixByBlockMatrix(G);
  fi;
  C:=GeneratorMatCodeNC(G0,F);
  C!.DoublyCirculant:=G0;
@@ -2373,15 +2382,19 @@ function(crv,pts,m,R)
  return C;
 end);
 
+# The FerreroDesign stuff was commented out w/ a message about issues when Sonata 
+# was not installed.  Guava now automatically loads Sonata at startup so I'm re-instating
+# these functions. -JEF 1/5/2025
+
 #############################################################################
 ##
 #F    FerreroDesignCode( <P>, <m> )  ... code from a Ferrero design
 ##
 ##
-#InstallMethod(FerreroDesignCode,
-#"binary linear code constructed using a Ferrero design",
-#true, [IsList, IsInt], 0,
-#function( P,m)
+InstallMethod(FerreroDesignCode,
+"binary linear code constructed using a Ferrero design",
+true, [IsList, IsInt], 0,
+function( P,m)
 # **Requires the GAP package SONATA**
 # Constructs binary linear code arising from the incdence
 # matrix of a design associated to a "Ferrero pair" arising
@@ -2413,30 +2426,34 @@ end);
 # The pair (H,K) is called a Ferraro pair and the semidirect product KH is a
 # Frobenius group with complement H.
 # AUTHORS: Peter Mayr and David Joyner
-#local C, f, H, K, M, D;
-# LoadPackage("sonata");
-# f := FpfAutomorphismGroupsCyclic( P, m );
-# K := f[2];
-# H := Group( f[1][1] );
-# D := DesignFromFerreroPair( K, H, "*" );
-# M := IncidenceMat( D );
-# C:=GeneratorMatCode(M*Z(2), GF(2));
-#return C;
-#end);
+    local C, f, H, K, M, D;
+    LoadPackage("sonata");
+    f := FpfAutomorphismGroupsCyclic( P, m );
+    K := f[2];
+    H := Group( f[1][1] );
+    D := DesignFromFerreroPair( K, H, "*" );
+    M := IncidenceMat( D );
+    C := GeneratorMatCode(M*Z(2), GF(2));
+    return C;
+end);
+
 
 #Having trouble getting GUAVA to load without errors if
 #SONATA is not installed. Uncomment this and reload if you
 #have SONATA.
+
+# The function below is now superceded by the method above...
+
 #FerreroDesignCode:=function( P,m)
-#local C, f, H, K, M, D;
-# LoadPackage("sonata");
-# f := FpfAutomorphismGroupsCyclic( P, m );
-# K := f[2];
-# H := Group( f[1][1] );
-# D := DesignFromFerreroPair( K, H, "*" );
-# M := IncidenceMat( D );
-# C:=GeneratorMatCode(M*Z(2), GF(2));
-#return C;
+#    local C, f, H, K, M, D;
+#    LoadPackage("sonata");
+#    f := FpfAutomorphismGroupsCyclic( P, m );
+#    K := f[2];
+#    H := Group( f[1][1] );
+#    D := DesignFromFerreroPair( K, H, "*" );
+#    M := IncidenceMat( D );
+#    C:=GeneratorMatCode(M*Z(2), GF(2));
+#    return C;
 #end;
 
 #############################################################################
@@ -2657,12 +2674,16 @@ __G_FourNegacirculantSelfDualCode := function(ax, bx, k)
 
     x := Indeterminate(FA);
 
-    v := MutableCopyMat( CoefficientsOfUnivariatePolynomial(ax) );
+    #v := MutableCopyMatrix( CoefficientsOfUnivariatePolynomial(ax) );
+    #MutableCopyMatrix expects a MATRIX, not a LIST
+    v := ShallowCopy( CoefficientsOfUnivariatePolynomial(ax) );
     Append( v, List([1..(m - (Degree(ax)+1))], i->Zero(FA)) );
     A := NegacirculantMatrix(m, v*One(FA));
     AT:= TransposedMat(A);
 
-    v := MutableCopyMat( CoefficientsOfUnivariatePolynomial(bx) );
+    #v := MutableCopyMatrix( CoefficientsOfUnivariatePolynomial(bx) );
+    #ditto
+    v := ShallowCopy( CoefficientsOfUnivariatePolynomial(bx) );
     Append( v, List([1..(m - (Degree(bx)+1))], i->Zero(FA)) );
     B := NegacirculantMatrix(m, v*One(FA));
     BT:= TransposedMat(-B);

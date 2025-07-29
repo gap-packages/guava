@@ -1,6 +1,15 @@
 In this file we record the changes since the first GAP 4 release of
 the GUAVA package.
 
+Version 3.20 (2-2025)
+   o Many changes to the manual were made. Accumulated anachronisms were revealed by manual/example
+     test extraction via AutoDoc
+   o The C23 standard defines a bool type and that will shortly be the default for gcc.  Adjusted old C code 
+     (which defined its own bool type).
+   o CoveringRadius() for codes over small non-binary fields was throwing an error.  Fixed, but a more permanent solution
+     is needed.  (See issue #104)
+   o Many other minor fixes (also revealed by AutoDoc's extraction of tests from the manual examples).
+   
 Version 3.19 (3-2024)
    o Fix various issues in the C source code, including potential buffer
      overflows and many compiler warnings

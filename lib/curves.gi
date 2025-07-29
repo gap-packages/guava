@@ -403,16 +403,16 @@ end);
 #F  AffinePointsOnCurve(<f>, <R>, <E>)
 ## ***** only works for finiet fields*****
 ##
-InstallGlobalFunction(AffinePointsOnCurve,function(f,R,E)
+InstallGlobalFunction(AffinePointsOnCurve,function(f,R,F)
  local a,b,indets,solns;
- if not(IsFinite(E)) then
-    Error("Field ",E," must be finite.");
+ if not(IsFinite(F)) then
+    Error("Field ",F," must be finite.");
  fi;
  solns:=[];
  indets:=IndeterminatesOfPolynomialRing(R);
- for a in E do
-  for b in E do
-    if Value(f,indets,[a,b])=Zero(E) then
+ for a in F do
+  for b in F do
+    if Value(f,indets,[a,b])=Zero(F) then
      solns:=Concatenation([[a,b]],solns);
     fi;
   od;
