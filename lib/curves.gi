@@ -140,9 +140,7 @@ local partsf,monsf,vars,deg,i,j;
  partsf:=ConstituentsPolynomial(f);
 # varsf:=partsf.variables;
  monsf:=partsf.monomials;
- deg:=List([1..Length(monsf)],i->
-  List([1..Length(vars)],j->
-   [monsf[i],vars[j],DegreeIndeterminate(monsf[i],vars[j])]));
+ deg:=List(monsf,mon->List(vars,var->[mon,var,DegreeIndeterminate(mon,var)]));
  return deg;
 end);
 
@@ -161,9 +159,7 @@ local partsf,monsf,vars,deg,i,j;
  partsf:=ConstituentsPolynomial(f);
 # varsf:=partsf.variables;
  monsf:=partsf.monomials;
- deg:=List([1..Length(monsf)],i->
-  Sum(List([1..Length(vars)],j->
-   DegreeIndeterminate(monsf[i],vars[j]))));
+ deg:=List(monsf,mon->Sum(vars,var->DegreeIndeterminate(mon,var)));
  return Maximum(deg);
 end);
 

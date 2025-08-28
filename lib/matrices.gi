@@ -321,10 +321,10 @@ function(arg)
     if Length(arg) = 1 then
         M:=arg[1];
     else
-        M:=List([1..Length(arg)],i->arg[i]);
+        M:=arg;
     fi;
     n:=Length(M);
-    if ( n >= Length(M[1]) ) or not ForAll(M, i-> IsLatinSquare(i)) then
+    if n >= Length(M[1]) or not ForAll(M, IsLatinSquare) then
         return false; #this is right
     fi;
     q2 := Length(M[1])^2;
