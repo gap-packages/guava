@@ -97,8 +97,8 @@ function(C, D, check)
     NewH := List( [ 2..Length( H ) ], x -> H[ x ] );
     # throw away the first column of H' (it is (1, 0, ..., 0),
     # the one is already present in the new generator matrix)
-    NewH := List( [ 1..Length( NewH ) ], x -> List(
-                 [ 2 .. WordLength( D ) ], y -> NewH[ x ][ y ] ) );
+    NewH := List( NewH, x -> List(
+                 [ 2 .. WordLength( D ) ], y -> x[ y ] ) );
     # fill the lower left part with zeroes
     Nulmat := List( [ 1 .. Dimension( D ) - 1 ],
                     x -> NullVector( WordLength( C ) , LeftActingDomain(C) ) );
