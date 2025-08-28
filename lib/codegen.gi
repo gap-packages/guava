@@ -1903,7 +1903,7 @@ function(n, L, F)
     fi;
     p := Characteristic(Field(L));
     CC:=CyclotomicCosets(p,q-1);
-    CCz:=List([1..Length(CC)],i->List(CC[i],j->z^j));
+    CCz:=List(CC,cc->List(cc,j->z^j));
     ##  this is the set of cyclotomic cosets, represented
     ##  as powers of a primitive element z
     powerlist := [];
