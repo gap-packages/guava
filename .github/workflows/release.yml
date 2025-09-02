@@ -1,11 +1,15 @@
 name: Release
 
-# Trigger the workflow on push or pull request
 on:
   workflow_dispatch:
     inputs:
       dry-run:
-        description: "Do not upload the release to GitHub"
+        description: "Set to true to create an archive containing the release instead of publishing it on GitHub"
+        type: boolean
+        required: false
+        default: false
+      force:
+        description: "Set to true to allow this action to overwrite an existing release, and to make a release with an incorrect date"
         type: boolean
         required: false
         default: false
@@ -28,5 +32,6 @@ jobs:
       - uses: gap-actions/release-pkg@v1
         with:
           dry-run: ${{ inputs.dry-run }}
+          force: ${{ inputs.force }}
       - uses: gap-actions/update-gh-pages@v1
         if: ${{ !inputs.dry-run }}
