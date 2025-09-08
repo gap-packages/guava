@@ -34,7 +34,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v5
-      - uses: gap-actions/setup-gap@v2
+      - uses: gap-actions/setup-gap@v3
         with:
           GAPBRANCH: ${{ matrix.gap-branch }}
       - uses: gap-actions/build-pkg@v1
@@ -54,7 +54,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v5
-      - uses: gap-actions/setup-gap@v2
+      - uses: gap-actions/setup-gap@v3
       - uses: gap-actions/build-pkg-docs@v1
         with:
           use-latex: 'true'
