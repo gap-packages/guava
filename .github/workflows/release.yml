@@ -27,6 +27,9 @@ jobs:
       - uses: gap-actions/build-pkg-docs@v2
         with:
           use-latex: true
+      - name: Run .release script
+        run: |
+          ./.release
       - uses: gap-actions/release-pkg@v1
         with:
           dry-run: ${{ inputs.dry-run }}
