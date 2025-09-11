@@ -43,7 +43,7 @@ CalculateLinearCodeCoveringRadius := function( code )
 # (old version had line above in place of next 5)
     H:=CheckMat(code);
     CLs:=GuavaCosetLeadersMatFFE(H,LeftActingDomain(code));
-    wts:=List([1..Length(CLs)],i->WeightVecFFE(CLs[i]));
+    wts:=List(CLs, WeightVecFFE);
     rho:=Maximum(wts);
     return rho;
   fi;
