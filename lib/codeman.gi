@@ -2138,7 +2138,7 @@ __G_BZCode := function(O, I)
 	VectorRep := function(e, F)
 		local a, f, MF;
 		if IsZero(e) then;
-			return List([1..LogInt(Size(F), Characteristic(F))], i->Zero(GF(Characteristic(F))));
+			return List([1..DegreeOverPrimeField(F)], i->Zero(GF(Characteristic(F))));
 		fi;
 		a := PrimitiveElement(F);
 		f := MinimalPolynomial( GF(Characteristic(F)), a);
@@ -2152,17 +2152,17 @@ __G_BZCode := function(O, I)
 	fi;
 
 	# Make sure list O (outer codes) contains all linear codes
-	if (PositionNot( List([1..Size(O)], i->IsLinearCode(O[i])), true ) < Size(O)) then
+	if not ForAll(O, IsLinearCode) then
 		Error("The list O contains non linear code(s)\n");
 	fi;
 
 	# Make sure list I (inner codes) contains all linear codes
-	if (PositionNot( List([1..Size(I)], i->IsLinearCode(I[i])), true ) < Size(I)) then
+	if not ForAll(I, IsLinearCode) then
 		Error("The list I contains non linear code(s)\n");
 	fi;
 
 	# Make sure that all outer codes have the same length
-	if (PositionNot(List([1..Size(O)], i->CodeLength(O[i])), CodeLength(O[1])) < Size(O)) then
+	if Length(Set(O, CodeLength)) > 1 then
 		Error("Code lengths of all outer codes are required to be the same\n");
 	fi;
 
