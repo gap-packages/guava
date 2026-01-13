@@ -691,7 +691,7 @@ function(C)
     local majority,G0, Gp, Gpt, Gt, L, k, i, j, dimMat, Grstr, J, d1, arrayd1, Combo, rows, row, rowSum, G, F, zero, AClosestVec, s, p, num;
     F:=LeftActingDomain(C);
     if F<>GF(2) then Print("Code must be binary. Quitting. \n"); return(0); fi;
-    G := MutableCopyMatrix(GeneratorMat(C));
+    G := MutableCopyMat(GeneratorMat(C));
     if (IsInStandardForm(G)=false) then
         PutStandardForm(G);
     fi;
@@ -757,7 +757,7 @@ function(C,p,num)
     # p = 5 seems to be optimal
     # num = 8 seems to be optimal
     local majority,G0, Gp, Gpt, Gt, L, k, i, j, dimMat, Grstr, J, d1, arrayd1, Combo, rows, row, rowSum, G, F, zero, AClosestVec, s;
-    G := MutableCopyMatrix(GeneratorMat(C));
+    G := MutableCopyMat(GeneratorMat(C));
     if (IsInStandardForm(G)=false) then
         PutStandardForm(G);
     fi;
