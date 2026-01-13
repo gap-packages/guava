@@ -1861,7 +1861,7 @@ InstallMethod(ExtendedReedSolomonCode, "wordlength, designed distance", true,
 function(n, d)
     local i, j, s, C, G, Ce;
     C := ReedSolomonCode(n-1, d-1);
-    G := MutableCopyMatrix( GeneratorMat(C) );
+    G := MutableCopyMat( GeneratorMat(C) );
     TriangulizeMat(G);
     for i in [1..Size(G)] do;
         s := 0;
@@ -2651,14 +2651,14 @@ __G_FourNegacirculantSelfDualCode := function(ax, bx, k)
 
     x := Indeterminate(FA);
 
-    #v := MutableCopyMatrix( CoefficientsOfUnivariatePolynomial(ax) );
-    #MutableCopyMatrix expects a MATRIX, not a LIST
+    #v := MutableCopyMat( CoefficientsOfUnivariatePolynomial(ax) );
+    #MutableCopyMat expects a MATRIX, not a LIST
     v := ShallowCopy( CoefficientsOfUnivariatePolynomial(ax) );
     Append( v, List([1..(m - (Degree(ax)+1))], i->Zero(FA)) );
     A := NegacirculantMatrix(m, v*One(FA));
     AT:= TransposedMat(A);
 
-    #v := MutableCopyMatrix( CoefficientsOfUnivariatePolynomial(bx) );
+    #v := MutableCopyMat( CoefficientsOfUnivariatePolynomial(bx) );
     #ditto
     v := ShallowCopy( CoefficientsOfUnivariatePolynomial(bx) );
     Append( v, List([1..(m - (Degree(bx)+1))], i->Zero(FA)) );
