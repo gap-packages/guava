@@ -100,11 +100,12 @@ gap> Print(" Codes\n");
 gap> C:=RandomLinearCode(20,10,GF(4));
 a  [20,10,?] randomly generated code over GF(4)
 gap> c:=Random(C);;
-gap> NamesOfComponents(C);
-[ "Representative", "ZeroImmutable", "name", "LeftActingDomain", "Dimension", 
-  "GeneratorsOfLeftOperatorAdditiveGroup", "Basis", "NiceFreeLeftModule", 
-  "WordLength", "GeneratorMat" ]
-gap> NamesOfComponents(c);
+gap> Set(NamesOfComponents(C));
+[ "Basis", "Dimension", "GeneratorMat", 
+  "GeneratorsOfLeftOperatorAdditiveGroup", "LeftActingDomain", 
+  "NiceFreeLeftModule", "Representative", "WordLength", "ZeroImmutable", 
+  "name" ]
+gap> Set(NamesOfComponents(c));
 [ "VectorCodeword", "WordLength", "treatAsPoly" ]
 gap> c!.VectorCodeword;
 < immutable compressed vector length 20 over GF(4) >
