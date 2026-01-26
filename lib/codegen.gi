@@ -2382,10 +2382,6 @@ function(crv,pts,m,R)
  return C;
 end);
 
-# The FerreroDesign stuff was commented out w/ a message about issues when Sonata 
-# was not installed.  Guava now automatically loads Sonata at startup so I'm re-instating
-# these functions. -JEF 1/5/2025
-
 #############################################################################
 ##
 #F    FerreroDesignCode( <P>, <m> )  ... code from a Ferrero design
@@ -2427,7 +2423,6 @@ function( P,m)
 # Frobenius group with complement H.
 # AUTHORS: Peter Mayr and David Joyner
     local C, f, H, K, M, D;
-    LoadPackage("sonata");
     f := FpfAutomorphismGroupsCyclic( P, m );
     K := f[2];
     H := Group( f[1][1] );
@@ -2437,24 +2432,6 @@ function( P,m)
     return C;
 end);
 
-
-#Having trouble getting GUAVA to load without errors if
-#SONATA is not installed. Uncomment this and reload if you
-#have SONATA.
-
-# The function below is now superceded by the method above...
-
-#FerreroDesignCode:=function( P,m)
-#    local C, f, H, K, M, D;
-#    LoadPackage("sonata");
-#    f := FpfAutomorphismGroupsCyclic( P, m );
-#    K := f[2];
-#    H := Group( f[1][1] );
-#    D := DesignFromFerreroPair( K, H, "*" );
-#    M := IncidenceMat( D );
-#    C:=GeneratorMatCode(M*Z(2), GF(2));
-#    return C;
-#end;
 
 #############################################################################
 ##
