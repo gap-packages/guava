@@ -199,9 +199,9 @@ SetPackageInfo( rec(
     # list of pairs [package name, (least) version],  package name is case
     # insensitive, least version denoted with '>=' prepended to version string.
     # without these, the package will not load
-    NeededOtherPackages := [],
+    NeededOtherPackages := [["SONATA",">= 2.3"]],
     # without these the package will issue a warning while loading
-    SuggestedOtherPackages := [["SONATA",">= 2.3"]],
+    SuggestedOtherPackages := [],
     # needed external conditions (programs, operating system, ...)  provide 
     # just strings as text or
     # pairs [text, URL] where URL  provides further information
