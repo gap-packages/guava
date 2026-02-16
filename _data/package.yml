@@ -1,76 +1,82 @@
-name: GitHubPagesForGAP
-version: "0.2"
-license: "0BSD"
-date: 2017-02-04
+name: GUAVA
+version: "3.21"
+license: "GPL-2.0-or-later"
+date: 2026-02-16
 description: |
-    A GitHub Pages generator for GAP packages
+    a GAP package for computing with error-correcting codes
 
 authors:
-    - name: Max Horn
-      url: http://www.quendi.de/math
-    - name: A. U. Thor
+    - name: Reinald Baart
+    - name: Tom Boothby
+    - name: Jasper Cramwinckel
+    - name: Joe Fields
+      url: http://giam.southernct.edu/
+    - name: David Joyner
+      url: https://sites.google.com/site/wdjoyner/
+    - name: Robert Miller
+    - name: Eric Minkes
+    - name: Erik Roijackers
+    - name: Lea Ruscio
+    - name: Cen Tjhai
 
 maintainers:
-    - name: Max Horn
-      url: http://www.quendi.de/math
-    - name: Jan Itor
+    - name: Joe Fields
+      url: http://giam.southernct.edu/
 
-GAP: ">=4.8.1"
+GAP: ">= 4.8.0"
 
 needed-pkgs:
-    - name: "GAPDoc"
-      version: ">= 1.2"
-      url: "http://www.math.rwth-aachen.de/~Frank.Luebeck/GAPDoc"
-    - name: "IO"
-      version: ">= 4.1"
-      url: "https://gap-packages.github.io/io"
+    - name: "SONATA"
+      version: ">= 2.3"
+      url: "https://gap-packages.github.io/sonata/"
 
-suggested-pkgs:
-    - name: "orb"
-      version: ">= 4.2"
-      url: "https://gap-packages.github.io/orb"
-
-www: https://gap-system.github.io/GitHubPagesForGAP/
+www: https://gap-packages.github.io/guava
 readme: README.md
-packageinfo: https://gap-system.github.io/GitHubPagesForGAP/PackageInfo.g
-github: https://github.com/gap-system/GitHubPagesForGAP
+packageinfo: https://gap-packages.github.io/guava/PackageInfo.g
 
 downloads:
     - name: .tar.gz
-      url: https://github.com/gap-system/GitHubPagesForGAP/releases/download/v0.2/GitHubPagesForGAP-0.2.tar.gz
-    - name: .tar.bz2
-      url: https://github.com/gap-system/GitHubPagesForGAP/releases/download/v0.2/GitHubPagesForGAP-0.2.tar.bz2
+      url: https://github.com/gap-packages/guava/releases/download/v3.21/guava-3.21.tar.gz
 
 abstract: |
-    This is a pseudo package that contains no actual  <span class="pkgname">GAP</span> code. Instead, it is a template for other  GAP packages that allows to quickly setup GitHub Pages.
+    <span class="pkgname">GUAVA</span> is a <span class="pkgname">GAP</span> package for computing with codes. <span class="pkgname">GUAVA</span> can construct unrestricted (non-linear), linear and cyclic codes; transform one code into another (for example by puncturing); construct a new code from two other codes (using direct sums for example); perform decoding/error-correction; and can calculate important data of codes (such as the minumim distance or covering radius) quickly. Limited ability to compute algebraic geometric codes.
 
-status: other
-doc-html: doc/chap0.html
+status: accepted
+doc-html: doc/chap0_mj.html
 doc-pdf: doc/manual.pdf
 keywords: |
-    GitHub Pages, GAP.
+    code, codeword, Hamming, linear code, nonlinear code, minimum distance, minimum weight, error-correcting block codes, decoding, generator matrix, check matrix, covering radius, weight distribution, automorphism group of code.
 citeas: |
     <p class='BibEntry'>
-    [<span class='BibKey'>HTI17</span>]   <b class='BibAuthor'>Horn, M., Thor, A. U. and Itor, J.</b>,
-     <i class='BibTitle'>GitHubPagesForGAP, A GitHub Pages generator for GAP packages,
-             Version 0.2</i>
-     (<span class='BibYear'>2017</span>)<br />
+    [<span class='BibKey'>BBCFJMMRRT26</span>]   <b class='BibAuthor'>Baart, R., Boothby, T., Cramwinckel, J., Fields, J., Joyner, D., Miller, R., Minkes, E., Roijackers, E., Ruscio, L. and Tjhai, C.</b>,
+     <i class='BibTitle'>GUAVA, a GAP package for computing with error-correcting codes,
+             Version 3.21</i>
+     (<span class='BibYear'>2026</span>)<br />
     (<span class='BibNote'>GAP package</span>),
-    <span class='BibHowpublished'><a href="https://gap-system.github.io/GitHubPagesForGAP/">https://gap-system.github.io/GitHubPagesForGAP/</a></span>.
+    <span class='BibHowpublished'><a href="https://gap-packages.github.io/guava">https://gap-packages.github.io/guava</a></span>.
     </p>
     
 
 bibtex: |
-    @misc{ GitHubPagesForGAP0.2,
-      author =           {Horn, M. and Thor, A. U. and Itor, J.},
-      title =            {{GitHubPagesForGAP}, A GitHub Pages generator for GAP packages, {V}ersion 0.2},
+    @misc{ GUAVA,
+      author =           {Baart,  R.  and  Boothby,  T.  and Cramwinckel, J. and
+                          Fields,  J.  and Joyner, D. and Miller, R. and Minkes,
+                          E. and Roijackers, E. and Ruscio, L. and Tjhai, C.},
+      title =            {{GUAVA},   {a   GAP   package   for   computing   with
+                          error\texttt{\symbol{45}}correcting  codes}, {V}ersion
+                          3.21},
       month =            {Feb},
-      year =             {2017},
+      year =             {2026},
       note =             {GAP package},
-      howpublished =     {\href                              {https://gap-system.github.io/GitHubPagesForGAP/}
-                          {\texttt{https://gap-system.github.io/}\discretionary
-                          {}{}{}\texttt{GitHubPagesForGAP/}}},
-      keywords =         {GitHub Pages; GAP},
-      printedkey =       {HTI17}
+      howpublished =     {\href           {https://gap-packages.github.io/guava}
+                          {\texttt{https://gap\texttt{\symbol{45}}packages.github.io/}\discretionary
+                          {}{}{}\texttt{guava}}},
+      keywords =         {code;  codeword; Hamming; linear code; nonlinear code;
+                          minimum        distance;        minimum        weight;
+                          error\texttt{\symbol{45}}correcting    block    codes;
+                          decoding;  generator  matrix;  check  matrix; covering
+                          radius;  weight  distribution;  automorphism  group of
+                          code},
+      printedkey =       {BBCFJMMRRT26}
     }
 
