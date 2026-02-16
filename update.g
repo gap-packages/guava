@@ -1,7 +1,7 @@
 #
 # GitHubPagesForGAP - a template for using GitHub Pages within GAP packages
 #
-# Copyright (c) 2013-2018 Max Horn
+# Copyright (c) 2013-2024 Max Horn
 #
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
@@ -158,7 +158,9 @@ GeneratePackageYML:=function(pkg)
     od;
     AppendTo(stream, "\n");
 
-    AppendTo(stream, "status: ", pkg.Status, "\n");
+    if IsBound(pkg.Status) then
+        AppendTo(stream, "status: ", pkg.Status, "\n");
+    fi;
     if IsRecord(pkg.PackageDoc) then
         AppendTo(stream, "doc-html: ", pkg.PackageDoc.HTMLStart, "\n");
         AppendTo(stream, "doc-pdf: ", pkg.PackageDoc.PDFFile, "\n");

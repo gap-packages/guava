@@ -8,8 +8,7 @@ layout: default
 
 The current version of this package is version {{site.data.package.version}}, released on {{site.data.package.date}}.
 For more information, please refer to [the package manual]({{site.data.package.doc-html}}).
-There is also a [README](README.html) file, the list of [CHANGES](CHANGES.guava), and the former [webpage](oldindex.html)
-used for releases up to GUAVA 3.13 inclusive.
+There is also a [README](README.html) file.
 
 {% if site.data.package.license %}
   License: [{{ site.data.package.license }}](https://spdx.org/licenses/{{ site.data.package.license }})
