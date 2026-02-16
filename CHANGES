@@ -1,6 +1,11 @@
 In this file we record the changes since the first GAP 4 release of
 the GUAVA package.
 
+Version 3.21 (2-2026)
+    o Require Sonata package
+    o Fix logical AND in assignGenName, a function in the C code
+    o Simplify some code
+
 Version 3.20 (2-2025)
    o Many changes to the manual were made. Accumulated anachronisms were revealed by manual/example
      test extraction via AutoDoc
