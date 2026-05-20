@@ -136,7 +136,7 @@ function(C)
     elif HasCheckPol(C) then
         return DegreeOfLaurentPolynomial( CheckPol(C) );
     else
-        Error("Attempting to find the dim of a cyclic code with neither a gen. poly. nor a check poly...\n");
+        Error("Attempting to find the dim of a cyclic code with neither a gen. poly. nor a check poly...");
     fi;
 end);
 
@@ -1895,7 +1895,7 @@ InstallMethod(IsDoublyEvenCode, "method for binary linear code", true,
 function(C)
     local G, i;
     if LeftActingDomain(C)<>GF(2) then
-        Error("Code must be binary\n");
+        Error("Code must be binary");
     fi;
     G:=GeneratorMat(C);
     for i in [1..Size(G)] do;
@@ -1917,7 +1917,7 @@ InstallMethod(IsSinglyEvenCode, "method for binary linear code", true,
     [IsLinearCode], 0,
 function(C)
     if LeftActingDomain(C)<>GF(2) then
-        Error("Code must be binary\n");
+        Error("Code must be binary");
     fi;
     return (IsSelfOrthogonalCode(C)) and (not IsDoublyEvenCode(C));
 end);
@@ -1933,7 +1933,7 @@ InstallMethod(IsEvenCode, "method for binary linear code", true,
     [IsLinearCode], 0,
 function(C)
     if LeftActingDomain(C)<>GF(2) then
-        Error("Code must be binary\n");
+        Error("Code must be binary");
     fi;
     return (C = EvenWeightSubcode(C));
 end);
@@ -2695,7 +2695,7 @@ Print("\n This is a probabilistic algorithm which may return the wrong answer.\n
 
     zero := Zero(F)*A[1];
     if (s<n-k and A=Zero(F)*A) then
-           Error("This method fails for these parameters. Try increasing s.\n");
+           Error("This method fails for these parameters. Try increasing s.");
         fi;
         if (s=n and A=Zero(F)*A) then
            return 1;

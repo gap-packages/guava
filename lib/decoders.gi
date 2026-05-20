@@ -273,7 +273,7 @@ InstallMethod(CyclicDecoder, "method for cyclic code, codeword", true,
 function(C,w)
 local d, g, wpol, s, ds, cpol, cc, c, i, m, e, x, n, ccc, r;
  if not(IsCyclicCode(C)) then
-   Error("\n\n Code must be cyclic");
+   Error("Code must be cyclic");
  fi;
  if Codeword(w) in C then return Codeword(w); fi; ## bug fix 7-6-2007
  n:=WordLength(C);
@@ -421,7 +421,7 @@ InstallMethod(GeneralizedReedSolomonDecoderGao,"method for code, codeword", true
 function(C,vec)
  local vars,a,b,n,i,g0,g1,geea,u,q,v,r,g,f,F,R,x,k,GcdExtEuclideanUntilBound;
  if C!.name<>" generalized Reed-Solomon code" then
-   Error("\N This method only applies to GRS codes.\n");
+   Error("This method only applies to GRS codes");
  fi;
 
 GcdExtEuclideanUntilBound:=function(F,f,g,d,R)
@@ -457,7 +457,7 @@ end;
  x:=vars[1]; # define local x
  n:=Length(a);
  if Size(Set(a)) < n then
-   Error("`Points in 1st vector must be distinct.`\n\n");
+   Error("Points in 1st vector must be distinct");
  fi;
  g0:=One(F)*Product([1..n],i->x-a[i]);
  g1:=InterpolatedPolynomial(F,a,b);

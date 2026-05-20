@@ -375,7 +375,7 @@ NegacirculantMatrix:=function(k,L)
     local M, rL, i;
 
     if k <> Size(L) then
-        Error("Negacirculant matrix must be a square matrix\n");
+        Error("Negacirculant matrix must be a square matrix");
     fi;
 
     rL:= L;
@@ -425,7 +425,7 @@ PrimitivePolynomialsNr:=function(n,q)
 local period;
  #q:=Size(F);
  if n<2 then
-   Error("\n\n First arg must be > 1.\n");
+   Error("First arg must be > 1");
  fi;
  return Phi(q^n-1)/n;
 end;

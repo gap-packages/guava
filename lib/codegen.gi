@@ -2360,7 +2360,7 @@ function(crv,pts,m,R)
  F:=CoefficientsRing(R);
  allpts:=AffinePointsOnCurve(crv,R,F);
  if not(IsSubset(allpts,pts)) then
-   Error("The points given must be on the curve\n");
+   Error("The points given must be on the curve");
  fi;
  degx:=DegreeIndeterminate(crv,xx);
  degy:=DegreeIndeterminate(crv,yy);
@@ -2456,16 +2456,16 @@ function( L1, s, F )
     # Determine the cardinality of the list L1
     m:=Size(L1);
     if (m < 2) then
-        Error("The cardinality of <G> must be at least 2\n");
+        Error("The cardinality of <G> must be at least 2");
     fi;
 
     # Make sure that all the list elements are univariate polynomials
     for i in [1..m] do;
         if (IsUnivariatePolynomial(L1[i]) = false) then
-            Error("All list elements must be univariate polynomials\n");
+            Error("All list elements must be univariate polynomials");
         fi;
         if (Degree(L1[i]) >= s) then
-            Error("The degree of the polynomial must be less than s\n");
+            Error("The degree of the polynomial must be less than s");
         fi;
     od;
 
@@ -2493,20 +2493,20 @@ function( L1, s )
     # Determine the cardinality of the list L1
     m := Size(L1);
     if (m < 2) then
-        Error("The cardinality of <G> must be at least 2\n");
+        Error("The cardinality of <G> must be at least 2");
     fi;
 
     L2 := [];
     for i in [1..m] do;
         if (IsInt(L1[i]) = false) then
-            Error("All list elements must be in octal\n");
+            Error("All list elements must be in octal");
         fi;
         a := String(L1[i]);
         v := [];
         for j in [1..Length(a)] do;
             t := INT_CHAR(a[j]) - 48;   # Conversion of ASCII character to integer
             if (t > 7) then
-                Error("All list elements must be in octal\n");
+                Error("All list elements must be in octal");
             fi;
             Append(v, LUT[t+1]);
         od;
@@ -2528,10 +2528,10 @@ function(q, m, k)
     local i, j, l, x, a, r, g, G, F, CS, C, dmin;
 
     if (k < 1) or (k > q^m + 1) then
-        Error("Incorrect parameter, 1 <= k <= q^m+1.\n");
+        Error("Incorrect parameter, 1 <= k <= q^m+1.");
     fi;
     if IsEvenInt(k) and IsOddInt(q^m) then
-        Error("Cannot construct such code, k must be odd for odd field size.\n");
+        Error("Cannot construct such code, k must be odd for odd field size.");
     fi;
 
     F    := GF(q^m);
@@ -2637,7 +2637,7 @@ __G_FourNegacirculantSelfDualCode := function(ax, bx, k)
     local i, v, m, x, FA, FB, A, AT, B, BT, G;
 
     if IsOddInt(k) then
-        Error("k must be an even integer\n");
+        Error("k must be an even integer");
     fi;
 
     m := k/2;
@@ -2646,7 +2646,7 @@ __G_FourNegacirculantSelfDualCode := function(ax, bx, k)
     FA := Field(VectorCodeword(Codeword(ax)));
     FB := Field(VectorCodeword(Codeword(bx)));
     if FA <> FB then
-        Error("Polynomials a(x) and b(x) must have elements from the same field\n");
+        Error("Polynomials a(x) and b(x) must have elements from the same field");
     fi;
 
     x := Indeterminate(FA);
@@ -2695,7 +2695,7 @@ function(ax, bx, k)
     C!.GeneratorMat := ShallowCopy(G);
 
     if (IsSelfDualCode(C) = false) then
-        Error("Polynomials a(x) and b(x) do not produce a self-dual code\n");
+        Error("Polynomials a(x) and b(x) do not produce a self-dual code");
     fi;
 
     return C;
@@ -2719,7 +2719,7 @@ function(ax, bx, k)
     C!.boundsCoveringRadius := [ 0, WordLength(C) ];
 
     if (IsSelfDualCode(C) = false) then
-        Error("Polynomials a(x) and b(x) do not produce a self-dual code\n");
+        Error("Polynomials a(x) and b(x) do not produce a self-dual code");
     fi;
 
     return C;
@@ -2752,7 +2752,7 @@ function(m, j, k)
     PermutationMatrix := function(m, i)
         local s, P, L;
         if i = 0 or i > m then
-            Error("invalid value of i, 1 \\le i \\le ", m, "\n");
+            Error("invalid value of i, 1 \\le i \\le ", m, "");
         fi;
         P := [];
         L := List([1..m], i->Zero(GF(2))); L[i] := One(GF(2));
@@ -2769,10 +2769,10 @@ function(m, j, k)
 
     p := Phi(m);
     if (p mod j <> 0) then
-        Error(j, " does not divide ", p, "=Phi(", m, ")\n");
+        Error(j, " does not divide ", p, "=Phi(", m, ")");
     fi;
     if (p mod k <> 0) then
-        Error(k, " does not divide ", p, "=Phi(", m, ")\n");
+        Error(k, " does not divide ", p, "=Phi(", m, ")");
     fi;
 
     a := Position( List([1..m-1], i->OrderMod(i, m) ), k );

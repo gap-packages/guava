@@ -104,11 +104,11 @@ PaleyClasses@ := function(m)
   local k,e,q,n,l,M,L,ret;
   L:=PrimePowersInt(m);
   if L[1] <> 2 then
-    Error("Argument must be even.\n");
+    Error("Argument must be even");
   fi;
   l := L[2];
   if l < 2 then
-    Error("Argument must be divisible by 4.\n");
+    Error("Argument must be divisible by 4");
   fi;
   q := 0;
   n := 0;
@@ -140,7 +140,7 @@ end;;
 Jacobsthal@ := function(m)
   local i, j, F, L, Lstar, Qr, M, qx, x, y;
   if not IsPrimePowerInt(m) then
-    Error("Input must be the order of a finite field.\n");
+    Error("Input must be the order of a finite field");
   fi;
   if IsPrimeInt(m) then
     if 1 = m mod 4 then
@@ -204,10 +204,10 @@ end;;
 PaleyI@ := function(m)
   #local e, f, i, j, F, L, Qr, M;
   if not IsPrimePowerInt(m) then
-    Error("Input must be the order of a finite field.\n");
+    Error("Input must be the order of a finite field");
   fi;
   if (m mod 4) <> 3 then
-    Error("Input must be 3 mod 4 for the Paley I construction.\n");
+    Error("Input must be 3 mod 4 for the Paley I construction");
   fi;
   return Jacobsthal@(m) + IdentityMat(m+1, Integers);
 end;;
@@ -215,10 +215,10 @@ end;;
 PaleyII@ := function(m)
   local S, I, M;
   if not IsPrimePowerInt(m) then
-    Error("Input must be the order of a finite field.\n");
+    Error("Input must be the order of a finite field");
   fi;
   if (m mod 4) <> 1 then
-    Error("Input must be 1 mod 4 for the Paley II construction.\n");
+    Error("Input must be 1 mod 4 for the Paley II construction");
   fi;
   S:= Jacobsthal@(m);
   I := IdentityMat(m+1,Integers);
@@ -235,7 +235,7 @@ InstallMethod(HadamardMat, "order", true, [IsInt], 0,
 function(m)
   local L,k,e,q,n;
   if not (m=1 or m=2 or 0=(m mod 4)) then
-    Error("Hadamard matrices exist only when the order is 1, 2 or a multiple of 4.\n");
+    Error("Hadamard matrices exist only when the order is 1, 2 or a multiple of 4.");
   fi;
   if m=1 then
     return [[1]];
@@ -259,7 +259,7 @@ function(m)
   elif k=2 then              # or the type-II
     return KroneckerProduct(SylvesterMat(2^(e-1)), PaleyII@(q^n));
   else                       # or punt
-    Error("Something is very strange. This line should never be reached. \n");
+    Error("Something is very strange. This line should never be reached.");
   fi;
 end);
 
