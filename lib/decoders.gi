@@ -679,7 +679,7 @@ local f,h,g,x,R,R2,L,F,t,i,c,Pts,k,n,tau,Q,divisorsf,div,
  k:=C!.degree;
  tau:=Int((n-k)/2);
  L:=List([0..ell],i->n-tau-1-i*(k-1));
- y:=X(F,vars);;
+ y:=X(F,vars);
  R2:=PolynomialRing(F,[x,y]);
  vars:=IndeterminatesOfPolynomialRing(R2);
  Q:=GRSInterpolatingPolynomial(v,Pts,L,R2);

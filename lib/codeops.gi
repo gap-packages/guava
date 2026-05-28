@@ -2758,10 +2758,10 @@ function(C)
     if Size(LeftActingDomain(C)) > 3 then
         Print("Code must either be binary or ternary. Quitting. \n"); return(0);
     fi;
-    G := GeneratorMat(C);; G := ShallowCopy(G); TriangulizeMat(G);
+    G := GeneratorMat(C); G := ShallowCopy(G); TriangulizeMat(G);
     k := DimensionsMat(G)[1];
     n := DimensionsMat(G)[2];
-    #path := DirectoriesPackagePrograms( "guava" );; #seems unnecessary -- already done above...
+    #path := DirectoriesPackagePrograms( "guava" ); #seems unnecessary -- already done above...
     tmpFile := TmpName(); tmpOutFile := TmpName();
 
     PrintTo(tmpFile, k, " ", n, " ", Size(LeftActingDomain(C)), "\n");

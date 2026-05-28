@@ -135,7 +135,7 @@ PaleyClasses@ := function(m)
    M:=M/2;
   od;
   return ret;
-end;;
+end;
 
 Jacobsthal@ := function(m)
   local i, j, F, L, Lstar, Qr, M, qx, x, y;
@@ -199,7 +199,7 @@ Jacobsthal@ := function(m)
     fi;
   fi;
   return List([0..m],j->List([0..m], i->qx(i,j)));
-end;;
+end;
 
 PaleyI@ := function(m)
   #local e, f, i, j, F, L, Qr, M;
@@ -210,7 +210,7 @@ PaleyI@ := function(m)
     Error("Input must be 3 mod 4 for the Paley I construction");
   fi;
   return Jacobsthal@(m) + IdentityMat(m+1, Integers);
-end;;
+end;
 
 PaleyII@ := function(m)
   local S, I, M;
@@ -224,7 +224,7 @@ PaleyII@ := function(m)
   I := IdentityMat(m+1,Integers);
   M := BlockMatrix([[1,1,S+I],[1,2,S-I],[2,1,S-I],[2,2,-S-I]],2,2);
   return MatrixByBlockMatrix(M);
-end;;
+end;
 
 #############################################################################
 ##

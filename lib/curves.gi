@@ -53,9 +53,9 @@ local F,coeffs;
  return coeffs[2];
 end;
 ################### example:
-#R:= PolynomialRing( Rationals, 3 );;
-#vars:= IndeterminatesOfPolynomialRing(R);;
-#x:= vars[1];; y:= vars[2];; z:= vars[3];;
+#R:= PolynomialRing( Rationals, 3 );
+#vars:= IndeterminatesOfPolynomialRing(R);
+#x:= vars[1]; y:= vars[2]; z:= vars[3];
 #g:=x^2+x^3;
 #PolynomialCoefficientsOfPolynomial(g,x);
 #CoefficientOfPolynomial00(g,x);
@@ -77,9 +77,9 @@ local zerosF,F,v,A,b,f,coeffs;
 end;
 ######### example:
 #
-#R:= PolynomialRing( Rationals, ["x","y"] );;
-#i:= IndeterminatesOfPolynomialRing(R);;
-#x:= i[1];; y:= i[2];;
+#R:= PolynomialRing( Rationals, ["x","y"] );
+#i:= IndeterminatesOfPolynomialRing(R);
+#x:= i[1]; y:= i[2];
 #f:=2*y-3*x+1; g:=-5*y+2*x-7;
 #soln:=SolveLinearSystem([f,g],[x,y]);
 #Value(f,[x,y],soln);

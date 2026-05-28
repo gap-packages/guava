@@ -1868,11 +1868,11 @@ function( C, A )
 	fi;
 
 	# Make sure all codes in C and A have the same LeftActingDomain
-	K:=Filtered([2..Size(C)], i->LeftActingDomain(C[i]) <> LeftActingDomain(C[1]));;
+	K:=Filtered([2..Size(C)], i->LeftActingDomain(C[i]) <> LeftActingDomain(C[1]));
 	if Size(K) > 0 then
 		Error("Codes in C are not of the same left-acting-domain");
 	fi;
-	S:=Filtered([2..Size(A)], i->LeftActingDomain(A[i]) <> LeftActingDomain(A[1]));;
+	S:=Filtered([2..Size(A)], i->LeftActingDomain(A[i]) <> LeftActingDomain(A[1]));
 	if Size(S) > 0 then
 		Error("Codes in A are not of the same left-acting-domain");
 	fi;
@@ -1881,10 +1881,10 @@ function( C, A )
 	fi;
 
 	# Ensure that Dimension(C[1]) < Dimension(C[2]) < ... < Dimension(C[j]), i.e. we need to sort them
-	K:=List([1..Size(C)], i->Dimension(C[i]));;
-	S:=List([1..Size(C)], i->Dimension(C[i]));;
-	Sort(S);;
-	C:=List([1..Size(K)], i->C[Position(K, S[i])]);;
+	K:=List([1..Size(C)], i->Dimension(C[i]));
+	S:=List([1..Size(C)], i->Dimension(C[i]));
+	Sort(S);
+	C:=List([1..Size(K)], i->C[Position(K, S[i])]);
 
 	# Need to make sure that C[1] < C[2] < ... < C[j], i.e. subset
 	if (PositionNot(List([0..Size(C)-2], i->IsSubset(C[Size(C)-i], C[Size(C)-i-1])), true) < Size(C)-1) then
@@ -1892,10 +1892,10 @@ function( C, A )
 	fi;
 
 	# Now, ensure that codes in A are sorted such that their dimensions are in ascending order
-	K:=List([1..Size(A)], i->Dimension(A[i]));;
-	S:=List([1..Size(A)], i->Dimension(A[i]));;
-	Sort(S);;
-	A:=List([1..Size(K)], i->A[Position(K, S[i])]);;
+	K:=List([1..Size(A)], i->Dimension(A[i]));
+	S:=List([1..Size(A)], i->Dimension(A[i]));
+	Sort(S);
+	A:=List([1..Size(K)], i->A[Position(K, S[i])]);
 
 	# Number codes in A should be 1 less than that in C
 	if (Size(A) <> Size(C)-1) then
@@ -1911,13 +1911,13 @@ function( C, A )
 	od;
 
 	# Generator matrices of the chain codes
-	GC:=List([1..Size(C)], i->ShallowCopy(GeneratorMat(C[i])));;
-	GA:=List([1..Size(A)], i->ShallowCopy(GeneratorMat(A[i])));;
+	GC:=List([1..Size(C)], i->ShallowCopy(GeneratorMat(C[i])));
+	GA:=List([1..Size(A)], i->ShallowCopy(GeneratorMat(A[i])));
 
 	# Generator matrix of the largest code in chain format
-	GX:=GC[Size(C)];;
-	i:=1;;
-	p:=1;;
+	GX:=GC[Size(C)];
+	i:=1;
+	p:=1;
 	while (i < Size(C)) do
 		for j in [p..Dimension(C[i])] do;
 			GX[p] := GC[i][j];
@@ -1926,33 +1926,33 @@ function( C, A )
 		i := i + 1;
 	od;
 
-	GX:=ShallowCopy(GX);;
+	GX:=ShallowCopy(GX);
 	# Add the G matrix of the tail codes
-	k:=Dimension(C[Size(C)]);;
+	k:=Dimension(C[Size(C)]);
 	for i in [1..Size(A)] do
-		r:=1;;
-		ZeroVec:=List([1..CodeLength(A[i])], i->Zero( LeftActingDomain(C[1]) ));;
+		r:=1;
+		ZeroVec:=List([1..CodeLength(A[i])], i->Zero( LeftActingDomain(C[1]) ));
 		while (r <= k-Dimension(A[i])) do
-			GX[r]:=ShallowCopy(GX[r]);;
-			Append(GX[r], ZeroVec);;
-			r := r + 1;;
+			GX[r]:=ShallowCopy(GX[r]);
+			Append(GX[r], ZeroVec);
+			r := r + 1;
 		od;
-		j:=1;;
+		j:=1;
 		while (r <= k) do
-			GX[r]:=ShallowCopy(GX[r]);;
-			Append(GX[r], GA[i][j]);;
-			j := j + 1;;
-			r := r + 1;;
+			GX[r]:=ShallowCopy(GX[r]);
+			Append(GX[r], GA[i][j]);
+			j := j + 1;
+			r := r + 1;
 		od;
 	od;
 	CX:=GeneratorMatCode(GX, "Construction X code", LeftActingDomain(C[1]));
 
-	K:=[C[1]!.lowerBoundMinimumDistance];;
-	S:=[C[1]!.upperBoundMinimumDistance];;
-	i:=1;;
+	K:=[C[1]!.lowerBoundMinimumDistance];
+	S:=[C[1]!.upperBoundMinimumDistance];
+	i:=1;
 	while (i <= Size(A)) do;
-		r:=0;;
-		p:=0;;
+		r:=0;
+		p:=0;
 		for j in [1..i] do;
 			r := r + A[Size(A)-j+1]!.lowerBoundMinimumDistance;
 			p := p + A[Size(A)-j+1]!.upperBoundMinimumDistance;
@@ -1961,8 +1961,8 @@ function( C, A )
 		Append(S, [p + C[i+1]!.upperBoundMinimumDistance]);
 		i := i + 1;
 	od;
-	CX!.lowerBoundMinimumDistance := Minimum(K);;
-	CX!.upperBoundMinimumDistance := Minimum(S);;
+	CX!.lowerBoundMinimumDistance := Minimum(K);
+	CX!.upperBoundMinimumDistance := Minimum(S);
 
 	# This can be displayed using Display(C) or History(C). This shows the
 	# component codes that are used to construct the concatenated code
@@ -2009,7 +2009,7 @@ function( C1, C2, C3, A1, A2 )
 	fi;
 
 	# Make sure all codes have the same LeftActingDomain
-	q:=LeftActingDomain(C1);;
+	q:=LeftActingDomain(C1);
 	if ((LeftActingDomain(C2) <> q) or (LeftActingDomain(C3) <> q) or
   	 	(LeftActingDomain(A1) <> q) or (LeftActingDomain(A2) <> q)) then
 		Error("Not all codes have the same left-acting-domain");
@@ -2018,12 +2018,12 @@ function( C1, C2, C3, A1, A2 )
 	# Ensure that Dimension(C[1]) > Dimension(C[2]) > ... > Dimension(C[j]), i.e. we need to sort them
 	if (Dimension(C1) < Dimension(C2)) then
 		if (Dimension(C1) > Dimension(C3)) then
-			K:=C1;; C1:=C2;; C2:=K;;
+			K:=C1; C1:=C2; C2:=K;
 		else
         	if (Dimension(C2) > Dimension(C3)) then
-        		K:=C1;; C1:=C2;; C2:=C3;; C3:=K;;
+        		K:=C1; C1:=C2; C2:=C3; C3:=K;
         	else
-         	   K:=C1;; C1:=C3;; C3:=K;;
+         	   K:=C1; C1:=C3; C3:=K;
         	fi;
 		fi;
 	fi;
@@ -2042,54 +2042,54 @@ function( C1, C2, C3, A1, A2 )
 	fi;
 
 	C4:=IntersectionCode(C2,C3);
-	L:=[];; U:=[];;
-	Append(L, [LowerBoundMinimumDistance(C1) + LowerBoundMinimumDistance(A1) + LowerBoundMinimumDistance(A2)]);;
-	Append(L, [LowerBoundMinimumDistance(C2) + LowerBoundMinimumDistance(A2)]);;
-	Append(L, [LowerBoundMinimumDistance(C3) + LowerBoundMinimumDistance(A1)]);;
-	Append(U, [UpperBoundMinimumDistance(C1) + UpperBoundMinimumDistance(A1) + UpperBoundMinimumDistance(A2)]);;
-	Append(U, [UpperBoundMinimumDistance(C2) + UpperBoundMinimumDistance(A2)]);;
-	Append(U, [UpperBoundMinimumDistance(C3) + UpperBoundMinimumDistance(A1)]);;
-	Append(L, [LowerBoundMinimumDistance(C4)]);;
-	Append(U, [UpperBoundMinimumDistance(C4)]);;
+	L:=[]; U:=[];
+	Append(L, [LowerBoundMinimumDistance(C1) + LowerBoundMinimumDistance(A1) + LowerBoundMinimumDistance(A2)]);
+	Append(L, [LowerBoundMinimumDistance(C2) + LowerBoundMinimumDistance(A2)]);
+	Append(L, [LowerBoundMinimumDistance(C3) + LowerBoundMinimumDistance(A1)]);
+	Append(U, [UpperBoundMinimumDistance(C1) + UpperBoundMinimumDistance(A1) + UpperBoundMinimumDistance(A2)]);
+	Append(U, [UpperBoundMinimumDistance(C2) + UpperBoundMinimumDistance(A2)]);
+	Append(U, [UpperBoundMinimumDistance(C3) + UpperBoundMinimumDistance(A1)]);
+	Append(L, [LowerBoundMinimumDistance(C4)]);
+	Append(U, [UpperBoundMinimumDistance(C4)]);
 
 	# Generator matrices of the chain codes
-	G1 :=ShallowCopy(GeneratorMat(C1));;
-	G2 :=ShallowCopy(GeneratorMat(C2));;
-	G3 :=ShallowCopy(GeneratorMat(C3));;
-	G4 :=ShallowCopy(GeneratorMat(C4));;
-	GA1:=ShallowCopy(GeneratorMat(A1));;
-	GA2:=ShallowCopy(GeneratorMat(A2));;
+	G1 :=ShallowCopy(GeneratorMat(C1));
+	G2 :=ShallowCopy(GeneratorMat(C2));
+	G3 :=ShallowCopy(GeneratorMat(C3));
+	G4 :=ShallowCopy(GeneratorMat(C4));
+	GA1:=ShallowCopy(GeneratorMat(A1));
+	GA2:=ShallowCopy(GeneratorMat(A2));
 
 	# Generator matrix of the largest code in chain format
-	GXX:=G1;;
-	GXX:=ShallowCopy(GXX);;
-	p:=1;;
-	a1:=1;; a2:=1;;
-	ZeroVec1:=List([1..CodeLength(A1)], i->Zero(q));;
-	ZeroVec2:=List([1..CodeLength(A2)], i->Zero(q));;
+	GXX:=G1;
+	GXX:=ShallowCopy(GXX);
+	p:=1;
+	a1:=1; a2:=1;
+	ZeroVec1:=List([1..CodeLength(A1)], i->Zero(q));
+	ZeroVec2:=List([1..CodeLength(A2)], i->Zero(q));
 	for i in [1..Dimension(C4)] do;		# G(C_4) on the top k_4 rows
-		GXX[i] := ShallowCopy(G4[i]);;
-		Append(GXX[i], ZeroVec1);; Append(GXX[i], ZeroVec2);;
-		p := p + 1;;
+		GXX[i] := ShallowCopy(G4[i]);
+		Append(GXX[i], ZeroVec1); Append(GXX[i], ZeroVec2);
+		p := p + 1;
 	od;
 	for i in [1..(Dimension(C2)-Dimension(C4))] do; # Proper coset of C4 in C2
-		GXX[p] := ShallowCopy(G2[Dimension(C4)+i]);;
-		GA2[a2] := ShallowCopy(GA2[a2]);;
-    	Append(GXX[p], ZeroVec1);; Append(GXX[p], GA2[a2]);;
-		p := p + 1;; a2:=a2+1;;
+		GXX[p] := ShallowCopy(G2[Dimension(C4)+i]);
+		GA2[a2] := ShallowCopy(GA2[a2]);
+    	Append(GXX[p], ZeroVec1); Append(GXX[p], GA2[a2]);
+		p := p + 1; a2:=a2+1;
 	od;
 	for i in [1..(Dimension(C3)-Dimension(C4))] do; # Proper coset of C4 in C3
-		GXX[p] := ShallowCopy(G3[Dimension(C4)+i]);;
-		GA1[a1] := ShallowCopy(GA1[a1]);;
-		Append(GXX[p], GA1[a1]);; Append(GXX[p], ZeroVec2);;
-		p := p + 1;; a1:=a1+1;;
+		GXX[p] := ShallowCopy(G3[Dimension(C4)+i]);
+		GA1[a1] := ShallowCopy(GA1[a1]);
+		Append(GXX[p], GA1[a1]); Append(GXX[p], ZeroVec2);
+		p := p + 1; a1:=a1+1;
 	od;
 	for i in [1..(Dimension(C1)-(Dimension(C2)+Dimension(C3)-Dimension(C4)))] do;
-		GXX[p]  := ShallowCopy(G1[p]);;
-		GA1[a1] := ShallowCopy(GA1[a1]);;
-		GA2[a2] := ShallowCopy(GA2[a2]);;
-		Append(GXX[p], GA1[a1]);; Append(GXX[p], GA2[a2]);;
-		p := p + 1;; a1:=a1+1;; a2:=a2+1;;
+		GXX[p]  := ShallowCopy(G1[p]);
+		GA1[a1] := ShallowCopy(GA1[a1]);
+		GA2[a2] := ShallowCopy(GA2[a2]);
+		Append(GXX[p], GA1[a1]); Append(GXX[p], GA2[a2]);
+		p := p + 1; a1:=a1+1; a2:=a2+1;
 	od;
 
 	CXX:=GeneratorMatCode(GXX, "Construction XX code", q);
