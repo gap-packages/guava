@@ -1898,7 +1898,7 @@ function(C)
         Error("Code must be binary");
     fi;
     G:=GeneratorMat(C);
-    for i in [1..Size(G)] do;
+    for i in [1..Size(G)] do
         if Weight(Codeword(G[i])) mod 4 <> 0 then
             return false;
         fi;
@@ -2765,8 +2765,8 @@ function(C)
     tmpFile := TmpName(); tmpOutFile := TmpName();
 
     PrintTo(tmpFile, k, " ", n, " ", Size(LeftActingDomain(C)), "\n");
-    for r in [1..k] do;
-        for c in [1..n] do;
+    for r in [1..k] do
+        for c in [1..n] do
             AppendTo(tmpFile, IntFFE(G[r][c]), " ");
         od;
         AppendTo(tmpFile, "\n");

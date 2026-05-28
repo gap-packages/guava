@@ -1863,9 +1863,9 @@ function(n, d)
     C := ReedSolomonCode(n-1, d-1);
     G := MutableCopyMat( GeneratorMat(C) );
     TriangulizeMat(G);
-    for i in [1..Size(G)] do;
+    for i in [1..Size(G)] do
         s := 0;
-        for j in [1..Size(G[i])] do;
+        for j in [1..Size(G[i])] do
             s := s + G[i][j];
         od;
         Append(G[i], [-s]);
@@ -2460,7 +2460,7 @@ function( L1, s, F )
     fi;
 
     # Make sure that all the list elements are univariate polynomials
-    for i in [1..m] do;
+    for i in [1..m] do
         if (IsUnivariatePolynomial(L1[i]) = false) then
             Error("All list elements must be univariate polynomials");
         fi;
@@ -2472,7 +2472,7 @@ function( L1, s, F )
     # Convert each univariate polynomial into a circulant matrix and
     # concatenate them to generate a generator matrix
     M:=[];
-    for i in [1..m] do;
+    for i in [1..m] do
         v:=ShallowCopy( CoefficientsOfUnivariatePolynomial(L1[i]) );
         Append( v, List([1..(s - (Degree(L1[i])+1))], i->Zero(F)) );
         M:=Concatenation( M, CirculantMatrix(s, v) );
@@ -2497,13 +2497,13 @@ function( L1, s )
     fi;
 
     L2 := [];
-    for i in [1..m] do;
+    for i in [1..m] do
         if (IsInt(L1[i]) = false) then
             Error("All list elements must be in octal");
         fi;
         a := String(L1[i]);
         v := [];
-        for j in [1..Length(a)] do;
+        for j in [1..Length(a)] do
             t := INT_CHAR(a[j]) - 48;   # Conversion of ASCII character to integer
             if (t > 7) then
                 Error("All list elements must be in octal");
@@ -2562,7 +2562,7 @@ function(q, m, k)
     if IsEvenInt(k) then
         g := (x + a^0);
         r := [ a^0 ];
-        for i in [1..((dmin-2)/2)] do;
+        for i in [1..((dmin-2)/2)] do
             g := g * (x + a^(CS[i+1][1])) * (x + a^(CS[i+1][2]));
             r := Concatenation(r, [ a^(CS[i+1][1]), a^(CS[i+1][2]) ]);
         od;
@@ -2578,7 +2578,7 @@ function(q, m, k)
             j := Size(CS);
             l := (dmin-1)/2;
         fi;
-        for i in [0..l-1] do;
+        for i in [0..l-1] do
             g := g * (x + a^(CS[j-i][1])) * (x + a^(CS[j-i][2]));
             r := Concatenation(r, [ a^(CS[j-i][1]), a^(CS[j-i][2]) ]);
         od;
@@ -2668,13 +2668,13 @@ __G_FourNegacirculantSelfDualCode := function(ax, bx, k)
     G := IdentityMat(k, One(FA));
 
     # [ A | B ]
-    for i in [1..m] do;
+    for i in [1..m] do
         Append(G[i], A[i]);
         Append(G[i], B[i]);
     od;
 
     # [ B^T | A^T ]
-    for i in [1..m] do;
+    for i in [1..m] do
         Append(G[m+i], BT[i]);
         Append(G[m+i], AT[i]);
     od;
@@ -2757,7 +2757,7 @@ function(m, j, k)
         P := [];
         L := List([1..m], i->Zero(GF(2))); L[i] := One(GF(2));
         Append(P, [ L ]);
-        for s in [2..m] do;
+        for s in [2..m] do
             L := RightRotateList(L);
             Append(P, [ L ]);
         od;
@@ -2779,14 +2779,14 @@ function(m, j, k)
     b := Position( List([1..m-1], i->OrderMod(i, m) ), j );
 
     P := [];
-    for r in [0..j-1] do;
+    for r in [0..j-1] do
         Append(P, [ List([0..k-1], i->a^i*b^r mod m) ]);
     od;
 
     H := [];
-    for r in [1..j] do;
+    for r in [1..j] do
         M := [];
-        for c in [1..k] do;
+        for c in [1..k] do
             M := TransposedMat( Concatenation( TransposedMat(M), TransposedMat( PermutationMatrix(m, P[r][c]) ) ) );
         od;
         Append(H, M);

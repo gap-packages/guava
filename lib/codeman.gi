@@ -1904,7 +1904,7 @@ function( C, A )
 
 	# Need to make sure that the dimension of each of the auxiliary codes (codes in A)
 	# is equal to the difference in dimension between the appropriate pair of codes in C.
-	for i in [1..Size(A)] do;
+	for i in [1..Size(A)] do
 		if (Dimension(A[i]) <> (Dimension(C[Size(C)])-Dimension(C[Size(C)-i]))) then
 			Error("Inappropriate auxiliary codes");
 		fi;
@@ -1919,7 +1919,7 @@ function( C, A )
 	i:=1;
 	p:=1;
 	while (i < Size(C)) do
-		for j in [p..Dimension(C[i])] do;
+		for j in [p..Dimension(C[i])] do
 			GX[p] := GC[i][j];
 			p := p + 1;
 		od;
@@ -1950,10 +1950,10 @@ function( C, A )
 	K:=[C[1]!.lowerBoundMinimumDistance];
 	S:=[C[1]!.upperBoundMinimumDistance];
 	i:=1;
-	while (i <= Size(A)) do;
+	while (i <= Size(A)) do
 		r:=0;
 		p:=0;
-		for j in [1..i] do;
+		for j in [1..i] do
 			r := r + A[Size(A)-j+1]!.lowerBoundMinimumDistance;
 			p := p + A[Size(A)-j+1]!.upperBoundMinimumDistance;
 		od;
@@ -2067,24 +2067,24 @@ function( C1, C2, C3, A1, A2 )
 	a1:=1; a2:=1;
 	ZeroVec1:=List([1..CodeLength(A1)], i->Zero(q));
 	ZeroVec2:=List([1..CodeLength(A2)], i->Zero(q));
-	for i in [1..Dimension(C4)] do;		# G(C_4) on the top k_4 rows
+	for i in [1..Dimension(C4)] do		# G(C_4) on the top k_4 rows
 		GXX[i] := ShallowCopy(G4[i]);
 		Append(GXX[i], ZeroVec1); Append(GXX[i], ZeroVec2);
 		p := p + 1;
 	od;
-	for i in [1..(Dimension(C2)-Dimension(C4))] do; # Proper coset of C4 in C2
+	for i in [1..(Dimension(C2)-Dimension(C4))] do # Proper coset of C4 in C2
 		GXX[p] := ShallowCopy(G2[Dimension(C4)+i]);
 		GA2[a2] := ShallowCopy(GA2[a2]);
     	Append(GXX[p], ZeroVec1); Append(GXX[p], GA2[a2]);
 		p := p + 1; a2:=a2+1;
 	od;
-	for i in [1..(Dimension(C3)-Dimension(C4))] do; # Proper coset of C4 in C3
+	for i in [1..(Dimension(C3)-Dimension(C4))] do # Proper coset of C4 in C3
 		GXX[p] := ShallowCopy(G3[Dimension(C4)+i]);
 		GA1[a1] := ShallowCopy(GA1[a1]);
 		Append(GXX[p], GA1[a1]); Append(GXX[p], ZeroVec2);
 		p := p + 1; a1:=a1+1;
 	od;
-	for i in [1..(Dimension(C1)-(Dimension(C2)+Dimension(C3)-Dimension(C4)))] do;
+	for i in [1..(Dimension(C1)-(Dimension(C2)+Dimension(C3)-Dimension(C4)))] do
 		GXX[p]  := ShallowCopy(G1[p]);
 		GA1[a1] := ShallowCopy(GA1[a1]);
 		GA2[a2] := ShallowCopy(GA2[a2]);
@@ -2172,10 +2172,10 @@ __G_BZCode := function(O, I)
 
 	# Make sure that e_i = k_i - k_{i-1} where k_i is the dimension of the ith inner code
 	ik := [0];
-	for i in [1..Size(I)] do;
+	for i in [1..Size(I)] do
 		Append(ik, [ Dimension(I[i]) ]);
 	od;
-	for i in [1..Size(I)] do;
+	for i in [1..Size(I)] do
 		e := ik[i+1] - ik[i];
 		if GF(Characteristic(LeftActingDomain(O[i]))^e) <> LeftActingDomain(O[i]) then
 			Error("Field size of outer code O[", i, "] does not equal to the difference in dimension between the inner code I[", i, "] and that of inner code I[", i-1, "]");
@@ -2185,17 +2185,17 @@ __G_BZCode := function(O, I)
 
 	# Generator matrix of the inner codes (in chain form)
 	GIBZ := [];
-	for i in [1..Size(I)] do;
+	for i in [1..Size(I)] do
 		G := ShallowCopy( GeneratorMat(I[i]) );
 		TriangulizeMat(G);
-		for j in [1..(ik[i+1] - ik[i])] do;
+		for j in [1..(ik[i+1] - ik[i])] do
 			Append(GIBZ, [ G[ik[i] + j] ]);
 		od;
 	od;
 
 	# Generator matrix of the outer codes -- in reduced-echelon form
 	GOBZ := [];
-	for i in [1..Size(O)] do;
+	for i in [1..Size(O)] do
 		G := ShallowCopy( GeneratorMat(O[i]) );
 		TriangulizeMat(G);
 		Append(GOBZ, [ G ]);
@@ -2207,29 +2207,29 @@ __G_BZCode := function(O, I)
 
 	# Construct the generator matrix of the BZ code
 	v := [];
-	for i in [1..Size(O)] do;
+	for i in [1..Size(O)] do
 		Append(v, [ List([1..Dimension(O[i])], x->Zero(LeftActingDomain(O[i]))) ]);
 	od;
 	G := [];
-	for i in [1..Size(O)] do;
+	for i in [1..Size(O)] do
 		F := LeftActingDomain(O[i]);
 		# Enumerate all elements of F
 		L := [ Zero(F) ];
-		for j in [1..(Size(F)-1)] do;
+		for j in [1..(Size(F)-1)] do
 			Append(L, [ PrimitiveElement(F)^j ]);
 		od;
 		e := ik[i+1] - ik[i];
-		for j in [1..Dimension(O[i])] do;
-			for l in [1..e] do;
+		for j in [1..Dimension(O[i])] do
+			for l in [1..e] do
 				v[i][j] := L[l+1];
 				cw := [];
-				for oi in [1..Size(O)] do;
+				for oi in [1..Size(O)] do
 					Append(cw, [ encode_code(v[oi], GOBZ[oi]) ]);
 				od;
 				M := [];
-				for oj in [1..Length(cw[1])] do;
+				for oj in [1..Length(cw[1])] do
 					u := [];
-					for oi in [1..Size(O)] do;
+					for oi in [1..Size(O)] do
 						Append(u, VectorRep(cw[oi][oj], LeftActingDomain(O[oi])));
 					od;
 					Append(M, encode_code(u, GIBZ));

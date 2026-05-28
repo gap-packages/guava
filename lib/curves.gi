@@ -270,7 +270,7 @@ local p,var,vars,mons,degrees,g,d,r,div,ffactors,F,R1,fam,fex,cand,i,j,
     T:=Combinations(cand,k);
     Info(InfoPoly,2,"Length ",k,": ",Length(T)," candidates");
     ti:=1;
-    while ti<=Length(T) do;
+    while ti<=Length(T) do
       terms:=T[ti];
       div:=Product(L{terms});
       div:=InverseKroneckerMapUnivariate(div,varpow);

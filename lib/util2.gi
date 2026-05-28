@@ -380,7 +380,7 @@ NegacirculantMatrix:=function(k,L)
 
     rL:= L;
     M := [L];
-    for i in [1..(k-1)] do;
+    for i in [1..(k-1)] do
         # generate nega cyclic shift (to the right)
         rL := RightRotateList(rL);
         rL[1] := -rL[1];
