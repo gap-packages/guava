@@ -333,11 +333,11 @@ local crv;
  crv:=rec();
  if IsPolynomialRing(ring) then crv.ring:=ring; fi;
  if not(IsPolynomialRing(ring)) then
-   Error("\n 4th argument must be a polynomial ring (eg, F[x,y])\n");
+   Error("4th argument must be a polynomial ring (eg, F[x,y])");
  fi;
  if poly in ring then crv.polynomial:=poly; fi;
  if not(poly in ring) then
-   Error("\n 3rd argument must be a function in the polynomial ring (eg, y in F[x,y] for P^1)\n");
+   Error("3rd argument must be a function in the polynomial ring (eg, y in F[x,y] for P^1)");
  fi;
  return crv;
 end);
@@ -441,7 +441,7 @@ local div,F,vars,R;
  div:=rec();
  if (IsList(cdiv) and cdiv[1] in Integers) then div.coeffs:=cdiv; fi;
  if (not(IsList(cdiv)) or not(cdiv[1] in Integers)) then
-    Error("\n 1st argument is not a list of integers\n");
+    Error("1st argument is not a list of integers");
  fi;
  if ((crv.polynomial in vars) and IsList(sdiv) and sdiv[1] in F) then ### this is for P^1
    div.support:=sdiv;
@@ -450,10 +450,10 @@ local div,F,vars,R;
    div.support:=sdiv;
  fi;
 # if (not(IsList(sdiv)) or not(OnCurve(sdiv,crv))) then
-#    Error("\n 2nd argument is not a list of points\n");
+#    Error("2nd argument is not a list of points");
 # fi;
  if Length(sdiv)<>Length(cdiv) then
-    Error("\n 1st and 2nd arguments must have same length\n");
+    Error("1st and 2nd arguments must have same length");
  fi;
  div.curve:=crv;
  return div;
@@ -470,10 +470,10 @@ InstallMethod(DivisorAddition, true, [IsRecord,IsRecord], 0,
 function(D1,D2)
 local c1,c2,supp1,supp2,pos1,pos2,sumc,sums,pt;
  if not(D1.curve.ring=D2.curve.ring) then
-      Error("\n 1st and 2nd divisor must have the same curve\n");
+      Error("1st and 2nd divisor must have the same curve");
  fi;
  if not(D1.curve.polynomial=D2.curve.polynomial) then
-      Error("\n 1st and 2nd divisor must have the same curve\n");
+      Error("1st and 2nd divisor must have the same curve");
  fi;
  c1:=D1.coeffs;
  c2:=D2.coeffs;
@@ -595,10 +595,10 @@ InstallMethod(DivisorGCD, true, [IsRecord,IsRecord], 0,
 function(D1,D2)
 local c1,c2,supp1,supp2,pos1,pos2,gcdcoeffs,gcdsupp,pt;
  if not(D1.curve.ring=D2.curve.ring) then
-      Error("\n 1st and 2nd divisor must have the same curve\n");
+      Error("1st and 2nd divisor must have the same curve");
  fi;
  if not(D1.curve.polynomial=D2.curve.polynomial) then
-      Error("\n 1st and 2nd divisor must have the same curve\n");
+      Error("1st and 2nd divisor must have the same curve");
  fi;
  c1:=D1.coeffs;
  c2:=D2.coeffs;
@@ -685,7 +685,7 @@ local F,n,basis,pt,cdiv,sdiv,i,j,k,pos,R;
   R:=div.curve.ring;
   F:=CoefficientsRing(R);
   if not(DivisorIsEffective(div)) then
-    Error("\n divisor must be effective \n");
+    Error("divisor must be effective ");
   fi;
   basis:=[]; #RiemannRochSpaceBasisFunctionP1(Zero(F),0,R)
   cdiv:=div.coeffs;
@@ -843,7 +843,7 @@ if A=() then return div; fi;
  for p in sdiv do
   if Value(denf,var,[p])=Zero(F) then
    Print("\n f.l.t. = ",f,",   point = ",p,"\n\n");
-   Error("\n Sorry, action on this divisor is undefined\n\n");
+   Error("Sorry, action on this divisor is undefined");
   fi;
  od;
  Adiv.support:=List(sdiv,p->Value(f,var,[p]));
@@ -1130,7 +1130,7 @@ local n,k,F,R,var,cdiv,sdiv,basis,G,C,f,p;
   cdiv:=div.coeffs;
   sdiv:=div.support;
   if Intersection(sdiv,pts)<>[] then
-    Error("\n divisor and points must be disjoint \n");
+    Error("divisor and points must be disjoint");
   fi;
   var:=IndeterminatesOfPolynomialRing(R);
   basis:=RiemannRochSpaceBasisP1(div);
@@ -1178,7 +1178,7 @@ local i,j,e,q,F,FF,indets,xx,a,b,f,Pts,RatPts,IrrRatPts,G,C;
     od;
  od;
  if Size(e)=0 then
-   Error("\n\n Please increase k (or decrease ground field size) and try again.\n\n");
+   Error("Please increase k (or decrease ground field size) and try again.");
  fi;
  G:=[];
  Pts:=Concatenation(RatPts,IrrRatPts);

@@ -419,7 +419,7 @@ function(C, wt)
               ["-c", cwsc, infile]
          );
       else
-         Error("\n Sorry, no codes words of weight ",wt,"\n");
+         Error("Sorry, no codes words of weight ",wt);
       fi;
       Read(infile);
       RemoveFiles(incode,cwsc,infile);
@@ -436,7 +436,6 @@ function(C, wt)
          return D;
       else
          Error("no words of weight ",wt);
-         Print("\n no words of weight ",wt);
       fi;
    fi; ## end if-then-else
 end);
@@ -1092,7 +1091,7 @@ end);
 InstallMethod(ConstructionB2Code, "method for unrestricted codes", true,
 	[IsCode], 0,
 function(C)
-	Error("ConstructionB2 is not implemented yet ....... sorry\n");
+	Error("ConstructionB2 is not implemented yet ....... sorry");
 end);
 
 #############################################################################
@@ -1110,12 +1109,12 @@ InstallMethod(SubCode, "method for linear codes, int provided", true,
 function(C, s)
 	local G, Gs, Cs;
 	if (IsLinearCode(C) = false) then
-		Error("SubCode only works for linear code\n");
+		Error("SubCode only works for linear code");
 	fi;
 	if (Dimension(C)-s = 0) then
 		return NullCode(CodeLength(C), LeftActingDomain(C));
 	elif (Dimension(C) <= s) then
-		Error("Dimension of the code must be greater than s\n");
+		Error("Dimension of the code must be greater than s");
 	else
 		G  := ShallowCopy(GeneratorMat(C));
 		Gs := List([1..Length(G)-s], x->G[x]);
@@ -1860,25 +1859,25 @@ function( C, A )
 
 	# Make sure list C contains all linear codes
 	if (PositionNot( List([1..Size(C)], i->IsLinearCode(C[i])), true ) < Size(C)) then
-		Error("The list C contains non linear code(s)\n"); return (0);
+		Error("The list C contains non linear code(s)");
 	fi;
 
 	# Make sure list A contains all linear codes
 	if (PositionNot( List([1..Size(A)], i->IsLinearCode(A[i])), true ) < Size(A)) then
-		Error("The list A contains non linear code(s)\n"); return (0);
+		Error("The list A contains non linear code(s)");
 	fi;
 
 	# Make sure all codes in C and A have the same LeftActingDomain
 	K:=Filtered([2..Size(C)], i->LeftActingDomain(C[i]) <> LeftActingDomain(C[1]));;
 	if Size(K) > 0 then
-		Error("Codes in C are not of the same left-acting-domain\n");
+		Error("Codes in C are not of the same left-acting-domain");
 	fi;
 	S:=Filtered([2..Size(A)], i->LeftActingDomain(A[i]) <> LeftActingDomain(A[1]));;
 	if Size(S) > 0 then
-		Error("Codes in A are not of the same left-acting-domain\n");
+		Error("Codes in A are not of the same left-acting-domain");
 	fi;
 	if LeftActingDomain(C[1]) <> LeftActingDomain(A[1]) then
-		Error("Codes in C and A are of different left-acting-domain\n");
+		Error("Codes in C and A are of different left-acting-domain");
 	fi;
 
 	# Ensure that Dimension(C[1]) < Dimension(C[2]) < ... < Dimension(C[j]), i.e. we need to sort them
@@ -1889,7 +1888,7 @@ function( C, A )
 
 	# Need to make sure that C[1] < C[2] < ... < C[j], i.e. subset
 	if (PositionNot(List([0..Size(C)-2], i->IsSubset(C[Size(C)-i], C[Size(C)-i-1])), true) < Size(C)-1) then
-		Error("Inappropriate chain of codes\n");
+		Error("Inappropriate chain of codes");
 	fi;
 
 	# Now, ensure that codes in A are sorted such that their dimensions are in ascending order
@@ -1900,14 +1899,14 @@ function( C, A )
 
 	# Number codes in A should be 1 less than that in C
 	if (Size(A) <> Size(C)-1) then
-		Error("Inappropriate list of codes given\n");
+		Error("Inappropriate list of codes given");
 	fi;
 
 	# Need to make sure that the dimension of each of the auxiliary codes (codes in A)
 	# is equal to the difference in dimension between the appropriate pair of codes in C.
 	for i in [1..Size(A)] do;
 		if (Dimension(A[i]) <> (Dimension(C[Size(C)])-Dimension(C[Size(C)-i]))) then
-			Error("Inappropriate auxiliary codes\n");
+			Error("Inappropriate auxiliary codes");
 		fi;
 	od;
 
@@ -2006,14 +2005,14 @@ function( C1, C2, C3, A1, A2 )
 	if ( (IsLinearCode(C1) = false) or (IsLinearCode(C2) = false) or
 		(IsLinearCode(C3) = false) or (IsLinearCode(A1) = false) or
    	 	(IsLinearCode(A2) = false) ) then
-		Error("Not all codes are linear\n");
+		Error("Not all codes are linear");
 	fi;
 
 	# Make sure all codes have the same LeftActingDomain
 	q:=LeftActingDomain(C1);;
 	if ((LeftActingDomain(C2) <> q) or (LeftActingDomain(C3) <> q) or
   	 	(LeftActingDomain(A1) <> q) or (LeftActingDomain(A2) <> q)) then
-		Error("Not all codes have the same left-acting-domain\n");
+		Error("Not all codes have the same left-acting-domain");
 	fi;
 
 	# Ensure that Dimension(C[1]) > Dimension(C[2]) > ... > Dimension(C[j]), i.e. we need to sort them
@@ -2031,15 +2030,15 @@ function( C1, C2, C3, A1, A2 )
 
 	# Need to make sure that C[1] > C[2] and C[1] > C[3], i.e. superset
 	if (IsSubset(C1, C2) = false or IsSubset(C1, C3) = false) then
-		Error("Inappropriate chain of codes, C1 must contain C2 and must also contain C3\n");
+		Error("Inappropriate chain of codes, C1 must contain C2 and must also contain C3");
 	fi;
 
 	# Now, ensure that codes in A1 and A2 has the right dimension
 	if (Dimension(A1) <> Dimension(C1)-Dimension(C2)) then
-		Error("Inappropriate auxiliary code A1, dim(A1) <> dim(C1)-dim(C2)\n");
+		Error("Inappropriate auxiliary code A1, dim(A1) <> dim(C1)-dim(C2)");
 	fi;
 	if (Dimension(A2) <> Dimension(C1)-Dimension(C3)) then
-		Error("Inappropriate auxiliary code A2, dim(A2) <> dim(C1)-dim(C3)\n");
+		Error("Inappropriate auxiliary code A2, dim(A2) <> dim(C1)-dim(C3)");
 	fi;
 
 	C4:=IntersectionCode(C2,C3);
@@ -2148,27 +2147,27 @@ __G_BZCode := function(O, I)
 
 	# Make sure that both O and I have the same number of codes
 	if Size(O) <> Size(I) then
-		Error("Unequal number of inner and outer codes\n");
+		Error("Unequal number of inner and outer codes");
 	fi;
 
 	# Make sure list O (outer codes) contains all linear codes
 	if not ForAll(O, IsLinearCode) then
-		Error("The list O contains non linear code(s)\n");
+		Error("The list O contains non linear code(s)");
 	fi;
 
 	# Make sure list I (inner codes) contains all linear codes
 	if not ForAll(I, IsLinearCode) then
-		Error("The list I contains non linear code(s)\n");
+		Error("The list I contains non linear code(s)");
 	fi;
 
 	# Make sure that all outer codes have the same length
 	if Length(Set(O, CodeLength)) > 1 then
-		Error("Code lengths of all outer codes are required to be the same\n");
+		Error("Code lengths of all outer codes are required to be the same");
 	fi;
 
 	# Need to make sure that I[1] < I[2] < ... < I[s], i.e. subset
 	if (PositionNot(List([0..Size(I)-2], i->IsSubset(I[Size(I)-i], I[Size(I)-i-1])), true) < Size(I)-1) then
-		Error("Inappropriate chain of inner codes\n");
+		Error("Inappropriate chain of inner codes");
 	fi;
 
 	# Make sure that e_i = k_i - k_{i-1} where k_i is the dimension of the ith inner code
@@ -2179,7 +2178,7 @@ __G_BZCode := function(O, I)
 	for i in [1..Size(I)] do;
 		e := ik[i+1] - ik[i];
 		if GF(Characteristic(LeftActingDomain(O[i]))^e) <> LeftActingDomain(O[i]) then
-			Error("Field size of outer code O[", i, "] does not equal to the difference in dimension between the inner code I[", i, "] and that of inner code I[", i-1, "]\n");
+			Error("Field size of outer code O[", i, "] does not equal to the difference in dimension between the inner code I[", i, "] and that of inner code I[", i-1, "]");
 			return (0);
 		fi;
 	od;
@@ -2242,7 +2241,7 @@ __G_BZCode := function(O, I)
 	od;
 
 	if Rank(G) < k then
-		Error("Cannot build the generator matrix of the concatenated code. Please report this to <ctjhai@plymouth.ac.uk> and supply the list of your inner and outer codes\n");
+		Error("Cannot build the generator matrix of the concatenated code. Please report this to <ctjhai@plymouth.ac.uk> and supply the list of your inner and outer codes");
 	fi;
 
 	return G;
