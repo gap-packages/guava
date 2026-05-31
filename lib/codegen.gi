@@ -124,9 +124,9 @@ LinearCodeByGenerators := function(F, gens)
     #for i in [1..Length(gens)] do
     #    row:=[];
     #    for j in [1..Length(gens[i])] do
-    #        Append(row,[gens[i][j]]);
+    #        Add(row, gens[i][j]);
     #    od;
-    #    Append(M, [row]);
+    #    Add(M, row);
     #od;
     #SetGeneratorMat(V, M);  #The calling functions always handle setting the GenMat
     return V;
@@ -786,7 +786,7 @@ function(r,k)
         for t in [2..r] do
             for index in Combinations([1..k], t) do
                 dest := List([1..2^k], i->Product(index, j->mat[j+1][i]));
-                Append(mat, [dest]);
+                Add(mat, dest);
             od;
         od;
     fi;
@@ -1868,7 +1868,7 @@ function(n, d)
         for j in [1..Size(G[i])] do
             s := s + G[i][j];
         od;
-        Append(G[i], [-s]);
+        Add(G[i], -s);
     od;
     Ce := GeneratorMatCodeNC(G, LeftActingDomain(C));
     Ce!.name := "extended Reed Solomon code";
@@ -1910,7 +1910,7 @@ function(n, L, F)
     for i in [1..Length(L)] do
      for cc in CCz do
        if L[i] in cc then
-            Append(powerlist,[cc]);
+            Add(powerlist, cc);
        fi;
      od;
     od;
@@ -2510,7 +2510,7 @@ function( L1, s )
             fi;
             Append(v, LUT[t+1]);
         od;
-        Append(L2, [ReciprocalPolynomial(PolyCodeword(Codeword(v)))]);
+        Add(L2, ReciprocalPolynomial(PolyCodeword(Codeword(v))));
     od;
 
     return QuasiCyclicCode( L2, s, GF(2) );
@@ -2756,10 +2756,10 @@ function(m, j, k)
         fi;
         P := [];
         L := List([1..m], i->Zero(GF(2))); L[i] := One(GF(2));
-        Append(P, [ L ]);
+        Add(P, L);
         for s in [2..m] do
             L := RightRotateList(L);
-            Append(P, [ L ]);
+            Add(P, L);
         od;
         return P;
     end;
@@ -2780,7 +2780,7 @@ function(m, j, k)
 
     P := [];
     for r in [0..j-1] do
-        Append(P, [ List([0..k-1], i->a^i*b^r mod m) ]);
+        Add(P, List([0..k-1], i->a^i*b^r mod m));
     od;
 
     H := [];
