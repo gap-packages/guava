@@ -747,16 +747,15 @@ end);
 ##
 InstallMethod(DivisorOfRationalFunctionP1, true, [IsRationalFunction,IsRing], 0,
 function(f,R)
-local crv,vars,y,n1,n2,suppdiv,coeffdiv,i,divf,rootsd,rootsn,den,num;
+local crv,vars,y,suppdiv,coeffdiv,i,divf,rootsd,rootsn,den,num;
   vars:=IndeterminatesOfPolynomialRing(R); y:=vars[1];
   num:=NumeratorOfRationalFunction(f);
   rootsn:=RootsOfUPol(num);
   den:=DenominatorOfRationalFunction(f);
   rootsd:=RootsOfUPol(den);
-  n1:=Length(Set(rootsn)); n2:=Length(Set(rootsd));
-  coeffdiv:=Concatenation(List([1..n1],
-    i->MultiplicityInList(rootsn, Set(rootsn)[i])),
-       List([1..n2],i->-MultiplicityInList(rootsd, Set(rootsd)[i])));
+  coeffdiv:=Concatenation(
+       List(Set(rootsn), a-> MultiplicityInList(rootsn, a)),
+       List(Set(rootsd), b->-MultiplicityInList(rootsd, b)));
   suppdiv:=Concatenation(Set(rootsn),Set(rootsd));
   crv:=AffineCurve(y,R);
   divf:=rec(coeffs:=coeffdiv,support:=suppdiv,curve:=crv);

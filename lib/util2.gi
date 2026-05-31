@@ -223,7 +223,7 @@ end;
 
 SortedGaloisFieldElements := function ( size )
 
-    local field, els, sortlist, alpha;
+    local field, els, alpha;
 
     if IsInt( size ) then
         field := GF( size );
@@ -232,23 +232,8 @@ SortedGaloisFieldElements := function ( size )
         size := Size( field );
     fi;
     alpha:=PrimitiveRoot( field );
-# this line was moved from immed after the local statement 9-2004
-    els := ShallowCopy(AsSSortedList( field ));
-    sortlist := NullVector( size );
-    # log 1 = 0, so we add one to each log to avoid
-    # conflicts with the 0 for zero.
-
-    sortlist := List( els, function( x )
-        if x = Zero(field) then
-            return 0;
-        else
-            return LogFFE( x, alpha ) + 1;
-        fi;
-        end );
-
-    sortlist{ [ 2 .. size ] } := List( els { [ 2 .. size ] },
-                                 x -> LogFFE( x, alpha ) + 1 );
-    SortParallel( sortlist, els );
+    els:=[Zero(field)];
+    Append(els, List([0..size-2], i->alpha^i));
 
     return els;
 end;

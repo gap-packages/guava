@@ -19,14 +19,14 @@ function(n,q)
     fi;
     res := NullMat(n+1,n+1);
     for k in [0..n] do
-        res[1][k+1]:=1;
+        res[1,k+1]:=1;
     od;
     for k in [0..n] do
-        res[k+1][1] := Binomial(n,k)*(q-1)^k;
+        res[k+1,1] := Binomial(n,k)*(q-1)^k;
     od;
     for i in [2..n+1] do
         for k in [2..n+1] do
-            res[k][i] := res[k][i-1] - (q-1)*res[k-1][i] - res[k-1][i-1];
+            res[k,i] := res[k,i-1] - (q-1)*res[k-1,i] - res[k-1,i-1];
         od;
     od;
     return res;
@@ -62,9 +62,9 @@ function(n, F)
                 for line in [1..q^(n-column)] do
                     row:=row+1;
                     if goingup then
-                        result[row][column]:= elem[elementnr];
+                        result[row,column]:= elem[elementnr];
                     else
-                        result[row][column]:= elem[q+1-elementnr];
+                        result[row,column]:= elem[q+1-elementnr];
                     fi;
                 od;
             od;
@@ -375,8 +375,8 @@ function(q, n)
         res := NullMat(q,q)+1;
         for i in [1..q] do
             for j in [1..q] do
-                while els[res[i][j]] <> M[i][j] do
-                    res[i][j]:=res[i][j]+1;
+                while els[res[i,j]] <> M[i,j] do
+                    res[i,j]:=res[i,j]+1;
                 od;
             od;
         od;
@@ -390,11 +390,11 @@ function(q, n)
         for i in [1..q] do
             for j in [1..q] do
                 for k in [1..n] do
-                    res[k][i][j] := els[i] + els[k+1] * els[j];
+                    res[k][i,j] := els[i] + els[k+1] * els[j];
                 od;
             od;
         od;
-        return List([1..n],x -> ToInt(res[x]));
+        return List(res, ToInt);
     end;
 
     Merged := function(A, B)
@@ -404,8 +404,8 @@ function(q, n)
         res:=KroneckerProduct(A,NullMat(q2,q2)+1);
         for i in [1 .. q1*q2] do
             for j in [1 .. q1*q2] do
-                res[i][j]:= res[i][j] + q1 *
-                            B[((i-1) mod q2)+1][((j-1) mod q2)+1];
+                res[i,j]:= res[i,j] + q1 *
+                            B[((i-1) mod q2)+1,((j-1) mod q2)+1];
             od;
         od;
         return res;
