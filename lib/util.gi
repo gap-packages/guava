@@ -239,7 +239,7 @@ function(p, m)
     v := [c[1]];
     i := Length(c);
     while (i > 1) do
-        v := Concatenation(v, [ c[i] ]);
+        Add(v, c[i]);
         i := i-1;
     od;
     F   := CoefficientsRing(DefaultRing(PolyCodeword(Codeword(v, m))));

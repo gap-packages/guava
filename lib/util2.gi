@@ -355,7 +355,7 @@ local M,i,rL;
  M:=[L];
  for i in [1..(k-1)] do
   rL:=RightRotateList(rL);
-  M:=Concatenation(M,[rL]);
+  Add(M, rL);
  od;
  return M;
 end;
@@ -384,7 +384,7 @@ NegacirculantMatrix:=function(k,L)
         # generate nega cyclic shift (to the right)
         rL := RightRotateList(rL);
         rL[1] := -rL[1];
-        M := Concatenation(M, [rL]);
+        Add(M, rL);
     od;
     return M;
 end;

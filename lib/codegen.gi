@@ -2475,7 +2475,7 @@ function( L1, s, F )
     for i in [1..m] do
         v:=ShallowCopy( CoefficientsOfUnivariatePolynomial(L1[i]) );
         Append( v, List([1..(s - (Degree(L1[i])+1))], i->Zero(F)) );
-        M:=Concatenation( M, CirculantMatrix(s, v) );
+        Append(M, CirculantMatrix(s, v) );
     od;
     C := GeneratorMatCode( TransposedMat(M), F );
     C!.name := "quasi-cyclic code";
@@ -2564,7 +2564,7 @@ function(q, m, k)
         r := [ a^0 ];
         for i in [1..((dmin-2)/2)] do
             g := g * (x + a^(CS[i+1][1])) * (x + a^(CS[i+1][2]));
-            r := Concatenation(r, [ a^(CS[i+1][1]), a^(CS[i+1][2]) ]);
+            Append(r, [ a^(CS[i+1][1]), a^(CS[i+1][2]) ]);
         od;
     else
         if IsOddInt(q^m) then
@@ -2580,7 +2580,7 @@ function(q, m, k)
         fi;
         for i in [0..l-1] do
             g := g * (x + a^(CS[j-i][1])) * (x + a^(CS[j-i][2]));
-            r := Concatenation(r, [ a^(CS[j-i][1]), a^(CS[j-i][2]) ]);
+            Append(r, [ a^(CS[j-i][1]), a^(CS[j-i][2]) ]);
         od;
     fi;
 
