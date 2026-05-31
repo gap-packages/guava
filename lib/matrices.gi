@@ -129,7 +129,7 @@ PaleyClasses@ := function(m)
         k:=2;
       fi;
       if q mod 2 <> 0 then
-        Append(ret, [[k,e,q,n]]);
+        Add(ret, [k,e,q,n]);
       fi;
     fi;
    M:=M/2;

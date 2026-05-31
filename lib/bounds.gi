@@ -115,7 +115,7 @@ function (n,d,q)
         r:=1-1/q;
         for i in [1..Int(r*n)] do
             if IsPosRat(i^2-2*r*n*i+r*n*d) then
-                Append(I,[i]);
+                Add(I, i);
             fi;
         od;
         return I;

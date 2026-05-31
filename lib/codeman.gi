@@ -183,7 +183,7 @@ function(Cold)
 	s := 0;
     for i in [1..Size(Cold)] do
         if IsEvenInt(Weight(Els[i])) then
-            Append(E, [Els[i]]);
+            Add(E, Els[i]);
             s := s + 1;
         fi;
     od;
@@ -233,10 +233,10 @@ function(Cold)
                     P := Gold[i];
                     edited := true;
                 else
-                    Append(G, [Gold[i]+P]);
+                    Add(G, Gold[i]+P);
                 fi;
             else
-                Append(G, [Gold[i]]);
+                Add(G, Gold[i]);
             fi;
         od;
         if edited then
@@ -247,7 +247,7 @@ function(Cold)
         E := []; s := 0;
         for i in [1..Size(Cold)] do
             if IsEvenInt(Weight(Els[i])) then
-                Append(E, [Els[i]]);
+                Add(E, Els[i]);
                 s := s + 1;
             fi;
         od;
@@ -300,7 +300,7 @@ function(Cold)
         E := [];
         for i in [1..Size(Cold)] do
             if IsEvenInt(Weight(Els[i])) then
-                Append(E, [Els[i]]);
+                Add(E, Els[i]);
             else
                 edited := true;
             fi;
@@ -1957,8 +1957,8 @@ function( C, A )
 			r := r + A[Size(A)-j+1]!.lowerBoundMinimumDistance;
 			p := p + A[Size(A)-j+1]!.upperBoundMinimumDistance;
 		od;
-		Append(K, [r + C[i+1]!.lowerBoundMinimumDistance]);
-		Append(S, [p + C[i+1]!.upperBoundMinimumDistance]);
+		Add(K, r + C[i+1]!.lowerBoundMinimumDistance);
+		Add(S, p + C[i+1]!.upperBoundMinimumDistance);
 		i := i + 1;
 	od;
 	CX!.lowerBoundMinimumDistance := Minimum(K);
@@ -2043,14 +2043,14 @@ function( C1, C2, C3, A1, A2 )
 
 	C4:=IntersectionCode(C2,C3);
 	L:=[]; U:=[];
-	Append(L, [LowerBoundMinimumDistance(C1) + LowerBoundMinimumDistance(A1) + LowerBoundMinimumDistance(A2)]);
-	Append(L, [LowerBoundMinimumDistance(C2) + LowerBoundMinimumDistance(A2)]);
-	Append(L, [LowerBoundMinimumDistance(C3) + LowerBoundMinimumDistance(A1)]);
-	Append(U, [UpperBoundMinimumDistance(C1) + UpperBoundMinimumDistance(A1) + UpperBoundMinimumDistance(A2)]);
-	Append(U, [UpperBoundMinimumDistance(C2) + UpperBoundMinimumDistance(A2)]);
-	Append(U, [UpperBoundMinimumDistance(C3) + UpperBoundMinimumDistance(A1)]);
-	Append(L, [LowerBoundMinimumDistance(C4)]);
-	Append(U, [UpperBoundMinimumDistance(C4)]);
+	Add(L, LowerBoundMinimumDistance(C1) + LowerBoundMinimumDistance(A1) + LowerBoundMinimumDistance(A2));
+	Add(L, LowerBoundMinimumDistance(C2) + LowerBoundMinimumDistance(A2));
+	Add(L, LowerBoundMinimumDistance(C3) + LowerBoundMinimumDistance(A1));
+	Add(U, UpperBoundMinimumDistance(C1) + UpperBoundMinimumDistance(A1) + UpperBoundMinimumDistance(A2));
+	Add(U, UpperBoundMinimumDistance(C2) + UpperBoundMinimumDistance(A2));
+	Add(U, UpperBoundMinimumDistance(C3) + UpperBoundMinimumDistance(A1));
+	Add(L, LowerBoundMinimumDistance(C4));
+	Add(U, UpperBoundMinimumDistance(C4));
 
 	# Generator matrices of the chain codes
 	G1 :=ShallowCopy(GeneratorMat(C1));
@@ -2173,7 +2173,7 @@ __G_BZCode := function(O, I)
 	# Make sure that e_i = k_i - k_{i-1} where k_i is the dimension of the ith inner code
 	ik := [0];
 	for i in [1..Size(I)] do
-		Append(ik, [ Dimension(I[i]) ]);
+		Add(ik, Dimension(I[i]));
 	od;
 	for i in [1..Size(I)] do
 		e := ik[i+1] - ik[i];
@@ -2189,7 +2189,7 @@ __G_BZCode := function(O, I)
 		G := ShallowCopy( GeneratorMat(I[i]) );
 		TriangulizeMat(G);
 		for j in [1..(ik[i+1] - ik[i])] do
-			Append(GIBZ, [ G[ik[i] + j] ]);
+			Add(GIBZ, G[ik[i] + j]);
 		od;
 	od;
 
@@ -2198,7 +2198,7 @@ __G_BZCode := function(O, I)
 	for i in [1..Size(O)] do
 		G := ShallowCopy( GeneratorMat(O[i]) );
 		TriangulizeMat(G);
-		Append(GOBZ, [ G ]);
+		Add(GOBZ, G);
 	od;
 
 	# What are the length and dimension of the resulting concatenated code?
@@ -2208,7 +2208,7 @@ __G_BZCode := function(O, I)
 	# Construct the generator matrix of the BZ code
 	v := [];
 	for i in [1..Size(O)] do
-		Append(v, [ List([1..Dimension(O[i])], x->Zero(LeftActingDomain(O[i]))) ]);
+		Add(v, List([1..Dimension(O[i])], x->Zero(LeftActingDomain(O[i]))));
 	od;
 	G := [];
 	for i in [1..Size(O)] do
@@ -2216,7 +2216,7 @@ __G_BZCode := function(O, I)
 		# Enumerate all elements of F
 		L := [ Zero(F) ];
 		for j in [1..(Size(F)-1)] do
-			Append(L, [ PrimitiveElement(F)^j ]);
+			Add(L, PrimitiveElement(F)^j);
 		od;
 		e := ik[i+1] - ik[i];
 		for j in [1..Dimension(O[i])] do
@@ -2224,7 +2224,7 @@ __G_BZCode := function(O, I)
 				v[i][j] := L[l+1];
 				cw := [];
 				for oi in [1..Size(O)] do
-					Append(cw, [ encode_code(v[oi], GOBZ[oi]) ]);
+					Add(cw, encode_code(v[oi], GOBZ[oi]));
 				od;
 				M := [];
 				for oj in [1..Length(cw[1])] do
@@ -2234,7 +2234,7 @@ __G_BZCode := function(O, I)
 					od;
 					Append(M, encode_code(u, GIBZ));
 				od;
-				Append(G, [ M ]);
+				Add(G, M);
 				v[i][j] := Zero(LeftActingDomain(O[i]));
 			od;
 		od;

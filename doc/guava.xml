@@ -3200,7 +3200,7 @@ gap> v := NullVector(n,GF(3));;
 gap> v := v + ShallowCopy(VectorCodeword( Codeword(F[2]) ));;
 gap> G := CirculantMatrix(24, v);;
 gap> for i in [1..Size(G)] do s:=Zero(GF(3));
-> for j in [1..Size(G[i])] do s:=s+G[i][j]; od; Append(G[i], [ s ]);
+> for j in [1..Size(G[i])] do s:=s+G[i][j]; od; Add(G[i], s);
 > od;;
 gap> C := GeneratorMatCodeNC(G, GF(3));
 a  [48,24,?] randomly generated code over GF(3)
@@ -3225,7 +3225,7 @@ v := List([1..n], i->Zero(GF(3)));;
 v := v + MutableCopyMat(VectorCodeword( Codeword(F[2]) ));;
 G := CirculantMatrix(24, v);;
 for i in [1..Size(G)] do s:=Zero(GF(3));
-for j in [1..Size(G[i])] do s:=s+G[i][j]; od; Append(G[i], [ s ]);
+for j in [1..Size(G[i])] do s:=s+G[i][j]; od; Add(G[i], s);
 od;;
 C := GeneratorMatCodeNC(G, GF(3));
 MinimumWeight(C);
@@ -9596,7 +9596,7 @@ a cyclic [127,22,47..51]36..63 BCH code, delta=47, b=1 over GF(2)
 gap> C3 := BCHCode(127, 55);
 a cyclic [127,15,55]41..62 BCH code, delta=55, b=1 over GF(2)
 gap> G1 := ShallowCopy( GeneratorMat(C2) );;
-gap> Append(G1, [ GeneratorMat(C1)[23] ]);;
+gap> Add(G1, GeneratorMat(C1)[23]);;
 gap> C1 := GeneratorMatCode(G1, GF(2));
 a linear [127,23,1..43]35..63 code defined by generator matrix over GF(2)
 gap> MinimumDistance(C1);
@@ -9627,7 +9627,7 @@ C1 := BCHCode(127, 43);
 C2 := BCHCode(127, 47);
 C3 := BCHCode(127, 55);
 G1 := ShallowCopy( GeneratorMat(C2) );;
-Append(G1, [ GeneratorMat(C1)[23] ]);;
+Add(G1, GeneratorMat(C1)[23]);;
 C1 := GeneratorMatCode(G1, GF(2));
 MinimumDistance(C1);
 C := [ C1, C2, C3 ];

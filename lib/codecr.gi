@@ -1801,30 +1801,22 @@ function(code)
 
     listofbounds := [ UpperBoundCoveringRadiusStrength( code ) ];
     if WordLength( code ) <= 100 then
-        Append( listofbounds, [
-          UpperBoundCoveringRadiusDelsarte( code )
-                ] );
+        Add( listofbounds, UpperBoundCoveringRadiusDelsarte( code ) );
     fi;
     if IsLinearCode( code ) then
-        Append( listofbounds, [
-          UpperBoundCoveringRadiusRedundancy( code ),
-        ] );
+        Add( listofbounds, UpperBoundCoveringRadiusRedundancy( code ) );
         if LeftActingDomain( code ) = GF(2) then
             if ( IsBound( code!.lowerBoundMinimumDistance ) and
                  IsBound( code!.upperBoundMinimumDistance ) ) and
                LowerBoundMinimumDistance( code ) =
                  UpperBoundMinimumDistance (code )
                then
-                Append( listofbounds, [
-                        UpperBoundCoveringRadiusGriesmerLike( code )
-                        ] );
+                Add( listofbounds, UpperBoundCoveringRadiusGriesmerLike( code ) );
             fi;
         fi;
     fi;
     if IsCyclicCode( code ) and LeftActingDomain( code ) = GF(2) then
-        Append( listofbounds, [
-          UpperBoundCoveringRadiusCyclicCode( code )
-        ] );
+        Add( listofbounds, UpperBoundCoveringRadiusCyclicCode( code ) );
     fi;
     if IsBound( code!.boundsCoveringRadius ) then
         Add( listofbounds, Maximum( code!.boundsCoveringRadius ) );
