@@ -33,7 +33,7 @@ MakeCodeword := function(vec, n, F)
     if Length(vec) > n then
         vec := vec{[1..n]};
     elif Length(vec) < n then
-        vec := Concatenation(vec, [1..n-Length(vec)]*Zero(F));
+        Append(vec, [1..n-Length(vec)]*Zero(F));
     fi;
     vec := vec * One(F);
     v := Objectify(CodewordType, rec());

@@ -119,7 +119,7 @@ function(C, v)
     NearbyWords:=[];
     for c in Cwords do
         if WeightCodeword(r-c) <= dist then
-            NearbyWords:=Concatenation(NearbyWords,[r]);
+            Add(NearbyWords, r);
         fi;
     od;
     return NearbyWords;
@@ -599,7 +599,7 @@ GRSErrorLocatorPolynomials:=function(r,Pts,L,R)
   if q=[] then Print("Decoding fails.\n"); return []; fi;
   p:=[];
   for i in [1..Length(q)] do
-     p:=Concatenation(p,[CoefficientToPolynomial(q[i],R)]);
+     Add(p, CoefficientToPolynomial(q[i],R));
   od;
   return p;
 end;
@@ -693,13 +693,13 @@ local f,h,g,x,R,R2,L,F,t,i,c,Pts,k,n,tau,Q,divisorsf,div,
     h:=Derivative(div,y);
    if DegreeIndeterminate(h,x)=0 then
       f:= -h^(-1)*g*y^0;
-      divisorsdeg1:=Concatenation(divisorsdeg1,[f]);
+      Add(divisorsdeg1, f);
     if g=Zero(F)*x then
        c:=List(Pts,p->Zero(F));
      else
        c:=List(Pts,p->Value(f,[x,y],[p,Zero(F)]));
     fi;
-    CodewordList:=Concatenation(CodewordList,[Codeword(c,C)]);
+    Add(CodewordList, Codeword(c,C));
    fi;
   fi;
  od;
@@ -737,7 +737,7 @@ local k,F,Pts,v,p,x,f,NearbyWords,c,a;
    x:=IndeterminateOfLaurentPolynomial(f);
    c:=Codeword(List(Pts,p->Value(f,[x],[p])));
    if WeightCodeword(r-c) <= dist then
-   NearbyWords:=Concatenation(NearbyWords,[[c,f]]);
+   Add(NearbyWords, [c,f]);
  fi;
 od;
 return NearbyWords;
@@ -767,7 +767,7 @@ local k,F,Pts,v,p,x,f,NearbyWords,c,a;
  for v in C do
    c := Codeword(v);
    if WeightCodeword(r-c) <= dist then
-   NearbyWords:=Concatenation(NearbyWords,[c]);
+   Add(NearbyWords, c);
  fi;
 od;
 return NearbyWords;
@@ -792,7 +792,7 @@ checksetJ:=function(H,w)
  n:=Length(H[1]);
  for i in [1..n] do
     if H[w][i]<>0*Z(2) then
-        I:=Concatenation(I,[i]);
+        Add(I, i);
     fi;
  od;
  return I;

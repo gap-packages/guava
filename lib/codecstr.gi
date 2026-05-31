@@ -405,7 +405,7 @@ function(L, B, m)
     for i in VectorCodeword( AsSSortedList( B ) ) do
         el := ShallowCopy( i );
         for j in [ 2 .. m ] do
-            el := Concatenation( el, i );
+            Append(el, i );
         od;
         Append( lastels, el );
     od;

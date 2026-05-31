@@ -113,13 +113,13 @@ local degrees, e, n0, i, j, l, n1, n,vars,x;
    l:=e[2*i-1];
    n1:=Length(l);
    for j  in [1..Int(n1/2)] do
-     degrees:=Concatenation(degrees,[l[2*j]]);
+     Add(degrees, l[2*j]);
    od;
   od;
  fi;
  if n=1 then
   for x in vars do
-    degrees:=Concatenation(degrees,[DegreeIndeterminate(m,x)]);
+    Add(degrees, DegreeIndeterminate(m,x));
   od;
  fi;
  return degrees;
@@ -485,18 +485,18 @@ local c1,c2,supp1,supp2,pos1,pos2,sumc,sums,pt;
   if (pt in supp1) and (pt in supp2) then
     pos1:=PositionSublist(supp1,[pt]);
     pos2:=PositionSublist(supp2,[pt]);
-    sumc:=Concatenation(sumc,[c1[pos1]+c2[pos2]]);
-    sums:=Concatenation(sums,[pt]);
+    Add(sumc, c1[pos1]+c2[pos2]);
+    Add(sums, pt);
   fi;
   if (pt in supp1) and not(pt in supp2) then
     pos1:=PositionSublist(supp1,[pt]);
-    sumc:=Concatenation(sumc,[c1[pos1]]);
-    sums:=Concatenation(sums,[pt]);
+    Add(sumc, c1[pos1]);
+    Add(sums, pt);
   fi;
   if (pt in supp2) and not(pt in supp1) then
     pos2:=PositionSublist(supp2,[pt]);
-    sumc:=Concatenation(sumc,[c2[pos2]]);
-    sums:=Concatenation(sums,[pt]);
+    Add(sumc, c2[pos2]);
+    Add(sums, pt);
   fi;
  od;
  return rec(coeffs:=sumc,support:=sums,curve:=D1.curve);
@@ -610,18 +610,18 @@ local c1,c2,supp1,supp2,pos1,pos2,gcdcoeffs,gcdsupp,pt;
   if (pt in supp1) and (pt in supp2) then
     pos1:=PositionSublist(supp1,[pt]);
     pos2:=PositionSublist(supp2,[pt]);
-    gcdcoeffs:=Concatenation(gcdcoeffs,[Minimum(c1[pos1],c2[pos2])]);
-    gcdsupp:=Concatenation(gcdsupp,[pt]);
+    Add(gcdcoeffs, Minimum(c1[pos1],c2[pos2]));
+    Add(gcdsupp, pt);
   fi;
   if (pt in supp1) and not(pt in supp2) then
     pos1:=PositionSublist(supp1,[pt]);
-    gcdcoeffs:=Concatenation(gcdcoeffs,[Minimum(c1[pos1],0)]);
-    gcdsupp:=Concatenation(gcdsupp,[pt]);
+    Add(gcdcoeffs, Minimum(c1[pos1],0));
+    Add(gcdsupp, pt);
   fi;
   if (pt in supp2) and not(pt in supp1) then
     pos2:=PositionSublist(supp2,[pt]);
-    gcdcoeffs:=Concatenation(gcdcoeffs,[Minimum(0,c2[pos2])]);
-    gcdsupp:=Concatenation(gcdsupp,[pt]);
+    Add(gcdcoeffs, Minimum(0,c2[pos2]));
+    Add(gcdsupp, pt);
   fi;
  od;
  return rec(coeffs:=gcdcoeffs,support:=gcdsupp,curve:=D1.curve);
@@ -693,8 +693,7 @@ local F,n,basis,pt,cdiv,sdiv,i,j,k,pos,R;
   n:=Length(cdiv);
   for k in [1..n] do
    for i in [1..cdiv[k]] do
-    basis:=Concatenation(basis,
-            [RiemannRochSpaceBasisFunctionP1(sdiv[k],i,R)]);
+    Add(basis, RiemannRochSpaceBasisFunctionP1(sdiv[k],i,R));
    od;
   od;
   return Concatenation(basis,[basis[1]^0]);
@@ -904,7 +903,7 @@ local R,F,A,autgp,sdiv,G,Adiv,eG;
    if ActionMoebiusTransformationOnDivisorDefinedP1(A,div) then
       Adiv:= ActionMoebiusTransformationOnDivisorP1(A,div);
       if DivisorEqual(div,Adiv) then
-        autgp:=Concatenation(autgp,[A]);
+        Add(autgp, A);
 #        eG:=Difference(eG,Elements(Group(autgp)));
 #  leaving the above in slows it down!
       fi;
@@ -999,7 +998,7 @@ for g in G do
   fi;
  od;
  if addit then
-     O:=Concatenation(O,[gP]);
+     Add(O, gP);
  fi;
 od;
 return O;
@@ -1045,9 +1044,9 @@ function(P,L,crv)
  badpts:=[];
  for p in P do
   if (ForAll([1..k],i->valsdenom(L[i],p)<>Zero(F)) and OnCurve([p],crv)) then
-    goodpts:=Concatenation(goodpts,[p]);
+    Add(goodpts, p);
    else
-    badpts:=Concatenation(badpts,[p]);
+    Add(badpts, p);
   fi;
  od;
  if badpts<>[] then
@@ -1161,19 +1160,19 @@ local i,j,e,q,F,FF,indets,xx,a,b,f,Pts,RatPts,IrrRatPts,G,C;
  RatPts:=Elements(F);
  for b in FF do
   if not(b^q in F) then
-   IrrRatPts:=Concatenation(IrrRatPts,[b]);
+   Add(IrrRatPts, b);
   fi;
  od;
  for i in [1..k] do
     for j in [i..k] do
      if (i=j and q*(i+1)<k and IsOddInt(q)) then
-      e:=Concatenation(e,[2*xx^(q*i+i)]);
+      Add(e, 2*xx^(q*i+i));
      fi;
      if (i=j and q*(i+1)<k and IsEvenInt(q)) then
-      e:=Concatenation(e,[xx^(q*i+i)]);
+      Add(e, xx^(q*i+i));
      fi;
      if (i<j and q*(i+1)<k and q*(i+1)<k) then     ####nonsense??????
-      e:=Concatenation(e,[xx^(q*j+i)+xx^(q*i+j)]);
+      Add(e, xx^(q*j+i)+xx^(q*i+j));
      fi;
     od;
  od;
@@ -1183,7 +1182,7 @@ local i,j,e,q,F,FF,indets,xx,a,b,f,Pts,RatPts,IrrRatPts,G,C;
  G:=[];
  Pts:=Concatenation(RatPts,IrrRatPts);
  for f in e do
-   G:=Concatenation(G,[List(Pts,p->Value(f,[xx],[p]))]);
+   Add(G, List(Pts,p->Value(f,[xx],[p])));
  od;
  C:=GeneratorMatCode(G,F);
  return C;
