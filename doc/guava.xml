@@ -537,20 +537,21 @@ basis, if <M>C</M> is linear) of <M>V</M>.
 gap> C:=RandomLinearCode(20,10,GF(4));
 a  [20,10,?] randomly generated code over GF(4)
 gap> c:=Random(C);
-[ 1 a 0 0 0 1 1 a^2 0 0 a 1 1 1 a 1 1 a a 0 ]
+[ 1 0 a^2 a a 1 1 0 1 0 a^2 1 0 0 a a a 1 a 0 ]
 gap> Set(NamesOfComponents(C));
-[ "Basis", "Dimension", "GeneratorMat",
-  "GeneratorsOfLeftOperatorAdditiveGroup", "LeftActingDomain",
-  "NiceFreeLeftModule", "Representative", "WordLength", "ZeroImmutable",
+[ "Basis", "Dimension", "GeneratorMat", 
+  "GeneratorsOfLeftOperatorAdditiveGroup", "LeftActingDomain", 
+  "NiceFreeLeftModule", "Representative", "WordLength", "ZeroImmutable", 
   "name" ]
 gap> Set(NamesOfComponents(c));
 [ "VectorCodeword", "WordLength", "treatAsPoly" ]
 gap> c!.VectorCodeword;
 < immutable compressed vector length 20 over GF(4) >
 gap> Display(last);
-[ Z(2^2), Z(2^2), Z(2^2), Z(2)^0, Z(2^2), Z(2^2)^2, 0*Z(2), Z(2^2), Z(2^2),
-  Z(2)^0, Z(2^2)^2, 0*Z(2), 0*Z(2), Z(2^2), 0*Z(2), 0*Z(2), 0*Z(2), Z(2^2)^2,
-  Z(2)^0, 0*Z(2) ]
+[ Z(2)^0, 0*Z(2), Z(2^2)^2, Z(2^2), Z(2^2), Z(2)^0, Z(2)^0, 0*Z(2), \
+Z(2)^0,
+   0*Z(2), Z(2^2)^2, Z(2)^0, 0*Z(2), 0*Z(2), Z(2^2), Z(2^2), Z(2^2), Z(2)^0,
+   Z(2^2), 0*Z(2) ]
 gap> C!.Dimension;
 10
 ]]></Example>
@@ -877,9 +878,9 @@ true
 gap> C:=HammingCode(3);
 a linear [7,4,3]1 Hamming (3,2) code over GF(2)
 gap> c1:=Random(C);
-[ 1 0 0 1 1 0 0 ]
+[ 1 1 1 0 0 0 0 ]
 gap> c2:=Random(C);
-[ 0 1 0 0 1 0 1 ]
+[ 0 1 1 0 0 1 1 ]
 gap> EQ(c1,c2);
 false
 gap> not EQ(c1,c2);
@@ -923,9 +924,9 @@ and <A>c2</A>.
 gap> C:=RandomLinearCode(10,5,GF(3));
 a  [10,5,?] randomly generated code over GF(3)
 gap> c:=Random(C);
-[ 1 0 2 2 2 2 1 0 2 0 ]
+[ 0 2 2 2 0 1 2 2 2 1 ]
 gap> Codeword(c+"2000000000");
-[ 0 0 2 2 2 2 1 0 2 0 ]
+[ 2 2 2 2 0 1 2 2 2 1 ]
 gap> Codeword(c+"1000000000");
 Error, <x> and <y> have different characteristic
 ]]></Example>
@@ -975,7 +976,7 @@ as the command <C>v+C</C>.
 gap> C:=RandomLinearCode(10,5);
 a  [10,5,?] randomly generated code over GF(2)
 gap> c:=Random(C);
-[ 0 0 0 0 0 0 0 0 0 0 ]
+[ 0 0 0 1 1 1 0 1 1 0 ]
 gap> c+C;
 <add. coset of a  [10,5,?] randomly generated code over GF(2)>
 gap> c+C=C;
@@ -988,14 +989,14 @@ gap> v+C;
 <add. coset of a  [10,5,?] randomly generated code over GF(2)>
 gap> C=v+C;
 false
-gap> C := GeneratorMatCode( [ [1, 0,0,0], [0, 1,0,0] ], GF(2) );
+gap> C := GeneratorMatCode( [ [1,0,0,0], [0,1,0,0] ], GF(2) );
 a linear [4,2,1]1..2 code defined by generator matrix over GF(2)
 gap> Elements(C);
 [ [ 0 0 0 0 ], [ 0 1 0 0 ], [ 1 0 0 0 ], [ 1 1 0 0 ] ]
 gap> v:=Codeword("0011");
 [ 0 0 1 1 ]
 gap> C+v;
-<add. coset of a linear [4,2,4]1 code defined by generator matrix over GF(2)>
+<add. coset of a linear [4,2,1]1..2 code defined by generator matrix over GF(2)>
 gap> Elements(C+v);
 [ [ 0 0 1 1 ], [ 0 1 1 1 ], [ 1 0 1 1 ], [ 1 1 1 1 ] ]
 ]]></Example>
