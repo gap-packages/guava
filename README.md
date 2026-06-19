@@ -99,7 +99,7 @@ at the gap prompt.
 Additionally, you may wish to test the installation by
 reading in the Guava test file:
 
-    gap> Test(Filename(DirectoriesPackageLibrary("guava", "tst"), "guava.tst"));
+    gap> Test(Filename(DirectoriesPackageLibrary("guava", "tst"), "guava.tst"), rec(compareFunction := "uptowhitespace"));
 
 Bug reports
 -----------
