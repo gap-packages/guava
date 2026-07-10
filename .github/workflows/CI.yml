@@ -25,20 +25,16 @@ jobs:
       fail-fast: false
       matrix:
         gap-version:
-          - 'devel'
-          - '4.15'
-          - '4.14'
-          - '4.13'
-          - '4.12'
-          - '4.11'
-          - '4.10'
+          - 'devel'   # current GAP development version from git
+          - 'latest'  # latest GAP release
+          - 'minimal' # oldest GAP release supported by this package
 
     steps:
       - uses: actions/checkout@v6
       - uses: gap-actions/setup-gap@v3
         with:
           gap-version: ${{ matrix.gap-version }}
-      - uses: gap-actions/build-pkg@v2
+      - uses: gap-actions/build-pkg@v3
       - uses: gap-actions/run-pkg-tests@v4
       - uses: gap-actions/run-pkg-tests@v4
         with:
