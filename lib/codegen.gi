@@ -464,15 +464,26 @@ end);
 InstallMethod(GeneratorMatCode, "generator matrix, name, field", true,
     [IsMatrix, IsString, IsField], 0,
 function(G, name, F)
-    local C;
+    local C, L, n, w, dmax, i;
     if (Length(G) = 0) or (Length(G[1]) = 0) then
         Error("Use NullCode to generate a code with dimension 0");
     fi;
     G := G*One(F);
     G := BaseMat(G);
-    C := LinearCodeByGenerators(F, Codeword(G,F));
+    L := Codeword(G,F);
+    n := Length(G[1]);
+    dmax := n;
+    for i in [1..Length(L)] do
+        w := Weight(L[i]);
+        if w < dmax then
+            dmax := w;
+        fi;
+    od;
+    C := LinearCodeByGenerators(F, L);
     SetGeneratorMat(C, G);
-    SetWordLength(C, Length(G[1]));
+    SetWordLength(C, n);
+    C!.upperBoundMinimumDistance := dmax;
+    C!.lowerBoundMinimumDistance := 1;
     C!.name := name;
     return C;
 end);
