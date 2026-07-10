@@ -66,3 +66,5 @@ Makefile
 
 /gh-pages/
 /tmp/
+
+.vscode/*
