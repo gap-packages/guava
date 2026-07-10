@@ -1739,9 +1739,9 @@ To invert this, use the encoding function <C>*</C> (see
 gap> C:=HammingCode(3);
 a linear [7,4,3]1 Hamming (3,2) code over GF(2)
 gap> c:=Random(C);
-[ 0 0 0 1 1 1 1 ]
+[ 1 1 0 1 0 0 1 ]
 gap> InformationWord(C,c);
-[ 0 1 1 1 ]
+[ 0 0 0 1 ]
 gap> c:=Codeword("1111100");
 [ 1 1 1 1 1 0 0 ]
 gap> InformationWord(C,c);
@@ -1749,7 +1749,7 @@ Error, ERROR: codeword must belong to code
 gap> C:=NordstromRobinsonCode();
 a (16,256,6)4 Nordstrom-Robinson code over GF(2)
 gap> c:=Random(C);
-[ 0 0 0 1 0 0 0 1 0 0 1 0 1 1 0 1 ]
+[ 1 0 0 1 0 0 0 0 0 1 1 1 1 0 1 1 ]
 gap> InformationWord(C,c);
 "ERROR: code must be linear"
 </Example>
@@ -2120,7 +2120,7 @@ singly-even
 
 <Example>
 gap> x:=Indeterminate(GF(2));
-x_1
+x
 gap> C:=QuasiCyclicCode( [x^0, 1+x^3+x^5+x^6+x^7], 11, GF(2) );
 a linear [22,11,1..6]4..7 quasi-cyclic code over GF(2)
 gap> IsSelfDualCode(C);  # self-dual is a restriction of self-orthogonal
@@ -2848,11 +2848,11 @@ If <A>C</A> is not a cyclic code, the function returns `false'.
 
 <Example>
 gap> GeneratorPol(GeneratorMatCode([[1, 1, 0], [0, 1, 1]], GF(2)));
-x_1+Z(2)^0
+x+Z(2)^0
 gap> GeneratorPol( WholeSpaceCode( 4, GF(2) ) );
 Z(2)^0
 gap> GeneratorPol( NullCode( 7, GF(3) ) );
-x_1^7-Z(3)^0
+x^7-Z(3)^0
 </Example>
 <!--
 GeneratorPol(GeneratorMatCode([[1, 1, 0], [0, 1, 1]], GF(2)));
@@ -2881,9 +2881,9 @@ If <A>C</A> if not a cyclic code, the function returns an error.
 
 <Example>
 gap> CheckPol(GeneratorMatCode([[1, 1, 0], [0, 1, 1]], GF(2)));
-x_1^2+x_1+Z(2)^0
+x^2+x+Z(2)^0
 gap> CheckPol(WholeSpaceCode(4, GF(2)));
-x_1^4+Z(2)^0
+x^4+Z(2)^0
 gap> CheckPol(NullCode(7,GF(3)));
 Z(3)^0
 </Example>
@@ -2915,7 +2915,7 @@ a cyclic [16,12,5]3..4 Reed-Solomon code over GF(17)
 gap> RootsOfCode( C1 );
 [ Z(17), Z(17)^2, Z(17)^3, Z(17)^4 ]
 gap> C2 := RootsCode( 16, last );
-a cyclic [16,12,5]3..4 code defined by roots over GF(17)
+a cyclic [16,12,3..5]3..4 code defined by roots over GF(17)
 gap> C1 = C2;
 true
 </Example>
@@ -3144,9 +3144,9 @@ flexibility for the user - see the GAP code in codeops.gi for details.)
 gap> C:=RandomLinearCode(50,22,GF(2));
 a  [50,22,?] randomly generated code over GF(2)
 gap> MinimumDistanceLeon(C); #time; #Uncomment the call to "time;"" to see performance data
-6
+8
 gap> MinimumDistance(C); #time; #Uncomment the call to "time;"" to see performance data
-6
+8
 </Example>
 <!--
 C:=RandomLinearCode(50,22,GF(2));
@@ -3271,7 +3271,7 @@ appears to be more accurate than <C>MinimumDistanceLeon</C>.)
 gap> C:=RandomLinearCode(5,2,GF(2));
 a  [5,2,?] randomly generated code over GF(2)
 gap> DecreaseMinimumDistanceUpperBound(C,1,4);
-rec( mindist := 3, word := [ 0*Z(2), Z(2)^0, Z(2)^0, 0*Z(2), Z(2)^0 ] )
+rec( mindist := 3, word := [ Z(2)^0, Z(2)^0, Z(2)^0, 0*Z(2), 0*Z(2) ] )
 gap> MinimumDistance(C);
 3
 gap> C:=RandomLinearCode(8,4,GF(2));
@@ -3339,18 +3339,19 @@ gap> #mindistleon(C,10,30); #time; #doesn't work well
 gap> a:=MinimumDistanceRandom(C,10,30); #time; # done 10 times -with fastest time!!
 
  This is a probabilistic algorithm which may return the wrong answer.
-[ 12, [ 0 0 0 0 0 0 1 0 1 0 0 0 0 0 0 0 1 1 0 0 1 0 0 0 1 0 0 0 0 0 0 1 0 0
-        1 0 0 0 0 0 0 0 0 0 1 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 ] ]
+[ 14, [ 1 1 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 0 1 0 1 0 0 0 1 
+    0 0 0 0 1 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 1 0 1 0 0 ] ]
 gap> a[2] in C;
 true
 gap> b:=DecreaseMinimumDistanceUpperBound(C,10,1); #time; #only done once!
-rec( mindist := 12, word := [ 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2),
-      Z(2)^0, 0*Z(2), Z(2)^0, 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2),
-      0*Z(2), Z(2)^0, Z(2)^0, 0*Z(2), 0*Z(2), Z(2)^0, 0*Z(2), 0*Z(2), 0*Z(2),
-      Z(2)^0, 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), Z(2)^0, 0*Z(2),
-      0*Z(2), Z(2)^0, 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2),
-      0*Z(2), 0*Z(2), Z(2)^0, 0*Z(2), 0*Z(2), 0*Z(2), Z(2)^0, 0*Z(2), 0*Z(2),
-      0*Z(2), 0*Z(2), Z(2)^0, 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), Z(2)^0, 0*Z(2) ] )
+rec( mindist := 12, 
+  word := [ 0*Z(2), 0*Z(2), Z(2)^0, 0*Z(2), 0*Z(2), 0*Z(2), Z(2)^0, 0*Z(2), 
+      0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), 
+      0*Z(2), 0*Z(2), 0*Z(2), Z(2)^0, 0*Z(2), Z(2)^0, 0*Z(2), 0*Z(2), Z(2)^0, 
+      0*Z(2), Z(2)^0, 0*Z(2), 0*Z(2), 0*Z(2), Z(2)^0, 0*Z(2), 0*Z(2), 0*Z(2), 
+      0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), Z(2)^0, 0*Z(2), 
+      Z(2)^0, 0*Z(2), Z(2)^0, 0*Z(2), 0*Z(2), 0*Z(2), Z(2)^0, 0*Z(2), 0*Z(2), 
+      Z(2)^0, 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2) ] )
 gap> Codeword(b!.word) in C;
 true
 gap> MinimumDistance(C); #time; #Uncomment the call to "time;"" to see performance data
@@ -3362,7 +3363,7 @@ a  [30,10,?] randomly generated code over GF(3)
 gap> a:=MinimumDistanceRandom(C,10,10); #time; #Uncomment the call to "time;"" to see performance data
 
  This is a probabilistic algorithm which may return the wrong answer.
-[ 13, [ 0 0 0 1 0 0 0 0 0 0 1 0 2 2 1 1 0 2 2 0 1 0 2 1 0 0 0 1 0 2 ] ]
+[ 12, [ 0 0 0 0 0 0 1 1 0 1 1 0 0 0 1 0 0 0 0 0 2 0 2 2 1 2 0 1 1 0 ] ]
 gap> a[2] in C;
 true
 gap> MinimumDistance(C); #time; #Uncomment the call to "time;"" to see performance data
@@ -3373,7 +3374,7 @@ Code must be binary. Quitting.
 gap> a:=MinimumDistanceRandom(C,1,29); #time; #Uncomment the call to "time;"" to see performance data
 
  This is a probabilistic algorithm which may return the wrong answer.
-[ 10, [ 0 0 1 0 2 0 2 0 1 0 0 0 0 0 0 1 0 1 0 0 1 0 0 0 0 0 2 2 2 0 ] ]
+[ 9, [ 0 0 1 1 0 0 0 0 0 0 0 0 0 0 1 0 0 2 0 2 0 0 0 0 0 2 0 1 2 2 ] ]
 </Example>
 <!--
 
@@ -3810,8 +3811,8 @@ gap> c := "1010"*C;                    # encoding
 [ 1 0 1 1 0 1 0 ]
 gap> Decode(C, c);                     # decoding
 [ 1 0 1 0 ]
-gap> Decode(C, Codeword("0010101")); # one error corrected
-[ 1 1 0 1 ]
+gap> Decode(C, Codeword("0011010")); # one error corrected
+[ 1 0 1 0 ]
 gap> C!.SpecialDecoder := function(C, c)
 > return NullWord(Dimension(C));
 > end;
@@ -3873,21 +3874,22 @@ a linear [5,3,1..3]2  generalized Reed-Solomon code over GF(11)
 gap> MinimumDistance(C);
 3
 gap> c:=Random(C);
-[ 0 9 6 2 1 ]
-gap> v:=Codeword("09620");
-[ 0 9 6 2 0 ]
+[ 10 4 2 6 1 ]
+gap> v:=Codeword([ 10, 4, 2, 6, 0 ], GF(11));
+[ 10 4 2 6 0 ]
 gap> GeneralizedReedSolomonDecoderGao(C,v);
-[ 0 9 6 2 1 ]
+[ 10 4 2 6 1 ]
 gap> Decodeword(C,v); # calls the special interpolation decoder
-[ 0 9 6 2 1 ]
-gap> G:=GeneratorMat(C);
-[ [ Z(11)^0, 0*Z(11), 0*Z(11), Z(11)^8, Z(11)^9 ],
-  [ 0*Z(11), Z(11)^0, 0*Z(11), Z(11)^0, Z(11)^8 ],
-  [ 0*Z(11), 0*Z(11), Z(11)^0, Z(11)^3, Z(11)^8 ] ]
+[ 10 4 2 6 1 ]
+gap> G:=GeneratorMat(C);;
+gap> Display(G);
+  1  1  1  1  1
+  2  8  5 10  7
+  4  9  3  1  5
 gap> C1:=GeneratorMatCode(G,GF(11));
 a linear [5,3,1..3]2 code defined by generator matrix over GF(11)
-gap> Decodeword(C,v); # calls syndrome decoding
-[ 0 9 6 2 1 ]
+gap> Decodeword(C1,v); # calls syndrome decoding
+[ 10 4 2 6 1 ]
 </Example>
 <!--
 C := HammingCode(3);
@@ -3898,23 +3900,20 @@ P:=List([1,3,4,5,7],i->Z(11)^i);
 C:=GeneralizedReedSolomonCode(P,3,R);
 #########a linear [5,3,1..3]2  generalized Reed-Solomon code over GF(11)
 MinimumDistance(C);
-c:=Random(C);      ####### [ 0 9 6 2 1 ]
-v:=Codeword("09620");
+c:=Random(C);      ####### [ 10 4 2 6 1 ]
+v:=Codeword([ 10, 4, 2, 6, 0 ], GF(11));
 GeneralizedReedSolomonDecoderGao(C,v);
-                   ########   [ 0 9 6 2 1 ]
+                   ########   [ 10 4 2 6 1 ]
 Decodeword(C,v);
-                   ########   [ 0 9 6 2 1 ]
+                   ########   [ 10 4 2 6 1 ]
 Decodeword(C,v); #time;
-                   ########   [ 0 9 6 2 1 ]
-                   ###         5
-G:=GeneratorMat(C);
+                   ########   [ 10 4 2 6 1 ]
+G:=GeneratorMat(C);;
+Display(G);
 C1:=GeneratorMatCode(G,GF(11));
 #########a linear [5,3,1..3]2 code defined by generator matrix over GF(11)
-Decodeword(C,v); time;
-                   #########  [ 0 9 6 2 1 ]
-                   #########   9
-
-
+Decodeword(C,v); #time;
+                   #########  [ 10 4 2 6 1 ]
 -->
 
 
@@ -3949,11 +3948,11 @@ a linear [5,3,1..3]2  generalized Reed-Solomon code over GF(11)
 gap> MinimumDistance(C);
 3
 gap> c:=Random(C);
-[ 0 9 6 2 1 ]
-gap> v:=Codeword("09620");
-[ 0 9 6 2 0 ]
+[ 2 9 10 7 3 ]
+gap> v:=Codeword([ 2, 9, 10, 7, 7 ], GF(11));
+[ 2 9 10 7 7 ]
 gap> GeneralizedReedSolomonDecoderGao(C,v);
-[ 0 9 6 2 1 ]
+[ 2 9 10 7 3 ]
 </Example>
 <!--
 R:=PolynomialRing(GF(11),["t"]);
@@ -3961,7 +3960,7 @@ P:=List([1,3,4,5,7],i->Z(11)^i);
 C:=GeneralizedReedSolomonCode(P,3,R);
 MinimumDistance(C);
 c:=Random(C);
-
+v:=Codeword([ 2, 9, 10, 7, 4 ], GF(11));
 GeneralizedReedSolomonDecoderGao(C,v); time;
 Decodeword(C,v); time;
 
@@ -4084,16 +4083,16 @@ The bit flipping algorithm is described for example in Chapter 13 of
 gap> C:=HammingCode(4,GF(2));
 a linear [15,11,3]1 Hamming (4,2) code over GF(2)
 gap> c:=Random(C);
-[ 0 0 0 1 0 0 1 0 0 1 1 0 1 0 1 ]
+[ 1 0 1 1 0 0 0 0 1 0 0 1 1 1 0 ]
 gap> v:=List(c);
-[ 0*Z(2), 0*Z(2), 0*Z(2), Z(2)^0, 0*Z(2), 0*Z(2), Z(2)^0, 0*Z(2), 0*Z(2),
-  Z(2)^0, Z(2)^0, 0*Z(2), Z(2)^0, 0*Z(2), Z(2)^0 ]
+[ Z(2)^0, 0*Z(2), Z(2)^0, Z(2)^0, 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), Z(2)^0, 
+  0*Z(2), 0*Z(2), Z(2)^0, Z(2)^0, Z(2)^0, 0*Z(2) ]
 gap> v[1]:=Z(2)+v[1]; # flip 1st bit of c to create an error
-Z(2)^0
+0*Z(2)
 gap> v:=Codeword(v);
-[ 1 0 0 1 0 0 1 0 0 1 1 0 1 0 1 ]
+[ 0 0 1 1 0 0 0 0 1 0 0 1 1 1 0 ]
 gap> BitFlipDecoder(C,v);
-[ 0 0 0 1 0 0 1 0 0 1 1 0 1 0 1 ]
+[ 1 0 1 1 0 0 0 0 1 0 0 1 1 1 0 ]
 </Example>
 <!--
 C:=HammingCode(4,GF(2));
@@ -4148,7 +4147,7 @@ gap> r:=Codeword(r);
 gap> cs:=NearestNeighborGRSDecodewords(C,r,7);
 [ [ [ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ], 0*Z(2) ],
   [ [ 0 a^9 a^3 a^13 a^6 a^10 a^11 a a^12 a^14 a^5 a^8 a^7 a^4 a^2 ],
-      x_1+Z(2)^0 ] ]
+      x+Z(2)^0 ] ]
 </Example>
 <!--
 F:=GF(16);
@@ -4378,14 +4377,14 @@ gap> Display(H0);
  . 1 1 . . 1 1
  1 . 1 . 1 . 1
 gap> c0:=Random(C0);
-[ 0 0 0 1 1 1 1 ]
+[ 1 0 0 0 0 1 1 ]
 gap> v01:=c0[1]+Z(2)^2;;
 gap> v1:=List(c0, ShallowCopy);;
 gap> v1[1]:=v01;;
 gap> v1:=Codeword(v1);
-[ 1 0 0 1 1 1 1 ]
+[ 0 0 0 0 0 1 1 ]
 gap> c1:=PermutationDecode(C0,v1);
-[ 0 0 0 1 1 1 1 ]
+[ 1 0 0 0 0 1 1 ]
 gap> c1=c0;
 true
 </Example>
@@ -6661,9 +6660,9 @@ gap> Display( GeneratorMat(C) );
  . . . . . . . . . . . . 1 . 1 1 . 1 . 1 1 . 2 . . 2 1 .
  . . . . . . . . . . . . . 1 2 1 1 . 1 . 1 . . 2 . . 2 1
 gap> ax:=PolyCodeword(Codeword("013131000", GF(7)));
-x_1^5+Z(7)*x_1^4+x_1^3+Z(7)*x_1^2+x_1
+x^5+Z(7)*x^4+x^3+Z(7)*x^2+x
 gap> bx:=PolyCodeword(Codeword("425435030", GF(7)));
-Z(7)*x_1^7+Z(7)^5*x_1^5+Z(7)*x_1^4+Z(7)^4*x_1^3+Z(7)^5*x_1^2+Z(7)^2*x_1+Z(7)^4
+Z(7)*x^7+Z(7)^5*x^5+Z(7)*x^4+Z(7)^4*x^3+Z(7)^5*x^2+Z(7)^2*x+Z(7)^4
 gap> C:=FourNegacirculantSelfDualCodeNC(ax, bx, 18);
 a linear [36,18,1..13]0..36 four-negacirculant self-dual code over GF(7)
 gap> IsSelfDualCode(C);
@@ -9677,11 +9676,11 @@ History(CX);
 gap> a := PrimitiveRoot(GF(32));
 Z(2^5)
 gap> f0 := MinimalPolynomial( GF(2), a^0 );
-x_1+Z(2)^0
+x+Z(2)^0
 gap> f1 := MinimalPolynomial( GF(2), a^1 );
-x_1^5+x_1^2+Z(2)^0
+x^5+x^2+Z(2)^0
 gap> f5 := MinimalPolynomial( GF(2), a^5 );
-x_1^5+x_1^4+x_1^2+x_1+Z(2)^0
+x^5+x^4+x^2+x+Z(2)^0
 gap> C2 := CheckPolCode( f0 * f1, 31, GF(2) );; MinimumDistance(C2);; Display(C2);
 a cyclic [31,6,15]10..13 code defined by check polynomial over GF(2)
 gap> C3 := CheckPolCode( f0 * f5, 31, GF(2) );; MinimumDistance(C3);; Display(C3);
@@ -11967,15 +11966,15 @@ Therefore, the reciprocal polynomial also has degree
 
 <Example>
 gap> P := UnivariatePolynomial( GF(3), Z(3)^0 * [1,0,1,2] );
--x_1^3+x_1^2+Z(3)^0
+-x^3+x^2+Z(3)^0
 gap> RecP := ReciprocalPolynomial( P );
-x_1^3+x_1-Z(3)^0
+x^3+x-Z(3)^0
 gap> ReciprocalPolynomial( RecP ) = P;
 true
 gap> P := UnivariatePolynomial( GF(3), Z(3)^0 * [1,0,1,2] );
--x_1^3+x_1^2+Z(3)^0
+-x^3+x^2+Z(3)^0
 gap> ReciprocalPolynomial( P, 6 );
-x_1^6+x_1^4-x_1^3
+x^6+x^4-x^3
 </Example>
 <!--
 P := UnivariatePolynomial( GF(3), Z(3)^0 * [1,0,1,2] );
