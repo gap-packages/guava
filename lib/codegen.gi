@@ -1875,11 +1875,7 @@ function(n, d)
     G := MutableCopyMat( GeneratorMat(C) );
     TriangulizeMat(G);
     for i in [1..Size(G)] do
-        s := 0;
-        for j in [1..Size(G[i])] do
-            s := s + G[i][j];
-        od;
-        Add(G[i], -s);
+        Add(G[i], -Sum(G[i]));
     od;
     Ce := GeneratorMatCodeNC(G, LeftActingDomain(C));
     Ce!.name := "extended Reed Solomon code";

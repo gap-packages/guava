@@ -1858,12 +1858,12 @@ function( C, A )
     	  K, S, GC, GA, GX, CX, ZeroVec;
 
 	# Make sure list C contains all linear codes
-	if (PositionNot( List([1..Size(C)], i->IsLinearCode(C[i])), true ) < Size(C)) then
+	if not ForAll(C, IsLinearCode) then
 		Error("The list C contains non linear code(s)");
 	fi;
 
 	# Make sure list A contains all linear codes
-	if (PositionNot( List([1..Size(A)], i->IsLinearCode(A[i])), true ) < Size(A)) then
+	if not ForAll(A, IsLinearCode) then
 		Error("The list A contains non linear code(s)");
 	fi;
 
@@ -1881,21 +1881,15 @@ function( C, A )
 	fi;
 
 	# Ensure that Dimension(C[1]) < Dimension(C[2]) < ... < Dimension(C[j]), i.e. we need to sort them
-	K:=List([1..Size(C)], i->Dimension(C[i]));
-	S:=List([1..Size(C)], i->Dimension(C[i]));
-	Sort(S);
-	C:=List([1..Size(K)], i->C[Position(K, S[i])]);
+	SortBy(C, Dimension);
 
 	# Need to make sure that C[1] < C[2] < ... < C[j], i.e. subset
-	if (PositionNot(List([0..Size(C)-2], i->IsSubset(C[Size(C)-i], C[Size(C)-i-1])), true) < Size(C)-1) then
+	if not ForAll(List([0..Size(C)-2], i->IsSubset(C[Size(C)-i], C[Size(C)-i-1]))) then
 		Error("Inappropriate chain of codes");
 	fi;
 
 	# Now, ensure that codes in A are sorted such that their dimensions are in ascending order
-	K:=List([1..Size(A)], i->Dimension(A[i]));
-	S:=List([1..Size(A)], i->Dimension(A[i]));
-	Sort(S);
-	A:=List([1..Size(K)], i->A[Position(K, S[i])]);
+	SortBy(A, Dimension);
 
 	# Number codes in A should be 1 less than that in C
 	if (Size(A) <> Size(C)-1) then
@@ -1911,8 +1905,8 @@ function( C, A )
 	od;
 
 	# Generator matrices of the chain codes
-	GC:=List([1..Size(C)], i->ShallowCopy(GeneratorMat(C[i])));
-	GA:=List([1..Size(A)], i->ShallowCopy(GeneratorMat(A[i])));
+	GC:=List(C, x->ShallowCopy(GeneratorMat(x)));
+	GA:=List(A, x->ShallowCopy(GeneratorMat(x)));
 
 	# Generator matrix of the largest code in chain format
 	GX:=GC[Size(C)];
@@ -2166,7 +2160,7 @@ __G_BZCode := function(O, I)
 	fi;
 
 	# Need to make sure that I[1] < I[2] < ... < I[s], i.e. subset
-	if (PositionNot(List([0..Size(I)-2], i->IsSubset(I[Size(I)-i], I[Size(I)-i-1])), true) < Size(I)-1) then
+	if not ForAll(List([0..Size(I)-2], i->IsSubset(I[Size(I)-i], I[Size(I)-i-1]))) then
 		Error("Inappropriate chain of inner codes");
 	fi;
 
@@ -2206,10 +2200,7 @@ __G_BZCode := function(O, I)
 	k := Sum(List([1..Size(O)], i->(Dimension(O[i]) * (ik[i+1] - ik[i]))));
 
 	# Construct the generator matrix of the BZ code
-	v := [];
-	for i in [1..Size(O)] do
-		Add(v, List([1..Dimension(O[i])], x->Zero(LeftActingDomain(O[i]))));
-	od;
+	v := List(O, u -> List([1..Dimension(u)], x->Zero(LeftActingDomain(u))));
 	G := [];
 	for i in [1..Size(O)] do
 		F := LeftActingDomain(O[i]);

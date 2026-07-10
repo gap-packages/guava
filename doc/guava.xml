@@ -3200,9 +3200,7 @@ gap> F := Factors(x^n-1);;
 gap> v := NullVector(n,GF(3));;
 gap> v := v + ShallowCopy(VectorCodeword( Codeword(F[2]) ));;
 gap> G := CirculantMatrix(24, v);;
-gap> for i in [1..Size(G)] do s:=Zero(GF(3));
-> for j in [1..Size(G[i])] do s:=s+G[i][j]; od; Add(G[i], s);
-> od;;
+gap> for i in [1..Size(G)] do Add(G[i], Sum(G[i])); od;;
 gap> C := GeneratorMatCodeNC(G, GF(3));
 a  [48,24,?] randomly generated code over GF(3)
 gap> MinimumWeight(C);
