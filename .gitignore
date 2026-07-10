@@ -62,7 +62,7 @@ Makefile
 /src/leon/wtdist
 /src/leonconv
 
-/tst/guava??.tst
+#/tst/guava??.tst
 
 /gh-pages/
 /tmp/
