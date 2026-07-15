@@ -104,7 +104,7 @@ gap> Set(NamesOfComponents(C));
 [ "Basis", "Dimension", "GeneratorMat", 
   "GeneratorsOfLeftOperatorAdditiveGroup", "LeftActingDomain", 
   "NiceFreeLeftModule", "Representative", "WordLength", "ZeroImmutable", 
-  "name" ]
+  "lowerBoundMinimumDistance", "name", "upperBoundMinimumDistance" ]
 gap> Set(NamesOfComponents(c));
 [ "VectorCodeword", "WordLength", "treatAsPoly" ]
 gap> c!.VectorCodeword;
