@@ -58,12 +58,14 @@ InstallMethod(Decode, "method for linear code, codeword", true,
     [IsLinearCode, IsCodeword], 0,
 function(C, v)
     local ok, c, S, syn, index, corr, Gt, i, x, F;
-    if v in C then
-        return InformationWord(C,v);
-    fi;
+ 
     c := Codeword(v, C);
     if HasSpecialDecoder(C) then
-        return InformationWord(C, SpecialDecoder(C)(C, c) );
+#        return InformationWord(C, SpecialDecoder(C)(C, c) );
+        return SpecialDecoder(C)(C, c);
+    fi;
+    if v in C then
+        return InformationWord(C,v);
     fi;
     F := LeftActingDomain(C);
     S := SyndromeTable(C);
@@ -405,9 +407,9 @@ function(C, r)
         e := ind[1];
         r[e] := r[e]-fac;     # correct error
     fi;
-    #x := SolutionMat(GeneratorMat(C), r);
-    #return Codeword(x);
-    return Codeword(r, C);
+    x := SolutionMat(GeneratorMat(C), r);
+    return Codeword(x);
+    #return InformationWord(C, r);
 end);
 
 #############################################################################
