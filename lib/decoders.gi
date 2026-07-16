@@ -310,7 +310,7 @@ InstallMethod(BCHDecoder, "method for code, codeword", true,
 function (C, r)
     local F, q, n, m, ExtF, x, a, t, ri_1, ri, rnew, si_1, si, snew,
           ti_1, ti, qi, sigma, i, cc, cl, mp, ErrorLocator, zero,
-          Syndromes, null, pol, ExtSize, ErrorEvaluator, Fp;
+          Syndromes, null, pol, ExtSize, ErrorEvaluator, Fp, ret;
     F := LeftActingDomain(C);
     q := Size(F);
     n := WordLength(C);
@@ -328,7 +328,9 @@ function (C, r)
     Syndromes :=  List([1..2*QuoInt(DesignedDistance(C) - 1,2)],
                        i->Value(r, a^i));
     if Maximum(Syndromes) = Zero(F) then # no errors
-        return Codeword(r mod (x^n-1), C);
+        ret := Codeword(r mod (x^n-1), C);
+        TreatAsVector(ret);
+        return InformationWord(C, ret);
     fi;
     # Use Euclidean algorithm:
     ri_1 := x^(2*t);
@@ -364,7 +366,9 @@ function (C, r)
     x := Indeterminate(F);
     if q = 2 then # error locator is not necessary
         pol := Sum(List(ErrorLocator, i->x^i));
-        return Codeword((r - pol) mod (x^n-1), C);
+        ret := Codeword((r - pol) mod (x^n-1), C);
+        TreatAsVector(ret);
+        return InformationWord(C,ret);
     else
         pol := Derivative(sigma);
         Fp := One(F)*(x^n-1);
@@ -373,7 +377,9 @@ function (C, r)
                               Value(rnew,a^-i)/Value(pol, a^-i));
         pol := Sum(List([1..Length(ErrorLocator)], i->
                        -ErrorEvaluator[i]*x^ErrorLocator[i]));
-        return  Codeword((r - pol) mod (x^n-1) , C);
+        ret := Codeword((r - pol) mod (x^n-1) , C);
+        TreatAsVector(ret);
+        return InformationWord(C,ret);
     fi;
 end);
 
