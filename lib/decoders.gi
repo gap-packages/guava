@@ -277,7 +277,7 @@ local d, g, wpol, s, ds, cpol, cc, c, i, m, e, x, n, ccc, r;
  if not(IsCyclicCode(C)) then
    Error("Code must be cyclic");
  fi;
- if Codeword(w) in C then return Codeword(w); fi; ## bug fix 7-6-2007
+ if Codeword(w) in C then return InformationWord( C, Codeword(w)); fi; 
  n:=WordLength(C);
  d:=MinimumDistance(C);
  g:=GeneratorPol(C);
@@ -294,8 +294,7 @@ local d, g, wpol, s, ds, cpol, cc, c, i, m, e, x, n, ccc, r;
      r:=Length(cc);
      ccc:=Concatenation(cc,List([1..(n-r)],k-> Zero(LeftActingDomain(C)) ));
      c:=Codeword(ccc);
-     #return InformationWord( C, c );
-     return c;
+     return InformationWord( C, c );
    fi;
  od;
  return "fail";
