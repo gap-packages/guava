@@ -279,7 +279,7 @@ local d, g, wpol, s, ds, cpol, cc, c, i, m, e, x, n, ccc, r;
  fi;
  if Codeword(w) in C then return InformationWord( C, Codeword(w)); fi; 
  n:=WordLength(C);
- d:=MinimumDistance(C);
+ d:=UpperBoundMinimumDistance(C);
  g:=GeneratorPol(C);
  x:=IndeterminateOfUnivariateRationalFunction(g);
  wpol:=PolyCodeword(w);
