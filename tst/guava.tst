@@ -970,7 +970,7 @@ gap> C1:=EvaluationBivariateCode(Pts,L,crv);
  curve):
 [ [ 0*Z(2), 0*Z(2) ] ]
 
-a linear [63,3,1..60]51..59  evaluation code over GF(16)
+a linear [63,3,1..57]51..59  evaluation code over GF(16)
 gap> P:=Difference(Pts,[[ 0*Z(2^4)^0, 0*Z(2)^0 ]]);
 [ [ 0*Z(2), Z(2)^0 ], [ 0*Z(2), Z(2^2) ], [ 0*Z(2), Z(2^2)^2 ], 
   [ Z(2)^0, Z(2^4) ], [ Z(2)^0, Z(2^4)^2 ], [ Z(2)^0, Z(2^4)^4 ], 
@@ -995,7 +995,7 @@ gap> P:=Difference(Pts,[[ 0*Z(2^4)^0, 0*Z(2)^0 ]]);
   [ Z(2^4)^14, Z(2^4)^3 ], [ Z(2^4)^14, Z(2^4)^11 ], [ Z(2^4)^14, Z(2^4)^12 ],
   [ Z(2^4)^14, Z(2^4)^14 ] ]
 gap> C2:=EvaluationBivariateCodeNC(P,L,crv); 
-a linear [63,3,1..60]51..59  evaluation code over GF(16)
+a linear [63,3,1..56]51..59  evaluation code over GF(16)
 gap> C3:=EvaluationCode(P,L,R);
 a linear [63,3,1..56]51..59  evaluation code over GF(16)
 gap> MinimumDistance(C1);
