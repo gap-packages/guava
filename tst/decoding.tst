@@ -70,7 +70,7 @@ true
 gap> w := Decodeword(C,c+e);;
 gap> (c=w);
 true
-gap> C := HammingCode( 3, GF(9) );                                    
+gap> C := HammingCode( 3, GF(9) );
 a linear [91,88,3]1 Hamming (3,9) code over GF(9)
 gap> HasSpecialDecoder(C);
 true
