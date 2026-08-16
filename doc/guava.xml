@@ -3763,11 +3763,7 @@ codeword is decoded to an <E>information codeword</E> <M>m</M>
 (and not an element of <A>C</A>).
 If the code record has a field `specialDecoder',
 this special algorithm is used to decode
-the vector.  Hamming codes,
-<!--
-BCH codes, - removed due to an unfixed bug
--->
-cyclic codes,
+the vector.  Hamming codes, BCH codes, cyclic codes,
 and generalized Reed-Solomon have such a special algorithm.
 (The algorithm used for BCH codes is the
 Sugiyama algorithm described, for example, in
@@ -3841,13 +3837,14 @@ codeword or a list of codewords.
 If the code record has a field `specialDecoder',
 this special algorithm is used to decode
 the vector.  Hamming codes, generalized Reed-Solomon codes,
-and BCH codes have such a special algorithm.
+BCH codes and cyclic codes have such a special algorithm.
 (The algorithm used for BCH codes is the
 Sugiyama algorithm described, for example, in
 section 5.4.3 of <Cite Key="HP03"/>. The algorithm used for
 generalized Reed-Solomon codes is the ``interpolation
 algorithm'' described for example in chapter 5 of
-<Cite Key="JH04"/>.)
+<Cite Key="JH04"/>. For cyclic codes, the error-trapping
+algorithm is used.)
 If <A>C</A> is linear and no special decoder
 field has been set then syndrome decoding is used.
 Otherwise, when <A>C</A> is non-linear, the nearest neighbor algorithm has
