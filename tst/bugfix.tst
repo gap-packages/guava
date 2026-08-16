@@ -22,6 +22,26 @@ gap> Display(G1);
  . . . . . . . . . . . 1 . 1 . 1 1 1 . . . 1 1
 
 ##
+## an empty list is a string, so Codeword([], ...) used to be handed back
+## to the very method that produced it, looping forever.  Encoding the zero
+## information word into a cyclic code goes through exactly that call.
+##
+gap> Codeword([], 4, Z(5)^0);
+[ 0 0 0 0 ]
+gap> Codeword([], 4, GF(5));
+[ 0 0 0 0 ]
+gap> Codeword([], 4);
+[ 0 0 0 0 ]
+gap> C := ReedSolomonCode(4,3);;
+gap> c := [0*Z(5),0*Z(5)]*C;;
+gap> WordLength(c) = WordLength(C) and c in C;
+true
+gap> Codeword("1010", 4, GF(2));   # strings still work
+[ 1 0 1 0 ]
+gap> Codeword("123", 5, GF(4));
+[ 1 a a^2 0 0 ]
+
+##
 ## BCHDecoder assumed a narrow sense code and bailed out to Decode for any
 ## other b, which has no method for the polynomial it was handed (and would
 ## have dispatched straight back into BCHDecoder had it had one).
