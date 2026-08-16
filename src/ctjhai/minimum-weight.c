@@ -28,6 +28,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdint.h>
 #include <string.h>
 #include <getopt.h>
 #include "minimum-weight-gf2.h"
@@ -92,7 +93,8 @@ int main(int argc, char *argv[]) {
 	init_popcount();
 	
 	/* Read generator matrix from file */
-	generator_matrix(argv[optind], &G);
+	if (generator_matrix(argv[optind], &G) < 0)
+		return -1;
 
 	if (cyclic_code)
 		dmin = cyclic_mindist(G, m_mod, lower_bound);
@@ -134,9 +136,24 @@ void print_usage(FILE *stream, int exitcode, char *str) {
 	exit(exitcode);
 }
 
+/* Allocate n objects of size sz, or report why not and return NULL.
+   n * sz is computed in size_t, and rejected if it would wrap. */
+static void *alloc_array(size_t n, size_t sz, const char *what) {
+	void *p;
+
+	if (n > SIZE_MAX / sz) {
+		fprintf(stderr, "Error: %s too large to allocate\n", what);
+		return NULL;
+	}
+	p = malloc(n * sz);
+	if (!p)
+		fprintf(stderr, "Error: out of memory allocating %s\n", what);
+	return p;
+}
+
 /* Read generator matrix from file */
 int generator_matrix(char *fname, MATRIX *M) {
-	int i, j;
+	unsigned int i, j;
 	FILE *fptr;
 
 	fptr = fopen(fname, "r");
@@ -144,25 +161,44 @@ int generator_matrix(char *fname, MATRIX *M) {
 		fprintf(stderr, "Error opening %s\n", fname);
 		return -1;
 	}
-	if ( fscanf(fptr, "%d %d %d\n", &M->rows, &M->cols, &M->q) < 0 ) {
+	if ( fscanf(fptr, "%u %u %u\n", &M->rows, &M->cols, &M->q) != 3 ) {
 		fprintf(stderr, "Error reading header of %s\n", fname);
-	}
-	if (M->rows < 32768) {
-		M->m = (unsigned int **)malloc(M->rows * sizeof(unsigned int *));
-	} else {
-		fprintf(stderr, "Error: max number of cols exceeded.\n");
+		fclose(fptr);
 		return -1;
 	}
-	for (i=0; i<M->rows; i++) 
-		M->m[i] = (unsigned int *)malloc(M->cols * sizeof(unsigned int));
+	if (M->rows == 0 || M->rows >= 32768) {
+		fprintf(stderr, "Error: number of rows must be between 1 and 32767.\n");
+		fclose(fptr);
+		return -1;
+	}
+	if (M->cols == 0 || M->cols < M->rows) {
+		fprintf(stderr, "Error: number of columns must be at least the number of rows.\n");
+		fclose(fptr);
+		return -1;
+	}
+	M->m = alloc_array(M->rows, sizeof(unsigned int *), "generator matrix");
+	if (!M->m) {
+		fclose(fptr);
+		return -1;
+	}
+	for (i=0; i<M->rows; i++) {
+		M->m[i] = alloc_array(M->cols, sizeof(unsigned int), "generator matrix row");
+		if (!M->m[i]) {
+			fclose(fptr);
+			return -1;
+		}
+	}
 	for (i=0; i<M->rows; i++) {
 		for (j=0; j<M->cols; j++) {
-			if ( fscanf(fptr, "%d ", &M->m[i][j]) < 0 ) {
+			if ( fscanf(fptr, "%u ", &M->m[i][j]) != 1 ) {
 				fprintf(stderr, "Error reading data from %s\n", fname);
+				fclose(fptr);
+				return -1;
 			}
 		}
 	}
 
+	fclose(fptr);
 	return 0;
 }
 

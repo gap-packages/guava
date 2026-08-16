@@ -53,10 +53,10 @@ typedef struct {
 } GF3_VEC;
 
 typedef struct {
-	unsigned short dimension, block_length;
-	unsigned short nBlocks;
-	unsigned short nMatrices, nFullRankMatrices;
-	unsigned short *rank;
+	unsigned int dimension, block_length;
+	unsigned int nBlocks;
+	unsigned int nMatrices, nFullRankMatrices;
+	unsigned int *rank;
 	GF3_VEC  ***mat;
 } PACKED_MATRIX_GF3;
 

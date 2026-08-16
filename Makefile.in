@@ -93,6 +93,23 @@ check test:
 run:
 	$(GAP) $(GAP_ARGS) -c 'LoadPackage("guava");'
 
+# exercises minimum-weight on inputs the GAP code never produces: a code
+# longer than the 16-bit types it used to count with, and malformed files
+check-programs: all
+	@set -e; tmp=`mktemp -d`; trap "rm -rf $$tmp" EXIT; \
+	awk 'BEGIN { n = 65536; printf "3 %d 2\n", n+3; \
+	             for (r = 1; r <= 3; r++) { \
+	                 for (i = 1; i <= n; i++) printf "1 "; \
+	                 for (i = 1; i <= 3; i++) printf "%d ", (i == r); \
+	                 printf "\n" } }' > $$tmp/long; \
+	echo "== a [65539,3] code, minimum weight 2"; \
+	$(BINDIR)/minimum-weight $$tmp/long | grep -q '^Minimum weight: 2$$'; \
+	echo "== malformed input is rejected, not crashed on"; \
+	printf 'garbage\n'   > $$tmp/bad;   ! $(BINDIR)/minimum-weight $$tmp/bad;   \
+	printf '0 10 2\n'    > $$tmp/zero;  ! $(BINDIR)/minimum-weight $$tmp/zero;  \
+	printf '2 5 2\n1 0 1\n' > $$tmp/trunc; ! $(BINDIR)/minimum-weight $$tmp/trunc; \
+	echo "== ok"
+
 clean:
 	rm -rf $(OBJDIR)
 
@@ -103,4 +120,4 @@ distclean: clean
 Makefile: configure Makefile.in $(GAPPATH)/sysinfo.gap
 	./configure $(GAPPATH)
 
-.PHONY: all check test clean distclean doc html run
+.PHONY: all check check-programs test clean distclean doc html run
