@@ -148,7 +148,9 @@ function(C, v)
     if HasSpecialDecoder(C) then
         c0:=SpecialDecoder(C)(C, c);
         if Size(c0) = Dimension(C) then
-            return Codeword(c0*C);
+            # re-encode via the generator matrix, the encoding that
+            # InformationWord (and hence every special decoder) inverts
+            return Codeword(VectorCodeword(c0)*GeneratorMat(C), C);
         fi;
         if Size(c0) = Size(c) then
             return Codeword(c0);
@@ -639,7 +641,7 @@ end;
 InstallMethod(GeneralizedReedSolomonDecoder,"method for code, codeword", true,
     [IsCode, IsCodeword], 0,
 function(C,vec)
-local v,R,k,P,z,F,f,s,t,L,n,Qpolys,vars,x,c,y;
+local v,R,k,P,F,f,qr,s,t,L,n,Qpolys,vars,x,c;
 
  v:=VectorCodeword(vec);
  R:=C!.ring;
@@ -648,14 +650,22 @@ local v,R,k,P,z,F,f,s,t,L,n,Qpolys,vars,x,c,y;
  F:=CoefficientsRing(R);
  vars:=IndeterminatesOfPolynomialRing(R);
  x:=vars[1];
-#y:=vars[2];
  n:=Length(v);
  t:=Int((n-k)/2);
  L:=[n-1-t,n-t-k];
  Qpolys:=GRSErrorLocatorPolynomials(v,P,L,R);
- f:=-Qpolys[2]/Qpolys[1];
+ if Qpolys=[] or IsZero(Qpolys[2]) then
+   Error("not decodable");
+ fi;
+ # Q(x,y) = Qpolys[1](x) + Qpolys[2](x)*y vanishes at every (P[i],v[i]), so the
+ # message polynomial f is the one with Qpolys[1] + Qpolys[2]*f = 0.
+ qr:=QuotientRemainder(R,Qpolys[1],Qpolys[2]);
+ if not IsZero(qr[2]) or Degree(qr[1]) >= k then
+   Error("not decodable");
+ fi;
+ f:=-qr[1];
  c:=List(P,s->Value(f,[x],[s]));
- return Codeword(c,n,F);
+ return InformationWord(C, Codeword(c,n,F));
 end);
 
 

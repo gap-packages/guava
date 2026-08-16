@@ -252,3 +252,24 @@ true
 gap> w := Decodeword(C,c);;
 gap> (c=w);
 true
+
+##
+## https://github.com/gap-packages/guava/issues/12
+## the GRS interpolation decoder mixed up the two halves of the
+## interpolating polynomial and so returned an unrelated word
+##
+gap> R := PolynomialRing(GF(11),1);;
+gap> P := List([1,3,4,5,7],i->Z(11)^i);;
+gap> C := GeneralizedReedSolomonCode(P,3,R);
+a linear [5,3,1..3]2  generalized Reed-Solomon code over GF(11)
+gap> c := Codeword([5,4,5,4,2],GF(11));;
+gap> c in C;
+true
+gap> r := Codeword([5,4,5,5,2],GF(11));;
+gap> Decodeword(C,r) = c;
+true
+gap> Decode(C,r) = InformationWord(C,c);
+true
+gap> v := Codeword([5,2,6,10,9],GF(11));;
+gap> Decodeword(C,v) = GeneralizedReedSolomonDecoderGao(C,v);
+true
