@@ -19,8 +19,8 @@ concurrency:
 jobs:
   # The CI test job
   test:
-    name: ${{ matrix.gap-version }}
-    runs-on: ubuntu-latest
+    name: "${{ matrix.os }}: GAP ${{ matrix.gap-version }}"
+    runs-on: ${{ matrix.os }}-latest
     strategy:
       fail-fast: false
       matrix:
@@ -28,6 +28,14 @@ jobs:
           - 'devel'   # current GAP development version from git
           - 'latest'  # latest GAP release
           - 'minimal' # oldest GAP release supported by this package
+        os:
+          - ubuntu
+        # The GAP code writes files for Leon's programs to read and runs them
+        # as subprocesses, which is where the systems differ. One job per
+        # system shows that up; crossing it with every GAP version would not.
+        include:
+          - gap-version: 'devel'
+            os: macos
 
     steps:
       - uses: actions/checkout@v6
@@ -39,7 +47,13 @@ jobs:
       - uses: gap-actions/run-pkg-tests@v4
         with:
           mode: onlyneeded
+      # gcov is only set up to work on the Linux jobs
       - uses: gap-actions/process-coverage@v3
+        if: ${{ runner.os == 'Linux' }}
+      - name: Process C coverage
+        if: ${{ runner.os == 'Linux' }}
+        run: gcov -pb obj/*.gcno obj/*/*.gcno
       - uses: codecov/codecov-action@v6
+        if: ${{ runner.os == 'Linux' }}
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
