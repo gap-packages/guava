@@ -110,7 +110,7 @@ int main(
    seed = 47;
    for ( i = 1 ; i < optionCountPlus1 ; ++i )
       if ( strcmp(argv[i],"-a") == 0 )
-         strcat( options.outputFileMode, "a");
+         strcpy( options.outputFileMode, "a");
       else if ( strcmp(argv[i],"-e") == 0 )
          equalSizeFlag = TRUE;
       else if ( strncmp( argv[i], "-n:", 3) == 0 )
