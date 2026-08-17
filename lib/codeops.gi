@@ -2828,10 +2828,22 @@ function(C)
     return GUAVA_TEMP_VAR;
 end);
 
-#This is a copy of CosetLeadersMatFFE(mat,f) from gap/lib/listcoef.gi
-# for experimentation purposes...
+# CosetLeadersMatFFE skipped cosets over fields of size 4 to 255, so the list
+# it returned had holes in it and CoveringRadius and SyndromeTable failed on
+# such codes.  GAP 4.16.0 fixed that (issue #104), so from there on this is
+# just the library function.
+if CompareVersionNumbers(GAPInfo.Version, "4.16.0") then
 
-InstallMethod(GuavaCosetLeadersMatFFE,"generic",IsCollsElms,
+InstallMethod(GuavaCosetLeadersMatFFE,"use the GAP library function",IsCollsElms,
+        [IsMatrix,IsFFECollection and IsField],0,
+        CosetLeadersMatFFE);
+
+else
+
+# On older GAP, fall back to a copy of CosetLeadersMatFFE with the branch that
+# had the bug disabled: correct, but without the speedup it gave.  Drop this
+# once GUAVA requires GAP >= 4.16.0.
+InstallMethod(GuavaCosetLeadersMatFFE,"work around the pre-4.16 library bug",IsCollsElms,
         [IsMatrix,IsFFECollection and IsField],0,
         function(mat,f)
     local q, leaders, tofind, n,m, t, vl, i, felts, fds,
@@ -2934,4 +2946,6 @@ InstallMethod(GuavaCosetLeadersMatFFE,"generic",IsCollsElms,
     Unbind(leaders[q^m+1]);
     return leaders;
 end);
+
+fi;
 
