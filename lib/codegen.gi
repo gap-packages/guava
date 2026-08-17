@@ -483,7 +483,13 @@ function(G, name, F)
     SetGeneratorMat(C, G);
     SetWordLength(C, n);
     C!.upperBoundMinimumDistance := dmax;
-    C!.lowerBoundMinimumDistance := 1;
+    if Length(L) = 1 then
+        # the codewords are the scalar multiples of the one generator, so they
+        # all have its weight
+        C!.lowerBoundMinimumDistance := dmax;
+    else
+        C!.lowerBoundMinimumDistance := 1;
+    fi;
     C!.name := name;
     return C;
 end);
