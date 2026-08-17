@@ -1,58 +1,106 @@
-GAPPATH=@GAPPATH@
-GAPARCH=@GAPARCH@
-CFLAGS  += -O2
-SRCDIR  = ./src/leon
-CJSRCDIR= ./src/ctjhai
-BINDIR = bin/$(GAPARCH)
-#GAP_PATH=../..
-#PKG_PATH=.
-#SRCDISTFILE=guava
+# Makefile for the GAP package GUAVA.
+#
+# Generated from Makefile.in by ./configure; requires GNU make.
+# All executables are put into $(BINDIR).
 
-targets: default
+GAPPATH = @GAPPATH@
+GAPARCH = @GAPARCH@
+GAP ?= $(GAPPATH)/gap
+GAP_ARGS = -q --quitonbreak --packagedirs $(abspath .)
 
-default: minimum-weight leonconv desauto install
+LEONDIR = src/leon/src
+CJDIR   = src/ctjhai
+OBJDIR  = obj
+BINDIR  = bin/$(GAPARCH)
 
-minimum-weight: $(CJSRCDIR)/minimum-weight.o $(CJSRCDIR)/minimum-weight-gf2.o $(CJSRCDIR)/minimum-weight-gf3.o $(CJSRCDIR)/popcount.o
-	$(CC) $(LDFLAGS) -o $(CJSRCDIR)/minimum-weight \
-$(CJSRCDIR)/minimum-weight.o $(CJSRCDIR)/minimum-weight-gf2.o \
-$(CJSRCDIR)/minimum-weight-gf3.o $(CJSRCDIR)/popcount.o -lm
+CC ?= gcc
+CFLAGS ?= -O2 -g
 
-leonconv: desauto
-	cd ./src; $(MAKE) CC="$(CC)" CPPFLAGS="$(CPPFLAGS)" CFLAGS="$(CFLAGS)" LDFLAGS="$(LDFLAGS)";
+EXTRA_CFLAGS += -Wall
+# Leon's code is from the early 1990s and warns about style throughout;
+# silence the categories that say nothing about correctness.
+EXTRA_CFLAGS += -Wno-char-subscripts -Wno-unused-variable \
+	-Wno-unused-but-set-variable -Wno-unused-function
 
-desauto: 
-	cd $(SRCDIR); autoreconf --install --force ; ./configure; $(MAKE) CC="$(CC)" CPPFLAGS="$(CPPFLAGS)" CFLAGS="$(CFLAGS)" LDFLAGS="$(LDFLAGS)";
+ALL_CFLAGS = $(CFLAGS) $(EXTRA_CFLAGS) -MMD -MP
 
-minimum-weight.o: $(CJSRCDIR)/minimum-weight.c $(CJSRCDIR)/minimum-weight-gf2.h $(CJSRCDIR)/minimum-weight-gf3.h $(CJSRCDIR)/popcount.h $(CJSRCDIR)/config.h $(CJSRCDIR)/types.h
-	$(CC) -c -O3 -Wall -I $(CJSRCDIR) $(CJSRCDIR)/minimum-weight.c
+#
+# Leon's 13 programs, plus the two others. The GAP code runs desauto,
+# leonconv, minimum-weight and wtdist; the rest are usable standalone.
+#
+LEON_PROGS = cent cjrndper commut compgrp desauto fndelt generate inter \
+	orbdes orblist randobj setstab wtdist
+PROGS = $(LEON_PROGS) leonconv minimum-weight
 
-minimum-weight-gf2.o: $(CJSRCDIR)/minimum-weight-gf2.c $(CJSRCDIR)/minimum-weight-gf2.h $(CJSRCDIR)/popcount.h $(CJSRCDIR)/config.h $(CJSRCDIR)/types.h
-	$(CC) -c -O3 -Wall -I $(CJSRCDIR) $(CJSRCDIR)/minimum-weight-gf2.c
+# cputime.c is an alternative timer for machines whose clock() is unusable.
+# It needs a TICK its headers never define, and group.h falls back to clock(),
+# so no build has ever compiled it.
+LEON_SRCS = $(filter-out $(LEONDIR)/cputime.c,$(wildcard $(LEONDIR)/*.c))
 
-minimum-weight-gf3.o: $(CJSRCDIR)/minimum-weight-gf3.c $(CJSRCDIR)/minimum-weight-gf3.h $(CJSRCDIR)/popcount.h $(CJSRCDIR)/config.h $(CJSRCDIR)/types.h
-	$(CC) -c -O3 -Wall -I $(CJSRCDIR) $(CJSRCDIR)/minimum-weight-gf3.c
+# every Leon source without a main() belongs to the library the programs share
+LEON_OBJS = $(patsubst $(LEONDIR)/%.c,$(OBJDIR)/leon/%.o,$(LEON_SRCS))
+LEON_LIBOBJS = $(filter-out $(patsubst %,$(OBJDIR)/leon/%.o,$(LEON_PROGS)),$(LEON_OBJS))
+CJ_OBJS = $(patsubst $(CJDIR)/%.c,$(OBJDIR)/ctjhai/%.o,$(wildcard $(CJDIR)/*.c))
 
-popcount.o: $(CJSRCDIR)/popcount.c $(CJSRCDIR)/popcount.h $(CJSRCDIR)/config.h $(CJSRCDIR)/types.h
-	$(CC) -c -O3 -Wall -I $(CJSRCDIR) $(CJSRCDIR)/popcount.c
+all: $(addprefix $(BINDIR)/,$(PROGS))
 
+#
+# how to build them
+#
+$(addprefix $(BINDIR)/,$(LEON_PROGS)): $(BINDIR)/%: $(OBJDIR)/leon/%.o $(OBJDIR)/libleon.a | $(BINDIR)
+	$(CC) $(EXTRA_CFLAGS) $(LDFLAGS) -o $@ $^
 
-install: leonconv minimum-weight
-	mkdir -p $(BINDIR)
-	cp ./src/leonconv $(BINDIR)
-	cp $(SRCDIR)/desauto $(BINDIR)
-	cp $(CJSRCDIR)/minimum-weight $(BINDIR)
-	cp $(SRCDIR)/wtdist $(BINDIR)
+$(BINDIR)/minimum-weight: $(CJ_OBJS) | $(BINDIR)
+	$(CC) $(EXTRA_CFLAGS) $(LDFLAGS) -o $@ $^ -lm
+
+$(BINDIR)/leonconv: $(OBJDIR)/leonconv.o | $(BINDIR)
+	$(CC) $(EXTRA_CFLAGS) $(LDFLAGS) -o $@ $^
+
+$(OBJDIR)/libleon.a: $(LEON_LIBOBJS)
+	$(AR) cr $@ $^
+	if which ranlib > /dev/null 2> /dev/null; then ranlib $@; fi
+
+# minimum-weight is a brute-force search over codewords, so keep the -O3
+# the old build system gave it
+$(CJ_OBJS): EXTRA_CFLAGS += -O3
+
+$(OBJDIR)/leon/%.o: $(LEONDIR)/%.c | $(OBJDIR)/leon
+	$(CC) $(ALL_CFLAGS) -c -o $@ $<
+
+$(OBJDIR)/ctjhai/%.o: $(CJDIR)/%.c | $(OBJDIR)/ctjhai
+	$(CC) $(ALL_CFLAGS) -I$(CJDIR) -c -o $@ $<
+
+$(OBJDIR)/%.o: src/%.c | $(OBJDIR)
+	$(CC) $(ALL_CFLAGS) -c -o $@ $<
+
+$(BINDIR) $(OBJDIR) $(OBJDIR)/leon $(OBJDIR)/ctjhai:
+	mkdir -p $@
+
+-include $(wildcard $(OBJDIR)/*.d $(OBJDIR)/*/*.d)
+
+#
+# other targets
+#
+doc:
+	$(GAP) $(GAP_ARGS) makedoc.g
+
+html:
+	NOPDF=1 $(GAP) $(GAP_ARGS) makedoc.g
+
+check test:
+	$(GAP) $(GAP_ARGS) tst/testall.g
+
+run:
+	$(GAP) $(GAP_ARGS) -c 'LoadPackage("guava");'
 
 clean:
-	-rm -f $(BINDIR)/*.o
-	-( cd src && make clean )
-	-( cd $(CJSRCDIR) && rm -f minimum-weight *.o)
-	-( cd $(SRCDIR) && make clean )
+	rm -rf $(OBJDIR)
 
 distclean: clean
 	rm -rf bin
-	mkdir bin
-	rm -f Makefile Makefile-*
-	-( cd src && make distclean )
-	-( cd src/leon && make distclean )
-	-( cd doc && rm -f *.aux *.log *.dvi *.ps)
+	rm -f Makefile
+
+Makefile: configure Makefile.in $(GAPPATH)/sysinfo.gap
+	./configure $(GAPPATH)
+
+.PHONY: all check test clean distclean doc html run

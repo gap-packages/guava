@@ -2,18 +2,17 @@
 *~
 *.exe
 *.log
-*.o
 *.sav
 *.status
 *.swp
 
-Makefile
+*.gcda
+*.gcno
+*.gcov
 
+/Makefile
 /bin/
-/bin/**/desauto
-/bin/**/leonconv
-/bin/**/minimum-weight
-/bin/**/wtdist
+/obj/
 
 /doc/chap*.html
 /doc/chap*.txt
@@ -38,29 +37,6 @@ Makefile
 /doc/title.xml
 /doc/manual.pdf
 /doc/guava_bib.xml.bib
-
-/src/ctjhai/minimum-weight
-/src/leon/autom4te.cache/
-/src/leon/configure
-/src/leon/install-sh
-/src/leon/src/leon_config.h
-/src/leon/src/leon_config.h.in
-
-/src/leon/cent
-/src/leon/cjrndper
-/src/leon/commut
-/src/leon/compgrp
-/src/leon/compile
-/src/leon/desauto
-/src/leon/fndelt
-/src/leon/generate
-/src/leon/inter
-/src/leon/orbdes
-/src/leon/orblist
-/src/leon/randobj
-/src/leon/setstab
-/src/leon/wtdist
-/src/leonconv
 
 #/tst/guava??.tst
 

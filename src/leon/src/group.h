@@ -84,8 +84,7 @@ that special symbol. */
 
 #include <limits.h>
 
-#include "leon_config.h"
-#define INT_SIZE SIZEOF_INT<<3
+#define INT_SIZE (sizeof(int) * CHAR_BIT)
 
 #ifdef CPU_TIME
 #define ALT_TIME_HEADER
