@@ -273,3 +273,35 @@ true
 gap> v := Codeword([5,2,6,10,9],GF(11));;
 gap> Decodeword(C,v) = GeneralizedReedSolomonDecoderGao(C,v);
 true
+
+##
+## https://github.com/gap-packages/guava/issues/41
+## the BCH decoder crashed, or silently returned a non-codeword,
+## on words carrying more than (d-1)/2 errors
+##
+gap> C := ReedSolomonCode(10,5);
+a cyclic [10,6,5]3..4 Reed-Solomon code over GF(11)
+gap> Decodeword(C, Codeword([7,10,3,2,4,9,5,7,5,9],C));
+Error, not decodable
+gap> Decodeword(C, Codeword([10,7,3,1,8,1,8,7,4,8],C));
+Error, not decodable
+gap> Decodeword(C, Codeword([4,0,0,6,5,0,0,0,0,0],C));
+Error, not decodable
+gap> Decodeword(C, Codeword([5,1,1,7,2,6,4,6,1,5],C));
+Error, not decodable
+gap> Decodeword(C, Codeword([3,7,5,5,1,10,3,9,2,8],C));
+Error, not decodable
+gap> C := ReedSolomonCode(10,4);
+a cyclic [10,7,4]2..3 Reed-Solomon code over GF(11)
+gap> Decodeword(C, Codeword([2,7,8,3,7,10,3,4,3,4],C));
+Error, not decodable
+
+## words within (d-1)/2 of the code must still decode
+gap> C := ReedSolomonCode(10,5);;
+gap> c := Codeword([1,2,3,4,5,6],GF(11))*C;;
+gap> r := ShallowCopy(VectorCodeword(c));;
+gap> r[3] := r[3]+Z(11);; r[7] := r[7]+Z(11)^3;;
+gap> Decodeword(C, Codeword(r,C)) = c;
+true
+gap> Decode(C, Codeword(r,C)) = InformationWord(C,c);
+true

@@ -311,7 +311,7 @@ InstallMethod(BCHDecoder, "method for code, codeword", true,
 function (C, r)
     local F, q, n, m, ExtF, x, a, t, ri_1, ri, rnew, si_1, si, snew,
           ti_1, ti, qi, sigma, i, cc, cl, mp, ErrorLocator, zero,
-          Syndromes, null, pol, ExtSize, ErrorEvaluator, Fp, ret;
+          Syndromes, null, pol, ExtSize, ErrorEvaluator, ret;
     F := LeftActingDomain(C);
     q := Size(F);
     n := WordLength(C);
@@ -361,27 +361,28 @@ function (C, r)
         null := null * a;
     od;
     # And decode:
-    if Length(ErrorLocator) = 0 then
+    # Unless sigma splits into distinct linear factors over the n-th roots of
+    # unity, more than t errors occurred; carrying on would divide by
+    # sigma'(a^-i) = 0 below.
+    if Length(ErrorLocator) = 0 or Length(ErrorLocator) <> Degree(sigma) then
         Error("not decodable");
     fi;
     x := Indeterminate(F);
     if q = 2 then # error locator is not necessary
         pol := Sum(List(ErrorLocator, i->x^i));
-        ret := Codeword((r - pol) mod (x^n-1), C);
-        TreatAsVector(ret);
-        return InformationWord(C,ret);
     else
         pol := Derivative(sigma);
-        Fp := One(F)*(x^n-1);
-        #Print(ErrorLocator, "\n");
         ErrorEvaluator := List(ErrorLocator,i->
                               Value(rnew,a^-i)/Value(pol, a^-i));
         pol := Sum(List([1..Length(ErrorLocator)], i->
                        -ErrorEvaluator[i]*x^ErrorLocator[i]));
-        ret := Codeword((r - pol) mod (x^n-1) , C);
-        TreatAsVector(ret);
-        return InformationWord(C,ret);
     fi;
+    ret := Codeword((r - pol) mod (x^n-1), C);
+    TreatAsVector(ret);
+    if not ret in C then    # again: more than t errors
+        Error("not decodable");
+    fi;
+    return InformationWord(C,ret);
 end);
 
 #############################################################################
