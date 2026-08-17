@@ -64,3 +64,18 @@ true
 gap> r := Codeword([1,0,2,2,0,2,2,2,0,0,1,0,2], C);;   # two errors
 gap> Decodeword(C, r) = c;
 true
+
+##
+## CyclotomicCosets(q,1) indexed an empty list instead of returning the one
+## class there is.  RootsCode reached that whenever the roots it was given
+## generated only the prime field, so 1 as the sole root always crashed.
+##
+gap> CyclotomicCosets(2,1);
+[ [ 0 ] ]
+gap> CyclotomicCosets(4,1);
+[ [ 0 ] ]
+gap> C := RootsCode(7, [Z(2)^0], GF(2));;
+gap> Dimension(C);
+6
+gap> MinimumDistance(C);
+2

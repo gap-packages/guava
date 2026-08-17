@@ -135,7 +135,8 @@ function(q, n)
     res := [[0]];
     nrelements := 1;
     elements := Set([1..n-1]);
-    repeat
+    # for n = 1 the class of 0 is all there is, so this must not run at all
+    while nrelements < n do
         start := elements[1];
         addel := start;
         set := [];
@@ -146,7 +147,7 @@ function(q, n)
             nrelements := nrelements + 1;
         until addel = start;
         Add(res, set);
-    until nrelements >= n;
+    od;
     return res;
 end);
 
