@@ -662,7 +662,7 @@ true
 gap> DistancesDistribution( C, Codeword("110") ) = OD[4][2];
 true
 
-# doc/guava.xml:3805-3820
+# doc/guava.xml:3801-3816
 gap> C := HammingCode(3);
 a linear [7,4,3]1 Hamming (3,2) code over GF(2)
 gap> c := "1010"*C;                    # encoding
@@ -678,7 +678,7 @@ function( C, c ) ... end
 gap> Decode(C, c); # new decoder always returns null word
 [ 0 0 0 0 ]
 
-# doc/guava.xml:3859-3891
+# doc/guava.xml:3856-3888
 gap> C := HammingCode(3);
 a linear [7,4,3]1 Hamming (3,2) code over GF(2)
 gap> c := "1010"*C;                    # encoding
@@ -711,7 +711,7 @@ a linear [5,3,1..3]2 code defined by generator matrix over GF(11)
 gap> Decodeword(C1,v); # calls syndrome decoding
 [ 10 4 2 6 1 ]
 
-# doc/guava.xml:3939-3954
+# doc/guava.xml:3936-3951
 gap> R:=PolynomialRing(GF(11),["t"]);
 GF(11)[t]
 gap> P:=List([1,3,4,5,7],i->Z(11)^i);
@@ -727,7 +727,7 @@ gap> v:=Codeword([ 2, 9, 10, 7, 7 ], GF(11));
 gap> GeneralizedReedSolomonDecoderGao(C,v);
 [ 2 9 10 7 3 ]
 
-# doc/guava.xml:4008-4043
+# doc/guava.xml:4005-4040
 gap> F:=GF(16);
 GF(2^4)
 gap> a:=PrimitiveRoot(F);; b:=a^7;; b^4+b^3+1;
@@ -763,7 +763,7 @@ gap> WeightCodeword(c1-r);
 gap> WeightCodeword(c2-r);
 7
 
-# doc/guava.xml:4080-4094
+# doc/guava.xml:4077-4091
 gap> C:=HammingCode(4,GF(2));
 a linear [15,11,3]1 Hamming (4,2) code over GF(2)
 gap> c:=Random(C);
@@ -778,7 +778,7 @@ gap> v:=Codeword(v);
 gap> BitFlipDecoder(C,v);
 [ 1 0 1 1 0 0 0 0 1 0 0 1 1 1 0 ]
 
-# doc/guava.xml:4121-4149
+# doc/guava.xml:4118-4146
 gap> F:=GF(16);
 GF(2^4)
 gap> a:=PrimitiveRoot(F);; b:=a^7; b^4+b^3+1;
@@ -807,7 +807,7 @@ gap> cs:=NearestNeighborGRSDecodewords(C,r,7);
   [ [ 0 a^9 a^3 a^13 a^6 a^10 a^11 a a^12 a^14 a^5 a^8 a^7 a^4 a^2 ],
       x+Z(2)^0 ] ]
 
-# doc/guava.xml:4181-4208
+# doc/guava.xml:4178-4205
 gap> F:=GF(16);
 GF(2^4)
 gap> a:=PrimitiveRoot(F);; b:=a^7; b^4+b^3+1;
@@ -835,7 +835,7 @@ gap> cs:=NearestNeighborDecodewords(C,r,7);
 [ [ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ],
   [ 0 a^9 a^3 a^13 a^6 a^10 a^11 a a^12 a^14 a^5 a^8 a^7 a^4 a^2 ] ]
 
-# doc/guava.xml:4243-4254
+# doc/guava.xml:4240-4251
 gap> C := HammingCode(4);
 a linear [15,11,3]1 Hamming (4,2) code over GF(2)
 gap> v := CodewordNr( C, 7 );
@@ -847,7 +847,7 @@ gap> Syndrome( C, Codeword( "000000001100111" ) );
 gap> Syndrome( C, Codeword( "000000000000001" ) ); # the same syndrome: both codewords are in the same coset of C
 [ 1 1 1 1 ]
 
-# doc/guava.xml:4284-4298
+# doc/guava.xml:4281-4295
 gap> H := HammingCode(2);
 a linear [3,1,3]1 Hamming (2,2) code over GF(2)
 gap> SyndromeTable(H);
@@ -862,12 +862,12 @@ gap> Syndrome(H,c); # according to the syndrome table, the error vector [ 0 1 0 
 gap> c - Codeword("010") in H; # so the corrected codeword is [ 1 0 1 ] - [ 0 1 0 ] = [ 1 1 1 ], this is an element of H
 true
 
-# doc/guava.xml:4331-4335
+# doc/guava.xml:4328-4332
 gap> StandardArray(RepetitionCode(3));
 [ [ [ 0 0 0 ], [ 1 1 1 ] ], [ [ 0 0 1 ], [ 1 1 0 ] ],
   [ [ 0 1 0 ], [ 1 0 1 ] ], [ [ 1 0 0 ], [ 0 1 1 ] ] ]
 
-# doc/guava.xml:4360-4388
+# doc/guava.xml:4357-4385
 gap> C0:=HammingCode(3,GF(2));
 a linear [7,4,3]1 Hamming (3,2) code over GF(2)
 gap> G0:=GeneratorMat(C0);;
