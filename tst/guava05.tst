@@ -368,7 +368,7 @@ x-Z(3)^0
 gap> a := PrimitiveUnityRoot( 3, 14 );
 Z(3^6)^52
 gap> C1 := RootsCode( 14, [ a^0, a, a^3 ] );
-a cyclic [14,7,3..6]3..7 code defined by roots over GF(3)
+a cyclic [14,7,4..6]3..7 code defined by roots over GF(3)
 gap> MinimumDistance( C1 );
 4
 gap> b := PrimitiveUnityRoot( 2, 15 );
@@ -378,7 +378,7 @@ a cyclic [15,7,5]3..5 code defined by roots over GF(2)
 gap> C2 = BCHCode( 15, 5, GF(2) );
 true
 gap> C3 := RootsCode( 4, [ 1, 2 ], 5 );
-a cyclic [4,2,2..3]2 code defined by roots over GF(5)
+a cyclic [4,2,3]2 code defined by roots over GF(5)
 gap> RootsOfCode( C3 );
 [ Z(5), Z(5)^2 ]
 gap> C3 = ReedSolomonCode( 4, 3 );
