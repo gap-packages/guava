@@ -309,25 +309,29 @@ end);
 InstallMethod(BCHDecoder, "method for code, codeword", true,
     [IsCode, IsCodeword], 0,
 function (C, r)
-    local F, q, n, m, ExtF, x, a, t, ri_1, ri, rnew, si_1, si, snew,
-          ti_1, ti, qi, sigma, i, cc, cl, mp, ErrorLocator, zero,
+    local F, q, n, m, ExtF, x, a, b, j, delta, t, ri_1, ri, rnew, si_1, si,
+          snew, ti_1, ti, qi, sigma, i, cc, cl, mp, ErrorLocator, zero,
           Syndromes, null, pol, ExtSize, ErrorEvaluator, ret;
     F := LeftActingDomain(C);
     q := Size(F);
     n := WordLength(C);
     m := OrderMod(q,n);
-    t := QuoInt(DesignedDistance(C) - 1, 2);
+    delta := DesignedDistance(C);
+    t := QuoInt(delta - 1, 2);
     ExtF := GF(q^m);
     x := Indeterminate(ExtF);
     a := PrimitiveUnityRoot(q,n);
     zero := Zero(ExtF);
     r := PolyCodeword(Codeword(r, n, F));
-    if Value(GeneratorPol(C), a) <> zero then
-        return Decode(C, r);  ##LR - inf loop !!!
+    # The code has delta-1 consecutive roots a^b,...,a^(b+delta-2).  b is 1 for
+    # a narrow sense code, but BCHCode also builds codes with other b.
+    b := First([0..n-1], i->ForAll([i..i+delta-2],
+                                   j->Value(GeneratorPol(C), a^j) = zero));
+    if b = fail then
+        Error("code has no ", delta-1, " consecutive roots");
     fi;
     # Calculate syndrome: this simple line is faster than using minimal pols.
-    Syndromes :=  List([1..2*QuoInt(DesignedDistance(C) - 1,2)],
-                       i->Value(r, a^i));
+    Syndromes := List([0..2*t-1], i->Value(r, a^(b+i)));
     if Maximum(Syndromes) = Zero(F) then # no errors
         ret := Codeword(r mod (x^n-1), C);
         TreatAsVector(ret);
@@ -374,8 +378,10 @@ function (C, r)
         pol := Derivative(sigma);
         ErrorEvaluator := List(ErrorLocator,i->
                               Value(rnew,a^-i)/Value(pol, a^-i));
+        # Forney: the error at position i is -a^(i*(1-b))*ErrorEvaluator
         pol := Sum(List([1..Length(ErrorLocator)], i->
-                       -ErrorEvaluator[i]*x^ErrorLocator[i]));
+                       -a^(ErrorLocator[i]*(1-b))*ErrorEvaluator[i]
+                        *x^ErrorLocator[i]));
     fi;
     ret := Codeword((r - pol) mod (x^n-1), C);
     TreatAsVector(ret);
