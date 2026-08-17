@@ -1900,7 +1900,7 @@ end);
 
 InstallMethod(RootsCode, "method for n, rootlist, field", true, [IsInt, IsList, IsField], 0,
 function(n, L, F)
-    local g, C, num, power, p, q, z, i, j, rootslist, powerlist, max, cc, CC, CCz;
+    local g, C, num, a, q, z, i, j, rootslist, powers, powerlist, max, cc, CC, CCz;
     L := Set(L);
     q := Size(Field(L));
     z := Z(q);
@@ -1908,8 +1908,10 @@ function(n, L, F)
     if List(L, i->i^n) <> NullVector(Length(L), F) + z^0 then
        Error("powers must all be n'th roots of unity");
     fi;
-    p := Characteristic(Field(L));
-    CC:=CyclotomicCosets(p,q-1);
+    # conjugation over F sends a root x to x^|F|, so the roots of a
+    # polynomial over F come in cyclotomic cosets under |F| -- under the
+    # characteristic only when F is prime
+    CC:=CyclotomicCosets(Size(F),q-1);
     CCz:=List(CC,cc->List(cc,j->z^j));
     ##  this is the set of cyclotomic cosets, represented
     ##  as powers of a primitive element z
@@ -1933,17 +1935,21 @@ function(n, L, F)
     rootslist := Set(rootslist);
     SetRootsOfCode(C, rootslist);
 
-    # Find the largest number of successive powers for BCH bound
-    max := 1;
-    i := 1;
-    num := Length(powerlist);
-    for z in [2..num] do
-        if powerlist[z] <> powerlist[i] + z-i then
-            max := Maximum(max, z - i);
-            i := z;
-        fi;
+    # BCH bound: one more than the longest run of consecutive powers of a
+    # primitive n-th root of unity among the roots, counted cyclically.
+    a := PrimitiveUnityRoot(Size(F), n);
+    powers := Set(List(rootslist, i->LogFFE(i, a)));
+    max := 0;
+    for i in powers do
+        num := 0;
+        j := i;
+        while num < n and (j mod n) in powers do
+            num := num + 1;
+            j := j + 1;
+        od;
+        max := Maximum(max, num);
     od;
-    C!.lowerBoundMinimumDistance := Maximum(max, num+1 - i) + 1;
+    C!.lowerBoundMinimumDistance := max + 1;
 return C;
 end);
 

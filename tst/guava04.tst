@@ -455,7 +455,7 @@ a cyclic [16,12,5]3..4 Reed-Solomon code over GF(17)
 gap> RootsOfCode( C1 );
 [ Z(17), Z(17)^2, Z(17)^3, Z(17)^4 ]
 gap> C2 := RootsCode( 16, last );
-a cyclic [16,12,3..5]3..4 code defined by roots over GF(17)
+a cyclic [16,12,5]3..4 code defined by roots over GF(17)
 gap> C1 = C2;
 true
 
