@@ -155,15 +155,27 @@ StringToVec := function(s)
 end;
 
 
+## An empty list is a string, so the three methods below must not hand one
+## back to Codeword: they would be selected again, and loop forever.
+
 InstallOtherMethod(Codeword,"string,n,FFE",true,[IsString,IsInt,IsFFE],0,
 function(s,n,ffe)
+    local c;
     s:=StringToVec(s);
+    if IsEmpty(s) then
+        c := MakeCodeword(s, n, ffe);
+        TreatAsVector(c);
+        return c;
+    fi;
     return Codeword(s,n,ffe);
 end);
 
 InstallOtherMethod(Codeword,"string,n,Field",true,[IsString,IsInt,IsField],0,
 function(s,n,F)
     s := StringToVec(s);
+    if IsEmpty(s) then
+        return Codeword(s, n, One(F));
+    fi;
     return Codeword(s, n, F);
 end);
 
@@ -181,6 +193,9 @@ InstallOtherMethod(Codeword, "string,n", true, [IsString, IsInt], 0,
 function(s, n)
     local F;
     s := StringToVec(s);
+    if IsEmpty(s) then
+        return Codeword(s, n, Z(2));    # as the method for lists does
+    fi;
     F := SelectField(s);
     return Codeword(s, n, F);
 end);
