@@ -42,7 +42,20 @@ InstallMethod(CodeDistanceEnumerator, "unrestricted code, codeword", true,
 function( code, word )
 
     word := Codeword( word, code );
+    return LaurentPolynomialByCoefficients(
+        ElementsFamily(FamilyObj( Rationals )),
+        DistancesDistribution( code, word ),  0  );
 
+end);
+
+# the word may also be given as a plain list, as the manual does.  This
+# repeats the method above rather than delegating to it: a codeword is a list
+# too, so delegating would risk coming straight back here.
+InstallOtherMethod(CodeDistanceEnumerator, "unrestricted code, list", true,
+    [IsCode, IsList], 0,
+function( code, word )
+
+    word := Codeword( word, code );
     return LaurentPolynomialByCoefficients(
         ElementsFamily(FamilyObj( Rationals )),
         DistancesDistribution( code, word ),  0  );

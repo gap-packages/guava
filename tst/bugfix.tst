@@ -79,3 +79,14 @@ gap> Dimension(C);
 6
 gap> MinimumDistance(C);
 2
+
+##
+## CodeDistanceEnumerator only had a method for a codeword, so the plain list
+## the manual passes it found no method at all
+##
+gap> C := HammingCode(3,GF(2));;
+gap> CodeDistanceEnumerator(C, [0,0,0,0,0,0,1])
+>      = CodeDistanceEnumerator(C, Codeword([0,0,0,0,0,0,1],GF(2)));
+true
+gap> CodeDistanceEnumerator(C, [1,1,1,1,1,1,1]) = CodeWeightEnumerator(C);
+true
