@@ -10,7 +10,7 @@
 #
 gap> START_TEST("guava03.tst");
 
-# doc/guava.xml:536-557
+# doc/guava.xml:535-555
 gap> C:=RandomLinearCode(20,10,GF(4));
 a  [20,10,?] randomly generated code over GF(4)
 gap> c:=Random(C);
@@ -25,14 +25,13 @@ gap> Set(NamesOfComponents(c));
 gap> c!.VectorCodeword;
 < immutable compressed vector length 20 over GF(4) >
 gap> Display(last);
-[ Z(2)^0, 0*Z(2), Z(2^2)^2, Z(2^2), Z(2^2), Z(2)^0, Z(2)^0, 0*Z(2), \
-Z(2)^0,
+[ Z(2)^0, 0*Z(2), Z(2^2)^2, Z(2^2), Z(2^2), Z(2)^0, Z(2)^0, 0*Z(2), Z(2)^0,
    0*Z(2), Z(2^2)^2, Z(2)^0, 0*Z(2), 0*Z(2), Z(2^2), Z(2^2), Z(2^2), Z(2)^0,
    Z(2^2), 0*Z(2) ]
 gap> C!.Dimension;
 10
 
-# doc/guava.xml:691-706
+# doc/guava.xml:689-704
 gap> c := Codeword([0,1,1,1,0]);
 [ 0 1 1 1 0 ]
 gap> VectorCodeword( c );
@@ -44,11 +43,11 @@ gap> VectorCodeword( c2 );
 gap> Codeword([c, c2, "0110"]);
 [ [ 0 1 1 1 0 ], [ 0 1 1 1 0 ], [ 0 1 1 0 ] ]
 gap> p := UnivariatePolynomial(GF(2), [Z(2)^0, 0*Z(2), Z(2)^0]);
-x_1^2+Z(2)^0
+x^2+Z(2)^0
 gap> Codeword(p);
 x^2 + 1
 
-# doc/guava.xml:730-743
+# doc/guava.xml:728-741
 gap> C := WholeSpaceCode(7,GF(5));
 a cyclic [7,7,1]0 whole space code over GF(5)
 gap> Codeword(["0220110", [1,1,1]], C);
@@ -62,7 +61,7 @@ gap> Codeword("1000000000",C);
 gap> Codeword("1000000000",10,GF(3));
 [ 1 0 0 0 0 0 0 0 0 0 ]
 
-# doc/guava.xml:781-792
+# doc/guava.xml:779-790
 gap> B := BinaryGolayCode();
 a cyclic [23,12,7]3 binary Golay code over GF(2)
 gap> c := CodewordNr(B, 4);
@@ -74,7 +73,7 @@ gap> AsSSortedList(R);
 gap> CodewordNr(R, [1,3]);
 [ [ 0 0 ], [ 2 2 ] ]
 
-# doc/guava.xml:812-821
+# doc/guava.xml:810-819
 gap> IsCodeword(1);
 false
 gap> IsCodeword(ReedMullerCode(2,3));
@@ -84,9 +83,9 @@ false
 gap> IsCodeword(Codeword("11111"));
 true
 
-# doc/guava.xml:867-888
+# doc/guava.xml:865-886
 gap> P := UnivariatePolynomial(GF(2), Z(2)*[1,0,0,1]);
-x_1^3+Z(2)^0
+x^3+Z(2)^0
 gap> c := Codeword(P, GF(2));
 x^3 + 1
 gap> P = c;        # codeword operation
@@ -106,7 +105,7 @@ false
 gap> not EQ(c1,c2);
 true
 
-# doc/guava.xml:923-932
+# doc/guava.xml:921-930
 gap> C:=RandomLinearCode(10,5,GF(3));
 a  [10,5,?] randomly generated code over GF(3)
 gap> c:=Random(C);
@@ -116,7 +115,7 @@ gap> Codeword(c+"2000000000");
 gap> Codeword(c+"1000000000");
 Error, <x> and <y> have different characteristic
 
-# doc/guava.xml:975-1002
+# doc/guava.xml:973-1000
 gap> C:=RandomLinearCode(10,5);
 a  [10,5,?] randomly generated code over GF(2)
 gap> c:=Random(C);
@@ -144,17 +143,17 @@ gap> C+v;
 gap> Elements(C+v);
 [ [ 0 0 1 1 ], [ 0 1 1 1 ], [ 1 0 1 1 ], [ 1 1 1 1 ] ]
 
-# doc/guava.xml:1051-1055
+# doc/guava.xml:1049-1053
 gap> a := Codeword("011011");;
 gap> VectorCodeword(a);
 [ 0*Z(2), Z(2)^0, Z(2)^0, 0*Z(2), Z(2)^0, Z(2)^0 ]
 
-# doc/guava.xml:1071-1075
+# doc/guava.xml:1069-1073
 gap> a := Codeword("011011");;
 gap> PolyCodeword(a);
-x_1^5+x_1^4+x_1^2+x_1
+x^5+x^4+x^2+x
 
-# doc/guava.xml:1108-1116
+# doc/guava.xml:1106-1114
 gap> B := BinaryGolayCode();
 a cyclic [23,12,7]3 binary Golay code over GF(2)
 gap> c := CodewordNr(B, 4);
@@ -163,7 +162,7 @@ gap> TreatAsVector(c);
 gap> c;
 [ 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 0 0 1 0 0 1 0 1 ]
 
-# doc/guava.xml:1147-1156
+# doc/guava.xml:1145-1154
 gap> a := Codeword("00001",GF(2));
 [ 0 0 0 0 1 ]
 gap> TreatAsPoly(a); a;
@@ -173,7 +172,7 @@ gap> b := NullWord(6,GF(4));
 gap> TreatAsPoly(b); b;
 0
 
-# doc/guava.xml:1189-1198
+# doc/guava.xml:1187-1196
 gap> NullWord(8);
 [ 0 0 0 0 0 0 0 0 ]
 gap> Codeword("0000") = NullWord(4);
@@ -183,7 +182,7 @@ gap> NullWord(5,GF(16));
 gap> NullWord(ExtendedTernaryGolayCode());
 [ 0 0 0 0 0 0 0 0 0 0 0 0 ]
 
-# doc/guava.xml:1219-1227
+# doc/guava.xml:1217-1225
 gap> a := Codeword([0, 1, 2, 0, 1, 2]);; b := NullWord(6, GF(3));;
 gap> DistanceCodeword(a, b);
 4
@@ -192,20 +191,20 @@ gap> DistanceCodeword(b, a);
 gap> DistanceCodeword(a, a);
 0
 
-# doc/guava.xml:1244-1249
+# doc/guava.xml:1242-1247
 gap> a := Codeword("012320023002");; Support(a);
 [ 2, 3, 4, 5, 8, 9, 12 ]
 gap> Support(NullWord(7));
 [  ]
 
-# doc/guava.xml:1259-1265
+# doc/guava.xml:1257-1263
 gap> L := Codeword(["000000", "101010", "222000"], GF(3));;
 gap> S := Union(List(L, i -> Support(i)));
 [ 1, 2, 3, 5 ]
 gap> Length(S);
 4
 
-# doc/guava.xml:1283-1292
+# doc/guava.xml:1281-1290
 gap> WeightCodeword(Codeword("22222"));
 5
 gap> WeightCodeword(NullWord(3));

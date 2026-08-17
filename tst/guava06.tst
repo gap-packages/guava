@@ -10,7 +10,7 @@
 #
 gap> START_TEST("guava06.tst");
 
-# doc/guava.xml:8375-8386
+# doc/guava.xml:8345-8356
 gap> C1 := HammingCode( 3, GF(2) );
 a linear [7,4,3]1 Hamming (3,2) code over GF(2)
 gap> C2 := ExtendedCode( C1 );
@@ -22,7 +22,7 @@ gap> List( AsSSortedList( C2 ), WeightCodeword );
 gap> C3 := EvenWeightSubcode( C1 );
 a linear [7,3,4]2..3 even weight subcode
 
-# doc/guava.xml:8426-8437
+# doc/guava.xml:8396-8407
 gap> C1 := BCHCode( 15, 5, GF(2) );
 a cyclic [15,7,5]3..5 BCH code, delta=5, b=1 over GF(2)
 gap> C2 := PuncturedCode( C1 );
@@ -34,7 +34,7 @@ a linear [8,7,1]1 punctured code
 gap> PuncturedCode( WholeSpaceCode( 4, GF(5) ) ); # The dimension decreases from 4 to 3
 a linear [3,3,1]0 punctured code
 
-# doc/guava.xml:8471-8479
+# doc/guava.xml:8441-8449
 gap> C1 := EvenWeightSubcode( BCHCode( 8, 4, GF(3) ) );
 an (8,33,4..8)3..8 even weight subcode
 gap> List( AsSSortedList( C1 ), WeightCodeword );
@@ -43,7 +43,7 @@ gap> List( AsSSortedList( C1 ), WeightCodeword );
 gap> EvenWeightSubcode( ReedMullerCode( 1, 3 ) );
 a linear [8,4,4]2 Reed-Muller (1,3) code over GF(2)
 
-# doc/guava.xml:8508-8521
+# doc/guava.xml:8478-8491
 gap> C1 := PuncturedCode( ReedMullerCode( 1, 4 ) );
 a linear [15,5,7]5 punctured code
 gap> C2 := BCHCode( 15, 7, GF(2) );
@@ -51,13 +51,13 @@ a cyclic [15,5,7]5 BCH code, delta=7, b=1 over GF(2)
 gap> C2 = C1;
 false
 gap> p := CodeIsomorphism( C1, C2 );
-( 2, 4,14, 9,13, 7,11,10, 6, 8,12, 5)
+(2,13,7,10,8,3,5,4,14)(12,15)
 gap> C3 := PermutedCode( C1, p );
 a linear [15,5,7]5 permuted code
 gap> C2 = C3;
 true
 
-# doc/guava.xml:8546-8554
+# doc/guava.xml:8516-8524
 gap> C1 := HammingCode( 4 );; WeightDistribution( C1 );
 [ 1, 0, 0, 35, 105, 168, 280, 435, 435, 280, 168, 105, 35, 0, 0, 1 ]
 gap> L := Filtered( AsSSortedList(C1), i -> WeightCodeword(i) = 3 );;
@@ -66,7 +66,7 @@ a linear [15,4,3..4]5..11 code, expurgated with 7 word(s)
 gap> WeightDistribution( C2 );
 [ 1, 0, 0, 0, 14, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0 ]
 
-# doc/guava.xml:8598-8613
+# doc/guava.xml:8568-8583
 gap> C31 := ReedMullerCode( 1, 3 );
 a linear [8,4,4]2 Reed-Muller (1,3) code over GF(2)
 gap> C32 := AugmentedCode(C31,["00000011","00000101","00010001"]);
@@ -82,7 +82,7 @@ a linear [6,3,1..2]2..3 code, augmented with 1 word(s)
 gap> Codeword( [1,1,0,0,0,0] ) in C2;
 true
 
-# doc/guava.xml:8638-8648
+# doc/guava.xml:8608-8618
 gap> C1 := HammingCode( 4 );; WeightDistribution( C1 );
 [ 1, 0, 0, 35, 105, 168, 280, 435, 435, 280, 168, 105, 35, 0, 0, 1 ]
 gap> L := Filtered( AsSSortedList(C1), i -> WeightCodeword(i) = 3 );;
@@ -93,7 +93,7 @@ gap> WeightDistribution( C2 );
 gap> MinimumDistance( C2 );     # C2 is not linear, so the minimum weight does not have to be equal to the minimum distance
 3
 
-# doc/guava.xml:8677-8688
+# doc/guava.xml:8647-8658
 gap> C1 := NullCode( 6, GF(2) );
 a cyclic [6,0,6]6 nullcode over GF(2)
 gap> C2 := AddedElementsCode( C1, [ "111111" ] );
@@ -105,7 +105,7 @@ a (6,4,1..6)2 code with 2 word(s) added
 gap> IsCyclicCode( C3 );
 true
 
-# doc/guava.xml:8734-8753
+# doc/guava.xml:8704-8723
 gap> C1 := HammingCode( 4 );
 a linear [15,11,3]1 Hamming (4,2) code over GF(2)
 gap> C2 := ShortenedCode( C1 );
@@ -125,13 +125,13 @@ a linear [28,23,3]2 shortened code
 gap> OptimalityLinearCode( C6 );
 0
 
-# doc/guava.xml:8787-8792
+# doc/guava.xml:8757-8762
 gap> C1 := CordaroWagnerCode( 5 );
 a linear [5,2,3]2 Cordaro-Wagner code over GF(2)
 gap> C2 := LengthenedCode( C1 );
 a linear [6,3,2]2..3 code, lengthened with 1 column(s)
 
-# doc/guava.xml:8814-8830
+# doc/guava.xml:8784-8800
 gap> C := BCHCode(31,11);
 a cyclic [31,11,11]7..11 BCH code, delta=11, b=1 over GF(2)
 gap> S1:= SubCode(C);
@@ -148,7 +148,7 @@ gap> WeightDistribution(S2);
 [ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 1, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,
   0, 0, 0, 0, 0, 0, 0 ]
 
-# doc/guava.xml:8858-8866
+# doc/guava.xml:8828-8836
 gap> C1 := BCHCode( 15, 7 );
 a cyclic [15,5,7]5 BCH code, delta=7, b=1 over GF(2)
 gap> C2 := ResidueCode( C1 );
@@ -157,7 +157,7 @@ gap> c := Codeword( [ 0,0,0,1,0,0,1,1,0,1,0,1,1,1,1 ], C1);;
 gap> C3 := ResidueCode( C1, c );
 a linear [7,4,3]1 residue code
 
-# doc/guava.xml:8891-8910
+# doc/guava.xml:8861-8880
 gap> C1 := ReedMullerCode( 2, 5 );
 a linear [32,16,8]6 Reed-Muller (2,5) code over GF(2)
 gap> C2 := ConstructionBCode( C1 );
@@ -177,7 +177,7 @@ rec( n := 24, k := 9, q := 2, references := rec(  ),
   upperBoundExplanation := [ "Ub(24,9)=8, otherwise construction B would
                              contradict:", "Ub(18,4)=8, Griesmer bound" ] )
 
-# doc/guava.xml:8940-8951
+# doc/guava.xml:8910-8921
 gap> R := ReedMullerCode( 1, 3 );
 a linear [8,4,4]2 Reed-Muller (1,3) code over GF(2)
 gap> RD := DualCode( R );
@@ -189,7 +189,7 @@ a cyclic [7,7,1]0 whole space code over GF(4)
 gap> DualCode( N ) = NullCode( 7, GF(4) );
 true
 
-# doc/guava.xml:8981-8993
+# doc/guava.xml:8951-8963
 gap> R := RepetitionCode( 4, GF(4) );
 a cyclic [4,1,4]3 repetition code over GF(4)
 gap> R2 := ConversionFieldCode( R );
@@ -202,7 +202,7 @@ gap> GeneratorMat( R2 );
 [ [ Z(2)^0, 0*Z(2), Z(2)^0, 0*Z(2), Z(2)^0, 0*Z(2), Z(2)^0, 0*Z(2) ],
   [ 0*Z(2), Z(2)^0, 0*Z(2), Z(2)^0, 0*Z(2), Z(2)^0, 0*Z(2), Z(2)^0 ] ]
 
-# doc/guava.xml:9020-9027
+# doc/guava.xml:8990-8997
 gap> C:=RandomLinearCode(10,4,GF(4)); MinimumDistance(C);
 a  [10,4,?] randomly generated code over GF(4)
 5
@@ -210,7 +210,7 @@ gap> trC:=TraceCode(C,GF(2)); MinimumDistance(trC);
 a linear [10,7,1]1..3 user defined unrestricted code over GF(2)
 1
 
-# doc/guava.xml:9052-9063
+# doc/guava.xml:9022-9033
 gap> H := HammingCode(3, GF(2));
 a linear [7,4,3]1 Hamming (3,2) code over GF(2)
 gap> c := Codeword("1011011");; c in H;
@@ -222,7 +222,7 @@ gap> List(AsSSortedList(C), el-> Syndrome(H, el));  # All elements of the coset 
   [ 1 1 1 ], [ 1 1 1 ], [ 1 1 1 ], [ 1 1 1 ], [ 1 1 1 ], [ 1 1 1 ],
   [ 1 1 1 ], [ 1 1 1 ], [ 1 1 1 ], [ 1 1 1 ] ]
 
-# doc/guava.xml:9096-9109
+# doc/guava.xml:9066-9079
 gap> N := NordstromRobinsonCode();; WeightDistribution(N);
 [ 1, 0, 0, 0, 0, 0, 112, 0, 30, 0, 112, 0, 0, 0, 0, 0, 1 ]
 gap> C := ConstantWeightSubcode(N, 8);
@@ -236,7 +236,7 @@ a (12,264,6..12)3..6 code with codewords of weight 6
 gap> WeightDistribution(C);
 [ 0, 0, 0, 0, 0, 0, 264, 0, 0, 0, 0, 0, 0 ]
 
-# doc/guava.xml:9151-9159
+# doc/guava.xml:9121-9129
 gap> G := GeneratorMatCode( Z(2) * [ [0,1,1,0], [0,1,0,1], [0,0,1,1] ],
 > "random form code", GF(2) );
 a linear [4,2,1..2]1..2 random form code over GF(2)
@@ -245,19 +245,15 @@ gap> Codeword( GeneratorMat( G ) );
 gap> Codeword( GeneratorMat( StandardFormCode( G ) ) );
 [ [ 1 0 0 1 ], [ 0 1 0 1 ] ]
 
-# doc/guava.xml:9190-9201
+# doc/guava.xml:9160-9167
 gap> PiecewiseConstantCode( [ 2, 3 ],
-     [ [ 0, 0 ], [ 0, 3 ], [ 1, 0 ], [ 2, 2 ] ],GF(2) );
-the C code programs are compiled, so using Leon's binary....
-the C code programs are compiled, so using Leon's binary....
-the C code programs are compiled, so using Leon's binary....
-the C code programs are compiled, so using Leon's binary....
+>    [ [ 0, 0 ], [ 0, 3 ], [ 1, 0 ], [ 2, 2 ] ], GF(2) );
 a (5,7,1..5)1..5 piecewise constant code over GF(2)
 gap> AsSSortedList(last);
 [ [ 0 0 0 0 0 ], [ 0 0 1 1 1 ], [ 0 1 0 0 0 ], [ 1 0 0 0 0 ],
   [ 1 1 0 1 1 ], [ 1 1 1 0 1 ], [ 1 1 1 1 0 ] ]
 
-# doc/guava.xml:9243-9251
+# doc/guava.xml:9209-9217
 gap> C1 := ElementsCode( [ [1,0], [4,5] ], GF(7) );;
 gap> C2 := ElementsCode( [ [0,0,0], [3,3,3] ], GF(7) );;
 gap> D := DirectSumCode(C1, C2);;
@@ -266,7 +262,7 @@ gap> AsSSortedList(D);
 gap> D = C1 + C2;   # addition = direct sum
 true
 
-# doc/guava.xml:9283-9292
+# doc/guava.xml:9249-9258
 gap> C1 := EvenWeightSubcode(WholeSpaceCode(4, GF(2)));
 a cyclic [4,3,2]1 even weight subcode
 gap> C2 := RepetitionCode(4, GF(2));
@@ -276,7 +272,7 @@ a linear [8,4,4]2 U|U+V construction code
 gap> R = ReedMullerCode(1,3);
 true
 
-# doc/guava.xml:9320-9327
+# doc/guava.xml:9286-9293
 gap> L1 := LexiCode(10, 4, GF(2));
 a linear [10,5,4]2..4 lexicode over GF(2)
 gap> L2 := LexiCode(8, 3, GF(2));
@@ -284,7 +280,7 @@ a linear [8,4,3]2..3 lexicode over GF(2)
 gap> D := DirectProductCode(L1, L2);
 a linear [80,20,12]20..45 direct product code
 
-# doc/guava.xml:9348-9360
+# doc/guava.xml:9314-9326
 gap> C := CyclicCodes(7, GF(2));
 [ a cyclic [7,7,1]0 enumerated code over GF(2),
   a cyclic [7,6,1..2]1 enumerated code over GF(2),
@@ -297,7 +293,7 @@ gap> C := CyclicCodes(7, GF(2));
 gap> IntersectionCode(C[6], C[8]) = C[7];
 true
 
-# doc/guava.xml:9384-9397
+# doc/guava.xml:9350-9363
 gap> G := GeneratorMatCode([[1,0,1],[0,1,1]]*Z(2)^0, GF(2));
 a linear [3,2,1..2]1 code defined by generator matrix over GF(2)
 gap> H := GeneratorMatCode([[1,1,1]]*Z(2)^0, GF(2));
@@ -311,7 +307,7 @@ false
 gap> c in U;
 true
 
-# doc/guava.xml:9439-9446
+# doc/guava.xml:9405-9412
 gap> c := HammingCode( 3, GF(2) );
 a linear [7,4,3]1 Hamming (3,2) code over GF(2)
 gap> d := WholeSpaceCode( 7, GF(2) );
@@ -319,7 +315,7 @@ a cyclic [7,7,1]0 whole space code over GF(2)
 gap> e := ExtendedDirectSumCode( c, d, 3 );
 a linear [21,15,1..3]2 3-fold extended direct sum code
 
-# doc/guava.xml:9501-9513
+# doc/guava.xml:9467-9479
 gap> c := HammingCode( 3, GF(2) );
 a linear [7,4,3]1 Hamming (3,2) code over GF(2)
 gap> d := ReedMullerCode( 1, 4 );
@@ -332,14 +328,14 @@ gap> CoveringRadius( f );;
 gap> f;
 a linear [22,8,3]7 amalgamated direct sum code
 
-# doc/guava.xml:9554-9560
+# doc/guava.xml:9520-9526
 gap> C1 := HammingCode( 3, GF(2) );;
 gap> C2 := EvenWeightSubcode( WholeSpaceCode( 6, GF(2) ) );;
 gap> BlockwiseDirectSumCode( C1, [[ 0,0,0,0,0,0,0 ],[ 1,0,1,0,1,0,0 ]],
 > C2, [[ 0,0,0,0,0,0 ],[ 1,0,1,0,1,0 ]] );
 a (13,1024,1..13)1..2 blockwise direct sum code
 
-# doc/guava.xml:9586-9619
+# doc/guava.xml:9552-9585
 gap> C1 := BCHCode(127, 43);
 a cyclic [127,29,43]31..59 BCH code, delta=43, b=1 over GF(2)
 gap> C2 := BCHCode(127, 47);
@@ -373,7 +369,7 @@ gap> History(CX);
   "Auxiliary codes: [ a cyclic [4,1,4]2 repetition code over GF(2), a cyclic [\
 17,8,6]3..6 even weight subcode ]" ]
 
-# doc/guava.xml:9670-9702
+# doc/guava.xml:9636-9668
 gap> a := PrimitiveRoot(GF(32));
 Z(2^5)
 gap> f0 := MinimalPolynomial( GF(2), a^0 );
@@ -406,7 +402,7 @@ gap> History(CXX);
   "A1: a linear [10,5,4]2..4 shortened code",
   "A2: a cyclic [6,5,2]1 dual code" ]
 
-# doc/guava.xml:9748-9788
+# doc/guava.xml:9714-9754
 gap> #
 gap> # Binary code
 gap> #
