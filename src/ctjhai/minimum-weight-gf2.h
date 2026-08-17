@@ -19,10 +19,10 @@
 
 /*------------- Data structure specified for GF(2) --------------*/
 typedef struct {
-	unsigned short dimension, block_length;
-	unsigned short nBlocks;
-	unsigned short nMatrices, nFullRankMatrices;
-	unsigned short *rank;
+	unsigned int dimension, block_length;
+	unsigned int nBlocks;
+	unsigned int nMatrices, nFullRankMatrices;
+	unsigned int *rank;
 	packed_t ***mat;
 } PACKED_MATRIX_GF2;
 

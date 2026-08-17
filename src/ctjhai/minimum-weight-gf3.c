@@ -94,7 +94,7 @@ int mindist_gf3(MATRIX G, mod_t m_mod, int lower_bound) {
 	 */
 	j = (G.cols - G.rows) + 1;	/* maximum possible number of matrices */
 	packedG.mat = (GF3_VEC ***)malloc(j * sizeof(GF3_VEC **));
-	packedG.rank= (unsigned short *)malloc(j * sizeof(unsigned short));
+	packedG.rank= (unsigned int *)malloc(j * sizeof(unsigned int));
 	packedG.dimension = G.rows;
 	packedG.block_length = G.cols;
 	packedG.nMatrices = packedG.nFullRankMatrices = 0;
@@ -207,7 +207,7 @@ int cyclic_mindist_gf3(MATRIX G, mod_t m_mod, int lower_bound) {
 	 */
 	j = 1;	/* only one generator matrix */
 	packedG.mat = (GF3_VEC ***)malloc(j * sizeof(GF3_VEC **));
-	packedG.rank= (unsigned short *)malloc(j * sizeof(unsigned short));
+	packedG.rank= (unsigned int *)malloc(j * sizeof(unsigned int));
 	packedG.dimension = G.rows;
 	packedG.block_length = G.cols;
 	packedG.nMatrices = j; 
@@ -292,7 +292,7 @@ completed:
 /* Minimum weight enumeration function for information weight >= 2 */
 void __mindist_gf3(PACKED_MATRIX_GF3 *G, INFO *info) {
 #define EVALUATE_MINIMUM_WEIGHT_GF3	{\
-		memset(a, 0, m * sizeof(short));\
+		memset(a, 0, m * sizeof(*a));\
 		f[m] = m; j = m; do { --j; f[j] = j; } while (j);\
 		while (1) {\
 			l=info->matrices_req; do { --l;\
@@ -321,10 +321,10 @@ void __mindist_gf3(PACKED_MATRIX_GF3 *G, INFO *info) {
 		}\
 	}
 	double steps;
-	short m, iw, top, nMat;
-	register short i, j, l, w;
+	int m, iw, top, nMat;
+	register int i, j, l, w;
 	register GF3_VEC **c;
-	short *v, *s, *a, *f;
+	int *v, *s, *a, *f;
 	packed_t t1, t2;
 	
 	/* G2 contains a set of generator matrices of G->nFullRankMatrices disjoint */
@@ -359,10 +359,10 @@ void __mindist_gf3(PACKED_MATRIX_GF3 *G, INFO *info) {
 		steps = 0;
 		
 		m = iw - 1;
-		v = (short *) malloc((iw+2)*sizeof(short));
-		s = (short *) malloc((iw+2)*sizeof(short));
-		a = (short *) malloc(iw *sizeof(short));
-		f = (short *) malloc((iw+1)*sizeof(short));
+		v = (int *) malloc((iw+2)* sizeof(int));
+		s = (int *) malloc((iw+2)* sizeof(int));
+		a = (int *) malloc(iw * sizeof(int));
+		f = (int *) malloc((iw+1)* sizeof(int));
 		
 		if ( !(iw & 1) ) {
 			v[iw + 1] = G->dimension; v[iw] = iw - 1;
@@ -449,7 +449,7 @@ lower_bound_met:
 /* Cyclic code: minimum weight enumeration function for information weight >= 2 */
 void __cyclic_mindist_gf3(PACKED_MATRIX_GF3 *G, INFO *info) {
 #define EVALUATE_CYCLIC_MINIMUM_WEIGHT_GF3	{\
-		memset(a, 0, m * sizeof(short));\
+		memset(a, 0, m * sizeof(*a));\
 		f[m] = m; j = m; do { --j; f[j] = j; } while (j);\
 		while (1) {\
 			steps++;\
@@ -474,11 +474,11 @@ void __cyclic_mindist_gf3(PACKED_MATRIX_GF3 *G, INFO *info) {
 		}\
 	}
 	double steps;
-	short m, iw, top;
-	register short i, j, l, w;
+	int m, iw, top;
+	register int i, j, l, w;
 	register GF3_VEC *c;
 	packed_t t1, t2;
-	short *v, *s, *a, *f;
+	int *v, *s, *a, *f;
 
 	/* G2 contains a set of generator matrices of G->nFullRankMatrices disjoint */
 	/* information sets. For each information set, G2 contains (q-1) matrices,  */
@@ -505,10 +505,10 @@ void __cyclic_mindist_gf3(PACKED_MATRIX_GF3 *G, INFO *info) {
 		steps = 0;
 		
 		m = iw - 1;
-		v = (short *) malloc((iw+2)*sizeof(short));
-		s = (short *) malloc((iw+2)*sizeof(short));
-		a = (short *) malloc(iw *sizeof(short));
-		f = (short *) malloc((iw+1)*sizeof(short));
+		v = (int *) malloc((iw+2)* sizeof(int));
+		s = (int *) malloc((iw+2)* sizeof(int));
+		a = (int *) malloc(iw * sizeof(int));
+		f = (int *) malloc((iw+1)* sizeof(int));
 		
 		if ( !(iw & 1) ) {
 			v[iw + 1] = G->dimension; v[iw] = iw - 1;
@@ -590,7 +590,7 @@ lower_bound_met:
 /* current progress of enumeration.                                 */
 void update_info_gf3(PACKED_MATRIX_GF3 *G, INFO *info) {
 	bool end;
-	short i, j, l, d, w;
+	int i, j, l, d, w;
 	
 	/* Estimate the number of matrices required to complete enumeration */
 	info->matrices_req = 0;
@@ -661,7 +661,7 @@ void update_info_gf3(PACKED_MATRIX_GF3 *G, INFO *info) {
 /* Update INFO structure, which contains various information on the */
 /* current progress of enumeration.                                 */
 void cyclic_update_info_gf3(PACKED_MATRIX_GF3 *G, INFO *info) {
-	short i, d, w;
+	int i, d, w;
 	
 	/* Estimate the minimum distance lower bound after current enumeration */
 	info->lower_bound = (info->info_weight_completed + 1) * G->nFullRankMatrices;
@@ -694,13 +694,13 @@ void init_gf3(GF3 *gf) {
 	int i;
 	
 	gf->sub = (short **)malloc(3 * sizeof(short *));
-	for (i=0; i<3; i++) gf->sub[i] = (short *)malloc(3*sizeof(short));
+	for (i=0; i<3; i++) gf->sub[i] = (short *)malloc(3 * sizeof(short));
 	gf->sub[0][0] = 0; gf->sub[0][1] = 2; gf->sub[0][2] = 1;
 	gf->sub[1][0] = 1; gf->sub[1][1] = 0; gf->sub[1][2] = 2;
 	gf->sub[2][0] = 2; gf->sub[2][1] = 1; gf->sub[2][2] = 0;
 	
-	gf->div = (short **)malloc(3 * sizeof(short int *));
-	for (i=0; i<3; i++) gf->div[i] = (short *)malloc(3*sizeof(short));
+	gf->div = (short **)malloc(3 * sizeof(short *));
+	for (i=0; i<3; i++) gf->div[i] = (short *)malloc(3 * sizeof(short));
 	gf->div[0][0] = 3; gf->div[0][1] = 0; gf->div[0][2] = 0;
 	gf->div[1][0] = 3; gf->div[1][1] = 1; gf->div[1][2] = 2;
 	gf->div[2][0] = 3; gf->div[2][1] = 2; gf->div[2][2] = 1;
