@@ -76,7 +76,7 @@ function ( code, i )
         for j in [ 1 .. Length( els ) ] do
             subcode[ j ] := CoordinateSubCode( code, j, els[ j ] );
         od;
-        for w in Codeword( CosetLeadersMatFFE( CheckMat( code ),
+        for w in Codeword( GuavaCosetLeadersMatFFE( CheckMat( code ),
                            LeftActingDomain( code ) ) ) do
             for j in [ 1 .. Length( els ) ] do
                 if subcode[ j ] = false then
