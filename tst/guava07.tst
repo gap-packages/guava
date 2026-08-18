@@ -129,33 +129,33 @@ gap> BoundsCoveringRadius( HammingCode( 5, GF(2) ) );
 [ 1 ]
 
 # doc/guava.xml:10459-10467
-gap> C:=RandomLinearCode(10,5,GF(2));
-a  [10,5,?] randomly generated code over GF(2)
+gap> C:=BestKnownLinearCode(10,5,GF(2));
+a linear [10,5,4]2..4 shortened code
 gap> ExhaustiveSearchCoveringRadius(C);
 Trying 3 ...
-[ 3 .. 5 ]
+[ 3, 4 ]
 gap> CoveringRadius(C);
 3
 
 # doc/guava.xml:10488-10495
-gap> C:=RandomLinearCode(10,5,GF(2));
-a  [10,5,?] randomly generated code over GF(2)
+gap> C:=BestKnownLinearCode(10,5,GF(2));
+a linear [10,5,4]2..4 shortened code
 gap> GeneralLowerBoundCoveringRadius(C);
 2
 gap> CoveringRadius(C);
 3
 
 # doc/guava.xml:10514-10521
-gap> C:=RandomLinearCode(10,5,GF(2));
-a  [10,5,?] randomly generated code over GF(2)
+gap> C:=BestKnownLinearCode(10,5,GF(2));
+a linear [10,5,4]2..4 shortened code
 gap> GeneralUpperBoundCoveringRadius(C);
-5
+4
 gap> CoveringRadius(C);
 3
 
 # doc/guava.xml:10547-10558
-gap> C:=RandomLinearCode(10,5,GF(2));
-a  [10,5,?] randomly generated code over GF(2)
+gap> C:=BestKnownLinearCode(10,5,GF(2));
+a linear [10,5,4]2..4 shortened code
 gap> Size(C);
 32
 gap> CoveringRadius(C);
@@ -166,8 +166,8 @@ gap> LowerBoundCoveringRadiusSphereCovering(10,3,GF(2),true);
 6
 
 # doc/guava.xml:10593-10604
-gap> C:=RandomLinearCode(10,5,GF(2));
-a  [10,5,?] randomly generated code over GF(2)
+gap> C:=BestKnownLinearCode(10,5,GF(2));
+a linear [10,5,4]2..4 shortened code
 gap> Size(C);
 32
 gap> CoveringRadius(C);
@@ -178,8 +178,8 @@ gap> LowerBoundCoveringRadiusVanWee1(10,3,GF(2),true);
 6
 
 # doc/guava.xml:10646-10657
-gap> C:=RandomLinearCode(10,5,GF(2));
-a  [10,5,?] randomly generated code over GF(2)
+gap> C:=BestKnownLinearCode(10,5,GF(2));
+a linear [10,5,4]2..4 shortened code
 gap> Size(C);
 32
 gap> CoveringRadius(C);
@@ -190,8 +190,8 @@ gap> LowerBoundCoveringRadiusVanWee2(10,3,true);
 7
 
 # doc/guava.xml:10703-10714
-gap> C:=RandomLinearCode(10,5,GF(2));
-a  [10,5,?] randomly generated code over GF(2)
+gap> C:=BestKnownLinearCode(10,5,GF(2));
+a linear [10,5,4]2..4 shortened code
 gap> Size(C);
 32
 gap> CoveringRadius(C);
@@ -202,8 +202,8 @@ gap> LowerBoundCoveringRadiusCountingExcess(10,3,true);
 7
 
 # doc/guava.xml:10755-10766
-gap> C:=RandomLinearCode(10,5,GF(2));
-a  [10,5,?] randomly generated code over GF(2)
+gap> C:=BestKnownLinearCode(10,5,GF(2));
+a linear [10,5,4]2..4 shortened code
 gap> Size(C);
 32
 gap> CoveringRadius(C);
@@ -214,8 +214,8 @@ gap> LowerBoundCoveringRadiusEmbedded1(10,3,true);
 7
 
 # doc/guava.xml:10807-10818
-gap> C:=RandomLinearCode(15,5,GF(2));
-a  [15,5,?] randomly generated code over GF(2)
+gap> C:=BCHCode(15,7,GF(2));
+a cyclic [15,5,7]5 BCH code, delta=7, b=1 over GF(2)
 gap> Size(C);
 32
 gap> CoveringRadius(C);
@@ -226,44 +226,44 @@ gap> LowerBoundCoveringRadiusEmbedded2(10,3,true);
 7
 
 # doc/guava.xml:10841-10848
-gap> C:=RandomLinearCode(15,5,GF(2));
-a  [15,5,?] randomly generated code over GF(2)
+gap> C:=BCHCode(15,7,GF(2));
+a cyclic [15,5,7]5 BCH code, delta=7, b=1 over GF(2)
 gap> CoveringRadius(C);
-6
+5
 gap> LowerBoundCoveringRadiusInduction(15,6);
 7
 
 # doc/guava.xml:10870-10877
-gap> C:=RandomLinearCode(15,5,GF(2));
-a  [15,5,?] randomly generated code over GF(2)
+gap> C:=BCHCode(15,7,GF(2));
+a cyclic [15,5,7]5 BCH code, delta=7, b=1 over GF(2)
 gap> CoveringRadius(C);
 5
 gap> UpperBoundCoveringRadiusRedundancy(C);
 10
 
 # doc/guava.xml:10898-10905
-gap> C:=RandomLinearCode(15,5,GF(2));
-a  [15,5,?] randomly generated code over GF(2)
+gap> C:=BCHCode(15,7,GF(2));
+a cyclic [15,5,7]5 BCH code, delta=7, b=1 over GF(2)
 gap> CoveringRadius(C);
-6
+5
 gap> UpperBoundCoveringRadiusDelsarte(C);
-13
+5
 
 # doc/guava.xml:10934-10941
-gap> C:=RandomLinearCode(15,5,GF(2));
-a  [15,5,?] randomly generated code over GF(2)
+gap> C:=BCHCode(15,7,GF(2));
+a cyclic [15,5,7]5 BCH code, delta=7, b=1 over GF(2)
 gap> CoveringRadius(C);
 5
 gap> UpperBoundCoveringRadiusStrength(C);
 7
 
 # doc/guava.xml:10961-10968
-gap> C:=RandomLinearCode(15,5,GF(2));
-a  [15,5,?] randomly generated code over GF(2)
+gap> C:=BCHCode(15,7,GF(2));
+a cyclic [15,5,7]5 BCH code, delta=7, b=1 over GF(2)
 gap> CoveringRadius(C);
-6
+5
 gap> UpperBoundCoveringRadiusGriesmerLike(C);
-9
+6
 
 # doc/guava.xml:10989-10996
 gap> C:=CyclicCodes(15,GF(2))[3];
@@ -521,12 +521,12 @@ gap> IrreduciblePolynomialsNr(3,4);
 20
 
 # doc/guava.xml:11884-11894
-gap> a:=Random(GF(4));
-Z(2^2)^2
+gap> a:=Z(4);
+Z(2^2)
 gap> M:=MatrixRepresentationOfElement(a,GF(4));; Display(M);
  . 1
  1 1
-gap> a:=Random(GF(4));
+gap> a:=Z(2)^0;                 # this one lies in the base field
 Z(2)^0
 gap> M:=MatrixRepresentationOfElement(a,GF(4));; Display(M);
  1

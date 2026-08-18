@@ -203,11 +203,11 @@ gap> GeneratorMat( R2 );
   [ 0*Z(2), Z(2)^0, 0*Z(2), Z(2)^0, 0*Z(2), Z(2)^0, 0*Z(2), Z(2)^0 ] ]
 
 # doc/guava.xml:8990-8997
-gap> C:=RandomLinearCode(10,4,GF(4)); MinimumDistance(C);
-a  [10,4,?] randomly generated code over GF(4)
-4
+gap> C:=HammingCode(2,GF(4)); MinimumDistance(C);
+a linear [5,3,3]1 Hamming (2,4) code over GF(4)
+3
 gap> trC:=TraceCode(C,GF(2)); MinimumDistance(trC);
-a linear [10,8,1]1..2 user defined unrestricted code over GF(2)
+a linear [5,4,1]1 user defined unrestricted code over GF(2)
 1
 
 # doc/guava.xml:9022-9033
