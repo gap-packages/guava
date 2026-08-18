@@ -34,9 +34,8 @@ gap> Weight(c3);
 gap> DistanceCodeword(c1, c2);
 4
 
-# doc/guava.xml:416-429
-gap> x:=Indeterminate(GF(2));
-x_1
+# doc/guava.xml:416-428
+gap> x:=Indeterminate(GF(2), "x");;
 gap> c4:=Codeword(x^7+x^2+x+1);
 x^7 + x^2 + x + 1
 gap> VectorCodeword(c4);
@@ -46,9 +45,9 @@ gap> Display(last);
 gap> c5:=Codeword([1,0,0,0,0,0,1]);
 [ 1 0 0 0 0 0 1 ]
 gap> PolyCodeword(c5);
-x_1^6+Z(2)^0
+x^6+Z(2)^0
 
-# doc/guava.xml:442-453
+# doc/guava.xml:441-452
 gap> l:=["111000", "011100", "001110", "000111", "100011", "110001", "000000", "111111" ];;
 gap> m:=Codeword(l,6,GF(2));
 [ [ 1 1 1 0 0 0 ], [ 0 1 1 1 0 0 ], [ 0 0 1 1 1 0 ], [ 0 0 0 1 1 1 ],
