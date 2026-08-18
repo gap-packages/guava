@@ -966,41 +966,10 @@ end);
 ##
 InstallMethod(GOrbitPoint, true, [IsGroup,IsList], 0,
 function(G,P)
-local O,p,g,addit,gP,IsEqualProjectivePoint;
-
-##start local fcn: represent same projective point?
-IsEqualProjectivePoint:=function(P1,P2)
-# P1 = [x1,y1,z1]
-# P2 = [x2,y2,z2]
-# returns true iff P1=lambda*P2
-local lambda,F;
-F:=DefaultField(P1[1]);
-if P1[1]<>Zero(F) then
-   lambda:=P2[1]/P1[1];
- elif P1[2]<>Zero(F) then
-   lambda:=P2[2]/P1[2];
- else
-   lambda:=P2[3]/P1[3];
-fi;
-return P1*lambda=P2;
-end;
-##end local fcn
-
-O:=[P];
-for g in G do
- gP:=g*P;
- addit:=true;
- for p in O do
-  if IsEqualProjectivePoint(gP,p) then
-     addit:=false;
-     break;
-  fi;
- od;
- if addit then
-     Add(O, gP);
- fi;
-od;
-return O;
+  # OnLines norms its result, so which element of G reached a point does not
+  # decide how that point is written down, and sorting makes the order
+  # independent of how G was generated.  Both used to leak into the answer.
+  return Set(Orbit(G, NormedRowVector(P), OnLines));
 end);
 
 
