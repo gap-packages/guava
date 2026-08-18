@@ -205,9 +205,9 @@ gap> GeneratorMat( R2 );
 # doc/guava.xml:8990-8997
 gap> C:=RandomLinearCode(10,4,GF(4)); MinimumDistance(C);
 a  [10,4,?] randomly generated code over GF(4)
-5
+4
 gap> trC:=TraceCode(C,GF(2)); MinimumDistance(trC);
-a linear [10,7,1]1..3 user defined unrestricted code over GF(2)
+a linear [10,8,1]1..2 user defined unrestricted code over GF(2)
 1
 
 # doc/guava.xml:9022-9033

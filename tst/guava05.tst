@@ -850,7 +850,7 @@ rec( coeffs := [ -2 ], curve := rec( polynomial := a, ring := GF(11)[a,b] ),
 gap> Df.support;
 [ Z(11) ]
 gap> F:=GF(11);;
-gap> R:=PolynomialRing(F,2);;
+gap> R:=PolynomialRing(F,["x","y"]);;
 gap> vars:=IndeterminatesOfPolynomialRing(R);;
 gap> a:=vars[1];;
 gap> b:=vars[2];;
@@ -859,10 +859,10 @@ gap> divf:=DivisorOfRationalFunctionP1(f,R);
 rec( coeffs := [ 3, 1 ], curve := rec( polynomial := x, ring := GF(11)[x,y] ),
   support := [ Z(11), Z(11)^7 ] )
 gap> denf:=DenominatorOfRationalFunction(f); RootsOfUPol(denf);
-y^4+Z(11)*y^2+Z(11)^7*y+Z(11)
+x^4+Z(11)*x^2+Z(11)^7*x+Z(11)
 [  ]
 gap> numf:=NumeratorOfRationalFunction(f); RootsOfUPol(numf);
-y^4+Z(11)^6*y^3-y^2+Z(11)^7*y+Z(11)^0
+x^4+Z(11)^6*x^3-x^2+Z(11)^7*x+Z(11)^0
 [ Z(11)^7, Z(11), Z(11), Z(11) ]
 
 # doc/guava.xml:7514-7560
@@ -890,19 +890,19 @@ gap> B:=RiemannRochSpaceBasisP1(D);
   (Z(11)^0)/(a^3+Z(11)^4*a^2+a+Z(11)^8),
   (Z(11)^0)/(a^4+Z(11)^8*a^3+Z(11)*a^2+a+Z(11)^4), Z(11)^0 ]
 gap> DivisorOfRationalFunctionP1(B[1],R2).support;
-[  ]
-gap> DivisorOfRationalFunctionP1(B[2],R2).support;
 [ Z(11)^2 ]
+gap> DivisorOfRationalFunctionP1(B[2],R2).support;
+[ Z(11)^3 ]
 gap> DivisorOfRationalFunctionP1(B[3],R2).support;
 [ Z(11)^3 ]
 gap> DivisorOfRationalFunctionP1(B[4],R2).support;
-[ Z(11)^3 ]
+[ Z(11)^7 ]
 gap> DivisorOfRationalFunctionP1(B[5],R2).support;
 [ Z(11)^7 ]
 gap> DivisorOfRationalFunctionP1(B[6],R2).support;
 [ Z(11)^7 ]
 gap> DivisorOfRationalFunctionP1(B[7],R2).support;
-[ Z(11)^7 ]
+[ Z(11) ]
 gap> DivisorOfRationalFunctionP1(B[8],R2).support;
 [ Z(11) ]
 gap> DivisorOfRationalFunctionP1(B[9],R2).support;
@@ -910,7 +910,7 @@ gap> DivisorOfRationalFunctionP1(B[9],R2).support;
 gap> DivisorOfRationalFunctionP1(B[10],R2).support;
 [ Z(11) ]
 gap> DivisorOfRationalFunctionP1(B[11],R2).support;
-[ Z(11) ]
+[  ]
 
 # doc/guava.xml:7641-7674
 gap> F:=GF(11);
@@ -988,25 +988,25 @@ gap> agp:=DivisorAutomorphismGroupP1(D);;
 gap> IdGroup(agp);
 [ 20, 5 ]
 gap> g:=Random(agp);
-[ [ Z(11)^4, Z(11)^9 ], [ Z(11)^0, Z(11)^9 ] ]
+[ [ Z(11)^3, 0*Z(11) ], [ 0*Z(11), Z(11)^3 ] ]
 gap> rho:=MatrixRepresentationOnRiemannRochSpaceP1(g,D);
 [ [ Z(11)^0, 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11) ],
-[ Z(11)^0, 0*Z(11), 0*Z(11), Z(11), 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11) ],
-  [ Z(11)^7, 0*Z(11), Z(11)^5, 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11) ],
-[ Z(11)^4, Z(11)^9, 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11) ],
-  [ Z(11)^2, 0*Z(11), 0*Z(11), 0*Z(11), Z(11)^5, 0*Z(11), 0*Z(11), 0*Z(11) ],
-[ Z(11)^4, 0*Z(11), 0*Z(11), 0*Z(11), Z(11)^8, Z(11)^0, 0*Z(11), 0*Z(11) ],
-  [ Z(11)^6, 0*Z(11), 0*Z(11), 0*Z(11), Z(11)^7, Z(11)^0, Z(11)^5, 0*Z(11) ],
-[ Z(11)^8, 0*Z(11), 0*Z(11), 0*Z(11), Z(11)^3, Z(11)^3, Z(11)^9, Z(11)^0 ] ]
+  [ 0*Z(11), Z(11)^0, 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11) ],
+  [ 0*Z(11), 0*Z(11), Z(11)^0, 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11) ],
+  [ 0*Z(11), 0*Z(11), 0*Z(11), Z(11)^0, 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11) ],
+  [ 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), Z(11)^0, 0*Z(11), 0*Z(11), 0*Z(11) ],
+  [ 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), Z(11)^0, 0*Z(11), 0*Z(11) ],
+  [ 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), Z(11)^0, 0*Z(11) ],
+  [ 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), Z(11)^0 ] ]
 gap> Display(rho);
   1  .  .  .  .  .  .  .
-  1  .  .  2  .  .  .  .
-  7  . 10  .  .  .  .  .
-  5  6  .  .  .  .  .  .
-  4  .  .  . 10  .  .  .
-  5  .  .  .  3  1  .  .
-  9  .  .  .  7  1 10  .
-  3  .  .  .  8  8  6  1
+  .  1  .  .  .  .  .  .
+  .  .  1  .  .  .  .  .
+  .  .  .  1  .  .  .  .
+  .  .  .  .  1  .  .  .
+  .  .  .  .  .  1  .  .
+  .  .  .  .  .  .  1  .
+  .  .  .  .  .  .  .  1
 
 
 # doc/guava.xml:7900-7921

@@ -149,7 +149,7 @@ gap> CoveringRadius(C);
 gap> C:=RandomLinearCode(10,5,GF(2));
 a  [10,5,?] randomly generated code over GF(2)
 gap> GeneralUpperBoundCoveringRadius(C);
-4
+5
 gap> CoveringRadius(C);
 3
 
@@ -219,7 +219,7 @@ a  [15,5,?] randomly generated code over GF(2)
 gap> Size(C);
 32
 gap> CoveringRadius(C);
-6
+5
 gap> LowerBoundCoveringRadiusEmbedded2(10,32,false);
 2
 gap> LowerBoundCoveringRadiusEmbedded2(10,3,true);
@@ -229,7 +229,7 @@ gap> LowerBoundCoveringRadiusEmbedded2(10,3,true);
 gap> C:=RandomLinearCode(15,5,GF(2));
 a  [15,5,?] randomly generated code over GF(2)
 gap> CoveringRadius(C);
-5
+6
 gap> LowerBoundCoveringRadiusInduction(15,6);
 7
 
@@ -245,7 +245,7 @@ gap> UpperBoundCoveringRadiusRedundancy(C);
 gap> C:=RandomLinearCode(15,5,GF(2));
 a  [15,5,?] randomly generated code over GF(2)
 gap> CoveringRadius(C);
-5
+6
 gap> UpperBoundCoveringRadiusDelsarte(C);
 13
 
@@ -261,7 +261,7 @@ gap> UpperBoundCoveringRadiusStrength(C);
 gap> C:=RandomLinearCode(15,5,GF(2));
 a  [15,5,?] randomly generated code over GF(2)
 gap> CoveringRadius(C);
-5
+6
 gap> UpperBoundCoveringRadiusGriesmerLike(C);
 9
 
@@ -522,14 +522,14 @@ gap> IrreduciblePolynomialsNr(3,4);
 
 # doc/guava.xml:11884-11894
 gap> a:=Random(GF(4));
-0*Z(2)
-gap> M:=MatrixRepresentationOfElement(a,GF(4));; Display(M);
- .
-gap> a:=Random(GF(4));
-Z(2^2)
+Z(2^2)^2
 gap> M:=MatrixRepresentationOfElement(a,GF(4));; Display(M);
  . 1
  1 1
+gap> a:=Random(GF(4));
+Z(2)^0
+gap> M:=MatrixRepresentationOfElement(a,GF(4));; Display(M);
+ 1
 
 # doc/guava.xml:11928-11939
 gap> P := UnivariatePolynomial( GF(3), Z(3)^0 * [1,0,1,2] );

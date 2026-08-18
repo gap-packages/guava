@@ -7457,7 +7457,7 @@ rec( coeffs := [ -2 ], curve := rec( polynomial := a, ring := GF(11)[a,b] ),
 gap> Df.support;
 [ Z(11) ]
 gap> F:=GF(11);;
-gap> R:=PolynomialRing(F,2);;
+gap> R:=PolynomialRing(F,["x","y"]);;
 gap> vars:=IndeterminatesOfPolynomialRing(R);;
 gap> a:=vars[1];;
 gap> b:=vars[2];;
@@ -7466,10 +7466,10 @@ gap> divf:=DivisorOfRationalFunctionP1(f,R);
 rec( coeffs := [ 3, 1 ], curve := rec( polynomial := x, ring := GF(11)[x,y] ),
   support := [ Z(11), Z(11)^7 ] )
 gap> denf:=DenominatorOfRationalFunction(f); RootsOfUPol(denf);
-y^4+Z(11)*y^2+Z(11)^7*y+Z(11)
+x^4+Z(11)*x^2+Z(11)^7*x+Z(11)
 [  ]
 gap> numf:=NumeratorOfRationalFunction(f); RootsOfUPol(numf);
-y^4+Z(11)^6*y^3-y^2+Z(11)^7*y+Z(11)^0
+x^4+Z(11)^6*x^3-x^2+Z(11)^7*x+Z(11)^0
 [ Z(11)^7, Z(11), Z(11), Z(11) ]
 ]]></Example>
 <!--
@@ -7536,19 +7536,19 @@ gap> B:=RiemannRochSpaceBasisP1(D);
   (Z(11)^0)/(a^3+Z(11)^4*a^2+a+Z(11)^8),
   (Z(11)^0)/(a^4+Z(11)^8*a^3+Z(11)*a^2+a+Z(11)^4), Z(11)^0 ]
 gap> DivisorOfRationalFunctionP1(B[1],R2).support;
-[  ]
-gap> DivisorOfRationalFunctionP1(B[2],R2).support;
 [ Z(11)^2 ]
+gap> DivisorOfRationalFunctionP1(B[2],R2).support;
+[ Z(11)^3 ]
 gap> DivisorOfRationalFunctionP1(B[3],R2).support;
 [ Z(11)^3 ]
 gap> DivisorOfRationalFunctionP1(B[4],R2).support;
-[ Z(11)^3 ]
+[ Z(11)^7 ]
 gap> DivisorOfRationalFunctionP1(B[5],R2).support;
 [ Z(11)^7 ]
 gap> DivisorOfRationalFunctionP1(B[6],R2).support;
 [ Z(11)^7 ]
 gap> DivisorOfRationalFunctionP1(B[7],R2).support;
-[ Z(11)^7 ]
+[ Z(11) ]
 gap> DivisorOfRationalFunctionP1(B[8],R2).support;
 [ Z(11) ]
 gap> DivisorOfRationalFunctionP1(B[9],R2).support;
@@ -7556,7 +7556,7 @@ gap> DivisorOfRationalFunctionP1(B[9],R2).support;
 gap> DivisorOfRationalFunctionP1(B[10],R2).support;
 [ Z(11) ]
 gap> DivisorOfRationalFunctionP1(B[11],R2).support;
-[ Z(11) ]
+[  ]
 ]]></Example>
 <!--
 F:=GF(11);
@@ -7787,25 +7787,25 @@ gap> agp:=DivisorAutomorphismGroupP1(D);;
 gap> IdGroup(agp);
 [ 20, 5 ]
 gap> g:=Random(agp);
-[ [ Z(11)^4, Z(11)^9 ], [ Z(11)^0, Z(11)^9 ] ]
+[ [ Z(11)^3, 0*Z(11) ], [ 0*Z(11), Z(11)^3 ] ]
 gap> rho:=MatrixRepresentationOnRiemannRochSpaceP1(g,D);
 [ [ Z(11)^0, 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11) ],
-[ Z(11)^0, 0*Z(11), 0*Z(11), Z(11), 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11) ],
-  [ Z(11)^7, 0*Z(11), Z(11)^5, 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11) ],
-[ Z(11)^4, Z(11)^9, 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11) ],
-  [ Z(11)^2, 0*Z(11), 0*Z(11), 0*Z(11), Z(11)^5, 0*Z(11), 0*Z(11), 0*Z(11) ],
-[ Z(11)^4, 0*Z(11), 0*Z(11), 0*Z(11), Z(11)^8, Z(11)^0, 0*Z(11), 0*Z(11) ],
-  [ Z(11)^6, 0*Z(11), 0*Z(11), 0*Z(11), Z(11)^7, Z(11)^0, Z(11)^5, 0*Z(11) ],
-[ Z(11)^8, 0*Z(11), 0*Z(11), 0*Z(11), Z(11)^3, Z(11)^3, Z(11)^9, Z(11)^0 ] ]
+  [ 0*Z(11), Z(11)^0, 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11) ],
+  [ 0*Z(11), 0*Z(11), Z(11)^0, 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11) ],
+  [ 0*Z(11), 0*Z(11), 0*Z(11), Z(11)^0, 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11) ],
+  [ 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), Z(11)^0, 0*Z(11), 0*Z(11), 0*Z(11) ],
+  [ 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), Z(11)^0, 0*Z(11), 0*Z(11) ],
+  [ 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), Z(11)^0, 0*Z(11) ],
+  [ 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), Z(11)^0 ] ]
 gap> Display(rho);
   1  .  .  .  .  .  .  .
-  1  .  .  2  .  .  .  .
-  7  . 10  .  .  .  .  .
-  5  6  .  .  .  .  .  .
-  4  .  .  . 10  .  .  .
-  5  .  .  .  3  1  .  .
-  9  .  .  .  7  1 10  .
-  3  .  .  .  8  8  6  1
+  .  1  .  .  .  .  .  .
+  .  .  1  .  .  .  .  .
+  .  .  .  1  .  .  .  .
+  .  .  .  .  1  .  .  .
+  .  .  .  .  .  1  .  .
+  .  .  .  .  .  .  1  .
+  .  .  .  .  .  .  .  1
 
 ]]></Example>
 
@@ -8990,9 +8990,9 @@ trace code to the original except in the ``Galois closed'' case.
 <Example><![CDATA[
 gap> C:=RandomLinearCode(10,4,GF(4)); MinimumDistance(C);
 a  [10,4,?] randomly generated code over GF(4)
-5
+4
 gap> trC:=TraceCode(C,GF(2)); MinimumDistance(trC);
-a linear [10,7,1]1..3 user defined unrestricted code over GF(2)
+a linear [10,8,1]1..2 user defined unrestricted code over GF(2)
 1
 ]]></Example>
 <!--
@@ -10515,7 +10515,7 @@ as possible to find the best known upper bound
 gap> C:=RandomLinearCode(10,5,GF(2));
 a  [10,5,?] randomly generated code over GF(2)
 gap> GeneralUpperBoundCoveringRadius(C);
-4
+5
 gap> CoveringRadius(C);
 3
 ]]></Example>
@@ -10810,7 +10810,7 @@ a  [15,5,?] randomly generated code over GF(2)
 gap> Size(C);
 32
 gap> CoveringRadius(C);
-6
+5
 gap> LowerBoundCoveringRadiusEmbedded2(10,32,false);
 2
 gap> LowerBoundCoveringRadiusEmbedded2(10,3,true);
@@ -10842,7 +10842,7 @@ Otherwise, <M>0</M> is returned.
 gap> C:=RandomLinearCode(15,5,GF(2));
 a  [15,5,?] randomly generated code over GF(2)
 gap> CoveringRadius(C);
-5
+6
 gap> LowerBoundCoveringRadiusInduction(15,6);
 7
 ]]></Example>
@@ -10899,7 +10899,7 @@ This is described in Theorem 11.3.3 of <Cite Key="HP03"/>.
 gap> C:=RandomLinearCode(15,5,GF(2));
 a  [15,5,?] randomly generated code over GF(2)
 gap> CoveringRadius(C);
-5
+6
 gap> UpperBoundCoveringRadiusDelsarte(C);
 13
 ]]></Example>
@@ -10962,7 +10962,7 @@ n - \sum_{i=1}^k \left\lceil \frac{d}{q^i} \right\rceil
 gap> C:=RandomLinearCode(15,5,GF(2));
 a  [15,5,?] randomly generated code over GF(2)
 gap> CoveringRadius(C);
-5
+6
 gap> UpperBoundCoveringRadiusGriesmerLike(C);
 9
 ]]></Example>
@@ -11883,14 +11883,14 @@ returns the corresponding <M>1\times 1</M> matrix.
 
 <Example><![CDATA[
 gap> a:=Random(GF(4));
-0*Z(2)
-gap> M:=MatrixRepresentationOfElement(a,GF(4));; Display(M);
- .
-gap> a:=Random(GF(4));
-Z(2^2)
+Z(2^2)^2
 gap> M:=MatrixRepresentationOfElement(a,GF(4));; Display(M);
  . 1
  1 1
+gap> a:=Random(GF(4));
+Z(2)^0
+gap> M:=MatrixRepresentationOfElement(a,GF(4));; Display(M);
+ 1
 ]]></Example>
 <!--
 a:=Random(GF(4));
