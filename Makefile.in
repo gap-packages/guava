@@ -13,8 +13,11 @@ CJDIR   = src/ctjhai
 OBJDIR  = obj
 BINDIR  = bin/$(GAPARCH)
 
-CC ?= gcc
-CFLAGS ?= -O2 -g
+CC ?= @CC@
+CFLAGS ?= @CFLAGS@
+
+# Linker flags; configure will substitute a sensible default for the host
+LDFLAGS ?= @LDFLAGS@
 
 EXTRA_CFLAGS += -Wall
 # Leon's code is from the early 1990s and warns about style throughout;
@@ -48,13 +51,13 @@ all: $(addprefix $(BINDIR)/,$(PROGS))
 # how to build them
 #
 $(addprefix $(BINDIR)/,$(LEON_PROGS)): $(BINDIR)/%: $(OBJDIR)/leon/%.o $(OBJDIR)/libleon.a | $(BINDIR)
-	$(CC) $(EXTRA_CFLAGS) $(LDFLAGS) -o $@ $^
+	$(CC) $(EXTRA_CFLAGS) -o $@ $^ $(LDFLAGS)
 
 $(BINDIR)/minimum-weight: $(CJ_OBJS) | $(BINDIR)
-	$(CC) $(EXTRA_CFLAGS) $(LDFLAGS) -o $@ $^ -lm
+	$(CC) $(EXTRA_CFLAGS) -o $@ $^ $(LDFLAGS) -lm
 
 $(BINDIR)/leonconv: $(OBJDIR)/leonconv.o | $(BINDIR)
-	$(CC) $(EXTRA_CFLAGS) $(LDFLAGS) -o $@ $^
+	$(CC) $(EXTRA_CFLAGS) -o $@ $^ $(LDFLAGS)
 
 $(OBJDIR)/libleon.a: $(LEON_LIBOBJS)
 	$(AR) cr $@ $^

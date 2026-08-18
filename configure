@@ -33,7 +33,25 @@ fi
 echo "Using settings from $GAPPATH/sysinfo.gap"
 rm -f Makefile
 . "$GAPPATH/sysinfo.gap"
+# decide sensible defaults for compiler and flags based on host
+CC_DEFAULT=gcc
+CFLAGS_DEFAULT='-O2 -g'
+LDFLAGS_DEFAULT=''
+case "`uname -s`" in
+  Darwin*)
+    CC_DEFAULT=/usr/bin/clang
+    # macOS generally links system libraries automatically; leave LDFLAGS empty
+    LDFLAGS_DEFAULT=''
+    ;;
+  *)
+    CC_DEFAULT=gcc
+    ;;
+esac
+
 sed \
     -e "s;@GAPARCH@;$GAParch;g" \
     -e "s;@GAPPATH@;$GAPPATH;g" \
+    -e "s;@CC@;$CC_DEFAULT;g" \
+    -e "s;@CFLAGS@;$CFLAGS_DEFAULT;g" \
+    -e "s;@LDFLAGS@;$LDFLAGS_DEFAULT;g" \
     Makefile.in >Makefile
