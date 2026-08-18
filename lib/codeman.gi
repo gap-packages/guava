@@ -1884,7 +1884,7 @@ function( C, A )
 	SortBy(C, Dimension);
 
 	# Need to make sure that C[1] < C[2] < ... < C[j], i.e. subset
-	if not ForAll(List([0..Size(C)-2], i->IsSubset(C[Size(C)-i], C[Size(C)-i-1]))) then
+	if not ForAll([0..Size(C)-2], i->IsSubset(C[Size(C)-i], C[Size(C)-i-1])) then
 		Error("Inappropriate chain of codes");
 	fi;
 
@@ -1941,18 +1941,18 @@ function( C, A )
 	od;
 	CX:=GeneratorMatCode(GX, "Construction X code", LeftActingDomain(C[1]));
 
-	K:=[C[1]!.lowerBoundMinimumDistance];
-	S:=[C[1]!.upperBoundMinimumDistance];
+	K:=[LowerBoundMinimumDistance(C[1])];
+	S:=[UpperBoundMinimumDistance(C[1])];
 	i:=1;
 	while (i <= Size(A)) do
 		r:=0;
 		p:=0;
 		for j in [1..i] do
-			r := r + A[Size(A)-j+1]!.lowerBoundMinimumDistance;
-			p := p + A[Size(A)-j+1]!.upperBoundMinimumDistance;
+			r := r + LowerBoundMinimumDistance(A[Size(A)-j+1]);
+			p := p + UpperBoundMinimumDistance(A[Size(A)-j+1]);
 		od;
-		Add(K, r + C[i+1]!.lowerBoundMinimumDistance);
-		Add(S, p + C[i+1]!.upperBoundMinimumDistance);
+		Add(K, r + LowerBoundMinimumDistance(C[i+1]));
+		Add(S, p + UpperBoundMinimumDistance(C[i+1]));
 		i := i + 1;
 	od;
 	CX!.lowerBoundMinimumDistance := Minimum(K);
@@ -2160,7 +2160,7 @@ __G_BZCode := function(O, I)
 	fi;
 
 	# Need to make sure that I[1] < I[2] < ... < I[s], i.e. subset
-	if not ForAll(List([0..Size(I)-2], i->IsSubset(I[Size(I)-i], I[Size(I)-i-1]))) then
+	if not ForAll([0..Size(I)-2], i->IsSubset(I[Size(I)-i], I[Size(I)-i-1])) then
 		Error("Inappropriate chain of inner codes");
 	fi;
 
@@ -2252,9 +2252,9 @@ function( O, I )
 
 	# Upper- and lower-bound of minimum distance
 	C!.lowerBoundMinimumDistance := Minimum( List([1..Size(O)],
-		i->O[i]!.lowerBoundMinimumDistance * I[i]!.lowerBoundMinimumDistance) );
+		i->LowerBoundMinimumDistance(O[i]) * LowerBoundMinimumDistance(I[i])) );
 	C!.upperBoundMinimumDistance := Minimum( List([1..Size(O)],
-		i->O[i]!.upperBoundMinimumDistance * I[i]!.upperBoundMinimumDistance) );
+		i->UpperBoundMinimumDistance(O[i]) * UpperBoundMinimumDistance(I[i])) );
 
 	# This can be displayed using Display(C) or History(C). This shows the
 	# component codes that are used to construct the concatenated code
@@ -2280,9 +2280,9 @@ function( O, I )
 	C!.name := "Blokh Zyablov concatenated code";
 	# Upper- and lower-bound of minimum distance
 	C!.lowerBoundMinimumDistance := Minimum( List([1..Size(O)],
-		i->O[i]!.lowerBoundMinimumDistance * I[i]!.lowerBoundMinimumDistance) );
+		i->LowerBoundMinimumDistance(O[i]) * LowerBoundMinimumDistance(I[i])) );
 	C!.upperBoundMinimumDistance := Minimum( List([1..Size(O)],
-		i->O[i]!.upperBoundMinimumDistance * I[i]!.upperBoundMinimumDistance) );
+		i->UpperBoundMinimumDistance(O[i]) * UpperBoundMinimumDistance(I[i])) );
 
 	# Set covering radius to unknown
     C!.boundsCoveringRadius := [ 0, WordLength(C) ];
