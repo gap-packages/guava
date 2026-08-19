@@ -90,3 +90,14 @@ gap> CodeDistanceEnumerator(C, [0,0,0,0,0,0,1])
 true
 gap> CodeDistanceEnumerator(C, [1,1,1,1,1,1,1]) = CodeWeightEnumerator(C);
 true
+
+##
+## LowerBoundGilbertVarshamov divided by the size of a sphere of radius d-2,
+## which is empty when d is 1
+##
+gap> LowerBoundGilbertVarshamov(4,1,2);
+16
+gap> LowerBoundGilbertVarshamov(3,1,3);
+27
+gap> List([2..8], n -> LowerBoundGilbertVarshamov(n,2,2) = 2^(n-1));
+[ true, true, true, true, true, true, true ]

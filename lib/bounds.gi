@@ -17,6 +17,12 @@
 ## added 9-2004 by wdj; debugged 2009 by Jack Schmidt
 InstallMethod(LowerBoundGilbertVarshamov, "n, d, q", true, [IsInt, IsInt, IsInt], 0,
 function(n, d, q)
+   # the sphere of radius d-2 is empty for d = 1, so the quotient below is not
+   # defined there.  Every code has minimum distance at least 1, so the whole
+   # space is the bound.
+   if d <= 1 then
+      return q^n;
+   fi;
    return q^LogInt(Int((q^n-1)/SphereContent(n-1,d-2,q)),q);
 end);
 
