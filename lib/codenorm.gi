@@ -264,7 +264,7 @@ function ( arg )
             Error( "GeneralizedCodeNorm: length of code ", i,
                    " is not equal to the length of <code>" );
         fi;
-        if not ( arg[ i + 1 ] in arg[ 1 ] ) then
+        if not IsSubset( arg[ 1 ], arg[ i + 1 ] ) then
             Error( "GeneralizedCodeNorm: code ", i,
                    " is not a subcode of code." );
         fi;
