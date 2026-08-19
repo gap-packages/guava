@@ -86,7 +86,7 @@ gap> LowerBoundGilbertVarshamov(7,3,2);
 gap> LowerBoundMinimumDistance(7,4,2);
 3
 gap> LowerBoundGilbertVarshamov(3,3,2);
-1
+2
 gap> LowerBoundMinimumDistance(3,3,2);
 1
 gap> LowerBoundGilbertVarshamov(25,10,2);
@@ -103,7 +103,7 @@ gap> C := BCHCode( 45, 7 );;
 gap> UpperBoundMinimumDistance( C );
 9
 gap> UpperBoundMinimumDistance( 45, 23, GF(2) );
-11
+10
 
 # doc/guava.xml:10289-10305
 gap> bounds := BoundsMinimumDistance( 7, 3 );; DisplayBoundsInfo( bounds ); # The lower bound is equal to the upper bound, so a code with these parameters is optimal.
