@@ -12229,7 +12229,7 @@ gap> soln:=SolveLinearSystem([f,g],[x,y]);
 [ Z(11)^3, Z(11)^2 ]
 gap> Value(f,[x,y],soln); # checking okay
 0*Z(11)
-gap> Value(g,[x,y],col); # checking okay
+gap> Value(g,[x,y],soln); # checking okay
 0*Z(11)
 ]]></Example>
 <!--
@@ -12240,7 +12240,7 @@ x:=vars[1];; y:=vars[2];;
 f:=3*y-3*x+1;; g:=-5*y+2*x-7;;
 soln:=SolveLinearSystem([f,g],[x,y]);
 Value(f,[x,y],soln); # checking okay
-Value(g,[x,y],col); # checking okay
+Value(g,[x,y],soln); # checking okay
 -->
 
 

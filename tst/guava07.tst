@@ -621,7 +621,7 @@ gap> soln:=SolveLinearSystem([f,g],[x,y]);
 [ Z(11)^3, Z(11)^2 ]
 gap> Value(f,[x,y],soln); # checking okay
 0*Z(11)
-gap> Value(g,[x,y],col); # checking okay
+gap> Value(g,[x,y],soln); # checking okay
 0*Z(11)
 
 # doc/guava.xml:12259-12262
