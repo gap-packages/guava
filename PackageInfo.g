@@ -195,7 +195,7 @@ SetPackageInfo( rec(
   Dependencies := rec(
     # GAP version, use version strings for specifying exact versions,
     # prepend a '>=' for specifying a least version.
-    GAP := ">= 4.8.0",
+    GAP := ">= 4.11",
     # list of pairs [package name, (least) version],  package name is case
     # insensitive, least version denoted with '>=' prepended to version string.
     # without these, the package will not load
@@ -241,7 +241,7 @@ SetPackageInfo( rec(
 
 ##  *Optional*, but recommended: path relative to package root to a file which 
 ##  contains as many tests of the package functionality as sensible.
-TestFile := "tst/guava.tst",
+TestFile := "tst/testall.g",
 
 ##  *Optional*: Here you can list some keyword related to the topic 
 ##  of the package.
