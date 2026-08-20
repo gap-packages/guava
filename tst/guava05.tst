@@ -549,7 +549,7 @@ x^21+x^20+x^19-x^15-x^14-x^12+x^11-x^8+x^5+x^4-x^3-x^2
 gap> L3 := PolyCodeword( Codeword("22021011202221111020021",GF(3)) );
 x^22-x^21-x^18+x^16+x^15+x^14+x^13-x^12-x^11-x^10-x^8+x^7+x^6+x^4-x^3-x-Z(3)^0
 gap> C := QuasiCyclicCode( [L1, L2, L3], 23, GF(3) );
-a linear [69,12,1..37]27..46 quasi-cyclic code over GF(3)
+a linear [69,12,1..38]27..46 quasi-cyclic code over GF(3)
 gap> MinimumDistance(C);
 34
 gap> Display(C);
