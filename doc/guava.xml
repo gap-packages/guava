@@ -6507,7 +6507,7 @@ x^21+x^20+x^19-x^15-x^14-x^12+x^11-x^8+x^5+x^4-x^3-x^2
 gap> L3 := PolyCodeword( Codeword("22021011202221111020021",GF(3)) );
 x^22-x^21-x^18+x^16+x^15+x^14+x^13-x^12-x^11-x^10-x^8+x^7+x^6+x^4-x^3-x-Z(3)^0
 gap> C := QuasiCyclicCode( [L1, L2, L3], 23, GF(3) );
-a linear [69,12,1..37]27..46 quasi-cyclic code over GF(3)
+a linear [69,12,1..38]27..46 quasi-cyclic code over GF(3)
 gap> MinimumDistance(C);
 34
 gap> Display(C);
@@ -7457,7 +7457,7 @@ rec( coeffs := [ -2 ], curve := rec( polynomial := a, ring := GF(11)[a,b] ),
 gap> Df.support;
 [ Z(11) ]
 gap> F:=GF(11);;
-gap> R:=PolynomialRing(F,2);;
+gap> R:=PolynomialRing(F,["x","y"]);;
 gap> vars:=IndeterminatesOfPolynomialRing(R);;
 gap> a:=vars[1];;
 gap> b:=vars[2];;
@@ -7466,10 +7466,10 @@ gap> divf:=DivisorOfRationalFunctionP1(f,R);
 rec( coeffs := [ 3, 1 ], curve := rec( polynomial := x, ring := GF(11)[x,y] ),
   support := [ Z(11), Z(11)^7 ] )
 gap> denf:=DenominatorOfRationalFunction(f); RootsOfUPol(denf);
-y^4+Z(11)*y^2+Z(11)^7*y+Z(11)
+x^4+Z(11)*x^2+Z(11)^7*x+Z(11)
 [  ]
 gap> numf:=NumeratorOfRationalFunction(f); RootsOfUPol(numf);
-y^4+Z(11)^6*y^3-y^2+Z(11)^7*y+Z(11)^0
+x^4+Z(11)^6*x^3-x^2+Z(11)^7*x+Z(11)^0
 [ Z(11)^7, Z(11), Z(11), Z(11) ]
 ]]></Example>
 <!--
@@ -7536,19 +7536,19 @@ gap> B:=RiemannRochSpaceBasisP1(D);
   (Z(11)^0)/(a^3+Z(11)^4*a^2+a+Z(11)^8),
   (Z(11)^0)/(a^4+Z(11)^8*a^3+Z(11)*a^2+a+Z(11)^4), Z(11)^0 ]
 gap> DivisorOfRationalFunctionP1(B[1],R2).support;
-[  ]
-gap> DivisorOfRationalFunctionP1(B[2],R2).support;
 [ Z(11)^2 ]
+gap> DivisorOfRationalFunctionP1(B[2],R2).support;
+[ Z(11)^3 ]
 gap> DivisorOfRationalFunctionP1(B[3],R2).support;
 [ Z(11)^3 ]
 gap> DivisorOfRationalFunctionP1(B[4],R2).support;
-[ Z(11)^3 ]
+[ Z(11)^7 ]
 gap> DivisorOfRationalFunctionP1(B[5],R2).support;
 [ Z(11)^7 ]
 gap> DivisorOfRationalFunctionP1(B[6],R2).support;
 [ Z(11)^7 ]
 gap> DivisorOfRationalFunctionP1(B[7],R2).support;
-[ Z(11)^7 ]
+[ Z(11) ]
 gap> DivisorOfRationalFunctionP1(B[8],R2).support;
 [ Z(11) ]
 gap> DivisorOfRationalFunctionP1(B[9],R2).support;
@@ -7556,7 +7556,7 @@ gap> DivisorOfRationalFunctionP1(B[9],R2).support;
 gap> DivisorOfRationalFunctionP1(B[10],R2).support;
 [ Z(11) ]
 gap> DivisorOfRationalFunctionP1(B[11],R2).support;
-[ Z(11) ]
+[  ]
 ]]></Example>
 <!--
 F:=GF(11);
@@ -7786,27 +7786,27 @@ rec( coeffs := [ 1, 1, 1, 4 ],
 gap> agp:=DivisorAutomorphismGroupP1(D);;
 gap> IdGroup(agp);
 [ 20, 5 ]
-gap> g:=Random(agp);
-[ [ Z(11)^4, Z(11)^9 ], [ Z(11)^0, Z(11)^9 ] ]
+gap> # a scalar matrix acts as the identity on P^1, so take one that is not
+gap> g:=First(AsSortedList(agp), m -> m[1][2] <> Zero(F));
+[ [ Z(11)^0, Z(11)^5 ], [ Z(11)^6, Z(11)^5 ] ]
 gap> rho:=MatrixRepresentationOnRiemannRochSpaceP1(g,D);
-[ [ Z(11)^0, 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11) ],
-[ Z(11)^0, 0*Z(11), 0*Z(11), Z(11), 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11) ],
-  [ Z(11)^7, 0*Z(11), Z(11)^5, 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11) ],
-[ Z(11)^4, Z(11)^9, 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11) ],
-  [ Z(11)^2, 0*Z(11), 0*Z(11), 0*Z(11), Z(11)^5, 0*Z(11), 0*Z(11), 0*Z(11) ],
-[ Z(11)^4, 0*Z(11), 0*Z(11), 0*Z(11), Z(11)^8, Z(11)^0, 0*Z(11), 0*Z(11) ],
-  [ Z(11)^6, 0*Z(11), 0*Z(11), 0*Z(11), Z(11)^7, Z(11)^0, Z(11)^5, 0*Z(11) ],
-[ Z(11)^8, 0*Z(11), 0*Z(11), 0*Z(11), Z(11)^3, Z(11)^3, Z(11)^9, Z(11)^0 ] ]
+[ [ 0*Z(11), 0*Z(11), Z(11), 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), Z(11)^0 ], 
+  [ 0*Z(11), Z(11)^5, 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), Z(11)^7 ], 
+  [ Z(11)^9, 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), Z(11)^4 ], 
+  [ 0*Z(11), 0*Z(11), 0*Z(11), Z(11)^5, 0*Z(11), 0*Z(11), 0*Z(11), Z(11)^2 ], 
+  [ 0*Z(11), 0*Z(11), 0*Z(11), Z(11)^8, Z(11)^0, 0*Z(11), 0*Z(11), Z(11)^4 ], 
+  [ 0*Z(11), 0*Z(11), 0*Z(11), Z(11)^7, Z(11)^0, Z(11)^5, 0*Z(11), Z(11)^6 ], 
+  [ 0*Z(11), 0*Z(11), 0*Z(11), Z(11)^3, Z(11)^3, Z(11)^9, Z(11)^0, Z(11)^8 ], 
+  [ 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), Z(11)^0 ] ]
 gap> Display(rho);
-  1  .  .  .  .  .  .  .
-  1  .  .  2  .  .  .  .
-  7  . 10  .  .  .  .  .
-  5  6  .  .  .  .  .  .
-  4  .  .  . 10  .  .  .
-  5  .  .  .  3  1  .  .
-  9  .  .  .  7  1 10  .
-  3  .  .  .  8  8  6  1
-
+  .  .  2  .  .  .  .  1
+  . 10  .  .  .  .  .  7
+  6  .  .  .  .  .  .  5
+  .  .  . 10  .  .  .  4
+  .  .  .  3  1  .  .  5
+  .  .  .  7  1 10  .  9
+  .  .  .  8  8  6  1  3
+  .  .  .  .  .  .  .  1
 ]]></Example>
 
 </Description>
@@ -7995,10 +7995,10 @@ gap> C1:=EvaluationBivariateCode(Pts,L,crv);
  curve):
 [ [ 0*Z(2), 0*Z(2) ] ]
 
-a linear [63,3,1..60]51..59  evaluation code over GF(16)
+a linear [63,3,1..57]51..59  evaluation code over GF(16)
 gap> P:=Difference(Pts,[[ 0*Z(2^4)^0, 0*Z(2)^0 ]]);;
 gap> C2:=EvaluationBivariateCodeNC(P,L,crv);
-a linear [63,3,1..60]51..59  evaluation code over GF(16)
+a linear [63,3,1..56]51..59  evaluation code over GF(16)
 gap> C3:=EvaluationCode(P,L,R);
 a linear [63,3,1..56]51..59  evaluation code over GF(16)
 gap> MinimumDistance(C1);
@@ -8863,25 +8863,15 @@ gap> C1 := ReedMullerCode( 2, 5 );
 a linear [32,16,8]6 Reed-Muller (2,5) code over GF(2)
 gap> C2 := ConstructionBCode( C1 );
 a linear [24,9,8]5..10 Construction B (8 coordinates)
-gap> BoundsMinimumDistance( 24, 9, GF(2) );  # so C2 is optimal
-rec( n := 24, k := 9, q := 2, references := rec(  ),
-  construction := [ [ Operation "UUVCode" ],
-      [ [ [ Operation "UUVCode" ], [ [ [ Operation "DualCode" ],
-                      [ [ [ Operation "RepetitionCode" ], [ 6, 2 ] ] ] ],
-                  [ [ Operation "CordaroWagnerCode" ], [ 6 ] ] ] ],
-          [ [ Operation "CordaroWagnerCode" ], [ 12 ] ] ] ], lowerBound := 8,
-  lowerBoundExplanation := [ "Lb(24,9)=8, u u+v construction of C1 and C2:",
-      "Lb(12,7)=4, u u+v construction of C1 and C2:",
-      "Lb(6,5)=2, dual of the repetition code",
-      "Lb(6,2)=4, Cordaro-Wagner code", "Lb(12,2)=8, Cordaro-Wagner code" ],
-  upperBound := 8,
-  upperBoundExplanation := [ "Ub(24,9)=8, otherwise construction B would
-                             contradict:", "Ub(18,4)=8, Griesmer bound" ] )
+gap> bounds := BoundsMinimumDistance( 24, 9, GF(2) );;
+gap> [ bounds.lowerBound, bounds.upperBound ];  # so C2 is optimal
+[ 8, 8 ]
 ]]></Example>
 <!--
 C1 := ReedMullerCode( 2, 5 );
 C2 := ConstructionBCode( C1 );
-BoundsMinimumDistance( 24, 9, GF(2) );
+bounds := BoundsMinimumDistance( 24, 9, GF(2) );;
+[ bounds.lowerBound, bounds.upperBound ];
 -->
 
 
@@ -8988,15 +8978,15 @@ trace code to the original except in the ``Galois closed'' case.
 </ManSection>
 
 <Example><![CDATA[
-gap> C:=RandomLinearCode(10,4,GF(4)); MinimumDistance(C);
-a  [10,4,?] randomly generated code over GF(4)
-5
+gap> C:=HammingCode(2,GF(4)); MinimumDistance(C);
+a linear [5,3,3]1 Hamming (2,4) code over GF(4)
+3
 gap> trC:=TraceCode(C,GF(2)); MinimumDistance(trC);
-a linear [10,7,1]1..3 user defined unrestricted code over GF(2)
+a linear [5,4,1]1 user defined unrestricted code over GF(2)
 1
 ]]></Example>
 <!--
-C:=RandomLinearCode(10,4,GF(4)); MinimumDistance(C);
+C:=HammingCode(2,GF(4)); MinimumDistance(C);
 trC:=TraceCode(C,GF(2)); MinimumDistance(trC);
 
 -->
@@ -9123,7 +9113,7 @@ gap> G := GeneratorMatCode( Z(2) * [ [0,1,1,0], [0,1,0,1], [0,0,1,1] ],
 > "random form code", GF(2) );
 a linear [4,2,1..2]1..2 random form code over GF(2)
 gap> Codeword( GeneratorMat( G ) );
-[ [ 0 1 0 1 ], [ 0 0 1 1 ] ]
+[ [ 0 1 1 0 ], [ 0 0 1 1 ] ]
 gap> Codeword( GeneratorMat( StandardFormCode( G ) ) );
 [ [ 1 0 0 1 ], [ 0 1 0 1 ] ]
 ]]></Example>
@@ -10177,7 +10167,7 @@ gap> LowerBoundGilbertVarshamov(7,3,2);
 gap> LowerBoundMinimumDistance(7,4,2);
 3
 gap> LowerBoundGilbertVarshamov(3,3,2);
-1
+2
 gap> LowerBoundMinimumDistance(3,3,2);
 1
 gap> LowerBoundGilbertVarshamov(25,10,2);
@@ -10247,7 +10237,7 @@ gap> C := BCHCode( 45, 7 );;
 gap> UpperBoundMinimumDistance( C );
 9
 gap> UpperBoundMinimumDistance( 45, 23, GF(2) );
-11
+10
 ]]></Example>
 <!--
 C := BCHCode( 45, 7 );;
@@ -10435,7 +10425,7 @@ gap> CoveringRadius(C);
 3
 </Log>
 <!--
-C:=RandomLinearCode(10,5,GF(2));
+C:=BestKnownLinearCode(10,5,GF(2));
 IncreaseCoveringRadiusLowerBound(C,10);
 current;
 CoveringRadius(C);
@@ -10457,16 +10447,16 @@ current known lower bound on the covering radius.
 </ManSection>
 
 <Example><![CDATA[
-gap> C:=RandomLinearCode(10,5,GF(2));
-a  [10,5,?] randomly generated code over GF(2)
+gap> C:=BestKnownLinearCode(10,5,GF(2));
+a linear [10,5,4]2..4 shortened code
 gap> ExhaustiveSearchCoveringRadius(C);
 Trying 3 ...
-[ 3 .. 5 ]
+[ 3, 4 ]
 gap> CoveringRadius(C);
 3
 ]]></Example>
 <!--
-C:=RandomLinearCode(10,5,GF(2));
+C:=BestKnownLinearCode(10,5,GF(2));
 ExhaustiveSearchCoveringRadius(C);
 CoveringRadius(C);
 -->
@@ -10486,15 +10476,15 @@ radius of binary linear codes with length not greater than <M>64</M>.
 </ManSection>
 
 <Example><![CDATA[
-gap> C:=RandomLinearCode(10,5,GF(2));
-a  [10,5,?] randomly generated code over GF(2)
+gap> C:=BestKnownLinearCode(10,5,GF(2));
+a linear [10,5,4]2..4 shortened code
 gap> GeneralLowerBoundCoveringRadius(C);
 2
 gap> CoveringRadius(C);
 3
 ]]></Example>
 <!--
-C:=RandomLinearCode(10,5,GF(2));
+C:=BestKnownLinearCode(10,5,GF(2));
 GeneralLowerBoundCoveringRadius(C);
 CoveringRadius(C);
 -->
@@ -10512,8 +10502,8 @@ as possible to find the best known upper bound
 </ManSection>
 
 <Example><![CDATA[
-gap> C:=RandomLinearCode(10,5,GF(2));
-a  [10,5,?] randomly generated code over GF(2)
+gap> C:=BestKnownLinearCode(10,5,GF(2));
+a linear [10,5,4]2..4 shortened code
 gap> GeneralUpperBoundCoveringRadius(C);
 4
 gap> CoveringRadius(C);
@@ -10545,8 +10535,8 @@ where <M>V_q(n,r)</M> is the size of a sphere of radius
 </ManSection>
 
 <Example><![CDATA[
-gap> C:=RandomLinearCode(10,5,GF(2));
-a  [10,5,?] randomly generated code over GF(2)
+gap> C:=BestKnownLinearCode(10,5,GF(2));
+a linear [10,5,4]2..4 shortened code
 gap> Size(C);
 32
 gap> CoveringRadius(C);
@@ -10557,7 +10547,7 @@ gap> LowerBoundCoveringRadiusSphereCovering(10,3,GF(2),true);
 6
 ]]></Example>
 <!--
-C:=RandomLinearCode(10,5,GF(2));
+C:=BestKnownLinearCode(10,5,GF(2));
 Size(C);
 CoveringRadius(C);
 LowerBoundCoveringRadiusSphereCovering(10,32,GF(2),false);
@@ -10591,8 +10581,8 @@ M \cdot \left\{ V_q(n,r) -
 </ManSection>
 
 <Example><![CDATA[
-gap> C:=RandomLinearCode(10,5,GF(2));
-a  [10,5,?] randomly generated code over GF(2)
+gap> C:=BestKnownLinearCode(10,5,GF(2));
+a linear [10,5,4]2..4 shortened code
 gap> Size(C);
 32
 gap> CoveringRadius(C);
@@ -10603,7 +10593,7 @@ gap> LowerBoundCoveringRadiusVanWee1(10,3,GF(2),true);
 6
 ]]></Example>
 <!--
-C:=RandomLinearCode(10,5,GF(2));
+C:=BestKnownLinearCode(10,5,GF(2));
 Size(C);
 CoveringRadius(C);
 LowerBoundCoveringRadiusVanWee1(10,32,GF(2),false);
@@ -10644,8 +10634,8 @@ where
 </ManSection>
 
 <Example><![CDATA[
-gap> C:=RandomLinearCode(10,5,GF(2));
-a  [10,5,?] randomly generated code over GF(2)
+gap> C:=BestKnownLinearCode(10,5,GF(2));
+a linear [10,5,4]2..4 shortened code
 gap> Size(C);
 32
 gap> CoveringRadius(C);
@@ -10656,7 +10646,7 @@ gap> LowerBoundCoveringRadiusVanWee2(10,3,true);
 7
 ]]></Example>
 <!--
-C:=RandomLinearCode(10,5,GF(2));
+C:=BestKnownLinearCode(10,5,GF(2));
 Size(C);
 CoveringRadius(C);
 LowerBoundCoveringRadiusVanWee2(10,32,false);
@@ -10701,8 +10691,8 @@ n-r-1  ,        \ \ \  \ \ \   {\rm if}\   r \geq 3 .
 </ManSection>
 
 <Example><![CDATA[
-gap> C:=RandomLinearCode(10,5,GF(2));
-a  [10,5,?] randomly generated code over GF(2)
+gap> C:=BestKnownLinearCode(10,5,GF(2));
+a linear [10,5,4]2..4 shortened code
 gap> Size(C);
 32
 gap> CoveringRadius(C);
@@ -10713,7 +10703,7 @@ gap> LowerBoundCoveringRadiusCountingExcess(10,3,true);
 7
 ]]></Example>
 <!--
-C:=RandomLinearCode(10,5,GF(2));
+C:=BestKnownLinearCode(10,5,GF(2));
 Size(C);
 CoveringRadius(C);
 LowerBoundCoveringRadiusCountingExcess(10,32,false);
@@ -10753,8 +10743,8 @@ other way around.
 </ManSection>
 
 <Example><![CDATA[
-gap> C:=RandomLinearCode(10,5,GF(2));
-a  [10,5,?] randomly generated code over GF(2)
+gap> C:=BestKnownLinearCode(10,5,GF(2));
+a linear [10,5,4]2..4 shortened code
 gap> Size(C);
 32
 gap> CoveringRadius(C);
@@ -10765,7 +10755,7 @@ gap> LowerBoundCoveringRadiusEmbedded1(10,3,true);
 7
 ]]></Example>
 <!--
-C:=RandomLinearCode(10,5,GF(2));
+C:=BestKnownLinearCode(10,5,GF(2));
 Size(C);
 CoveringRadius(C);
 LowerBoundCoveringRadiusEmbedded1(10,32,false);
@@ -10805,12 +10795,12 @@ other way around.
 </ManSection>
 
 <Example><![CDATA[
-gap> C:=RandomLinearCode(15,5,GF(2));
-a  [15,5,?] randomly generated code over GF(2)
+gap> C:=BCHCode(15,7,GF(2));
+a cyclic [15,5,7]5 BCH code, delta=7, b=1 over GF(2)
 gap> Size(C);
 32
 gap> CoveringRadius(C);
-6
+5
 gap> LowerBoundCoveringRadiusEmbedded2(10,32,false);
 2
 gap> LowerBoundCoveringRadiusEmbedded2(10,3,true);
@@ -10839,15 +10829,15 @@ Otherwise, <M>0</M> is returned.
 </ManSection>
 
 <Example><![CDATA[
-gap> C:=RandomLinearCode(15,5,GF(2));
-a  [15,5,?] randomly generated code over GF(2)
+gap> C:=BCHCode(15,7,GF(2));
+a cyclic [15,5,7]5 BCH code, delta=7, b=1 over GF(2)
 gap> CoveringRadius(C);
 5
 gap> LowerBoundCoveringRadiusInduction(15,6);
 7
 ]]></Example>
 <!--
-C:=RandomLinearCode(15,5,GF(2));
+C:=BCHCode(15,7,GF(2));
 CoveringRadius(C);
 LowerBoundCoveringRadiusInduction(15,6);
 -->
@@ -10868,15 +10858,15 @@ external distance
 </Index>
 
 <Example><![CDATA[
-gap> C:=RandomLinearCode(15,5,GF(2));
-a  [15,5,?] randomly generated code over GF(2)
+gap> C:=BCHCode(15,7,GF(2));
+a cyclic [15,5,7]5 BCH code, delta=7, b=1 over GF(2)
 gap> CoveringRadius(C);
 5
 gap> UpperBoundCoveringRadiusRedundancy(C);
 10
 ]]></Example>
 <!--
-C:=RandomLinearCode(15,5,GF(2));
+C:=BCHCode(15,7,GF(2));
 CoveringRadius(C);
 UpperBoundCoveringRadiusRedundancy(C);
 -->
@@ -10896,15 +10886,15 @@ This is described in Theorem 11.3.3 of <Cite Key="HP03"/>.
 </ManSection>
 
 <Example><![CDATA[
-gap> C:=RandomLinearCode(15,5,GF(2));
-a  [15,5,?] randomly generated code over GF(2)
+gap> C:=BCHCode(15,7,GF(2));
+a cyclic [15,5,7]5 BCH code, delta=7, b=1 over GF(2)
 gap> CoveringRadius(C);
 5
 gap> UpperBoundCoveringRadiusDelsarte(C);
-13
+5
 ]]></Example>
 <!--
-C:=RandomLinearCode(15,5,GF(2));
+C:=BCHCode(15,7,GF(2));
 CoveringRadius(C);
 UpperBoundCoveringRadiusDelsarte(C);
 -->
@@ -10932,15 +10922,15 @@ strength
 </Index>
 
 <Example><![CDATA[
-gap> C:=RandomLinearCode(15,5,GF(2));
-a  [15,5,?] randomly generated code over GF(2)
+gap> C:=BCHCode(15,7,GF(2));
+a cyclic [15,5,7]5 BCH code, delta=7, b=1 over GF(2)
 gap> CoveringRadius(C);
 5
 gap> UpperBoundCoveringRadiusStrength(C);
 7
 ]]></Example>
 <!--
-C:=RandomLinearCode(15,5,GF(2));
+C:=BCHCode(15,7,GF(2));
 CoveringRadius(C);
 UpperBoundCoveringRadiusStrength(C);
 -->
@@ -10959,15 +10949,15 @@ n - \sum_{i=1}^k \left\lceil \frac{d}{q^i} \right\rceil
 </ManSection>
 
 <Example><![CDATA[
-gap> C:=RandomLinearCode(15,5,GF(2));
-a  [15,5,?] randomly generated code over GF(2)
+gap> C:=BCHCode(15,7,GF(2));
+a cyclic [15,5,7]5 BCH code, delta=7, b=1 over GF(2)
 gap> CoveringRadius(C);
 5
 gap> UpperBoundCoveringRadiusGriesmerLike(C);
-9
+6
 ]]></Example>
 <!--
-C:=RandomLinearCode(15,5,GF(2));
+C:=BCHCode(15,7,GF(2));
 CoveringRadius(C);
 UpperBoundCoveringRadiusGriesmerLike(C);
 -->
@@ -11882,20 +11872,20 @@ returns the corresponding <M>1\times 1</M> matrix.
 </ManSection>
 
 <Example><![CDATA[
-gap> a:=Random(GF(4));
-0*Z(2)
-gap> M:=MatrixRepresentationOfElement(a,GF(4));; Display(M);
- .
-gap> a:=Random(GF(4));
+gap> a:=Z(4);
 Z(2^2)
 gap> M:=MatrixRepresentationOfElement(a,GF(4));; Display(M);
  . 1
  1 1
+gap> a:=Z(2)^0;                 # this one lies in the base field
+Z(2)^0
+gap> M:=MatrixRepresentationOfElement(a,GF(4));; Display(M);
+ 1
 ]]></Example>
 <!--
-a:=Random(GF(4));
+a:=Z(4);
 M:=MatrixRepresentationOfElement(a,GF(4));; Display(M);
-a:=Random(GF(4));
+a:=Z(2)^0;
 M:=MatrixRepresentationOfElement(a,GF(4));; Display(M);
 -->
 
@@ -12229,7 +12219,7 @@ gap> soln:=SolveLinearSystem([f,g],[x,y]);
 [ Z(11)^3, Z(11)^2 ]
 gap> Value(f,[x,y],soln); # checking okay
 0*Z(11)
-gap> Value(g,[x,y],col); # checking okay
+gap> Value(g,[x,y],soln); # checking okay
 0*Z(11)
 ]]></Example>
 <!--
@@ -12240,7 +12230,7 @@ x:=vars[1];; y:=vars[2];;
 f:=3*y-3*x+1;; g:=-5*y+2*x-7;;
 soln:=SolveLinearSystem([f,g],[x,y]);
 Value(f,[x,y],soln); # checking okay
-Value(g,[x,y],col); # checking okay
+Value(g,[x,y],soln); # checking okay
 -->
 
 

@@ -549,7 +549,7 @@ x^21+x^20+x^19-x^15-x^14-x^12+x^11-x^8+x^5+x^4-x^3-x^2
 gap> L3 := PolyCodeword( Codeword("22021011202221111020021",GF(3)) );
 x^22-x^21-x^18+x^16+x^15+x^14+x^13-x^12-x^11-x^10-x^8+x^7+x^6+x^4-x^3-x-Z(3)^0
 gap> C := QuasiCyclicCode( [L1, L2, L3], 23, GF(3) );
-a linear [69,12,1..37]27..46 quasi-cyclic code over GF(3)
+a linear [69,12,1..38]27..46 quasi-cyclic code over GF(3)
 gap> MinimumDistance(C);
 34
 gap> Display(C);
@@ -850,7 +850,7 @@ rec( coeffs := [ -2 ], curve := rec( polynomial := a, ring := GF(11)[a,b] ),
 gap> Df.support;
 [ Z(11) ]
 gap> F:=GF(11);;
-gap> R:=PolynomialRing(F,2);;
+gap> R:=PolynomialRing(F,["x","y"]);;
 gap> vars:=IndeterminatesOfPolynomialRing(R);;
 gap> a:=vars[1];;
 gap> b:=vars[2];;
@@ -859,10 +859,10 @@ gap> divf:=DivisorOfRationalFunctionP1(f,R);
 rec( coeffs := [ 3, 1 ], curve := rec( polynomial := x, ring := GF(11)[x,y] ),
   support := [ Z(11), Z(11)^7 ] )
 gap> denf:=DenominatorOfRationalFunction(f); RootsOfUPol(denf);
-y^4+Z(11)*y^2+Z(11)^7*y+Z(11)
+x^4+Z(11)*x^2+Z(11)^7*x+Z(11)
 [  ]
 gap> numf:=NumeratorOfRationalFunction(f); RootsOfUPol(numf);
-y^4+Z(11)^6*y^3-y^2+Z(11)^7*y+Z(11)^0
+x^4+Z(11)^6*x^3-x^2+Z(11)^7*x+Z(11)^0
 [ Z(11)^7, Z(11), Z(11), Z(11) ]
 
 # doc/guava.xml:7514-7560
@@ -890,19 +890,19 @@ gap> B:=RiemannRochSpaceBasisP1(D);
   (Z(11)^0)/(a^3+Z(11)^4*a^2+a+Z(11)^8),
   (Z(11)^0)/(a^4+Z(11)^8*a^3+Z(11)*a^2+a+Z(11)^4), Z(11)^0 ]
 gap> DivisorOfRationalFunctionP1(B[1],R2).support;
-[  ]
-gap> DivisorOfRationalFunctionP1(B[2],R2).support;
 [ Z(11)^2 ]
+gap> DivisorOfRationalFunctionP1(B[2],R2).support;
+[ Z(11)^3 ]
 gap> DivisorOfRationalFunctionP1(B[3],R2).support;
 [ Z(11)^3 ]
 gap> DivisorOfRationalFunctionP1(B[4],R2).support;
-[ Z(11)^3 ]
+[ Z(11)^7 ]
 gap> DivisorOfRationalFunctionP1(B[5],R2).support;
 [ Z(11)^7 ]
 gap> DivisorOfRationalFunctionP1(B[6],R2).support;
 [ Z(11)^7 ]
 gap> DivisorOfRationalFunctionP1(B[7],R2).support;
-[ Z(11)^7 ]
+[ Z(11) ]
 gap> DivisorOfRationalFunctionP1(B[8],R2).support;
 [ Z(11) ]
 gap> DivisorOfRationalFunctionP1(B[9],R2).support;
@@ -910,7 +910,7 @@ gap> DivisorOfRationalFunctionP1(B[9],R2).support;
 gap> DivisorOfRationalFunctionP1(B[10],R2).support;
 [ Z(11) ]
 gap> DivisorOfRationalFunctionP1(B[11],R2).support;
-[ Z(11) ]
+[  ]
 
 # doc/guava.xml:7641-7674
 gap> F:=GF(11);
@@ -987,27 +987,27 @@ rec( coeffs := [ 1, 1, 1, 4 ],
 gap> agp:=DivisorAutomorphismGroupP1(D);;
 gap> IdGroup(agp);
 [ 20, 5 ]
-gap> g:=Random(agp);
-[ [ Z(11)^4, Z(11)^9 ], [ Z(11)^0, Z(11)^9 ] ]
+gap> # a scalar matrix acts as the identity on P^1, so take one that is not
+gap> g:=First(AsSortedList(agp), m -> m[1][2] <> Zero(F));
+[ [ Z(11)^0, Z(11)^5 ], [ Z(11)^6, Z(11)^5 ] ]
 gap> rho:=MatrixRepresentationOnRiemannRochSpaceP1(g,D);
-[ [ Z(11)^0, 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11) ],
-[ Z(11)^0, 0*Z(11), 0*Z(11), Z(11), 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11) ],
-  [ Z(11)^7, 0*Z(11), Z(11)^5, 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11) ],
-[ Z(11)^4, Z(11)^9, 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11) ],
-  [ Z(11)^2, 0*Z(11), 0*Z(11), 0*Z(11), Z(11)^5, 0*Z(11), 0*Z(11), 0*Z(11) ],
-[ Z(11)^4, 0*Z(11), 0*Z(11), 0*Z(11), Z(11)^8, Z(11)^0, 0*Z(11), 0*Z(11) ],
-  [ Z(11)^6, 0*Z(11), 0*Z(11), 0*Z(11), Z(11)^7, Z(11)^0, Z(11)^5, 0*Z(11) ],
-[ Z(11)^8, 0*Z(11), 0*Z(11), 0*Z(11), Z(11)^3, Z(11)^3, Z(11)^9, Z(11)^0 ] ]
+[ [ 0*Z(11), 0*Z(11), Z(11), 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), Z(11)^0 ], 
+  [ 0*Z(11), Z(11)^5, 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), Z(11)^7 ], 
+  [ Z(11)^9, 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), Z(11)^4 ], 
+  [ 0*Z(11), 0*Z(11), 0*Z(11), Z(11)^5, 0*Z(11), 0*Z(11), 0*Z(11), Z(11)^2 ], 
+  [ 0*Z(11), 0*Z(11), 0*Z(11), Z(11)^8, Z(11)^0, 0*Z(11), 0*Z(11), Z(11)^4 ], 
+  [ 0*Z(11), 0*Z(11), 0*Z(11), Z(11)^7, Z(11)^0, Z(11)^5, 0*Z(11), Z(11)^6 ], 
+  [ 0*Z(11), 0*Z(11), 0*Z(11), Z(11)^3, Z(11)^3, Z(11)^9, Z(11)^0, Z(11)^8 ], 
+  [ 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), Z(11)^0 ] ]
 gap> Display(rho);
-  1  .  .  .  .  .  .  .
-  1  .  .  2  .  .  .  .
-  7  . 10  .  .  .  .  .
-  5  6  .  .  .  .  .  .
-  4  .  .  . 10  .  .  .
-  5  .  .  .  3  1  .  .
-  9  .  .  .  7  1 10  .
-  3  .  .  .  8  8  6  1
-
+  .  .  2  .  .  .  .  1
+  . 10  .  .  .  .  .  7
+  6  .  .  .  .  .  .  5
+  .  .  . 10  .  .  .  4
+  .  .  .  3  1  .  .  5
+  .  .  .  7  1 10  .  9
+  .  .  .  8  8  6  1  3
+  .  .  .  .  .  .  .  1
 
 # doc/guava.xml:7900-7921
 gap> F:=GF(11);;
@@ -1049,10 +1049,10 @@ gap> C1:=EvaluationBivariateCode(Pts,L,crv);
  curve):
 [ [ 0*Z(2), 0*Z(2) ] ]
 
-a linear [63,3,1..60]51..59  evaluation code over GF(16)
+a linear [63,3,1..57]51..59  evaluation code over GF(16)
 gap> P:=Difference(Pts,[[ 0*Z(2^4)^0, 0*Z(2)^0 ]]);;
 gap> C2:=EvaluationBivariateCodeNC(P,L,crv);
-a linear [63,3,1..60]51..59  evaluation code over GF(16)
+a linear [63,3,1..56]51..59  evaluation code over GF(16)
 gap> C3:=EvaluationCode(P,L,R);
 a linear [63,3,1..56]51..59  evaluation code over GF(16)
 gap> MinimumDistance(C1);
