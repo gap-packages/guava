@@ -69,7 +69,7 @@ Joe Fields (Maintainer)
 <Date>&RELEASEDATE;</Date>    <!-- OPTIONAL -->
 <Copyright>     <!-- OPTIONAL -->
 <Package>GUAVA</Package>: &copyright; The GUAVA Group: 1992-2003
-Jasper Cramwinckel, Erik Roijackers,Reinald Baart, Eric Minkes,
+Jasper Cramwinckel, Erik Roijackers, Reinald Baart, Eric Minkes,
 Lea Ruscio (for the tex version), Jeffrey Leon
 &copyright; 2004 David Joyner, Cen Tjhai, Jasper Cramwinckel, Erik Roijackers,
 Reinald Baart, Eric Minkes, Lea Ruscio.
@@ -133,7 +133,7 @@ Erik Roijackers, and Reinald Baart in the early-to-mid
 1990's as a final project during their study of Mathematics at the
 Delft University of Technology, Department of Pure Mathematics,
 under the direction of Professor Juriaan Simonis.
-This work was continued in Aachen, at Lehrstuhl D fur Mathematik.
+This work was continued in Aachen, at Lehrstuhl D f&#xfc;r Mathematik.
 In version 1.3, new functions were added by Eric Minkes, also from Delft
 University of Technology.
 <P/>
@@ -599,12 +599,12 @@ Sections <Ref Label="Comparisons of Codewords" Style="Number"/>  and
 describe the arithmetic operations applicable to codewords.
 Section
 <Ref Label="convert Codewords to Vectors or Polynomials" Style="Number"/>
-describe functions that convert codewords back to vectors or polynomials
+describes functions that convert codewords back to vectors or polynomials
 (see
 <Ref Func="VectorCodeword" Style="Number"/> and
 <Ref Func="PolyCodeword" Style="Number"/>).
 Section <Ref Label="Functions that Change the Display Form of a Codeword"
-Style="Number"/>  describe
+Style="Number"/>  describes
 functions  that  change  the   way   a   codeword   is   displayed   (see
 <Ref Func="TreatAsVector" Style="Number"/> and
 <Ref Func="TreatAsPoly" Style="Number"/>).
@@ -636,7 +636,7 @@ have  length <Arg>n</Arg>.
 This is the only way to make sure that all elements of
 <Arg>obj</Arg> are converted to codewords of the same length.
 Elements of <Arg>obj</Arg> that are
-longer than <Arg>n</Arg> are reduced in length by cutting of the last
+longer than <Arg>n</Arg> are reduced in length by cutting off the last
 positions. Elements of <Arg>obj</Arg> that are
 shorter than <Arg>n</Arg> are lengthened by
 adding zeros at the end. If no <Arg>n</Arg> is specified, each constructed
@@ -1495,14 +1495,14 @@ Sections <Ref Label="Comparisons of Codes" Style="Number"/> and
 <Ref Label="Operations for Codes" Style="Number"/>  describe  the
 operations that are available for codes.
 
-Section <Ref Label="Boolean Functions for Codes" Style="Number"/> describe
-the functions  that  tests
+Section <Ref Label="Boolean Functions for Codes" Style="Number"/> describes
+the functions  that  test
 whether an object is a code and what kind of code it  is  (see <C>IsCode</C>,
 <Ref Func="IsLinearCode" Style="Number"/> and <C>IsCyclicCode</C>)
 and various  other  boolean  functions for codes.
 
 Section <Ref Label="Equivalence and Isomorphism of Codes" Style="Number"/>
-describe functions about equivalence and isomorphism of
+describes functions about equivalence and isomorphism of
 codes (see <Ref Func="IsEquivalent" Style="Number"/>,
 <Ref Func="CodeIsomorphism" Style="Number"/> and
 <Ref Func="AutomorphismGroup" Style="Number"/>).
@@ -2378,7 +2378,7 @@ much slower program <C>PermutationAutomorphismGroup</C>.
 <P/>
 See Leon <Cite Key="Leon82"/> for a more precise description of the
 method, and the <File>guava/src/leon/doc</File> subdirectory for
-for details about Leon's C programs.
+details about Leon's C programs.
 <P/>
 The function <C>PermutedCode</C>
 permutes the columns of a code (see
@@ -3022,7 +3022,7 @@ matrix <M>A</M>. If <M>A=0</M> then return <M>d(C)=1</M>.
 Next, find the minimum distance of the code spanned by the
 rows of <M>A</M>. Call this distance <M>d(A)</M>.
 Note that <M>d(A)</M> is equal to the
-the Hamming distance <M>d(v,0)</M> where <M>v</M>
+Hamming distance <M>d(v,0)</M> where <M>v</M>
 is some proper linear combination of <M>i</M>
 distinct rows of <M>A</M>.
 Return <M>d(C)=d(A)+i</M>, where <M>i</M> is as in the previous step.
@@ -5259,7 +5259,7 @@ blocks. Hence the rows and the columns of the incidence
 matrix <M>M</M> of the design are always of constant weight.
 <P/>
 <C>FerreroDesignCode</C>
-constructs binary linear code arising from the incdence
+constructs binary linear code arising from the incidence
 matrix of a design associated to a "Ferrero pair" arising
 from a fixed-point-free (fpf) automorphism groups and Frobenius group.
 <P/>
@@ -5353,7 +5353,7 @@ Display(C);
 The method <Package>GUAVA</Package> chooses to output the result of a
 <C>RandomLinearCode</C> command is different than other codes.
 For example, the bounds on the minimum distance is not displayed.
-Howeer, you can use the <C>Display</C> command to print this information.
+However, you can use the <C>Display</C> command to print this information.
 This new display method was added in version 1.9 to speed up
 the command (if <M>n</M> is about 80 and
 <M>k</M> about 40, for example, the time it took to
@@ -6603,7 +6603,7 @@ GeneratorPol(C);
 
 	<Description>
 		A four-negacirculant self-dual code has a generator matrix
-		<M>G</M> of the the following form
+		<M>G</M> of the following form
 
 		<Verb>
     -                    -
@@ -6807,7 +6807,7 @@ See also the generalized Reed--Solomon code <M>GRS_k(P, V)</M> described
 in <Cite Key="MS83"/>, p.303.
 
 <P/>
-The list-decoding algorithm of Sudan-Guraswami
+The list-decoding algorithm of Sudan-Guruswami
 (described in section 12.1 of <Cite Key="JH04"/>) has
 been implemented for generalized Reed-Solomon codes.
 See <Ref Func="GeneralizedReedSolomonListDecoder" Style="Number"/>.
@@ -9805,7 +9805,7 @@ bounds on the size and minimum distance of codes. Several algorithms are
 known to compute a largest  number of words a code can have with  given
 length and minimum distance. It is important however to understand that
 in some cases the true upper bound is unknown.  A code which has a  size
-equalto the calculated upper bound may not have been found.  However,
+equal to the calculated upper bound may not have been found.  However,
 codes that have a larger size do not exist.
 <P/>
 A second way to obtain bounds is a table. In
