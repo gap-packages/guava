@@ -1001,7 +1001,11 @@ function(C)
                      sum := sum + 1;
                 fi;
             od;
-            if sum < mwg then
+            # The minimum distance is over the nonzero codewords, so a zero
+            # row is not a candidate.  Some constructors leave zero rows in
+            # the generator matrix -- OnePointAGCode returns eleven rows for
+            # an eight dimensional code -- and those made the bound 0.
+            if sum > 0 and sum < mwg then
                  mwg := sum;
             fi;
         od;

@@ -8074,7 +8074,7 @@ gap> indets := IndeterminatesOfPolynomialRing(R);
 gap> x:=indets[1];; y:=indets[2];;
 gap> P:=AffinePointsOnCurve(y^2-x^11+x,R,F);;
 gap> C:=OnePointAGCode(y^2-x^11+x,P,15,R);
-a linear [11,8,1..0]2..3  one-point AG code over GF(11)
+a linear [11,8,1..4]2..3  one-point AG code over GF(11)
 gap> MinimumDistance(C);
 4
 gap> Pts:=List([1,2,4,6,7,8,9,10,11],i->P[i]);;

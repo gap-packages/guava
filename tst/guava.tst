@@ -622,7 +622,7 @@ gap> P:=AffinePointsOnCurve(y^2-x^11+x,R,F);
   [ Z(11)^3, 0*Z(11) ], [ Z(11)^2, 0*Z(11) ], [ Z(11), 0*Z(11) ], 
   [ Z(11)^0, 0*Z(11) ], [ 0*Z(11), 0*Z(11) ] ]
 gap> C:=OnePointAGCode(y^2-x^11+x,P,15,R);
-a linear [11,8,1..0]2..3  one-point AG code over GF(11)
+a linear [11,8,1..4]2..3  one-point AG code over GF(11)
 gap> Cd := DualCode(C);
 a linear [11,3,1..9]6..8 dual code
 gap> MinimumDistance(Cd);
