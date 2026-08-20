@@ -9123,7 +9123,7 @@ gap> G := GeneratorMatCode( Z(2) * [ [0,1,1,0], [0,1,0,1], [0,0,1,1] ],
 > "random form code", GF(2) );
 a linear [4,2,1..2]1..2 random form code over GF(2)
 gap> Codeword( GeneratorMat( G ) );
-[ [ 0 1 0 1 ], [ 0 0 1 1 ] ]
+[ [ 0 1 1 0 ], [ 0 0 1 1 ] ]
 gap> Codeword( GeneratorMat( StandardFormCode( G ) ) );
 [ [ 1 0 0 1 ], [ 0 1 0 1 ] ]
 ]]></Example>
