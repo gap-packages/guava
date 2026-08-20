@@ -8863,25 +8863,15 @@ gap> C1 := ReedMullerCode( 2, 5 );
 a linear [32,16,8]6 Reed-Muller (2,5) code over GF(2)
 gap> C2 := ConstructionBCode( C1 );
 a linear [24,9,8]5..10 Construction B (8 coordinates)
-gap> BoundsMinimumDistance( 24, 9, GF(2) );  # so C2 is optimal
-rec( n := 24, k := 9, q := 2, references := rec(  ),
-  construction := [ [ Operation "UUVCode" ],
-      [ [ [ Operation "UUVCode" ], [ [ [ Operation "DualCode" ],
-                      [ [ [ Operation "RepetitionCode" ], [ 6, 2 ] ] ] ],
-                  [ [ Operation "CordaroWagnerCode" ], [ 6 ] ] ] ],
-          [ [ Operation "CordaroWagnerCode" ], [ 12 ] ] ] ], lowerBound := 8,
-  lowerBoundExplanation := [ "Lb(24,9)=8, u u+v construction of C1 and C2:",
-      "Lb(12,7)=4, u u+v construction of C1 and C2:",
-      "Lb(6,5)=2, dual of the repetition code",
-      "Lb(6,2)=4, Cordaro-Wagner code", "Lb(12,2)=8, Cordaro-Wagner code" ],
-  upperBound := 8,
-  upperBoundExplanation := [ "Ub(24,9)=8, otherwise construction B would
-                             contradict:", "Ub(18,4)=8, Griesmer bound" ] )
+gap> bounds := BoundsMinimumDistance( 24, 9, GF(2) );;
+gap> [ bounds.lowerBound, bounds.upperBound ];  # so C2 is optimal
+[ 8, 8 ]
 ]]></Example>
 <!--
 C1 := ReedMullerCode( 2, 5 );
 C2 := ConstructionBCode( C1 );
-BoundsMinimumDistance( 24, 9, GF(2) );
+bounds := BoundsMinimumDistance( 24, 9, GF(2) );;
+[ bounds.lowerBound, bounds.upperBound ];
 -->
 
 

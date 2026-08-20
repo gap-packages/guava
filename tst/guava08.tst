@@ -10,7 +10,7 @@
 #
 gap> START_TEST("guava08.tst");
 
-# doc/guava.xml:12487-12506
+# doc/guava.xml:12477-12496
 gap> F:=GF(3);;
 gap> x:= Indeterminate( F, "x" );; pol:= x^2+1;
 x^2+Z(3)^0
@@ -30,7 +30,7 @@ gap> G:=GeneratorMat(C);
 gap> AClosestVectorCombinationsMatFFEVecFFE(G,F,v,1,1);
 [ 0*Z(3), 0*Z(3), 0*Z(3), 0*Z(3), 0*Z(3), Z(3)^0, 0*Z(3), Z(3)^0 ]
 
-# doc/guava.xml:12530-12542
+# doc/guava.xml:12520-12532
 gap> F:=GF(3);;
 gap> x:= Indeterminate( F, "x" );; pol:= x^2+1;
 x^2+Z(3)^0
@@ -43,7 +43,7 @@ gap> AClosestVectorCombinationsMatFFEVecFFECoords(G,F,v,1,1);
 [ [ 0*Z(3), 0*Z(3), 0*Z(3), 0*Z(3), 0*Z(3), Z(3)^0, 0*Z(3), Z(3)^0 ],
   [ 0*Z(3), 0*Z(3), 0*Z(3), 0*Z(3), 0*Z(3), Z(3)^0 ] ]
 
-# doc/guava.xml:12566-12576
+# doc/guava.xml:12556-12566
 gap> v:=[ Z(3)^0, Z(3), Z(3)^0, 0*Z(3), Z(3)^0, Z(3)^0, Z(3)^0, Z(3)^0 ];;
 gap> vecs:=[ [ Z(3)^0, 0*Z(3), Z(3)^0, 0*Z(3), 0*Z(3), 0*Z(3), 0*Z(3), 0*Z(3) ],
 >   [ 0*Z(3), Z(3)^0, 0*Z(3), Z(3)^0, 0*Z(3), 0*Z(3), 0*Z(3), 0*Z(3) ],
@@ -54,7 +54,7 @@ gap> vecs:=[ [ Z(3)^0, 0*Z(3), Z(3)^0, 0*Z(3), 0*Z(3), 0*Z(3), 0*Z(3), 0*Z(3) ],
 gap> DistancesDistributionMatFFEVecFFE(vecs,GF(3),v);
 [ 0, 4, 6, 60, 109, 216, 192, 112, 30 ]
 
-# doc/guava.xml:12605-12615
+# doc/guava.xml:12595-12605
 gap> v:=[ Z(3)^0, Z(3), Z(3)^0, 0*Z(3), Z(3)^0, Z(3)^0, Z(3)^0, Z(3)^0 ];;
 gap> vecs:=[ [ Z(3)^0, 0*Z(3), Z(3)^0, 0*Z(3), 0*Z(3), 0*Z(3), 0*Z(3), 0*Z(3) ],
 >   [ 0*Z(3), Z(3)^0, 0*Z(3), Z(3)^0, 0*Z(3), 0*Z(3), 0*Z(3), 0*Z(3) ],
@@ -65,12 +65,12 @@ gap> vecs:=[ [ Z(3)^0, 0*Z(3), Z(3)^0, 0*Z(3), 0*Z(3), 0*Z(3), 0*Z(3), 0*Z(3) ],
 gap> DistancesDistributionVecFFEsVecFFE(vecs,v);
 [ 0, 0, 0, 0, 0, 4, 0, 1, 1 ]
 
-# doc/guava.xml:12637-12641
+# doc/guava.xml:12627-12631
 gap> v:=[ Z(3)^0, Z(3), Z(3)^0, 0*Z(3), Z(3)^0, Z(3)^0, Z(3)^0, Z(3)^0 ];;
 gap> WeightVecFFE(v);
 7
 
-# doc/guava.xml:12671-12676
+# doc/guava.xml:12661-12666
 gap> v1:=[ Z(3)^0, Z(3), Z(3)^0, 0*Z(3), Z(3)^0, Z(3)^0, Z(3)^0, Z(3)^0 ];;
 gap> v2:=[ Z(3), Z(3)^0, Z(3)^0, 0*Z(3), Z(3)^0, Z(3)^0, Z(3)^0, Z(3)^0 ];;
 gap> DistanceVecFFE(v1,v2);
