@@ -989,12 +989,23 @@ end);
 InstallMethod(MinimumWeightOfGenerators, "linear codes", true,
     [IsLinearCode], 0,
 function(C)
-    local zero, mwg, sum, element, row;
+    local zero, mwg, sum, element, row, G;
     zero := Zero(LeftActingDomain(C));
     mwg := WordLength(C);
     if Dimension(C) > 0 then
         # minimumWeightOfGenerators for null codes is n
-        for row in GeneratorMat(C) do
+        #
+        # Reduce first.  Every generator is a codeword, so any of them bounds
+        # the minimum distance, but which ones we are holding is an accident
+        # of how the code was built, and of how GAP happens to reduce.  The
+        # reduced row echelon form is determined by the code and its
+        # coordinate order alone, so the bound stops moving when either
+        # changes.  It is not systematically tighter -- on random codes the
+        # two are within a coin flip of each other -- but it is the same
+        # answer every time.
+        G := Filtered(TriangulizedMat(MutableCopyMat(GeneratorMat(C))),
+                      row -> not IsZero(row));
+        for row in G do
             sum := 0;
             for element in row do
                 if element <> zero then
