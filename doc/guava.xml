@@ -197,8 +197,8 @@ see the <F>src/leon/doc</F> subdirectory of <Package>GUAVA</Package>.
 This is the manual of the GAP package <Package>GUAVA</Package>.
 <Package>GUAVA</Package> contains many functions that allow one
 to perform computations relevant to the theory of error-correcting codes.
-This version of <Package>GUAVA</Package>
-requires GAP 4.4.5 or later.  The current version of <Package>GUAVA</Package> (&VERSION;) was updated to work with GAP 4.14.0.
+This version of <Package>GUAVA</Package> (&VERSION;)
+requires GAP 4.11 or later.
 
 <P/>
 The functions in <Package>GUAVA</Package> can be divided into three subcategories:
@@ -234,7 +234,7 @@ in the 'src/leon' subdirectory of the 'guava'
 directory for some details), and
 <Ref Func="MinimumWeight" Style="Number"/> function,
 <Package>GUAVA</Package> is written in the GAP
-language, and runs on any system supporting GAP4.4 and above.
+language, and runs on any system supporting GAP 4.11 and above.
 Several algorithms that need the speed were integrated
 in the GAP kernel.
 <P/>
@@ -249,7 +249,7 @@ and also Huffman and Pless <Cite Key="HP03"/>.
   <Heading>Installing <Package>GUAVA</Package></Heading>
 <Label Name="Installing GUAVA"/>
 
-The most recent version of GAP (4.8) comes complete with
+Recent versions of GAP come complete with
 all of the packages -- including <Package>GUAVA</Package>.
 Thus the following instructions are not usually applicable
 but may be needed in certain circumstances.
@@ -12404,7 +12404,7 @@ DivisorsMultivariatePolynomial(f,R2);
 <Heading>Coding theory functions in GAP</Heading>
 <Label Name="Coding theory functions in the GAP"/>
 
-This chapter will recall from the GAP4.4.5 manual some of the
+This chapter will recall from the GAP reference manual some of the
 GAP coding theory and finite field functions useful for
 coding theory. Some of these functions are
 partially written in C for speed. The main functions are
