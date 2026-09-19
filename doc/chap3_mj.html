@@ -83,20 +83,20 @@ Other Codeword Functions
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C:=RandomLinearCode(20,10,GF(4));</span>
 a  [20,10,?] randomly generated code over GF(4)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">c:=Random(C);</span>
-[ 1 a 0 0 0 1 1 a^2 0 0 a 1 1 1 a 1 1 a a 0 ]
+[ 1 0 a^2 a a 1 1 0 1 0 a^2 1 0 0 a a a 1 a 0 ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Set(NamesOfComponents(C));</span>
 [ "Basis", "Dimension", "GeneratorMat", 
   "GeneratorsOfLeftOperatorAdditiveGroup", "LeftActingDomain", 
   "NiceFreeLeftModule", "Representative", "WordLength", "ZeroImmutable", 
-  "name" ]
+  "lowerBoundMinimumDistance", "name", "upperBoundMinimumDistance" ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Set(NamesOfComponents(c));</span>
 [ "VectorCodeword", "WordLength", "treatAsPoly" ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">c!.VectorCodeword;</span>
 &lt; immutable compressed vector length 20 over GF(4) &gt;
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display(last);</span>
-[ Z(2^2), Z(2^2), Z(2^2), Z(2)^0, Z(2^2), Z(2^2)^2, 0*Z(2), Z(2^2), Z(2^2),
-  Z(2)^0, Z(2^2)^2, 0*Z(2), 0*Z(2), Z(2^2), 0*Z(2), 0*Z(2), 0*Z(2), Z(2^2)^2,
-  Z(2)^0, 0*Z(2) ]
+[ Z(2)^0, 0*Z(2), Z(2^2)^2, Z(2^2), Z(2^2), Z(2)^0, Z(2)^0, 0*Z(2), Z(2)^0,
+   0*Z(2), Z(2^2)^2, Z(2)^0, 0*Z(2), 0*Z(2), Z(2^2), Z(2^2), Z(2^2), Z(2)^0,
+   Z(2^2), 0*Z(2) ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C!.Dimension;</span>
 10
 </pre></div>
@@ -107,7 +107,7 @@ a  [20,10,?] randomly generated code over GF(4)
 
 <p>Many operations are available on codewords themselves, although codewords also work together with codes (see chapter <a href="chap4_mj.html#X85FDDF0B7B7D87FB"><span class="RefLink">4.</span></a> on Codes).</p>
 
-<p>The first section describes how codewords are constructed (see <code class="func">Codeword</code> (<a href="chap3_mj.html#X7B9E353D852851AA"><span class="RefLink">3.1-1</span></a>) and <code class="func">IsCodeword</code> (<a href="chap3_mj.html#X7F25479781E6E109"><span class="RefLink">3.1-3</span></a>)). Sections <a href="chap3_mj.html#X8253374284B475B6"><span class="RefLink">3.2</span></a> and <a href="chap3_mj.html#X7ADE7E95867A14E1"><span class="RefLink">3.3</span></a> describe the arithmetic operations applicable to codewords. Section <a href="chap3_mj.html#X7BBA5DCD7A8BD60D"><span class="RefLink">3.4</span></a> describe functions that convert codewords back to vectors or polynomials (see <code class="func">VectorCodeword</code> (<a href="chap3_mj.html#X87C8B0B178496F6A"><span class="RefLink">3.4-1</span></a>) and <code class="func">PolyCodeword</code> (<a href="chap3_mj.html#X822465E884D0F484"><span class="RefLink">3.4-2</span></a>)). Section <a href="chap3_mj.html#X81D3230A797FE6E3"><span class="RefLink">3.5</span></a> describe functions that change the way a codeword is displayed (see <code class="func">TreatAsVector</code> (<a href="chap3_mj.html#X7E3E174B7954AA6B"><span class="RefLink">3.5-1</span></a>) and <code class="func">TreatAsPoly</code> (<a href="chap3_mj.html#X7A6828148490BD2E"><span class="RefLink">3.5-2</span></a>)). Finally, Section <a href="chap3_mj.html#X805BF7147C68CACD"><span class="RefLink">3.6</span></a> describes a function to generate a null word (see <code class="func">NullWord</code> (<a href="chap3_mj.html#X8000B6597EF0282F"><span class="RefLink">3.6-1</span></a>)) and some functions for extracting properties of codewords (see <code class="func">DistanceCodeword</code> (<a href="chap3_mj.html#X7CDA1B547D55E6FB"><span class="RefLink">3.6-2</span></a>), <code class="func">Support</code> (<a href="chap3_mj.html#X7B689C0284AC4296"><span class="RefLink">3.6-3</span></a>) and <code class="func">WeightCodeword</code> (<a href="chap3_mj.html#X7AD61C237D8D3849"><span class="RefLink">3.6-4</span></a>)).</p>
+<p>The first section describes how codewords are constructed (see <code class="func">Codeword</code> (<a href="chap3_mj.html#X7B9E353D852851AA"><span class="RefLink">3.1-1</span></a>) and <code class="func">IsCodeword</code> (<a href="chap3_mj.html#X7F25479781E6E109"><span class="RefLink">3.1-3</span></a>)). Sections <a href="chap3_mj.html#X8253374284B475B6"><span class="RefLink">3.2</span></a> and <a href="chap3_mj.html#X7ADE7E95867A14E1"><span class="RefLink">3.3</span></a> describe the arithmetic operations applicable to codewords. Section <a href="chap3_mj.html#X7BBA5DCD7A8BD60D"><span class="RefLink">3.4</span></a> describes functions that convert codewords back to vectors or polynomials (see <code class="func">VectorCodeword</code> (<a href="chap3_mj.html#X87C8B0B178496F6A"><span class="RefLink">3.4-1</span></a>) and <code class="func">PolyCodeword</code> (<a href="chap3_mj.html#X822465E884D0F484"><span class="RefLink">3.4-2</span></a>)). Section <a href="chap3_mj.html#X81D3230A797FE6E3"><span class="RefLink">3.5</span></a> describes functions that change the way a codeword is displayed (see <code class="func">TreatAsVector</code> (<a href="chap3_mj.html#X7E3E174B7954AA6B"><span class="RefLink">3.5-1</span></a>) and <code class="func">TreatAsPoly</code> (<a href="chap3_mj.html#X7A6828148490BD2E"><span class="RefLink">3.5-2</span></a>)). Finally, Section <a href="chap3_mj.html#X805BF7147C68CACD"><span class="RefLink">3.6</span></a> describes a function to generate a null word (see <code class="func">NullWord</code> (<a href="chap3_mj.html#X8000B6597EF0282F"><span class="RefLink">3.6-1</span></a>)) and some functions for extracting properties of codewords (see <code class="func">DistanceCodeword</code> (<a href="chap3_mj.html#X7CDA1B547D55E6FB"><span class="RefLink">3.6-2</span></a>), <code class="func">Support</code> (<a href="chap3_mj.html#X7B689C0284AC4296"><span class="RefLink">3.6-3</span></a>) and <code class="func">WeightCodeword</code> (<a href="chap3_mj.html#X7AD61C237D8D3849"><span class="RefLink">3.6-4</span></a>)).</p>
 
 <p><a id="X81B73ABB87DA8E49" name="X81B73ABB87DA8E49"></a></p>
 
@@ -120,7 +120,7 @@ a  [20,10,?] randomly generated code over GF(4)
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Codeword</code>( <var class="Arg">obj</var>[, <var class="Arg">n</var>][, <var class="Arg">F</var>] )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p><code class="code">Codeword</code> returns a codeword or a list of codewords constructed from <var class="Arg">obj</var>. The object <var class="Arg">obj</var> can be a vector, a string, a polynomial or a codeword. It may also be a list of those (even a mixed list).</p>
 
-<p>If a number <var class="Arg">n</var> is specified, all constructed codewords have length <var class="Arg">n</var>. This is the only way to make sure that all elements of <var class="Arg">obj</var> are converted to codewords of the same length. Elements of <var class="Arg">obj</var> that are longer than <var class="Arg">n</var> are reduced in length by cutting of the last positions. Elements of <var class="Arg">obj</var> that are shorter than <var class="Arg">n</var> are lengthened by adding zeros at the end. If no <var class="Arg">n</var> is specified, each constructed codeword is handled individually.</p>
+<p>If a number <var class="Arg">n</var> is specified, all constructed codewords have length <var class="Arg">n</var>. This is the only way to make sure that all elements of <var class="Arg">obj</var> are converted to codewords of the same length. Elements of <var class="Arg">obj</var> that are longer than <var class="Arg">n</var> are reduced in length by cutting off the last positions. Elements of <var class="Arg">obj</var> that are shorter than <var class="Arg">n</var> are lengthened by adding zeros at the end. If no <var class="Arg">n</var> is specified, each constructed codeword is handled individually.</p>
 
 <p>If a Galois field <var class="Arg">F</var> is specified, all codewords are constructed over this field. This is the only way to make sure that all elements of <var class="Arg">obj</var> are converted to the same field <var class="Arg">F</var> (otherwise they are converted one by one). Note that all elements of <var class="Arg">obj</var> must have elements over <var class="Arg">F</var> or over `Integers'. Converting from one Galois field to another is not allowed. If no <var class="Arg">F</var> is specified, vectors or strings with integer elements will be converted to the smallest Galois field possible.</p>
 
@@ -138,7 +138,7 @@ a  [20,10,?] randomly generated code over GF(4)
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">c := Codeword([0,1,1,1,0]);</span>
 [ 0 1 1 1 0 ]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">VectorCodeword( c ); </span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">VectorCodeword( c );</span>
 [ 0*Z(2), Z(2)^0, Z(2)^0, Z(2)^0, 0*Z(2) ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">c2 := Codeword([0,1,1,1,0], GF(3));</span>
 [ 0 1 1 1 0 ]
@@ -147,7 +147,7 @@ a  [20,10,?] randomly generated code over GF(4)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Codeword([c, c2, "0110"]);</span>
 [ [ 0 1 1 1 0 ], [ 0 1 1 1 0 ], [ 0 1 1 0 ] ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">p := UnivariatePolynomial(GF(2), [Z(2)^0, 0*Z(2), Z(2)^0]);</span>
-x_1^2+Z(2)^0
+x^2+Z(2)^0
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Codeword(p);</span>
 x^2 + 1
 </pre></div>
@@ -228,7 +228,7 @@ true
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">P := UnivariatePolynomial(GF(2), Z(2)*[1,0,0,1]);</span>
-x_1^3+Z(2)^0
+x^3+Z(2)^0
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">c := Codeword(P, GF(2));</span>
 x^3 + 1
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">P = c;        # codeword operation</span>
@@ -240,9 +240,9 @@ true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C:=HammingCode(3);</span>
 a linear [7,4,3]1 Hamming (3,2) code over GF(2)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">c1:=Random(C);</span>
-[ 1 0 0 1 1 0 0 ]
+[ 1 1 1 0 0 0 0 ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">c2:=Random(C);</span>
-[ 0 1 0 0 1 0 1 ]
+[ 0 1 1 0 0 1 1 ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">EQ(c1,c2);</span>
 false
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">not EQ(c1,c2);</span>
@@ -267,9 +267,9 @@ true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C:=RandomLinearCode(10,5,GF(3));</span>
 a  [10,5,?] randomly generated code over GF(3)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">c:=Random(C);</span>
-[ 1 0 2 2 2 2 1 0 2 0 ]
+[ 0 2 2 2 0 1 2 2 2 1 ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Codeword(c+"2000000000");</span>
-[ 0 0 2 2 2 2 1 0 2 0 ]
+[ 2 2 2 2 0 1 2 2 2 1 ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Codeword(c+"1000000000");</span>
 Error, &lt;x&gt; and &lt;y&gt; have different characteristic
 </pre></div>
@@ -297,7 +297,7 @@ Error, &lt;x&gt; and &lt;y&gt; have different characteristic
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C:=RandomLinearCode(10,5);</span>
 a  [10,5,?] randomly generated code over GF(2)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">c:=Random(C);</span>
-[ 0 0 0 0 0 0 0 0 0 0 ]
+[ 0 0 0 1 1 1 0 1 1 0 ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">c+C;</span>
 &lt;add. coset of a  [10,5,?] randomly generated code over GF(2)&gt;
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">c+C=C;</span>
@@ -310,14 +310,14 @@ false
 &lt;add. coset of a  [10,5,?] randomly generated code over GF(2)&gt;
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C=v+C;</span>
 false
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C := GeneratorMatCode( [ [1, 0,0,0], [0, 1,0,0] ], GF(2) );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C := GeneratorMatCode( [ [1,0,0,0], [0,1,0,0] ], GF(2) );</span>
 a linear [4,2,1]1..2 code defined by generator matrix over GF(2)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Elements(C);</span>
 [ [ 0 0 0 0 ], [ 0 1 0 0 ], [ 1 0 0 0 ], [ 1 1 0 0 ] ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">v:=Codeword("0011");</span>
 [ 0 0 1 1 ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C+v;</span>
-&lt;add. coset of a linear [4,2,4]1 code defined by generator matrix over GF(2)&gt;
+&lt;add. coset of a linear [4,2,1]1..2 code defined by generator matrix over GF(2)&gt;
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Elements(C+v);</span>
 [ [ 0 0 1 1 ], [ 0 1 1 1 ], [ 1 0 1 1 ], [ 1 1 1 1 ] ]
 </pre></div>
@@ -341,7 +341,7 @@ Functions that Convert Codewords to Vectors or Polynomials
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">a := Codeword("011011");; </span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">a := Codeword("011011");;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">VectorCodeword(a);</span>
 [ 0*Z(2), Z(2)^0, Z(2)^0, 0*Z(2), Z(2)^0, Z(2)^0 ]
 </pre></div>
@@ -355,9 +355,9 @@ Functions that Convert Codewords to Vectors or Polynomials
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">a := Codeword("011011");; </span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">a := Codeword("011011");;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PolyCodeword(a);</span>
-x_1^5+x_1^4+x_1^2+x_1
+x^5+x^4+x^2+x
 </pre></div>
 
 <p><a id="X81D3230A797FE6E3" name="X81D3230A797FE6E3"></a></p>

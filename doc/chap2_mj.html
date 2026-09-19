@@ -93,8 +93,7 @@ true
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">x:=Indeterminate(GF(2));</span>
-x_1
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">x:=Indeterminate(GF(2), "x");;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">c4:=Codeword(x^7+x^2+x+1);</span>
 x^7 + x^2 + x + 1
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">VectorCodeword(c4);</span>
@@ -104,7 +103,7 @@ x^7 + x^2 + x + 1
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">c5:=Codeword([1,0,0,0,0,0,1]);</span>
 [ 1 0 0 0 0 0 1 ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PolyCodeword(c5);</span>
-x_1^6+Z(2)^0
+x^6+Z(2)^0
 </pre></div>
 
 <p><a id="X7DEC2B677A1F2B03" name="X7DEC2B677A1F2B03"></a></p>
@@ -118,8 +117,8 @@ x_1^6+Z(2)^0
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">l:=["111000", "011100", "001110", "000111", "100011", "110001", "000000", "111111" ];;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m:=Codeword(l,6,GF(2));    </span>
-[ [ 1 1 1 0 0 0 ], [ 0 1 1 1 0 0 ], [ 0 0 1 1 1 0 ], [ 0 0 0 1 1 1 ], 
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m:=Codeword(l,6,GF(2));</span>
+[ [ 1 1 1 0 0 0 ], [ 0 1 1 1 0 0 ], [ 0 0 1 1 1 0 ], [ 0 0 0 1 1 1 ],
   [ 1 0 0 0 1 1 ], [ 1 1 0 0 0 1 ], [ 0 0 0 0 0 0 ], [ 1 1 1 1 1 1 ] ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C1:=ElementsCode(m, GF(2));</span>
 a (6,8,1..6)2..3 user defined unrestricted code over GF(2)

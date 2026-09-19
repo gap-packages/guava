@@ -150,7 +150,7 @@ Bounds on codes, special matrices and miscellaneous functions
 Distance bounds on codes
 </span></h4>
 
-<p>This section describes the functions that calculate estimates for upper bounds on the size and minimum distance of codes. Several algorithms are known to compute a largest number of words a code can have with given length and minimum distance. It is important however to understand that in some cases the true upper bound is unknown. A code which has a size equalto the calculated upper bound may not have been found. However, codes that have a larger size do not exist.</p>
+<p>This section describes the functions that calculate estimates for upper bounds on the size and minimum distance of codes. Several algorithms are known to compute a largest number of words a code can have with given length and minimum distance. It is important however to understand that in some cases the true upper bound is unknown. A code which has a size equal to the calculated upper bound may not have been found. However, codes that have a larger size do not exist.</p>
 
 <p>A second way to obtain bounds is a table. In <strong class="pkg">GUAVA</strong>, an extensive table is implemented for linear codes over <span class="SimpleMath">GF(2)</span>, <span class="SimpleMath">GF(3)</span> and <span class="SimpleMath">GF(4)</span>. It contains bounds on the minimum distance for given word length and dimension. It contains entries for word lengths less than or equal to <span class="SimpleMath">257</span>, <span class="SimpleMath">243</span> and <span class="SimpleMath">256</span> for codes over <span class="SimpleMath">GF(2)</span>, <span class="SimpleMath">GF(3)</span> and <span class="SimpleMath">GF(4)</span> respectively. These entries were obtained from Brouwer's tables as of 11 May 2006. For the latest information, please see A. E. Brouwer's tables <a href="chapBib.html#biBBr">[Bro06]</a> on the internet.</p>
 
@@ -205,7 +205,7 @@ M \leq {q^n \over V(n,e)},
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C := HammingCode( 4, GF(2) );</span>
 a linear [15,11,3]1 Hamming (4,2) code over GF(2)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Size( C );</span>
-2048 
+2048
 </pre></div>
 
 <p><a id="X82EBFAAB7F5BFD4A" name="X82EBFAAB7F5BFD4A"></a></p>
@@ -220,7 +220,7 @@ a linear [15,11,3]1 Hamming (4,2) code over GF(2)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">UpperBoundJohnson( 13, 5 );</span>
 77
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">UpperBoundHamming( 13, 5, 2);    # in this case the Johnson bound is better</span>
-89 
+89
 </pre></div>
 
 <p><a id="X7A26E2537DFF4409" name="X7A26E2537DFF4409"></a></p>
@@ -278,7 +278,7 @@ a cyclic [15,5,7]5 BCH code, delta=7, b=1 over GF(2)
 64
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">UpperBoundGriesmer( 18, 9, 2 );       # the maximum number of words for a linear code is 8</span>
 8
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Size( PuncturedCode( HadamardCode( 20, 1 ) ) );       # this non-linear code has 20 elements </span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Size( PuncturedCode( HadamardCode( 20, 1 ) ) );       # this non-linear code has 20 elements</span>
 20
 </pre></div>
 
@@ -329,7 +329,7 @@ false
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C := BCHCode( 45, 7 );</span>
 a cyclic [45,23,7..9]6..16 BCH code, delta=7, b=1 over GF(2)
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LowerBoundMinimumDistance( C );     # designed distance is lower bound for minimum distance </span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LowerBoundMinimumDistance( C );     # designed distance is lower bound for minimum distance</span>
 7
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LowerBoundMinimumDistance( 45, 23, GF(2) );</span>
 10
@@ -351,7 +351,7 @@ a cyclic [45,23,7..9]6..16 BCH code, delta=7, b=1 over GF(2)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LowerBoundMinimumDistance(7,4,2);</span>
 3
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LowerBoundGilbertVarshamov(3,3,2);</span>
-1
+2
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LowerBoundMinimumDistance(3,3,2);</span>
 1
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LowerBoundGilbertVarshamov(25,10,2);</span>
@@ -378,7 +378,7 @@ a cyclic [45,23,7..9]6..16 BCH code, delta=7, b=1 over GF(2)
 <h5>7.1-12 UpperBoundMinimumDistance</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; UpperBoundMinimumDistance</code>( <var class="Arg">C</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
-<p>In this form, <code class="code">UpperBoundMinimumDistance</code> returns an upper bound for the minimum distance of code <var class="Arg">C</var>. For unrestricted codes, it just returns the word length. For linear codes, it takes the minimum of the possibly known value from the method of construction, the weight of the generators, and the value from the table (see <a href="chap7.html#X7B3858B27A9E509A"><span class="RefLink">7.1-13</span></a>).</p>
+<p>In this form, <code class="code">UpperBoundMinimumDistance</code> returns an upper bound for the minimum distance of code <var class="Arg">C</var>. For unrestricted codes, it just returns the word length. For linear codes, it takes the minimum of the possibly known value from the method of construction, the least weight among the rows of a reduced generator matrix, and the value from the table (see <a href="chap7.html#X7B3858B27A9E509A"><span class="RefLink">7.1-13</span></a>).</p>
 
 <p>This command can also be called using the syntax <code class="code">UpperBoundMinimumDistance( n, k, F )</code>. In this form, <code class="code">UpperBoundMinimumDistance</code> returns an upper bound for the minimum distance of the best known linear code of length <var class="Arg">n</var>, dimension <var class="Arg">k</var> over field <var class="Arg">F</var>. It uses the mechanism explained in section <a href="chap7.html#X7B3858B27A9E509A"><span class="RefLink">7.1-13</span></a>.</p>
 
@@ -388,7 +388,7 @@ a cyclic [45,23,7..9]6..16 BCH code, delta=7, b=1 over GF(2)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">UpperBoundMinimumDistance( C );</span>
 9
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">UpperBoundMinimumDistance( 45, 23, GF(2) );</span>
-11
+10
 </pre></div>
 
 <p><a id="X7B3858B27A9E509A" name="X7B3858B27A9E509A"></a></p>
@@ -408,7 +408,7 @@ a cyclic [45,23,7..9]6..16 BCH code, delta=7, b=1 over GF(2)
 an optimal linear [7,3,d] code over GF(2) has d=4
 ------------------------------------------------------------------------------
 Lb(7,3)=4, by shortening of:
-Lb(8,4)=4, by the u|u+v construction applied to C1 [4,3,2] and C2 [4,1,4]: 
+Lb(8,4)=4, by the u|u+v construction applied to C1 [4,3,2] and C2 [4,1,4]:
 Lb(4,3)=2, dual of the repetition code
 Lb(4,1)=4, repetition code
 ------------------------------------------------------------------------------
@@ -482,11 +482,11 @@ Number of runs: 12000  best distance so far: 3
 Number of runs: 13000  best distance so far: 3
 Number of changes: 400
 Number of runs: 14000  best distance so far: 3
-user interrupt at... 
+user interrupt at...
 #
 # used ctrl-c to break out of execution
 #
-... called from 
+... called from
 IncreaseCoveringRadiusLowerBound( code, -1, current ) called from
  function( arguments ) called from read-eval-loop
 Entering break read-eval-print loop ...
@@ -508,11 +508,11 @@ you can 'return;' to continue
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C:=RandomLinearCode(10,5,GF(2));</span>
-a  [10,5,?] randomly generated code over GF(2)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C:=BestKnownLinearCode(10,5,GF(2));</span>
+a linear [10,5,4]2..4 shortened code
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ExhaustiveSearchCoveringRadius(C);</span>
 Trying 3 ...
-[ 3 .. 5 ]
+[ 3, 4 ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CoveringRadius(C);</span>
 3
 </pre></div>
@@ -526,8 +526,8 @@ Trying 3 ...
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C:=RandomLinearCode(10,5,GF(2));</span>
-a  [10,5,?] randomly generated code over GF(2)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C:=BestKnownLinearCode(10,5,GF(2));</span>
+a linear [10,5,4]2..4 shortened code
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">GeneralLowerBoundCoveringRadius(C);</span>
 2
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CoveringRadius(C);</span>
@@ -543,8 +543,8 @@ a  [10,5,?] randomly generated code over GF(2)
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C:=RandomLinearCode(10,5,GF(2));</span>
-a  [10,5,?] randomly generated code over GF(2)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C:=BestKnownLinearCode(10,5,GF(2));</span>
+a linear [10,5,4]2..4 shortened code
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">GeneralUpperBoundCoveringRadius(C);</span>
 4
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CoveringRadius(C);</span>
@@ -568,8 +568,8 @@ M \cdot V_q(n,r) \geq q^n
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C:=RandomLinearCode(10,5,GF(2));</span>
-a  [10,5,?] randomly generated code over GF(2)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C:=BestKnownLinearCode(10,5,GF(2));</span>
+a linear [10,5,4]2..4 shortened code
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Size(C);</span>
 32
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CoveringRadius(C);</span>
@@ -600,8 +600,8 @@ M \cdot \left\{ V_q(n,r) -
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C:=RandomLinearCode(10,5,GF(2));</span>
-a  [10,5,?] randomly generated code over GF(2)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C:=BestKnownLinearCode(10,5,GF(2));</span>
+a linear [10,5,4]2..4 shortened code
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Size(C);</span>
 32
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CoveringRadius(C);</span>
@@ -639,8 +639,8 @@ V_2(n,r-2) \right)}
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C:=RandomLinearCode(10,5,GF(2));</span>
-a  [10,5,?] randomly generated code over GF(2)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C:=BestKnownLinearCode(10,5,GF(2));</span>
+a linear [10,5,4]2..4 shortened code
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Size(C);</span>
 32
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CoveringRadius(C);</span>
@@ -684,8 +684,8 @@ n-r-1  ,        \ \ \  \ \ \   {\rm if}\   r \geq 3 .
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C:=RandomLinearCode(10,5,GF(2));</span>
-a  [10,5,?] randomly generated code over GF(2)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C:=BestKnownLinearCode(10,5,GF(2));</span>
+a linear [10,5,4]2..4 shortened code
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Size(C);</span>
 32
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CoveringRadius(C);</span>
@@ -716,8 +716,8 @@ M \cdot \left( V_2(n,r) - {2r \choose r} \right) \geq
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C:=RandomLinearCode(10,5,GF(2));</span>
-a  [10,5,?] randomly generated code over GF(2)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C:=BestKnownLinearCode(10,5,GF(2));</span>
+a linear [10,5,4]2..4 shortened code
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Size(C);</span>
 32
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CoveringRadius(C);</span>
@@ -748,12 +748,12 @@ M \cdot \left( V_2(n,r) - \frac{3}{2} {2r \choose r} \right) \geq
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C:=RandomLinearCode(15,5,GF(2));</span>
-a  [15,5,?] randomly generated code over GF(2)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C:=BCHCode(15,7,GF(2));</span>
+a cyclic [15,5,7]5 BCH code, delta=7, b=1 over GF(2)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Size(C);</span>
 32
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CoveringRadius(C);</span>
-6
+5
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LowerBoundCoveringRadiusEmbedded2(10,32,false);</span>
 2
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LowerBoundCoveringRadiusEmbedded2(10,3,true);</span>
@@ -777,8 +777,8 @@ a  [15,5,?] randomly generated code over GF(2)
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C:=RandomLinearCode(15,5,GF(2));</span>
-a  [15,5,?] randomly generated code over GF(2)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C:=BCHCode(15,7,GF(2));</span>
+a cyclic [15,5,7]5 BCH code, delta=7, b=1 over GF(2)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CoveringRadius(C);</span>
 5
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LowerBoundCoveringRadiusInduction(15,6);</span>
@@ -794,8 +794,8 @@ a  [15,5,?] randomly generated code over GF(2)
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C:=RandomLinearCode(15,5,GF(2));</span>
-a  [15,5,?] randomly generated code over GF(2)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C:=BCHCode(15,7,GF(2));</span>
+a cyclic [15,5,7]5 BCH code, delta=7, b=1 over GF(2)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CoveringRadius(C);</span>
 5
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">UpperBoundCoveringRadiusRedundancy(C);</span>
@@ -813,12 +813,12 @@ a  [15,5,?] randomly generated code over GF(2)
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C:=RandomLinearCode(15,5,GF(2));</span>
-a  [15,5,?] randomly generated code over GF(2)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C:=BCHCode(15,7,GF(2));</span>
+a cyclic [15,5,7]5 BCH code, delta=7, b=1 over GF(2)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CoveringRadius(C);</span>
 5
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">UpperBoundCoveringRadiusDelsarte(C);</span>
-13
+5
 </pre></div>
 
 <p><a id="X86F10D9E79AB8796" name="X86F10D9E79AB8796"></a></p>
@@ -832,8 +832,8 @@ a  [15,5,?] randomly generated code over GF(2)
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C:=RandomLinearCode(15,5,GF(2));</span>
-a  [15,5,?] randomly generated code over GF(2)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C:=BCHCode(15,7,GF(2));</span>
+a cyclic [15,5,7]5 BCH code, delta=7, b=1 over GF(2)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CoveringRadius(C);</span>
 5
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">UpperBoundCoveringRadiusStrength(C);</span>
@@ -853,12 +853,12 @@ n - \sum_{i=1}^k \left\lceil \frac{d}{q^i} \right\rceil
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C:=RandomLinearCode(15,5,GF(2));</span>
-a  [15,5,?] randomly generated code over GF(2)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C:=BCHCode(15,7,GF(2));</span>
+a cyclic [15,5,7]5 BCH code, delta=7, b=1 over GF(2)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CoveringRadius(C);</span>
 5
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">UpperBoundCoveringRadiusGriesmerLike(C);</span>
-9
+6
 </pre></div>
 
 <p><a id="X82A38F5F858CF3FC" name="X82A38F5F858CF3FC"></a></p>
@@ -934,9 +934,9 @@ Special matrices in <strong class="pkg">GUAVA</strong>
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">GrayMat(3);</span>
-[ [ 0*Z(2), 0*Z(2), 0*Z(2) ], [ 0*Z(2), 0*Z(2), Z(2)^0 ], 
-  [ 0*Z(2), Z(2)^0, Z(2)^0 ], [ 0*Z(2), Z(2)^0, 0*Z(2) ], 
-  [ Z(2)^0, Z(2)^0, 0*Z(2) ], [ Z(2)^0, Z(2)^0, Z(2)^0 ], 
+[ [ 0*Z(2), 0*Z(2), 0*Z(2) ], [ 0*Z(2), 0*Z(2), Z(2)^0 ],
+  [ 0*Z(2), Z(2)^0, Z(2)^0 ], [ 0*Z(2), Z(2)^0, 0*Z(2) ],
+  [ Z(2)^0, Z(2)^0, 0*Z(2) ], [ Z(2)^0, Z(2)^0, Z(2)^0 ],
   [ Z(2)^0, 0*Z(2), Z(2)^0 ], [ Z(2)^0, 0*Z(2), 0*Z(2) ] ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G := GrayMat( 4, GF(4) );; Length(G);         # the length of a GrayMat is always q^n</span>
 256
@@ -960,7 +960,7 @@ Special matrices in <strong class="pkg">GUAVA</strong>
 [ [   1,   1,   1,   1 ],
   [   1,  -1,   1,  -1 ],
   [   1,   1,  -1,  -1 ],
-  [   1,  -1,  -1,   1 ] ] 
+  [   1,  -1,  -1,   1 ] ]
 </pre></div>
 
 <p><a id="X8014A1F181ECD8AA" name="X8014A1F181ECD8AA"></a></p>
@@ -995,7 +995,7 @@ true
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M:=VandermondeMat([Z(5),Z(5)^2,Z(5)^0,Z(5)^3],2);</span>
-[ [ Z(5)^0, Z(5), Z(5)^2 ], [ Z(5)^0, Z(5)^2, Z(5)^0 ], 
+[ [ Z(5)^0, Z(5), Z(5)^2 ], [ Z(5)^0, Z(5)^2, Z(5)^0 ],
   [ Z(5)^0, Z(5)^0, Z(5)^0 ], [ Z(5)^0, Z(5)^3, Z(5)^2 ] ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display(M);</span>
  1 2 4
@@ -1014,18 +1014,18 @@ true
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := Z(2)*[[1,0,0,1],[0,0,1,1]];; PrintArray(M);</span>
-[ [    Z(2),  0*Z(2),  0*Z(2),    Z(2) ], 
-  [  0*Z(2),  0*Z(2),    Z(2),    Z(2) ] ]
+[ [  Z(2)^0,  0*Z(2),  0*Z(2),  Z(2)^0 ],
+  [  0*Z(2),  0*Z(2),  Z(2)^0,  Z(2)^0 ] ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PutStandardForm(M);                   # identity at the left side</span>
 (2,3)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PrintArray(M);</span>
-[ [    Z(2),  0*Z(2),  0*Z(2),    Z(2) ],
-  [  0*Z(2),    Z(2),  0*Z(2),    Z(2) ] ]
+[ [  Z(2)^0,  0*Z(2),  0*Z(2),  Z(2)^0 ],
+  [  0*Z(2),  Z(2)^0,  0*Z(2),  Z(2)^0 ] ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PutStandardForm(M, false);            # identity at the right side</span>
 (1,4,3)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PrintArray(M);</span>
-[ [  0*Z(2),    Z(2),    Z(2),  0*Z(2) ],
-  [  0*Z(2),    Z(2),  0*Z(2),    Z(2) ] ]
+[ [  0*Z(2),  Z(2)^0,  Z(2)^0,  0*Z(2) ],
+  [  0*Z(2),  Z(2)^0,  0*Z(2),  Z(2)^0 ] ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C := BestKnownLinearCode( 23, 12, GF(2) );</span>
 a linear [23,12,7]3 punctured code
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G:=MutableCopyMat(GeneratorMat(C));;</span>
@@ -1204,7 +1204,7 @@ false
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := MOLS(4,2);</span>
-[ [ [ 0, 1, 2, 3 ], [ 1, 0, 3, 2 ], [ 2, 3, 0, 1 ], [ 3, 2, 1, 0 ] ], 
+[ [ [ 0, 1, 2, 3 ], [ 1, 0, 3, 2 ], [ 2, 3, 0, 1 ], [ 3, 2, 1, 0 ] ],
   [ [ 0, 2, 3, 1 ], [ 1, 3, 2, 0 ], [ 2, 0, 1, 3 ], [ 3, 1, 0, 2 ] ] ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">AreMOLS(M);</span>
 true
@@ -1322,9 +1322,9 @@ f(x) = \sum_{i=0}^{n} A_i x^i,
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CodeWeightEnumerator( ElementsCode( [ [ 0,0,0 ], [ 0,0,1 ],</span>
 <span class="GAPprompt">&gt;</span> <span class="GAPinput">[ 0,1,1 ], [ 1,1,1 ] ], GF(2) ) );</span>
-x^3 + x^2 + x + 1
+x_1^3+x_1^2+x_1+1
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CodeWeightEnumerator( HammingCode( 3, GF(2) ) );</span>
-x^7 + 7*x^4 + 7*x^3 + 1 
+x_1^7+7*x_1^4+7*x_1^3+1
 </pre></div>
 
 <p><a id="X84DA928083B103A0" name="X84DA928083B103A0"></a></p>
@@ -1345,9 +1345,9 @@ f(x) = \sum_{i=0}^{n} B_i x^i,
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CodeDistanceEnumerator( HammingCode( 3, GF(2) ),[0,0,0,0,0,0,1] );</span>
-x^6 + 3*x^5 + 4*x^4 + 4*x^3 + 3*x^2 + x
+x_1^6+3*x_1^5+4*x_1^4+4*x_1^3+3*x_1^2+x_1
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CodeDistanceEnumerator( HammingCode( 3, GF(2) ),[1,1,1,1,1,1,1] );</span>
-x^7 + 7*x^4 + 7*x^3 + 1 # `[1,1,1,1,1,1,1]' $\in$ `HammingCode( 3, GF(2 ) )'
+x_1^7+7*x_1^4+7*x_1^3+1
 </pre></div>
 
 <p><a id="X84B2BE66780EFBF9" name="X84B2BE66780EFBF9"></a></p>
@@ -1366,7 +1366,7 @@ f(x) = \sum_{i=0}^{n} C_i x^i,
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CodeMacWilliamsTransform( HammingCode( 3, GF(2) ) );</span>
-7*x^4 + 1 
+7*x_1^4+1
 </pre></div>
 
 <p><a id="X7903286078F8051B" name="X7903286078F8051B"></a></p>
@@ -1487,15 +1487,15 @@ Z(2^6)^3
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">a:=Random(GF(4));</span>
-0*Z(2)
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M:=MatrixRepresentationOfElement(a,GF(4));; Display(M);</span>
- .
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">a:=Random(GF(4));</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">a:=Z(4);</span>
 Z(2^2)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M:=MatrixRepresentationOfElement(a,GF(4));; Display(M);</span>
  . 1
  1 1
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">a:=Z(2)^0;                 # this one lies in the base field</span>
+Z(2)^0
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M:=MatrixRepresentationOfElement(a,GF(4));; Display(M);</span>
+ 1
 </pre></div>
 
 <p><a id="X7805D2BB7CE4D455" name="X7805D2BB7CE4D455"></a></p>
@@ -1510,15 +1510,15 @@ Z(2^2)
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">P := UnivariatePolynomial( GF(3), Z(3)^0 * [1,0,1,2] );</span>
--x_1^3+x_1^2+Z(3)^0
+-x^3+x^2+Z(3)^0
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">RecP := ReciprocalPolynomial( P );</span>
-x_1^3+x_1-Z(3)^0
+x^3+x-Z(3)^0
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ReciprocalPolynomial( RecP ) = P;</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">P := UnivariatePolynomial( GF(3), Z(3)^0 * [1,0,1,2] );</span>
--x_1^3+x_1^2+Z(3)^0
+-x^3+x^2+Z(3)^0
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ReciprocalPolynomial( P, 6 );</span>
-x_1^6+x_1^4-x_1^3
+x^6+x^4-x^3
 </pre></div>
 
 <p><a id="X7AEA9F807E6FFEFF" name="X7AEA9F807E6FFEFF"></a></p>
@@ -1560,7 +1560,7 @@ a linear [6,4,3]1 Hamming (2,5) code over GF(5)
          *  *  *  *
          *  *  *  *
 +--------+--+--+--+--
-0  1  2  3  4  5  6 
+0  1  2  3  4  5  6
 </pre></div>
 
 <p><a id="X805DF25C84585FD6" name="X805DF25C84585FD6"></a></p>
@@ -1657,8 +1657,7 @@ Miscellaneous polynomial functions
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">F:=GF(11);;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">R2:=PolynomialRing(F,2);</span>
-GF(2^4)[x,xx]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">R2:=PolynomialRing(F,2);;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">vars:=IndeterminatesOfPolynomialRing(R2);;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">x:=vars[1];; y:=vars[2];;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">poly:=y^2-x*(x^2-1);;</span>
@@ -1676,15 +1675,13 @@ GF(2^4)[x,xx]
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">F:=GF(11);;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">R2:=PolynomialRing(F,2);</span>
-GF(2^4)[x,xx]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">R2:=PolynomialRing(F,["x","y"]);;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">vars:=IndeterminatesOfPolynomialRing(R2);;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">x:=vars[1];; y:=vars[2];;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">poly:=y^2-x*(x^2-1);;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">DegreesMultivariatePolynomial(poly,R2);</span>
-[ [ [ x_1, x_1, 1 ], [ x_1, x_2, 0 ] ], 
-  [ [ x_2^2, x_1, 0 ], [ x_2^2, x_2, 2 ] ], 
-  [ [ x_1^3, x_1, 3 ], [ x_1^3, x_2, 0 ] ] ]
+[ [ [ x, x, 1 ], [ x, y, 0 ] ], [ [ y^2, x, 0 ], [ y^2, y, 2 ] ], 
+  [ [ x^3, x, 3 ], [ x^3, y, 0 ] ] ]
 </pre></div>
 
 <p><a id="X79E76B6F7D177E27" name="X79E76B6F7D177E27"></a></p>
@@ -1703,8 +1700,7 @@ GF(2^4)[x,xx]
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">F:=GF(11);;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">R2:=PolynomialRing(F,2);</span>
-GF(2^4)[x,xx]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">R2:=PolynomialRing(F,2);;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">vars:=IndeterminatesOfPolynomialRing(R2);;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">x:=vars[1];; y:=vars[2];;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">f:=3*y-3*x+1;; g:=-5*y+2*x-7;;</span>
@@ -1712,7 +1708,7 @@ GF(2^4)[x,xx]
 [ Z(11)^3, Z(11)^2 ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Value(f,[x,y],soln); # checking okay</span>
 0*Z(11)
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Value(g,[x,y],col); # checking okay</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Value(g,[x,y],soln); # checking okay</span>
 0*Z(11)
 </pre></div>
 
@@ -1726,7 +1722,7 @@ GF(2^4)[x,xx]
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">GuavaVersion();</span>
-"3.21"
+"3.22"
 </pre></div>
 
 <p><a id="X7EBBE86D85CC90C0" name="X7EBBE86D85CC90C0"></a></p>
@@ -1740,10 +1736,11 @@ GF(2^4)[x,xx]
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">F:=GF(11);; l := One(F);;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ZechLog(2*l,8*l,F);</span>
--24
+6
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">8*l+l;(2*l)^(-24);</span>
 Z(11)^6
-Z(11)^6</pre></div>
+Z(11)^6
+</pre></div>
 
 <p><a id="X7C8C1E6A7E3497F0" name="X7C8C1E6A7E3497F0"></a></p>
 
@@ -1754,8 +1751,7 @@ Z(11)^6</pre></div>
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">F:=GF(11);</span>
-GF(11)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">F:=GF(11);;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">R1:=PolynomialRing(F,["a"]);;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">var1:=IndeterminatesOfPolynomialRing(R1);; a:=var1[1];;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">coeffs:=Z(11)^0*[1,2,3,4];</span>
@@ -1781,14 +1777,13 @@ GF(11)
 b
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">var2:=Concatenation(var1,[b]);</span>
 [ a, b ]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">R2:=PolynomialRing(F,var2);</span>
-PolynomialRing(..., [ a, b ])
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">R2:=PolynomialRing(F,var2);;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">c:=X(F,"c",var2);</span>
 c
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">var3:=Concatenation(var2,[c]);</span>
 [ a, b, c ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">R3:=PolynomialRing(F,var3);</span>
-PolynomialRing(..., [ a, b, c ])
+GF(11)[a,b,c]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m:=b^3*c^7;</span>
 b^3*c^7
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">DegreesMonomialTerm(m,R3);</span>
@@ -1800,7 +1795,7 @@ b^3*c^7
 <h5>7.6-9 DivisorsMultivariatePolynomial</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DivisorsMultivariatePolynomial</code>( <var class="Arg">f</var>, <var class="Arg">R</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
-<p>The function <code class="code">DivisorsMultivariatePolynomial</code> returns the list of polynomial divisors of <var class="Arg">f</var> in the multivariate polynomial ring <var class="Arg">R</var> with coefficients in a field. This program uses a simple but slow algorithm (see Joachim von zur Gathen, Jürgen Gerhard, <a href="chapBib.html#biBGG03">[vzGG03]</a>, exercise 16.10) which first converts the multivariate polynomial <var class="Arg">f</var> to an associated univariate polynomial <span class="SimpleMath">f^*</span>, then <code class="code">Factors</code> <span class="SimpleMath">f^*</span>, and finally converts these univariate factors back into the multivariate polynomial factors of <var class="Arg">f</var>. Since <code class="code">Factors</code> is non-deterministic, <code class="code">DivisorsMultivariatePolynomial</code> is non-deterministic as well.</p>
+<p>The function <code class="code">DivisorsMultivariatePolynomial</code> returns the list of polynomial divisors of <var class="Arg">f</var> in the multivariate polynomial ring <var class="Arg">R</var> with coefficients in a field. This program uses a simple but slow algorithm (see Joachim von zur Gathen, Jürgen Gerhard, <a href="chapBib.html#biBGG03">[vG03]</a>, exercise 16.10) which first converts the multivariate polynomial <var class="Arg">f</var> to an associated univariate polynomial <span class="SimpleMath">f^*</span>, then <code class="code">Factors</code> <span class="SimpleMath">f^*</span>, and finally converts these univariate factors back into the multivariate polynomial factors of <var class="Arg">f</var>. Since <code class="code">Factors</code> is non-deterministic, <code class="code">DivisorsMultivariatePolynomial</code> is non-deterministic as well.</p>
 
 
 <div class="example"><pre>

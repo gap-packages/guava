@@ -46,7 +46,7 @@ Other functions
 
 <h3>8 <span class="Heading">Coding theory functions in GAP</span></h3>
 
-<p>This chapter will recall from the GAP4.4.5 manual some of the GAP coding theory and finite field functions useful for coding theory. Some of these functions are partially written in C for speed. The main functions are</p>
+<p>This chapter will recall from the GAP reference manual some of the GAP coding theory and finite field functions useful for coding theory. Some of these functions are partially written in C for speed. The main functions are</p>
 
 
 <ul>
@@ -102,11 +102,11 @@ a cyclic [8,6,1..2]1..2 code defined by generator polynomial over GF(3)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">v:=VectorCodeword(v);</span>
 [ Z(3)^0, Z(3), Z(3)^0, 0*Z(3), Z(3)^0, Z(3)^0, Z(3)^0, Z(3)^0 ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G:=GeneratorMat(C);</span>
-[ [ Z(3)^0, 0*Z(3), Z(3)^0, 0*Z(3), 0*Z(3), 0*Z(3), 0*Z(3), 0*Z(3) ], 
-  [ 0*Z(3), Z(3)^0, 0*Z(3), Z(3)^0, 0*Z(3), 0*Z(3), 0*Z(3), 0*Z(3) ], 
-  [ 0*Z(3), 0*Z(3), Z(3)^0, 0*Z(3), Z(3)^0, 0*Z(3), 0*Z(3), 0*Z(3) ], 
-  [ 0*Z(3), 0*Z(3), 0*Z(3), Z(3)^0, 0*Z(3), Z(3)^0, 0*Z(3), 0*Z(3) ], 
-  [ 0*Z(3), 0*Z(3), 0*Z(3), 0*Z(3), Z(3)^0, 0*Z(3), Z(3)^0, 0*Z(3) ], 
+[ [ Z(3)^0, 0*Z(3), Z(3)^0, 0*Z(3), 0*Z(3), 0*Z(3), 0*Z(3), 0*Z(3) ],
+  [ 0*Z(3), Z(3)^0, 0*Z(3), Z(3)^0, 0*Z(3), 0*Z(3), 0*Z(3), 0*Z(3) ],
+  [ 0*Z(3), 0*Z(3), Z(3)^0, 0*Z(3), Z(3)^0, 0*Z(3), 0*Z(3), 0*Z(3) ],
+  [ 0*Z(3), 0*Z(3), 0*Z(3), Z(3)^0, 0*Z(3), Z(3)^0, 0*Z(3), 0*Z(3) ],
+  [ 0*Z(3), 0*Z(3), 0*Z(3), 0*Z(3), Z(3)^0, 0*Z(3), Z(3)^0, 0*Z(3) ],
   [ 0*Z(3), 0*Z(3), 0*Z(3), 0*Z(3), 0*Z(3), Z(3)^0, 0*Z(3), Z(3)^0 ] ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">AClosestVectorCombinationsMatFFEVecFFE(G,F,v,1,1);</span>
 [ 0*Z(3), 0*Z(3), 0*Z(3), 0*Z(3), 0*Z(3), Z(3)^0, 0*Z(3), Z(3)^0 ]
@@ -130,7 +130,7 @@ a cyclic [8,6,1..2]1..2 code defined by generator polynomial over GF(3)
 [ 1 2 1 0 1 1 1 1 ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G:=GeneratorMat(C);;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">AClosestVectorCombinationsMatFFEVecFFECoords(G,F,v,1,1);</span>
-[ [ 0*Z(3), 0*Z(3), 0*Z(3), 0*Z(3), 0*Z(3), Z(3)^0, 0*Z(3), Z(3)^0 ], 
+[ [ 0*Z(3), 0*Z(3), 0*Z(3), 0*Z(3), 0*Z(3), Z(3)^0, 0*Z(3), Z(3)^0 ],
   [ 0*Z(3), 0*Z(3), 0*Z(3), 0*Z(3), 0*Z(3), Z(3)^0 ] ]
 </pre></div>
 

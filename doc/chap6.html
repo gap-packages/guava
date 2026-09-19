@@ -132,7 +132,7 @@ a linear [14,7,4]3..5 punctured code
 false
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PuncturedCode( C1, [1,2,3,4,5,6,7] );</span>
 a linear [8,7,1]1 punctured code
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PuncturedCode( WholeSpaceCode( 4, GF(5) ) ); # The dimension decreases from 4 to 3 </span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PuncturedCode( WholeSpaceCode( 4, GF(5) ) ); # The dimension decreases from 4 to 3</span>
 a linear [3,3,1]0 punctured code
 </pre></div>
 
@@ -152,7 +152,7 @@ a linear [3,3,1]0 punctured code
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C1 := EvenWeightSubcode( BCHCode( 8, 4, GF(3) ) );</span>
 an (8,33,4..8)3..8 even weight subcode
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">List( AsSSortedList( C1 ), WeightCodeword );</span>
-[ 0, 4, 4, 4, 4, 4, 4, 6, 4, 4, 4, 4, 6, 4, 4, 6, 4, 4, 8, 6, 4, 6, 8, 4, 4, 
+[ 0, 4, 4, 4, 4, 4, 4, 6, 4, 4, 4, 4, 6, 4, 4, 6, 4, 4, 8, 6, 4, 6, 8, 4, 4,
   4, 6, 4, 6, 8, 4, 6, 8 ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">EvenWeightSubcode( ReedMullerCode( 1, 3 ) );</span>
 a linear [8,4,4]2 Reed-Muller (1,3) code over GF(2)
@@ -176,7 +176,7 @@ a cyclic [15,5,7]5 BCH code, delta=7, b=1 over GF(2)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C2 = C1;</span>
 false
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">p := CodeIsomorphism( C1, C2 );</span>
-( 2, 4,14, 9,13, 7,11,10, 6, 8,12, 5)
+(2,13,7,10,8,3,5,4,14)(12,15)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C3 := PermutedCode( C1, p );</span>
 a linear [15,5,7]5 permuted code
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C2 = C3;</span>
@@ -248,7 +248,7 @@ true
 a (15,2013,3..15)2..15 code with 35 word(s) removed
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">WeightDistribution( C2 );</span>
 [ 1, 0, 0, 0, 105, 168, 280, 435, 435, 280, 168, 105, 35, 0, 0, 1 ]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">MinimumDistance( C2 );     # C2 is not linear, so the minimum weight does not have to be equal to the minimum distance </span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">MinimumDistance( C2 );     # C2 is not linear, so the minimum weight does not have to be equal to the minimum distance</span>
 3
 </pre></div>
 
@@ -343,15 +343,15 @@ a cyclic [31,11,11]7..11 BCH code, delta=11, b=1 over GF(2)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">S1:= SubCode(C);</span>
 a linear [31,10,11]7..13 subcode
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">WeightDistribution(S1);</span>
-[ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 120, 190, 0, 0, 272, 255, 0, 0, 120, 66, 
+[ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 120, 190, 0, 0, 272, 255, 0, 0, 120, 66,
   0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">S2:= SubCode(C, 8);</span>
 a linear [31,3,11]14..20 subcode
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">History(S2);</span>
-[ "a linear [31,3,11]14..20 subcode of", 
+[ "a linear [31,3,11]14..20 subcode of",
   "a cyclic [31,11,11]7..11 BCH code, delta=11, b=1 over GF(2)" ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">WeightDistribution(S2);</span>
-[ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 1, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 
+[ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 1, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,
   0, 0, 0, 0, 0, 0, 0 ]
 </pre></div>
 
@@ -386,20 +386,9 @@ a linear [7,4,3]1 residue code
 a linear [32,16,8]6 Reed-Muller (2,5) code over GF(2)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C2 := ConstructionBCode( C1 );</span>
 a linear [24,9,8]5..10 Construction B (8 coordinates)
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">BoundsMinimumDistance( 24, 9, GF(2) );  # so C2 is optimal</span>
-rec( n := 24, k := 9, q := 2, references := rec(  ), 
-  construction := [ [ Operation "UUVCode" ], 
-      [ [ [ Operation "UUVCode" ], [ [ [ Operation "DualCode" ], 
-                      [ [ [ Operation "RepetitionCode" ], [ 6, 2 ] ] ] ], 
-                  [ [ Operation "CordaroWagnerCode" ], [ 6 ] ] ] ], 
-          [ [ Operation "CordaroWagnerCode" ], [ 12 ] ] ] ], lowerBound := 8, 
-  lowerBoundExplanation := [ "Lb(24,9)=8, u u+v construction of C1 and C2:", 
-      "Lb(12,7)=4, u u+v construction of C1 and C2:", 
-      "Lb(6,5)=2, dual of the repetition code", 
-      "Lb(6,2)=4, Cordaro-Wagner code", "Lb(12,2)=8, Cordaro-Wagner code" ], 
-  upperBound := 8, 
-  upperBoundExplanation := [ "Ub(24,9)=8, otherwise construction B would 
-                             contradict:", "Ub(18,4)=8, Griesmer bound" ] )
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">bounds := BoundsMinimumDistance( 24, 9, GF(2) );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">[ bounds.lowerBound, bounds.upperBound ];  # so C2 is optimal</span>
+[ 8, 8 ]
 </pre></div>
 
 <p><a id="X799B12F085ACB609" name="X799B12F085ACB609"></a></p>
@@ -447,7 +436,7 @@ true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">GeneratorMat( R );</span>
 [ [ Z(2)^0, Z(2)^0, Z(2)^0, Z(2)^0 ] ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">GeneratorMat( R2 );</span>
-[ [ Z(2)^0, 0*Z(2), Z(2)^0, 0*Z(2), Z(2)^0, 0*Z(2), Z(2)^0, 0*Z(2) ], 
+[ [ Z(2)^0, 0*Z(2), Z(2)^0, 0*Z(2), Z(2)^0, 0*Z(2), Z(2)^0, 0*Z(2) ],
   [ 0*Z(2), Z(2)^0, 0*Z(2), Z(2)^0, 0*Z(2), Z(2)^0, 0*Z(2), Z(2)^0 ] ]
 </pre></div>
 
@@ -466,11 +455,11 @@ true
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C:=RandomLinearCode(10,4,GF(4)); MinimumDistance(C);</span>
-a  [10,4,?] randomly generated code over GF(4)
-5
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C:=HammingCode(2,GF(4)); MinimumDistance(C);</span>
+a linear [5,3,3]1 Hamming (2,4) code over GF(4)
+3
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">trC:=TraceCode(C,GF(2)); MinimumDistance(trC);</span>
-a linear [10,7,1]1..3 user defined unrestricted code over GF(2)
+a linear [5,4,1]1 user defined unrestricted code over GF(2)
 1
 </pre></div>
 
@@ -491,9 +480,9 @@ a linear [7,4,3]1 Hamming (3,2) code over GF(2)
 false
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C := CosetCode(H, c);</span>
 a (7,16,3)1 coset code
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">List(AsSSortedList(C), el-&gt; Syndrome(H, el));  # All elements of the coset have the same syndrome in H </span>
-[ [ 1 1 1 ], [ 1 1 1 ], [ 1 1 1 ], [ 1 1 1 ], [ 1 1 1 ], [ 1 1 1 ], 
-  [ 1 1 1 ], [ 1 1 1 ], [ 1 1 1 ], [ 1 1 1 ], [ 1 1 1 ], [ 1 1 1 ], 
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">List(AsSSortedList(C), el-&gt; Syndrome(H, el));  # All elements of the coset have the same syndrome in H</span>
+[ [ 1 1 1 ], [ 1 1 1 ], [ 1 1 1 ], [ 1 1 1 ], [ 1 1 1 ], [ 1 1 1 ],
+  [ 1 1 1 ], [ 1 1 1 ], [ 1 1 1 ], [ 1 1 1 ], [ 1 1 1 ], [ 1 1 1 ],
   [ 1 1 1 ], [ 1 1 1 ], [ 1 1 1 ], [ 1 1 1 ] ]
 </pre></div>
 
@@ -537,11 +526,11 @@ a (12,264,6..12)3..6 code with codewords of weight 6
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G := GeneratorMatCode( Z(2) * [ [0,1,1,0], [0,1,0,1], [0,0,1,1] ], </span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G := GeneratorMatCode( Z(2) * [ [0,1,1,0], [0,1,0,1], [0,0,1,1] ],</span>
 <span class="GAPprompt">&gt;</span> <span class="GAPinput">"random form code", GF(2) );</span>
 a linear [4,2,1..2]1..2 random form code over GF(2)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Codeword( GeneratorMat( G ) );</span>
-[ [ 0 1 0 1 ], [ 0 0 1 1 ] ]
+[ [ 0 1 1 0 ], [ 0 0 1 1 ] ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Codeword( GeneratorMat( StandardFormCode( G ) ) );</span>
 [ [ 1 0 0 1 ], [ 0 1 0 1 ] ]
 </pre></div>
@@ -560,14 +549,10 @@ a linear [4,2,1..2]1..2 random form code over GF(2)
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PiecewiseConstantCode( [ 2, 3 ],</span>
-     [ [ 0, 0 ], [ 0, 3 ], [ 1, 0 ], [ 2, 2 ] ],GF(2) );
-the C code programs are compiled, so using Leon's binary....
-the C code programs are compiled, so using Leon's binary....
-the C code programs are compiled, so using Leon's binary....
-the C code programs are compiled, so using Leon's binary....
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">   [ [ 0, 0 ], [ 0, 3 ], [ 1, 0 ], [ 2, 2 ] ], GF(2) );</span>
 a (5,7,1..5)1..5 piecewise constant code over GF(2)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">AsSSortedList(last);</span>
-[ [ 0 0 0 0 0 ], [ 0 0 1 1 1 ], [ 0 1 0 0 0 ], [ 1 0 0 0 0 ], 
+[ [ 0 0 0 0 0 ], [ 0 0 1 1 1 ], [ 0 1 0 0 0 ], [ 1 0 0 0 0 ],
   [ 1 1 0 1 1 ], [ 1 1 1 0 1 ], [ 1 1 1 1 0 ] ]
 </pre></div>
 
@@ -653,13 +638,13 @@ a linear [80,20,12]20..45 direct product code
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C := CyclicCodes(7, GF(2));</span>
-[ a cyclic [7,7,1]0 enumerated code over GF(2), 
-  a cyclic [7,6,1..2]1 enumerated code over GF(2), 
-  a cyclic [7,3,1..4]2..3 enumerated code over GF(2), 
-  a cyclic [7,0,7]7 enumerated code over GF(2), 
-  a cyclic [7,3,1..4]2..3 enumerated code over GF(2), 
-  a cyclic [7,4,1..3]1 enumerated code over GF(2), 
-  a cyclic [7,1,7]3 enumerated code over GF(2), 
+[ a cyclic [7,7,1]0 enumerated code over GF(2),
+  a cyclic [7,6,1..2]1 enumerated code over GF(2),
+  a cyclic [7,3,1..4]2..3 enumerated code over GF(2),
+  a cyclic [7,0,7]7 enumerated code over GF(2),
+  a cyclic [7,3,1..4]2..3 enumerated code over GF(2),
+  a cyclic [7,4,1..3]1 enumerated code over GF(2),
+  a cyclic [7,1,7]3 enumerated code over GF(2),
   a cyclic [7,4,1..3]1 enumerated code over GF(2) ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IntersectionCode(C[6], C[8]) = C[7];</span>
 true
@@ -739,7 +724,7 @@ a linear [16,5,8]6 Reed-Muller (1,4) code over GF(2)
 a linear [23,9,3]7 direct sum code
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">f := AmalgamatedDirectSumCode( c, d );;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">MinimumDistance( f );;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CoveringRadius( f );; </span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CoveringRadius( f );;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">f;</span>
 a linear [22,8,3]7 amalgamated direct sum code
 </pre></div>
@@ -794,29 +779,29 @@ a cyclic [127,22,47..51]36..63 BCH code, delta=47, b=1 over GF(2)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C3 := BCHCode(127, 55);</span>
 a cyclic [127,15,55]41..62 BCH code, delta=55, b=1 over GF(2)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G1 := ShallowCopy( GeneratorMat(C2) );;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Append(G1, [ GeneratorMat(C1)[23] ]);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Add(G1, GeneratorMat(C1)[23]);;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C1 := GeneratorMatCode(G1, GF(2));</span>
 a linear [127,23,1..43]35..63 code defined by generator matrix over GF(2)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">MinimumDistance(C1);</span>
 43
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C := [ C1, C2, C3 ];</span>
-[ a linear [127,23,43]35..63 code defined by generator matrix over GF(2), 
-  a cyclic [127,22,47..51]36..63 BCH code, delta=47, b=1 over GF(2), 
+[ a linear [127,23,43]35..63 code defined by generator matrix over GF(2),
+  a cyclic [127,22,47..51]36..63 BCH code, delta=47, b=1 over GF(2),
   a cyclic [127,15,55]41..62 BCH code, delta=55, b=1 over GF(2) ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsSubset(C[1], C[2]);</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsSubset(C[2], C[3]);</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">A := [ RepetitionCode(4, GF(2)), EvenWeightSubcode( QRCode(17, GF(2)) ) ];</span>
-[ a cyclic [4,1,4]2 repetition code over GF(2), 
+[ a cyclic [4,1,4]2 repetition code over GF(2),
   a cyclic [17,8,6]3..6 even weight subcode ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CX := ConstructionXCode(C, A);</span>
 a linear [148,23,53]43..74 Construction X code
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">History(CX);</span>
-[ "a linear [148,23,53]43..74 Construction X code of", 
+[ "a linear [148,23,53]43..74 Construction X code of",
   "Base codes: [ a cyclic [127,15,55]41..62 BCH code, delta=55, b=1 over GF(2)\
 , a cyclic [127,22,47..51]36..63 BCH code, delta=47, b=1 over GF(2), a linear \
-[127,23,43]35..63 code defined by generator matrix over GF(2) ]", 
+[127,23,43]35..63 code defined by generator matrix over GF(2) ]",
   "Auxiliary codes: [ a cyclic [4,1,4]2 repetition code over GF(2), a cyclic [\
 17,8,6]3..6 even weight subcode ]" ]
 </pre></div>
@@ -852,11 +837,11 @@ a linear [148,23,53]43..74 Construction X code
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">a := PrimitiveRoot(GF(32));</span>
 Z(2^5)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">f0 := MinimalPolynomial( GF(2), a^0 );</span>
-x_1+Z(2)^0
+x+Z(2)^0
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">f1 := MinimalPolynomial( GF(2), a^1 );</span>
-x_1^5+x_1^2+Z(2)^0
+x^5+x^2+Z(2)^0
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">f5 := MinimalPolynomial( GF(2), a^5 );</span>
-x_1^5+x_1^4+x_1^2+x_1+Z(2)^0
+x^5+x^4+x^2+x+Z(2)^0
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C2 := CheckPolCode( f0 * f1, 31, GF(2) );; MinimumDistance(C2);; Display(C2);</span>
 a cyclic [31,6,15]10..13 code defined by check polynomial over GF(2)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C3 := CheckPolCode( f0 * f5, 31, GF(2) );; MinimumDistance(C3);; Display(C3);</span>
@@ -873,12 +858,12 @@ a cyclic [6,5,2]1 dual code
 a linear [47,11,15..17]13..23 Construction XX code
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">MinimumDistance(CXX);</span>
 17
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">History(CXX);        </span>
-[ "a linear [47,11,17]13..23 Construction XX code of", 
-  "C1: a cyclic [31,11,11]7..11 union code", 
-  "C2: a cyclic [31,6,15]10..13 code defined by check polynomial over GF(2)", 
-  "C3: a cyclic [31,6,15]10..13 code defined by check polynomial over GF(2)", 
-  "A1: a linear [10,5,4]2..4 shortened code", 
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">History(CXX);</span>
+[ "a linear [47,11,17]13..23 Construction XX code of",
+  "C1: a cyclic [31,11,11]7..11 union code",
+  "C2: a cyclic [31,6,15]10..13 code defined by check polynomial over GF(2)",
+  "C3: a cyclic [31,6,15]10..13 code defined by check polynomial over GF(2)",
+  "A1: a linear [10,5,4]2..4 shortened code",
   "A2: a cyclic [6,5,2]1 dual code" ]
 </pre></div>
 
@@ -906,11 +891,11 @@ a linear [47,11,15..17]13..23 Construction XX code
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput"># Binary code</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">#</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">O := [ CyclicMDSCode(2,3,7), BestKnownLinearCode(9,5,GF(2)), CyclicMDSCode(2,3,4) ];</span>
-[ a cyclic [9,7,3]1 MDS code over GF(8), a linear [9,5,3]2..3 shortened code, 
+[ a cyclic [9,7,3]1 MDS code over GF(8), a linear [9,5,3]2..3 shortened code,
   a cyclic [9,4,6]4..5 MDS code over GF(8) ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">A := ExtendedCode( HammingCode(3,GF(2)) );;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">I := [ SubCode(A), A, DualCode( RepetitionCode(8, GF(2)) ) ];</span>
-[ a linear [8,3,4]3..4 subcode, a linear [8,4,4]2 extended code, 
+[ a linear [8,3,4]3..4 subcode, a linear [8,4,4]2 extended code,
   a cyclic [8,7,2]1 dual code ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C := BZCodeNC(O, I);</span>
 a linear [72,38,12]0..72 Blokh Zyablov concatenated code
@@ -922,23 +907,23 @@ a linear [72,38,12]0..72 Blokh Zyablov concatenated code
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">O1 := DualCode( O3 );;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">MinimumDistance(O1);; MinimumDistance(O2);; MinimumDistance(O3);;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Cy := CyclicCodes(5, GF(5));;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">for i in [4, 5] do; MinimumDistance(Cy[i]);; od;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">for i in [4, 5] do MinimumDistance(Cy[i]);; od;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">O  := [ O1, O2, O3 ];</span>
-[ a linear [6,4,3]1 dual code, a linear [6,3,4]2..3 extended code, 
+[ a linear [6,4,3]1 dual code, a linear [6,3,4]2..3 extended code,
   a linear [6,2,5]3..4 extended code ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">I  := [ Cy[5], Cy[4], Cy[3] ];</span>
-[ a cyclic [5,1,5]3..4 enumerated code over GF(5), 
-  a cyclic [5,2,4]2..3 enumerated code over GF(5), 
+[ a cyclic [5,1,5]3..4 enumerated code over GF(5),
+  a cyclic [5,2,4]2..3 enumerated code over GF(5),
   a cyclic [5,3,1..3]2 enumerated code over GF(5) ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C  := BZCodeNC( O, I );</span>
 a linear [30,9,5..15]0..30 Blokh Zyablov concatenated code
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">MinimumDistance(C);</span>
 15
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">History(C);</span>
-[ "a linear [30,9,15]0..30 Blokh Zyablov concatenated code of", 
+[ "a linear [30,9,15]0..30 Blokh Zyablov concatenated code of",
   "Inner codes: [ a cyclic [5,1,5]3..4 enumerated code over GF(5), a cyclic [5\
 ,2,4]2..3 enumerated code over GF(5), a cyclic [5,3,1..3]2 enumerated code ove\
-r GF(5) ]", 
+r GF(5) ]",
   "Outer codes: [ a linear [6,4,3]1 dual code, a linear [6,3,4]2..3 extended c\
 ode, a linear [6,2,5]3..4 extended code ]" ]
 </pre></div>

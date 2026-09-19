@@ -260,8 +260,8 @@ false
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C2 := ConferenceCode( 5 );</span>
 a (5,12,2)1..4 conference code over GF(2)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">AsSSortedList( C2 );</span>
-[ [ 0 0 0 0 0 ], [ 0 0 1 1 1 ], [ 0 1 0 1 1 ], [ 0 1 1 0 1 ], [ 0 1 1 1 0 ], 
-  [ 1 0 0 1 1 ], [ 1 0 1 0 1 ], [ 1 0 1 1 0 ], [ 1 1 0 0 1 ], [ 1 1 0 1 0 ], 
+[ [ 0 0 0 0 0 ], [ 0 0 1 1 1 ], [ 0 1 0 1 1 ], [ 0 1 1 0 1 ], [ 0 1 1 1 0 ],
+  [ 1 0 0 1 1 ], [ 1 0 1 0 1 ], [ 1 0 1 1 0 ], [ 1 1 0 0 1 ], [ 1 1 0 1 0 ],
   [ 1 1 1 0 0 ], [ 1 1 1 1 1 ] ]
 </pre></div>
 
@@ -407,7 +407,7 @@ a linear [5,3,1..2]1..2 code defined by generator matrix over GF(3)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C2 := GeneratorMatCode( IdentityMat( 5, GF(2) ), GF(2) );</span>
 a linear [5,5,1]0 code defined by generator matrix over GF(2)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">GeneratorMatCode( List( AsSSortedList( NordstromRobinsonCode() ),</span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">x -&gt; VectorCodeword( x ) ), GF( 2 ) ); # This is the smallest linear code that contains the N-R code </span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">x -&gt; VectorCodeword( x ) ), GF( 2 ) ); # This is the smallest linear code that contains the N-R code</span>
 a linear [16,11,1..4]2 code defined by generator matrix over GF(2)
 </pre></div>
 
@@ -433,8 +433,8 @@ a linear [16,11,1..4]2 code defined by generator matrix over GF(2)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C1 := CheckMatCode( G, GF(3) );</span>
 a linear [5,2,1..2]2..3 code defined by check matrix over GF(3)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CheckMat(C1);</span>
-[ [ Z(3)^0, 0*Z(3), Z(3)^0, Z(3), 0*Z(3) ], 
-  [ 0*Z(3), Z(3)^0, Z(3), Z(3)^0, Z(3)^0 ], 
+[ [ Z(3)^0, 0*Z(3), Z(3)^0, Z(3), 0*Z(3) ],
+  [ 0*Z(3), Z(3)^0, Z(3), Z(3)^0, Z(3)^0 ],
   [ 0*Z(3), 0*Z(3), Z(3)^0, Z(3), Z(3)^0 ] ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C2 := CheckMatCode( IdentityMat( 5, GF(2) ), GF(2) );</span>
 a cyclic [5,0,5]5 code defined by check matrix over GF(2)
@@ -508,11 +508,11 @@ x
 x^2+x+Z(2)^0
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C:=GoppaCode(g,L);</span>
 a linear [8,2,5]3 classical Goppa code over GF(2)
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">xx := Indeterminate( GF(2), "xx" );; </span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">xx := Indeterminate( GF(2), "xx" );;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">gg := xx^2 + xx + 1;; L := AsSSortedList( GF(8) );;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C1 := GoppaCode( gg, L );</span>
 a linear [8,2,5]3 classical Goppa code over GF(2)
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">y := Indeterminate( GF(2), "y" );; </span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">y := Indeterminate( GF(2), "y" );;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">h := y^2 + y + 1;;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C2 := GoppaCode( h, 8 );</span>
 a linear [8,2,5]3 classical Goppa code over GF(2)
@@ -558,7 +558,7 @@ a linear [8,2,2..5]3..4 generalized Srivastava code over GF(2)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">w := AsSSortedList( GF(11) ){[9..10]};;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C := SrivastavaCode( a, w, 2, GF(11) );</span>
 a linear [7,5,3]2 Srivastava code over GF(11)
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsMDSCode( C );     # Always true if F is a prime field </span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsMDSCode( C );     # Always true if F is a prime field</span>
 true
 </pre></div>
 
@@ -573,8 +573,8 @@ true
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C := CordaroWagnerCode( 11 );</span>
 a linear [11,2,7]5 Cordaro-Wagner code over GF(2)
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">AsSSortedList(C);                 </span>
-[ [ 0 0 0 0 0 0 0 0 0 0 0 ], [ 0 0 0 0 1 1 1 1 1 1 1 ], 
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">AsSSortedList(C);</span>
+[ [ 0 0 0 0 0 0 0 0 0 0 0 ], [ 0 0 0 0 1 1 1 1 1 1 1 ],
   [ 1 1 1 1 0 0 0 1 1 1 1 ], [ 1 1 1 1 1 1 1 0 0 0 0 ] ]
 </pre></div>
 
@@ -587,7 +587,7 @@ a linear [11,2,7]5 Cordaro-Wagner code over GF(2)
 
 <p>A group <span class="SimpleMath">K</span> together with a group of automorphism <span class="SimpleMath">H</span> of <span class="SimpleMath">K</span> such that the semidirect product <span class="SimpleMath">KH</span> is a Frobenius group with complement <span class="SimpleMath">H</span> is called a Ferrero pair <span class="SimpleMath">(K, H)</span> in SONATA. Take a Frobenius <span class="SimpleMath">(G,+)</span> group with kernel <span class="SimpleMath">K</span> and complement <span class="SimpleMath">H</span>. Consider the design <span class="SimpleMath">D</span> with point set <span class="SimpleMath">K</span> and block set <span class="SimpleMath">{ a^H + b | a, b ∈ K, a not= 0 }</span>. Here <span class="SimpleMath">a^H</span> denotes the orbit of a under conjugation by elements of <span class="SimpleMath">H</span>. Every planar near-ring design of type "*" can be obtained in this way from groups. These designs (from a Frobenius kernel of order <span class="SimpleMath">v</span> and a Frobenius complement of order <span class="SimpleMath">k</span>) have <span class="SimpleMath">v(v-1)/k</span> distinct blocks and they are all of size <span class="SimpleMath">k</span>. Moreover each of the <span class="SimpleMath">v</span> points occurs in exactly <span class="SimpleMath">v-1</span> distinct blocks. Hence the rows and the columns of the incidence matrix <span class="SimpleMath">M</span> of the design are always of constant weight.</p>
 
-<p><code class="code">FerreroDesignCode</code> constructs binary linear code arising from the incdence matrix of a design associated to a "Ferrero pair" arising from a fixed-point-free (fpf) automorphism groups and Frobenius group.</p>
+<p><code class="code">FerreroDesignCode</code> constructs binary linear code arising from the incidence matrix of a design associated to a "Ferrero pair" arising from a fixed-point-free (fpf) automorphism groups and Frobenius group.</p>
 
 <p>INPUT: <span class="SimpleMath">P</span> is a list of prime powers describing an abelian group <span class="SimpleMath">G</span>. <span class="SimpleMath">m &gt; 0</span> is an integer such that <span class="SimpleMath">G</span> admits a cyclic fpf automorphism group of size <span class="SimpleMath">m</span>. This means that for all <span class="SimpleMath">q = p^k ∈ P</span>, OrderMod(<span class="SimpleMath">p</span>, <span class="SimpleMath">m</span>) must divide <span class="SimpleMath">q</span> (see the SONATA documentation for <code class="code">FpfAutomorphismGroupsCyclic</code>).</p>
 
@@ -602,7 +602,7 @@ a linear [11,2,7]5 Cordaro-Wagner code over GF(2)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">FpfAutomorphismGroupsMaxSize( G );</span>
 [ 24, 2 ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">L:=FpfAutomorphismGroupsCyclic( [5,5], 3 );</span>
-[ [ [ f1, f2 ] -&gt; [ f1*f2^2, f1*f2^3 ] ], 
+[ [ [ f1, f2 ] -&gt; [ f1*f2^2, f1*f2^3 ] ],
   &lt;pc group of size 25 with 2 generators&gt; ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">D := DesignFromFerreroPair( L[2], Group(L[1][1]), "*" );</span>
 &lt;a 2 - ( 25, 3, 2 ) nearring generated design&gt;
@@ -636,7 +636,7 @@ a  [15,4,?] randomly generated code over GF(3)
 a linear [15,4,1..6]6..10 random linear code over GF(3)
 </pre></div>
 
-<p>The method <strong class="pkg">GUAVA</strong> chooses to output the result of a <code class="code">RandomLinearCode</code> command is different than other codes. For example, the bounds on the minimum distance is not displayed. Howeer, you can use the <code class="code">Display</code> command to print this information. This new display method was added in version 1.9 to speed up the command (if <span class="SimpleMath">n</span> is about 80 and <span class="SimpleMath">k</span> about 40, for example, the time it took to look up and/or calculate the bounds on the minimum distance was too long).</p>
+<p>The method <strong class="pkg">GUAVA</strong> chooses to output the result of a <code class="code">RandomLinearCode</code> command is different than other codes. For example, the bounds on the minimum distance is not displayed. However, you can use the <code class="code">Display</code> command to print this information. This new display method was added in version 1.9 to speed up the command (if <span class="SimpleMath">n</span> is about 80 and <span class="SimpleMath">k</span> about 40, for example, the time it took to look up and/or calculate the bounds on the minimum distance was too long).</p>
 
 <p><a id="X839CFE4C7A567D4D" name="X839CFE4C7A567D4D"></a></p>
 
@@ -708,20 +708,20 @@ a linear [85,81,3]1 Hamming (4,4) code over GF(4)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C:=BestKnownLinearCode(174,72);</span>
 a linear [174,72,31..36]26..87 code defined by generator matrix over GF(2)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">bounds := BoundsMinimumDistance( 81, 77, GF(4) );</span>
-rec( 
-  construction := 
-    [ &lt;Operation "ShortenedCode"&gt;, 
-      [ [ &lt;Operation "HammingCode"&gt;, [ 4, 4 ] ], [ 1, 2, 3, 4 ] ] ], k := 77, 
-  lowerBound := 3, 
-  lowerBoundExplanation := [ "Lb(81,77)=3, by shortening of:", 
-      "Lb(85,81)=3, reference: Ham" ], n := 81, q := 4, 
-  references := 
-    rec( 
-      Ham := [ "%T this reference is unknown, for more info", 
-          "%T contact A.E. Brouwer (aeb@cwi.nl)" ], 
-      cap := [ "%T this reference is unknown, for more info", 
-          "%T contact A.E. Brouwer (aeb@cwi.nl)" ] ), upperBound := 3, 
-  upperBoundExplanation := [ "Ub(81,77)=3, by considering shortening to:", 
+rec(
+  construction :=
+    [ &lt;Operation "ShortenedCode"&gt;,
+      [ [ &lt;Operation "HammingCode"&gt;, [ 4, 4 ] ], [ 1, 2, 3, 4 ] ] ], k := 77,
+  lowerBound := 3,
+  lowerBoundExplanation := [ "Lb(81,77)=3, by shortening of:",
+      "Lb(85,81)=3, reference: Ham" ], n := 81, q := 4,
+  references :=
+    rec(
+      Ham := [ "%T this reference is unknown, for more info",
+          "%T contact A.E. Brouwer (aeb@cwi.nl)" ],
+      cap := [ "%T this reference is unknown, for more info",
+          "%T contact A.E. Brouwer (aeb@cwi.nl)" ] ), upperBound := 3,
+  upperBoundExplanation := [ "Ub(81,77)=3, by considering shortening to:",
       "Ub(18,14)=3, reference: cap" ] )
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C := BestKnownLinearCode( bounds );</span>
 a linear [81,77,3]2..3 shortened code
@@ -900,11 +900,11 @@ c(x)h(x) \equiv  0 \pmod{x^n-1},
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C := BinaryGolayCode();</span>
 a cyclic [23,12,7]3 binary Golay code over GF(2)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Set(NamesOfComponents(C));</span>
-[ "Dimension", "GeneratorMat", "GeneratorPol", 
-  "GeneratorsOfLeftOperatorAdditiveGroup", "LeftActingDomain", 
-  "MinimumWeightOfGenerators", "Redundancy", "Size", "SpecialDecoder", 
-  "UpperBoundOptimalMinimumDistance", "WeightDistribution", "WordLength", 
-  "boundsCoveringRadius", "lowerBoundMinimumDistance", "name", 
+[ "Dimension", "GeneratorMat", "GeneratorPol",
+  "GeneratorsOfLeftOperatorAdditiveGroup", "LeftActingDomain",
+  "MinimumWeightOfGenerators", "Redundancy", "Size", "SpecialDecoder",
+  "UpperBoundOptimalMinimumDistance", "WeightDistribution", "WordLength",
+  "boundsCoveringRadius", "lowerBoundMinimumDistance", "name",
   "upperBoundMinimumDistance" ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C!.GeneratorPol;</span>
 x^11+x^10+x^6+x^5+x^4+x^2+Z(2)^0
@@ -931,7 +931,7 @@ x^2+Z(2)^0
 a cyclic [7,6,1..2]1 code defined by generator polynomial over GF(2)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">GeneratorPol( C1 );</span>
 x+Z(2)^0
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C2 := GeneratorPolCode( x+1, 7, GF(2)); </span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C2 := GeneratorPolCode( x+1, 7, GF(2));</span>
 a cyclic [7,6,1..2]1 code defined by generator polynomial over GF(2)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">GeneratorPol( C2 );</span>
 x+Z(2)^0
@@ -948,13 +948,13 @@ x+Z(2)^0
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput"> x := Indeterminate( GF(3), "x" );; P:= x^2+2;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">x := Indeterminate( GF(3), "x" );; P:= x^2+2;</span>
 x^2-Z(3)^0
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">H := CheckPolCode(P, 7, GF(3));</span>
 a cyclic [7,1,7]4 code defined by check polynomial over GF(3)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CheckPol(H);</span>
 x-Z(3)^0
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Gcd(P, X(GF(3))^7-1);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Gcd(P, X(GF(3),"x")^7-1);</span>
 x-Z(3)^0
 </pre></div>
 
@@ -972,7 +972,7 @@ x-Z(3)^0
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">a := PrimitiveUnityRoot( 3, 14 );</span>
 Z(3^6)^52
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C1 := RootsCode( 14, [ a^0, a, a^3 ] );</span>
-a cyclic [14,7,3..6]3..7 code defined by roots over GF(3)
+a cyclic [14,7,4..6]3..7 code defined by roots over GF(3)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">MinimumDistance( C1 );</span>
 4
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">b := PrimitiveUnityRoot( 2, 15 );</span>
@@ -982,7 +982,7 @@ a cyclic [15,7,5]3..5 code defined by roots over GF(2)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C2 = BCHCode( 15, 5, GF(2) );</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C3 := RootsCode( 4, [ 1, 2 ], 5 );</span>
-a cyclic [4,2,2..3]2 code defined by roots over GF(5)
+a cyclic [4,2,3]2 code defined by roots over GF(5)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">RootsOfCode( C3 );</span>
 [ Z(5), Z(5)^2 ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C3 = ReedSolomonCode( 4, 3 );</span>
@@ -997,7 +997,7 @@ true
 <p>The function <code class="code">BCHCode</code> returns a 'Bose-Chaudhuri-Hockenghem code' (or <em>BCH code</em> for short). This is the largest possible cyclic code of length <var class="Arg">n</var> over field <var class="Arg">F</var>, whose generator polynomial has zeros</p>
 
 <p class="pcenter">
-a^{b},a^{b+1}, ..., a^{b+delta-2}, 
+a^{b},a^{b+1}, ..., a^{b+delta-2},
 </p>
 
 <p>where <span class="SimpleMath">a</span> is a primitive <span class="SimpleMath">n^th</span> root of unity in the splitting field <span class="SimpleMath">GF(q^m)</span>, <var class="Arg">b</var> is an integer <span class="SimpleMath">0≤ b≤ n-delta+1</span> and <span class="SimpleMath">m</span> is the multiplicative order of <span class="SimpleMath">q</span> modulo <var class="Arg">n</var>. (The integers <span class="SimpleMath">{b,...,b+delta-2}</span> typically lie in the range <span class="SimpleMath">{1,...,n-1}</span>.) Default value for <var class="Arg">b</var> is <span class="SimpleMath">1</span>, though the algorithm allows <span class="SimpleMath">b=0</span>. The length <var class="Arg">n</var> of the code and the size <span class="SimpleMath">q</span> of the field must be relatively prime. The generator polynomial is equal to the least common multiple of the minimal polynomials of</p>
@@ -1028,7 +1028,7 @@ a cyclic [15,5,7]5 BCH code, delta=7, b=1 over GF(2)
 7
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C2 := BCHCode( 23, 2, GF(2) );</span>
 a cyclic [23,12,5..7]3 BCH code, delta=5, b=1 over GF(2)
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">DesignedDistance( C2 );       </span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">DesignedDistance( C2 );</span>
 5
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">MinimumDistance(C2);</span>
 7
@@ -1166,7 +1166,7 @@ x^3+x^2+Z(2)^0
 [ x^3+x^2+Z(2)^0 ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C := FireCode( G, 3 );</span>
 a cyclic [35,27,1..4]2..6 3 burst error correcting fire code over GF(2)
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">MinimumDistance( C );     # Still it can correct bursts of length 3 </span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">MinimumDistance( C );     # Still it can correct bursts of length 3</span>
 4
 </pre></div>
 
@@ -1227,9 +1227,9 @@ true
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CyclicCodes(3,GF(3));</span>
-[ a cyclic [3,3,1]0 enumerated code over GF(3), 
-  a cyclic [3,2,1..2]1 enumerated code over GF(3), 
-  a cyclic [3,1,3]2 enumerated code over GF(3), 
+[ a cyclic [3,3,1]0 enumerated code over GF(3),
+  a cyclic [3,2,1..2]1 enumerated code over GF(3),
+  a cyclic [3,1,3]2 enumerated code over GF(3),
   a cyclic [3,0,3]3 enumerated code over GF(3) ]
 </pre></div>
 
@@ -1245,19 +1245,19 @@ true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">NrCyclicCodes( 23, GF(2) );</span>
 8
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">codelist := CyclicCodes( 23, GF(2) );</span>
-[ a cyclic [23,23,1]0 enumerated code over GF(2), 
-  a cyclic [23,22,1..2]1 enumerated code over GF(2), 
-  a cyclic [23,11,1..8]4..7 enumerated code over GF(2), 
-  a cyclic [23,0,23]23 enumerated code over GF(2), 
-  a cyclic [23,11,1..8]4..7 enumerated code over GF(2), 
-  a cyclic [23,12,1..7]3 enumerated code over GF(2), 
-  a cyclic [23,1,23]11 enumerated code over GF(2), 
+[ a cyclic [23,23,1]0 enumerated code over GF(2),
+  a cyclic [23,22,1..2]1 enumerated code over GF(2),
+  a cyclic [23,11,1..8]4..7 enumerated code over GF(2),
+  a cyclic [23,0,23]23 enumerated code over GF(2),
+  a cyclic [23,11,1..8]4..7 enumerated code over GF(2),
+  a cyclic [23,12,1..7]3 enumerated code over GF(2),
+  a cyclic [23,1,23]11 enumerated code over GF(2),
   a cyclic [23,12,1..7]3 enumerated code over GF(2) ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">BinaryGolayCode() in codelist;</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">RepetitionCode( 23, GF(2) ) in codelist;</span>
 true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CordaroWagnerCode( 23 ) in codelist;     # This code is not cyclic </span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CordaroWagnerCode( 23 ) in codelist;     # This code is not cyclic</span>
 false
 </pre></div>
 
@@ -1302,7 +1302,7 @@ x^21+x^20+x^19-x^15-x^14-x^12+x^11-x^8+x^5+x^4-x^3-x^2
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">L3 := PolyCodeword( Codeword("22021011202221111020021",GF(3)) );</span>
 x^22-x^21-x^18+x^16+x^15+x^14+x^13-x^12-x^11-x^10-x^8+x^7+x^6+x^4-x^3-x-Z(3)^0
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C := QuasiCyclicCode( [L1, L2, L3], 23, GF(3) );</span>
-a linear [69,12,1..37]27..46 quasi-cyclic code over GF(3)
+a linear [69,12,1..36]27..46 quasi-cyclic code over GF(3)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">MinimumDistance(C);</span>
 34
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display(C);</span>
@@ -1350,7 +1350,7 @@ x^3+Z(3^3)^7*x^2+Z(3^3)^20*x-Z(3)^0
 <h5>5.5-18 FourNegacirculantSelfDualCode</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FourNegacirculantSelfDualCode</code>( <var class="Arg">ax</var>, <var class="Arg">bx</var>, <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
-<p>A four-negacirculant self-dual code has a generator matrix <span class="SimpleMath">G</span> of the the following form</p>
+<p>A four-negacirculant self-dual code has a generator matrix <span class="SimpleMath">G</span> of the following form</p>
 
 
 <pre class="normal">
@@ -1435,15 +1435,14 @@ Eval_P:span(L)\rightarrow F^n,
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">F:=GF(11);</span>
-GF(11)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">F:=GF(11);;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">R := PolynomialRing(F,2);;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">indets := IndeterminatesOfPolynomialRing(R);;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">x:=indets[1];; y:=indets[2];;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">L:=[x^2*y,x*y,x^5,x^4,x^3,x^2,x,x^0];;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Pts:=[ [ Z(11)^9, Z(11) ], [ Z(11)^8, Z(11) ], [ Z(11)^7, 0*Z(11) ],</span>
    [ Z(11)^6, 0*Z(11) ], [ Z(11)^5, 0*Z(11) ], [ Z(11)^4, 0*Z(11) ],
-   [ Z(11)^3, Z(11) ], [ Z(11)^2, 0*Z(11) ], [ Z(11), 0*Z(11) ], 
+   [ Z(11)^3, Z(11) ], [ Z(11)^2, 0*Z(11) ], [ Z(11), 0*Z(11) ],
    [ Z(11)^0, 0*Z(11) ], [ 0*Z(11), Z(11) ] ];;
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C:=EvaluationCode(Pts,L,R);</span>
 a linear [11,8,1..3]2..3  evaluation code over GF(11)
@@ -1471,7 +1470,7 @@ Eval_P:F[x]_k\rightarrow F^n,
 
 <p>The weighted version has implemented with the option <code class="code">GeneralizedReedSolomonCode(P,k,R,wts)</code>, where <span class="SimpleMath">wts = [v_1, ..., v_n]</span> is a sequence of <span class="SimpleMath">n</span> non-zero elements from the base field <span class="SimpleMath">F</span> of <var class="Arg">R</var>. See also the generalized Reed--Solomon code <span class="SimpleMath">GRS_k(P, V)</span> described in <a href="chapBib.html#biBMS83">[MS83]</a>, p.303.</p>
 
-<p>The list-decoding algorithm of Sudan-Guraswami (described in section 12.1 of <a href="chapBib.html#biBJH04">[JH04]</a>) has been implemented for generalized Reed-Solomon codes. See <code class="func">GeneralizedReedSolomonListDecoder</code> (<a href="chap4.html#X7CFF98D483502053"><span class="RefLink">4.10-4</span></a>).</p>
+<p>The list-decoding algorithm of Sudan-Guruswami (described in section 12.1 of <a href="chapBib.html#biBJH04">[JH04]</a>) has been implemented for generalized Reed-Solomon codes. See <code class="func">GeneralizedReedSolomonListDecoder</code> (<a href="chap4.html#X7CFF98D483502053"><span class="RefLink">4.10-4</span></a>).</p>
 
 
 <div class="example"><pre>
@@ -1505,13 +1504,13 @@ a linear [5,3,1..3]2  weighted generalized Reed-Solomon code over GF(11)
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Pts:=ToricPoints(2,GF(5));</span>
-[ [ Z(5)^0, Z(5)^0 ], [ Z(5)^0, Z(5) ], [ Z(5)^0, Z(5)^2 ], 
-  [ Z(5)^0, Z(5)^3 ], [ Z(5), Z(5)^0 ], [ Z(5), Z(5) ], [ Z(5), Z(5)^2 ], 
-  [ Z(5), Z(5)^3 ], [ Z(5)^2, Z(5)^0 ], [ Z(5)^2, Z(5) ], [ Z(5)^2, Z(5)^2 ], 
-  [ Z(5)^2, Z(5)^3 ], [ Z(5)^3, Z(5)^0 ], [ Z(5)^3, Z(5) ], 
+[ [ Z(5)^0, Z(5)^0 ], [ Z(5)^0, Z(5) ], [ Z(5)^0, Z(5)^2 ],
+  [ Z(5)^0, Z(5)^3 ], [ Z(5), Z(5)^0 ], [ Z(5), Z(5) ], [ Z(5), Z(5)^2 ],
+  [ Z(5), Z(5)^3 ], [ Z(5)^2, Z(5)^0 ], [ Z(5)^2, Z(5) ], [ Z(5)^2, Z(5)^2 ],
+  [ Z(5)^2, Z(5)^3 ], [ Z(5)^3, Z(5)^0 ], [ Z(5)^3, Z(5) ],
   [ Z(5)^3, Z(5)^2 ], [ Z(5)^3, Z(5)^3 ] ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C:=GeneralizedReedMullerCode(Pts,2,GF(5));</span>
-a linear [16,6,1..11]6..10  generalized Reed-Muller code over GF(5)
+a linear [16,6,1..8]6..10  generalized Reed-Muller code over GF(5)
 </pre></div>
 
 <p>See <code class="func">EvaluationCode</code> (<a href="chap5.html#X78E078567D19D433"><span class="RefLink">5.6-1</span></a>) for a more general construction.</p>
@@ -1526,10 +1525,10 @@ a linear [16,6,1..11]6..10  generalized Reed-Muller code over GF(5)
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ToricPoints(2,GF(5));</span>
-[ [ Z(5)^0, Z(5)^0 ], [ Z(5)^0, Z(5) ], [ Z(5)^0, Z(5)^2 ], 
-  [ Z(5)^0, Z(5)^3 ], [ Z(5), Z(5)^0 ], [ Z(5), Z(5) ], [ Z(5), Z(5)^2 ], 
-  [ Z(5), Z(5)^3 ], [ Z(5)^2, Z(5)^0 ], [ Z(5)^2, Z(5) ], [ Z(5)^2, Z(5)^2 ], 
-  [ Z(5)^2, Z(5)^3 ], [ Z(5)^3, Z(5)^0 ], [ Z(5)^3, Z(5) ], 
+[ [ Z(5)^0, Z(5)^0 ], [ Z(5)^0, Z(5) ], [ Z(5)^0, Z(5)^2 ],
+  [ Z(5)^0, Z(5)^3 ], [ Z(5), Z(5)^0 ], [ Z(5), Z(5) ], [ Z(5), Z(5)^2 ],
+  [ Z(5), Z(5)^3 ], [ Z(5)^2, Z(5)^0 ], [ Z(5)^2, Z(5) ], [ Z(5)^2, Z(5)^2 ],
+  [ Z(5)^2, Z(5)^3 ], [ Z(5)^3, Z(5)^0 ], [ Z(5)^3, Z(5) ],
   [ Z(5)^3, Z(5)^2 ], [ Z(5)^3, Z(5)^3 ] ]
 </pre></div>
 
@@ -1578,33 +1577,30 @@ Algebraic geometric codes
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">F:=GF(11);;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">R2:=PolynomialRing(F,2);</span>
-GF(11)[t,x_2]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">R2:=PolynomialRing(F,["x","y"]);</span>
+GF(11)[x,y]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">vars:=IndeterminatesOfPolynomialRing(R2);;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">x:=vars[1];; y:=vars[2];;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">poly:=y;; crvP1:=AffineCurve(poly,R2);</span>
-rec( polynomial := x_2, ring := GF(11)[t,x_2] )
+rec( polynomial := y, ring := GF(11)[x,y] )
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">degree_crv:=DegreeMultivariatePolynomial(poly,R2);</span>
 1
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">poly:=y^2-x*(x^2-1);; ell_crv:=AffineCurve(poly,R2);</span>
-rec( polynomial := -t^3+x_2^2+t, ring := GF(11)[t,x_2] )
+rec( polynomial := -x^3+y^2+x, ring := GF(11)[x,y] )
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">degree_crv:=DegreeMultivariatePolynomial(poly,R2);</span>
 3
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">poly:=x^2+y^2-1;; circle:=AffineCurve(poly,R2);</span>
-rec( polynomial := t^2+x_2^2-Z(11)^0, ring := GF(11)[t,x_2] )
+rec( polynomial := x^2+y^2-Z(11)^0, ring := GF(11)[x,y] )
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">degree_crv:=DegreeMultivariatePolynomial(poly,R2);</span>
 2
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">q:=3;;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">F:=GF(q^2);;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">R:=PolynomialRing(F,2);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">R:=PolynomialRing(F,["x","y"]);;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">vars:=IndeterminatesOfPolynomialRing(R);</span>
-[ x, x_2 ]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">x:=vars[1];</span>
-x
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">y:=vars[2];</span>
-x_2
+[ x, y ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">x:=vars[1];; y:=vars[2];;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">crv:=AffineCurve(y^q+y-x^(q+1),R);</span>
-rec( polynomial := -x^4+x_2^3+x_2, ring := GF(3^2)[x,x_2] )
+rec( polynomial := -x^4+y^3+y, ring := GF(3^2)[x,y] )
 </pre></div>
 
 <p>In GAP, a <em>point</em> on a curve defined by <span class="SimpleMath">f(x,y)=0</span> is simply a list <var class="Arg">[a,b]</var> of elements of <span class="SimpleMath">F</span> satisfying this polynomial equation.</p>
@@ -1624,9 +1620,9 @@ GF(11)[x,y]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">indets := IndeterminatesOfPolynomialRing(R);;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">x:=indets[1];; y:=indets[2];;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">P:=AffinePointsOnCurve(y^2-x^11+x,R,F);</span>
-[ [ Z(11)^9, 0*Z(11) ], [ Z(11)^8, 0*Z(11) ], [ Z(11)^7, 0*Z(11) ], 
-  [ Z(11)^6, 0*Z(11) ], [ Z(11)^5, 0*Z(11) ], [ Z(11)^4, 0*Z(11) ], 
-  [ Z(11)^3, 0*Z(11) ], [ Z(11)^2, 0*Z(11) ], [ Z(11), 0*Z(11) ], 
+[ [ Z(11)^9, 0*Z(11) ], [ Z(11)^8, 0*Z(11) ], [ Z(11)^7, 0*Z(11) ],
+  [ Z(11)^6, 0*Z(11) ], [ Z(11)^5, 0*Z(11) ], [ Z(11)^4, 0*Z(11) ],
+  [ Z(11)^3, 0*Z(11) ], [ Z(11)^2, 0*Z(11) ], [ Z(11), 0*Z(11) ],
   [ Z(11)^0, 0*Z(11) ], [ 0*Z(11), 0*Z(11) ] ]
 </pre></div>
 
@@ -1672,15 +1668,15 @@ Z(43)^6
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">zzz:=Z(43);</span>
 Z(43)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">rho1:=zz^0*[[zz^4,0,0],[0,zz^2,0],[0,0,zz]];</span>
-[ [ Z(43)^24, 0*Z(43), 0*Z(43) ], [ 0*Z(43), Z(43)^12, 0*Z(43) ], 
+[ [ Z(43)^24, 0*Z(43), 0*Z(43) ], [ 0*Z(43), Z(43)^12, 0*Z(43) ],
   [ 0*Z(43), 0*Z(43), Z(43)^6 ] ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">rho2:=zz^0*[[0,1,0],[0,0,1],[1,0,0]];</span>
-[ [ 0*Z(43), Z(43)^0, 0*Z(43) ], [ 0*Z(43), 0*Z(43), Z(43)^0 ], 
+[ [ 0*Z(43), Z(43)^0, 0*Z(43) ], [ 0*Z(43), 0*Z(43), Z(43)^0 ],
   [ Z(43)^0, 0*Z(43), 0*Z(43) ] ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">rho3:=(-1)*[[(zz-zz^6 )/zzz^7,( zz^2-zz^5 )/ zzz^7, ( zz^4-zz^3 )/ zzz^7],</span>
 <span class="GAPprompt">&gt;</span> <span class="GAPinput">            [( zz^2-zz^5 )/ zzz^7, ( zz^4-zz^3 )/ zzz^7, ( zz-zz^6 )/ zzz^7],</span>
 <span class="GAPprompt">&gt;</span> <span class="GAPinput">            [( zz^4-zz^3 )/ zzz^7, ( zz-zz^6 )/ zzz^7, ( zz^2-zz^5 )/ zzz^7]];</span>
-[ [ Z(43)^9, Z(43)^28, Z(43)^12 ], [ Z(43)^28, Z(43)^12, Z(43)^9 ], 
+[ [ Z(43)^9, Z(43)^28, Z(43)^12 ], [ Z(43)^28, Z(43)^12, Z(43)^9 ],
   [ Z(43)^12, Z(43)^9, Z(43)^28 ] ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G:=Group([rho1,rho2,rho3]);; #PSL(2,7)</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Size(G);</span>
@@ -1688,18 +1684,18 @@ Z(43)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">P:=[1,0,0]*zzz^0;</span>
 [ Z(43)^0, 0*Z(43), 0*Z(43) ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">O:=GOrbitPoint(G,P);</span>
-[ [ Z(43)^0, 0*Z(43), 0*Z(43) ], [ 0*Z(43), Z(43)^0, 0*Z(43) ], 
-[ 0*Z(43), 0*Z(43), Z(43)^0 ], [ Z(43)^0, Z(43)^39, Z(43)^16 ], 
-[ Z(43)^0, Z(43)^33, Z(43)^28 ], [ Z(43)^0, Z(43)^27, Z(43)^40 ],
-[ Z(43)^0, Z(43)^21, Z(43)^10 ], [ Z(43)^0, Z(43)^15, Z(43)^22 ], 
-[ Z(43)^0, Z(43)^9, Z(43)^34 ], [ Z(43)^0, Z(43)^3, Z(43)^4 ], 
-[ Z(43)^3, Z(43)^22, Z(43)^6 ], [ Z(43)^3, Z(43)^16, Z(43)^18 ],
-[ Z(43)^3, Z(43)^10, Z(43)^30 ], [ Z(43)^3, Z(43)^4, Z(43)^0 ], 
-[ Z(43)^3, Z(43)^40, Z(43)^12 ], [ Z(43)^3, Z(43)^34, Z(43)^24 ], 
-[ Z(43)^3, Z(43)^28, Z(43)^36 ], [ Z(43)^4, Z(43)^30, Z(43)^27 ],
-[ Z(43)^4, Z(43)^24, Z(43)^39 ], [ Z(43)^4, Z(43)^18, Z(43)^9 ], 
-[ Z(43)^4, Z(43)^12, Z(43)^21 ], [ Z(43)^4, Z(43)^6, Z(43)^33 ], 
-[ Z(43)^4, Z(43)^0, Z(43)^3 ], [ Z(43)^4, Z(43)^36, Z(43)^15 ] ]
+[ [ 0*Z(43), 0*Z(43), Z(43)^0 ], [ 0*Z(43), Z(43)^0, 0*Z(43) ], 
+  [ Z(43)^0, 0*Z(43), 0*Z(43) ], [ Z(43)^0, Z(43), Z(43)^39 ], 
+  [ Z(43)^0, Z(43)^2, Z(43)^29 ], [ Z(43)^0, Z(43)^3, Z(43)^4 ], 
+  [ Z(43)^0, Z(43)^7, Z(43)^27 ], [ Z(43)^0, Z(43)^8, Z(43)^17 ], 
+  [ Z(43)^0, Z(43)^9, Z(43)^34 ], [ Z(43)^0, Z(43)^13, Z(43)^15 ], 
+  [ Z(43)^0, Z(43)^14, Z(43)^5 ], [ Z(43)^0, Z(43)^15, Z(43)^22 ], 
+  [ Z(43)^0, Z(43)^19, Z(43)^3 ], [ Z(43)^0, Z(43)^20, Z(43)^35 ], 
+  [ Z(43)^0, Z(43)^21, Z(43)^10 ], [ Z(43)^0, Z(43)^25, Z(43)^33 ], 
+  [ Z(43)^0, Z(43)^26, Z(43)^23 ], [ Z(43)^0, Z(43)^27, Z(43)^40 ], 
+  [ Z(43)^0, Z(43)^31, Z(43)^21 ], [ Z(43)^0, Z(43)^32, Z(43)^11 ], 
+  [ Z(43)^0, Z(43)^33, Z(43)^28 ], [ Z(43)^0, Z(43)^37, Z(43)^9 ], 
+  [ Z(43)^0, Z(43)^38, Z(43)^41 ], [ Z(43)^0, Z(43)^39, Z(43)^16 ] ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Length(O);</span>
 24
 </pre></div>
@@ -1727,26 +1723,20 @@ Z(43)
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">q:=5;</span>
-5
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">F:=GF(q);</span>
-GF(5)
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">R:=PolynomialRing(F,2);;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">vars:=IndeterminatesOfPolynomialRing(R);</span>
-[ x, x_2 ]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">x:=vars[1];</span>
-x
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">y:=vars[2];</span>
-x_2
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">q:=5;;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">F:=GF(q);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">R:=PolynomialRing(F,["x","y"]);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">vars:=IndeterminatesOfPolynomialRing(R);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">x:=vars[1];; y:=vars[2];;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">crv:=AffineCurve(y^3-x^3-x-1,R);</span>
-rec( polynomial := -x^3+x_2^3-x-Z(5)^0, ring := GF(5)[x,x_2] )
+rec( polynomial := -x^3+y^3-x-Z(5)^0, ring := GF(5)[x,y] )
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Pts:=AffinePointsOnCurve(crv!.polynomial,R,F);;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">supp:=[Pts[1],Pts[2]];</span>
-[ [ 0*Z(5), Z(5)^0 ], [ Z(5)^0, Z(5) ] ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">supp:=Z(5)^0*[[0,1],[1,2]];; IsSubset(Pts, supp);</span>
+true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">D:=DivisorOnAffineCurve([1,-1],supp,crv);</span>
-rec( coeffs := [ 1, -1 ], 
-  curve := rec( polynomial := -x^3+x_2^3-x-Z(5)^0, ring := GF(5)[x,x_2] ), 
-  support := [ [ Z(5)^0, Z(5)^0 ], [ Z(5)^0, Z(5) ] ] )
+rec( coeffs := [ 1, -1 ],
+  curve := rec( polynomial := -x^3+y^3-x-Z(5)^0, ring := GF(5)[x,y] ),
+  support := [ [ 0*Z(5), Z(5)^0 ], [ Z(5)^0, Z(5) ] ] )
 </pre></div>
 
 <p><a id="X8626E2B57D01F2DC" name="X8626E2B57D01F2DC"></a></p>
@@ -1813,20 +1803,20 @@ GF(11)[a,b]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">crvP1:=AffineCurve(b,R2);</span>
 rec( polynomial := b, ring := GF(11)[a,b] )
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">div1:=DivisorOnAffineCurve([1,2,3,4],[Z(11)^2,Z(11)^3,Z(11)^7,Z(11)],crvP1);</span>
-rec( coeffs := [ 1, 2, 3, 4 ], 
-  curve := rec( polynomial := b, ring := GF(11)[a,b] ), 
+rec( coeffs := [ 1, 2, 3, 4 ],
+  curve := rec( polynomial := b, ring := GF(11)[a,b] ),
   support := [ Z(11)^2, Z(11)^3, Z(11)^7, Z(11) ] )
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">DivisorDegree(div1);</span>
 10
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">div2:=DivisorOnAffineCurve([1,2,3,4],[Z(11),Z(11)^2,Z(11)^3,Z(11)^4],crvP1);</span>
-rec( coeffs := [ 1, 2, 3, 4 ], 
-  curve := rec( polynomial := b, ring := GF(11)[a,b] ), 
+rec( coeffs := [ 1, 2, 3, 4 ],
+  curve := rec( polynomial := b, ring := GF(11)[a,b] ),
   support := [ Z(11), Z(11)^2, Z(11)^3, Z(11)^4 ] )
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">DivisorDegree(div2);</span>
 10
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">div3:=DivisorAddition(div1,div2);</span>
-rec( coeffs := [ 5, 3, 5, 4, 3 ], 
-  curve := rec( polynomial := b, ring := GF(11)[a,b] ), 
+rec( coeffs := [ 5, 3, 5, 4, 3 ],
+  curve := rec( polynomial := b, ring := GF(11)[a,b] ),
   support := [ Z(11), Z(11)^2, Z(11)^3, Z(11)^4, Z(11)^7 ] )
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">DivisorDegree(div3);</span>
 20
@@ -1835,22 +1825,22 @@ true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">DivisorIsEffective(div2);</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ndiv1:=DivisorNegate(div1);</span>
-rec( coeffs := [ -1, -2, -3, -4 ], 
-  curve := rec( polynomial := b, ring := GF(11)[a,b] ), 
+rec( coeffs := [ -1, -2, -3, -4 ],
+  curve := rec( polynomial := b, ring := GF(11)[a,b] ),
   support := [ Z(11)^2, Z(11)^3, Z(11)^7, Z(11) ] )
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">zdiv:=DivisorAddition(div1,ndiv1);</span>
-rec( coeffs := [ 0, 0, 0, 0 ], 
-  curve := rec( polynomial := b, ring := GF(11)[a,b] ), 
+rec( coeffs := [ 0, 0, 0, 0 ],
+  curve := rec( polynomial := b, ring := GF(11)[a,b] ),
   support := [ Z(11), Z(11)^2, Z(11)^3, Z(11)^7 ] )
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">DivisorIsZero(zdiv);</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">div_gcd:=DivisorGCD(div1,div2);</span>
-rec( coeffs := [ 1, 1, 2, 0, 0 ], 
-  curve := rec( polynomial := b, ring := GF(11)[a,b] ), 
+rec( coeffs := [ 1, 1, 2, 0, 0 ],
+  curve := rec( polynomial := b, ring := GF(11)[a,b] ),
   support := [ Z(11), Z(11)^2, Z(11)^3, Z(11)^4, Z(11)^7 ] )
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">div_lcm:=DivisorLCM(div1,div2);</span>
-rec( coeffs := [ 4, 2, 3, 4, 3 ], 
-  curve := rec( polynomial := b, ring := GF(11)[a,b] ), 
+rec( coeffs := [ 4, 2, 3, 4, 3 ],
+  curve := rec( polynomial := b, ring := GF(11)[a,b] ),
   support := [ Z(11), Z(11)^2, Z(11)^3, Z(11)^4, Z(11)^7 ] )
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">DivisorDegree(div_gcd);</span>
 4
@@ -1878,7 +1868,6 @@ true
 
 
 <div class="example"><pre>
-
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">F:=GF(11);</span>
 GF(11)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">R1:=PolynomialRing(F,["a"]);;</span>
@@ -1894,24 +1883,24 @@ Z(11)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">f:=RiemannRochSpaceBasisFunctionP1(pt,2,R2);</span>
 (Z(11)^0)/(a^2+Z(11)^7*a+Z(11)^2)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Df:=DivisorOfRationalFunctionP1(f,R2);</span>
-rec( coeffs := [ -2 ], curve := rec( polynomial := a, ring := GF(11)[a,b] ), 
+rec( coeffs := [ -2 ], curve := rec( polynomial := a, ring := GF(11)[a,b] ),
   support := [ Z(11) ] )
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Df.support;</span>
 [ Z(11) ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">F:=GF(11);;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">R:=PolynomialRing(F,2);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">R:=PolynomialRing(F,["x","y"]);;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">vars:=IndeterminatesOfPolynomialRing(R);;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">a:=vars[1];;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">b:=vars[2];;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">f:=(a^4+Z(11)^6*a^3-a^2+Z(11)^7*a+Z(11)^0)/(a^4+Z(11)*a^2+Z(11)^7*a+Z(11));;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">divf:=DivisorOfRationalFunctionP1(f,R);</span>
-rec( coeffs := [ 3, 1 ], curve := rec( polynomial := t, ring := GF(11)[t,x] ),
+rec( coeffs := [ 3, 1 ], curve := rec( polynomial := x, ring := GF(11)[x,y] ),
   support := [ Z(11), Z(11)^7 ] )
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">denf:=DenominatorOfRationalFunction(f); RootsOfUPol(denf);</span>
-t^4+Z(11)*t^2+Z(11)^7*t+Z(11)
+x^4+Z(11)*x^2+Z(11)^7*x+Z(11)
 [  ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">numf:=NumeratorOfRationalFunction(f); RootsOfUPol(numf);</span>
-t^4+Z(11)^6*t^3-t^2+Z(11)^7*t+Z(11)^0
+x^4+Z(11)^6*x^3-x^2+Z(11)^7*x+Z(11)^0
 [ Z(11)^7, Z(11), Z(11), Z(11) ]
 </pre></div>
 
@@ -1937,30 +1926,30 @@ GF(11)[a,b]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">crvP1:=AffineCurve(b,R2);</span>
 rec( polynomial := b, ring := GF(11)[a,b] )
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">D:=DivisorOnAffineCurve([1,2,3,4],[Z(11)^2,Z(11)^3,Z(11)^7,Z(11)],crvP1);</span>
-rec( coeffs := [ 1, 2, 3, 4 ], 
-  curve := rec( polynomial := b, ring := GF(11)[a,b] ), 
+rec( coeffs := [ 1, 2, 3, 4 ],
+  curve := rec( polynomial := b, ring := GF(11)[a,b] ),
   support := [ Z(11)^2, Z(11)^3, Z(11)^7, Z(11) ] )
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">B:=RiemannRochSpaceBasisP1(D);</span>
-[ (Z(11)^0)/(a+Z(11)^7), (Z(11)^0)/(a+Z(11)^8), 
-  (Z(11)^0)/(a^2+Z(11)^9*a+Z(11)^6), (Z(11)^0)/(a+Z(11)^2), 
-  (Z(11)^0)/(a^2+Z(11)^3*a+Z(11)^4), (Z(11)^0)/(a^3+a^2+Z(11)^2*a+Z(11)^6), 
-  (Z(11)^0)/(a+Z(11)^6), (Z(11)^0)/(a^2+Z(11)^7*a+Z(11)^2), 
-  (Z(11)^0)/(a^3+Z(11)^4*a^2+a+Z(11)^8), 
+[ (Z(11)^0)/(a+Z(11)^7), (Z(11)^0)/(a+Z(11)^8),
+  (Z(11)^0)/(a^2+Z(11)^9*a+Z(11)^6), (Z(11)^0)/(a+Z(11)^2),
+  (Z(11)^0)/(a^2+Z(11)^3*a+Z(11)^4), (Z(11)^0)/(a^3+a^2+Z(11)^2*a+Z(11)^6),
+  (Z(11)^0)/(a+Z(11)^6), (Z(11)^0)/(a^2+Z(11)^7*a+Z(11)^2),
+  (Z(11)^0)/(a^3+Z(11)^4*a^2+a+Z(11)^8),
   (Z(11)^0)/(a^4+Z(11)^8*a^3+Z(11)*a^2+a+Z(11)^4), Z(11)^0 ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">DivisorOfRationalFunctionP1(B[1],R2).support;</span>
-[  ]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">DivisorOfRationalFunctionP1(B[2],R2).support;</span>
 [ Z(11)^2 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">DivisorOfRationalFunctionP1(B[2],R2).support;</span>
+[ Z(11)^3 ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">DivisorOfRationalFunctionP1(B[3],R2).support;</span>
 [ Z(11)^3 ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">DivisorOfRationalFunctionP1(B[4],R2).support;</span>
-[ Z(11)^3 ]
+[ Z(11)^7 ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">DivisorOfRationalFunctionP1(B[5],R2).support;</span>
 [ Z(11)^7 ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">DivisorOfRationalFunctionP1(B[6],R2).support;</span>
 [ Z(11)^7 ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">DivisorOfRationalFunctionP1(B[7],R2).support;</span>
-[ Z(11)^7 ]
+[ Z(11) ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">DivisorOfRationalFunctionP1(B[8],R2).support;</span>
 [ Z(11) ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">DivisorOfRationalFunctionP1(B[9],R2).support;</span>
@@ -1968,7 +1957,7 @@ rec( coeffs := [ 1, 2, 3, 4 ],
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">DivisorOfRationalFunctionP1(B[10],R2).support;</span>
 [ Z(11) ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">DivisorOfRationalFunctionP1(B[11],R2).support;</span>
-[ Z(11) ]
+[  ]
 </pre></div>
 
 <p><a id="X807C52E67A440DEB" name="X807C52E67A440DEB"></a></p>
@@ -2014,8 +2003,8 @@ GF(11)[a,b]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">crvP1:=AffineCurve(b,R2);</span>
 rec( polynomial := b, ring := GF(11)[a,b] )
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">D:=DivisorOnAffineCurve([1,2,3,4],[Z(11)^2,Z(11)^3,Z(11)^7,Z(11)],crvP1);</span>
-rec( coeffs := [ 1, 2, 3, 4 ], 
-  curve := rec( polynomial := b, ring := GF(11)[a,b] ), 
+rec( coeffs := [ 1, 2, 3, 4 ],
+  curve := rec( polynomial := b, ring := GF(11)[a,b] ),
   support := [ Z(11)^2, Z(11)^3, Z(11)^7, Z(11) ] )
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">A:=Z(11)^0*[[1,2],[1,4]];</span>
 [ [ Z(11)^0, Z(11) ], [ Z(11)^0, Z(11)^2 ] ]
@@ -2026,8 +2015,8 @@ false
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ActionMoebiusTransformationOnDivisorDefinedP1(A,D);</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ActionMoebiusTransformationOnDivisorP1(A,D);</span>
-rec( coeffs := [ 1, 2, 3, 4 ], 
-  curve := rec( polynomial := b, ring := GF(11)[a,b] ), 
+rec( coeffs := [ 1, 2, 3, 4 ],
+  curve := rec( polynomial := b, ring := GF(11)[a,b] ),
   support := [ Z(11)^5, Z(11)^6, Z(11)^8, Z(11)^7 ] )
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">f:=MoebiusTransformation(A,R1);</span>
 (a+Z(11))/(Z(11)^8*a+Z(11)^2)
@@ -2059,10 +2048,10 @@ GF(11)[a,b]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">crvP1:=AffineCurve(b,R2);</span>
 rec( polynomial := b, ring := GF(11)[a,b] )
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">D:=DivisorOnAffineCurve([1,2,3,4],[Z(11)^2,Z(11)^3,Z(11)^7,Z(11)],crvP1);</span>
-rec( coeffs := [ 1, 2, 3, 4 ], 
-  curve := rec( polynomial := b, ring := GF(11)[a,b] ), 
+rec( coeffs := [ 1, 2, 3, 4 ],
+  curve := rec( polynomial := b, ring := GF(11)[a,b] ),
   support := [ Z(11)^2, Z(11)^3, Z(11)^7, Z(11) ] )
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">agp:=DivisorAutomorphismGroupP1(D);; #time; #Uncomment the call to "time;"" to see performance data</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">agp:=DivisorAutomorphismGroupP1(D);;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IdGroup(agp);</span>
 [ 10, 2 ]
 </pre></div>
@@ -2095,33 +2084,33 @@ GF(11)[a,b]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">crvP1:=AffineCurve(b,R2);</span>
 rec( polynomial := b, ring := GF(11)[a,b] )
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">D:=DivisorOnAffineCurve([1,1,1,4],[Z(11)^2,Z(11)^3,Z(11)^7,Z(11)],crvP1);</span>
-rec( coeffs := [ 1, 1, 1, 4 ], 
-  curve := rec( polynomial := b, ring := GF(11)[a,b] ), 
+rec( coeffs := [ 1, 1, 1, 4 ],
+  curve := rec( polynomial := b, ring := GF(11)[a,b] ),
   support := [ Z(11)^2, Z(11)^3, Z(11)^7, Z(11) ] )
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">agp:=DivisorAutomorphismGroupP1(D);; #time; #Uncomment the call to "time;"" to see performance data</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">agp:=DivisorAutomorphismGroupP1(D);;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IdGroup(agp);</span>
 [ 20, 5 ]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g:=Random(agp);</span>
-[ [ Z(11)^4, Z(11)^9 ], [ Z(11)^0, Z(11)^9 ] ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput"># a scalar matrix acts as the identity on P^1, so take one that is not</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g:=First(AsSortedList(agp), m -&gt; m[1][2] &lt;&gt; Zero(F));</span>
+[ [ Z(11)^0, Z(11)^5 ], [ Z(11)^6, Z(11)^5 ] ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">rho:=MatrixRepresentationOnRiemannRochSpaceP1(g,D);</span>
-[ [ Z(11)^0, 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11) ], 
-[ Z(11)^0, 0*Z(11), 0*Z(11), Z(11), 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11) ],
-  [ Z(11)^7, 0*Z(11), Z(11)^5, 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11) ], 
-[ Z(11)^4, Z(11)^9, 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11) ],
-  [ Z(11)^2, 0*Z(11), 0*Z(11), 0*Z(11), Z(11)^5, 0*Z(11), 0*Z(11), 0*Z(11) ], 
-[ Z(11)^4, 0*Z(11), 0*Z(11), 0*Z(11), Z(11)^8, Z(11)^0, 0*Z(11), 0*Z(11) ],
-  [ Z(11)^6, 0*Z(11), 0*Z(11), 0*Z(11), Z(11)^7, Z(11)^0, Z(11)^5, 0*Z(11) ], 
-[ Z(11)^8, 0*Z(11), 0*Z(11), 0*Z(11), Z(11)^3, Z(11)^3, Z(11)^9, Z(11)^0 ] ]
+[ [ 0*Z(11), 0*Z(11), Z(11), 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), Z(11)^0 ], 
+  [ 0*Z(11), Z(11)^5, 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), Z(11)^7 ], 
+  [ Z(11)^9, 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), Z(11)^4 ], 
+  [ 0*Z(11), 0*Z(11), 0*Z(11), Z(11)^5, 0*Z(11), 0*Z(11), 0*Z(11), Z(11)^2 ], 
+  [ 0*Z(11), 0*Z(11), 0*Z(11), Z(11)^8, Z(11)^0, 0*Z(11), 0*Z(11), Z(11)^4 ], 
+  [ 0*Z(11), 0*Z(11), 0*Z(11), Z(11)^7, Z(11)^0, Z(11)^5, 0*Z(11), Z(11)^6 ], 
+  [ 0*Z(11), 0*Z(11), 0*Z(11), Z(11)^3, Z(11)^3, Z(11)^9, Z(11)^0, Z(11)^8 ], 
+  [ 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), 0*Z(11), Z(11)^0 ] ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display(rho);</span>
-  1  .  .  .  .  .  .  .
-  1  .  .  2  .  .  .  .
-  7  . 10  .  .  .  .  .
-  5  6  .  .  .  .  .  .
-  4  .  .  . 10  .  .  .
-  5  .  .  .  3  1  .  .
-  9  .  .  .  7  1 10  .
-  3  .  .  .  8  8  6  1
-
+  .  .  2  .  .  .  .  1
+  . 10  .  .  .  .  .  7
+  6  .  .  .  .  .  .  5
+  .  .  . 10  .  .  .  4
+  .  .  .  3  1  .  .  5
+  .  .  .  7  1 10  .  9
+  .  .  .  8  8  6  1  3
+  .  .  .  .  .  .  .  1
 </pre></div>
 
 <p><a id="X8777388C7885E335" name="X8777388C7885E335"></a></p>
@@ -2138,7 +2127,7 @@ C=\{(f(P_1),...,f(P_n))\ |\ f\in L(D)_F\}.
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">F:=GF(11);;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">R2:=PolynomialRing(F,2);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">R2:=PolynomialRing(F,["x","y"]);;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">vars:=IndeterminatesOfPolynomialRing(R2);;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">a:=vars[1];;b:=vars[2];;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">cdiv:=[ 1, 2, -1, -2 ];</span>
@@ -2146,10 +2135,10 @@ C=\{(f(P_1),...,f(P_n))\ |\ f\in L(D)_F\}.
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">sdiv:=[ Z(11)^2, Z(11)^3, Z(11)^6, Z(11)^9 ];</span>
 [ Z(11)^2, Z(11)^3, Z(11)^6, Z(11)^9 ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">crv:=rec(polynomial:=b,ring:=R2);</span>
-rec( polynomial := x, ring := GF(11)[t,x] )
+rec( polynomial := y, ring := GF(11)[x,y] )
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">div:=DivisorOnAffineCurve(cdiv,sdiv,crv);</span>
-rec( coeffs := [ 1, 2, -1, -2 ], 
-  curve := rec( polynomial := x, ring := GF(11)[t,x] ), 
+rec( coeffs := [ 1, 2, -1, -2 ],
+  curve := rec( polynomial := y, ring := GF(11)[x,y] ),
   support := [ Z(11)^2, Z(11)^3, Z(11)^6, Z(11)^9 ] )
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">pts:=Difference(Elements(GF(11)),div.support);</span>
 [ 0*Z(11), Z(11)^0, Z(11), Z(11)^4, Z(11)^5, Z(11)^7, Z(11)^8 ]
@@ -2181,27 +2170,26 @@ a linear [7,2,1..6]4..5 code defined by generator matrix over GF(11)
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">q:=4;;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">F:=GF(q^2);;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">R:=PolynomialRing(F,2);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">R:=PolynomialRing(F,["x","y"]);;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">vars:=IndeterminatesOfPolynomialRing(R);;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">x:=vars[1];;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">y:=vars[2];;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">x:=vars[1];; y:=vars[2];;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">crv:=AffineCurve(y^q+y-x^(q+1),R);</span>
-rec( polynomial := x^5+xx^4+xx, ring := GF(2^4)[x,xx] )
+rec( polynomial := x^5+y^4+y, ring := GF(2^4)[x,y] )
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">L:=[ x^0, x, x^2*y^-1 ];</span>
-[ Z(2)^0, x, x^2/xx ]
+[ Z(2)^0, x, x^2/y ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Pts:=AffinePointsOnCurve(crv.polynomial,crv.ring,F);;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C1:=EvaluationBivariateCode(Pts,L,crv); #time; #Uncomment the call to "time;"" to see performance data</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C1:=EvaluationBivariateCode(Pts,L,crv);</span>
 
 
  Automatically removed the following 'bad' points (either a pole or not on the\
  curve):
 [ [ 0*Z(2), 0*Z(2) ] ]
 
-a linear [63,3,1..60]51..59  evaluation code over GF(16)
+a linear [63,3,1..57]51..59  evaluation code over GF(16)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">P:=Difference(Pts,[[ 0*Z(2^4)^0, 0*Z(2)^0 ]]);;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C2:=EvaluationBivariateCodeNC(P,L,crv); #time; #Uncomment the call to "time;"" to see performance data</span>
-a linear [63,3,1..60]51..59  evaluation code over GF(16)
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C3:=EvaluationCode(P,L,R); #time; #Uncomment the call to "time;"" to see performance data</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C2:=EvaluationBivariateCodeNC(P,L,crv);</span>
+a linear [63,3,1..56]51..59  evaluation code over GF(16)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C3:=EvaluationCode(P,L,R);</span>
 a linear [63,3,1..56]51..59  evaluation code over GF(16)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">MinimumDistance(C1);</span>
 56
@@ -2228,18 +2216,15 @@ Eval_P:L(m \cdot \infty)\rightarrow F^n,
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">F:=GF(11);</span>
-GF(11)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">F:=GF(11);;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">R := PolynomialRing(F,["x","y"]);</span>
-PolynomialRing(..., [ x, y ])
+GF(11)[x,y]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">indets := IndeterminatesOfPolynomialRing(R);</span>
 [ x, y ]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">x:=indets[1]; y:=indets[2];</span>
-x
-y
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">x:=indets[1];; y:=indets[2];;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">P:=AffinePointsOnCurve(y^2-x^11+x,R,F);;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C:=OnePointAGCode(y^2-x^11+x,P,15,R);</span>
-a linear [11,8,1..0]2..3  one-point AG code over GF(11)
+a linear [11,8,1..4]2..3  one-point AG code over GF(11)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">MinimumDistance(C);</span>
 4
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Pts:=List([1,2,4,6,7,8,9,10,11],i-&gt;P[i]);;</span>
