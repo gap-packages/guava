@@ -1,7 +1,7 @@
 In this file we record the changes since the first GAP 4 release of
 the GUAVA package.
 
-Version 3.22 (unreleased)
+Version 3.22
     o Decode and Decodeword now agree on which word they return: Decode gives
       the information word, Decodeword the nearest codeword. Every special
       decoder -- Hamming, cyclic, BCH and generalized Reed-Solomon -- returned
