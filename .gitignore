@@ -1,7 +1,1 @@
 _site
-bin/*
-src/*
-doc/*
-tst/*
-Makefile
-.DS_Store
