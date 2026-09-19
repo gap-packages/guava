@@ -41,7 +41,9 @@ The ``even''/``odd'' forks of the GUAVA code are now united.
 
 Joe Fields has been the maintainer since version 3.10. 
 
-The current version is 3.16. 
+The current version is 3.22. This version contains many bug fixes
+contributed by Max Horn.  The bugs were highlighted by the new capacity
+of AutoDoc to extract test cases from the documentation.
 
    - Joe Fields (fieldsj1@southernct.edu)
-    April, 2022
+    September, 2026
