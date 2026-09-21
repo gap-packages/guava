@@ -235,9 +235,10 @@ void replaceByPower(
          d < |h|. */
       hOrder = permOrder( h);
       for ( i = 0 ; primeList[i] != 0 ; ++i ) {
-         if ( hOrder % primeList[i] == 0 )
+         if ( hOrder % primeList[i] == 0 ) {
             raisePermToPower( h, hOrder / primeList[i]);
             break;
+         }
       }
    }
 
