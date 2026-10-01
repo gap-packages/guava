@@ -149,7 +149,7 @@ with version 2.7, the ``best linear code''
 tables for binary codes have been updated. From 2009,
 starting with version 3.10, <Package>GUAVA</Package> has been maintained
 by Joe Fields.
-For further details, see the CHANGES file in the
+For further details, see the CHANGES.md file in the
 <Package>GUAVA</Package> directory, also available at
 <URL>https://gap-packages.github.io/guava/CHANGES.guava</URL>.
    <P/>
