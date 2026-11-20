@@ -16,6 +16,10 @@ the GUAVA package.
   length n-k against a zero word of length n and so reported every word as
   outside the code. The library's method for a vector in a free module
   outranks it, so nothing depended on the wrong answer (issue #88)
+- MinimumWeight sets the minimum distance, so a code no longer keeps printing
+  the bounds it had before the weight was computed. It also reports an error
+  when the external program fails, instead of handing back whatever value the
+  last code table lookup had left in GUAVA_TEMP_VAR (issue #156)
 
 ## 3.22 (2026-09-19)
 

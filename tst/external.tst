@@ -18,3 +18,21 @@ true
 gap> w := MinimumWeight(C);;
 gap> w = 8;
 true
+
+##
+## MinimumWeight computes the minimum distance, so it records it
+##
+gap> B := GeneratorMatCode(GeneratorMat(HammingCode(4,GF(2))), GF(2));;
+gap> MinimumWeight(B);
+3
+gap> HasMinimumDistance(B);
+true
+
+##
+## told a lower bound, minimum-weight stops at the first codeword meeting it;
+## a generator of smaller weight proves the bound was none
+##
+gap> B := GeneratorMatCode(GeneratorMat(HammingCode(4,GF(2))), GF(2));;
+gap> B!.lowerBoundMinimumDistance := 5;;
+gap> MinimumWeight(B);
+3
