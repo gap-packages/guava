@@ -129,3 +129,9 @@ gap> Number(AsSSortedList(WholeSpaceCode(7,GF(2))), c -> inlin(c,C));
 gap> Codeword("1111111",GF(2)) in C;
 true
 
+##
+## the table's [39,7,17] code punctured the quasi-cyclic [42,7,19] code it is
+## built from in three coordinates that cost it two of the nineteen
+##
+gap> MinimumDistance(BestKnownLinearCode(39,7));
+17
