@@ -193,7 +193,10 @@ if YouWantThisCode(  34,  12,  12, "Sh1" ) then
 ], 2]];
 fi;
 if YouWantThisCode(  35,   9,  14, "Pi" ) then
-	GUAVA_TEMP_VAR := [ ExtendedCode, [AugmentedCode, [QuasiCyclicCode, [], ] ] ];
+	# the quasi-cyclic code this was built from was never recorded, and an
+	# empty argument list made BestKnownLinearCode fail with "no method
+	# found" rather than report the gap
+	GUAVA_TEMP_VAR := false;
 fi;
 if YouWantThisCode(  36,   8,  16, "DHM" ) then
 	GUAVA_TEMP_VAR := [GeneratorMatCode, [Z(2)*[
