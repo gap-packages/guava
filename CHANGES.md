@@ -6,6 +6,14 @@ the GUAVA package.
 - Seed the random examples in the manual, so that their output, and the
   tests generated from them, no longer depend on how many random numbers
   GAP draws elsewhere (gap-system/PackageDistro#1610)
+- MinimumWeight sets the minimum distance, so a code no longer keeps printing
+  the bounds it had before the weight was computed. It also reports an error
+  when the external program fails, instead of handing back whatever value the
+  last code table lookup had left in GUAVA_TEMP_VAR (issue #156)
+- Fix the table's [39,7,17] construction, which punctured three coordinates
+  of its quasi-cyclic [42,7,19] code that cost it two of the nineteen, so the
+  code it built had minimum distance 16. MinimumWeight believed the claimed
+  17 and stopped there, reporting it
 
 ## 3.22 (2026-09-19)
 
