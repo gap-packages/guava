@@ -6220,10 +6220,10 @@ it uses <C>GeneratorMatCodeNC</C> instead of
 Proposition 2.2 in Bazzi-Mittel <Cite Key="BM03"/>. The
 parameter <A>p</A> must be a prime.
 Its generator matrix has the block form <M>G=(Q,N)</M>.
-Here <M>Q</M> is a <M>p\times </M> circulant matrix
+Here <M>Q</M> is a <M>p\times p</M> circulant matrix
 whose top row is <M>(0,x_1,...,x_{p-1})</M>, where
 <M>x_i=1</M> if and only if <M>i</M> is a quadratic residue mod <M>p</M>,
-and <M>N</M> is a <M>p\times </M> circulant matrix
+and <M>N</M> is a <M>p\times p</M> circulant matrix
 whose top row is <M>(0,y_1,...,y_{p-1})</M>, where
 <M>x_i+y_i=1</M> for all <M>i</M>. (In fact, this matrix
 can be recovered as the component <C>DoublyCirculant</C>
