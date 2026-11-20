@@ -273,23 +273,15 @@ DeclareAttribute("AutomorphismGroup", IsCode);
 
 #############################################################################
 ##
-#F  PermutationGroup( <C> )  . . . . . . . .  the permutation group of code
-##
-##  The largest permutation group of degree n such
-##  that for each permutation pn in the group pC = C. Written in GAP.
-##  May be removed in future versions.
-##
-DeclareAttribute("PermutationGroup", IsCode);
-
-
-#############################################################################
-##
 #F  PermutationAutomorphismGroup( <C> )  . . . . the permutation group of code
 ##
 ##  The largest permutation group of degree n such
 ##  that for each permutation pn in the group pC = C. Written in GAP.
 ##
 DeclareAttribute("PermutationAutomorphismGroup", IsCode);
+
+# level 1: shown by default, as the warning PermutationGroup printed was
+DeclareObsoleteSynonym("PermutationGroup", "PermutationAutomorphismGroup", 1);
 
 #############################################################################
 ##

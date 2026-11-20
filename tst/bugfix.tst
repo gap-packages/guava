@@ -81,6 +81,16 @@ gap> MinimumDistance(C);
 2
 
 ##
+## PermutationGroup is the deprecated name of PermutationAutomorphismGroup
+##
+gap> R := RepetitionCode(3,GF(3));;
+gap> PermutationGroup(R) = PermutationAutomorphismGroup(R);
+#I  'PermutationGroup' is obsolete.
+#I  It may be removed in a future release of GAP.
+#I  Use PermutationAutomorphismGroup instead.
+true
+
+##
 ## CodeDistanceEnumerator only had a method for a codeword, so the plain list
 ## the manual passes it found no method at all
 ##
