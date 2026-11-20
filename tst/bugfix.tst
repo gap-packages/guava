@@ -101,3 +101,11 @@ gap> LowerBoundGilbertVarshamov(3,1,3);
 27
 gap> List([2..8], n -> LowerBoundGilbertVarshamov(n,2,2) = 2^(n-1));
 [ true, true, true, true, true, true, true ]
+
+##
+## the table's [39,7,17] code punctured the quasi-cyclic [42,7,19] code it is
+## built from in three coordinates that cost it two of the nineteen
+##
+gap> MinimumDistance(BestKnownLinearCode(39,7));
+17
+
