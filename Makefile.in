@@ -108,6 +108,9 @@ check-programs: all
 	printf 'garbage\n'   > $$tmp/bad;   ! $(BINDIR)/minimum-weight $$tmp/bad;   \
 	printf '0 10 2\n'    > $$tmp/zero;  ! $(BINDIR)/minimum-weight $$tmp/zero;  \
 	printf '2 5 2\n1 0 1\n' > $$tmp/trunc; ! $(BINDIR)/minimum-weight $$tmp/trunc; \
+	echo "== the short forms of -l and -m take their argument"; \
+	printf '2 4 2\n1 1 0 0\n0 0 1 1\n' > $$tmp/small; \
+	$(BINDIR)/minimum-weight -l 2 -m 1 $$tmp/small | grep -q '^Minimum weight: 2$$'; \
 	echo "== ok"
 
 clean:
