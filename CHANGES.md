@@ -6,6 +6,9 @@ the GUAVA package.
 - Seed the random examples in the manual, so that their output, and the
   tests generated from them, no longer depend on how many random numbers
   GAP draws elsewhere (gap-system/PackageDistro#1610)
+- PermutationGroup is an obsolete synonym of PermutationAutomorphismGroup
+  rather than a second copy of it, and AutomorphismGroup's fallbacks call
+  the new name (issue #8)
 
 ## 3.22 (2026-09-19)
 

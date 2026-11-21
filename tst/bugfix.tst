@@ -101,3 +101,13 @@ gap> LowerBoundGilbertVarshamov(3,1,3);
 27
 gap> List([2..8], n -> LowerBoundGilbertVarshamov(n,2,2) = 2^(n-1));
 [ true, true, true, true, true, true, true ]
+
+##
+## PermutationGroup is the deprecated name of PermutationAutomorphismGroup
+##
+gap> R := RepetitionCode(3,GF(3));;
+gap> PermutationGroup(R) = PermutationAutomorphismGroup(R);
+#I  'PermutationGroup' is obsolete.
+#I  It may be removed in a future release of GAP.
+#I  Use PermutationAutomorphismGroup instead.
+true
