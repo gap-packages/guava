@@ -6,6 +6,9 @@ the GUAVA package.
 - Seed the random examples in the manual, so that their output, and the
   tests generated from them, no longer depend on how many random numbers
   GAP draws elsewhere (gap-system/PackageDistro#1610)
+- The [35,9,14] table entry carried a truncated construction, so asking for
+  the code raised "no method found"; the construction is lost, and the entry
+  now reports the gap the way the other construction-less entries do
 
 ## 3.22 (2026-09-19)
 

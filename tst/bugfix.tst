@@ -101,3 +101,11 @@ gap> LowerBoundGilbertVarshamov(3,1,3);
 27
 gap> List([2..8], n -> LowerBoundGilbertVarshamov(n,2,2) = 2^(n-1));
 [ true, true, true, true, true, true, true ]
+
+##
+## the [35,9,14] table entry carried a truncated construction, so asking for
+## the code raised "no method found" instead of reporting the gap
+##
+gap> BestKnownLinearCode(35,9);
+Code not yet in library
+fail
