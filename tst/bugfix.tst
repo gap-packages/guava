@@ -42,6 +42,14 @@ gap> Codeword("123", 5, GF(4));
 [ 1 a a^2 0 0 ]
 
 ##
+## the [35,9,14] table entry carried a truncated construction, so asking for
+## the code raised "no method found" instead of reporting the gap
+##
+gap> BestKnownLinearCode(35,9);
+Code not yet in library
+fail
+
+##
 ## BCHDecoder assumed a narrow sense code and bailed out to Decode for any
 ## other b, which has no method for the polynomial it was handed (and would
 ## have dispatched straight back into BCHDecoder had it had one).
