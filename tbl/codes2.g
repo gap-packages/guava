@@ -292,7 +292,7 @@ PolyCodeword( Codeword("1100000") ),
 PolyCodeword( Codeword("1011000") ),
 PolyCodeword( Codeword("1010100") ),
 PolyCodeword( Codeword("1111100") ),
-PolyCodeword( Codeword("1110110") )], 7, GF(2) ]], [1,2,9]] ];
+PolyCodeword( Codeword("1110110") )], 7, GF(2) ]], [1,2,8]] ];
 fi;
 if YouWantThisCode(  39,  10,  15, "X" ) then
 	GUAVA_TEMP_VAR := [GeneratorMatCode, [Z(2)^0*[

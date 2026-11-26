@@ -15,6 +15,8 @@ the GUAVA package.
 - minimum-weight's short options -l and -m took no argument, so they read the
   argument from a null pointer and crashed; only --lower-bound and --mod
   worked
+- BestKnownLinearCode(39,7) returned a [39,7,16] code instead of the
+  [39,7,17] code the table claims (issue #156)
 - GUAVA's own method for a codeword in a linear code compared a syndrome of
   length n-k against a zero word of length n and so reported every word as
   outside the code. The library's method for a vector in a free module
