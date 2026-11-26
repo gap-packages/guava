@@ -2827,9 +2827,7 @@ function(C)
     fi;
     RemoveFiles(tmpFile, tmpOutFile);
 
-    if not HasMinimumDistance(C) then
-        SetMinimumDistance(C, d);
-    fi;
+    SetMinimumDistance(C, d);
     C!.lowerBoundMinimumDistance := d;
     C!.upperBoundMinimumDistance := d;
     return d;
