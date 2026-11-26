@@ -2724,7 +2724,7 @@ InstallMethod(MinimumWeight, "attribute method for linear codes", true,
 function(C)
     ## Since this function calls an external program, we need to write the code
     ## into a generator matrix format recognised by this external program
-    local r, c, q, k, n, G, path, param, tmpFile, tmpOutFile;
+    local r, c, q, k, n, d, G, path, param, run, tmpFile, tmpOutFile;
 
     path := DirectoriesPackagePrograms( "guava" );
 
@@ -2765,44 +2765,72 @@ function(C)
     if IsCyclicCode(C) then
     Add(param,  "--cyclic");
     fi;
-    if IsBound(C!.lowerBoundMinimumDistance) then
-       Add(param, "--lower-bound");
-       Add(param, C!.lowerBoundMinimumDistance);
-    fi;
     if LeftActingDomain(C) = GF(2) then
         if IsEvenCode(C) then
                 Add(param, "--mod");
                         if IsDoublyEvenCode(C) then
-                Add(param,  4);
+                Add(param,  "4");
                         else
-                Add(param,  1);
+                Add(param,  "1");
             fi;
         else
                 Add(param, "--mod");
-                Add(param, 2);
+                Add(param, "2");
                 fi;
 
 	elif LeftActingDomain(C) = GF(3) then
 		if IsSelfOrthogonalCode(C) then
 			Add(param, "--mod");
-			Add(param, 5);
+			Add(param, "5");
 		fi;
 	fi;
-	Add(param, tmpFile);
 
 	## Now call the external program
 
+    # It reports its answer by writing an assignment to GUAVA_TEMP_VAR, and
+    # writes nothing at all if it crashes, so clear the variable first: other
+    # parts of GUAVA use it too, and a value left over from a code table
+    # lookup would otherwise be read back as this code's minimum weight.
+    run := function(extra)
+        if IsExistingFile(tmpOutFile) then
+            RemoveFile(tmpOutFile);
+        fi;
+        Unbind(GUAVA_TEMP_VAR);
         Process(DirectoryCurrent(),
             Filename(path, "minimum-weight"),
             InputTextNone(),
             OutputTextNone(),
-            param
+            Concatenation(param, extra, [tmpFile])
         );
-    Read(tmpOutFile);
+        if IsExistingFile(tmpOutFile) then
+            Read(tmpOutFile);
+        fi;
+        if not IsBound(GUAVA_TEMP_VAR) then
+            RemoveFiles(tmpFile, tmpOutFile);
+            Error("the external program `minimum-weight' produced no result");
+        fi;
+        return GUAVA_TEMP_VAR;
+    end;
+
+    # Given a lower bound, the program stops at the first codeword meeting it
+    # and reports that weight.  A generator of smaller weight proves the bound
+    # was none, so the search has to be redone without it.
+    d := fail;
+    if IsBound(C!.lowerBoundMinimumDistance) then
+        d := run(["--lower-bound", String(C!.lowerBoundMinimumDistance)]);
+        if d > MinimumWeightOfGenerators(C) then
+            d := fail;
+        fi;
+    fi;
+    if d = fail then
+        d := run([]);
+    fi;
     RemoveFiles(tmpFile, tmpOutFile);
-    C!.lowerBoundMinimumDistance := GUAVA_TEMP_VAR;
-    C!.upperBoundMinimumDistance := GUAVA_TEMP_VAR;
-    return GUAVA_TEMP_VAR;
+
+    SetMinimumDistance(C, d);
+    C!.lowerBoundMinimumDistance := d;
+    C!.upperBoundMinimumDistance := d;
+    return d;
 end);
 
 # CosetLeadersMatFFE skipped cosets over fields of size 4 to 255, so the list
