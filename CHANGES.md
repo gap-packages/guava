@@ -6,6 +6,9 @@ the GUAVA package.
 - Seed the random examples in the manual, so that their output, and the
   tests generated from them, no longer depend on how many random numbers
   GAP draws elsewhere (gap-system/PackageDistro#1610)
+- minimum-weight's short options -l and -m took no argument, so they read the
+  argument from a null pointer and crashed; only --lower-bound and --mod
+  worked
 - GUAVA's own method for a codeword in a linear code compared a syndrome of
   length n-k against a zero word of length n and so reported every word as
   outside the code. The library's method for a vector in a free module

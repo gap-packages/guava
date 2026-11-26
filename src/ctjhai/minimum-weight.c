@@ -51,7 +51,7 @@ int main(int argc, char *argv[]) {
 	int opt, dmin;
 	int cyclic_code, m_mod, lower_bound;
 	char *output_file;
-	const char* const short_options = "hcmlo:";	/* Valid short option characters */
+	const char* const short_options = "hcm:l:o:";	/* Valid short option characters */
 	const struct option long_options[] = {		/* Valid long options strings    */
 		{ "help",        0, NULL, 'h' },
 		{ "cyclic",      0, NULL, 'c' },
