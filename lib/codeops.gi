@@ -1689,13 +1689,13 @@ function(C)
 
       if ForAny( ["desauto", "leonconv", "wtdist"],
                  f -> Filename( path, f ) = fail ) then
-Print("desauto not loaded ... switching to PermutationGroup ...\n");
-return PermutationGroup(C);
+Print("desauto not loaded ... switching to PermutationAutomorphismGroup ...\n");
+return PermutationAutomorphismGroup(C);
       fi;
     if Size(LeftActingDomain(C)) > 2 then
         Print("This command calculates automorphism groups for binary codes only\n");
-        Print("... automatically switching to PermutationGroup ...\n");
-        return PermutationGroup(C);
+        Print("... automatically switching to PermutationAutomorphismGroup ...\n");
+        return PermutationAutomorphismGroup(C);
     elif IsLinearCode(C) then
         return AutomorphismGroup(C);
     else
@@ -1712,13 +1712,13 @@ function(C)
 
       if ForAny( ["desauto", "leonconv", "wtdist"],
                  f -> Filename( path, f ) = fail ) then
-        Print("desauto not loaded ... switching to PermutationGroup ...\n");
-        return PermutationGroup(C);
+        Print("desauto not loaded ... switching to PermutationAutomorphismGroup ...\n");
+        return PermutationAutomorphismGroup(C);
       fi;
     if Size(LeftActingDomain(C)) > 2 then
     Print("This command calculates automorphism groups for binary codes only\n");
-        Print("... automatically switching to PermutationGroup ...\n");
-        return PermutationGroup(C);
+        Print("... automatically switching to PermutationAutomorphismGroup ...\n");
+        return PermutationAutomorphismGroup(C);
     fi;
     incode :=  TmpName(); PrintTo( incode, "\n" );
     inV := TmpName(); PrintTo( inV, "\n" );
@@ -1776,45 +1776,6 @@ end);
 #    InvSet := VectorCodeword(MinimumWeightWords(Ccalc));
 #    return AutomorphismGroupBinaryLinearCode(Ccalc, InvSet);
 #end);
-
-#############################################################################
-##
-## PermutationGroup( <C> ) . . . . . .  PermutationGroup of non-binary code
-##
-## confusing name?
-
-InstallMethod(PermutationGroup, "attribute method for linear codes", true,
-    [IsLinearCode], 0,
-function(C)
-local G0, Gell, G1, G2, Gt, L, k, i, j, G, F, A, aut, n, Sn, ell;
-
-Print("\n To be deprecated. Please use PermutationAutomorphismGroup.\n");
-    F:=LeftActingDomain(C);
-    G1 := GeneratorMat(C);
-    G := List(G1,ShallowCopy);
-    k:=DimensionsMat(G)[1];
-    n:=DimensionsMat(G)[2];
-    TriangulizeMat(G);
-    Gt := TransposedMat(G);
-    Sn := SymmetricGroup(n);
-    A:=[];
-    for ell in Sn do
-      G2:= NullMat(n,k);
-      for j in [1..n] do
-        G2[j]:=Gt[OnPoints(j,ell)];
-      od; # j
-      Gell := TransposedMat(G2);
-      G0 := List(Gell,ShallowCopy);
-      TriangulizeMat(G0);
-      if G = G0 then Add(A, ell); fi;
-    od; # ell
-    if Length(A)>0 then
-      aut := Group(A);
-    else aut:=Group(());
-    fi;
-    return(aut);
-end);
-
 
 #############################################################################
 ##
