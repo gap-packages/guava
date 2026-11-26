@@ -1443,7 +1443,8 @@ function(w, C)
     elif CheckMat(C) = [] then  #Code is WholeSpace, just check field.
         return ForAll(VectorCodeword(w), x->x in LeftActingDomain(C));
     else
-        return CheckMat(C)*w = 0*w;
+        # the syndrome has length n-k, so it is not comparable to 0*w
+        return IsZero(CheckMat(C)*w);
     fi;
 end);
 

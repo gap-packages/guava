@@ -101,3 +101,21 @@ gap> LowerBoundGilbertVarshamov(3,1,3);
 27
 gap> List([2..8], n -> LowerBoundGilbertVarshamov(n,2,2) = 2^(n-1));
 [ true, true, true, true, true, true, true ]
+
+##
+## GUAVA's own method for a codeword in a linear code compared a syndrome of
+## length n-k against a zero word of length n, so it put every word outside
+## the code.  The library's method for a vector in a free module outranks it,
+## which is why nobody noticed, so reach for it by name.
+##
+gap> inlin := Filtered(MethodsOperation(\in, 2),
+>                      r -> PositionSublist(r.info, "codeword in linear code")
+>                           <> fail)[1].func;;
+gap> C := HammingCode(3,GF(2));;
+gap> inlin(Codeword("1111111",GF(2)), C);
+true
+gap> Number(AsSSortedList(WholeSpaceCode(7,GF(2))), c -> inlin(c,C));
+16
+gap> Codeword("1111111",GF(2)) in C;
+true
+
