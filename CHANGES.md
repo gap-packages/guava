@@ -1,7 +1,7 @@
 In this file we record the changes since the first GAP 4 release of
 the GUAVA package.
 
-## Unreleased
+## 3.23 (2026-11-26)
 
 - The [35,9,14] table entry carried a truncated construction, so asking for
   the code raised "no method found"; the construction is lost, and the entry

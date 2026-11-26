@@ -626,7 +626,7 @@ gap> Value(g,[x,y],soln); # checking okay
 
 # doc/guava.xml:12255-12258
 gap> GuavaVersion();
-"3.22"
+"3.23"
 
 # doc/guava.xml:12271-12278
 gap> F:=GF(11);; l := One(F);;
